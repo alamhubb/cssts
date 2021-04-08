@@ -1,9 +1,9 @@
 //生成样式类
 //白色不区分 主题类，始终同一配色，白色样式特殊单独写
 .bg-white {
-  color: $color-text-theme;
+  color: $color-text-default;
   background-color: $color-white;
-  border-color: $color-border-theme;
+  border-color: $color-border-default;
 }
 
 //遍历颜色
@@ -16,7 +16,6 @@
     @extend .bg-white;
   } @else {
     //深色主题，字体白色，其他主题色
-    color: $color-white;
     background-color: $color;
     border-color: $color;
   }
@@ -29,7 +28,6 @@
     @extend .bg-white;
   } @else {
     //朴素主题，背景白色，其他主题色
-    color: $color;
     background-color: $color-white;
     border-color: $color;
   }
@@ -42,7 +40,6 @@
     @extend .bg-white;
   } @else {
     //亮色主题，色彩主题，其他根据色彩百分比设置
-    color: $color;
     background: mix($color-white, $color, $percent-light-bg);
     border-color: mix($color-white, $color, $percent-light-border);
   }
@@ -77,7 +74,7 @@
   }
 }
 
-@each $key, $val in $colors {
+@each $key, $val in $bg-colors {
   .bg-#{$key} {
     @include bg-color($val);
   }

@@ -8,10 +8,10 @@
 
 //生成padding
 .bd {
-  border: $border-width-base $border-style-base $color-border-theme !important;
+  border: $border-width-base $border-style-base $color-border-default !important;
 }
 
-@each $colorKey, $color in $colors {
+@each $colorKey, $color in $text-colors {
   .bd-#{$colorKey} {
     border: $border-width-base $border-style-base $color !important;
   }
@@ -22,7 +22,7 @@
 }
 
 @each $directionKey, $directionValue in $direction-map {
-  @each $colorKey, $color in $colors {
+  @each $colorKey, $color in $text-colors {
     .b#{$directionKey}-#{$colorKey} {
       border-#{$directionValue}: $border-width-base $border-style-base $color !important;
     }
@@ -34,11 +34,11 @@
 }
 
 .bx {
-  border-left: $border-width-base $border-style-base $color-border-theme !important;
-  border-right: $border-width-base $border-style-base $color-border-theme !important;
+  border-left: $border-width-base $border-style-base $color-border-default !important;
+  border-right: $border-width-base $border-style-base $color-border-default !important;
 }
 
-@each $colorKey, $color in $colors {
+@each $colorKey, $color in $text-colors {
   .bx-#{$colorKey} {
     border-left: $border-width-base $border-style-base $color !important;
     border-right: $border-width-base $border-style-base $color !important;
@@ -46,11 +46,11 @@
 }
 
 .by {
-  padding-top: map-get($padding-map, df) !important;
-  padding-bottom: map-get($padding-map, df) !important;
+  border-top:  $border-width-base $border-style-base $color-border-default !important;
+  border-bottom: $border-width-base $border-style-base $color-border-default !important;
 }
 
-@each $colorKey, $color in $colors {
+@each $colorKey, $color in $text-colors {
   .by-#{$colorKey} {
     padding-top: $border-width-base $border-style-base $color !important;
     padding-bottom: $border-width-base $border-style-base $color !important;

@@ -47,7 +47,7 @@
   }
   @each $directionKey, $directionValue in $direction-map {
     .p#{$directionKey}-#{$sizeKey} {
-      padding-#{$directionValue}: map-get($padding-map, df) !important;
+      padding-#{$directionValue}: map-get($padding-map, $sizeKey) !important;
     }
   }
   .px-#{$sizeKey} {
@@ -65,7 +65,7 @@
 
   @each $directionKey, $directionValue in $direction-map {
     .m#{$directionKey}-#{$sizeKey} {
-      margin-#{$directionValue}: map-get($padding-map, df) !important;
+      margin-#{$directionValue}: map-get($padding-map, $sizeKey) !important;
     }
   }
 
