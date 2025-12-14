@@ -1,0 +1,72 @@
+/**
+ * CsstsButton - 使用 cssts css {} 表达式语法的按钮组件
+ * 测试 vite-plugin-cssts 功能
+ * 
+ * $$ 伪类语法（注意是双美元符号）：
+ * - const clickable$$hover = css { ... } 
+ * - 生成普通样式 + :hover 伪类样式（伪类属性来自配置）
+ */
+
+import { defineComponent, computed, h } from 'vue'
+
+export default defineComponent({
+  name: 'CsstsButton',
+  props: {
+    type: {
+      type: String,
+      default: 'default'
+    }
+  },
+  setup(props, { slots }) {
+    const buttonClass = computed(() => {
+      // 基础样式（所有按钮共享）
+      const baseStyles = css {
+        displayInlineFlex, 
+        justifyContentCenter, 
+        alignItemsCenter,
+        paddingTop8px,
+        paddingBottom8px,
+        paddingLeft15px,
+        paddingRight15px,
+        borderRadius4px,
+        cursorPointer,
+        fontSize14px,
+        fontWeight500,
+        lineHeight1
+      }
+      
+      // 使用 $$ 语法声明带伪类的样式（双美元符号）
+      // 伪类的 CSS 属性来自配置（hover: opacity 0.9, active: opacity 0.6）
+      if (props.type === 'primary') {
+        const primary$$hover$$active = css { 
+          ...baseStyles, 
+          backgroundColorDodgerblue, 
+          colorWhite, 
+          borderNone 
+        }
+        return primary$$hover$$active
+      } else if (props.type === 'success') {
+        const success$$hover$$active = css { 
+          ...baseStyles, 
+          backgroundColorLimegreen, 
+          colorWhite, 
+          borderNone 
+        }
+        return success$$hover$$active
+      } else {
+        // Default 按钮：白色背景 + 灰色边框
+        const default$$hover$$active = css { 
+          ...baseStyles, 
+          backgroundColorWhite, 
+          colorGray, 
+          borderWidth1px, 
+          borderStyleSolid, 
+          borderColorLightgray 
+        }
+        return default$$hover$$active
+      }
+    })
+
+    return () => h('button', { class: buttonClass.value }, slots.default?.())
+  }
+})

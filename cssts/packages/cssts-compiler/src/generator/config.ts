@@ -32,6 +32,26 @@ export interface PropertyConfig {
 }
 
 /**
+ * 伪类工具配置项
+ * 每个对象只能有一个属性（原子类设计原则）
+ */
+export type PseudoUtilItem = { [property: string]: string }
+
+/**
+ * 伪类工具配置
+ * key: 伪类名（hover、active、focus、disabled）
+ * value: 单个对象或数组（支持两种格式）
+ * 
+ * @example
+ * // 单个属性 - 用对象
+ * hover: { opacity: '0.9' }
+ * 
+ * // 多个属性 - 用数组
+ * disabled: [{ opacity: '0.5' }, { cursor: 'not-allowed' }]
+ */
+export type PseudoUtilsConfig = Record<string, PseudoUtilItem | PseudoUtilItem[]>
+
+/**
  * 完整配置
  */
 export interface CsstsConfig {
@@ -45,8 +65,10 @@ export interface CsstsConfig {
     ms?: UnitConfig
     fr?: UnitConfig
   }
-  /** 属性配置 */
+  /** 属性配置（生成 Atom） */
   properties: Record<string, PropertyConfig>
+  /** 伪类工具配置（生成 SingleUtil） */
+  pseudoUtils?: PseudoUtilsConfig
 }
 
 // ==================== 单位类型 ====================
@@ -201,9 +223,26 @@ export const defaultProperties: Record<string, PropertyConfig> = {
 }
 
 /**
+ * 默认伪类工具配置
+ * 支持对象（单个）或数组（多个）格式
+ */
+export const defaultPseudoUtils: PseudoUtilsConfig = {
+  // 单个属性 - 用对象
+  hover: { opacity: '0.9' },
+  active: { opacity: '0.6' },
+  focus: { opacity: '0.9' },
+  // 多个属性 - 用数组
+  disabled: [
+    { opacity: '0.5' },
+    { cursor: 'not-allowed' }
+  ]
+}
+
+/**
  * 默认配置
  */
 export const defaultConfig: CsstsConfig = {
   defaults: systemDefaults,
   properties: defaultProperties,
+  pseudoUtils: defaultPseudoUtils,
 }

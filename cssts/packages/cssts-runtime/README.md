@@ -2,30 +2,54 @@
 
 > CssTs 运行时 - 样式合并与冲突处理
 
-## 设计理念
+## 核心设计理念
 
-`cssts-runtime` 是一个**纯净的运行时包**，不包含任何 CSS 属性数据。
+`cssts-runtime` 是一个**真正零依赖**的运行时包：
 
-属性数据（properties.json）由 `cssts-compiler` 在编译时生成，通过 `vite-plugin-cssts` 注入到运行时。这样设计的好处：
-
-1. **零依赖** - 运行时不依赖任何包，体积最小
-2. **按需生成** - 属性数据根据用户配置动态生成
-3. **可定制** - 用户可以自定义属性范围和数值配置
+- ❌ **不需要** `properties.json`
+- ❌ **不需要** `initProperties()` 初始化
+- ❌ **不需要** `getCssClassName()` 转换
+- ✅ **只做**对象合并和字符串分割
 
 ## 架构
 
 ```
-编译时 (cssts-compiler)          运行时 (cssts-runtime)
-┌─────────────────────┐         ┌─────────────────────┐
-│ 1. 读取用户配置      │         │                     │
-│ 2. 生成 properties  │  注入   │ initProperties()    │
-│    .json            │ ──────> │ 接收属性映射数据     │
-│                     │         │                     │
-└─────────────────────┘         │ $cls()              │
-                                │ replace()           │
-                                │ getCssClassName()   │
-                                └─────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                        编译时                                    │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  vite-plugin-cssts                                       │   │
+│  │                                                          │   │
+│  │  1. 解析 css { displayFlex, colorRed } 语法              │   │
+│  │  2. 解析变量名中的 $$ 伪类标记                           │   │
+│  │  3. 生成 csstsAtom 虚拟文件                              │   │
+│  │  4. 生成 CSS（包含伪类样式）                             │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                        运行时                                    │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  cssts-runtime                                           │   │
+│  │                                                          │   │
+│  │  CSSTS_SEPARATOR = '_'  ← 分隔符常量                     │   │
+│  │  $cls()                 ← 纯对象合并                     │   │
+│  │  replace()              ← 解析属性，智能替换             │   │
+│  │                                                          │   │
+│  │  ⚠️ 不需要 properties.json                               │   │
+│  │  ⚠️ 不需要 initProperties()                              │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+## 分隔符常量
+
+```typescript
+// runtime 定义分隔符，compiler 导入使用
+export const CSSTS_SEPARATOR = '_'
+```
+
+**重要**：分隔符由 runtime 定义，compiler 从 runtime 导入使用，保证编译时和运行时一致。
 
 ## 安装
 
@@ -33,72 +57,62 @@
 npm install cssts-runtime
 ```
 
-## 初始化
+## 核心 API
 
-运行时需要属性映射数据才能工作，由 vite-plugin-cssts 自动注入：
+### CSSTS_SEPARATOR - 分隔符常量
 
 ```typescript
-import { initProperties } from 'cssts-runtime'
+import { CSSTS_SEPARATOR } from 'cssts-runtime'
 
-// vite 插件在编译时注入这段代码
-initProperties({
-  "paddingTop": "padding-top",
-  "zIndex": "z-index",
-  // ... 编译时生成的属性映射
-})
+CSSTS_SEPARATOR  // '_'
 ```
 
-## 核心功能
-
 ### $cls - 样式合并
+
+纯对象合并，不做任何转换：
 
 ```typescript
 import { $cls } from 'cssts-runtime'
 
-const style = $cls(displayFlex, alignItemsCenter, gap16px)
-// → { 'display_flex': true, 'align-items_center': true, 'gap_16px': true }
-
-// 条件样式
-const buttonStyle = $cls(
-  paddingX16px,
-  isDisabled && opacity50pct
+const style = $cls(
+  csstsAtom.displayFlex,
+  csstsAtom.alignItemsCenter,
+  csstsAtom.gap16px
 )
+// 返回: { 'display_flex': true, 'align-items_center': true, 'gap_16px': true }
 ```
 
 ### replace - 样式替换
 
-基于 CSS 属性冲突检测，智能替换：
+通过字符串分割提取属性名，检测冲突并替换：
 
 ```typescript
 import { replace } from 'cssts-runtime'
 
-const style = 'color_red font-weight_bold'
-const newStyle = replace(style, 'color', 'colorGreen')
-// → 'font-weight_bold color_green'
+const style = { 'color_red': true, 'font-weight_bold': true }
+const newStyle = replace(style, csstsAtom.colorBlue)
+// 返回: { 'color_blue': true, 'font-weight_bold': true }
 ```
 
-### getCssClassName / getCssProperty
+### replaceAll - 批量替换
 
 ```typescript
-import { getCssClassName, getCssProperty } from 'cssts-runtime'
+import { replaceAll } from 'cssts-runtime'
 
-getCssClassName('paddingTop16px')  // → 'padding-top_16px'
-getCssProperty('paddingTop16px')   // → 'padding-top'
+const style = { 'color_red': true, 'font-size_14px': true }
+const newStyle = replaceAll(style, [
+  csstsAtom.colorBlue,
+  csstsAtom.fontSize16px
+])
+// 返回: { 'color_blue': true, 'font-size_16px': true }
 ```
 
-## 属性名解析原理
+## 类名格式
 
-使用 properties.json 做**最长前缀匹配**：
-
-```typescript
-// 输入: "paddingTop16px"
-// properties.json: { "paddingTop": "padding-top", "padding": "padding", ... }
-// 
-// 按长度降序匹配，找到 "paddingTop" → "padding-top"
-// 输出: { property: "padding-top", value: "16px" }
-```
-
-这就是为什么需要 properties.json - 让运行时知道 `paddingTop` 对应 `padding-top`。
+| 类型 | 格式 | 示例 |
+|------|------|------|
+| Atom | `{property}_{value}` | `color_red`, `display_flex` |
+| GroupUtil | 自定义名 | `clickable`, `buttonBase` |
 
 ## 命名规范
 
@@ -106,7 +120,8 @@ getCssProperty('paddingTop16px')   // → 'padding-top'
 |-----------|----------|----------|
 | `displayFlex` | `display_flex` | `display: flex` |
 | `paddingTop16px` | `padding-top_16px` | `padding-top: 16px` |
-| `width50pct` | `width_50\%` | `width: 50%` |
+| `opacity0p9` | `opacity_0.9` | `opacity: 0.9` |
+| `width50pct` | `width_50%` | `width: 50%` |
 | `zIndexN1` | `z-index_-1` | `z-index: -1` |
 
 ## 许可证

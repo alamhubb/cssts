@@ -40,6 +40,8 @@ export {
   $cls,
   replace,
   replaceAll,
+  CSSTS_SEPARATOR,
+  // 兼容性导出（已废弃）
   getCssProperty,
   getCssClassName,
   initProperties,

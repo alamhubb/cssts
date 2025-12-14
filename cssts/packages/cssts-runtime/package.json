@@ -1,16 +1,10 @@
 {
-  "name": "cssts-runtime",
+  "name": "cssts",
   "version": "0.1.0",
   "description": "CssTs runtime - style merging and conflict resolution",
   "type": "module",
-  "main": "dist/index.mjs",
-  "types": "dist/index.d.mts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.mts"
-    }
-  },
+  "main": "src/index.ts",
+
   "scripts": {
     "build": "tsdown",
     "test": "vitest run"

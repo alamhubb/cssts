@@ -1,412 +1,392 @@
 import type { Plugin } from 'vite'
-// Development imports - use relative paths in monorepo (新结构)
-import { CssTsParser } from '../../cssts/packages/cssts-compiler/src/parser/index.ts'
-import { CssTsCstToAst, type CssStyleInfo } from '../../cssts/packages/cssts-compiler/src/factory/index.ts'
-import { generateCssClsInterface, generateCssClsStyles } from '../../cssts/packages/cssts-compiler/src/utils/cssUtils.ts'
-import SlimeGenerator from '../../slime/packages/slime-generator/src/SlimeGenerator.ts'
+import { CssTsParser } from 'cssts-compiler/src/parser/index.ts'
+import { CssTsCstToAst, type CssStyleInfo } from 'cssts-compiler/src/factory/index.ts'
+import { generateCssClsInterface, generateCssClsStyles } from 'cssts-compiler/src/utils/cssUtils.ts'
+import { type PseudoUtilsConfig } from 'cssts-compiler/src/generator/config.ts'
+import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { CSSTS_SEPARATOR, CSSTS_PSEUDO_SEPARATOR } from 'cssts/src/index.ts'
 
-// 导入运行时的命名转换函数
-import { getCssClassName, getCssProperty } from '../../cssts/packages/cssts-runtime/src/index.ts'
+// ==================== 属性映射表 ====================
+
+const properties: Record<string, string> = {
+  display: 'display',
+  flex: 'flex', flexDirection: 'flex-direction', flexWrap: 'flex-wrap',
+  flexGrow: 'flex-grow', flexShrink: 'flex-shrink',
+  justifyContent: 'justify-content', alignItems: 'align-items',
+  alignContent: 'align-content', alignSelf: 'align-self',
+  grid: 'grid', gridTemplate: 'grid-template',
+  gridTemplateColumns: 'grid-template-columns', gridTemplateRows: 'grid-template-rows',
+  gap: 'gap',
+  width: 'width', height: 'height',
+  minWidth: 'min-width', minHeight: 'min-height',
+  maxWidth: 'max-width', maxHeight: 'max-height',
+  padding: 'padding', paddingTop: 'padding-top', paddingRight: 'padding-right',
+  paddingBottom: 'padding-bottom', paddingLeft: 'padding-left',
+  margin: 'margin', marginTop: 'margin-top', marginRight: 'margin-right',
+  marginBottom: 'margin-bottom', marginLeft: 'margin-left',
+  position: 'position', top: 'top', right: 'right', bottom: 'bottom', left: 'left',
+  zIndex: 'z-index',
+  fontSize: 'font-size', fontWeight: 'font-weight', fontFamily: 'font-family',
+  lineHeight: 'line-height', textAlign: 'text-align',
+  textDecoration: 'text-decoration', textTransform: 'text-transform',
+  letterSpacing: 'letter-spacing',
+  color: 'color', backgroundColor: 'background-color', borderColor: 'border-color',
+  border: 'border', borderWidth: 'border-width', borderStyle: 'border-style',
+  borderRadius: 'border-radius',
+  opacity: 'opacity', boxShadow: 'box-shadow', transform: 'transform', transition: 'transition',
+  cursor: 'cursor',
+  overflow: 'overflow', overflowX: 'overflow-x', overflowY: 'overflow-y',
+}
+
+const sortedPropertyNames = Object.keys(properties).sort((a, b) => b.length - a.length)
+
+// ==================== 工具函数 ====================
+
+function parseTsAtomName(tsName: string): { property: string; value: string } | null {
+  for (const propName of sortedPropertyNames) {
+    if (tsName.startsWith(propName) && tsName.length > propName.length) {
+      const valuePart = tsName.slice(propName.length)
+      if (/^[A-Z0-9]/.test(valuePart) || /^N[0-9]/.test(valuePart)) {
+        return { property: properties[propName], value: tsValueToCSS(valuePart) }
+      }
+    }
+  }
+  return null
+}
+
+function tsValueToCSS(tsValue: string): string {
+  let result = tsValue
+  if (result.startsWith('N') && result.length > 1 && /[0-9]/.test(result[1])) {
+    result = '-' + result.slice(1)
+  }
+  result = result.replace(/pct/g, '%')
+  result = result.replace(/(\d)p(\d)/g, '$1.$2')
+  result = result.replace(/(\d)s(\d)/g, '$1/$2')
+  return camelToKebab(result)
+}
+
+function camelToKebab(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/([a-zA-Z])(\d)/g, '$1-$2').toLowerCase()
+}
+
+const symbolToEscape: Record<string, string> = { '.': '\\.', '%': '\\%', '/': '\\/' }
+
+function getCssClassName(atomName: string): string {
+  const parsed = parseTsAtomName(atomName)
+  if (parsed) {
+    let escapedValue = parsed.value
+    for (const [symbol, escaped] of Object.entries(symbolToEscape)) {
+      escapedValue = escapedValue.split(symbol).join(escaped)
+    }
+    return `${parsed.property}${CSSTS_SEPARATOR}${escapedValue}`
+  }
+  return camelToKebab(atomName)
+}
+
+function getCssProperty(atomName: string): string | undefined {
+  return parseTsAtomName(atomName)?.property
+}
+
+function getCssValue(atomName: string): string | undefined {
+  const className = getCssClassName(atomName)
+  const idx = className.indexOf('_')
+  if (idx > 0) {
+    return className.slice(idx + 1).replace(/\\\./g, '.').replace(/\\%/g, '%').replace(/\\\//g, '/')
+  }
+  return undefined
+}
+
+// ==================== 插件配置 ====================
 
 export interface CssTsPluginOptions {
-  /**
-   * 生成的类型文件路径
-   * @default 'src/cssts/CssCls.d.ts'
-   */
   dtsOutput?: string
-
-  /**
-   * 生成的样式文件路径
-   * @default 'src/cssts/CssCls.styles.ts'
-   */
   stylesOutput?: string
-
-  /**
-   * 生成的原子类文件路径
-   * @default 'src/cssts/CsstsAtom.ts'
-   */
-  atomOutput?: string
-
-  /**
-   * 是否在开发模式下自动生成文件
-   * @default true
-   */
   autoGenerate?: boolean
-
-  /**
-   * 是否自动转换 Vue template 中的 :class 语法
-   * @default true
-   */
   transformClass?: boolean
-
-  /**
-   * cssts runtime 的导入路径
-   * @default './cssts/runtime'
-   */
   runtimeImport?: string
-
-  /**
-   * csstsAtom 的导入路径
-   * @default './cssts/CsstsAtom'
-   */
-  atomImport?: string
-
-  /**
-   * CSS 类名前缀
-   * 例如: 'cu-' 会生成 'cu-flex', 'cu-color-red' 等
-   * @default '' (无前缀)
-   */
   classPrefix?: string
-
-  /**
-   * 外部传入的原子类收集器
-   * 用于与其他插件（如 vite-plugin-ovs）共享原子类收集
-   * 如果不传，使用内部默认的全局收集器
-   */
   usedAtoms?: Set<string>
+  pseudoUtils?: PseudoUtilsConfig
 }
 
 // ==================== 虚拟模块 ====================
 
 const VIRTUAL_CSS_ID = 'virtual:cssts.css'
 const RESOLVED_VIRTUAL_CSS_ID = '\0' + VIRTUAL_CSS_ID
+const VIRTUAL_ATOM_ID = 'virtual:csstsAtom'
+const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
 
-/**
- * 全局样式收集器
- */
 const globalStyles = new Map<string, CssStyleInfo>()
+const globalUsedAtoms = new Set<string>()
+
+// 存储带伪类的样式：varName -> { className, pseudos, atoms }
+interface PseudoStyleInfo {
+  className: string
+  pseudos: string[]
+  atoms: string[]
+}
+const globalPseudoStyles = new Map<string, PseudoStyleInfo>()
+
+// ==================== $$ 伪类语法（简单实现）====================
 
 /**
- * 全局原子类收集器
+ * 解析变量名中的 $$ 伪类标记（双美元符号）
+ * 
+ * 示例：
+ * - 'clickable$$hover' -> { className: 'clickable', pseudos: ['hover'] }
+ * - 'btn$$hover$$active' -> { className: 'btn', pseudos: ['hover', 'active'] }
  */
-const globalUsedAtoms = new Set<string>()
+export function parsePseudoFromVarName(varName: string): { className: string; pseudos: string[] } {
+  const parts = varName.split(CSSTS_PSEUDO_SEPARATOR)
+  return { className: parts[0], pseudos: parts.slice(1) }
+}
 
 // ==================== CSS 生成 ====================
 
-/**
- * CssTs 原子类命名规范（来自 cssts-types/README.md）
- * 
- * CSS 类名格式：`{property}_{value}`
- * - 用 `_` 下划线分隔属性和值
- * - 属性名使用 kebab-case（如 justify-content）
- * - 值使用 kebab-case（如 flex-start）
- * 
- * 示例：
- * - displayFlex → .display_flex { display: flex; }
- * - justifyContentCenter → .justify-content_center { justify-content: center; }
- * - paddingTop16px → .padding-top_16px { padding-top: 16px; }
- * 
- * 特殊符号转义（CSS 类名中）：
- * - 小数点：\.（如 .line-height_1\.5）
- * - 百分号：\%（如 .width_50\%）
- * - 斜杠：\/（如 .aspect-ratio_16\/9）
- */
-
-/**
- * 从 TS 属性名获取 CSS 值
- */
-function getCssValue(atomName: string): string | undefined {
-  const className = getCssClassName(atomName)
-  // 类名格式: property_value
-  const underscoreIndex = className.indexOf('_')
-  if (underscoreIndex > 0) {
-    let value = className.slice(underscoreIndex + 1)
-    // 反转义：将 CSS 转义符号还原为实际值
-    value = value.replace(/\\\./g, '.').replace(/\\%/g, '%').replace(/\\\//g, '/')
-    return value
-  }
-  return undefined
-}
-
-/**
- * 生成单个原子类的 CSS 规则
- * 
- * 使用 property_value 命名规范
- */
 function generateAtomCssRule(atomName: string, prefix: string = ''): string | null {
   const className = getCssClassName(atomName)
   const property = getCssProperty(atomName)
   const value = getCssValue(atomName)
-
-  if (!property || !value) {
-    return null
-  }
-
-  // 添加前缀
+  if (!property || !value) return null
   const fullClassName = prefix ? `${prefix}${className}` : className
-
   return `.${fullClassName} { ${property}: ${value}; }`
 }
 
 /**
- * 生成所有使用的原子类的 CSS
+ * 生成伪类 CSS 规则
+ * 
+ * @param className - 基础类名（如 'clickable'）
+ * @param pseudo - 伪类名（如 'hover'）
+ * @param pseudoConfig - 伪类配置（如 { opacity: '0.9' } 或 [{ opacity: '0.5' }, { cursor: 'not-allowed' }]）
+ * @param prefix - 类名前缀
  */
-function generateUsedAtomsCss(usedAtoms: Set<string>, prefix: string = ''): string {
-  const lines: string[] = [
-    '/* Auto-generated by vite-plugin-cssts */',
-    '/* Do not edit manually */',
-    '',
-  ]
+function generatePseudoCssRule(
+  className: string,
+  pseudo: string,
+  pseudoConfig: Record<string, string> | Record<string, string>[],
+  prefix: string = ''
+): string {
+  const fullClassName = prefix ? `${prefix}${className}` : className
+  
+  // 处理数组格式（多个属性）
+  const configs = Array.isArray(pseudoConfig) ? pseudoConfig : [pseudoConfig]
+  const props = configs
+    .flatMap(config => Object.entries(config))
+    .map(([prop, val]) => `${prop}: ${val}`)
+    .join('; ')
+  
+  return `.${fullClassName}:${pseudo} { ${props}; }`
+}
 
-  // 按属性分组
+/**
+ * 生成所有 CSS（原子类 + 伪类样式）
+ */
+function generateUsedAtomsCss(
+  usedAtoms: Set<string>,
+  pseudoStyles: Map<string, PseudoStyleInfo>,
+  pseudoUtils: PseudoUtilsConfig | undefined,
+  prefix: string = ''
+): string {
+  const lines: string[] = ['/* Auto-generated by vite-plugin-cssts */', '']
+  
+  // 1. 生成原子类 CSS
   const grouped = new Map<string, string[]>()
-
   for (const atomName of usedAtoms) {
     const rule = generateAtomCssRule(atomName, prefix)
     if (rule) {
       const property = getCssProperty(atomName) || 'other'
-      if (!grouped.has(property)) {
-        grouped.set(property, [])
-      }
+      if (!grouped.has(property)) grouped.set(property, [])
       grouped.get(property)!.push(rule)
     }
   }
-
-  // 按属性名排序输出
-  const sortedProperties = [...grouped.keys()].sort()
-  for (const property of sortedProperties) {
+  
+  for (const property of [...grouped.keys()].sort()) {
     lines.push(`/* ${property} */`)
-    const rules = grouped.get(property)!.sort()
-    lines.push(...rules)
+    lines.push(...grouped.get(property)!.sort())
     lines.push('')
   }
+  
+  // 2. 生成伪类 CSS（如果有配置）
+  if (pseudoUtils && pseudoStyles.size > 0) {
+    lines.push('/* $$ Pseudo-class styles */')
+    
+    for (const [_varName, info] of pseudoStyles) {
+      const { className, pseudos } = info
+      
+      for (const pseudo of pseudos) {
+        const pseudoConfig = pseudoUtils[pseudo]
+        if (pseudoConfig) {
+          const rule = generatePseudoCssRule(className, pseudo, pseudoConfig, prefix)
+          lines.push(rule)
+        }
+      }
+    }
+    lines.push('')
+  }
+  
+  return lines.join('\n')
+}
 
+function generateCsstsAtomModule(
+  usedAtoms: Set<string>,
+  pseudoStyles: Map<string, PseudoStyleInfo>,
+  prefix: string = ''
+): string {
+  const lines: string[] = [
+    '// Auto-generated by vite-plugin-cssts',
+    '',
+    'export const csstsAtom = {',
+  ]
+  const allAtoms = new Map<string, string>()
+  for (const atomName of usedAtoms) {
+    const className = getCssClassName(atomName)
+    allAtoms.set(atomName, prefix ? `${prefix}${className}` : className)
+  }
+  const sortedAtoms = [...allAtoms.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+  
+  const entries: string[] = []
+  
+  // 添加原子类
+  for (const [atomName, className] of sortedAtoms) {
+    entries.push(`  ${atomName}: { '${className}': true }`)
+  }
+  
+  // 添加伪类样式（包含基础类名）
+  for (const [varName, info] of pseudoStyles) {
+    const fullClassName = prefix ? `${prefix}${info.className}` : info.className
+    entries.push(`  '${varName}': { '${fullClassName}': true }`)
+  }
+  
+  lines.push(entries.join(',\n'))
+  lines.push('}', '', 'export default csstsAtom', '')
   return lines.join('\n')
 }
 
 // ==================== 文件转换 ====================
 
-/**
- * 转换 .cssts 文件
- */
-function transformCssTs(
-  code: string,
-  _id: string,
-): { code: string; styles: Map<string, CssStyleInfo>; usedAtoms: Set<string> } {
+function transformCssTs(code: string, _id: string): { 
+  code: string
+  styles: Map<string, CssStyleInfo>
+  usedAtoms: Set<string>
+  pseudoStyles: Map<string, PseudoStyleInfo>
+} {
   const parser = new CssTsParser(code)
   const cst = parser.Program()
-
-  const transformer = new CssTsCstToAst()
+  const transformer = new CssTsCstToAst(getCssClassName)
   const ast = transformer.toProgram(cst)
-
-  // 获取收集的样式和原子类
   const styles = transformer.getCssStyles()
   const usedAtoms = transformer.getUsedAtoms()
-
-  // 生成 JavaScript 代码
   const tokens = parser.parsedTokens
   const result = SlimeGenerator.generator(ast, tokens)
-
-  return {
-    code: result.code,
-    styles,
-    usedAtoms,
-  }
+  
+  // 从源代码中直接提取带 $$ 伪类的变量声明
+  const pseudoStyles = extractPseudoStylesFromCode(code)
+  
+  return { code: result.code, styles, usedAtoms, pseudoStyles }
 }
 
 /**
- * 生成 CsstsAtom.ts 文件内容
+ * 从源代码中提取带 $$ 伪类的变量声明
+ * 
+ * 匹配模式：const varName$$pseudo1$$pseudo2 = css { ... }
  */
-function generateCsstsAtomFile(usedAtoms: Set<string>, prefix: string = ''): string {
-  const lines: string[] = [
-    '// Auto-generated by vite-plugin-cssts',
-    '// Do not edit manually',
-    '',
-    "import type { CsstsAtoms } from 'cssts-types'",
-    '',
-    '/**',
-    ' * CsstsAtom 实现类',
-    ' * 包含项目中使用的所有原子类',
-    ' */',
-    'class CsstsAtomImpl implements Partial<CsstsAtoms> {',
-  ]
-
-  // 生成每个原子类属性
-  const sortedAtoms = Array.from(usedAtoms).sort()
-  for (const atom of sortedAtoms) {
-    const className = getCssClassName(atom)
-    const fullClassName = prefix ? `${prefix}${className}` : className
-    lines.push(`  readonly ${atom} = { '${fullClassName}': true } as const`)
+function extractPseudoStylesFromCode(code: string): Map<string, PseudoStyleInfo> {
+  const pseudoStyles = new Map<string, PseudoStyleInfo>()
+  
+  // 匹配 const/let/var xxx$$yyy = css { ... } 模式
+  const regex = /(?:const|let|var)\s+(\w+(?:\$\$\w+)+)\s*=/g
+  let match
+  
+  while ((match = regex.exec(code)) !== null) {
+    const varName = match[1]
+    const { className, pseudos } = parsePseudoFromVarName(varName)
+    
+    if (pseudos.length > 0) {
+      pseudoStyles.set(varName, {
+        className: camelToKebab(className),
+        pseudos,
+        atoms: [] // 原子类信息不需要，伪类 CSS 来自配置
+      })
+    }
   }
-
-  lines.push('}')
-  lines.push('')
-  lines.push('/** 原子类实例 */')
-  lines.push('export const csstsAtom = new CsstsAtomImpl()')
-  lines.push('')
-  lines.push('export default csstsAtom')
-
-  return lines.join('\n')
+  
+  return pseudoStyles
 }
 
-/**
- * 生成输出文件
- */
-function generateOutputFiles(
-  styles: Map<string, CssStyleInfo>,
-  usedAtoms: Set<string>,
-  root: string,
-  options: CssTsPluginOptions,
-) {
+function generateOutputFiles(styles: Map<string, CssStyleInfo>, usedAtoms: Set<string>, root: string, options: CssTsPluginOptions) {
   const dtsPath = path.resolve(root, options.dtsOutput || 'src/cssts/CssCls.d.ts')
   const stylesPath = path.resolve(root, options.stylesOutput || 'src/cssts/CssCls.styles.ts')
-  const atomPath = path.resolve(root, options.atomOutput || 'src/cssts/CsstsAtom.ts')
   const prefix = options.classPrefix || ''
-
-  // 确保目录存在
   const dtsDir = path.dirname(dtsPath)
   const stylesDir = path.dirname(stylesPath)
-  const atomDir = path.dirname(atomPath)
-
-  if (!fs.existsSync(dtsDir)) {
-    fs.mkdirSync(dtsDir, { recursive: true })
-  }
-  if (!fs.existsSync(stylesDir)) {
-    fs.mkdirSync(stylesDir, { recursive: true })
-  }
-  if (!fs.existsSync(atomDir)) {
-    fs.mkdirSync(atomDir, { recursive: true })
-  }
-
-  // 生成文件（传入前缀配置）
-  const dtsContent = generateCssClsInterface(styles, prefix)
-  const stylesContent = generateCssClsStyles(styles, prefix)
-  const atomContent = generateCsstsAtomFile(usedAtoms, prefix)
-
-  fs.writeFileSync(dtsPath, dtsContent, 'utf-8')
-  fs.writeFileSync(stylesPath, stylesContent, 'utf-8')
-  fs.writeFileSync(atomPath, atomContent, 'utf-8')
-
+  if (!fs.existsSync(dtsDir)) fs.mkdirSync(dtsDir, { recursive: true })
+  if (!fs.existsSync(stylesDir)) fs.mkdirSync(stylesDir, { recursive: true })
+  fs.writeFileSync(dtsPath, generateCssClsInterface(styles, prefix), 'utf-8')
+  fs.writeFileSync(stylesPath, generateCssClsStyles(styles, prefix), 'utf-8')
   console.log(`[cssts] Generated ${dtsPath}`)
   console.log(`[cssts] Generated ${stylesPath}`)
-  console.log(`[cssts] Generated ${atomPath}`)
 }
 
 // ==================== Vue Template 转换 ====================
 
-/**
- * 转换 Vue template 中的 :class 语法
- */
-function transformVueTemplate(
-  code: string,
-  runtimeImport: string,
-): { code: string; transformed: boolean } {
+function transformVueTemplate(code: string, runtimeImport: string): { code: string; transformed: boolean } {
   let transformed = false
-
   const classBindingRegex = /(:class|v-bind:class)="([^"]+)"/g
-
   let newCode = code.replace(classBindingRegex, (match, attr, expr) => {
-    if (expr.includes('cssts.$cls')) {
-      return match
-    }
-
+    if (expr.includes('cssts.$cls')) return match
     const trimmedExpr = expr.trim()
-    if (trimmedExpr.startsWith('{') || trimmedExpr.startsWith('[')) {
-      return match
-    }
-
+    if (trimmedExpr.startsWith('{') || trimmedExpr.startsWith('[')) return match
     if (hasTopLevelComma(expr)) {
       transformed = true
       return `${attr}="cssts.$cls(${expr})"`
     }
-
     return match
   })
-
-  if (transformed) {
-    newCode = injectCsstsImport(newCode, runtimeImport)
-  }
-
+  if (transformed) newCode = injectCsstsImport(newCode, runtimeImport)
   return { code: newCode, transformed }
 }
 
-/**
- * 检查表达式是否有顶层逗号
- */
 function hasTopLevelComma(expr: string): boolean {
-  let depth = 0
-  let inString = false
-  let stringChar = ''
-
+  let depth = 0, inString = false, stringChar = ''
   for (let i = 0; i < expr.length; i++) {
-    const char = expr[i]
-    const prevChar = i > 0 ? expr[i - 1] : ''
-
+    const char = expr[i], prevChar = i > 0 ? expr[i - 1] : ''
     if ((char === '"' || char === "'" || char === '`') && prevChar !== '\\') {
-      if (!inString) {
-        inString = true
-        stringChar = char
-      } else if (char === stringChar) {
-        inString = false
-      }
+      if (!inString) { inString = true; stringChar = char }
+      else if (char === stringChar) inString = false
       continue
     }
-
     if (inString) continue
-
-    if (char === '(' || char === '[' || char === '{') {
-      depth++
-    } else if (char === ')' || char === ']' || char === '}') {
-      depth--
-    } else if (char === ',' && depth === 0) {
-      return true
-    }
+    if (char === '(' || char === '[' || char === '{') depth++
+    else if (char === ')' || char === ']' || char === '}') depth--
+    else if (char === ',' && depth === 0) return true
   }
-
   return false
 }
 
-/**
- * 注入 cssts import
- */
 function injectCsstsImport(code: string, runtimeImport: string): string {
-  if (code.includes(`from '${runtimeImport}'`) || code.includes(`from "${runtimeImport}"`)) {
-    return code
-  }
-
+  if (code.includes(`from '${runtimeImport}'`) || code.includes(`from "${runtimeImport}"`)) return code
   const scriptSetupMatch = code.match(/<script\s+setup[^>]*>/i)
   if (scriptSetupMatch) {
     const insertPos = scriptSetupMatch.index! + scriptSetupMatch[0].length
-    const importStatement = `\nimport { cssts } from '${runtimeImport}'`
-    return code.slice(0, insertPos) + importStatement + code.slice(insertPos)
+    return code.slice(0, insertPos) + `\nimport { cssts } from '${runtimeImport}'` + code.slice(insertPos)
   }
-
   const scriptMatch = code.match(/<script[^>]*>/i)
   if (scriptMatch) {
     const insertPos = scriptMatch.index! + scriptMatch[0].length
-    const importStatement = `\nimport { cssts } from '${runtimeImport}'`
-    return code.slice(0, insertPos) + importStatement + code.slice(insertPos)
+    return code.slice(0, insertPos) + `\nimport { cssts } from '${runtimeImport}'` + code.slice(insertPos)
   }
-
   return code
-}
-
-/**
- * 注入 csstsAtom import
- */
-function injectCsstsAtomImport(code: string, atomImport: string): string {
-  if (code.includes('csstsAtom') && code.includes(atomImport)) {
-    return code
-  }
-
-  const importStatement = `import { csstsAtom } from '${atomImport}'\n`
-  return importStatement + code
 }
 
 // ==================== Vite Plugin ====================
 
-/**
- * Vite Plugin for CssTs
- */
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
-  let root = ''
-  let isDev = false
-  const runtimeImport = options.runtimeImport || './cssts/runtime'
+  let root = '', isDev = false, server: any = null
+  const runtimeImport = options.runtimeImport || 'cssts'
   const prefix = options.classPrefix || ''
-  // 使用外部传入的 usedAtoms 或默认的全局收集器
-  const usedAtoms = options.usedAtoms ?? globalUsedAtoms
+  const pseudoUtils = options.pseudoUtils
 
   return {
     name: 'vite-plugin-cssts',
@@ -417,87 +397,74 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
       isDev = config.command === 'serve'
     },
 
-    // 解析虚拟模块
+    configureServer(_server) { server = _server },
+
     resolveId(id) {
-      if (id === VIRTUAL_CSS_ID) {
-        return RESOLVED_VIRTUAL_CSS_ID
-      }
+      if (id === VIRTUAL_CSS_ID) return RESOLVED_VIRTUAL_CSS_ID
+      if (id === VIRTUAL_ATOM_ID) return RESOLVED_VIRTUAL_ATOM_ID
     },
 
-    // 加载虚拟模块内容
     load(id) {
       if (id === RESOLVED_VIRTUAL_CSS_ID) {
-        // 生成使用的原子类的 CSS（使用实例级的 usedAtoms）
-        return generateUsedAtomsCss(usedAtoms, prefix)
+        return generateUsedAtomsCss(globalUsedAtoms, globalPseudoStyles, pseudoUtils, prefix)
+      }
+      if (id === RESOLVED_VIRTUAL_ATOM_ID) {
+        return generateCsstsAtomModule(globalUsedAtoms, globalPseudoStyles, prefix)
       }
     },
 
     transform(code, id) {
-      // 处理 .vue 文件的 :class 转换
       if (id.endsWith('.vue') && options.transformClass !== false) {
         const result = transformVueTemplate(code, runtimeImport)
-        if (result.transformed) {
-          return {
-            code: result.code,
-            map: null,
-          }
-        }
+        if (result.transformed) return { code: result.code, map: null }
       }
 
-      // 处理 .cssts 文件
       if (id.endsWith('.cssts')) {
         try {
           const result = transformCssTs(code, id)
+          
+          // 更新全局状态
+          for (const [name, info] of result.styles) globalStyles.set(name, info)
+          for (const atom of result.usedAtoms) globalUsedAtoms.add(atom)
+          for (const [name, info] of result.pseudoStyles) globalPseudoStyles.set(name, info)
 
-          // 合并到全局样式
-          for (const [name, info] of result.styles) {
-            globalStyles.set(name, info)
-          }
-
-          // 合并到全局原子类
-          for (const atom of result.usedAtoms) {
-            globalUsedAtoms.add(atom)
-          }
-
-          // 注入 csstsAtom import
           let transformedCode = result.code
-          if (result.usedAtoms.size > 0) {
-            const atomImport = options.atomImport || './cssts/CsstsAtom'
-            transformedCode = injectCsstsAtomImport(transformedCode, atomImport)
+          if (result.usedAtoms.size > 0 && !transformedCode.includes(VIRTUAL_CSS_ID)) {
+            transformedCode = `import '${VIRTUAL_CSS_ID}'\n` + transformedCode
           }
 
-          // 在开发模式下自动生成文件
           if (isDev && options.autoGenerate !== false) {
             generateOutputFiles(globalStyles, globalUsedAtoms, root, options)
           }
 
-          return {
-            code: transformedCode,
-            map: null,
+          if (isDev && server && result.usedAtoms.size > 0) {
+            const cssMod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_CSS_ID)
+            if (cssMod) server.moduleGraph.invalidateModule(cssMod)
+            const atomMod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_ATOM_ID)
+            if (atomMod) server.moduleGraph.invalidateModule(atomMod)
           }
+
+          return { code: transformedCode, map: null }
         } catch (e: any) {
           console.error(`[cssts] Error transforming ${id}:`, e.message)
           throw e
         }
       }
-
       return null
     },
 
-    // 开发模式下，当原子类变化时触发 HMR
     handleHotUpdate({ file, server }) {
       if (file.endsWith('.cssts')) {
-        // 触发虚拟 CSS 模块更新
-        const mod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_CSS_ID)
-        if (mod) {
-          server.moduleGraph.invalidateModule(mod)
-          return [mod]
-        }
+        const mods = []
+        const cssMod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_CSS_ID)
+        if (cssMod) { server.moduleGraph.invalidateModule(cssMod); mods.push(cssMod) }
+        const atomMod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_ATOM_ID)
+        if (atomMod) { server.moduleGraph.invalidateModule(atomMod); mods.push(atomMod) }
+        return mods.length > 0 ? mods : undefined
       }
     },
 
     buildEnd() {
-      // 构建结束时生成文件
       if (globalStyles.size > 0 || globalUsedAtoms.size > 0) {
         generateOutputFiles(globalStyles, globalUsedAtoms, root, options)
       }
@@ -505,4 +472,4 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   }
 }
 
-export { transformCssTs, transformVueTemplate, generateOutputFiles, globalStyles, globalUsedAtoms, VIRTUAL_CSS_ID }
+export { transformCssTs, transformVueTemplate, generateOutputFiles, globalStyles, globalUsedAtoms, globalPseudoStyles, VIRTUAL_CSS_ID }
