@@ -1,0 +1,39 @@
+export class OvsButton {
+    constructor() {
+    }
+    
+    initData() {
+        if (this.initialized === undefined) {
+            this.count = 0
+            this.initialized = true
+        }
+    }
+    
+    handleClick() {
+        this.count++
+    }
+    
+    render() {
+        this.initData()
+        
+        const baseStyle = css {
+            displayInlineFlex,
+            alignItemsCenter,
+            justifyContentCenter,
+            paddingTop_8px,
+            paddingBottom_8px,
+            paddingLeft_16px,
+            paddingRight_16px,
+            borderRadius_4px,
+            cursorPointer,
+            fontWeight500,
+            backgroundColor_409eff,
+            colorWhite,
+            borderNone
+        }
+        
+        return button(class = baseStyle, onClick = () => this.handleClick()) {
+            `OVS Button: ${this.count}`
+        }
+    }
+}

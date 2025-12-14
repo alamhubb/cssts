@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// 使用 cssts 插件测试
+// 使用 ovs 插件测试
+import ovs from 'vite-plugin-ovs/src/index.ts'
+// 保留 cssts 插件用于 .cssts 文件
 import cssts from 'vite-plugin-cssts/src/index.ts'
 import path from 'path'
 
@@ -15,6 +17,7 @@ const csstsComponentsRoot = path.resolve(__dirname, './cssts-components')
 export default defineConfig({
   plugins: [
     vue(),
+    ovs(),  // OVS 插件处理 .ovs 文件
     cssts({
       // $$ 伪类语法配置：与 Element Plus 按钮效果一致
       // Element Plus: hover 颜色变浅 (light-3), active 颜色变深 (dark-2)
