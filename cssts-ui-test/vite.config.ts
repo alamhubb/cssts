@@ -22,13 +22,13 @@ const pseudoUtilsConfig = {
 
 export default defineConfig({
   plugins: [
-    // ovs 插件处理 .ovs 和 .cssts 文件（内部已包含 cssts 插件）
-    // cssts 插件现在也支持处理 .cssts.js 文件中的 css {} 语法
+    // ovs 插件处理 .ovs、.cssts、.vue 文件（内部已包含 cssts 插件）
+    // cssts 插件会自动注入 esbuild 插件处理依赖扫描阶段
     ...ovs({
       cssts: {
         pseudoUtils: pseudoUtilsConfig,
-        // 启用对 .cssts.js 文件的 css {} 语法支持
-        include: ['.cssts', '.cssts.js']
+        // 支持 .cssts 和 .vue 文件中的 css {} 语法
+        include: ['.cssts', '.vue']
       }
     }),
     vue(),
@@ -114,21 +114,4 @@ export default defineConfig({
       },
     },
   },
-  // 配置依赖优化，排除 .cssts.js 文件
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [
-        {
-          name: 'cssts-js-loader',
-          setup(build) {
-            // 为 .cssts.js 文件返回空的 JS 模块，跳过 esbuild 解析
-            build.onLoad({ filter: /\.cssts\.js$/ }, () => ({
-              contents: 'export default {}',
-              loader: 'js'
-            }))
-          }
-        }
-      ]
-    }
-  }
 })

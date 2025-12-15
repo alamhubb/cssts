@@ -1,6 +1,6 @@
 # vite-plugin-cssts
 
-> Vite 插件，用于处理 `.cssts` 和 `.cssts.js` 文件并按需生成原子类 CSS
+> Vite 插件，用于处理 `.cssts` 和 `.vue` 文件中的 `css {}` 语法，按需生成原子类 CSS
 
 ## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
 
@@ -19,17 +19,7 @@ const btn$hover$active = css { cursorPointer }
 ## 支持的文件类型
 
 - `.cssts` - 专用的 cssts 样式文件
-- `.cssts.js` - 在 JS 文件中使用 css {} 语法（可在 Vue 组件中导入）
-
-## 核心职责
-
-vite-plugin-cssts 是一个**薄层插件**，只负责 Vite 集成：
-
-1. **调用 cssts-compiler** - 转换 `.cssts` 和 `.cssts.js` 文件
-2. **虚拟模块管理** - 提供 `virtual:csstsAtom` 和 `virtual:cssts.css`
-3. **HMR 处理** - 热更新支持
-
-所有核心逻辑都在 `cssts-compiler` 中。
+- `.vue` - 直接在 Vue 文件的 `<script>` 中使用 `css {}` 语法
 
 ## 安装
 
@@ -44,81 +34,53 @@ npm install vite-plugin-cssts -D
 ```javascript
 // vite.config.js
 import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 import cssTsPlugin from 'vite-plugin-cssts'
 
 export default defineConfig({
   plugins: [
+    // cssts 插件必须在 vue 插件之前
     cssTsPlugin({
-      classPrefix: '', // 可选：CSS 类名前缀
-      include: ['.cssts', '.cssts.js'], // 处理的文件扩展名
-      pseudoUtils: {   // 可选：$$ 伪类配置
+      pseudoUtils: {
         hover: { filter: 'brightness(1.15)' },
-        active: { filter: 'brightness(0.85)' },
-        focus: { outline: '2px solid blue' }
-      }
+        active: { filter: 'brightness(0.85)' }
+      },
+      include: ['.cssts', '.vue']  // 支持 .vue 文件
     }),
+    vue(),
   ],
-  // 配置 esbuild 跳过 .cssts.js 文件的依赖扫描
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [
-        {
-          name: 'cssts-js-loader',
-          setup(build) {
-            build.onLoad({ filter: /\.cssts\.js$/ }, () => ({
-              contents: 'export default {}',
-              loader: 'js'
-            }))
-          }
-        }
-      ]
-    }
-  }
 })
+```
+
+### 在 .vue 文件中使用
+
+```vue
+<template>
+  <button :class="buttonStyle">Click me</button>
+</template>
+
+<script setup>
+// 直接在 Vue 文件中使用 css {} 语法
+const buttonStyle = css {
+  displayInlineFlex,
+  padding8px,
+  borderRadius4px
+}
+
+// 带伪类的样式（使用双美元符号 $$）
+const primary$$hover$$active = css {
+  backgroundColorDodgerblue,
+  colorWhite
+}
+</script>
 ```
 
 ### 在 .cssts 文件中使用
 
 ```javascript
 // Button.cssts
-
-// 普通样式
-const buttonStyle = css { displayFlex, padding16px }
-
-// 带伪类的样式（使用 $$ 双美元符号）
-const clickable$$hover$$active = css { displayFlex, cursorPointer }
-```
-
-### 在 .cssts.js 文件中使用（推荐用于 Vue 项目）
-
-```javascript
-// Button.cssts.js
-
-// 基础样式
-export const baseStyles = css {
-  displayInlineFlex,
-  padding8px,
-  borderRadius4px
-}
-
-// 带伪类的样式（使用 $$ 双美元符号）
-export const primary$$hover$$active = css {
-  baseStyles,
-  backgroundColorDodgerblue,
-  colorWhite
-}
-```
-
-然后在 Vue 组件中导入：
-
-```vue
-<script setup>
-import { primary$$hover$$active } from './Button.cssts.js'
-</script>
-
-<template>
-  <button :class="primary$$hover$$active">Click me</button>
-</template>
+export const buttonStyle = css { displayFlex, padding16px }
+export const clickable$$hover$$active = css { cursorPointer }
 ```
 
 ## 配置选项
@@ -126,24 +88,100 @@ import { primary$$hover$$active } from './Button.cssts.js'
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `classPrefix` | `string` | `''` | CSS 类名前缀 |
-| `include` | `string[]` | `['.cssts']` | 处理的文件扩展名 |
+| `include` | `string[]` | `['.cssts', '.vue']` | 处理的文件扩展名 |
 | `pseudoUtils` | `PseudoUtilsConfig` | `undefined` | $$ 伪类配置 |
 | `globalStyles` | `Set<string>` | 内部创建 | 共享的样式集合 |
 
-## 生成的虚拟模块
+---
 
-### virtual:csstsAtom
+## 架构设计
 
-包含项目中使用的所有样式：
+### 为什么需要处理两个阶段？
 
-```javascript
-export const csstsAtom = {
-  // 普通原子类
-  displayFlex: { 'display_flex': true },
-  // 带伪类的样式
-  'primary$$hover$$active': { 'primary': true },
+Vite 启动时有两个关键阶段：
+
+```
+1. 依赖预构建（optimizeDeps）  ← esbuild 直接解析文件
+2. 文件转换（transform）       ← Vite 插件在这里工作
+```
+
+**问题**：esbuild 在依赖预构建阶段会解析 `.vue` 文件来分析 import 语句，但它不认识 `css {}` 语法，会报错：
+
+```
+Expected ";" but found "{"
+const baseStyles = css {
+                      ^
+```
+
+### 解决方案：一个插件，两阶段处理
+
+```
+源文件 (VueButton.vue)
+    │
+    ├─→ esbuild 依赖扫描（内存中，只读）
+    │     └─ cssts esbuild 插件：css {} → {}（简单替换）
+    │     └─ esbuild 解析 import 语句
+    │     └─ 结果用于依赖分析，然后丢弃
+    │
+    └─→ Vite transform（内存中）
+          └─ cssts Vite 插件：正确转换 css {} 语法
+          └─ 生成样式类名和 CSS
+          └─ 返回给浏览器
+```
+
+**关键点**：
+- 两个阶段都是**独立读取源文件**，互不影响
+- esbuild 阶段的处理**不会修改磁盘上的源文件**
+- esbuild 阶段只需要让语法合法即可，真正的转换在 transform 阶段
+
+### 插件实现
+
+```typescript
+export default function cssTsPlugin(options): Plugin {
+  return {
+    name: 'vite-plugin-cssts',
+    enforce: 'pre',
+
+    // 1. 通过 config 钩子注入 esbuild 插件
+    config() {
+      return {
+        optimizeDeps: {
+          esbuildOptions: {
+            plugins: [{
+              name: 'cssts-esbuild',
+              setup(build) {
+                // 处理 .vue 文件，将 css {} 替换为 {}
+                build.onLoad({ filter: /\.vue$/ }, async (args) => {
+                  const code = fs.readFileSync(args.path, 'utf-8')
+                  if (!hasCssSyntax(code)) return null
+                  
+                  const transformed = code.replace(/css\s*\{[^}]*\}/g, '{}')
+                  return { contents: transformed, loader: 'text' }
+                })
+              }
+            }]
+          }
+        }
+      }
+    },
+
+    // 2. 正常的 transform 处理
+    transform(code, id) {
+      // 真正转换 css {} 语法
+    }
+  }
 }
 ```
+
+### 为什么这样设计？
+
+1. **用户体验**：只需配置一个插件，不需要手动配置 esbuild
+2. **关注点分离**：esbuild 阶段只做"让语法合法"，transform 阶段做"正确转换"
+3. **不影响源码**：所有处理都在内存中，源文件保持不变
+
+---
+
+## 生成的虚拟模块
 
 ### virtual:cssts.css
 
@@ -160,9 +198,20 @@ export const csstsAtom = {
 .primary:active { filter: brightness(0.85); }
 ```
 
-## 分隔符配置
+### virtual:csstsAtom
 
-分隔符统一在 `cssts-runtime` 中配置：
+样式对象映射：
+
+```javascript
+export const csstsAtom = {
+  displayFlex: { 'display_flex': true },
+  'primary$$hover$$active': { 'primary': true },
+}
+```
+
+---
+
+## 分隔符配置
 
 ```javascript
 import { CSSTS_CONFIG } from 'cssts-runtime'

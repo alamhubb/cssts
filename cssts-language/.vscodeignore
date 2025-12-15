@@ -1,0 +1,12 @@
+.vscode/**
+.vscode-test/**
+node_modules/**
+cssts-language-server/**
+cssts-vscode-client/**
+*.ts
+!dist/**
+.gitignore
+tsconfig.json
+tsdown.config.ts
+*.vsix
+templog.txt

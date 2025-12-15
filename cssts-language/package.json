@@ -1,0 +1,111 @@
+{
+  "name": "cssts-language",
+  "displayName": "CSSTS Language Support",
+  "description": "Language support for CSSTS (CSS TypeScript) files",
+  "version": "0.0.1",
+  "publisher": "AlanLang",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:cssts"
+  ],
+  "main": "./dist/extension.cjs",
+  "contributes": {
+    "languages": [
+      {
+        "id": "cssts",
+        "aliases": [
+          "CSSTS",
+          "cssts"
+        ],
+        "extensions": [
+          ".cssts"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cssts",
+        "scopeName": "source.cssts",
+        "path": "./syntaxes/cssts.tmLanguage.json"
+      }
+    ],
+    "semanticTokenTypes": [
+      {
+        "id": "csstsProperty",
+        "superType": "property",
+        "description": "CSSTS CSS property"
+      },
+      {
+        "id": "csstsValue",
+        "superType": "string",
+        "description": "CSSTS CSS value"
+      },
+      {
+        "id": "csstsSelector",
+        "superType": "type",
+        "description": "CSSTS CSS selector"
+      },
+      {
+        "id": "csstsVariable",
+        "superType": "variable",
+        "description": "CSSTS variable"
+      }
+    ],
+    "semanticTokenScopes": [
+      {
+        "language": "cssts",
+        "scopes": {
+          "csstsProperty": [
+            "support.type.property-name.css"
+          ],
+          "csstsValue": [
+            "support.constant.property-value.css"
+          ],
+          "csstsSelector": [
+            "entity.name.tag.css"
+          ],
+          "csstsVariable": [
+            "variable.css"
+          ]
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsdown",
+    "watch": "tsdown --watch",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/vscode": "^1.75.0",
+    "@volar/language-core": "^2.4.14",
+    "@volar/language-server": "^2.4.14",
+    "@volar/language-service": "^2.4.14",
+    "@volar/typescript": "^2.4.14",
+    "@volar/vscode": "^2.4.14",
+    "@vscode/vsce": "^3.4.2",
+    "tsdown": "^0.11.18",
+    "typescript": "^5.8.3",
+    "volar-service-typescript": "^0.0.62",
+    "vscode-languageclient": "^9.0.1",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
+  },
+  "dependencies": {
+    "vscode-uri": "^3.1.0"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "syntaxes",
+    "language-configuration.json"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CSSTS (CSS TypeScript)",
+  "scopeName": "source.cssts",
+  "patterns": [
+    { "include": "#cssts-keywords" },
+    { "include": "source.ts" }
+  ],
+  "repository": {
+    "cssts-keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.cssts",
+          "match": "\\b(cssts|css|style)\\b",
+          "comment": "CSSTS specific keywords"
+        },
+        {
+          "name": "support.type.property-name.cssts",
+          "match": "\\b(color|background|backgroundColor|margin|padding|border|width|height|display|flex|grid|position|top|left|right|bottom|fontSize|fontWeight|fontFamily|textAlign|lineHeight|opacity|zIndex|overflow|transform|transition|animation)\\b",
+          "comment": "Common CSS properties in camelCase"
+        },
+        {
+          "name": "support.constant.color.cssts",
+          "match": "#[0-9a-fA-F]{3,8}\\b",
+          "comment": "Hex color values"
+        },
+        {
+          "name": "constant.numeric.cssts",
+          "match": "\\b\\d+(\\.\\d+)?(px|em|rem|%|vh|vw|vmin|vmax|ch|ex|cm|mm|in|pt|pc)?\\b",
+          "comment": "CSS numeric values with units"
+        }
+      ]
+    }
+  }
+}

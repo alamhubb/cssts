@@ -16,7 +16,7 @@
       <CsstsButton type="success" @click="count++">Success</CsstsButton>
     </div>
 
-    <h2>Vue Button - .cssts.js 文件 (from ./components/VueButton.vue)</h2>
+    <h2>Vue Button - 直接在 .vue 中使用 css {} (from ./components/VueButton.vue)</h2>
     <div class="button-group">
       <VueButton @click="count++">Default</VueButton>
       <VueButton type="primary" @click="count++">Primary</VueButton>

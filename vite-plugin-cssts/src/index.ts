@@ -14,14 +14,11 @@ export interface CssTsPluginOptions {
   /** 外部传入的共享样式集合，不传则内部创建 */
   globalStyles?: Set<string>
   /** 
-   * 需要处理的文件扩展名（默认只处理 .cssts）
-   * 可以添加 '.js', '.vue' 等
+   * 需要处理的文件扩展名
+   * 默认: ['.cssts', '.vue']
    */
   include?: string[]
 }
-
-// 用于存储预处理后的 .vue 文件内容
-const vuePreprocessedCache = new Map<string, string>()
 
 // ==================== 虚拟模块 ====================
 
@@ -36,28 +33,28 @@ const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
  * 检查代码是否包含 css {} 语法
  */
 function hasCssSyntax(code: string): boolean {
-  // 匹配 css { ... } 语法（简单检测）
   return /\bcss\s*\{/.test(code)
 }
 
 /**
  * 从 .vue 文件中提取 <script> 内容
  */
-function extractVueScript(code: string): { script: string; start: number; end: number; isSetup: boolean } | null {
-  // 匹配 <script> 或 <script setup>（不带 lang="ts"）
-  const scriptMatch = code.match(/<script(\s+setup)?(?:\s+[^>]*)?>[\s\S]*?<\/script>/)
+function extractVueScript(code: string): { script: string; start: number; end: number; isSetup: boolean; openTag: string } | null {
+  // 匹配 <script> 或 <script setup>（保留完整的开始标签）
+  const scriptMatch = code.match(/<script(\s+setup)?([^>]*)>([\s\S]*?)<\/script>/)
   if (!scriptMatch) return null
   
   const fullMatch = scriptMatch[0]
   const start = code.indexOf(fullMatch)
   const end = start + fullMatch.length
-  
-  // 提取 script 标签内的内容
-  const contentMatch = fullMatch.match(/<script[^>]*>([\s\S]*?)<\/script>/)
-  if (!contentMatch) return null
-  
   const isSetup = scriptMatch[1] !== undefined
-  return { script: contentMatch[1], start, end, isSetup }
+  const attrs = scriptMatch[2] || ''
+  const script = scriptMatch[3]
+  
+  // 保留原始的 script 标签属性
+  const openTag = `<script${scriptMatch[1] || ''}${attrs}>`
+  
+  return { script, start, end, isSetup, openTag }
 }
 
 /**
@@ -65,13 +62,50 @@ function extractVueScript(code: string): { script: string; start: number; end: n
  */
 function rebuildVueFile(
   originalCode: string, 
-  scriptInfo: { start: number; end: number; isSetup: boolean },
+  scriptInfo: { start: number; end: number; openTag: string },
   newScriptContent: string
 ): string {
   const before = originalCode.slice(0, scriptInfo.start)
   const after = originalCode.slice(scriptInfo.end)
-  const scriptTag = scriptInfo.isSetup ? '<script setup>' : '<script>'
-  return `${before}${scriptTag}\n${newScriptContent}\n</script>${after}`
+  return `${before}${scriptInfo.openTag}\n${newScriptContent}\n</script>${after}`
+}
+
+/**
+ * 创建 esbuild 插件，用于依赖扫描阶段处理 css {} 语法
+ */
+function createEsbuildPlugin() {
+  return {
+    name: 'cssts-esbuild',
+    setup(build: any) {
+      // 处理 .vue 文件
+      build.onLoad({ filter: /\.vue$/ }, async (args: any) => {
+        const fs = await import('node:fs')
+        const code = fs.readFileSync(args.path, 'utf-8')
+        
+        // 检查是否包含 css {} 语法
+        if (!hasCssSyntax(code)) {
+          return null // 让其他 loader 处理
+        }
+        
+        // 将 css { ... } 替换为 {}，让 esbuild 能解析
+        const transformed = code.replace(
+          /(<script[^>]*>)([\s\S]*?)(<\/script>)/,
+          (match, open, content, close) => {
+            const newContent = content.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+            return open + newContent + close
+          }
+        )
+        
+        return { contents: transformed, loader: 'text' }
+      })
+      
+      // 处理 .cssts.js 文件
+      build.onLoad({ filter: /\.cssts\.js$/ }, () => ({
+        contents: 'export default {}',
+        loader: 'js'
+      }))
+    }
+  }
 }
 
 // ==================== Vite Plugin ====================
@@ -80,26 +114,22 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   let server: any = null
   const prefix = options.classPrefix || ''
   const pseudoUtils = options.pseudoUtils
-  // 外部传入就用外部的，否则内部创建
   const globalStyles = options.globalStyles || new Set<string>()
-  // 默认只处理 .cssts，可以通过 include 添加 .js, .vue 等
-  const includeExts = options.include || ['.cssts']
+  const includeExts = options.include || ['.cssts', '.vue']
 
   /**
    * 检查文件是否需要处理
    */
   function shouldTransform(id: string, code: string): boolean {
-    // 排除 node_modules
     if (id.includes('node_modules')) return false
     
-    // 检查扩展名
     const matchedExt = includeExts.some(ext => id.endsWith(ext))
     if (!matchedExt) return false
     
-    // 对于 .cssts 文件，总是处理
+    // .cssts 文件总是处理
     if (id.endsWith('.cssts')) return true
     
-    // 对于其他文件（.js, .vue），只有包含 css {} 语法才处理
+    // 其他文件只有包含 css {} 语法才处理
     return hasCssSyntax(code)
   }
 
@@ -117,6 +147,17 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   return {
     name: 'vite-plugin-cssts',
     enforce: 'pre',
+
+    // 注入 esbuild 插件，处理依赖扫描阶段
+    config() {
+      return {
+        optimizeDeps: {
+          esbuildOptions: {
+            plugins: [createEsbuildPlugin()]
+          }
+        }
+      }
+    },
 
     configureServer(_server) { 
       server = _server 
@@ -148,7 +189,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
         if (isVueFile) {
           vueScriptInfo = extractVueScript(code)
           if (!vueScriptInfo || !hasCssSyntax(vueScriptInfo.script)) {
-            return null // 没有 script 或没有 css {} 语法
+            return null
           }
           codeToTransform = vueScriptInfo.script
         }
@@ -168,7 +209,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
           transformedCode = rebuildVueFile(code, vueScriptInfo, transformedCode)
         }
 
-        // HMR：使虚拟模块失效
+        // HMR
         if (result.hasStyles) {
           invalidateModules()
         }
@@ -186,100 +227,6 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
         invalidateModules()
       }
     },
-  }
-}
-
-/**
- * Vue 文件预处理插件
- * 
- * 这个插件必须在 vue 插件之前运行，用于处理 .vue 文件中的 css {} 语法
- * 使用 load 钩子直接读取并转换文件内容
- */
-export function cssTsVuePreprocessPlugin(options: CssTsPluginOptions = {}): Plugin {
-  const globalStyles = options.globalStyles || new Set<string>()
-  const pseudoUtils = options.pseudoUtils
-  const prefix = options.classPrefix || ''
-  let server: any = null
-  
-  return {
-    name: 'vite-plugin-cssts-vue-preprocess',
-    enforce: 'pre',
-    
-    configureServer(_server) {
-      server = _server
-    },
-    
-    // 虚拟模块解析
-    resolveId(id) {
-      if (id === VIRTUAL_CSS_ID) return RESOLVED_VIRTUAL_CSS_ID
-      if (id === VIRTUAL_ATOM_ID) return RESOLVED_VIRTUAL_ATOM_ID
-    },
-    
-    // 使用 load 钩子处理 .vue 文件和虚拟模块
-    async load(id) {
-      // 虚拟模块加载
-      if (id === RESOLVED_VIRTUAL_CSS_ID) {
-        return generateStylesCss(globalStyles, pseudoUtils, prefix)
-      }
-      if (id === RESOLVED_VIRTUAL_ATOM_ID) {
-        return generateCsstsAtomModule(globalStyles, prefix)
-      }
-      
-      // .vue 文件处理
-      if (!id.endsWith('.vue')) return null
-      if (id.includes('node_modules')) return null
-      
-      // 检查缓存
-      if (vuePreprocessedCache.has(id)) {
-        return vuePreprocessedCache.get(id)
-      }
-      
-      try {
-        // 动态导入 fs 模块
-        const fs = await import('node:fs')
-        const code = fs.readFileSync(id, 'utf-8')
-        
-        if (!hasCssSyntax(code)) return null
-        
-        // 提取并转换 script 内容
-        const scriptInfo = extractVueScript(code)
-        if (!scriptInfo || !hasCssSyntax(scriptInfo.script)) return null
-        
-        // 转换 css {} 语法
-        const result = transformCssTs(scriptInfo.script, { styles: globalStyles })
-        
-        let transformedScript = result.code
-        
-        // 注入虚拟 CSS 导入
-        if (result.hasStyles && !transformedScript.includes(VIRTUAL_CSS_ID)) {
-          transformedScript = `import '${VIRTUAL_CSS_ID}'\n` + transformedScript
-        }
-        
-        // 重建 .vue 文件
-        const transformedCode = rebuildVueFile(code, scriptInfo, transformedScript)
-        
-        // 缓存转换后的内容
-        vuePreprocessedCache.set(id, transformedCode)
-        
-        // HMR：使虚拟模块失效
-        if (server && result.hasStyles) {
-          const cssMod = server.moduleGraph.getModuleById(RESOLVED_VIRTUAL_CSS_ID)
-          if (cssMod) server.moduleGraph.invalidateModule(cssMod)
-        }
-        
-        return transformedCode
-      } catch (e) {
-        // 如果出错，返回 null 让其他插件处理
-        return null
-      }
-    },
-    
-    // HMR 时清除缓存
-    handleHotUpdate({ file }) {
-      if (file.endsWith('.vue')) {
-        vuePreprocessedCache.delete(file)
-      }
-    }
   }
 }
 

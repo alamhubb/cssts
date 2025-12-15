@@ -358,6 +358,95 @@ export default defineConfig({
 })
 ```
 
+## Vite 两阶段处理架构
+
+### 为什么需要处理两个阶段？
+
+Vite 启动时有两个关键阶段：
+
+```
+1. 依赖预构建（optimizeDeps）  ← esbuild 直接解析文件
+2. 文件转换（transform）       ← Vite 插件在这里工作
+```
+
+**问题**：esbuild 在依赖预构建阶段会解析 `.vue` 文件来分析 import 语句，但它不认识 `css {}` 语法，会报错：
+
+```
+Expected ";" but found "{"
+const baseStyles = css {
+                      ^
+```
+
+### 解决方案：一个插件，两阶段处理
+
+`vite-plugin-cssts` 通过 `config` 钩子自动注入 esbuild 插件，同时处理两个阶段：
+
+```
+源文件 (VueButton.vue)
+    │
+    ├─→ esbuild 依赖扫描（内存中，只读）
+    │     └─ cssts esbuild 插件：css {} → {}（简单替换）
+    │     └─ esbuild 解析 import 语句
+    │     └─ 结果用于依赖分析，然后丢弃
+    │
+    └─→ Vite transform（内存中）
+          └─ cssts Vite 插件：正确转换 css {} 语法
+          └─ 生成样式类名和 CSS
+          └─ 返回给浏览器
+```
+
+**关键点**：
+- 两个阶段都是**独立读取源文件**，互不影响
+- esbuild 阶段的处理**不会修改磁盘上的源文件**
+- esbuild 阶段只需要让语法合法即可，真正的转换在 transform 阶段
+
+### 插件实现
+
+```typescript
+export default function cssTsPlugin(options): Plugin {
+  return {
+    name: 'vite-plugin-cssts',
+    enforce: 'pre',
+
+    // 1. 通过 config 钩子注入 esbuild 插件
+    config() {
+      return {
+        optimizeDeps: {
+          esbuildOptions: {
+            plugins: [{
+              name: 'cssts-esbuild',
+              setup(build) {
+                // 处理 .vue 文件，将 css {} 替换为 {}
+                build.onLoad({ filter: /\.vue$/ }, async (args) => {
+                  const code = fs.readFileSync(args.path, 'utf-8')
+                  if (!hasCssSyntax(code)) return null
+                  
+                  const transformed = code.replace(/css\s*\{[^}]*\}/g, '{}')
+                  return { contents: transformed, loader: 'text' }
+                })
+              }
+            }]
+          }
+        }
+      }
+    },
+
+    // 2. 正常的 transform 处理
+    transform(code, id) {
+      // 真正转换 css {} 语法
+    }
+  }
+}
+```
+
+### 为什么这样设计？
+
+1. **用户体验**：只需配置一个插件，不需要手动配置 esbuild
+2. **关注点分离**：esbuild 阶段只做"让语法合法"，transform 阶段做"正确转换"
+3. **不影响源码**：所有处理都在内存中，源文件保持不变
+
+---
+
 ## 文件处理流程
 
 ### .cssts 文件
@@ -390,6 +479,30 @@ Button.ovs
     │   • 写入 sharedStyles
     │
     └─► 注入 import 'virtual:cssts.css'
+```
+
+### .vue 文件
+
+```
+Button.vue
+    │
+    ├─► esbuild 依赖扫描阶段（内存中）
+    │   • cssts esbuild 插件拦截
+    │   • 将 css {} 替换为 {}（简单替换，让 esbuild 能解析）
+    │   • 结果只用于依赖分析，不保存
+    │
+    └─► Vite transform 阶段（内存中）
+        │
+        ▼ vite-plugin-cssts.transform()
+        │
+        ├─► 提取 <script> 内容
+        ├─► transformCssTs(scriptContent, { styles: globalStyles })
+        │   • 解析 css {} 语法
+        │   • 收集原子类名到 globalStyles
+        │   • 转换为 cssts.$cls() 调用
+        ├─► 重建 .vue 文件（替换 <script> 内容）
+        │
+        └─► 注入 import 'virtual:cssts.css'
 ```
 
 
@@ -521,3 +634,122 @@ for (const sheet of document.styleSheets) {
 document.querySelector('button').className
 // 应该包含基础类名，如 "primary display_inline-flex ..."
 ```
+
+
+---
+
+## cssts-language 包
+
+### 概述
+
+`cssts-language` 是一个 VSCode 扩展，为 `.cssts` 文件提供语言服务支持（LSP）。基于 [Volar](https://github.com/volarjs/volar.js) 框架构建。
+
+### 功能
+
+- **语法高亮**：通过 TextMate 语法定义
+- **智能补全**：CSS 属性名、值的自动补全
+- **悬停提示**：显示 CSS 属性的文档
+- **跳转到定义**：支持变量和导入的跳转
+- **查找引用**：查找样式变量的所有引用
+- **语义令牌**：更精确的语法着色
+
+### 目录结构
+
+```
+cssts-language/
+├── cssts-language-server/     # 语言服务器
+│   └── src/
+│       ├── index.ts           # 服务器入口
+│       ├── CsstsLanguagePlugin.ts  # Volar 语言插件
+│       └── logutil.ts         # 日志工具
+├── cssts-vscode-client/       # VSCode 客户端扩展
+│   └── src/
+│       └── extension.ts       # 扩展入口
+├── syntaxes/                  # TextMate 语法定义
+│   └── cssts.tmLanguage.json
+├── examples/                  # 示例文件
+│   └── demo.cssts
+├── language-configuration.json # 语言配置（括号匹配、注释等）
+├── package.json               # 扩展清单
+├── tsdown.config.ts           # 构建配置
+└── README.md
+```
+
+### 架构
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        VSCode                                    │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  cssts-vscode-client (extension.ts)                      │   │
+│  │  • 启动语言客户端                                         │   │
+│  │  • 连接语言服务器                                         │   │
+│  │  • 获取 TypeScript SDK 路径                              │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                              │                                   │
+│                              │ IPC                               │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  cssts-language-server (index.ts)                        │   │
+│  │  • 基于 @volar/language-server                           │   │
+│  │  • 创建 TypeScript 项目                                   │   │
+│  │  • 注册语言插件                                           │   │
+│  └─────────────────────────────────────────────────────────┘   │
+│                              │                                   │
+│                              ▼                                   │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  CsstsLanguagePlugin                                     │   │
+│  │  • getLanguageId(): 识别 .cssts 文件                     │   │
+│  │  • createVirtualCode(): 创建虚拟 TypeScript 代码         │   │
+│  │  • typescript.extraFileExtensions: 注册 .cssts 扩展名   │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 工作原理
+
+1. **文件识别**：当用户打开 `.cssts` 文件时，VSCode 根据 `package.json` 中的语言配置识别文件类型
+
+2. **语法高亮**：TextMate 语法定义 (`cssts.tmLanguage.json`) 提供基础的语法着色
+
+3. **语言服务**：
+   - 客户端启动语言服务器进程
+   - 服务器加载 `CsstsLanguagePlugin`
+   - 插件将 `.cssts` 文件映射为虚拟 TypeScript 文件
+   - TypeScript 语言服务提供智能功能
+
+4. **虚拟代码映射**：
+   - `.cssts` 文件内容直接作为 TypeScript 处理
+   - 创建 1:1 的源码映射
+   - 所有 TypeScript 功能（补全、诊断等）自动可用
+
+### 开发
+
+```bash
+# 进入目录
+cd cssts/cssts-language
+
+# 安装依赖
+npm install
+
+# 构建
+npm run build
+
+# 在 VSCode 中按 F5 启动扩展开发主机
+```
+
+### 打包发布
+
+```bash
+npm run package
+# 生成 cssts-language-x.x.x.vsix 文件
+```
+
+### 依赖
+
+- `@volar/language-core` - Volar 语言核心
+- `@volar/language-server` - Volar 语言服务器
+- `@volar/vscode` - Volar VSCode 集成
+- `volar-service-typescript` - TypeScript 语言服务
+- `vscode-languageclient` - LSP 客户端
+- `vscode-languageserver` - LSP 服务器
