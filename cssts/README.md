@@ -4,128 +4,139 @@
 
 CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供完整的 IDE 支持，在编译时生成优化的 CSS。
 
-## ⚠️ 重要：伪类语法使用 `$$`（双美元符号）！
-
-```typescript
-// ✅ 正确：使用 $$ 双美元符号
-const primary$$hover$$active = css { ... }
-
-// ❌ 错误：不要使用单个 $
-const primary$hover$active = css { ... }
-```
-
-分隔符定义在 `cssts-runtime`：`CSSTS_PSEUDO_SEPARATOR = '$$'`
-
 ## 特性
 
 - 🎯 **类型安全** - 完整的 TypeScript 类型定义，IDE 代码补全
 - 🚀 **编译时优化** - CSS 在构建时按需生成，零运行时开销
-- 🔧 **灵活配置** - 属性 → 单位 → 配置的直观配置结构
-- ⚡ **冲突处理** - 智能检测并替换同属性样式
-- 📦 **零依赖运行时** - runtime 包无任何依赖，体积最小，只做对象操作
-- 🧩 **两层架构** - Atom + GroupUtil 简洁组合
-- 🎨 **`$$` 伪类语法** - 通过变量名声明伪类（双美元符号），配置定义伪类属性
+- 📦 **零依赖运行时** - runtime 包无任何依赖，体积最小
+- 🎨 **`$$` 伪类语法** - 通过变量名声明伪类
+- 🧩 **简洁数据结构** - 统一的 `Set<string>` 存储，按需解析
 
-## 核心架构：两层样式系统
+## 包结构
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  GroupUtil（组合工具）- .cssts 文件                          │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │  clickable = css { cursorPointer, ... }              │   │
-│  │  clickable$$hover = css { cursorPointer, ... }      │   │
-│  │  组合多个原子类，可选添加伪类（使用 $$ 双美元符号）   │   │
-│  └─────────────────────────────────────────────────────┘   │
-├─────────────────────────────────────────────────────────────┤
-│  Atom（原子类）- 配置生成                                    │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │  opacity_0.9, cursor_pointer, display_flex          │   │
-│  │  单个 CSS 属性的原子类                               │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+cssts/
+├── cssts-compiler    # 编译器：解析、转换、生成
+├── cssts-runtime     # 运行时：$cls、replace 等
+└── vite-plugin-cssts # Vite 插件
 ```
 
-## `$$` 伪类语法
+## 快速开始
 
-### 实现原理（简单直接）
+### 安装
 
-生成 CSS 时，检测变量名是否包含 `$$`：
+```bash
+npm install cssts cssts-runtime vite-plugin-cssts -D
+```
 
-1. 解析变量名：`primary$$hover$$active` → 类名 `primary`，伪类 `['hover', 'active']`
-2. 生成普通样式：`.primary { ... }`（原子类组合）
-3. 生成伪类样式：`.primary:hover { ... }`、`.primary:active { ... }`（从配置读取属性）
-
-就这么简单，不需要收集器、不需要全局状态。
-
-### 基本用法
+### 配置 Vite
 
 ```typescript
-// .cssts 文件中
+// vite.config.ts
+import { defineConfig } from 'vite'
+import cssTsPlugin from 'vite-plugin-cssts'
 
-// 普通样式类（无伪类）
-const clickable = css { cursorPointer, displayFlex }
-// 生成：.clickable { cursor: pointer; display: flex; }
-
-// 带伪类的样式类（使用 $$ 双美元符号）
-const clickable$$hover = css { cursorPointer, displayFlex }
-// 生成：
-// .clickable { cursor: pointer; display: flex; }     ← 普通样式
-// .clickable:hover { opacity: 0.9; }                 ← 伪类样式（来自配置）
-```
-
-### 伪类属性来自配置
-
-`:hover` 的 CSS 属性不是来自 `css { }` 里的内容，而是来自配置：
-
-```typescript
-// vite.config.ts 配置
-cssTsPlugin({
-  pseudoUtils: {
-    hover: { opacity: '0.9' },
-    active: { opacity: '0.6' },
-    focus: { outline: '2px solid blue' },
-    disabled: { opacity: '0.5', cursor: 'not-allowed' }
-  }
+export default defineConfig({
+  plugins: [
+    cssTsPlugin({
+      pseudoUtils: {
+        hover: { opacity: '0.9' },
+        active: { opacity: '0.6' }
+      }
+    }),
+  ],
 })
 ```
 
-### 多伪类支持
+### 使用
 
 ```typescript
-// 多个伪类用 $$ 链式追加（双美元符号）
-const myButton$$hover$$active$$focus = css { cursorPointer, padding8px }
+// Button.cssts
 
-// 生成：
-// .myButton { cursor: pointer; padding: 8px; }
-// .myButton:hover { opacity: 0.9; }      ← 来自配置
-// .myButton:active { opacity: 0.6; }     ← 来自配置
-// .myButton:focus { outline: 2px solid blue; }  ← 来自配置
+// 普通样式
+const buttonStyle = css { displayFlex, padding16px, cursorPointer }
+
+// 带伪类的样式（使用 $$ 双美元符号）
+const clickable$$hover$$active = css { cursorPointer, displayFlex }
+
+// 导出使用
+export { buttonStyle, clickable$$hover$$active }
 ```
 
-### 完整示例
+```vue
+<!-- 在 Vue 中使用 -->
+<template>
+  <button :class="buttonStyle">点击我</button>
+</template>
+
+<script setup>
+import { buttonStyle } from './Button.cssts'
+</script>
+```
+
+## 核心设计：统一的样式存储
+
+使用单一的 `Set<string>` 存储所有样式名，按需解析：
 
 ```typescript
-// CsstsButton.cssts（使用 $$ 双美元符号）
-const buttonBase$$hover$$active = css { 
-  displayInlineFlex, 
-  justifyContentCenter, 
-  padding8px,
-  cursorPointer
-}
+// 存储
+const styles = new Set<string>()
+styles.add('displayFlex')              // 普通原子类
+styles.add('clickable$$hover$$active') // 带伪类的样式
+
+// 解析（按需）
+parseStyleName('displayFlex')
+// { baseName: 'displayFlex', pseudos: [] }
+
+parseStyleName('clickable$$hover$$active')
+// { baseName: 'clickable', pseudos: ['hover', 'active'] }
+```
+
+**优点**：
+- 数据结构简单
+- 不存储冗余数据
+- 按需解析，更灵活
+
+## 核心概念
+
+### 原子类（Atom）
+
+单个 CSS 属性的类：
+
+```typescript
+displayFlex      // → .display_flex { display: flex; }
+padding16px      // → .padding_16px { padding: 16px; }
+colorRed         // → .color_red { color: red; }
+```
+
+### 组合样式（GroupUtil）
+
+多个原子类的组合：
+
+```typescript
+const buttonStyle = css { displayFlex, padding16px, cursorPointer }
+// 运行时：{ 'display_flex': true, 'padding_16px': true, 'cursor_pointer': true }
+```
+
+### $$ 伪类语法
+
+通过变量名声明伪类：
+
+```typescript
+// 变量名格式：{baseName}$${pseudo1}$${pseudo2}...
+const clickable$$hover$$active = css { cursorPointer }
+
+// 解析结果
+parseStyleName('clickable$$hover$$active')
+// { baseName: 'clickable', pseudos: ['hover', 'active'] }
 
 // 生成的 CSS：
-// .buttonBase { display: inline-flex; justify-content: center; padding: 8px; cursor: pointer; }
-// .buttonBase:hover { opacity: 0.9; }
-// .buttonBase:active { opacity: 0.6; }
+// .cursor_pointer { cursor: pointer; }     ← 原子类
+// .clickable:hover { opacity: 0.9; }       ← 伪类（来自配置）
+// .clickable:active { opacity: 0.6; }      ← 伪类（来自配置）
 ```
 
-### 类名格式
-
-| 类型 | 格式 | 示例 | CSS 选择器 |
-|------|------|------|-----------|
-| 普通 Atom | `{属性}_{值}` | `opacity_0.9` | `.opacity_0\.9` |
-| GroupUtil | 自定义名 | `clickable` | `.clickable` |
-| GroupUtil + 伪类 | 自定义名 + `$$伪类` | `clickable$$hover` | `.clickable` + `.clickable:hover` |
+伪类的 CSS 属性来自 vite 配置，不是来自 `css { }` 内容。
 
 ## 值转换规则
 
@@ -136,54 +147,42 @@ const buttonBase$$hover$$active = css {
 | `s` | `/` 斜杠 | `aspectRatio16s9` → `16/9` |
 | `N` | `-` 负数 | `zIndexN1` → `-1` |
 
+## 架构
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  .cssts 文件                                                │
+│  const style = css { displayFlex, padding16px }             │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  vite-plugin-cssts                                          │
+│  • 调用 cssts-compiler 转换                                  │
+│  • 维护 globalStyles: Set<string>                           │
+│  • 生成虚拟模块                                              │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  cssts-compiler                                             │
+│  • 解析 css { } 语法                                        │
+│  • 转换为 cssts.$cls(csstsAtom.xxx)                         │
+│  • 按需解析样式名，生成 CSS                                  │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  输出                                                       │
+│  • JS: cssts.$cls(csstsAtom.displayFlex, ...)               │
+│  • CSS: .display_flex { display: flex; }                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ## 分隔符常量
 
 ```typescript
-// cssts-runtime/src/index.ts
-export const CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
-export const CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：className$$pseudo
+CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
+CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：baseName$$pseudo
 ```
 
-## 配置系统
-
-```typescript
-interface CsstsConfig {
-  properties: {
-    [property: string]: {
-      zero?: boolean
-      px?: UnitConfig
-      rem?: UnitConfig
-    }
-  }
-  
-  // 伪类配置（$$ 语法使用，双美元符号）
-  pseudoUtils?: {
-    [pseudo: string]: { [property: string]: string }
-  }
-}
-```
-
-## 快速开始
-
-```bash
-npm install cssts cssts-runtime cssts-compiler
-```
-
-```typescript
-// .cssts 文件
-
-// 普通样式
-const buttonStyle = css { displayFlex, padding16px }
-
-// 带伪类的样式（使用 $$ 双美元符号）
-const clickableButton$$hover$$active = css { displayFlex, cursorPointer }
-
-// 在 Vue 中使用
-<template>
-  <button :class="clickableButton$$hover$$active">点击我</button>
-</template>
-```
-
-## 许可证
+## License
 
 MIT

@@ -2,29 +2,29 @@
 export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTypes } from './parser/index.js'
 
 // AST Transformer
-export { cssTsCstToAst, CssTsCstToAst, type CssStyleInfo } from './factory/index.js'
+export { cssTsCstToAst, CssTsCstToAst } from './factory/index.js'
 
-// Utility functions
-export { 
-  camelToKebab, 
-  kebabToCamel,
-  collectAllCssClasses, 
-  generateCssClsInterface, 
-  generateCssClsStyles,
-  analyzeUsedClasses,
-} from './utils/cssUtils.js'
+// Transform（核心转换功能）
+export {
+  type ParsedStyleInfo,
+  type TransformContext,
+  type TransformResult,
+  parseStyleName,
+  hasPseudos,
+  transformCssTs,
+  generateStylesCss,
+  generateCsstsAtomModule,
+} from './transform/index.js'
 
 // CSS class name utilities
 export {
   CSSTS_SEPARATOR,
-  camelToKebab as camelToKebabCase,
+  camelToKebab,
   parseTsAtomName,
   getCssProperty,
   getCssValue,
   getCssClassName,
   generateAtomCssRule,
-  generateUsedAtomsCss,
-  generateCsstsAtomModule,
 } from './utils/cssClassName.js'
 
 // Generator (从 cssts-types 移入)

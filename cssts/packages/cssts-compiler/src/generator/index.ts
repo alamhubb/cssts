@@ -39,13 +39,19 @@ import {
 // ==================== 生成器选项 ====================
 
 export interface GeneratorOptions {
-  /** 输出目录 */
-  outDir: string
+  /** 输出目录，默认为 cssts-compiler/types/ */
+  outDir?: string
   /** 配置 */
   config?: CsstsConfig
   /** 是否生成 .d.ts 文件（开发环境需要，生产环境不需要） */
   generateDts?: boolean
 }
+
+// 默认输出目录（相对于 cssts-compiler 包）
+import { fileURLToPath } from 'node:url'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const DEFAULT_OUT_DIR = path.resolve(__dirname, '../../types')
 
 // ==================== 同步生成 properties.json ====================
 
@@ -54,19 +60,20 @@ export interface GeneratorOptions {
  * 
  * 用于 vite 启动时和构建时
  */
-export function generatePropertiesJsonSync(options: GeneratorOptions): string {
+export function generatePropertiesJsonSync(options: GeneratorOptions = {}): string {
+  const outDir = options.outDir ?? DEFAULT_OUT_DIR
   const config = options.config ?? defaultConfig
   const atoms = generateAtoms(config)
   const properties = generatePropertiesJson(atoms)
   const content = JSON.stringify(properties, null, 2)
 
   // 确保目录存在
-  if (!fs.existsSync(options.outDir)) {
-    fs.mkdirSync(options.outDir, { recursive: true })
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true })
   }
 
   // 写入文件
-  const filePath = path.join(options.outDir, 'properties.json')
+  const filePath = path.join(outDir, 'properties.json')
   fs.writeFileSync(filePath, content)
 
   return filePath
@@ -79,34 +86,35 @@ export function generatePropertiesJsonSync(options: GeneratorOptions): string {
  * 
  * 用于开发环境，不阻塞 vite 启动
  */
-export async function generateDtsAsync(options: GeneratorOptions): Promise<string[]> {
+export async function generateDtsAsync(options: GeneratorOptions = {}): Promise<string[]> {
+  const outDir = options.outDir ?? DEFAULT_OUT_DIR
   const config = options.config ?? defaultConfig
   const atoms = generateAtoms(config)
 
   // 确保目录存在
-  if (!fs.existsSync(options.outDir)) {
-    fs.mkdirSync(options.outDir, { recursive: true })
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true })
   }
 
   const files: string[] = []
 
   // 生成 CsstsAtoms.d.ts
-  const atomsDtsPath = path.join(options.outDir, 'CsstsAtoms.d.ts')
+  const atomsDtsPath = path.join(outDir, 'CsstsAtoms.d.ts')
   await fs.promises.writeFile(atomsDtsPath, generateCsstsAtomsDts(atoms))
   files.push(atomsDtsPath)
 
   // 生成 global.d.ts
-  const globalDtsPath = path.join(options.outDir, 'global.d.ts')
+  const globalDtsPath = path.join(outDir, 'global.d.ts')
   await fs.promises.writeFile(globalDtsPath, generateGlobalDts(atoms))
   files.push(globalDtsPath)
 
   // 生成 runtime.d.ts
-  const runtimeDtsPath = path.join(options.outDir, 'runtime.d.ts')
+  const runtimeDtsPath = path.join(outDir, 'runtime.d.ts')
   await fs.promises.writeFile(runtimeDtsPath, generateRuntimeDts())
   files.push(runtimeDtsPath)
 
   // 生成 index.d.ts
-  const indexDtsPath = path.join(options.outDir, 'index.d.ts')
+  const indexDtsPath = path.join(outDir, 'index.d.ts')
   await fs.promises.writeFile(indexDtsPath, generateIndexDts())
   files.push(indexDtsPath)
 
@@ -118,7 +126,7 @@ export async function generateDtsAsync(options: GeneratorOptions): Promise<strin
 /**
  * 完整生成（同步 properties.json + 异步 .d.ts）
  */
-export async function generate(options: GeneratorOptions): Promise<{
+export async function generate(options: GeneratorOptions = {}): Promise<{
   propertiesJson: string
   dtsFiles: string[]
 }> {

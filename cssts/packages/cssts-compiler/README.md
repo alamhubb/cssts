@@ -1,103 +1,153 @@
 # cssts-compiler
 
-> CssTs 编译器 - 解析器、AST 转换器与类型生成器
+> CssTs 编译器 - 解析、转换、生成
 
-## 核心设计理念
+## 核心职责
 
 `cssts-compiler` 负责所有**编译时**的工作：
 
-1. **解析** - 解析 `css { }` 语法
+1. **解析** - 解析 `.cssts` 文件中的 `css { }` 语法
 2. **转换** - CST 到 AST 转换，生成 `csstsAtom.xxx` 引用
-3. **类名生成** - 将 TS 变量名转换为 CSS 类名
+3. **CSS 生成** - 根据使用的样式生成 CSS
+4. **类型生成** - 生成 `.d.ts` 类型定义文件
 
-## ⚠️ `$$` 伪类语法
+## 模块结构
 
-> **重要：使用 `$$` 双美元符号，不是单个 `$`！**
-
-### 解析规则
-
-```typescript
-// 变量名格式：{className}$${pseudo1}$${pseudo2}...（双美元符号）
-'clickable$$hover'              // className: 'clickable', pseudos: ['hover']
-'myButton$$hover$$active'       // className: 'myButton', pseudos: ['hover', 'active']
-'btn$$hover$$active$$focus'     // className: 'btn', pseudos: ['hover', 'active', 'focus']
+```
+cssts-compiler/
+├── parser/          # 解析器（CssTsParser）
+├── factory/         # AST 转换器（CssTsCstToAst）
+├── transform/       # 核心转换功能（transformCssTs）
+├── generator/       # 类型定义生成器
+├── utils/           # 工具函数（getCssClassName 等）
+└── types/           # 生成的 .d.ts 文件输出目录
 ```
 
-### 实现原理（简单直接）
+## 核心设计：统一的样式存储
 
-生成 CSS 时，检测变量名是否包含 `$$`：
-
-1. 解析变量名：`primary$$hover$$active` → 类名 `primary`，伪类 `['hover', 'active']`
-2. 生成普通样式：`.primary { ... }`（原子类组合）
-3. 生成伪类样式：`.primary:hover { ... }`、`.primary:active { ... }`（从配置读取属性）
-
-不需要收集器、不需要全局状态。
-
-### 生成的 CSS
-
-伪类的 CSS 属性来自配置，不是来自 `css { }` 内容：
+使用单一的 `Set<string>` 存储所有样式名，按需解析：
 
 ```typescript
-// 配置
-pseudoUtils: {
-  hover: { opacity: '0.9' },
-  active: { opacity: '0.6' }
-}
+// 存储
+const styles = new Set<string>()
+styles.add('displayFlex')              // 普通原子类
+styles.add('clickable$$hover$$active') // 带伪类的样式
 
-// 输入（使用 $$ 双美元符号）
-const clickable$$hover$$active = css { cursorPointer, displayFlex }
+// 解析
+parseStyleName('displayFlex')
+// { baseName: 'displayFlex', pseudos: [] }
 
-// 生成的 CSS
-.clickable { cursor: pointer; display: flex; }  // 来自 css {}
-.clickable:hover { opacity: 0.9; }              // 来自配置
-.clickable:active { opacity: 0.6; }             // 来自配置
+parseStyleName('clickable$$hover$$active')
+// { baseName: 'clickable', pseudos: ['hover', 'active'] }
 ```
 
-## 分隔符常量
-
-```typescript
-// cssts-runtime 定义，compiler 导入使用
-import { CSSTS_SEPARATOR, CSSTS_PSEUDO_SEPARATOR } from 'cssts-runtime'
-
-CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
-CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：className$$pseudo
-```
+**优点**：
+- 数据结构简单（只有一个 `Set<string>`）
+- 不存储冗余数据
+- 按需解析，更灵活
 
 ## 核心 API
 
-### CssTsParser - 解析器
+### transformCssTs - 单文件转换
 
 ```typescript
-import { CssTsParser } from 'cssts-compiler'
+import { transformCssTs, type TransformContext } from 'cssts-compiler'
 
-const parser = new CssTsParser(`
-  const style = css { displayFlex, colorRed }
-`)
-const cst = parser.Program()
+// 创建上下文（多文件共享）
+const context: TransformContext = {
+  styles: new Set<string>()
+}
+
+// 转换 .cssts 文件
+const result = transformCssTs(code, context)
+// result.code - 转换后的 JS 代码
+// result.hasStyles - 是否有样式
+
+// context.styles 会被自动填充
 ```
 
-### CssTsCstToAst - AST 转换器
+### parseStyleName - 样式名解析
 
 ```typescript
-import { CssTsCstToAst } from 'cssts-compiler'
+import { parseStyleName } from 'cssts-compiler'
 
-const transformer = new CssTsCstToAst(getCssClassName)
-const ast = transformer.toProgram(cst)
+// 普通原子类
+parseStyleName('displayFlex')
+// { baseName: 'displayFlex', pseudos: [] }
 
-// 获取使用的原子类
-const usedAtoms = transformer.getUsedAtoms()
-// Set { 'displayFlex', 'colorRed' }
+// 带伪类的样式
+parseStyleName('clickable$$hover$$active')
+// { baseName: 'clickable', pseudos: ['hover', 'active'] }
 ```
 
-### parsePseudoFromVarName - 伪类解析
+### generateStylesCss - CSS 生成
 
 ```typescript
-// 使用 CSSTS_PSEUDO_SEPARATOR 分割（双美元符号）
-parsePseudoFromVarName('clickable$$hover$$active')
-// 返回: { className: 'clickable', pseudos: ['hover', 'active'] }
+import { generateStylesCss } from 'cssts-compiler'
 
-parsePseudoFromVarName('buttonStyle')
-// 返回: { className: 'buttonStyle', pseudos: [] }
+const css = generateStylesCss(
+  styles,       // Set<string>
+  pseudoUtils,  // 伪类配置（可选）
+  prefix        // 类名前缀（可选）
+)
+```
+
+### generateCsstsAtomModule - 虚拟模块生成
+
+```typescript
+import { generateCsstsAtomModule } from 'cssts-compiler'
+
+const moduleCode = generateCsstsAtomModule(
+  styles,  // Set<string>
+  prefix   // 类名前缀（可选）
+)
+```
+
+## 类型定义生成
+
+用于生成 `.d.ts` 文件（输出到 `cssts-compiler/types/`）：
+
+```typescript
+import { 
+  generateAtoms,
+  generateCsstsAtomsDts,
+  generateGlobalDts,
+  generate
+} from 'cssts-compiler'
+
+// 根据配置生成所有原子类定义
+const atoms = generateAtoms()
+
+// 生成 CsstsAtoms.d.ts
+const atomsDts = generateCsstsAtomsDts(atoms)
+
+// 或者一次性生成所有文件
+await generate() // 输出到 cssts-compiler/types/
+```
+
+## $$ 伪类语法
+
+使用 `$$` 双美元符号标记伪类：
+
+```typescript
+// 输入
+const clickable$$hover$$active = css { cursorPointer, displayFlex }
+
+// 解析
+parseStyleName('clickable$$hover$$active')
+// { baseName: 'clickable', pseudos: ['hover', 'active'] }
+```
+
+### 生成的 CSS
+
+```css
+/* 原子类（来自 css {}） */
+.cursor_pointer { cursor: pointer; }
+.display_flex { display: flex; }
+
+/* 伪类样式（来自配置） */
+.clickable:hover { opacity: 0.9; }
+.clickable:active { opacity: 0.6; }
 ```
 
 ## 类名生成规则
@@ -105,10 +155,10 @@ parsePseudoFromVarName('buttonStyle')
 ### 最长前缀匹配
 
 ```typescript
-// 输入: "backgroundColorRed"
-// 按长度降序匹配，找到 "backgroundColor" → "background-color"
-// 值部分: "Red" → "red"
-// 输出: "background-color_red"
+getCssClassName('backgroundColorRed')
+// 匹配 "backgroundColor" → "background-color"
+// 值 "Red" → "red"
+// 结果: "background-color_red"
 ```
 
 ### 值转换规则
@@ -120,6 +170,13 @@ parsePseudoFromVarName('buttonStyle')
 | `s` | `/` 斜杠 | `16s9` → `16/9` |
 | `N` | `-` 负数 | `N1` → `-1` |
 
-## 许可证
+## 分隔符常量
+
+```typescript
+CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
+CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：className$$pseudo
+```
+
+## License
 
 MIT

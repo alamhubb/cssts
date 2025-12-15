@@ -1,4 +1,4 @@
-/**
+﻿/**
  * CssTs 运行时
  *
  * 零依赖，只做对象操作
@@ -11,29 +11,30 @@
  * - 不需要 properties.json，不需要 getCssClassName()
  */
 
-// ==================== 分隔符常量 ====================
+// ==================== 分隔符配置 ====================
 
 /**
- * CSS 类名分隔符
- *
- * 类名格式: `{property}_{value}`
- * 例如: `color_red`, `padding-top_16px`
- *
- * 编译时 (cssts-compiler) 也导入此常量，保证一致性
- */
-export const CSSTS_SEPARATOR = '_'
-
-/**
- * 伪类分隔符（双美元符号）
- *
- * 变量名格式: `{className}$${pseudo1}$${pseudo2}`
- * 例如: `primary$$hover$$active`
- *
- * ⚠️ 重要：使用 $$ 双美元符号，不是单个 $！
+ * CSSTS 分隔符配置
  * 
- * 编译时 (cssts-compiler, vite-plugin-cssts) 导入此常量，保证一致性
+ * 全局统一配置，compiler 和 runtime 共用
  */
-export const CSSTS_PSEUDO_SEPARATOR = '$$'
+export const CSSTS_CONFIG = {
+  /**
+   * CSS 类名分隔符
+   * 类名格式: {property}_{value}
+   * 例如: color_red, padding-top_16px
+   */
+  SEPARATOR: '_',
+  
+  /**
+   * 伪类分隔符（双美元符号）
+   * 变量名格式: {className}$${pseudo1}$${pseudo2}
+   * 例如: primary$$hover$$active
+   */
+  PSEUDO_SEPARATOR: '$$',
+} as const
+
+
 
 // ==================== 类型定义 ====================
 
@@ -45,6 +46,7 @@ type ClassValue =
   | undefined
   | ClassObject
   | ClassValue[]
+
 
 interface ClassObject {
   [key: string]: boolean | undefined | null
@@ -96,7 +98,7 @@ function processValue(value: ClassValue, result: ClassObject): void {
 /**
  * 从类名提取 CSS 属性名
  *
- * 类名格式：`{property}_{value}` 如 `color_red`
+ * 类名格式：{property}_{value} 如 color_red
  * 
  * 注意：伪类样式由 $$ 语法在编译时处理，runtime 不需要解析伪类
  *
@@ -105,7 +107,7 @@ function processValue(value: ClassValue, result: ClassObject): void {
  * getPropertyFromClassName('padding-top_16px') // 'padding-top'
  */
 function getPropertyFromClassName(className: string): string | null {
-  const firstUnderscoreIndex = className.indexOf(CSSTS_SEPARATOR)
+  const firstUnderscoreIndex = className.indexOf(CSSTS_CONFIG.SEPARATOR)
   if (firstUnderscoreIndex <= 0) {
     return null
   }
@@ -202,6 +204,7 @@ export function replaceAll(
   return result
 }
 
+
 // ==================== 兼容性导出（已废弃） ====================
 
 /**
@@ -233,8 +236,7 @@ export const cssts = {
   $cls,
   replace,
   replaceAll,
-  CSSTS_SEPARATOR,
-  CSSTS_PSEUDO_SEPARATOR,
+  CSSTS_CONFIG,
   // 兼容性导出
   getCssProperty,
   getCssClassName,
