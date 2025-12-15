@@ -1,10 +1,22 @@
-# cssts-runtime
+# cssts (cssts-runtime)
 
 > CssTs 运行时 - 样式合并、冲突处理、分隔符配置
 
+## 重要说明
+
+**包名是 `cssts`**，不是 `cssts-runtime`（目录名和包名不一致）。
+
+```typescript
+// ✅ 正确
+import { cssts, CSSTS_CONFIG } from 'cssts'
+
+// ❌ 错误
+import { cssts } from 'cssts-runtime'  // 包名不存在
+```
+
 ## 核心设计理念
 
-`cssts-runtime` 是一个**真正零依赖**的运行时包：
+`cssts` 是一个**真正零依赖**的运行时包：
 
 - ❌ **不需要** `properties.json`
 - ❌ **不需要** `initProperties()` 初始化
@@ -17,12 +29,12 @@
 `CSSTS_CONFIG` 是全局统一的分隔符配置，compiler 和 runtime 共用：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts'
 
 // 分隔符配置对象
 CSSTS_CONFIG = {
-  SEPARATOR: '_',        // CSS 类名分隔符：property_value
-  PSEUDO_SEPARATOR: '$$' // 伪类分隔符：baseName$$pseudo
+  SEPARATOR: '_',         // CSS 类名分隔符：property_value
+  PSEUDO_SEPARATOR: '$$'  // 伪类分隔符：baseName$$pseudo（双美元符号）
 }
 
 // 使用
@@ -51,10 +63,10 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'
 ┌─────────────────────────────────────────────────────────────────┐
 │                        运行时                                    │
 │  ┌─────────────────────────────────────────────────────────┐   │
-│  │  cssts-runtime                                           │   │
+│  │  cssts (包名)                                            │   │
 │  │                                                          │   │
 │  │  CSSTS_CONFIG.SEPARATOR        ← 分隔符配置              │   │
-│  │  CSSTS_CONFIG.PSEUDO_SEPARATOR ← 伪类分隔符              │   │
+│  │  CSSTS_CONFIG.PSEUDO_SEPARATOR ← 伪类分隔符（$$）        │   │
 │  │  $cls()                        ← 纯对象合并              │   │
 │  │  replace()                     ← 解析属性，智能替换      │   │
 │  │                                                          │   │
@@ -67,7 +79,7 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'
 ## 安装
 
 ```bash
-npm install cssts-runtime
+npm install cssts
 ```
 
 ## 核心 API
@@ -75,10 +87,10 @@ npm install cssts-runtime
 ### CSSTS_CONFIG - 分隔符配置
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts'
 
-CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
+CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 ```
 
 ### $cls - 样式合并
@@ -86,7 +98,7 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
 纯对象合并，不做任何转换：
 
 ```typescript
-import { $cls } from 'cssts-runtime'
+import { $cls } from 'cssts'
 
 const style = $cls(
   csstsAtom.displayFlex,
@@ -101,7 +113,7 @@ const style = $cls(
 通过字符串分割提取属性名，检测冲突并替换：
 
 ```typescript
-import { replace } from 'cssts-runtime'
+import { replace } from 'cssts'
 
 const style = { 'color_red': true, 'font-weight_bold': true }
 const newStyle = replace(style, csstsAtom.colorBlue)
@@ -111,7 +123,7 @@ const newStyle = replace(style, csstsAtom.colorBlue)
 ### replaceAll - 批量替换
 
 ```typescript
-import { replaceAll } from 'cssts-runtime'
+import { replaceAll } from 'cssts'
 
 const style = { 'color_red': true, 'font-size_14px': true }
 const newStyle = replaceAll(style, [
@@ -119,6 +131,19 @@ const newStyle = replaceAll(style, [
   csstsAtom.fontSize16px
 ])
 // 返回: { 'color_blue': true, 'font-size_16px': true }
+```
+
+## 伪类语法
+
+使用 `$$` 双美元符号分隔伪类：
+
+```typescript
+// 变量名
+const btn$$hover$$active = css { cursorPointer }
+
+// 生成的 CSS
+// .btn:hover { filter: brightness(1.15); }
+// .btn:active { filter: brightness(0.85); }
 ```
 
 ## 类名格式

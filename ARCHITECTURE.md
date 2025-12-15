@@ -92,7 +92,7 @@ async function foo() {}  // 可能被误解析
 │  │  • replace(): 属性冲突检测 + 替换                                 │   │
 │  │  • CSSTS_CONFIG: 分隔符配置                                       │   │
 │  │    - SEPARATOR: '_' (属性_值)                                    │   │
-│  │    - PSEUDO_SEPARATOR: '$$' (变量名$$伪类)                        │   │
+│  │    - PSEUDO_SEPARATOR: '$$' (变量名$$伪类)                       │   │
 │  └─────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
                                     │
@@ -175,7 +175,7 @@ export const CSSTS_CONFIG = {
 ### 使用示例
 
 ```typescript
-// 变量名
+// 变量名（使用双美元符号 $$ 分隔伪类）
 const btn$$hover$$active = css { cursorPointer }
 
 // 解析
@@ -187,6 +187,7 @@ parseStyleName('btn$$hover$$active')
 // .btn:hover { opacity: 0.9; }      ← 来自 pseudoUtils 配置
 // .btn:active { opacity: 0.6; }     ← 来自 pseudoUtils 配置
 ```
+
 
 ## 自动解构：作用域分析 + 命名规则
 
@@ -368,4 +369,134 @@ Button.ovs
     │   • 写入 sharedStyles
     │
     └─► 注入 import 'virtual:cssts.css'
+```
+
+
+## 常见问题与修复记录
+
+### 问题 1：包名导入错误
+
+**问题描述**：
+`cssts-compiler` 中导入 `CSSTS_CONFIG` 时使用了错误的包名。
+
+**错误代码**：
+```typescript
+// ❌ 错误：包名不存在
+import { CSSTS_CONFIG } from "cssts-runtime"
+```
+
+**正确代码**：
+```typescript
+// ✅ 正确：使用实际的包名
+import { CSSTS_CONFIG } from "cssts"
+```
+
+**问题原因**：
+- `cssts-runtime` 包的 `package.json` 中 `name` 字段是 `"cssts"`，不是 `"cssts-runtime"`
+- 目录名和包名不一致，容易混淆
+- 在 monorepo 中，workspace 链接使用的是 `package.json` 中的 `name` 字段
+
+**如何避免**：
+1. 导入前检查目标包的 `package.json` 中的 `name` 字段
+2. 包目录名应与 `package.json` 中的 `name` 保持一致
+3. 在 monorepo 中，使用 `npm ls` 或查看 `node_modules` 中的符号链接确认包名
+
+**相关文件**：
+- `cssts/packages/cssts-runtime/package.json` - 包名定义为 `"cssts"`
+- `cssts/packages/cssts-compiler/src/utils/cssClassName.ts` - 导入 `CSSTS_CONFIG`
+
+---
+
+### 问题 2：伪类分隔符使用错误
+
+**问题描述**：
+组件代码中使用的伪类分隔符与配置不匹配，导致伪类样式不生效。
+
+**错误示例**：
+```typescript
+// 配置中定义的分隔符是双美元符号
+CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'
+
+// 组件中错误使用单美元符号
+const primary$hover$active = css { ... }  // ❌ 不匹配，伪类不生效
+```
+
+**正确示例**：
+```typescript
+// 配置中定义的分隔符是双美元符号
+CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'
+
+// 组件中使用双美元符号
+const primary$$hover$$active = css { ... }  // ✅ 匹配，伪类生效
+```
+
+**问题原因**：
+- `CSSTS_CONFIG.PSEUDO_SEPARATOR` 的值决定了编译器如何解析变量名中的伪类
+- 如果组件代码使用的分隔符与配置不匹配，编译器无法识别伪类部分
+- 伪类样式不会被生成，hover/active 等效果失效
+
+**如何避免**：
+1. 在编写组件前，先确认 `CSSTS_CONFIG.PSEUDO_SEPARATOR` 的值（当前是 `$$`）
+2. 保持团队内分隔符使用的一致性
+3. 在文档中明确说明当前使用的分隔符
+
+**当前配置**：
+```typescript
+// cssts-runtime/src/index.ts
+export const CSSTS_CONFIG = {
+  SEPARATOR: '_',           // CSS 类名分隔符：property_value
+  PSEUDO_SEPARATOR: '$$',   // 伪类分隔符：baseName$$pseudo1$$pseudo2
+}
+```
+
+**伪类语法示例**：
+```typescript
+// 单个伪类
+const btn$$hover = css { cursorPointer }
+// 生成：.btn:hover { filter: brightness(1.15); }
+
+// 多个伪类
+const primary$$hover$$active = css { backgroundColorBlue }
+// 生成：
+// .primary:hover { filter: brightness(1.15); }
+// .primary:active { filter: brightness(0.85); }
+```
+
+**相关文件**：
+- `cssts/packages/cssts-runtime/src/index.ts` - `CSSTS_CONFIG` 定义
+- `cssts/packages/cssts-compiler/src/factory/CssTsCstToAst.ts` - 伪类解析逻辑
+- `vite.config.ts` - `pseudoUtils` 配置伪类效果
+
+---
+
+### 调试技巧
+
+**检查伪类样式是否生效**：
+
+1. 打开浏览器 DevTools
+2. 在 Console 中运行：
+```javascript
+// 查找所有 :hover 和 :active 规则
+for (const sheet of document.styleSheets) {
+  try {
+    for (const rule of sheet.cssRules) {
+      if (rule.selectorText?.includes(':hover') || 
+          rule.selectorText?.includes(':active')) {
+        console.log(rule.selectorText, rule.style.cssText)
+      }
+    }
+  } catch (e) {}
+}
+```
+
+3. 检查是否有类似以下的规则：
+```css
+.primary:hover { filter: brightness(1.15); }
+.primary:active { filter: brightness(0.85); }
+```
+
+**检查元素的 class 属性**：
+```javascript
+document.querySelector('button').className
+// 应该包含基础类名，如 "primary display_inline-flex ..."
 ```

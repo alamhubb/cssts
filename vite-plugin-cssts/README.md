@@ -24,8 +24,8 @@ const globalStyles = new Set<string>()
 transformCssTs(code, { styles: globalStyles })
 
 // 存储的内容
-// 'displayFlex'               - 普通原子类
-// 'clickable$$hover$$active'  - 带伪类的样式（$$ 双美元符号）
+// 'displayFlex'                 - 普通原子类
+// 'clickable$$hover$$active'    - 带伪类的样式（$$ 双美元符号）
 ```
 
 生成 CSS 时按需解析，不存储冗余数据。
@@ -151,14 +151,16 @@ cssTsPlugin({
 
 ## 分隔符配置
 
-分隔符统一在 `cssts-runtime` 中配置：
+分隔符统一在 `cssts` 中配置：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts'
 
-CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
+CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 ```
+
+> **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
 
 ## License
 

@@ -17,16 +17,18 @@ CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供
 ```
 cssts/
 ├── cssts-compiler    # 编译器：解析、转换、生成
-├── cssts-runtime     # 运行时：$cls、replace、分隔符配置
+├── cssts-runtime     # 运行时：$cls、replace、分隔符配置（包名是 cssts）
 └── vite-plugin-cssts # Vite 插件
 ```
+
+> **注意**：`cssts-runtime` 目录的包名是 `cssts`，不是 `cssts-runtime`
 
 ## 快速开始
 
 ### 安装
 
 ```bash
-npm install cssts cssts-runtime vite-plugin-cssts -D
+npm install cssts vite-plugin-cssts -D
 ```
 
 ### 配置 Vite
@@ -82,8 +84,8 @@ import { buttonStyle } from './Button.cssts'
 ```typescript
 // 存储
 const styles = new Set<string>()
-styles.add('displayFlex')               // 普通原子类
-styles.add('clickable$$hover$$active')  // 带伪类的样式
+styles.add('displayFlex')                 // 普通原子类
+styles.add('clickable$$hover$$active')    // 带伪类的样式（双美元符号）
 
 // 解析（按需）
 parseStyleName('displayFlex')
@@ -174,7 +176,7 @@ parseStyleName('clickable$$hover$$active')
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │  运行时层                                                    │
-│  • cssts-runtime: $cls()、replace()、CSSTS_CONFIG           │
+│  • cssts（包名）: $cls()、replace()、CSSTS_CONFIG            │
 │  • 零依赖，只做对象操作                                       │
 └─────────────────────────────────────────────────────────────┘
                               ↓
@@ -189,14 +191,16 @@ parseStyleName('clickable$$hover$$active')
 
 ## 分隔符配置
 
-所有分隔符统一在 `cssts-runtime` 中配置，compiler 和 runtime 共用：
+所有分隔符统一在 `cssts` 中配置，compiler 和 runtime 共用：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts'
 
-CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符：property_value
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符：baseName$$pseudo
+CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符：property_value
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符：baseName$$pseudo（双美元符号）
 ```
+
+> **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
 
 ## License
 

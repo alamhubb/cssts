@@ -25,14 +25,16 @@ cssts-compiler/
 
 ## 分隔符配置
 
-从 `cssts-runtime` 导入统一的分隔符配置：
+从 `cssts` 导入统一的分隔符配置：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts'
 
-CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
+CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 ```
+
+> **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
 
 ## 核心设计：统一的样式存储
 
@@ -41,8 +43,8 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
 ```typescript
 // 存储
 const styles = new Set<string>()
-styles.add('displayFlex')               // 普通原子类
-styles.add('clickable$$hover$$active')  // 带伪类的样式
+styles.add('displayFlex')                 // 普通原子类
+styles.add('clickable$$hover$$active')    // 带伪类的样式（双美元符号）
 
 // 解析
 parseStyleName('displayFlex')
@@ -86,7 +88,7 @@ import { parseStyleName } from 'cssts-compiler'
 parseStyleName('displayFlex')
 // { baseName: 'displayFlex', pseudos: [] }
 
-// 带伪类的样式
+// 带伪类的样式（双美元符号）
 parseStyleName('clickable$$hover$$active')
 // { baseName: 'clickable', pseudos: ['hover', 'active'] }
 ```
