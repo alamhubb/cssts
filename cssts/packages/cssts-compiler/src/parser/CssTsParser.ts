@@ -3,7 +3,6 @@ import { Subhuti, SubhutiRule } from 'subhuti/src/SubhutiParser.ts'
 import type { SubhutiParserOptions } from 'subhuti/src/SubhutiParser.ts'
 import SlimeParser from "slime-parser/src/language/es2025/SlimeParser.ts"
 import type { ExpressionParams } from "slime-parser/src/language/es2025/SlimeParser.ts"
-import {LexicalGoal} from "subhuti";
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -100,9 +99,5 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
       { alt: () => this.TemplateLiteral({ ...params, Tagged: false }) },
       { alt: () => this.CoverParenthesizedExpressionAndArrowParameterList(params) }
     ])
-  }
-
-  private consumeRegularExpressionLiteral(): any {
-    return this.consume('RegularExpressionLiteral', LexicalGoal.InputElementRegExp)
   }
 }
