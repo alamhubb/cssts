@@ -1,0 +1,6 @@
+// 数组元素中使用
+const styleList = [
+  css { colorRed },
+  css { colorBlue },
+  css { colorGreen }
+]

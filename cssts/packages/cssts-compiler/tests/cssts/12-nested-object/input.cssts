@@ -1,0 +1,10 @@
+// 嵌套对象中使用
+const theme = {
+  button: {
+    primary: css { colorWhite, bgBlue },
+    secondary: css { colorBlue, bgWhite }
+  },
+  card: {
+    default: css { bgWhite, shadowMd }
+  }
+}

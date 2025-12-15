@@ -1,0 +1,2 @@
+// 基础 css 表达式
+const style = css { colorRed }

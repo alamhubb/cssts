@@ -1,0 +1,5 @@
+// 对象属性中使用
+const styles = {
+  primary: css { colorBlue, bgPrimary },
+  secondary: css { colorGray, bgSecondary }
+}

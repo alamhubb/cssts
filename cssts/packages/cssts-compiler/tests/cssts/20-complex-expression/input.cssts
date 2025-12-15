@@ -1,0 +1,11 @@
+// 复杂表达式组合
+const isActive = true
+const isDisabled = false
+const theme = 'dark'
+
+const style = css {
+  isActive && colorRed,
+  !isDisabled && cursorPointer,
+  theme === 'dark' ? bgDark : bgLight,
+  fontBold
+}

@@ -1,0 +1,3 @@
+// 默认导出
+const buttonStyle = css { colorRed, displayFlex }
+export default buttonStyle

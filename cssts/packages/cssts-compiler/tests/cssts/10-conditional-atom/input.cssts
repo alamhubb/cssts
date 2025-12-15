@@ -1,0 +1,3 @@
+// css 表达式中使用条件原子
+const isError = true
+const style = css { isError && colorRed, fontBold }

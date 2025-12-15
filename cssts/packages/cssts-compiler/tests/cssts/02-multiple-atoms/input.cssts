@@ -1,0 +1,2 @@
+// 多个原子类
+const style = css { colorRed, fontBold, displayFlex }

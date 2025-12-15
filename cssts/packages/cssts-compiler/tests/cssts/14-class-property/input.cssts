@@ -1,0 +1,5 @@
+// 类属性中使用
+class Button {
+  style = css { colorRed, fontBold }
+  hoverStyle = css { colorBlue }
+}

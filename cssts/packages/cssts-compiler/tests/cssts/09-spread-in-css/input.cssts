@@ -1,0 +1,3 @@
+// css 表达式中使用展开
+const base = { colorRed: true }
+const style = css { ...base, fontBold }

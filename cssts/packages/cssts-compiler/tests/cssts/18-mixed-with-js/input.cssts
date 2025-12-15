@@ -1,0 +1,7 @@
+// 与普通 JS 代码混合
+const count = 0
+const style = css { colorRed }
+function increment() {
+  return count + 1
+}
+const result = increment()

@@ -1,0 +1,5 @@
+// async 函数中使用（验证不与 async 冲突）
+async function loadStyle() {
+  const data = await fetch('/api/style')
+  return css { colorRed }
+}

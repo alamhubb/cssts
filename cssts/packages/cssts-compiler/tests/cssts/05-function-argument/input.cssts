@@ -1,0 +1,5 @@
+// 函数参数中使用
+function applyStyle(style) {
+  return style
+}
+const result = applyStyle(css { colorRed })

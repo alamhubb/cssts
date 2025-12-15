@@ -1,0 +1,4 @@
+// 逻辑表达式中使用
+const enabled = true
+const style = enabled && css { colorRed }
+const fallback = null || css { colorBlue }

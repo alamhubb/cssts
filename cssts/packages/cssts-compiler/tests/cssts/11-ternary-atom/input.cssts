@@ -1,0 +1,3 @@
+// css 表达式中使用三元原子
+const isActive = true
+const style = css { isActive ? colorRed : colorGray, fontBold }
