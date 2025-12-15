@@ -78,7 +78,8 @@ export function transformCssTs(code: string, context: TransformContext): Transfo
   const parser = new CssTsParser(code)
   const cst = parser.Program()
   const transformer = new CssTsCstToAst()
-  const ast = transformer.toProgram(cst)
+  // 使用 toFileAst 进行完整转换（包含导入处理）
+  const ast = transformer.toFileAst(cst)
   
   // 收集使用的样式（原子类 + 伪类样式，直接写入 context）
   // 注：伪类样式（如 clickable$$hover$$active）在 CssTsCstToAst 中已自动收集

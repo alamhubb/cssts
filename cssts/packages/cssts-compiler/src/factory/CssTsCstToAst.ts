@@ -44,10 +44,34 @@ export class CssTsCstToAst extends SlimeCstToAst {
   // 临时存储当前正在处理的变量名（用于收集 $$ 变量）
   private currentVarName: string | null = null
 
+  /**
+   * 标记是否使用了 CSSTS 特有语法
+   * 包括：css { property_value } 表达式
+   * 用于验证与 usedAtoms 的一致性
+   */
+  protected _hasCsstsSyntax = false
+
   constructor() {
     super()
   }
 
+  /**
+   * 获取是否使用了 CSSTS 语法
+   */
+  get hasCsstsSyntax(): boolean {
+    return this._hasCsstsSyntax
+  }
+
+  /**
+   * 重置状态（在 toProgram 开始时调用）
+   * 子类可以重写此方法来重置自己的状态
+   */
+  protected resetState(): void {
+    this._hasCsstsSyntax = false
+    this.cssStyles.clear()
+    this.usedAtoms.clear()
+    this.currentVarName = null
+  }
 
   getCssStyles(): Map<string, CssStyleInfo> {
     return this.cssStyles
@@ -65,7 +89,18 @@ export class CssTsCstToAst extends SlimeCstToAst {
     this.usedAtoms.clear()
   }
 
+  /**
+   * 纯 AST 转换：CST → AST
+   * 
+   * 职责：只做语法转换，不做任何后处理
+   * - 不添加导入语句
+   * 
+   * 适用场景：测试、AST 分析等
+   */
   toProgram(cst: SubhutiCst): SlimeProgram {
+    // 重置状态
+    this.resetState()
+
     // 支持 Program 和 Module 两种入口
     const programName = SlimeParser.prototype.Program?.name || 'Program'
     const moduleName = SlimeParser.prototype.Module?.name || 'Module'
@@ -118,12 +153,29 @@ export class CssTsCstToAst extends SlimeCstToAst {
       sourceType = SlimeProgramSourceType.Script
     }
 
-    if (this.usedAtoms.size > 0) {
-      body = this.ensureCsstsImports(body)
-    }
-
+    // 纯转换，不做后处理
     const program = SlimeNodeCreate.createProgram(body, sourceType)
     program.loc = cst.loc
+    return program
+  }
+
+  /**
+   * 面向文件的完整 AST 转换：CST → AST + 后处理
+   * 
+   * 职责：完整的文件转换，包含所有后处理
+   * - 添加 cssts/csstsAtom 导入（如果使用了 CSSTS 语法）
+   * 
+   * 适用场景：vite 插件、实际编译
+   */
+  toFileAst(cst: SubhutiCst): SlimeProgram {
+    // 先调用 toProgram 做纯 AST 转换
+    const program = this.toProgram(cst)
+    
+    // CSSTS 后处理：添加 cssts 和 csstsAtom 导入
+    if (this.usedAtoms.size > 0) {
+      program.body = this.ensureCsstsImports(program.body)
+    }
+    
     return program
   }
 
@@ -293,6 +345,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
+    // 标记使用了 CSSTS 语法
+    this._hasCsstsSyntax = true
+
     const children = cst.children || []
     const styleObjectCst = children.find(c => c.name === CssTsParser.prototype.CssStyleObject.name)
     
