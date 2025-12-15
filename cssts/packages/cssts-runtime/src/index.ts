@@ -34,8 +34,6 @@ export const CSSTS_CONFIG = {
   PSEUDO_SEPARATOR: '$$',
 } as const
 
-
-
 // ==================== 类型定义 ====================
 
 type ClassValue =
@@ -47,10 +45,10 @@ type ClassValue =
   | ClassObject
   | ClassValue[]
 
-
 interface ClassObject {
   [key: string]: boolean | undefined | null
 }
+
 
 // ==================== 样式合并 ====================
 
@@ -203,7 +201,6 @@ export function replaceAll(
   }
   return result
 }
-
 
 // ==================== 兼容性导出（已废弃） ====================
 
