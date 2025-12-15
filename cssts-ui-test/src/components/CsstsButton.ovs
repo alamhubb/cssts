@@ -9,6 +9,7 @@
  * $$ 伪类语法（双美元符号）：
  * - const clickable$$hover = css { ... } 
  * - 生成普通样式 + :hover 伪类样式（伪类属性来自配置）
+ * - 分隔符配置来自 cssts-runtime: CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'
  */
 
 import { computed } from 'vue'

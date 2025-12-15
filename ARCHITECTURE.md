@@ -2,6 +2,27 @@
 
 > 运行时、编译器、Vite 插件之间的协作关系
 
+## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
+
+**伪类语法使用双美元符号 `$$`，不是单美元符号 `$`！**
+
+```typescript
+// ✅ 正确：使用双美元符号 $$
+const primary$$hover$$active = css { backgroundColorBlue }
+
+// ❌ 错误：使用单美元符号 $（伪类不会生效！）
+const primary$hover$active = css { backgroundColorBlue }
+```
+
+分隔符配置来自 `cssts-runtime`：
+
+```typescript
+import { CSSTS_CONFIG } from 'cssts'
+console.log(CSSTS_CONFIG.PSEUDO_SEPARATOR)  // '$$'
+```
+
+---
+
 ## CSS 语法说明
 
 ### 支持的语法：CSS 表达式

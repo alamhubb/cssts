@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// cssts 插件处理 .cssts 文件
-import cssts from 'vite-plugin-cssts/src/index.ts'
-// ovs 插件处理 .ovs 文件
+// ovs 插件处理 .ovs 文件（内部已包含 cssts 插件）
 import ovs from 'vite-plugin-ovs/src/index.ts'
 import path from 'path'
 
@@ -14,23 +12,26 @@ const elementPlusNodeModules = path.resolve(elementPlusRoot, 'node_modules')
 // 本地 cssts-components
 const csstsComponentsRoot = path.resolve(__dirname, './cssts-components')
 
+// 共享的伪类配置
+const pseudoUtilsConfig = {
+  hover: { filter: 'brightness(1.15)' },
+  active: { filter: 'brightness(0.85)' },
+  focus: { outline: '2px solid var(--el-color-primary-light-5, #79bbff)', 'outline-offset': '1px' },
+  disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
+}
+
 export default defineConfig({
   plugins: [
-    vue(),
-    ovs({
-      cssts:{
-      // $$ 伪类语法配置：与 Element Plus 按钮效果一致
-      // Element Plus: hover 颜色变浅 (light-3), active 颜色变深 (dark-2)
-      // 使用 filter: brightness() 模拟颜色变化效果
-      pseudoUtils: {
-        hover: { filter: 'brightness(1.15)' },  // 变亮 ~light-3 效果
-        active: { filter: 'brightness(0.85)' }, // 变暗 ~dark-2 效果
-        focus: { outline: '2px solid var(--el-color-primary-light-5, #79bbff)', 'outline-offset': '1px' },
-        disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
+    // ovs 插件处理 .ovs 和 .cssts 文件（内部已包含 cssts 插件）
+    // cssts 插件现在也支持处理 .cssts.js 文件中的 css {} 语法
+    ...ovs({
+      cssts: {
+        pseudoUtils: pseudoUtilsConfig,
+        // 启用对 .cssts.js 文件的 css {} 语法支持
+        include: ['.cssts', '.cssts.js']
       }
-    }
-    }),  // OVS 插件处理 .ovs 文件
-    
+    }),
+    vue(),
   ],
   server: {
     port: 3001
@@ -113,4 +114,21 @@ export default defineConfig({
       },
     },
   },
+  // 配置依赖优化，排除 .cssts.js 文件
+  optimizeDeps: {
+    esbuildOptions: {
+      plugins: [
+        {
+          name: 'cssts-js-loader',
+          setup(build) {
+            // 为 .cssts.js 文件返回空的 JS 模块，跳过 esbuild 解析
+            build.onLoad({ filter: /\.cssts\.js$/ }, () => ({
+              contents: 'export default {}',
+              loader: 'js'
+            }))
+          }
+        }
+      ]
+    }
+  }
 })

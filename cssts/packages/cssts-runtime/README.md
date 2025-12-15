@@ -2,6 +2,20 @@
 
 > CssTs 运行时 - 样式合并、冲突处理、分隔符配置
 
+## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
+
+```typescript
+// ✅ 正确：使用双美元符号 $$
+const btn$$hover$$active = css { cursorPointer }
+
+// ❌ 错误：使用单美元符号 $（伪类不会生效！）
+const btn$hover$active = css { cursorPointer }
+
+// 查看配置
+import { CSSTS_CONFIG } from 'cssts'
+console.log(CSSTS_CONFIG.PSEUDO_SEPARATOR)  // '$$'
+```
+
 ## 重要说明
 
 **包名是 `cssts`**，不是 `cssts-runtime`（目录名和包名不一致）。

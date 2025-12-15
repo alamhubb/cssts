@@ -9,11 +9,18 @@
       <el-button type="success">Success</el-button>
     </div>
 
-    <h2>CSSTS Button (from ./components/CsstsButton.ovs)</h2>
+    <h2>CSSTS Button - OVS 语法 (from ./components/CsstsButton.ovs)</h2>
     <div class="button-group">
       <CsstsButton @click="count++">Default</CsstsButton>
       <CsstsButton type="primary" @click="count++">Primary</CsstsButton>
       <CsstsButton type="success" @click="count++">Success</CsstsButton>
+    </div>
+
+    <h2>Vue Button - .cssts.js 文件 (from ./components/VueButton.vue)</h2>
+    <div class="button-group">
+      <VueButton @click="count++">Default</VueButton>
+      <VueButton type="primary" @click="count++">Primary</VueButton>
+      <VueButton type="success" @click="count++">Success</VueButton>
     </div>
 
     <p>Click count: {{ count }}</p>
@@ -22,8 +29,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-// 从本地 cssts 组件导入
+// OVS 组件
 import CsstsButton from './components/CsstsButton.ovs'
+// Vue + .cssts 组件
+import VueButton from './components/VueButton.vue'
 
 const count = ref(0)
 </script>

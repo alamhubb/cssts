@@ -2,6 +2,20 @@
 
 > CssTs 编译器 - 解析、转换、生成
 
+## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
+
+```typescript
+// ✅ 正确：使用双美元符号 $$
+const btn$$hover$$active = css { cursorPointer }
+
+// ❌ 错误：使用单美元符号 $（伪类不会生效！）
+const btn$hover$active = css { cursorPointer }
+```
+
+分隔符配置来自 `cssts-runtime`：`CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'`
+
+---
+
 ## 核心职责
 
 `cssts-compiler` 负责所有**编译时**的工作：
