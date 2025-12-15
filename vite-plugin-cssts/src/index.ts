@@ -11,6 +11,8 @@ import { type PseudoUtilsConfig } from 'cssts-compiler/src/generator/config.ts'
 export interface CssTsPluginOptions {
   classPrefix?: string
   pseudoUtils?: PseudoUtilsConfig
+  /** 外部传入的共享样式集合，不传则内部创建 */
+  globalStyles?: Set<string>
 }
 
 // ==================== 虚拟模块 ====================
@@ -20,15 +22,14 @@ const RESOLVED_VIRTUAL_CSS_ID = '\0' + VIRTUAL_CSS_ID
 const VIRTUAL_ATOM_ID = 'virtual:csstsAtom'
 const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
 
-// 全局状态（多文件共享）
-const globalStyles = new Set<string>()
-
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   let server: any = null
   const prefix = options.classPrefix || ''
   const pseudoUtils = options.pseudoUtils
+  // 外部传入就用外部的，否则内部创建
+  const globalStyles = options.globalStyles || new Set<string>()
 
   return {
     name: 'vite-plugin-cssts',
@@ -100,4 +101,4 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   }
 }
 
-export { globalStyles, VIRTUAL_CSS_ID, VIRTUAL_ATOM_ID }
+export { VIRTUAL_CSS_ID, VIRTUAL_ATOM_ID }

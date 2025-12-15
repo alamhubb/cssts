@@ -11,10 +11,7 @@ import {
 } from "slime-ast/src/SlimeESTree.ts"
 import SlimeParser from "slime-parser/src/language/es2025/SlimeParser.ts"
 import SlimeNodeCreate from "slime-ast/src/SlimeNodeCreate.ts"
-import { getCssClassName } from "../utils/cssClassName.js"
-
-// 伪类分隔符常量（双美元符号）
-const CSSTS_PSEUDO_SEPARATOR = '$$'
+import { getCssClassName, CSSTS_CONFIG } from "../utils/cssClassName.js"
 
 /**
  * CSS 样式声明信息
@@ -131,9 +128,23 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
+   * 处理 cssts 相关的后处理逻辑
+   * 子类（如 OvsCstToSlimeAst）可以在自己的 toProgram 中调用此方法
+   * 
+   * @param body 已转换的 AST body
+   * @returns 添加了 cssts 导入的 body
+   */
+  protected processCsstsPostTransform(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
+    if (this.usedAtoms.size > 0) {
+      return this.ensureCsstsImports(body)
+    }
+    return body
+  }
+
+  /**
    * 确保有 cssts 和 csstsAtom 的导入
    */
-  private ensureCsstsImports(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
+  protected ensureCsstsImports(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
     let hasCsstsImport = false
     let hasCsstsAtomImport = false
 
@@ -231,7 +242,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     }
     
     // 如果变量名包含 $$（伪类分隔符），设置当前变量名
-    if (varName && varName.includes(CSSTS_PSEUDO_SEPARATOR)) {
+    if (varName && varName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
       this.currentVarName = varName
     }
     
@@ -239,7 +250,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const result = super.createLexicalBindingAst(cst)
     
     // 如果是 $$ 变量，收集到 usedAtoms 并注入参数
-    if (this.currentVarName && this.currentVarName.includes(CSSTS_PSEUDO_SEPARATOR)) {
+    if (this.currentVarName && this.currentVarName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
       // 收集伪类样式名到 usedAtoms
       this.usedAtoms.add(this.currentVarName)
       

@@ -9,7 +9,7 @@
       <el-button type="success">Success</el-button>
     </div>
 
-    <h2>CSSTS Button (from ./components/CsstsButton.cssts)</h2>
+    <h2>CSSTS Button (from ./components/CsstsButton.ovs)</h2>
     <div class="button-group">
       <CsstsButton>Default</CsstsButton>
       <CsstsButton type="primary">Primary</CsstsButton>
@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // 从本地 cssts 组件导入
-import CsstsButton from './components/CsstsButton.cssts'
+import CsstsButton from './components/CsstsButton.ovs'
 
 const count = ref(0)
 </script>
