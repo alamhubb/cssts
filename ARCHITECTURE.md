@@ -2,6 +2,39 @@
 
 > 运行时、编译器、Vite 插件之间的协作关系
 
+## CSS 语法说明
+
+### 支持的语法：CSS 表达式
+
+CSSTS 只支持 **css 表达式语法**，可以在任何表达式位置使用：
+
+```typescript
+// ✅ 支持：css 表达式
+const buttonBase = css { colorRed, fontBold }
+const styles = { primary: css { bgPrimary } }
+div(class = css { primaryButton, marginTop }) {}
+```
+
+### 不支持的语法：CSS 声明
+
+**不支持** css 声明语法（如 `css colorRed`）：
+
+```typescript
+// ❌ 不支持：css 声明语法
+css colorRed  // 这种语法不被支持
+```
+
+### 设计原因
+
+声明语法需要重写 `Statement` 和 `Declaration` 规则，会导致与标准 JavaScript 语法冲突。例如：
+
+```typescript
+// 如果支持 css 声明语法，会破坏 async function 的解析
+async function foo() {}  // 可能被误解析
+```
+
+表达式语法更灵活，不会破坏 JS 兼容性，推荐使用。
+
 ## 整体架构
 
 ```
