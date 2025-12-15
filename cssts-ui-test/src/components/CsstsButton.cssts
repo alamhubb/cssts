@@ -1,8 +1,8 @@
-/**
+﻿/**
  * CsstsButton - 使用 cssts css {} 表达式语法的按钮组件
  * 测试 vite-plugin-cssts 功能
  * 
- * $$ 伪类语法（注意是双美元符号）：
+ * $$$ 伪类语法（注意是双美元符号）：
  * - const clickable$$hover = css { ... } 
  * - 生成普通样式 + :hover 伪类样式（伪类属性来自配置）
  */

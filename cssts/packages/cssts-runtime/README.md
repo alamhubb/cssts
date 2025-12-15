@@ -1,6 +1,6 @@
 # cssts-runtime
 
-> CssTs 运行时 - 样式合并与冲突处理
+> CssTs 运行时 - 样式合并、冲突处理、分隔符配置
 
 ## 核心设计理念
 
@@ -10,6 +10,27 @@
 - ❌ **不需要** `initProperties()` 初始化
 - ❌ **不需要** `getCssClassName()` 转换
 - ✅ **只做**对象合并和字符串分割
+- ✅ **提供**全局分隔符配置
+
+## 分隔符配置
+
+`CSSTS_CONFIG` 是全局统一的分隔符配置，compiler 和 runtime 共用：
+
+```typescript
+import { CSSTS_CONFIG } from 'cssts-runtime'
+
+// 分隔符配置对象
+CSSTS_CONFIG = {
+  SEPARATOR: '_',        // CSS 类名分隔符：property_value
+  PSEUDO_SEPARATOR: '$$' // 伪类分隔符：baseName$$pseudo
+}
+
+// 使用
+CSSTS_CONFIG.SEPARATOR        // '_'
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'
+```
+
+**重要**：分隔符由 runtime 定义，compiler 从 runtime 导入使用，保证编译时和运行时一致。
 
 ## 架构
 
@@ -32,24 +53,16 @@
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │  cssts-runtime                                           │   │
 │  │                                                          │   │
-│  │  CSSTS_SEPARATOR = '_'  ← 分隔符常量                     │   │
-│  │  $cls()                 ← 纯对象合并                     │   │
-│  │  replace()              ← 解析属性，智能替换             │   │
+│  │  CSSTS_CONFIG.SEPARATOR        ← 分隔符配置              │   │
+│  │  CSSTS_CONFIG.PSEUDO_SEPARATOR ← 伪类分隔符              │   │
+│  │  $cls()                        ← 纯对象合并              │   │
+│  │  replace()                     ← 解析属性，智能替换      │   │
 │  │                                                          │   │
 │  │  ⚠️ 不需要 properties.json                               │   │
 │  │  ⚠️ 不需要 initProperties()                              │   │
 │  └─────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
-
-## 分隔符常量
-
-```typescript
-// runtime 定义分隔符，compiler 导入使用
-export const CSSTS_SEPARATOR = '_'
-```
-
-**重要**：分隔符由 runtime 定义，compiler 从 runtime 导入使用，保证编译时和运行时一致。
 
 ## 安装
 
@@ -59,12 +72,13 @@ npm install cssts-runtime
 
 ## 核心 API
 
-### CSSTS_SEPARATOR - 分隔符常量
+### CSSTS_CONFIG - 分隔符配置
 
 ```typescript
-import { CSSTS_SEPARATOR } from 'cssts-runtime'
+import { CSSTS_CONFIG } from 'cssts-runtime'
 
-CSSTS_SEPARATOR  // '_'
+CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
 ```
 
 ### $cls - 样式合并

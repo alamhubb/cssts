@@ -9,7 +9,7 @@ CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供
 - 🎯 **类型安全** - 完整的 TypeScript 类型定义，IDE 代码补全
 - 🚀 **编译时优化** - CSS 在构建时按需生成，零运行时开销
 - 📦 **零依赖运行时** - runtime 包无任何依赖，体积最小
-- 🎨 **`$$` 伪类语法** - 通过变量名声明伪类
+- 🎨 **`$$` 伪类语法** - 通过变量名声明伪类（双美元符号）
 - 🧩 **简洁数据结构** - 统一的 `Set<string>` 存储，按需解析
 
 ## 包结构
@@ -17,7 +17,7 @@ CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供
 ```
 cssts/
 ├── cssts-compiler    # 编译器：解析、转换、生成
-├── cssts-runtime     # 运行时：$cls、replace 等
+├── cssts-runtime     # 运行时：$cls、replace、分隔符配置
 └── vite-plugin-cssts # Vite 插件
 ```
 
@@ -74,6 +74,7 @@ import { buttonStyle } from './Button.cssts'
 </script>
 ```
 
+
 ## 核心设计：统一的样式存储
 
 使用单一的 `Set<string>` 存储所有样式名，按需解析：
@@ -81,8 +82,8 @@ import { buttonStyle } from './Button.cssts'
 ```typescript
 // 存储
 const styles = new Set<string>()
-styles.add('displayFlex')              // 普通原子类
-styles.add('clickable$$hover$$active') // 带伪类的样式
+styles.add('displayFlex')               // 普通原子类
+styles.add('clickable$$hover$$active')  // 带伪类的样式
 
 // 解析（按需）
 parseStyleName('displayFlex')
@@ -120,7 +121,7 @@ const buttonStyle = css { displayFlex, padding16px, cursorPointer }
 
 ### $$ 伪类语法
 
-通过变量名声明伪类：
+通过变量名声明伪类（使用 `$$` 双美元符号分隔）：
 
 ```typescript
 // 变量名格式：{baseName}$${pseudo1}$${pseudo2}...
@@ -176,11 +177,15 @@ parseStyleName('clickable$$hover$$active')
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 分隔符常量
+## 分隔符配置
+
+所有分隔符统一在 `cssts-runtime` 中配置，compiler 和 runtime 共用：
 
 ```typescript
-CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
-CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：baseName$$pseudo
+import { CSSTS_CONFIG } from 'cssts-runtime'
+
+CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符：property_value
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符：baseName$$pseudo
 ```
 
 ## License

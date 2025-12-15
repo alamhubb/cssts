@@ -11,10 +11,13 @@ import {
 } from "slime-ast/src/SlimeESTree.ts"
 import SlimeParser from "slime-parser/src/language/es2025/SlimeParser.ts"
 import SlimeNodeCreate from "slime-ast/src/SlimeNodeCreate.ts"
-import { getCssClassName, CSSTS_CONFIG } from "../utils/cssClassName.js"
+import { getCssClassName } from "../utils/cssClassName.js"
+
+// 伪类分隔符常量（双美元符号）
+const CSSTS_PSEUDO_SEPARATOR = '$$'
 
 /**
- * CSS ��ʽ������Ϣ
+ * CSS 样式声明信息
  */
 export interface CssStyleInfo {
   name: string
@@ -25,28 +28,29 @@ export interface CssStyleInfo {
 }
 
 /**
- * GroupUtil ��Ϣ���� $ α��ı���������
+ * GroupUtil 信息（带 $$ 伪类的变量声明）
  */
 export interface GroupUtilInfo {
-  varName: string        // ԭʼ���������� base$hover$active��
-  className: string      // CSS �������� base��
-  pseudos: string[]      // α���б���� ['hover', 'active']��
-  atomNames: string[]    // ������ԭ������
+  varName: string        // 原始变量名（如 base$$hover$$active）
+  className: string      // CSS 类名（如 base）
+  pseudos: string[]      // 伪类列表（如 ['hover', 'active']）
+  atomNames: string[]    // 包含的原子类名
 }
 
 /**
- * CssTsCstToAst - CSS-in-TS CST �� AST ת����
+ * CssTsCstToAst - CSS-in-TS CST 到 AST 转换器
  */
 export class CssTsCstToAst extends SlimeCstToAst {
   private cssStyles: Map<string, CssStyleInfo> = new Map()
   private usedAtoms: Set<string> = new Set()
   
-  // ��ʱ�洢��ǰ���ڴ���ı������������ռ� $ ������
+  // 临时存储当前正在处理的变量名（用于收集 $$ 变量）
   private currentVarName: string | null = null
 
   constructor() {
     super()
   }
+
 
   getCssStyles(): Map<string, CssStyleInfo> {
     return this.cssStyles
@@ -65,7 +69,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   toProgram(cst: SubhutiCst): SlimeProgram {
-    // ֧�� Program �� Module �������
+    // 支持 Program 和 Module 两种入口
     const programName = SlimeParser.prototype.Program?.name || 'Program'
     const moduleName = SlimeParser.prototype.Module?.name || 'Module'
     
@@ -127,7 +131,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
-   * ȷ���� cssts �� csstsAtom �ĵ���
+   * 确保有 cssts 和 csstsAtom 的导入
    */
   private ensureCsstsImports(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
     let hasCsstsImport = false
@@ -214,10 +218,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
   
   /**
-   * ��д createLexicalBindingAst������� $ �� const/let ��������
+   * 重写 createLexicalBindingAst，捕获带 $$ 的 const/let 变量声明
    */
   createLexicalBindingAst(cst: SubhutiCst): any {
-    // ��ȡ������
+    // 获取变量名
     const firstChild = cst.children?.[0]
     let varName: string | null = null
         
@@ -226,20 +230,20 @@ export class CssTsCstToAst extends SlimeCstToAst {
       varName = idChild?.value || idChild?.children?.[0]?.value || null
     }
     
-    // ������������� $��α��ָ���������õ�ǰ������
-    if (varName && varName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
+    // 如果变量名包含 $$（伪类分隔符），设置当前变量名
+    if (varName && varName.includes(CSSTS_PSEUDO_SEPARATOR)) {
       this.currentVarName = varName
     }
     
-    // ���ø��෽������
+    // 调用父类方法处理
     const result = super.createLexicalBindingAst(cst)
     
-    // ����� $$ �������ռ��� usedAtoms ��ע�����
-    if (this.currentVarName && this.currentVarName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
-      // �ռ�α����ʽ���� usedAtoms
+    // 如果是 $$ 变量，收集到 usedAtoms 并注入参数
+    if (this.currentVarName && this.currentVarName.includes(CSSTS_PSEUDO_SEPARATOR)) {
+      // 收集伪类样式名到 usedAtoms
       this.usedAtoms.add(this.currentVarName)
       
-      // ע�� csstsAtom['varName'] ��Ϊ cssts.$cls() �ĵ�һ������
+      // 注入 csstsAtom['varName'] 作为 cssts.$cls() 的第一个参数
       if (result.init && result.init.type === SlimeNodeType.CallExpression) {
         const callExpr = result.init as any
         if (callExpr.callee?.type === SlimeNodeType.MemberExpression) {
@@ -339,6 +343,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     } as any
   }
 
+
   private extractCssPropertyExpressions(styleObjectCst: SubhutiCst | undefined): SlimeExpression[] {
     if (!styleObjectCst) return []
 
@@ -425,7 +430,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
-   * ���� csstsAtom.xxx ��Ա���ʱ��ʽ
+   * 创建 csstsAtom.xxx 成员访问表达式
    */
   protected createCsstsAtomMember(propName: string): SlimeExpression {
     const csstsAtomId = SlimeNodeCreate.createIdentifier('csstsAtom')

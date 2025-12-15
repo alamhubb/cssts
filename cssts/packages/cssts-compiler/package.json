@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "css-tree": "^3.1.0",
+    "cssts-runtime": "file:../cssts-runtime",
     "subhuti": "*",
     "slime-parser": "*",
     "slime-ast": "*",

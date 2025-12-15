@@ -23,6 +23,17 @@ cssts-compiler/
 └── types/           # 生成的 .d.ts 文件输出目录
 ```
 
+## 分隔符配置
+
+从 `cssts-runtime` 导入统一的分隔符配置：
+
+```typescript
+import { CSSTS_CONFIG } from 'cssts-runtime'
+
+CSSTS_CONFIG.SEPARATOR        // '_'  - 类名分隔符
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$' - 伪类分隔符
+```
+
 ## 核心设计：统一的样式存储
 
 使用单一的 `Set<string>` 存储所有样式名，按需解析：
@@ -30,8 +41,8 @@ cssts-compiler/
 ```typescript
 // 存储
 const styles = new Set<string>()
-styles.add('displayFlex')              // 普通原子类
-styles.add('clickable$$hover$$active') // 带伪类的样式
+styles.add('displayFlex')               // 普通原子类
+styles.add('clickable$$hover$$active')  // 带伪类的样式
 
 // 解析
 parseStyleName('displayFlex')
@@ -63,7 +74,7 @@ const result = transformCssTs(code, context)
 // result.code - 转换后的 JS 代码
 // result.hasStyles - 是否有样式
 
-// context.styles 会被自动填充
+// context.styles 会被自动填充（包括 $$ 伪类样式）
 ```
 
 ### parseStyleName - 样式名解析
@@ -169,13 +180,6 @@ getCssClassName('backgroundColorRed')
 | `pct` | `%` 百分号 | `50pct` → `50%` |
 | `s` | `/` 斜杠 | `16s9` → `16/9` |
 | `N` | `-` 负数 | `N1` → `-1` |
-
-## 分隔符常量
-
-```typescript
-CSSTS_SEPARATOR = '_'           // 类名分隔符：property_value
-CSSTS_PSEUDO_SEPARATOR = '$$'   // 伪类分隔符：className$$pseudo
-```
 
 ## License
 
