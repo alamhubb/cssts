@@ -2,8 +2,12 @@
  * CsstsButton - 使用 cssts css {} 表达式语法的按钮组件
  * 测试 vite-plugin-cssts 功能
  * 
- * $$ 伪类语法（双美元符号）：
- * - const clickable$$hover = css { ... } 
+ * 自动解构功能：
+ * - css { baseStyles, colorRed } 中的 baseStyles 是变量，会保持原样
+ * - colorRed 是原子类名，会转换为 csstsAtom.colorRed
+ * 
+ * $ 伪类语法（双美元符号）：
+ * - const clickable$hover = css { ... } 
  * - 生成普通样式 + :hover 伪类样式（伪类属性来自配置）
  */
 
@@ -35,35 +39,35 @@ export default defineComponent({
         lineHeight1
       }
       
-      // 使用 $$ 语法声明带伪类的样式（双美元符号）
-      // 伪类的 CSS 属性来自配置（hover: opacity 0.9, active: opacity 0.6）
+      // 使用 $ 语法声明带伪类的样式（双美元符号）
+      // 自动解构：baseStyles 是变量，会保持原样；其他是原子类名
       if (props.type === 'primary') {
-        const primary$$hover$$active = css { 
-          ...baseStyles, 
+        const primary$hover$active = css { 
+          baseStyles, 
           backgroundColorDodgerblue, 
           colorWhite, 
           borderNone 
         }
-        return primary$$hover$$active
+        return primary$hover$active
       } else if (props.type === 'success') {
-        const success$$hover$$active = css { 
-          ...baseStyles, 
+        const success$hover$active = css { 
+          baseStyles, 
           backgroundColorLimegreen, 
           colorWhite, 
           borderNone 
         }
-        return success$$hover$$active
+        return success$hover$active
       } else {
         // Default 按钮：白色背景 + 灰色边框
-        const default$$hover$$active = css { 
-          ...baseStyles, 
+        const default$hover$active = css { 
+          baseStyles, 
           backgroundColorWhite, 
           colorGray, 
           borderWidth1px, 
           borderStyleSolid, 
           borderColorLightgray 
         }
-        return default$$hover$$active
+        return default$hover$active
       }
     })
 

@@ -11,9 +11,9 @@
 
     <h2>CSSTS Button (from ./components/CsstsButton.ovs)</h2>
     <div class="button-group">
-      <CsstsButton>Default</CsstsButton>
-      <CsstsButton type="primary">Primary</CsstsButton>
-      <CsstsButton type="success">Success</CsstsButton>
+      <CsstsButton @click="count++">Default</CsstsButton>
+      <CsstsButton type="primary" @click="count++">Primary</CsstsButton>
+      <CsstsButton type="success" @click="count++">Success</CsstsButton>
     </div>
 
     <p>Click count: {{ count }}</p>

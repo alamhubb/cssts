@@ -188,6 +188,106 @@ parseStyleName('btn$$hover$$active')
 // .btn:active { opacity: 0.6; }     ← 来自 pseudoUtils 配置
 ```
 
+## 自动解构：作用域分析 + 命名规则
+
+### 问题背景
+
+在 `css { }` 表达式中，用户可能混合使用原子类名和变量：
+
+```typescript
+const baseStyles = css { colorRed, fontBold }
+const primary = css { baseStyles, backgroundBlue }  // baseStyles 是变量，不是原子类
+```
+
+编译器需要区分：
+- **原子类名**（如 `colorRed`）→ 转换为 `csstsAtom.colorRed`
+- **变量引用**（如 `baseStyles`）→ 保持原样，运行时自动解构
+
+### 解决方案：作用域分析 + 命名规则
+
+采用两层判断机制：
+
+```
+css { xxx } 内的标识符判断流程：
+
+1. 先查作用域：xxx 在当前作用域中声明过吗？
+   ├─ 是 → 保持原样（是变量或导入）
+   └─ 否 → 继续判断
+
+2. 再查命名规则：parseTsAtomName(xxx) 能解析吗？
+   ├─ 能 → 转换为 csstsAtom.xxx（是原子类）
+   └─ 不能 → 保持原样（未知标识符）
+```
+
+### 作用域收集
+
+在 CST 遍历过程中实时收集：
+
+1. **Import 声明**：`import { someStyle } from './styles'` → 收集 `someStyle`
+2. **变量声明**：`const baseStyles = ...` → 收集 `baseStyles`
+3. **函数参数**：`function foo(style) {}` → 收集 `style`
+4. **块级作用域**：进入 `{}` 时 push 新作用域，离开时 pop
+
+### 命名规则判断
+
+使用 `parseTsAtomName()` 函数判断是否符合原子类命名规则：
+
+```typescript
+parseTsAtomName('colorRed')      // { property: 'color', value: 'red' } ✓
+parseTsAtomName('displayFlex')   // { property: 'display', value: 'flex' } ✓
+parseTsAtomName('baseStyles')    // null ✗ (不以 CSS 属性名开头)
+parseTsAtomName('myVariable')    // null ✗
+```
+
+### 设计原因
+
+1. **作用域优先**：确保用户声明的变量不会被误转换
+2. **命名规则兜底**：对于不在作用域中的标识符，用命名规则判断是否是原子类
+3. **一遍遍历**：作用域分析是实时的，不需要两遍遍历
+4. **安全降级**：不符合任何规则的标识符保持原样，避免运行时错误
+
+### 示例
+
+```typescript
+import { sharedStyle } from './shared'
+
+const baseStyles = css { colorRed, fontBold }
+const primary = css { baseStyles, backgroundBlue, sharedStyle, unknownThing }
+```
+
+| 标识符 | 作用域检查 | 命名规则检查 | 结果 |
+|--------|-----------|-------------|------|
+| `colorRed` | ✗ 不在作用域 | ✓ 能解析 | `csstsAtom.colorRed` |
+| `fontBold` | ✗ 不在作用域 | ✓ 能解析 | `csstsAtom.fontBold` |
+| `baseStyles` | ✓ 在作用域中 | - | 保持原样 |
+| `backgroundBlue` | ✗ 不在作用域 | ✓ 能解析 | `csstsAtom.backgroundBlue` |
+| `sharedStyle` | ✓ 在作用域中（import） | - | 保持原样 |
+| `unknownThing` | ✗ 不在作用域 | ✗ 不能解析 | 保持原样 |
+
+### 运行时支持
+
+`$cls()` 函数已支持递归解构对象：
+
+```typescript
+// 运行时 processValue 函数
+function processValue(value: ClassValue, result: ClassObject): void {
+  // ...
+  if (typeof value === 'object') {
+    for (const [key, val] of Object.entries(value)) {
+      if (val) {
+        if (typeof val === 'object' && val !== null) {
+          processValue(val as ClassValue, result)  // 递归解构
+        } else {
+          result[key] = true
+        }
+      }
+    }
+  }
+}
+```
+
+所以 `cssts.$cls(baseStyles, csstsAtom.backgroundBlue)` 会正确合并 `baseStyles` 对象中的所有样式。
+
 ## 虚拟模块
 
 ### virtual:cssts.css
