@@ -3,74 +3,17 @@ import { CssTsParser } from 'cssts-compiler/src/parser/index.ts'
 import { CssTsCstToAst, type CssStyleInfo } from 'cssts-compiler/src/factory/index.ts'
 import { generateCssClsInterface, generateCssClsStyles } from 'cssts-compiler/src/utils/cssUtils.ts'
 import { type PseudoUtilsConfig } from 'cssts-compiler/src/generator/config.ts'
-import { generatePropertiesJsonSync, generateAtoms, generatePropertiesJson } from 'cssts-compiler/src/generator/index.ts'
+import { 
+  getCssClassName, 
+  getCssProperty, 
+  getCssValue, 
+  camelToKebab,
+  CSSTS_SEPARATOR 
+} from 'cssts-compiler/src/utils/cssClassName.js'
 import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-import { CSSTS_SEPARATOR, CSSTS_PSEUDO_SEPARATOR } from 'cssts/src/index.ts'
-
-// ==================== 属性映射表（从生成器获取）====================
-
-// 生成 properties 映射
-const atoms = generateAtoms()
-const properties: Record<string, string> = generatePropertiesJson(atoms)
-const sortedPropertyNames = Object.keys(properties).sort((a, b) => b.length - a.length)
-
-// ==================== 工具函数 ====================
-
-function parseTsAtomName(tsName: string): { property: string; value: string } | null {
-  for (const propName of sortedPropertyNames) {
-    if (tsName.startsWith(propName) && tsName.length > propName.length) {
-      const valuePart = tsName.slice(propName.length)
-      if (/^[A-Z0-9]/.test(valuePart) || /^N[0-9]/.test(valuePart)) {
-        return { property: properties[propName], value: tsValueToCSS(valuePart) }
-      }
-    }
-  }
-  return null
-}
-
-function tsValueToCSS(tsValue: string): string {
-  let result = tsValue
-  if (result.startsWith('N') && result.length > 1 && /[0-9]/.test(result[1])) {
-    result = '-' + result.slice(1)
-  }
-  result = result.replace(/pct/g, '%')
-  result = result.replace(/(\d)p(\d)/g, '$1.$2')
-  result = result.replace(/(\d)s(\d)/g, '$1/$2')
-  return camelToKebab(result)
-}
-
-function camelToKebab(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/([a-zA-Z])(\d)/g, '$1-$2').toLowerCase()
-}
-
-const symbolToEscape: Record<string, string> = { '.': '\\.', '%': '\\%', '/': '\\/' }
-
-function getCssClassName(atomName: string): string {
-  const parsed = parseTsAtomName(atomName)
-  if (parsed) {
-    let escapedValue = parsed.value
-    for (const [symbol, escaped] of Object.entries(symbolToEscape)) {
-      escapedValue = escapedValue.split(symbol).join(escaped)
-    }
-    return `${parsed.property}${CSSTS_SEPARATOR}${escapedValue}`
-  }
-  return camelToKebab(atomName)
-}
-
-function getCssProperty(atomName: string): string | undefined {
-  return parseTsAtomName(atomName)?.property
-}
-
-function getCssValue(atomName: string): string | undefined {
-  const className = getCssClassName(atomName)
-  const idx = className.indexOf('_')
-  if (idx > 0) {
-    return className.slice(idx + 1).replace(/\\\./g, '.').replace(/\\%/g, '%').replace(/\\\//g, '/')
-  }
-  return undefined
-}
+import { CSSTS_PSEUDO_SEPARATOR } from 'cssts/src/index.ts'
 
 // ==================== 插件配置 ====================
 
@@ -103,14 +46,10 @@ interface PseudoStyleInfo {
 }
 const globalPseudoStyles = new Map<string, PseudoStyleInfo>()
 
-// ==================== $$ 伪类语法（简单实现）====================
+// ==================== $ 伪类语法 ====================
 
 /**
- * 解析变量名中的 $$ 伪类标记（双美元符号）
- * 
- * 示例：
- * - 'clickable$$hover' -> { className: 'clickable', pseudos: ['hover'] }
- * - 'btn$$hover$$active' -> { className: 'btn', pseudos: ['hover', 'active'] }
+ * 解析变量名中的 $ 伪类标记（双美元符号）
  */
 export function parsePseudoFromVarName(varName: string): { className: string; pseudos: string[] } {
   const parts = varName.split(CSSTS_PSEUDO_SEPARATOR)
@@ -130,11 +69,6 @@ function generateAtomCssRule(atomName: string, prefix: string = ''): string | nu
 
 /**
  * 生成伪类 CSS 规则
- * 
- * @param className - 基础类名（如 'clickable'）
- * @param pseudo - 伪类名（如 'hover'）
- * @param pseudoConfig - 伪类配置（如 { opacity: '0.9' } 或 [{ opacity: '0.5' }, { cursor: 'not-allowed' }]）
- * @param prefix - 类名前缀
  */
 function generatePseudoCssRule(
   className: string,
@@ -143,14 +77,11 @@ function generatePseudoCssRule(
   prefix: string = ''
 ): string {
   const fullClassName = prefix ? `${prefix}${className}` : className
-  
-  // 处理数组格式（多个属性）
   const configs = Array.isArray(pseudoConfig) ? pseudoConfig : [pseudoConfig]
   const props = configs
     .flatMap(config => Object.entries(config))
     .map(([prop, val]) => `${prop}: ${val}`)
     .join('; ')
-  
   return `.${fullClassName}:${pseudo} { ${props}; }`
 }
 
@@ -184,11 +115,9 @@ function generateUsedAtomsCss(
   
   // 2. 生成伪类 CSS（如果有配置）
   if (pseudoUtils && pseudoStyles.size > 0) {
-    lines.push('/* $$ Pseudo-class styles */')
-    
+    lines.push('/* $ Pseudo-class styles */')
     for (const [_varName, info] of pseudoStyles) {
       const { className, pseudos } = info
-      
       for (const pseudo of pseudos) {
         const pseudoConfig = pseudoUtils[pseudo]
         if (pseudoConfig) {
@@ -248,28 +177,26 @@ function transformCssTs(code: string, _id: string): {
 } {
   const parser = new CssTsParser(code)
   const cst = parser.Program()
-  const transformer = new CssTsCstToAst(getCssClassName)
+  const transformer = new CssTsCstToAst()
   const ast = transformer.toProgram(cst)
   const styles = transformer.getCssStyles()
   const usedAtoms = transformer.getUsedAtoms()
   const tokens = parser.parsedTokens
   const result = SlimeGenerator.generator(ast, tokens)
   
-  // 从源代码中直接提取带 $$ 伪类的变量声明
+  // 从源代码中直接提取带 $ 伪类的变量声明
   const pseudoStyles = extractPseudoStylesFromCode(code)
   
   return { code: result.code, styles, usedAtoms, pseudoStyles }
 }
 
 /**
- * 从源代码中提取带 $$ 伪类的变量声明
- * 
- * 匹配模式：const varName$$pseudo1$$pseudo2 = css { ... }
+ * 从源代码中提取带 $ 伪类的变量声明
  */
 function extractPseudoStylesFromCode(code: string): Map<string, PseudoStyleInfo> {
   const pseudoStyles = new Map<string, PseudoStyleInfo>()
   
-  // 匹配 const/let/var xxx$$yyy = css { ... } 模式
+  // 匹配 const/let/var xxx$yyy = css { ... } 模式
   const regex = /(?:const|let|var)\s+(\w+(?:\$\$\w+)+)\s*=/g
   let match
   
@@ -281,7 +208,7 @@ function extractPseudoStylesFromCode(code: string): Map<string, PseudoStyleInfo>
       pseudoStyles.set(varName, {
         className: camelToKebab(className),
         pseudos,
-        atoms: [] // 原子类信息不需要，伪类 CSS 来自配置
+        atoms: []
       })
     }
   }

@@ -14,6 +14,19 @@ export {
   analyzeUsedClasses,
 } from './utils/cssUtils.js'
 
+// CSS class name utilities
+export {
+  CSSTS_SEPARATOR,
+  camelToKebab as camelToKebabCase,
+  parseTsAtomName,
+  getCssProperty,
+  getCssValue,
+  getCssClassName,
+  generateAtomCssRule,
+  generateUsedAtomsCss,
+  generateCsstsAtomModule,
+} from './utils/cssClassName.js'
+
 // Generator (从 cssts-types 移入)
 export {
   // 配置类型
