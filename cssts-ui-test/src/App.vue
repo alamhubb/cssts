@@ -16,11 +16,6 @@
       <CsstsButton type="success">Success</CsstsButton>
     </div>
 
-    <h2>OVS Button (from ./components/OvsButton.ovs)</h2>
-    <div class="button-group">
-      <OvsButton />
-    </div>
-
     <p>Click count: {{ count }}</p>
   </div>
 </template>
@@ -29,8 +24,6 @@
 import { ref } from 'vue'
 // 从本地 cssts 组件导入
 import CsstsButton from './components/CsstsButton.cssts'
-// 从本地 ovs 组件导入（命名导出）
-import { OvsButton } from './components/OvsButton.ovs'
 
 const count = ref(0)
 </script>

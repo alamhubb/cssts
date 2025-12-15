@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// 使用 ovs 插件测试
-import ovs from 'vite-plugin-ovs/src/index.ts'
-// 保留 cssts 插件用于 .cssts 文件
+// cssts 插件处理 .cssts 文件
 import cssts from 'vite-plugin-cssts/src/index.ts'
+// ovs 插件处理 .ovs 文件
+import ovs from 'vite-plugin-ovs/src/index.ts'
 import path from 'path'
 
 // 指向本地 element-plus（原 cssts-ui）
@@ -17,8 +17,8 @@ const csstsComponentsRoot = path.resolve(__dirname, './cssts-components')
 export default defineConfig({
   plugins: [
     vue(),
-    ovs(),  // OVS 插件处理 .ovs 文件
-    cssts({
+    ovs({
+      cssts:{
       // $$ 伪类语法配置：与 Element Plus 按钮效果一致
       // Element Plus: hover 颜色变浅 (light-3), active 颜色变深 (dark-2)
       // 使用 filter: brightness() 模拟颜色变化效果
@@ -28,7 +28,9 @@ export default defineConfig({
         focus: { outline: '2px solid var(--el-color-primary-light-5, #79bbff)', 'outline-offset': '1px' },
         disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
       }
-    })
+    }
+    }),  // OVS 插件处理 .ovs 文件
+    
   ],
   server: {
     port: 3001

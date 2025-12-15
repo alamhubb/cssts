@@ -3,43 +3,17 @@ import { CssTsParser } from 'cssts-compiler/src/parser/index.ts'
 import { CssTsCstToAst, type CssStyleInfo } from 'cssts-compiler/src/factory/index.ts'
 import { generateCssClsInterface, generateCssClsStyles } from 'cssts-compiler/src/utils/cssUtils.ts'
 import { type PseudoUtilsConfig } from 'cssts-compiler/src/generator/config.ts'
+import { generatePropertiesJsonSync, generateAtoms, generatePropertiesJson } from 'cssts-compiler/src/generator/index.ts'
 import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { CSSTS_SEPARATOR, CSSTS_PSEUDO_SEPARATOR } from 'cssts/src/index.ts'
 
-// ==================== 属性映射表 ====================
+// ==================== 属性映射表（从生成器获取）====================
 
-const properties: Record<string, string> = {
-  display: 'display',
-  flex: 'flex', flexDirection: 'flex-direction', flexWrap: 'flex-wrap',
-  flexGrow: 'flex-grow', flexShrink: 'flex-shrink',
-  justifyContent: 'justify-content', alignItems: 'align-items',
-  alignContent: 'align-content', alignSelf: 'align-self',
-  grid: 'grid', gridTemplate: 'grid-template',
-  gridTemplateColumns: 'grid-template-columns', gridTemplateRows: 'grid-template-rows',
-  gap: 'gap',
-  width: 'width', height: 'height',
-  minWidth: 'min-width', minHeight: 'min-height',
-  maxWidth: 'max-width', maxHeight: 'max-height',
-  padding: 'padding', paddingTop: 'padding-top', paddingRight: 'padding-right',
-  paddingBottom: 'padding-bottom', paddingLeft: 'padding-left',
-  margin: 'margin', marginTop: 'margin-top', marginRight: 'margin-right',
-  marginBottom: 'margin-bottom', marginLeft: 'margin-left',
-  position: 'position', top: 'top', right: 'right', bottom: 'bottom', left: 'left',
-  zIndex: 'z-index',
-  fontSize: 'font-size', fontWeight: 'font-weight', fontFamily: 'font-family',
-  lineHeight: 'line-height', textAlign: 'text-align',
-  textDecoration: 'text-decoration', textTransform: 'text-transform',
-  letterSpacing: 'letter-spacing',
-  color: 'color', backgroundColor: 'background-color', borderColor: 'border-color',
-  border: 'border', borderWidth: 'border-width', borderStyle: 'border-style',
-  borderRadius: 'border-radius',
-  opacity: 'opacity', boxShadow: 'box-shadow', transform: 'transform', transition: 'transition',
-  cursor: 'cursor',
-  overflow: 'overflow', overflowX: 'overflow-x', overflowY: 'overflow-y',
-}
-
+// 生成 properties 映射
+const atoms = generateAtoms()
+const properties: Record<string, string> = generatePropertiesJson(atoms)
 const sortedPropertyNames = Object.keys(properties).sort((a, b) => b.length - a.length)
 
 // ==================== 工具函数 ====================
