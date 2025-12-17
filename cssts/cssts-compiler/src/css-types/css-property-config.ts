@@ -1,7 +1,7 @@
 /**
  * CSS 属性配置
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T18:07:28.915Z
+ * 生成时间: 2025-12-17T18:26:59.010Z
  */
 
 import {
@@ -392,6 +392,9 @@ import {
   ZOOM_KEYWORDS,
 } from './css-keywords';
 
+import type { AllColorValue } from './css-keywords';
+import type { KeywordValue } from './css-property-keywords';
+
 import {
   ACCENT_COLOR_NUMBER_TYPES,
   ANIMATION_NUMBER_TYPES,
@@ -630,6 +633,8 @@ import {
   Z_INDEX_NUMBER_TYPES,
   ZOOM_NUMBER_TYPES,
 } from './css-numeric';
+
+import type { NumberTypeName, UnitType } from './css-numeric';
 
 import type {
   AccentColorConfig,
@@ -3958,4 +3963,32 @@ export const CSS_PROPERTY_CONFIG = new CssPropertyConfigMap();
 /** 获取属性配置 */
 export function getPropertyConfig<T extends keyof CssPropertyConfigMap>(property: T) {
   return CSS_PROPERTY_CONFIG[property];
+}
+
+// ==================== CSSTS 配置类型 ====================
+
+/** CSSTS 配置 */
+export class CsstsConfig {
+  // 属性过滤
+  includeProperties?: CssPropertyCamelName[];
+  excludeProperties?: CssPropertyCamelName[];
+
+  // 全局关键字过滤
+  includeKeywords?: KeywordValue[];
+  excludeKeywords?: KeywordValue[];
+
+  // 全局颜色过滤
+  includeColors?: AllColorValue[];
+  excludeColors?: AllColorValue[];
+
+  // 全局数值类型过滤
+  includeNumberTypes?: NumberTypeName[];
+  excludeNumberTypes?: NumberTypeName[];
+
+  // 全局单位过滤
+  includeUnits?: UnitType[];
+  excludeUnits?: UnitType[];
+
+  // 属性级别覆盖
+  properties?: Partial<CssPropertyConfigMap>;
 }

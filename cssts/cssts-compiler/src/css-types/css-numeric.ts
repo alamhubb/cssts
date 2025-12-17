@@ -1,7 +1,7 @@
 /**
  * CSS 数值类型定义
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T18:07:28.904Z
+ * 生成时间: 2025-12-17T18:26:58.997Z
  *
  * 类型层级：
  * 层级1: 单位类型 (PxUnitType = 'px')
@@ -132,6 +132,9 @@ export const ALL_UNITS = [
   'vw',
   'x',
 ] as const;
+
+/** 单位类型 */
+export type UnitType = typeof ALL_UNITS[number];
 
 export type PercentUnitType = '%';
 export type UnitlessUnitType = '<number>';
