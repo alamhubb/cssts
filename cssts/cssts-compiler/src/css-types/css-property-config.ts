@@ -1,642 +1,14 @@
 /**
  * CSS 属性配置
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T18:26:59.010Z
+ * 生成时间: 2025-12-17T18:47:59.040Z
  */
-
-import {
-  ALL_COLORS,
-  ACCENT_COLOR_KEYWORDS,
-  ALIGN_CONTENT_KEYWORDS,
-  ALIGN_ITEMS_KEYWORDS,
-  ALIGN_SELF_KEYWORDS,
-  ALIGN_TRACKS_KEYWORDS,
-  ALIGNMENT_BASELINE_KEYWORDS,
-  ALL_KEYWORDS,
-  ANCHOR_NAME_KEYWORDS,
-  ANCHOR_SCOPE_KEYWORDS,
-  ANIMATION_KEYWORDS,
-  ANIMATION_COMPOSITION_KEYWORDS,
-  ANIMATION_DIRECTION_KEYWORDS,
-  ANIMATION_FILL_MODE_KEYWORDS,
-  ANIMATION_ITERATION_COUNT_KEYWORDS,
-  ANIMATION_NAME_KEYWORDS,
-  ANIMATION_PLAY_STATE_KEYWORDS,
-  ANIMATION_RANGE_END_KEYWORDS,
-  ANIMATION_RANGE_START_KEYWORDS,
-  ANIMATION_TIMELINE_KEYWORDS,
-  ANIMATION_TIMING_FUNCTION_KEYWORDS,
-  APPEARANCE_KEYWORDS,
-  ASPECT_RATIO_KEYWORDS,
-  AZIMUTH_KEYWORDS,
-  BACKDROP_FILTER_KEYWORDS,
-  BACKFACE_VISIBILITY_KEYWORDS,
-  BACKGROUND_KEYWORDS,
-  BACKGROUND_ATTACHMENT_KEYWORDS,
-  BACKGROUND_BLEND_MODE_KEYWORDS,
-  BACKGROUND_CLIP_KEYWORDS,
-  BACKGROUND_COLOR_KEYWORDS,
-  BACKGROUND_IMAGE_KEYWORDS,
-  BACKGROUND_ORIGIN_KEYWORDS,
-  BACKGROUND_POSITION_KEYWORDS,
-  BACKGROUND_POSITION_X_KEYWORDS,
-  BACKGROUND_POSITION_Y_KEYWORDS,
-  BACKGROUND_REPEAT_KEYWORDS,
-  BACKGROUND_SIZE_KEYWORDS,
-  BASELINE_SHIFT_KEYWORDS,
-  BORDER_KEYWORDS,
-  BORDER_BLOCK_KEYWORDS,
-  BORDER_BLOCK_END_KEYWORDS,
-  BORDER_BLOCK_START_KEYWORDS,
-  BORDER_BOTTOM_KEYWORDS,
-  BORDER_BOTTOM_STYLE_KEYWORDS,
-  BORDER_BOTTOM_WIDTH_KEYWORDS,
-  BORDER_COLLAPSE_KEYWORDS,
-  BORDER_COLOR_KEYWORDS,
-  BORDER_IMAGE_REPEAT_KEYWORDS,
-  BORDER_IMAGE_SLICE_KEYWORDS,
-  BORDER_IMAGE_SOURCE_KEYWORDS,
-  BORDER_IMAGE_WIDTH_KEYWORDS,
-  BORDER_INLINE_KEYWORDS,
-  BORDER_INLINE_END_KEYWORDS,
-  BORDER_INLINE_START_KEYWORDS,
-  BORDER_LEFT_KEYWORDS,
-  BORDER_LEFT_COLOR_KEYWORDS,
-  BORDER_LEFT_STYLE_KEYWORDS,
-  BORDER_LEFT_WIDTH_KEYWORDS,
-  BORDER_RIGHT_KEYWORDS,
-  BORDER_RIGHT_COLOR_KEYWORDS,
-  BORDER_RIGHT_STYLE_KEYWORDS,
-  BORDER_RIGHT_WIDTH_KEYWORDS,
-  BORDER_STYLE_KEYWORDS,
-  BORDER_TOP_KEYWORDS,
-  BORDER_TOP_COLOR_KEYWORDS,
-  BORDER_TOP_STYLE_KEYWORDS,
-  BORDER_TOP_WIDTH_KEYWORDS,
-  BORDER_WIDTH_KEYWORDS,
-  BOTTOM_KEYWORDS,
-  BOX_ALIGN_KEYWORDS,
-  BOX_DECORATION_BREAK_KEYWORDS,
-  BOX_DIRECTION_KEYWORDS,
-  BOX_LINES_KEYWORDS,
-  BOX_ORIENT_KEYWORDS,
-  BOX_PACK_KEYWORDS,
-  BOX_SHADOW_KEYWORDS,
-  BOX_SIZING_KEYWORDS,
-  BREAK_AFTER_KEYWORDS,
-  BREAK_BEFORE_KEYWORDS,
-  BREAK_INSIDE_KEYWORDS,
-  CAPTION_SIDE_KEYWORDS,
-  CARET_COLOR_KEYWORDS,
-  CARET_SHAPE_KEYWORDS,
-  CLEAR_KEYWORDS,
-  CLIP_KEYWORDS,
-  CLIP_PATH_KEYWORDS,
-  CLIP_RULE_KEYWORDS,
-  COLOR_KEYWORDS,
-  COLOR_INTERPOLATION_FILTERS_KEYWORDS,
-  COLOR_SCHEME_KEYWORDS,
-  COLUMN_COUNT_KEYWORDS,
-  COLUMN_FILL_KEYWORDS,
-  COLUMN_GAP_KEYWORDS,
-  COLUMN_RULE_COLOR_KEYWORDS,
-  COLUMN_SPAN_KEYWORDS,
-  COLUMN_WIDTH_KEYWORDS,
-  CONTAIN_KEYWORDS,
-  CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_HEIGHT_KEYWORDS,
-  CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_WIDTH_KEYWORDS,
-  CONTAINER_NAME_KEYWORDS,
-  CONTAINER_TYPE_KEYWORDS,
-  CONTENT_KEYWORDS,
-  CONTENT_VISIBILITY_KEYWORDS,
-  COUNTER_INCREMENT_KEYWORDS,
-  COUNTER_RESET_KEYWORDS,
-  COUNTER_SET_KEYWORDS,
-  CUE_AFTER_KEYWORDS,
-  CUE_BEFORE_KEYWORDS,
-  CURSOR_KEYWORDS,
-  D_KEYWORDS,
-  DIRECTION_KEYWORDS,
-  DISPLAY_KEYWORDS,
-  DOMINANT_BASELINE_KEYWORDS,
-  EMPTY_CELLS_KEYWORDS,
-  FIELD_SIZING_KEYWORDS,
-  FILL_KEYWORDS,
-  FILL_RULE_KEYWORDS,
-  FILTER_KEYWORDS,
-  FLEX_KEYWORDS,
-  FLEX_BASIS_KEYWORDS,
-  FLEX_DIRECTION_KEYWORDS,
-  FLEX_WRAP_KEYWORDS,
-  FLOAT_KEYWORDS,
-  FONT_KEYWORDS,
-  FONT_FAMILY_KEYWORDS,
-  FONT_FEATURE_SETTINGS_KEYWORDS,
-  FONT_KERNING_KEYWORDS,
-  FONT_LANGUAGE_OVERRIDE_KEYWORDS,
-  FONT_OPTICAL_SIZING_KEYWORDS,
-  FONT_PALETTE_KEYWORDS,
-  FONT_SIZE_KEYWORDS,
-  FONT_SIZE_ADJUST_KEYWORDS,
-  FONT_SMOOTH_KEYWORDS,
-  FONT_STRETCH_KEYWORDS,
-  FONT_STYLE_KEYWORDS,
-  FONT_SYNTHESIS_KEYWORDS,
-  FONT_SYNTHESIS_POSITION_KEYWORDS,
-  FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS,
-  FONT_SYNTHESIS_STYLE_KEYWORDS,
-  FONT_SYNTHESIS_WEIGHT_KEYWORDS,
-  FONT_VARIANT_KEYWORDS,
-  FONT_VARIANT_ALTERNATES_KEYWORDS,
-  FONT_VARIANT_CAPS_KEYWORDS,
-  FONT_VARIANT_EAST_ASIAN_KEYWORDS,
-  FONT_VARIANT_EMOJI_KEYWORDS,
-  FONT_VARIANT_LIGATURES_KEYWORDS,
-  FONT_VARIANT_NUMERIC_KEYWORDS,
-  FONT_VARIANT_POSITION_KEYWORDS,
-  FONT_VARIATION_SETTINGS_KEYWORDS,
-  FONT_WEIGHT_KEYWORDS,
-  FORCED_COLOR_ADJUST_KEYWORDS,
-  GRID_KEYWORDS,
-  GRID_AREA_KEYWORDS,
-  GRID_AUTO_COLUMNS_KEYWORDS,
-  GRID_AUTO_FLOW_KEYWORDS,
-  GRID_AUTO_ROWS_KEYWORDS,
-  GRID_COLUMN_KEYWORDS,
-  GRID_COLUMN_END_KEYWORDS,
-  GRID_COLUMN_START_KEYWORDS,
-  GRID_ROW_KEYWORDS,
-  GRID_ROW_END_KEYWORDS,
-  GRID_ROW_START_KEYWORDS,
-  GRID_TEMPLATE_KEYWORDS,
-  GRID_TEMPLATE_AREAS_KEYWORDS,
-  GRID_TEMPLATE_COLUMNS_KEYWORDS,
-  GRID_TEMPLATE_ROWS_KEYWORDS,
-  HANGING_PUNCTUATION_KEYWORDS,
-  HEIGHT_KEYWORDS,
-  HYPHENATE_CHARACTER_KEYWORDS,
-  HYPHENATE_LIMIT_CHARS_KEYWORDS,
-  HYPHENS_KEYWORDS,
-  IMAGE_ORIENTATION_KEYWORDS,
-  IMAGE_RENDERING_KEYWORDS,
-  IMAGE_RESOLUTION_KEYWORDS,
-  IME_MODE_KEYWORDS,
-  INITIAL_LETTER_KEYWORDS,
-  INITIAL_LETTER_ALIGN_KEYWORDS,
-  INPUT_SECURITY_KEYWORDS,
-  INTERPOLATE_SIZE_KEYWORDS,
-  ISOLATION_KEYWORDS,
-  JUSTIFY_CONTENT_KEYWORDS,
-  JUSTIFY_ITEMS_KEYWORDS,
-  JUSTIFY_SELF_KEYWORDS,
-  JUSTIFY_TRACKS_KEYWORDS,
-  KERNING_KEYWORDS,
-  LEFT_KEYWORDS,
-  LETTER_SPACING_KEYWORDS,
-  LINE_BREAK_KEYWORDS,
-  LINE_CLAMP_KEYWORDS,
-  LINE_HEIGHT_KEYWORDS,
-  LIST_STYLE_IMAGE_KEYWORDS,
-  LIST_STYLE_POSITION_KEYWORDS,
-  LIST_STYLE_TYPE_KEYWORDS,
-  MARGIN_KEYWORDS,
-  MARGIN_BOTTOM_KEYWORDS,
-  MARGIN_LEFT_KEYWORDS,
-  MARGIN_RIGHT_KEYWORDS,
-  MARGIN_TOP_KEYWORDS,
-  MARGIN_TRIM_KEYWORDS,
-  MARKER_KEYWORDS,
-  MARKER_END_KEYWORDS,
-  MARKER_MID_KEYWORDS,
-  MARKER_START_KEYWORDS,
-  MASK_KEYWORDS,
-  MASK_BORDER_MODE_KEYWORDS,
-  MASK_BORDER_REPEAT_KEYWORDS,
-  MASK_BORDER_SLICE_KEYWORDS,
-  MASK_BORDER_SOURCE_KEYWORDS,
-  MASK_BORDER_WIDTH_KEYWORDS,
-  MASK_CLIP_KEYWORDS,
-  MASK_COMPOSITE_KEYWORDS,
-  MASK_IMAGE_KEYWORDS,
-  MASK_MODE_KEYWORDS,
-  MASK_ORIGIN_KEYWORDS,
-  MASK_POSITION_KEYWORDS,
-  MASK_REPEAT_KEYWORDS,
-  MASK_SIZE_KEYWORDS,
-  MASK_TYPE_KEYWORDS,
-  MASONRY_AUTO_FLOW_KEYWORDS,
-  MATH_DEPTH_KEYWORDS,
-  MATH_SHIFT_KEYWORDS,
-  MATH_STYLE_KEYWORDS,
-  MAX_HEIGHT_KEYWORDS,
-  MAX_LINES_KEYWORDS,
-  MAX_WIDTH_KEYWORDS,
-  MIN_HEIGHT_KEYWORDS,
-  MIN_WIDTH_KEYWORDS,
-  MIX_BLEND_MODE_KEYWORDS,
-  OBJECT_FIT_KEYWORDS,
-  OBJECT_POSITION_KEYWORDS,
-  OFFSET_ANCHOR_KEYWORDS,
-  OFFSET_PATH_KEYWORDS,
-  OFFSET_POSITION_KEYWORDS,
-  OFFSET_ROTATE_KEYWORDS,
-  OUTLINE_COLOR_KEYWORDS,
-  OUTLINE_STYLE_KEYWORDS,
-  OUTLINE_WIDTH_KEYWORDS,
-  OVERFLOW_KEYWORDS,
-  OVERFLOW_ANCHOR_KEYWORDS,
-  OVERFLOW_BLOCK_KEYWORDS,
-  OVERFLOW_CLIP_BOX_KEYWORDS,
-  OVERFLOW_CLIP_MARGIN_KEYWORDS,
-  OVERFLOW_INLINE_KEYWORDS,
-  OVERFLOW_WRAP_KEYWORDS,
-  OVERFLOW_X_KEYWORDS,
-  OVERFLOW_Y_KEYWORDS,
-  OVERLAY_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_X_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_Y_KEYWORDS,
-  PAGE_KEYWORDS,
-  PAGE_BREAK_AFTER_KEYWORDS,
-  PAGE_BREAK_BEFORE_KEYWORDS,
-  PAGE_BREAK_INSIDE_KEYWORDS,
-  PAINT_ORDER_KEYWORDS,
-  PAUSE_AFTER_KEYWORDS,
-  PAUSE_BEFORE_KEYWORDS,
-  PERSPECTIVE_KEYWORDS,
-  PERSPECTIVE_ORIGIN_KEYWORDS,
-  POINTER_EVENTS_KEYWORDS,
-  POSITION_KEYWORDS,
-  POSITION_ANCHOR_KEYWORDS,
-  POSITION_AREA_KEYWORDS,
-  POSITION_TRY_FALLBACKS_KEYWORDS,
-  POSITION_TRY_ORDER_KEYWORDS,
-  POSITION_VISIBILITY_KEYWORDS,
-  PRINT_COLOR_ADJUST_KEYWORDS,
-  QUOTES_KEYWORDS,
-  RESIZE_KEYWORDS,
-  REST_AFTER_KEYWORDS,
-  REST_BEFORE_KEYWORDS,
-  RIGHT_KEYWORDS,
-  ROTATE_KEYWORDS,
-  ROW_GAP_KEYWORDS,
-  RUBY_ALIGN_KEYWORDS,
-  RUBY_MERGE_KEYWORDS,
-  RUBY_POSITION_KEYWORDS,
-  SCALE_KEYWORDS,
-  SCROLL_BEHAVIOR_KEYWORDS,
-  SCROLL_PADDING_KEYWORDS,
-  SCROLL_PADDING_BLOCK_KEYWORDS,
-  SCROLL_PADDING_BLOCK_END_KEYWORDS,
-  SCROLL_PADDING_BLOCK_START_KEYWORDS,
-  SCROLL_PADDING_BOTTOM_KEYWORDS,
-  SCROLL_PADDING_INLINE_KEYWORDS,
-  SCROLL_PADDING_INLINE_END_KEYWORDS,
-  SCROLL_PADDING_INLINE_START_KEYWORDS,
-  SCROLL_PADDING_LEFT_KEYWORDS,
-  SCROLL_PADDING_RIGHT_KEYWORDS,
-  SCROLL_PADDING_TOP_KEYWORDS,
-  SCROLL_SNAP_ALIGN_KEYWORDS,
-  SCROLL_SNAP_COORDINATE_KEYWORDS,
-  SCROLL_SNAP_DESTINATION_KEYWORDS,
-  SCROLL_SNAP_POINTS_X_KEYWORDS,
-  SCROLL_SNAP_POINTS_Y_KEYWORDS,
-  SCROLL_SNAP_STOP_KEYWORDS,
-  SCROLL_SNAP_TYPE_KEYWORDS,
-  SCROLL_SNAP_TYPE_X_KEYWORDS,
-  SCROLL_SNAP_TYPE_Y_KEYWORDS,
-  SCROLL_TIMELINE_AXIS_KEYWORDS,
-  SCROLL_TIMELINE_NAME_KEYWORDS,
-  SCROLLBAR_COLOR_KEYWORDS,
-  SCROLLBAR_GUTTER_KEYWORDS,
-  SCROLLBAR_WIDTH_KEYWORDS,
-  SHAPE_OUTSIDE_KEYWORDS,
-  SHAPE_RENDERING_KEYWORDS,
-  SPEAK_KEYWORDS,
-  SPEAK_AS_KEYWORDS,
-  STROKE_KEYWORDS,
-  STROKE_DASHARRAY_KEYWORDS,
-  STROKE_LINECAP_KEYWORDS,
-  STROKE_LINEJOIN_KEYWORDS,
-  TABLE_LAYOUT_KEYWORDS,
-  TEXT_ALIGN_KEYWORDS,
-  TEXT_ALIGN_LAST_KEYWORDS,
-  TEXT_ANCHOR_KEYWORDS,
-  TEXT_COMBINE_UPRIGHT_KEYWORDS,
-  TEXT_DECORATION_COLOR_KEYWORDS,
-  TEXT_DECORATION_LINE_KEYWORDS,
-  TEXT_DECORATION_SKIP_KEYWORDS,
-  TEXT_DECORATION_SKIP_INK_KEYWORDS,
-  TEXT_DECORATION_STYLE_KEYWORDS,
-  TEXT_DECORATION_THICKNESS_KEYWORDS,
-  TEXT_EMPHASIS_COLOR_KEYWORDS,
-  TEXT_EMPHASIS_POSITION_KEYWORDS,
-  TEXT_EMPHASIS_STYLE_KEYWORDS,
-  TEXT_INDENT_KEYWORDS,
-  TEXT_JUSTIFY_KEYWORDS,
-  TEXT_ORIENTATION_KEYWORDS,
-  TEXT_OVERFLOW_KEYWORDS,
-  TEXT_RENDERING_KEYWORDS,
-  TEXT_SHADOW_KEYWORDS,
-  TEXT_SIZE_ADJUST_KEYWORDS,
-  TEXT_SPACING_TRIM_KEYWORDS,
-  TEXT_TRANSFORM_KEYWORDS,
-  TEXT_UNDERLINE_OFFSET_KEYWORDS,
-  TEXT_UNDERLINE_POSITION_KEYWORDS,
-  TEXT_WRAP_MODE_KEYWORDS,
-  TEXT_WRAP_STYLE_KEYWORDS,
-  TIMELINE_SCOPE_KEYWORDS,
-  TOP_KEYWORDS,
-  TOUCH_ACTION_KEYWORDS,
-  TRANSFORM_KEYWORDS,
-  TRANSFORM_BOX_KEYWORDS,
-  TRANSFORM_ORIGIN_KEYWORDS,
-  TRANSFORM_STYLE_KEYWORDS,
-  TRANSITION_KEYWORDS,
-  TRANSITION_BEHAVIOR_KEYWORDS,
-  TRANSITION_PROPERTY_KEYWORDS,
-  TRANSITION_TIMING_FUNCTION_KEYWORDS,
-  TRANSLATE_KEYWORDS,
-  UNICODE_BIDI_KEYWORDS,
-  USER_SELECT_KEYWORDS,
-  VECTOR_EFFECT_KEYWORDS,
-  VERTICAL_ALIGN_KEYWORDS,
-  VIEW_TIMELINE_AXIS_KEYWORDS,
-  VIEW_TIMELINE_INSET_KEYWORDS,
-  VIEW_TIMELINE_NAME_KEYWORDS,
-  VIEW_TRANSITION_NAME_KEYWORDS,
-  VISIBILITY_KEYWORDS,
-  VOICE_BALANCE_KEYWORDS,
-  VOICE_DURATION_KEYWORDS,
-  VOICE_FAMILY_KEYWORDS,
-  VOICE_PITCH_KEYWORDS,
-  VOICE_RANGE_KEYWORDS,
-  VOICE_RATE_KEYWORDS,
-  VOICE_STRESS_KEYWORDS,
-  VOICE_VOLUME_KEYWORDS,
-  WHITE_SPACE_KEYWORDS,
-  WHITE_SPACE_COLLAPSE_KEYWORDS,
-  WHITE_SPACE_TRIM_KEYWORDS,
-  WIDTH_KEYWORDS,
-  WILL_CHANGE_KEYWORDS,
-  WORD_BREAK_KEYWORDS,
-  WORD_SPACING_KEYWORDS,
-  WORD_WRAP_KEYWORDS,
-  WRITING_MODE_KEYWORDS,
-  Z_INDEX_KEYWORDS,
-  ZOOM_KEYWORDS,
-} from './css-keywords';
 
 import type { AllColorValue } from './css-keywords';
 import type { KeywordValue } from './css-property-keywords';
-
-import {
-  ACCENT_COLOR_NUMBER_TYPES,
-  ANIMATION_NUMBER_TYPES,
-  ANIMATION_DELAY_NUMBER_TYPES,
-  ANIMATION_DURATION_NUMBER_TYPES,
-  ANIMATION_ITERATION_COUNT_NUMBER_TYPES,
-  ANIMATION_RANGE_END_NUMBER_TYPES,
-  ANIMATION_RANGE_START_NUMBER_TYPES,
-  ANIMATION_TIMING_FUNCTION_NUMBER_TYPES,
-  ASPECT_RATIO_NUMBER_TYPES,
-  AZIMUTH_NUMBER_TYPES,
-  BACKDROP_FILTER_NUMBER_TYPES,
-  BACKGROUND_NUMBER_TYPES,
-  BACKGROUND_COLOR_NUMBER_TYPES,
-  BACKGROUND_IMAGE_NUMBER_TYPES,
-  BACKGROUND_POSITION_NUMBER_TYPES,
-  BACKGROUND_POSITION_X_NUMBER_TYPES,
-  BACKGROUND_POSITION_Y_NUMBER_TYPES,
-  BACKGROUND_SIZE_NUMBER_TYPES,
-  BASELINE_SHIFT_NUMBER_TYPES,
-  BORDER_NUMBER_TYPES,
-  BORDER_BLOCK_NUMBER_TYPES,
-  BORDER_BLOCK_END_NUMBER_TYPES,
-  BORDER_BLOCK_START_NUMBER_TYPES,
-  BORDER_BOTTOM_NUMBER_TYPES,
-  BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES,
-  BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES,
-  BORDER_BOTTOM_WIDTH_NUMBER_TYPES,
-  BORDER_COLOR_NUMBER_TYPES,
-  BORDER_END_END_RADIUS_NUMBER_TYPES,
-  BORDER_END_START_RADIUS_NUMBER_TYPES,
-  BORDER_IMAGE_OUTSET_NUMBER_TYPES,
-  BORDER_IMAGE_SLICE_NUMBER_TYPES,
-  BORDER_IMAGE_SOURCE_NUMBER_TYPES,
-  BORDER_IMAGE_WIDTH_NUMBER_TYPES,
-  BORDER_INLINE_NUMBER_TYPES,
-  BORDER_INLINE_END_NUMBER_TYPES,
-  BORDER_INLINE_START_NUMBER_TYPES,
-  BORDER_LEFT_NUMBER_TYPES,
-  BORDER_LEFT_COLOR_NUMBER_TYPES,
-  BORDER_LEFT_WIDTH_NUMBER_TYPES,
-  BORDER_RADIUS_NUMBER_TYPES,
-  BORDER_RIGHT_NUMBER_TYPES,
-  BORDER_RIGHT_COLOR_NUMBER_TYPES,
-  BORDER_RIGHT_WIDTH_NUMBER_TYPES,
-  BORDER_SPACING_NUMBER_TYPES,
-  BORDER_START_END_RADIUS_NUMBER_TYPES,
-  BORDER_START_START_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_NUMBER_TYPES,
-  BORDER_TOP_COLOR_NUMBER_TYPES,
-  BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_WIDTH_NUMBER_TYPES,
-  BORDER_WIDTH_NUMBER_TYPES,
-  BOTTOM_NUMBER_TYPES,
-  BOX_FLEX_NUMBER_TYPES,
-  BOX_FLEX_GROUP_NUMBER_TYPES,
-  BOX_ORDINAL_GROUP_NUMBER_TYPES,
-  BOX_SHADOW_NUMBER_TYPES,
-  CARET_COLOR_NUMBER_TYPES,
-  CLIP_NUMBER_TYPES,
-  CLIP_PATH_NUMBER_TYPES,
-  COLOR_NUMBER_TYPES,
-  COLUMN_COUNT_NUMBER_TYPES,
-  COLUMN_GAP_NUMBER_TYPES,
-  COLUMN_RULE_COLOR_NUMBER_TYPES,
-  COLUMN_WIDTH_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES,
-  CONTENT_NUMBER_TYPES,
-  COUNTER_INCREMENT_NUMBER_TYPES,
-  COUNTER_RESET_NUMBER_TYPES,
-  COUNTER_SET_NUMBER_TYPES,
-  CURSOR_NUMBER_TYPES,
-  CX_NUMBER_TYPES,
-  CY_NUMBER_TYPES,
-  FILL_NUMBER_TYPES,
-  FILL_OPACITY_NUMBER_TYPES,
-  FILTER_NUMBER_TYPES,
-  FLEX_GROW_NUMBER_TYPES,
-  FLEX_SHRINK_NUMBER_TYPES,
-  FONT_FEATURE_SETTINGS_NUMBER_TYPES,
-  FONT_SIZE_NUMBER_TYPES,
-  FONT_SIZE_ADJUST_NUMBER_TYPES,
-  FONT_SMOOTH_NUMBER_TYPES,
-  FONT_STRETCH_NUMBER_TYPES,
-  FONT_STYLE_NUMBER_TYPES,
-  FONT_VARIATION_SETTINGS_NUMBER_TYPES,
-  FONT_WEIGHT_NUMBER_TYPES,
-  GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES,
-  GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES,
-  GRID_AREA_NUMBER_TYPES,
-  GRID_AUTO_COLUMNS_NUMBER_TYPES,
-  GRID_AUTO_ROWS_NUMBER_TYPES,
-  GRID_COLUMN_NUMBER_TYPES,
-  GRID_COLUMN_END_NUMBER_TYPES,
-  GRID_COLUMN_GAP_NUMBER_TYPES,
-  GRID_COLUMN_START_NUMBER_TYPES,
-  GRID_ROW_NUMBER_TYPES,
-  GRID_ROW_END_NUMBER_TYPES,
-  GRID_ROW_GAP_NUMBER_TYPES,
-  GRID_ROW_START_NUMBER_TYPES,
-  GRID_TEMPLATE_NUMBER_TYPES,
-  GRID_TEMPLATE_COLUMNS_NUMBER_TYPES,
-  GRID_TEMPLATE_ROWS_NUMBER_TYPES,
-  HEIGHT_NUMBER_TYPES,
-  HYPHENATE_LIMIT_CHARS_NUMBER_TYPES,
-  IMAGE_ORIENTATION_NUMBER_TYPES,
-  IMAGE_RESOLUTION_NUMBER_TYPES,
-  INITIAL_LETTER_NUMBER_TYPES,
-  KERNING_NUMBER_TYPES,
-  LEFT_NUMBER_TYPES,
-  LETTER_SPACING_NUMBER_TYPES,
-  LINE_CLAMP_NUMBER_TYPES,
-  LINE_HEIGHT_NUMBER_TYPES,
-  LINE_HEIGHT_STEP_NUMBER_TYPES,
-  LIST_STYLE_IMAGE_NUMBER_TYPES,
-  MARGIN_NUMBER_TYPES,
-  MARGIN_BOTTOM_NUMBER_TYPES,
-  MARGIN_LEFT_NUMBER_TYPES,
-  MARGIN_RIGHT_NUMBER_TYPES,
-  MARGIN_TOP_NUMBER_TYPES,
-  MASK_NUMBER_TYPES,
-  MASK_BORDER_OUTSET_NUMBER_TYPES,
-  MASK_BORDER_SLICE_NUMBER_TYPES,
-  MASK_BORDER_SOURCE_NUMBER_TYPES,
-  MASK_BORDER_WIDTH_NUMBER_TYPES,
-  MASK_IMAGE_NUMBER_TYPES,
-  MASK_POSITION_NUMBER_TYPES,
-  MASK_SIZE_NUMBER_TYPES,
-  MATH_DEPTH_NUMBER_TYPES,
-  MAX_HEIGHT_NUMBER_TYPES,
-  MAX_LINES_NUMBER_TYPES,
-  MAX_WIDTH_NUMBER_TYPES,
-  MIN_HEIGHT_NUMBER_TYPES,
-  MIN_WIDTH_NUMBER_TYPES,
-  OBJECT_POSITION_NUMBER_TYPES,
-  OFFSET_ANCHOR_NUMBER_TYPES,
-  OFFSET_DISTANCE_NUMBER_TYPES,
-  OFFSET_PATH_NUMBER_TYPES,
-  OFFSET_POSITION_NUMBER_TYPES,
-  OFFSET_ROTATE_NUMBER_TYPES,
-  OPACITY_NUMBER_TYPES,
-  ORDER_NUMBER_TYPES,
-  ORPHANS_NUMBER_TYPES,
-  OUTLINE_COLOR_NUMBER_TYPES,
-  OUTLINE_OFFSET_NUMBER_TYPES,
-  OUTLINE_WIDTH_NUMBER_TYPES,
-  OVERFLOW_CLIP_MARGIN_NUMBER_TYPES,
-  PADDING_NUMBER_TYPES,
-  PADDING_BOTTOM_NUMBER_TYPES,
-  PADDING_LEFT_NUMBER_TYPES,
-  PADDING_RIGHT_NUMBER_TYPES,
-  PADDING_TOP_NUMBER_TYPES,
-  PAUSE_AFTER_NUMBER_TYPES,
-  PAUSE_BEFORE_NUMBER_TYPES,
-  PERSPECTIVE_NUMBER_TYPES,
-  PERSPECTIVE_ORIGIN_NUMBER_TYPES,
-  R_NUMBER_TYPES,
-  REST_AFTER_NUMBER_TYPES,
-  REST_BEFORE_NUMBER_TYPES,
-  RIGHT_NUMBER_TYPES,
-  ROTATE_NUMBER_TYPES,
-  ROW_GAP_NUMBER_TYPES,
-  RX_NUMBER_TYPES,
-  RY_NUMBER_TYPES,
-  SCALE_NUMBER_TYPES,
-  SCROLL_MARGIN_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES,
-  SCROLL_MARGIN_BOTTOM_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_END_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_START_NUMBER_TYPES,
-  SCROLL_MARGIN_LEFT_NUMBER_TYPES,
-  SCROLL_MARGIN_RIGHT_NUMBER_TYPES,
-  SCROLL_MARGIN_TOP_NUMBER_TYPES,
-  SCROLL_PADDING_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_END_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_START_NUMBER_TYPES,
-  SCROLL_PADDING_BOTTOM_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_END_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_START_NUMBER_TYPES,
-  SCROLL_PADDING_LEFT_NUMBER_TYPES,
-  SCROLL_PADDING_RIGHT_NUMBER_TYPES,
-  SCROLL_PADDING_TOP_NUMBER_TYPES,
-  SCROLL_SNAP_COORDINATE_NUMBER_TYPES,
-  SCROLL_SNAP_DESTINATION_NUMBER_TYPES,
-  SCROLL_SNAP_POINTS_X_NUMBER_TYPES,
-  SCROLL_SNAP_POINTS_Y_NUMBER_TYPES,
-  SCROLLBAR_COLOR_NUMBER_TYPES,
-  SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES,
-  SHAPE_MARGIN_NUMBER_TYPES,
-  SHAPE_OUTSIDE_NUMBER_TYPES,
-  STROKE_NUMBER_TYPES,
-  STROKE_DASHARRAY_NUMBER_TYPES,
-  STROKE_DASHOFFSET_NUMBER_TYPES,
-  STROKE_MITERLIMIT_NUMBER_TYPES,
-  STROKE_WIDTH_NUMBER_TYPES,
-  TAB_SIZE_NUMBER_TYPES,
-  TEXT_COMBINE_UPRIGHT_NUMBER_TYPES,
-  TEXT_DECORATION_COLOR_NUMBER_TYPES,
-  TEXT_DECORATION_THICKNESS_NUMBER_TYPES,
-  TEXT_EMPHASIS_COLOR_NUMBER_TYPES,
-  TEXT_INDENT_NUMBER_TYPES,
-  TEXT_SHADOW_NUMBER_TYPES,
-  TEXT_SIZE_ADJUST_NUMBER_TYPES,
-  TEXT_UNDERLINE_OFFSET_NUMBER_TYPES,
-  TOP_NUMBER_TYPES,
-  TRANSFORM_NUMBER_TYPES,
-  TRANSFORM_ORIGIN_NUMBER_TYPES,
-  TRANSITION_NUMBER_TYPES,
-  TRANSITION_DELAY_NUMBER_TYPES,
-  TRANSITION_DURATION_NUMBER_TYPES,
-  TRANSITION_TIMING_FUNCTION_NUMBER_TYPES,
-  TRANSLATE_NUMBER_TYPES,
-  VERTICAL_ALIGN_NUMBER_TYPES,
-  VIEW_TIMELINE_INSET_NUMBER_TYPES,
-  VOICE_BALANCE_NUMBER_TYPES,
-  VOICE_DURATION_NUMBER_TYPES,
-  VOICE_FAMILY_NUMBER_TYPES,
-  VOICE_PITCH_NUMBER_TYPES,
-  VOICE_RANGE_NUMBER_TYPES,
-  VOICE_RATE_NUMBER_TYPES,
-  WIDOWS_NUMBER_TYPES,
-  WIDTH_NUMBER_TYPES,
-  WORD_SPACING_NUMBER_TYPES,
-  X_NUMBER_TYPES,
-  Y_NUMBER_TYPES,
-  Z_INDEX_NUMBER_TYPES,
-  ZOOM_NUMBER_TYPES,
-} from './css-numeric';
-
 import type { NumberTypeName, UnitType } from './css-numeric';
 
-import type {
+import {
   AccentColorConfig,
   AlignContentConfig,
   AlignItemsConfig,
@@ -1548,2408 +920,1342 @@ export type CssPropertyKebabName = typeof cssPropertyNameMap[CssPropertyCamelNam
 /** CSS 属性配置 Class */
 export class CssPropertyConfigMap {
   /** accent-color 属性配置 */
-  accentColor: AccentColorConfig = {
-    keywords: [...ACCENT_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...ACCENT_COLOR_NUMBER_TYPES],
-  };
+  accentColor = new AccentColorConfig();
 
   /** align-content 属性配置 */
-  alignContent: AlignContentConfig = {
-    keywords: [...ALIGN_CONTENT_KEYWORDS],
-  };
+  alignContent = new AlignContentConfig();
 
   /** align-items 属性配置 */
-  alignItems: AlignItemsConfig = {
-    keywords: [...ALIGN_ITEMS_KEYWORDS],
-  };
+  alignItems = new AlignItemsConfig();
 
   /** align-self 属性配置 */
-  alignSelf: AlignSelfConfig = {
-    keywords: [...ALIGN_SELF_KEYWORDS],
-  };
+  alignSelf = new AlignSelfConfig();
 
   /** align-tracks 属性配置 */
-  alignTracks: AlignTracksConfig = {
-    keywords: [...ALIGN_TRACKS_KEYWORDS],
-  };
+  alignTracks = new AlignTracksConfig();
 
   /** alignment-baseline 属性配置 */
-  alignmentBaseline: AlignmentBaselineConfig = {
-    keywords: [...ALIGNMENT_BASELINE_KEYWORDS],
-  };
+  alignmentBaseline = new AlignmentBaselineConfig();
 
   /** all 属性配置 */
-  all: AllConfig = {
-    keywords: [...ALL_KEYWORDS],
-  };
+  all = new AllConfig();
 
   /** anchor-name 属性配置 */
-  anchorName: AnchorNameConfig = {
-    keywords: [...ANCHOR_NAME_KEYWORDS],
-  };
+  anchorName = new AnchorNameConfig();
 
   /** anchor-scope 属性配置 */
-  anchorScope: AnchorScopeConfig = {
-    keywords: [...ANCHOR_SCOPE_KEYWORDS],
-  };
+  anchorScope = new AnchorScopeConfig();
 
   /** animation 属性配置 */
-  animation: AnimationConfig = {
-    keywords: [...ANIMATION_KEYWORDS],
-    numberTypes: [...ANIMATION_NUMBER_TYPES],
-  };
+  animation = new AnimationConfig();
 
   /** animation-composition 属性配置 */
-  animationComposition: AnimationCompositionConfig = {
-    keywords: [...ANIMATION_COMPOSITION_KEYWORDS],
-  };
+  animationComposition = new AnimationCompositionConfig();
 
   /** animation-delay 属性配置 */
-  animationDelay: AnimationDelayConfig = {
-    numberTypes: [...ANIMATION_DELAY_NUMBER_TYPES],
-  };
+  animationDelay = new AnimationDelayConfig();
 
   /** animation-direction 属性配置 */
-  animationDirection: AnimationDirectionConfig = {
-    keywords: [...ANIMATION_DIRECTION_KEYWORDS],
-  };
+  animationDirection = new AnimationDirectionConfig();
 
   /** animation-duration 属性配置 */
-  animationDuration: AnimationDurationConfig = {
-    numberTypes: [...ANIMATION_DURATION_NUMBER_TYPES],
-  };
+  animationDuration = new AnimationDurationConfig();
 
   /** animation-fill-mode 属性配置 */
-  animationFillMode: AnimationFillModeConfig = {
-    keywords: [...ANIMATION_FILL_MODE_KEYWORDS],
-  };
+  animationFillMode = new AnimationFillModeConfig();
 
   /** animation-iteration-count 属性配置 */
-  animationIterationCount: AnimationIterationCountConfig = {
-    keywords: [...ANIMATION_ITERATION_COUNT_KEYWORDS],
-    numberTypes: [...ANIMATION_ITERATION_COUNT_NUMBER_TYPES],
-  };
+  animationIterationCount = new AnimationIterationCountConfig();
 
   /** animation-name 属性配置 */
-  animationName: AnimationNameConfig = {
-    keywords: [...ANIMATION_NAME_KEYWORDS],
-  };
+  animationName = new AnimationNameConfig();
 
   /** animation-play-state 属性配置 */
-  animationPlayState: AnimationPlayStateConfig = {
-    keywords: [...ANIMATION_PLAY_STATE_KEYWORDS],
-  };
+  animationPlayState = new AnimationPlayStateConfig();
 
   /** animation-range-end 属性配置 */
-  animationRangeEnd: AnimationRangeEndConfig = {
-    keywords: [...ANIMATION_RANGE_END_KEYWORDS],
-    numberTypes: [...ANIMATION_RANGE_END_NUMBER_TYPES],
-  };
+  animationRangeEnd = new AnimationRangeEndConfig();
 
   /** animation-range-start 属性配置 */
-  animationRangeStart: AnimationRangeStartConfig = {
-    keywords: [...ANIMATION_RANGE_START_KEYWORDS],
-    numberTypes: [...ANIMATION_RANGE_START_NUMBER_TYPES],
-  };
+  animationRangeStart = new AnimationRangeStartConfig();
 
   /** animation-timeline 属性配置 */
-  animationTimeline: AnimationTimelineConfig = {
-    keywords: [...ANIMATION_TIMELINE_KEYWORDS],
-  };
+  animationTimeline = new AnimationTimelineConfig();
 
   /** animation-timing-function 属性配置 */
-  animationTimingFunction: AnimationTimingFunctionConfig = {
-    keywords: [...ANIMATION_TIMING_FUNCTION_KEYWORDS],
-    numberTypes: [...ANIMATION_TIMING_FUNCTION_NUMBER_TYPES],
-  };
+  animationTimingFunction = new AnimationTimingFunctionConfig();
 
   /** appearance 属性配置 */
-  appearance: AppearanceConfig = {
-    keywords: [...APPEARANCE_KEYWORDS],
-  };
+  appearance = new AppearanceConfig();
 
   /** aspect-ratio 属性配置 */
-  aspectRatio: AspectRatioConfig = {
-    keywords: [...ASPECT_RATIO_KEYWORDS],
-    numberTypes: [...ASPECT_RATIO_NUMBER_TYPES],
-  };
+  aspectRatio = new AspectRatioConfig();
 
   /** azimuth 属性配置 */
-  azimuth: AzimuthConfig = {
-    keywords: [...AZIMUTH_KEYWORDS],
-    numberTypes: [...AZIMUTH_NUMBER_TYPES],
-  };
+  azimuth = new AzimuthConfig();
 
   /** backdrop-filter 属性配置 */
-  backdropFilter: BackdropFilterConfig = {
-    keywords: [...BACKDROP_FILTER_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BACKDROP_FILTER_NUMBER_TYPES],
-  };
+  backdropFilter = new BackdropFilterConfig();
 
   /** backface-visibility 属性配置 */
-  backfaceVisibility: BackfaceVisibilityConfig = {
-    keywords: [...BACKFACE_VISIBILITY_KEYWORDS],
-  };
+  backfaceVisibility = new BackfaceVisibilityConfig();
 
   /** background 属性配置 */
-  background: BackgroundConfig = {
-    keywords: [...BACKGROUND_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BACKGROUND_NUMBER_TYPES],
-  };
+  background = new BackgroundConfig();
 
   /** background-attachment 属性配置 */
-  backgroundAttachment: BackgroundAttachmentConfig = {
-    keywords: [...BACKGROUND_ATTACHMENT_KEYWORDS],
-  };
+  backgroundAttachment = new BackgroundAttachmentConfig();
 
   /** background-blend-mode 属性配置 */
-  backgroundBlendMode: BackgroundBlendModeConfig = {
-    keywords: [...BACKGROUND_BLEND_MODE_KEYWORDS],
-  };
+  backgroundBlendMode = new BackgroundBlendModeConfig();
 
   /** background-clip 属性配置 */
-  backgroundClip: BackgroundClipConfig = {
-    keywords: [...BACKGROUND_CLIP_KEYWORDS],
-  };
+  backgroundClip = new BackgroundClipConfig();
 
   /** background-color 属性配置 */
-  backgroundColor: BackgroundColorConfig = {
-    keywords: [...BACKGROUND_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BACKGROUND_COLOR_NUMBER_TYPES],
-  };
+  backgroundColor = new BackgroundColorConfig();
 
   /** background-image 属性配置 */
-  backgroundImage: BackgroundImageConfig = {
-    keywords: [...BACKGROUND_IMAGE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BACKGROUND_IMAGE_NUMBER_TYPES],
-  };
+  backgroundImage = new BackgroundImageConfig();
 
   /** background-origin 属性配置 */
-  backgroundOrigin: BackgroundOriginConfig = {
-    keywords: [...BACKGROUND_ORIGIN_KEYWORDS],
-  };
+  backgroundOrigin = new BackgroundOriginConfig();
 
   /** background-position 属性配置 */
-  backgroundPosition: BackgroundPositionConfig = {
-    keywords: [...BACKGROUND_POSITION_KEYWORDS],
-    numberTypes: [...BACKGROUND_POSITION_NUMBER_TYPES],
-  };
+  backgroundPosition = new BackgroundPositionConfig();
 
   /** background-position-x 属性配置 */
-  backgroundPositionX: BackgroundPositionXConfig = {
-    keywords: [...BACKGROUND_POSITION_X_KEYWORDS],
-    numberTypes: [...BACKGROUND_POSITION_X_NUMBER_TYPES],
-  };
+  backgroundPositionX = new BackgroundPositionXConfig();
 
   /** background-position-y 属性配置 */
-  backgroundPositionY: BackgroundPositionYConfig = {
-    keywords: [...BACKGROUND_POSITION_Y_KEYWORDS],
-    numberTypes: [...BACKGROUND_POSITION_Y_NUMBER_TYPES],
-  };
+  backgroundPositionY = new BackgroundPositionYConfig();
 
   /** background-repeat 属性配置 */
-  backgroundRepeat: BackgroundRepeatConfig = {
-    keywords: [...BACKGROUND_REPEAT_KEYWORDS],
-  };
+  backgroundRepeat = new BackgroundRepeatConfig();
 
   /** background-size 属性配置 */
-  backgroundSize: BackgroundSizeConfig = {
-    keywords: [...BACKGROUND_SIZE_KEYWORDS],
-    numberTypes: [...BACKGROUND_SIZE_NUMBER_TYPES],
-  };
+  backgroundSize = new BackgroundSizeConfig();
 
   /** baseline-shift 属性配置 */
-  baselineShift: BaselineShiftConfig = {
-    keywords: [...BASELINE_SHIFT_KEYWORDS],
-    numberTypes: [...BASELINE_SHIFT_NUMBER_TYPES],
-  };
+  baselineShift = new BaselineShiftConfig();
 
   /** border 属性配置 */
-  border: BorderConfig = {
-    keywords: [...BORDER_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_NUMBER_TYPES],
-  };
+  border = new BorderConfig();
 
   /** border-block 属性配置 */
-  borderBlock: BorderBlockConfig = {
-    keywords: [...BORDER_BLOCK_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_BLOCK_NUMBER_TYPES],
-  };
+  borderBlock = new BorderBlockConfig();
 
   /** border-block-end 属性配置 */
-  borderBlockEnd: BorderBlockEndConfig = {
-    keywords: [...BORDER_BLOCK_END_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_BLOCK_END_NUMBER_TYPES],
-  };
+  borderBlockEnd = new BorderBlockEndConfig();
 
   /** border-block-start 属性配置 */
-  borderBlockStart: BorderBlockStartConfig = {
-    keywords: [...BORDER_BLOCK_START_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_BLOCK_START_NUMBER_TYPES],
-  };
+  borderBlockStart = new BorderBlockStartConfig();
 
   /** border-bottom 属性配置 */
-  borderBottom: BorderBottomConfig = {
-    keywords: [...BORDER_BOTTOM_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_BOTTOM_NUMBER_TYPES],
-  };
+  borderBottom = new BorderBottomConfig();
 
   /** border-bottom-left-radius 属性配置 */
-  borderBottomLeftRadius: BorderBottomLeftRadiusConfig = {
-    numberTypes: [...BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES],
-  };
+  borderBottomLeftRadius = new BorderBottomLeftRadiusConfig();
 
   /** border-bottom-right-radius 属性配置 */
-  borderBottomRightRadius: BorderBottomRightRadiusConfig = {
-    numberTypes: [...BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES],
-  };
+  borderBottomRightRadius = new BorderBottomRightRadiusConfig();
 
   /** border-bottom-style 属性配置 */
-  borderBottomStyle: BorderBottomStyleConfig = {
-    keywords: [...BORDER_BOTTOM_STYLE_KEYWORDS],
-  };
+  borderBottomStyle = new BorderBottomStyleConfig();
 
   /** border-bottom-width 属性配置 */
-  borderBottomWidth: BorderBottomWidthConfig = {
-    keywords: [...BORDER_BOTTOM_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_BOTTOM_WIDTH_NUMBER_TYPES],
-  };
+  borderBottomWidth = new BorderBottomWidthConfig();
 
   /** border-collapse 属性配置 */
-  borderCollapse: BorderCollapseConfig = {
-    keywords: [...BORDER_COLLAPSE_KEYWORDS],
-  };
+  borderCollapse = new BorderCollapseConfig();
 
   /** border-color 属性配置 */
-  borderColor: BorderColorConfig = {
-    keywords: [...BORDER_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_COLOR_NUMBER_TYPES],
-  };
+  borderColor = new BorderColorConfig();
 
   /** border-end-end-radius 属性配置 */
-  borderEndEndRadius: BorderEndEndRadiusConfig = {
-    numberTypes: [...BORDER_END_END_RADIUS_NUMBER_TYPES],
-  };
+  borderEndEndRadius = new BorderEndEndRadiusConfig();
 
   /** border-end-start-radius 属性配置 */
-  borderEndStartRadius: BorderEndStartRadiusConfig = {
-    numberTypes: [...BORDER_END_START_RADIUS_NUMBER_TYPES],
-  };
+  borderEndStartRadius = new BorderEndStartRadiusConfig();
 
   /** border-image-outset 属性配置 */
-  borderImageOutset: BorderImageOutsetConfig = {
-    numberTypes: [...BORDER_IMAGE_OUTSET_NUMBER_TYPES],
-  };
+  borderImageOutset = new BorderImageOutsetConfig();
 
   /** border-image-repeat 属性配置 */
-  borderImageRepeat: BorderImageRepeatConfig = {
-    keywords: [...BORDER_IMAGE_REPEAT_KEYWORDS],
-  };
+  borderImageRepeat = new BorderImageRepeatConfig();
 
   /** border-image-slice 属性配置 */
-  borderImageSlice: BorderImageSliceConfig = {
-    keywords: [...BORDER_IMAGE_SLICE_KEYWORDS],
-    numberTypes: [...BORDER_IMAGE_SLICE_NUMBER_TYPES],
-  };
+  borderImageSlice = new BorderImageSliceConfig();
 
   /** border-image-source 属性配置 */
-  borderImageSource: BorderImageSourceConfig = {
-    keywords: [...BORDER_IMAGE_SOURCE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_IMAGE_SOURCE_NUMBER_TYPES],
-  };
+  borderImageSource = new BorderImageSourceConfig();
 
   /** border-image-width 属性配置 */
-  borderImageWidth: BorderImageWidthConfig = {
-    keywords: [...BORDER_IMAGE_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_IMAGE_WIDTH_NUMBER_TYPES],
-  };
+  borderImageWidth = new BorderImageWidthConfig();
 
   /** border-inline 属性配置 */
-  borderInline: BorderInlineConfig = {
-    keywords: [...BORDER_INLINE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_INLINE_NUMBER_TYPES],
-  };
+  borderInline = new BorderInlineConfig();
 
   /** border-inline-end 属性配置 */
-  borderInlineEnd: BorderInlineEndConfig = {
-    keywords: [...BORDER_INLINE_END_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_INLINE_END_NUMBER_TYPES],
-  };
+  borderInlineEnd = new BorderInlineEndConfig();
 
   /** border-inline-start 属性配置 */
-  borderInlineStart: BorderInlineStartConfig = {
-    keywords: [...BORDER_INLINE_START_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_INLINE_START_NUMBER_TYPES],
-  };
+  borderInlineStart = new BorderInlineStartConfig();
 
   /** border-left 属性配置 */
-  borderLeft: BorderLeftConfig = {
-    keywords: [...BORDER_LEFT_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_LEFT_NUMBER_TYPES],
-  };
+  borderLeft = new BorderLeftConfig();
 
   /** border-left-color 属性配置 */
-  borderLeftColor: BorderLeftColorConfig = {
-    keywords: [...BORDER_LEFT_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_LEFT_COLOR_NUMBER_TYPES],
-  };
+  borderLeftColor = new BorderLeftColorConfig();
 
   /** border-left-style 属性配置 */
-  borderLeftStyle: BorderLeftStyleConfig = {
-    keywords: [...BORDER_LEFT_STYLE_KEYWORDS],
-  };
+  borderLeftStyle = new BorderLeftStyleConfig();
 
   /** border-left-width 属性配置 */
-  borderLeftWidth: BorderLeftWidthConfig = {
-    keywords: [...BORDER_LEFT_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_LEFT_WIDTH_NUMBER_TYPES],
-  };
+  borderLeftWidth = new BorderLeftWidthConfig();
 
   /** border-radius 属性配置 */
-  borderRadius: BorderRadiusConfig = {
-    numberTypes: [...BORDER_RADIUS_NUMBER_TYPES],
-  };
+  borderRadius = new BorderRadiusConfig();
 
   /** border-right 属性配置 */
-  borderRight: BorderRightConfig = {
-    keywords: [...BORDER_RIGHT_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_RIGHT_NUMBER_TYPES],
-  };
+  borderRight = new BorderRightConfig();
 
   /** border-right-color 属性配置 */
-  borderRightColor: BorderRightColorConfig = {
-    keywords: [...BORDER_RIGHT_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_RIGHT_COLOR_NUMBER_TYPES],
-  };
+  borderRightColor = new BorderRightColorConfig();
 
   /** border-right-style 属性配置 */
-  borderRightStyle: BorderRightStyleConfig = {
-    keywords: [...BORDER_RIGHT_STYLE_KEYWORDS],
-  };
+  borderRightStyle = new BorderRightStyleConfig();
 
   /** border-right-width 属性配置 */
-  borderRightWidth: BorderRightWidthConfig = {
-    keywords: [...BORDER_RIGHT_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_RIGHT_WIDTH_NUMBER_TYPES],
-  };
+  borderRightWidth = new BorderRightWidthConfig();
 
   /** border-spacing 属性配置 */
-  borderSpacing: BorderSpacingConfig = {
-    numberTypes: [...BORDER_SPACING_NUMBER_TYPES],
-  };
+  borderSpacing = new BorderSpacingConfig();
 
   /** border-start-end-radius 属性配置 */
-  borderStartEndRadius: BorderStartEndRadiusConfig = {
-    numberTypes: [...BORDER_START_END_RADIUS_NUMBER_TYPES],
-  };
+  borderStartEndRadius = new BorderStartEndRadiusConfig();
 
   /** border-start-start-radius 属性配置 */
-  borderStartStartRadius: BorderStartStartRadiusConfig = {
-    numberTypes: [...BORDER_START_START_RADIUS_NUMBER_TYPES],
-  };
+  borderStartStartRadius = new BorderStartStartRadiusConfig();
 
   /** border-style 属性配置 */
-  borderStyle: BorderStyleConfig = {
-    keywords: [...BORDER_STYLE_KEYWORDS],
-  };
+  borderStyle = new BorderStyleConfig();
 
   /** border-top 属性配置 */
-  borderTop: BorderTopConfig = {
-    keywords: [...BORDER_TOP_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_TOP_NUMBER_TYPES],
-  };
+  borderTop = new BorderTopConfig();
 
   /** border-top-color 属性配置 */
-  borderTopColor: BorderTopColorConfig = {
-    keywords: [...BORDER_TOP_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BORDER_TOP_COLOR_NUMBER_TYPES],
-  };
+  borderTopColor = new BorderTopColorConfig();
 
   /** border-top-left-radius 属性配置 */
-  borderTopLeftRadius: BorderTopLeftRadiusConfig = {
-    numberTypes: [...BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES],
-  };
+  borderTopLeftRadius = new BorderTopLeftRadiusConfig();
 
   /** border-top-right-radius 属性配置 */
-  borderTopRightRadius: BorderTopRightRadiusConfig = {
-    numberTypes: [...BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES],
-  };
+  borderTopRightRadius = new BorderTopRightRadiusConfig();
 
   /** border-top-style 属性配置 */
-  borderTopStyle: BorderTopStyleConfig = {
-    keywords: [...BORDER_TOP_STYLE_KEYWORDS],
-  };
+  borderTopStyle = new BorderTopStyleConfig();
 
   /** border-top-width 属性配置 */
-  borderTopWidth: BorderTopWidthConfig = {
-    keywords: [...BORDER_TOP_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_TOP_WIDTH_NUMBER_TYPES],
-  };
+  borderTopWidth = new BorderTopWidthConfig();
 
   /** border-width 属性配置 */
-  borderWidth: BorderWidthConfig = {
-    keywords: [...BORDER_WIDTH_KEYWORDS],
-    numberTypes: [...BORDER_WIDTH_NUMBER_TYPES],
-  };
+  borderWidth = new BorderWidthConfig();
 
   /** bottom 属性配置 */
-  bottom: BottomConfig = {
-    keywords: [...BOTTOM_KEYWORDS],
-    numberTypes: [...BOTTOM_NUMBER_TYPES],
-  };
+  bottom = new BottomConfig();
 
   /** box-align 属性配置 */
-  boxAlign: BoxAlignConfig = {
-    keywords: [...BOX_ALIGN_KEYWORDS],
-  };
+  boxAlign = new BoxAlignConfig();
 
   /** box-decoration-break 属性配置 */
-  boxDecorationBreak: BoxDecorationBreakConfig = {
-    keywords: [...BOX_DECORATION_BREAK_KEYWORDS],
-  };
+  boxDecorationBreak = new BoxDecorationBreakConfig();
 
   /** box-direction 属性配置 */
-  boxDirection: BoxDirectionConfig = {
-    keywords: [...BOX_DIRECTION_KEYWORDS],
-  };
+  boxDirection = new BoxDirectionConfig();
 
   /** box-flex 属性配置 */
-  boxFlex: BoxFlexConfig = {
-    numberTypes: [...BOX_FLEX_NUMBER_TYPES],
-  };
+  boxFlex = new BoxFlexConfig();
 
   /** box-flex-group 属性配置 */
-  boxFlexGroup: BoxFlexGroupConfig = {
-    numberTypes: [...BOX_FLEX_GROUP_NUMBER_TYPES],
-  };
+  boxFlexGroup = new BoxFlexGroupConfig();
 
   /** box-lines 属性配置 */
-  boxLines: BoxLinesConfig = {
-    keywords: [...BOX_LINES_KEYWORDS],
-  };
+  boxLines = new BoxLinesConfig();
 
   /** box-ordinal-group 属性配置 */
-  boxOrdinalGroup: BoxOrdinalGroupConfig = {
-    numberTypes: [...BOX_ORDINAL_GROUP_NUMBER_TYPES],
-  };
+  boxOrdinalGroup = new BoxOrdinalGroupConfig();
 
   /** box-orient 属性配置 */
-  boxOrient: BoxOrientConfig = {
-    keywords: [...BOX_ORIENT_KEYWORDS],
-  };
+  boxOrient = new BoxOrientConfig();
 
   /** box-pack 属性配置 */
-  boxPack: BoxPackConfig = {
-    keywords: [...BOX_PACK_KEYWORDS],
-  };
+  boxPack = new BoxPackConfig();
 
   /** box-shadow 属性配置 */
-  boxShadow: BoxShadowConfig = {
-    keywords: [...BOX_SHADOW_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...BOX_SHADOW_NUMBER_TYPES],
-  };
+  boxShadow = new BoxShadowConfig();
 
   /** box-sizing 属性配置 */
-  boxSizing: BoxSizingConfig = {
-    keywords: [...BOX_SIZING_KEYWORDS],
-  };
+  boxSizing = new BoxSizingConfig();
 
   /** break-after 属性配置 */
-  breakAfter: BreakAfterConfig = {
-    keywords: [...BREAK_AFTER_KEYWORDS],
-  };
+  breakAfter = new BreakAfterConfig();
 
   /** break-before 属性配置 */
-  breakBefore: BreakBeforeConfig = {
-    keywords: [...BREAK_BEFORE_KEYWORDS],
-  };
+  breakBefore = new BreakBeforeConfig();
 
   /** break-inside 属性配置 */
-  breakInside: BreakInsideConfig = {
-    keywords: [...BREAK_INSIDE_KEYWORDS],
-  };
+  breakInside = new BreakInsideConfig();
 
   /** caption-side 属性配置 */
-  captionSide: CaptionSideConfig = {
-    keywords: [...CAPTION_SIDE_KEYWORDS],
-  };
+  captionSide = new CaptionSideConfig();
 
   /** caret-color 属性配置 */
-  caretColor: CaretColorConfig = {
-    keywords: [...CARET_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...CARET_COLOR_NUMBER_TYPES],
-  };
+  caretColor = new CaretColorConfig();
 
   /** caret-shape 属性配置 */
-  caretShape: CaretShapeConfig = {
-    keywords: [...CARET_SHAPE_KEYWORDS],
-  };
+  caretShape = new CaretShapeConfig();
 
   /** clear 属性配置 */
-  clear: ClearConfig = {
-    keywords: [...CLEAR_KEYWORDS],
-  };
+  clear = new ClearConfig();
 
   /** clip 属性配置 */
-  clip: ClipConfig = {
-    keywords: [...CLIP_KEYWORDS],
-    numberTypes: [...CLIP_NUMBER_TYPES],
-  };
+  clip = new ClipConfig();
 
   /** clip-path 属性配置 */
-  clipPath: ClipPathConfig = {
-    keywords: [...CLIP_PATH_KEYWORDS],
-    numberTypes: [...CLIP_PATH_NUMBER_TYPES],
-  };
+  clipPath = new ClipPathConfig();
 
   /** clip-rule 属性配置 */
-  clipRule: ClipRuleConfig = {
-    keywords: [...CLIP_RULE_KEYWORDS],
-  };
+  clipRule = new ClipRuleConfig();
 
   /** color 属性配置 */
-  color: ColorConfig = {
-    keywords: [...COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...COLOR_NUMBER_TYPES],
-  };
+  color = new ColorConfig();
 
   /** color-interpolation-filters 属性配置 */
-  colorInterpolationFilters: ColorInterpolationFiltersConfig = {
-    keywords: [...COLOR_INTERPOLATION_FILTERS_KEYWORDS],
-  };
+  colorInterpolationFilters = new ColorInterpolationFiltersConfig();
 
   /** color-scheme 属性配置 */
-  colorScheme: ColorSchemeConfig = {
-    keywords: [...COLOR_SCHEME_KEYWORDS],
-  };
+  colorScheme = new ColorSchemeConfig();
 
   /** column-count 属性配置 */
-  columnCount: ColumnCountConfig = {
-    keywords: [...COLUMN_COUNT_KEYWORDS],
-    numberTypes: [...COLUMN_COUNT_NUMBER_TYPES],
-  };
+  columnCount = new ColumnCountConfig();
 
   /** column-fill 属性配置 */
-  columnFill: ColumnFillConfig = {
-    keywords: [...COLUMN_FILL_KEYWORDS],
-  };
+  columnFill = new ColumnFillConfig();
 
   /** column-gap 属性配置 */
-  columnGap: ColumnGapConfig = {
-    keywords: [...COLUMN_GAP_KEYWORDS],
-    numberTypes: [...COLUMN_GAP_NUMBER_TYPES],
-  };
+  columnGap = new ColumnGapConfig();
 
   /** column-rule-color 属性配置 */
-  columnRuleColor: ColumnRuleColorConfig = {
-    keywords: [...COLUMN_RULE_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...COLUMN_RULE_COLOR_NUMBER_TYPES],
-  };
+  columnRuleColor = new ColumnRuleColorConfig();
 
   /** column-span 属性配置 */
-  columnSpan: ColumnSpanConfig = {
-    keywords: [...COLUMN_SPAN_KEYWORDS],
-  };
+  columnSpan = new ColumnSpanConfig();
 
   /** column-width 属性配置 */
-  columnWidth: ColumnWidthConfig = {
-    keywords: [...COLUMN_WIDTH_KEYWORDS],
-    numberTypes: [...COLUMN_WIDTH_NUMBER_TYPES],
-  };
+  columnWidth = new ColumnWidthConfig();
 
   /** contain 属性配置 */
-  contain: ContainConfig = {
-    keywords: [...CONTAIN_KEYWORDS],
-  };
+  contain = new ContainConfig();
 
   /** contain-intrinsic-block-size 属性配置 */
-  containIntrinsicBlockSize: ContainIntrinsicBlockSizeConfig = {
-    keywords: [...CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS],
-    numberTypes: [...CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES],
-  };
+  containIntrinsicBlockSize = new ContainIntrinsicBlockSizeConfig();
 
   /** contain-intrinsic-height 属性配置 */
-  containIntrinsicHeight: ContainIntrinsicHeightConfig = {
-    keywords: [...CONTAIN_INTRINSIC_HEIGHT_KEYWORDS],
-    numberTypes: [...CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES],
-  };
+  containIntrinsicHeight = new ContainIntrinsicHeightConfig();
 
   /** contain-intrinsic-inline-size 属性配置 */
-  containIntrinsicInlineSize: ContainIntrinsicInlineSizeConfig = {
-    keywords: [...CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS],
-    numberTypes: [...CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES],
-  };
+  containIntrinsicInlineSize = new ContainIntrinsicInlineSizeConfig();
 
   /** contain-intrinsic-size 属性配置 */
-  containIntrinsicSize: ContainIntrinsicSizeConfig = {
-    keywords: [...CONTAIN_INTRINSIC_SIZE_KEYWORDS],
-    numberTypes: [...CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES],
-  };
+  containIntrinsicSize = new ContainIntrinsicSizeConfig();
 
   /** contain-intrinsic-width 属性配置 */
-  containIntrinsicWidth: ContainIntrinsicWidthConfig = {
-    keywords: [...CONTAIN_INTRINSIC_WIDTH_KEYWORDS],
-    numberTypes: [...CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES],
-  };
+  containIntrinsicWidth = new ContainIntrinsicWidthConfig();
 
   /** container-name 属性配置 */
-  containerName: ContainerNameConfig = {
-    keywords: [...CONTAINER_NAME_KEYWORDS],
-  };
+  containerName = new ContainerNameConfig();
 
   /** container-type 属性配置 */
-  containerType: ContainerTypeConfig = {
-    keywords: [...CONTAINER_TYPE_KEYWORDS],
-  };
+  containerType = new ContainerTypeConfig();
 
   /** content 属性配置 */
-  content: ContentConfig = {
-    keywords: [...CONTENT_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...CONTENT_NUMBER_TYPES],
-  };
+  content = new ContentConfig();
 
   /** content-visibility 属性配置 */
-  contentVisibility: ContentVisibilityConfig = {
-    keywords: [...CONTENT_VISIBILITY_KEYWORDS],
-  };
+  contentVisibility = new ContentVisibilityConfig();
 
   /** counter-increment 属性配置 */
-  counterIncrement: CounterIncrementConfig = {
-    keywords: [...COUNTER_INCREMENT_KEYWORDS],
-    numberTypes: [...COUNTER_INCREMENT_NUMBER_TYPES],
-  };
+  counterIncrement = new CounterIncrementConfig();
 
   /** counter-reset 属性配置 */
-  counterReset: CounterResetConfig = {
-    keywords: [...COUNTER_RESET_KEYWORDS],
-    numberTypes: [...COUNTER_RESET_NUMBER_TYPES],
-  };
+  counterReset = new CounterResetConfig();
 
   /** counter-set 属性配置 */
-  counterSet: CounterSetConfig = {
-    keywords: [...COUNTER_SET_KEYWORDS],
-    numberTypes: [...COUNTER_SET_NUMBER_TYPES],
-  };
+  counterSet = new CounterSetConfig();
 
   /** cue-after 属性配置 */
-  cueAfter: CueAfterConfig = {
-    keywords: [...CUE_AFTER_KEYWORDS],
-  };
+  cueAfter = new CueAfterConfig();
 
   /** cue-before 属性配置 */
-  cueBefore: CueBeforeConfig = {
-    keywords: [...CUE_BEFORE_KEYWORDS],
-  };
+  cueBefore = new CueBeforeConfig();
 
   /** cursor 属性配置 */
-  cursor: CursorConfig = {
-    keywords: [...CURSOR_KEYWORDS],
-    numberTypes: [...CURSOR_NUMBER_TYPES],
-  };
+  cursor = new CursorConfig();
 
   /** cx 属性配置 */
-  cx: CxConfig = {
-    numberTypes: [...CX_NUMBER_TYPES],
-  };
+  cx = new CxConfig();
 
   /** cy 属性配置 */
-  cy: CyConfig = {
-    numberTypes: [...CY_NUMBER_TYPES],
-  };
+  cy = new CyConfig();
 
   /** d 属性配置 */
-  d: DConfig = {
-    keywords: [...D_KEYWORDS],
-  };
+  d = new DConfig();
 
   /** direction 属性配置 */
-  direction: DirectionConfig = {
-    keywords: [...DIRECTION_KEYWORDS],
-  };
+  direction = new DirectionConfig();
 
   /** display 属性配置 */
-  display: DisplayConfig = {
-    keywords: [...DISPLAY_KEYWORDS],
-  };
+  display = new DisplayConfig();
 
   /** dominant-baseline 属性配置 */
-  dominantBaseline: DominantBaselineConfig = {
-    keywords: [...DOMINANT_BASELINE_KEYWORDS],
-  };
+  dominantBaseline = new DominantBaselineConfig();
 
   /** empty-cells 属性配置 */
-  emptyCells: EmptyCellsConfig = {
-    keywords: [...EMPTY_CELLS_KEYWORDS],
-  };
+  emptyCells = new EmptyCellsConfig();
 
   /** field-sizing 属性配置 */
-  fieldSizing: FieldSizingConfig = {
-    keywords: [...FIELD_SIZING_KEYWORDS],
-  };
+  fieldSizing = new FieldSizingConfig();
 
   /** fill 属性配置 */
-  fill: FillConfig = {
-    keywords: [...FILL_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...FILL_NUMBER_TYPES],
-  };
+  fill = new FillConfig();
 
   /** fill-opacity 属性配置 */
-  fillOpacity: FillOpacityConfig = {
-    numberTypes: [...FILL_OPACITY_NUMBER_TYPES],
-  };
+  fillOpacity = new FillOpacityConfig();
 
   /** fill-rule 属性配置 */
-  fillRule: FillRuleConfig = {
-    keywords: [...FILL_RULE_KEYWORDS],
-  };
+  fillRule = new FillRuleConfig();
 
   /** filter 属性配置 */
-  filter: FilterConfig = {
-    keywords: [...FILTER_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...FILTER_NUMBER_TYPES],
-  };
+  filter = new FilterConfig();
 
   /** flex 属性配置 */
-  flex: FlexConfig = {
-    keywords: [...FLEX_KEYWORDS],
-  };
+  flex = new FlexConfig();
 
   /** flex-basis 属性配置 */
-  flexBasis: FlexBasisConfig = {
-    keywords: [...FLEX_BASIS_KEYWORDS],
-  };
+  flexBasis = new FlexBasisConfig();
 
   /** flex-direction 属性配置 */
-  flexDirection: FlexDirectionConfig = {
-    keywords: [...FLEX_DIRECTION_KEYWORDS],
-  };
+  flexDirection = new FlexDirectionConfig();
 
   /** flex-grow 属性配置 */
-  flexGrow: FlexGrowConfig = {
-    numberTypes: [...FLEX_GROW_NUMBER_TYPES],
-  };
+  flexGrow = new FlexGrowConfig();
 
   /** flex-shrink 属性配置 */
-  flexShrink: FlexShrinkConfig = {
-    numberTypes: [...FLEX_SHRINK_NUMBER_TYPES],
-  };
+  flexShrink = new FlexShrinkConfig();
 
   /** flex-wrap 属性配置 */
-  flexWrap: FlexWrapConfig = {
-    keywords: [...FLEX_WRAP_KEYWORDS],
-  };
+  flexWrap = new FlexWrapConfig();
 
   /** float 属性配置 */
-  float: FloatConfig = {
-    keywords: [...FLOAT_KEYWORDS],
-  };
+  float = new FloatConfig();
 
   /** font 属性配置 */
-  font: FontConfig = {
-    keywords: [...FONT_KEYWORDS],
-  };
+  font = new FontConfig();
 
   /** font-family 属性配置 */
-  fontFamily: FontFamilyConfig = {
-    keywords: [...FONT_FAMILY_KEYWORDS],
-  };
+  fontFamily = new FontFamilyConfig();
 
   /** font-feature-settings 属性配置 */
-  fontFeatureSettings: FontFeatureSettingsConfig = {
-    keywords: [...FONT_FEATURE_SETTINGS_KEYWORDS],
-    numberTypes: [...FONT_FEATURE_SETTINGS_NUMBER_TYPES],
-  };
+  fontFeatureSettings = new FontFeatureSettingsConfig();
 
   /** font-kerning 属性配置 */
-  fontKerning: FontKerningConfig = {
-    keywords: [...FONT_KERNING_KEYWORDS],
-  };
+  fontKerning = new FontKerningConfig();
 
   /** font-language-override 属性配置 */
-  fontLanguageOverride: FontLanguageOverrideConfig = {
-    keywords: [...FONT_LANGUAGE_OVERRIDE_KEYWORDS],
-  };
+  fontLanguageOverride = new FontLanguageOverrideConfig();
 
   /** font-optical-sizing 属性配置 */
-  fontOpticalSizing: FontOpticalSizingConfig = {
-    keywords: [...FONT_OPTICAL_SIZING_KEYWORDS],
-  };
+  fontOpticalSizing = new FontOpticalSizingConfig();
 
   /** font-palette 属性配置 */
-  fontPalette: FontPaletteConfig = {
-    keywords: [...FONT_PALETTE_KEYWORDS],
-  };
+  fontPalette = new FontPaletteConfig();
 
   /** font-size 属性配置 */
-  fontSize: FontSizeConfig = {
-    keywords: [...FONT_SIZE_KEYWORDS],
-    numberTypes: [...FONT_SIZE_NUMBER_TYPES],
-  };
+  fontSize = new FontSizeConfig();
 
   /** font-size-adjust 属性配置 */
-  fontSizeAdjust: FontSizeAdjustConfig = {
-    keywords: [...FONT_SIZE_ADJUST_KEYWORDS],
-    numberTypes: [...FONT_SIZE_ADJUST_NUMBER_TYPES],
-  };
+  fontSizeAdjust = new FontSizeAdjustConfig();
 
   /** font-smooth 属性配置 */
-  fontSmooth: FontSmoothConfig = {
-    keywords: [...FONT_SMOOTH_KEYWORDS],
-    numberTypes: [...FONT_SMOOTH_NUMBER_TYPES],
-  };
+  fontSmooth = new FontSmoothConfig();
 
   /** font-stretch 属性配置 */
-  fontStretch: FontStretchConfig = {
-    keywords: [...FONT_STRETCH_KEYWORDS],
-    numberTypes: [...FONT_STRETCH_NUMBER_TYPES],
-  };
+  fontStretch = new FontStretchConfig();
 
   /** font-style 属性配置 */
-  fontStyle: FontStyleConfig = {
-    keywords: [...FONT_STYLE_KEYWORDS],
-    numberTypes: [...FONT_STYLE_NUMBER_TYPES],
-  };
+  fontStyle = new FontStyleConfig();
 
   /** font-synthesis 属性配置 */
-  fontSynthesis: FontSynthesisConfig = {
-    keywords: [...FONT_SYNTHESIS_KEYWORDS],
-  };
+  fontSynthesis = new FontSynthesisConfig();
 
   /** font-synthesis-position 属性配置 */
-  fontSynthesisPosition: FontSynthesisPositionConfig = {
-    keywords: [...FONT_SYNTHESIS_POSITION_KEYWORDS],
-  };
+  fontSynthesisPosition = new FontSynthesisPositionConfig();
 
   /** font-synthesis-small-caps 属性配置 */
-  fontSynthesisSmallCaps: FontSynthesisSmallCapsConfig = {
-    keywords: [...FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS],
-  };
+  fontSynthesisSmallCaps = new FontSynthesisSmallCapsConfig();
 
   /** font-synthesis-style 属性配置 */
-  fontSynthesisStyle: FontSynthesisStyleConfig = {
-    keywords: [...FONT_SYNTHESIS_STYLE_KEYWORDS],
-  };
+  fontSynthesisStyle = new FontSynthesisStyleConfig();
 
   /** font-synthesis-weight 属性配置 */
-  fontSynthesisWeight: FontSynthesisWeightConfig = {
-    keywords: [...FONT_SYNTHESIS_WEIGHT_KEYWORDS],
-  };
+  fontSynthesisWeight = new FontSynthesisWeightConfig();
 
   /** font-variant 属性配置 */
-  fontVariant: FontVariantConfig = {
-    keywords: [...FONT_VARIANT_KEYWORDS],
-  };
+  fontVariant = new FontVariantConfig();
 
   /** font-variant-alternates 属性配置 */
-  fontVariantAlternates: FontVariantAlternatesConfig = {
-    keywords: [...FONT_VARIANT_ALTERNATES_KEYWORDS],
-  };
+  fontVariantAlternates = new FontVariantAlternatesConfig();
 
   /** font-variant-caps 属性配置 */
-  fontVariantCaps: FontVariantCapsConfig = {
-    keywords: [...FONT_VARIANT_CAPS_KEYWORDS],
-  };
+  fontVariantCaps = new FontVariantCapsConfig();
 
   /** font-variant-east-asian 属性配置 */
-  fontVariantEastAsian: FontVariantEastAsianConfig = {
-    keywords: [...FONT_VARIANT_EAST_ASIAN_KEYWORDS],
-  };
+  fontVariantEastAsian = new FontVariantEastAsianConfig();
 
   /** font-variant-emoji 属性配置 */
-  fontVariantEmoji: FontVariantEmojiConfig = {
-    keywords: [...FONT_VARIANT_EMOJI_KEYWORDS],
-  };
+  fontVariantEmoji = new FontVariantEmojiConfig();
 
   /** font-variant-ligatures 属性配置 */
-  fontVariantLigatures: FontVariantLigaturesConfig = {
-    keywords: [...FONT_VARIANT_LIGATURES_KEYWORDS],
-  };
+  fontVariantLigatures = new FontVariantLigaturesConfig();
 
   /** font-variant-numeric 属性配置 */
-  fontVariantNumeric: FontVariantNumericConfig = {
-    keywords: [...FONT_VARIANT_NUMERIC_KEYWORDS],
-  };
+  fontVariantNumeric = new FontVariantNumericConfig();
 
   /** font-variant-position 属性配置 */
-  fontVariantPosition: FontVariantPositionConfig = {
-    keywords: [...FONT_VARIANT_POSITION_KEYWORDS],
-  };
+  fontVariantPosition = new FontVariantPositionConfig();
 
   /** font-variation-settings 属性配置 */
-  fontVariationSettings: FontVariationSettingsConfig = {
-    keywords: [...FONT_VARIATION_SETTINGS_KEYWORDS],
-    numberTypes: [...FONT_VARIATION_SETTINGS_NUMBER_TYPES],
-  };
+  fontVariationSettings = new FontVariationSettingsConfig();
 
   /** font-weight 属性配置 */
-  fontWeight: FontWeightConfig = {
-    keywords: [...FONT_WEIGHT_KEYWORDS],
-    numberTypes: [...FONT_WEIGHT_NUMBER_TYPES],
-  };
+  fontWeight = new FontWeightConfig();
 
   /** forced-color-adjust 属性配置 */
-  forcedColorAdjust: ForcedColorAdjustConfig = {
-    keywords: [...FORCED_COLOR_ADJUST_KEYWORDS],
-  };
+  forcedColorAdjust = new ForcedColorAdjustConfig();
 
   /** glyph-orientation-horizontal 属性配置 */
-  glyphOrientationHorizontal: GlyphOrientationHorizontalConfig = {
-    numberTypes: [...GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES],
-  };
+  glyphOrientationHorizontal = new GlyphOrientationHorizontalConfig();
 
   /** glyph-orientation-vertical 属性配置 */
-  glyphOrientationVertical: GlyphOrientationVerticalConfig = {
-    numberTypes: [...GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES],
-  };
+  glyphOrientationVertical = new GlyphOrientationVerticalConfig();
 
   /** grid 属性配置 */
-  grid: GridConfig = {
-    keywords: [...GRID_KEYWORDS],
-  };
+  grid = new GridConfig();
 
   /** grid-area 属性配置 */
-  gridArea: GridAreaConfig = {
-    keywords: [...GRID_AREA_KEYWORDS],
-    numberTypes: [...GRID_AREA_NUMBER_TYPES],
-  };
+  gridArea = new GridAreaConfig();
 
   /** grid-auto-columns 属性配置 */
-  gridAutoColumns: GridAutoColumnsConfig = {
-    keywords: [...GRID_AUTO_COLUMNS_KEYWORDS],
-    numberTypes: [...GRID_AUTO_COLUMNS_NUMBER_TYPES],
-  };
+  gridAutoColumns = new GridAutoColumnsConfig();
 
   /** grid-auto-flow 属性配置 */
-  gridAutoFlow: GridAutoFlowConfig = {
-    keywords: [...GRID_AUTO_FLOW_KEYWORDS],
-  };
+  gridAutoFlow = new GridAutoFlowConfig();
 
   /** grid-auto-rows 属性配置 */
-  gridAutoRows: GridAutoRowsConfig = {
-    keywords: [...GRID_AUTO_ROWS_KEYWORDS],
-    numberTypes: [...GRID_AUTO_ROWS_NUMBER_TYPES],
-  };
+  gridAutoRows = new GridAutoRowsConfig();
 
   /** grid-column 属性配置 */
-  gridColumn: GridColumnConfig = {
-    keywords: [...GRID_COLUMN_KEYWORDS],
-    numberTypes: [...GRID_COLUMN_NUMBER_TYPES],
-  };
+  gridColumn = new GridColumnConfig();
 
   /** grid-column-end 属性配置 */
-  gridColumnEnd: GridColumnEndConfig = {
-    keywords: [...GRID_COLUMN_END_KEYWORDS],
-    numberTypes: [...GRID_COLUMN_END_NUMBER_TYPES],
-  };
+  gridColumnEnd = new GridColumnEndConfig();
 
   /** grid-column-gap 属性配置 */
-  gridColumnGap: GridColumnGapConfig = {
-    numberTypes: [...GRID_COLUMN_GAP_NUMBER_TYPES],
-  };
+  gridColumnGap = new GridColumnGapConfig();
 
   /** grid-column-start 属性配置 */
-  gridColumnStart: GridColumnStartConfig = {
-    keywords: [...GRID_COLUMN_START_KEYWORDS],
-    numberTypes: [...GRID_COLUMN_START_NUMBER_TYPES],
-  };
+  gridColumnStart = new GridColumnStartConfig();
 
   /** grid-row 属性配置 */
-  gridRow: GridRowConfig = {
-    keywords: [...GRID_ROW_KEYWORDS],
-    numberTypes: [...GRID_ROW_NUMBER_TYPES],
-  };
+  gridRow = new GridRowConfig();
 
   /** grid-row-end 属性配置 */
-  gridRowEnd: GridRowEndConfig = {
-    keywords: [...GRID_ROW_END_KEYWORDS],
-    numberTypes: [...GRID_ROW_END_NUMBER_TYPES],
-  };
+  gridRowEnd = new GridRowEndConfig();
 
   /** grid-row-gap 属性配置 */
-  gridRowGap: GridRowGapConfig = {
-    numberTypes: [...GRID_ROW_GAP_NUMBER_TYPES],
-  };
+  gridRowGap = new GridRowGapConfig();
 
   /** grid-row-start 属性配置 */
-  gridRowStart: GridRowStartConfig = {
-    keywords: [...GRID_ROW_START_KEYWORDS],
-    numberTypes: [...GRID_ROW_START_NUMBER_TYPES],
-  };
+  gridRowStart = new GridRowStartConfig();
 
   /** grid-template 属性配置 */
-  gridTemplate: GridTemplateConfig = {
-    keywords: [...GRID_TEMPLATE_KEYWORDS],
-    numberTypes: [...GRID_TEMPLATE_NUMBER_TYPES],
-  };
+  gridTemplate = new GridTemplateConfig();
 
   /** grid-template-areas 属性配置 */
-  gridTemplateAreas: GridTemplateAreasConfig = {
-    keywords: [...GRID_TEMPLATE_AREAS_KEYWORDS],
-  };
+  gridTemplateAreas = new GridTemplateAreasConfig();
 
   /** grid-template-columns 属性配置 */
-  gridTemplateColumns: GridTemplateColumnsConfig = {
-    keywords: [...GRID_TEMPLATE_COLUMNS_KEYWORDS],
-    numberTypes: [...GRID_TEMPLATE_COLUMNS_NUMBER_TYPES],
-  };
+  gridTemplateColumns = new GridTemplateColumnsConfig();
 
   /** grid-template-rows 属性配置 */
-  gridTemplateRows: GridTemplateRowsConfig = {
-    keywords: [...GRID_TEMPLATE_ROWS_KEYWORDS],
-    numberTypes: [...GRID_TEMPLATE_ROWS_NUMBER_TYPES],
-  };
+  gridTemplateRows = new GridTemplateRowsConfig();
 
   /** hanging-punctuation 属性配置 */
-  hangingPunctuation: HangingPunctuationConfig = {
-    keywords: [...HANGING_PUNCTUATION_KEYWORDS],
-  };
+  hangingPunctuation = new HangingPunctuationConfig();
 
   /** height 属性配置 */
-  height: HeightConfig = {
-    keywords: [...HEIGHT_KEYWORDS],
-    numberTypes: [...HEIGHT_NUMBER_TYPES],
-  };
+  height = new HeightConfig();
 
   /** hyphenate-character 属性配置 */
-  hyphenateCharacter: HyphenateCharacterConfig = {
-    keywords: [...HYPHENATE_CHARACTER_KEYWORDS],
-  };
+  hyphenateCharacter = new HyphenateCharacterConfig();
 
   /** hyphenate-limit-chars 属性配置 */
-  hyphenateLimitChars: HyphenateLimitCharsConfig = {
-    keywords: [...HYPHENATE_LIMIT_CHARS_KEYWORDS],
-    numberTypes: [...HYPHENATE_LIMIT_CHARS_NUMBER_TYPES],
-  };
+  hyphenateLimitChars = new HyphenateLimitCharsConfig();
 
   /** hyphens 属性配置 */
-  hyphens: HyphensConfig = {
-    keywords: [...HYPHENS_KEYWORDS],
-  };
+  hyphens = new HyphensConfig();
 
   /** image-orientation 属性配置 */
-  imageOrientation: ImageOrientationConfig = {
-    keywords: [...IMAGE_ORIENTATION_KEYWORDS],
-    numberTypes: [...IMAGE_ORIENTATION_NUMBER_TYPES],
-  };
+  imageOrientation = new ImageOrientationConfig();
 
   /** image-rendering 属性配置 */
-  imageRendering: ImageRenderingConfig = {
-    keywords: [...IMAGE_RENDERING_KEYWORDS],
-  };
+  imageRendering = new ImageRenderingConfig();
 
   /** image-resolution 属性配置 */
-  imageResolution: ImageResolutionConfig = {
-    keywords: [...IMAGE_RESOLUTION_KEYWORDS],
-    numberTypes: [...IMAGE_RESOLUTION_NUMBER_TYPES],
-  };
+  imageResolution = new ImageResolutionConfig();
 
   /** ime-mode 属性配置 */
-  imeMode: ImeModeConfig = {
-    keywords: [...IME_MODE_KEYWORDS],
-  };
+  imeMode = new ImeModeConfig();
 
   /** initial-letter 属性配置 */
-  initialLetter: InitialLetterConfig = {
-    keywords: [...INITIAL_LETTER_KEYWORDS],
-    numberTypes: [...INITIAL_LETTER_NUMBER_TYPES],
-  };
+  initialLetter = new InitialLetterConfig();
 
   /** initial-letter-align 属性配置 */
-  initialLetterAlign: InitialLetterAlignConfig = {
-    keywords: [...INITIAL_LETTER_ALIGN_KEYWORDS],
-  };
+  initialLetterAlign = new InitialLetterAlignConfig();
 
   /** input-security 属性配置 */
-  inputSecurity: InputSecurityConfig = {
-    keywords: [...INPUT_SECURITY_KEYWORDS],
-  };
+  inputSecurity = new InputSecurityConfig();
 
   /** interpolate-size 属性配置 */
-  interpolateSize: InterpolateSizeConfig = {
-    keywords: [...INTERPOLATE_SIZE_KEYWORDS],
-  };
+  interpolateSize = new InterpolateSizeConfig();
 
   /** isolation 属性配置 */
-  isolation: IsolationConfig = {
-    keywords: [...ISOLATION_KEYWORDS],
-  };
+  isolation = new IsolationConfig();
 
   /** justify-content 属性配置 */
-  justifyContent: JustifyContentConfig = {
-    keywords: [...JUSTIFY_CONTENT_KEYWORDS],
-  };
+  justifyContent = new JustifyContentConfig();
 
   /** justify-items 属性配置 */
-  justifyItems: JustifyItemsConfig = {
-    keywords: [...JUSTIFY_ITEMS_KEYWORDS],
-  };
+  justifyItems = new JustifyItemsConfig();
 
   /** justify-self 属性配置 */
-  justifySelf: JustifySelfConfig = {
-    keywords: [...JUSTIFY_SELF_KEYWORDS],
-  };
+  justifySelf = new JustifySelfConfig();
 
   /** justify-tracks 属性配置 */
-  justifyTracks: JustifyTracksConfig = {
-    keywords: [...JUSTIFY_TRACKS_KEYWORDS],
-  };
+  justifyTracks = new JustifyTracksConfig();
 
   /** kerning 属性配置 */
-  kerning: KerningConfig = {
-    keywords: [...KERNING_KEYWORDS],
-    numberTypes: [...KERNING_NUMBER_TYPES],
-  };
+  kerning = new KerningConfig();
 
   /** left 属性配置 */
-  left: LeftConfig = {
-    keywords: [...LEFT_KEYWORDS],
-    numberTypes: [...LEFT_NUMBER_TYPES],
-  };
+  left = new LeftConfig();
 
   /** letter-spacing 属性配置 */
-  letterSpacing: LetterSpacingConfig = {
-    keywords: [...LETTER_SPACING_KEYWORDS],
-    numberTypes: [...LETTER_SPACING_NUMBER_TYPES],
-  };
+  letterSpacing = new LetterSpacingConfig();
 
   /** line-break 属性配置 */
-  lineBreak: LineBreakConfig = {
-    keywords: [...LINE_BREAK_KEYWORDS],
-  };
+  lineBreak = new LineBreakConfig();
 
   /** line-clamp 属性配置 */
-  lineClamp: LineClampConfig = {
-    keywords: [...LINE_CLAMP_KEYWORDS],
-    numberTypes: [...LINE_CLAMP_NUMBER_TYPES],
-  };
+  lineClamp = new LineClampConfig();
 
   /** line-height 属性配置 */
-  lineHeight: LineHeightConfig = {
-    keywords: [...LINE_HEIGHT_KEYWORDS],
-    numberTypes: [...LINE_HEIGHT_NUMBER_TYPES],
-  };
+  lineHeight = new LineHeightConfig();
 
   /** line-height-step 属性配置 */
-  lineHeightStep: LineHeightStepConfig = {
-    numberTypes: [...LINE_HEIGHT_STEP_NUMBER_TYPES],
-  };
+  lineHeightStep = new LineHeightStepConfig();
 
   /** list-style-image 属性配置 */
-  listStyleImage: ListStyleImageConfig = {
-    keywords: [...LIST_STYLE_IMAGE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...LIST_STYLE_IMAGE_NUMBER_TYPES],
-  };
+  listStyleImage = new ListStyleImageConfig();
 
   /** list-style-position 属性配置 */
-  listStylePosition: ListStylePositionConfig = {
-    keywords: [...LIST_STYLE_POSITION_KEYWORDS],
-  };
+  listStylePosition = new ListStylePositionConfig();
 
   /** list-style-type 属性配置 */
-  listStyleType: ListStyleTypeConfig = {
-    keywords: [...LIST_STYLE_TYPE_KEYWORDS],
-  };
+  listStyleType = new ListStyleTypeConfig();
 
   /** margin 属性配置 */
-  margin: MarginConfig = {
-    keywords: [...MARGIN_KEYWORDS],
-    numberTypes: [...MARGIN_NUMBER_TYPES],
-  };
+  margin = new MarginConfig();
 
   /** margin-bottom 属性配置 */
-  marginBottom: MarginBottomConfig = {
-    keywords: [...MARGIN_BOTTOM_KEYWORDS],
-    numberTypes: [...MARGIN_BOTTOM_NUMBER_TYPES],
-  };
+  marginBottom = new MarginBottomConfig();
 
   /** margin-left 属性配置 */
-  marginLeft: MarginLeftConfig = {
-    keywords: [...MARGIN_LEFT_KEYWORDS],
-    numberTypes: [...MARGIN_LEFT_NUMBER_TYPES],
-  };
+  marginLeft = new MarginLeftConfig();
 
   /** margin-right 属性配置 */
-  marginRight: MarginRightConfig = {
-    keywords: [...MARGIN_RIGHT_KEYWORDS],
-    numberTypes: [...MARGIN_RIGHT_NUMBER_TYPES],
-  };
+  marginRight = new MarginRightConfig();
 
   /** margin-top 属性配置 */
-  marginTop: MarginTopConfig = {
-    keywords: [...MARGIN_TOP_KEYWORDS],
-    numberTypes: [...MARGIN_TOP_NUMBER_TYPES],
-  };
+  marginTop = new MarginTopConfig();
 
   /** margin-trim 属性配置 */
-  marginTrim: MarginTrimConfig = {
-    keywords: [...MARGIN_TRIM_KEYWORDS],
-  };
+  marginTrim = new MarginTrimConfig();
 
   /** marker 属性配置 */
-  marker: MarkerConfig = {
-    keywords: [...MARKER_KEYWORDS],
-  };
+  marker = new MarkerConfig();
 
   /** marker-end 属性配置 */
-  markerEnd: MarkerEndConfig = {
-    keywords: [...MARKER_END_KEYWORDS],
-  };
+  markerEnd = new MarkerEndConfig();
 
   /** marker-mid 属性配置 */
-  markerMid: MarkerMidConfig = {
-    keywords: [...MARKER_MID_KEYWORDS],
-  };
+  markerMid = new MarkerMidConfig();
 
   /** marker-start 属性配置 */
-  markerStart: MarkerStartConfig = {
-    keywords: [...MARKER_START_KEYWORDS],
-  };
+  markerStart = new MarkerStartConfig();
 
   /** mask 属性配置 */
-  mask: MaskConfig = {
-    keywords: [...MASK_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...MASK_NUMBER_TYPES],
-  };
+  mask = new MaskConfig();
 
   /** mask-border-mode 属性配置 */
-  maskBorderMode: MaskBorderModeConfig = {
-    keywords: [...MASK_BORDER_MODE_KEYWORDS],
-  };
+  maskBorderMode = new MaskBorderModeConfig();
 
   /** mask-border-outset 属性配置 */
-  maskBorderOutset: MaskBorderOutsetConfig = {
-    numberTypes: [...MASK_BORDER_OUTSET_NUMBER_TYPES],
-  };
+  maskBorderOutset = new MaskBorderOutsetConfig();
 
   /** mask-border-repeat 属性配置 */
-  maskBorderRepeat: MaskBorderRepeatConfig = {
-    keywords: [...MASK_BORDER_REPEAT_KEYWORDS],
-  };
+  maskBorderRepeat = new MaskBorderRepeatConfig();
 
   /** mask-border-slice 属性配置 */
-  maskBorderSlice: MaskBorderSliceConfig = {
-    keywords: [...MASK_BORDER_SLICE_KEYWORDS],
-    numberTypes: [...MASK_BORDER_SLICE_NUMBER_TYPES],
-  };
+  maskBorderSlice = new MaskBorderSliceConfig();
 
   /** mask-border-source 属性配置 */
-  maskBorderSource: MaskBorderSourceConfig = {
-    keywords: [...MASK_BORDER_SOURCE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...MASK_BORDER_SOURCE_NUMBER_TYPES],
-  };
+  maskBorderSource = new MaskBorderSourceConfig();
 
   /** mask-border-width 属性配置 */
-  maskBorderWidth: MaskBorderWidthConfig = {
-    keywords: [...MASK_BORDER_WIDTH_KEYWORDS],
-    numberTypes: [...MASK_BORDER_WIDTH_NUMBER_TYPES],
-  };
+  maskBorderWidth = new MaskBorderWidthConfig();
 
   /** mask-clip 属性配置 */
-  maskClip: MaskClipConfig = {
-    keywords: [...MASK_CLIP_KEYWORDS],
-  };
+  maskClip = new MaskClipConfig();
 
   /** mask-composite 属性配置 */
-  maskComposite: MaskCompositeConfig = {
-    keywords: [...MASK_COMPOSITE_KEYWORDS],
-  };
+  maskComposite = new MaskCompositeConfig();
 
   /** mask-image 属性配置 */
-  maskImage: MaskImageConfig = {
-    keywords: [...MASK_IMAGE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...MASK_IMAGE_NUMBER_TYPES],
-  };
+  maskImage = new MaskImageConfig();
 
   /** mask-mode 属性配置 */
-  maskMode: MaskModeConfig = {
-    keywords: [...MASK_MODE_KEYWORDS],
-  };
+  maskMode = new MaskModeConfig();
 
   /** mask-origin 属性配置 */
-  maskOrigin: MaskOriginConfig = {
-    keywords: [...MASK_ORIGIN_KEYWORDS],
-  };
+  maskOrigin = new MaskOriginConfig();
 
   /** mask-position 属性配置 */
-  maskPosition: MaskPositionConfig = {
-    keywords: [...MASK_POSITION_KEYWORDS],
-    numberTypes: [...MASK_POSITION_NUMBER_TYPES],
-  };
+  maskPosition = new MaskPositionConfig();
 
   /** mask-repeat 属性配置 */
-  maskRepeat: MaskRepeatConfig = {
-    keywords: [...MASK_REPEAT_KEYWORDS],
-  };
+  maskRepeat = new MaskRepeatConfig();
 
   /** mask-size 属性配置 */
-  maskSize: MaskSizeConfig = {
-    keywords: [...MASK_SIZE_KEYWORDS],
-    numberTypes: [...MASK_SIZE_NUMBER_TYPES],
-  };
+  maskSize = new MaskSizeConfig();
 
   /** mask-type 属性配置 */
-  maskType: MaskTypeConfig = {
-    keywords: [...MASK_TYPE_KEYWORDS],
-  };
+  maskType = new MaskTypeConfig();
 
   /** masonry-auto-flow 属性配置 */
-  masonryAutoFlow: MasonryAutoFlowConfig = {
-    keywords: [...MASONRY_AUTO_FLOW_KEYWORDS],
-  };
+  masonryAutoFlow = new MasonryAutoFlowConfig();
 
   /** math-depth 属性配置 */
-  mathDepth: MathDepthConfig = {
-    keywords: [...MATH_DEPTH_KEYWORDS],
-    numberTypes: [...MATH_DEPTH_NUMBER_TYPES],
-  };
+  mathDepth = new MathDepthConfig();
 
   /** math-shift 属性配置 */
-  mathShift: MathShiftConfig = {
-    keywords: [...MATH_SHIFT_KEYWORDS],
-  };
+  mathShift = new MathShiftConfig();
 
   /** math-style 属性配置 */
-  mathStyle: MathStyleConfig = {
-    keywords: [...MATH_STYLE_KEYWORDS],
-  };
+  mathStyle = new MathStyleConfig();
 
   /** max-height 属性配置 */
-  maxHeight: MaxHeightConfig = {
-    keywords: [...MAX_HEIGHT_KEYWORDS],
-    numberTypes: [...MAX_HEIGHT_NUMBER_TYPES],
-  };
+  maxHeight = new MaxHeightConfig();
 
   /** max-lines 属性配置 */
-  maxLines: MaxLinesConfig = {
-    keywords: [...MAX_LINES_KEYWORDS],
-    numberTypes: [...MAX_LINES_NUMBER_TYPES],
-  };
+  maxLines = new MaxLinesConfig();
 
   /** max-width 属性配置 */
-  maxWidth: MaxWidthConfig = {
-    keywords: [...MAX_WIDTH_KEYWORDS],
-    numberTypes: [...MAX_WIDTH_NUMBER_TYPES],
-  };
+  maxWidth = new MaxWidthConfig();
 
   /** min-height 属性配置 */
-  minHeight: MinHeightConfig = {
-    keywords: [...MIN_HEIGHT_KEYWORDS],
-    numberTypes: [...MIN_HEIGHT_NUMBER_TYPES],
-  };
+  minHeight = new MinHeightConfig();
 
   /** min-width 属性配置 */
-  minWidth: MinWidthConfig = {
-    keywords: [...MIN_WIDTH_KEYWORDS],
-    numberTypes: [...MIN_WIDTH_NUMBER_TYPES],
-  };
+  minWidth = new MinWidthConfig();
 
   /** mix-blend-mode 属性配置 */
-  mixBlendMode: MixBlendModeConfig = {
-    keywords: [...MIX_BLEND_MODE_KEYWORDS],
-  };
+  mixBlendMode = new MixBlendModeConfig();
 
   /** object-fit 属性配置 */
-  objectFit: ObjectFitConfig = {
-    keywords: [...OBJECT_FIT_KEYWORDS],
-  };
+  objectFit = new ObjectFitConfig();
 
   /** object-position 属性配置 */
-  objectPosition: ObjectPositionConfig = {
-    keywords: [...OBJECT_POSITION_KEYWORDS],
-    numberTypes: [...OBJECT_POSITION_NUMBER_TYPES],
-  };
+  objectPosition = new ObjectPositionConfig();
 
   /** offset-anchor 属性配置 */
-  offsetAnchor: OffsetAnchorConfig = {
-    keywords: [...OFFSET_ANCHOR_KEYWORDS],
-    numberTypes: [...OFFSET_ANCHOR_NUMBER_TYPES],
-  };
+  offsetAnchor = new OffsetAnchorConfig();
 
   /** offset-distance 属性配置 */
-  offsetDistance: OffsetDistanceConfig = {
-    numberTypes: [...OFFSET_DISTANCE_NUMBER_TYPES],
-  };
+  offsetDistance = new OffsetDistanceConfig();
 
   /** offset-path 属性配置 */
-  offsetPath: OffsetPathConfig = {
-    keywords: [...OFFSET_PATH_KEYWORDS],
-    numberTypes: [...OFFSET_PATH_NUMBER_TYPES],
-  };
+  offsetPath = new OffsetPathConfig();
 
   /** offset-position 属性配置 */
-  offsetPosition: OffsetPositionConfig = {
-    keywords: [...OFFSET_POSITION_KEYWORDS],
-    numberTypes: [...OFFSET_POSITION_NUMBER_TYPES],
-  };
+  offsetPosition = new OffsetPositionConfig();
 
   /** offset-rotate 属性配置 */
-  offsetRotate: OffsetRotateConfig = {
-    keywords: [...OFFSET_ROTATE_KEYWORDS],
-    numberTypes: [...OFFSET_ROTATE_NUMBER_TYPES],
-  };
+  offsetRotate = new OffsetRotateConfig();
 
   /** opacity 属性配置 */
-  opacity: OpacityConfig = {
-    numberTypes: [...OPACITY_NUMBER_TYPES],
-  };
+  opacity = new OpacityConfig();
 
   /** order 属性配置 */
-  order: OrderConfig = {
-    numberTypes: [...ORDER_NUMBER_TYPES],
-  };
+  order = new OrderConfig();
 
   /** orphans 属性配置 */
-  orphans: OrphansConfig = {
-    numberTypes: [...ORPHANS_NUMBER_TYPES],
-  };
+  orphans = new OrphansConfig();
 
   /** outline-color 属性配置 */
-  outlineColor: OutlineColorConfig = {
-    keywords: [...OUTLINE_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...OUTLINE_COLOR_NUMBER_TYPES],
-  };
+  outlineColor = new OutlineColorConfig();
 
   /** outline-offset 属性配置 */
-  outlineOffset: OutlineOffsetConfig = {
-    numberTypes: [...OUTLINE_OFFSET_NUMBER_TYPES],
-  };
+  outlineOffset = new OutlineOffsetConfig();
 
   /** outline-style 属性配置 */
-  outlineStyle: OutlineStyleConfig = {
-    keywords: [...OUTLINE_STYLE_KEYWORDS],
-  };
+  outlineStyle = new OutlineStyleConfig();
 
   /** outline-width 属性配置 */
-  outlineWidth: OutlineWidthConfig = {
-    keywords: [...OUTLINE_WIDTH_KEYWORDS],
-    numberTypes: [...OUTLINE_WIDTH_NUMBER_TYPES],
-  };
+  outlineWidth = new OutlineWidthConfig();
 
   /** overflow 属性配置 */
-  overflow: OverflowConfig = {
-    keywords: [...OVERFLOW_KEYWORDS],
-  };
+  overflow = new OverflowConfig();
 
   /** overflow-anchor 属性配置 */
-  overflowAnchor: OverflowAnchorConfig = {
-    keywords: [...OVERFLOW_ANCHOR_KEYWORDS],
-  };
+  overflowAnchor = new OverflowAnchorConfig();
 
   /** overflow-block 属性配置 */
-  overflowBlock: OverflowBlockConfig = {
-    keywords: [...OVERFLOW_BLOCK_KEYWORDS],
-  };
+  overflowBlock = new OverflowBlockConfig();
 
   /** overflow-clip-box 属性配置 */
-  overflowClipBox: OverflowClipBoxConfig = {
-    keywords: [...OVERFLOW_CLIP_BOX_KEYWORDS],
-  };
+  overflowClipBox = new OverflowClipBoxConfig();
 
   /** overflow-clip-margin 属性配置 */
-  overflowClipMargin: OverflowClipMarginConfig = {
-    keywords: [...OVERFLOW_CLIP_MARGIN_KEYWORDS],
-    numberTypes: [...OVERFLOW_CLIP_MARGIN_NUMBER_TYPES],
-  };
+  overflowClipMargin = new OverflowClipMarginConfig();
 
   /** overflow-inline 属性配置 */
-  overflowInline: OverflowInlineConfig = {
-    keywords: [...OVERFLOW_INLINE_KEYWORDS],
-  };
+  overflowInline = new OverflowInlineConfig();
 
   /** overflow-wrap 属性配置 */
-  overflowWrap: OverflowWrapConfig = {
-    keywords: [...OVERFLOW_WRAP_KEYWORDS],
-  };
+  overflowWrap = new OverflowWrapConfig();
 
   /** overflow-x 属性配置 */
-  overflowX: OverflowXConfig = {
-    keywords: [...OVERFLOW_X_KEYWORDS],
-  };
+  overflowX = new OverflowXConfig();
 
   /** overflow-y 属性配置 */
-  overflowY: OverflowYConfig = {
-    keywords: [...OVERFLOW_Y_KEYWORDS],
-  };
+  overflowY = new OverflowYConfig();
 
   /** overlay 属性配置 */
-  overlay: OverlayConfig = {
-    keywords: [...OVERLAY_KEYWORDS],
-  };
+  overlay = new OverlayConfig();
 
   /** overscroll-behavior 属性配置 */
-  overscrollBehavior: OverscrollBehaviorConfig = {
-    keywords: [...OVERSCROLL_BEHAVIOR_KEYWORDS],
-  };
+  overscrollBehavior = new OverscrollBehaviorConfig();
 
   /** overscroll-behavior-block 属性配置 */
-  overscrollBehaviorBlock: OverscrollBehaviorBlockConfig = {
-    keywords: [...OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS],
-  };
+  overscrollBehaviorBlock = new OverscrollBehaviorBlockConfig();
 
   /** overscroll-behavior-inline 属性配置 */
-  overscrollBehaviorInline: OverscrollBehaviorInlineConfig = {
-    keywords: [...OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS],
-  };
+  overscrollBehaviorInline = new OverscrollBehaviorInlineConfig();
 
   /** overscroll-behavior-x 属性配置 */
-  overscrollBehaviorX: OverscrollBehaviorXConfig = {
-    keywords: [...OVERSCROLL_BEHAVIOR_X_KEYWORDS],
-  };
+  overscrollBehaviorX = new OverscrollBehaviorXConfig();
 
   /** overscroll-behavior-y 属性配置 */
-  overscrollBehaviorY: OverscrollBehaviorYConfig = {
-    keywords: [...OVERSCROLL_BEHAVIOR_Y_KEYWORDS],
-  };
+  overscrollBehaviorY = new OverscrollBehaviorYConfig();
 
   /** padding 属性配置 */
-  padding: PaddingConfig = {
-    numberTypes: [...PADDING_NUMBER_TYPES],
-  };
+  padding = new PaddingConfig();
 
   /** padding-bottom 属性配置 */
-  paddingBottom: PaddingBottomConfig = {
-    numberTypes: [...PADDING_BOTTOM_NUMBER_TYPES],
-  };
+  paddingBottom = new PaddingBottomConfig();
 
   /** padding-left 属性配置 */
-  paddingLeft: PaddingLeftConfig = {
-    numberTypes: [...PADDING_LEFT_NUMBER_TYPES],
-  };
+  paddingLeft = new PaddingLeftConfig();
 
   /** padding-right 属性配置 */
-  paddingRight: PaddingRightConfig = {
-    numberTypes: [...PADDING_RIGHT_NUMBER_TYPES],
-  };
+  paddingRight = new PaddingRightConfig();
 
   /** padding-top 属性配置 */
-  paddingTop: PaddingTopConfig = {
-    numberTypes: [...PADDING_TOP_NUMBER_TYPES],
-  };
+  paddingTop = new PaddingTopConfig();
 
   /** page 属性配置 */
-  page: PageConfig = {
-    keywords: [...PAGE_KEYWORDS],
-  };
+  page = new PageConfig();
 
   /** page-break-after 属性配置 */
-  pageBreakAfter: PageBreakAfterConfig = {
-    keywords: [...PAGE_BREAK_AFTER_KEYWORDS],
-  };
+  pageBreakAfter = new PageBreakAfterConfig();
 
   /** page-break-before 属性配置 */
-  pageBreakBefore: PageBreakBeforeConfig = {
-    keywords: [...PAGE_BREAK_BEFORE_KEYWORDS],
-  };
+  pageBreakBefore = new PageBreakBeforeConfig();
 
   /** page-break-inside 属性配置 */
-  pageBreakInside: PageBreakInsideConfig = {
-    keywords: [...PAGE_BREAK_INSIDE_KEYWORDS],
-  };
+  pageBreakInside = new PageBreakInsideConfig();
 
   /** paint-order 属性配置 */
-  paintOrder: PaintOrderConfig = {
-    keywords: [...PAINT_ORDER_KEYWORDS],
-  };
+  paintOrder = new PaintOrderConfig();
 
   /** pause-after 属性配置 */
-  pauseAfter: PauseAfterConfig = {
-    keywords: [...PAUSE_AFTER_KEYWORDS],
-    numberTypes: [...PAUSE_AFTER_NUMBER_TYPES],
-  };
+  pauseAfter = new PauseAfterConfig();
 
   /** pause-before 属性配置 */
-  pauseBefore: PauseBeforeConfig = {
-    keywords: [...PAUSE_BEFORE_KEYWORDS],
-    numberTypes: [...PAUSE_BEFORE_NUMBER_TYPES],
-  };
+  pauseBefore = new PauseBeforeConfig();
 
   /** perspective 属性配置 */
-  perspective: PerspectiveConfig = {
-    keywords: [...PERSPECTIVE_KEYWORDS],
-    numberTypes: [...PERSPECTIVE_NUMBER_TYPES],
-  };
+  perspective = new PerspectiveConfig();
 
   /** perspective-origin 属性配置 */
-  perspectiveOrigin: PerspectiveOriginConfig = {
-    keywords: [...PERSPECTIVE_ORIGIN_KEYWORDS],
-    numberTypes: [...PERSPECTIVE_ORIGIN_NUMBER_TYPES],
-  };
+  perspectiveOrigin = new PerspectiveOriginConfig();
 
   /** pointer-events 属性配置 */
-  pointerEvents: PointerEventsConfig = {
-    keywords: [...POINTER_EVENTS_KEYWORDS],
-  };
+  pointerEvents = new PointerEventsConfig();
 
   /** position 属性配置 */
-  position: PositionConfig = {
-    keywords: [...POSITION_KEYWORDS],
-  };
+  position = new PositionConfig();
 
   /** position-anchor 属性配置 */
-  positionAnchor: PositionAnchorConfig = {
-    keywords: [...POSITION_ANCHOR_KEYWORDS],
-  };
+  positionAnchor = new PositionAnchorConfig();
 
   /** position-area 属性配置 */
-  positionArea: PositionAreaConfig = {
-    keywords: [...POSITION_AREA_KEYWORDS],
-  };
+  positionArea = new PositionAreaConfig();
 
   /** position-try-fallbacks 属性配置 */
-  positionTryFallbacks: PositionTryFallbacksConfig = {
-    keywords: [...POSITION_TRY_FALLBACKS_KEYWORDS],
-  };
+  positionTryFallbacks = new PositionTryFallbacksConfig();
 
   /** position-try-order 属性配置 */
-  positionTryOrder: PositionTryOrderConfig = {
-    keywords: [...POSITION_TRY_ORDER_KEYWORDS],
-  };
+  positionTryOrder = new PositionTryOrderConfig();
 
   /** position-visibility 属性配置 */
-  positionVisibility: PositionVisibilityConfig = {
-    keywords: [...POSITION_VISIBILITY_KEYWORDS],
-  };
+  positionVisibility = new PositionVisibilityConfig();
 
   /** print-color-adjust 属性配置 */
-  printColorAdjust: PrintColorAdjustConfig = {
-    keywords: [...PRINT_COLOR_ADJUST_KEYWORDS],
-  };
+  printColorAdjust = new PrintColorAdjustConfig();
 
   /** quotes 属性配置 */
-  quotes: QuotesConfig = {
-    keywords: [...QUOTES_KEYWORDS],
-  };
+  quotes = new QuotesConfig();
 
   /** r 属性配置 */
-  r: RConfig = {
-    numberTypes: [...R_NUMBER_TYPES],
-  };
+  r = new RConfig();
 
   /** resize 属性配置 */
-  resize: ResizeConfig = {
-    keywords: [...RESIZE_KEYWORDS],
-  };
+  resize = new ResizeConfig();
 
   /** rest-after 属性配置 */
-  restAfter: RestAfterConfig = {
-    keywords: [...REST_AFTER_KEYWORDS],
-    numberTypes: [...REST_AFTER_NUMBER_TYPES],
-  };
+  restAfter = new RestAfterConfig();
 
   /** rest-before 属性配置 */
-  restBefore: RestBeforeConfig = {
-    keywords: [...REST_BEFORE_KEYWORDS],
-    numberTypes: [...REST_BEFORE_NUMBER_TYPES],
-  };
+  restBefore = new RestBeforeConfig();
 
   /** right 属性配置 */
-  right: RightConfig = {
-    keywords: [...RIGHT_KEYWORDS],
-    numberTypes: [...RIGHT_NUMBER_TYPES],
-  };
+  right = new RightConfig();
 
   /** rotate 属性配置 */
-  rotate: RotateConfig = {
-    keywords: [...ROTATE_KEYWORDS],
-    numberTypes: [...ROTATE_NUMBER_TYPES],
-  };
+  rotate = new RotateConfig();
 
   /** row-gap 属性配置 */
-  rowGap: RowGapConfig = {
-    keywords: [...ROW_GAP_KEYWORDS],
-    numberTypes: [...ROW_GAP_NUMBER_TYPES],
-  };
+  rowGap = new RowGapConfig();
 
   /** ruby-align 属性配置 */
-  rubyAlign: RubyAlignConfig = {
-    keywords: [...RUBY_ALIGN_KEYWORDS],
-  };
+  rubyAlign = new RubyAlignConfig();
 
   /** ruby-merge 属性配置 */
-  rubyMerge: RubyMergeConfig = {
-    keywords: [...RUBY_MERGE_KEYWORDS],
-  };
+  rubyMerge = new RubyMergeConfig();
 
   /** ruby-position 属性配置 */
-  rubyPosition: RubyPositionConfig = {
-    keywords: [...RUBY_POSITION_KEYWORDS],
-  };
+  rubyPosition = new RubyPositionConfig();
 
   /** rx 属性配置 */
-  rx: RxConfig = {
-    numberTypes: [...RX_NUMBER_TYPES],
-  };
+  rx = new RxConfig();
 
   /** ry 属性配置 */
-  ry: RyConfig = {
-    numberTypes: [...RY_NUMBER_TYPES],
-  };
+  ry = new RyConfig();
 
   /** scale 属性配置 */
-  scale: ScaleConfig = {
-    keywords: [...SCALE_KEYWORDS],
-    numberTypes: [...SCALE_NUMBER_TYPES],
-  };
+  scale = new ScaleConfig();
 
   /** scroll-behavior 属性配置 */
-  scrollBehavior: ScrollBehaviorConfig = {
-    keywords: [...SCROLL_BEHAVIOR_KEYWORDS],
-  };
+  scrollBehavior = new ScrollBehaviorConfig();
 
   /** scroll-margin 属性配置 */
-  scrollMargin: ScrollMarginConfig = {
-    numberTypes: [...SCROLL_MARGIN_NUMBER_TYPES],
-  };
+  scrollMargin = new ScrollMarginConfig();
 
   /** scroll-margin-block 属性配置 */
-  scrollMarginBlock: ScrollMarginBlockConfig = {
-    numberTypes: [...SCROLL_MARGIN_BLOCK_NUMBER_TYPES],
-  };
+  scrollMarginBlock = new ScrollMarginBlockConfig();
 
   /** scroll-margin-block-end 属性配置 */
-  scrollMarginBlockEnd: ScrollMarginBlockEndConfig = {
-    numberTypes: [...SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES],
-  };
+  scrollMarginBlockEnd = new ScrollMarginBlockEndConfig();
 
   /** scroll-margin-block-start 属性配置 */
-  scrollMarginBlockStart: ScrollMarginBlockStartConfig = {
-    numberTypes: [...SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES],
-  };
+  scrollMarginBlockStart = new ScrollMarginBlockStartConfig();
 
   /** scroll-margin-bottom 属性配置 */
-  scrollMarginBottom: ScrollMarginBottomConfig = {
-    numberTypes: [...SCROLL_MARGIN_BOTTOM_NUMBER_TYPES],
-  };
+  scrollMarginBottom = new ScrollMarginBottomConfig();
 
   /** scroll-margin-inline 属性配置 */
-  scrollMarginInline: ScrollMarginInlineConfig = {
-    numberTypes: [...SCROLL_MARGIN_INLINE_NUMBER_TYPES],
-  };
+  scrollMarginInline = new ScrollMarginInlineConfig();
 
   /** scroll-margin-inline-end 属性配置 */
-  scrollMarginInlineEnd: ScrollMarginInlineEndConfig = {
-    numberTypes: [...SCROLL_MARGIN_INLINE_END_NUMBER_TYPES],
-  };
+  scrollMarginInlineEnd = new ScrollMarginInlineEndConfig();
 
   /** scroll-margin-inline-start 属性配置 */
-  scrollMarginInlineStart: ScrollMarginInlineStartConfig = {
-    numberTypes: [...SCROLL_MARGIN_INLINE_START_NUMBER_TYPES],
-  };
+  scrollMarginInlineStart = new ScrollMarginInlineStartConfig();
 
   /** scroll-margin-left 属性配置 */
-  scrollMarginLeft: ScrollMarginLeftConfig = {
-    numberTypes: [...SCROLL_MARGIN_LEFT_NUMBER_TYPES],
-  };
+  scrollMarginLeft = new ScrollMarginLeftConfig();
 
   /** scroll-margin-right 属性配置 */
-  scrollMarginRight: ScrollMarginRightConfig = {
-    numberTypes: [...SCROLL_MARGIN_RIGHT_NUMBER_TYPES],
-  };
+  scrollMarginRight = new ScrollMarginRightConfig();
 
   /** scroll-margin-top 属性配置 */
-  scrollMarginTop: ScrollMarginTopConfig = {
-    numberTypes: [...SCROLL_MARGIN_TOP_NUMBER_TYPES],
-  };
+  scrollMarginTop = new ScrollMarginTopConfig();
 
   /** scroll-padding 属性配置 */
-  scrollPadding: ScrollPaddingConfig = {
-    keywords: [...SCROLL_PADDING_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_NUMBER_TYPES],
-  };
+  scrollPadding = new ScrollPaddingConfig();
 
   /** scroll-padding-block 属性配置 */
-  scrollPaddingBlock: ScrollPaddingBlockConfig = {
-    keywords: [...SCROLL_PADDING_BLOCK_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_BLOCK_NUMBER_TYPES],
-  };
+  scrollPaddingBlock = new ScrollPaddingBlockConfig();
 
   /** scroll-padding-block-end 属性配置 */
-  scrollPaddingBlockEnd: ScrollPaddingBlockEndConfig = {
-    keywords: [...SCROLL_PADDING_BLOCK_END_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_BLOCK_END_NUMBER_TYPES],
-  };
+  scrollPaddingBlockEnd = new ScrollPaddingBlockEndConfig();
 
   /** scroll-padding-block-start 属性配置 */
-  scrollPaddingBlockStart: ScrollPaddingBlockStartConfig = {
-    keywords: [...SCROLL_PADDING_BLOCK_START_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_BLOCK_START_NUMBER_TYPES],
-  };
+  scrollPaddingBlockStart = new ScrollPaddingBlockStartConfig();
 
   /** scroll-padding-bottom 属性配置 */
-  scrollPaddingBottom: ScrollPaddingBottomConfig = {
-    keywords: [...SCROLL_PADDING_BOTTOM_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_BOTTOM_NUMBER_TYPES],
-  };
+  scrollPaddingBottom = new ScrollPaddingBottomConfig();
 
   /** scroll-padding-inline 属性配置 */
-  scrollPaddingInline: ScrollPaddingInlineConfig = {
-    keywords: [...SCROLL_PADDING_INLINE_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_INLINE_NUMBER_TYPES],
-  };
+  scrollPaddingInline = new ScrollPaddingInlineConfig();
 
   /** scroll-padding-inline-end 属性配置 */
-  scrollPaddingInlineEnd: ScrollPaddingInlineEndConfig = {
-    keywords: [...SCROLL_PADDING_INLINE_END_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_INLINE_END_NUMBER_TYPES],
-  };
+  scrollPaddingInlineEnd = new ScrollPaddingInlineEndConfig();
 
   /** scroll-padding-inline-start 属性配置 */
-  scrollPaddingInlineStart: ScrollPaddingInlineStartConfig = {
-    keywords: [...SCROLL_PADDING_INLINE_START_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_INLINE_START_NUMBER_TYPES],
-  };
+  scrollPaddingInlineStart = new ScrollPaddingInlineStartConfig();
 
   /** scroll-padding-left 属性配置 */
-  scrollPaddingLeft: ScrollPaddingLeftConfig = {
-    keywords: [...SCROLL_PADDING_LEFT_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_LEFT_NUMBER_TYPES],
-  };
+  scrollPaddingLeft = new ScrollPaddingLeftConfig();
 
   /** scroll-padding-right 属性配置 */
-  scrollPaddingRight: ScrollPaddingRightConfig = {
-    keywords: [...SCROLL_PADDING_RIGHT_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_RIGHT_NUMBER_TYPES],
-  };
+  scrollPaddingRight = new ScrollPaddingRightConfig();
 
   /** scroll-padding-top 属性配置 */
-  scrollPaddingTop: ScrollPaddingTopConfig = {
-    keywords: [...SCROLL_PADDING_TOP_KEYWORDS],
-    numberTypes: [...SCROLL_PADDING_TOP_NUMBER_TYPES],
-  };
+  scrollPaddingTop = new ScrollPaddingTopConfig();
 
   /** scroll-snap-align 属性配置 */
-  scrollSnapAlign: ScrollSnapAlignConfig = {
-    keywords: [...SCROLL_SNAP_ALIGN_KEYWORDS],
-  };
+  scrollSnapAlign = new ScrollSnapAlignConfig();
 
   /** scroll-snap-coordinate 属性配置 */
-  scrollSnapCoordinate: ScrollSnapCoordinateConfig = {
-    keywords: [...SCROLL_SNAP_COORDINATE_KEYWORDS],
-    numberTypes: [...SCROLL_SNAP_COORDINATE_NUMBER_TYPES],
-  };
+  scrollSnapCoordinate = new ScrollSnapCoordinateConfig();
 
   /** scroll-snap-destination 属性配置 */
-  scrollSnapDestination: ScrollSnapDestinationConfig = {
-    keywords: [...SCROLL_SNAP_DESTINATION_KEYWORDS],
-    numberTypes: [...SCROLL_SNAP_DESTINATION_NUMBER_TYPES],
-  };
+  scrollSnapDestination = new ScrollSnapDestinationConfig();
 
   /** scroll-snap-points-x 属性配置 */
-  scrollSnapPointsX: ScrollSnapPointsXConfig = {
-    keywords: [...SCROLL_SNAP_POINTS_X_KEYWORDS],
-    numberTypes: [...SCROLL_SNAP_POINTS_X_NUMBER_TYPES],
-  };
+  scrollSnapPointsX = new ScrollSnapPointsXConfig();
 
   /** scroll-snap-points-y 属性配置 */
-  scrollSnapPointsY: ScrollSnapPointsYConfig = {
-    keywords: [...SCROLL_SNAP_POINTS_Y_KEYWORDS],
-    numberTypes: [...SCROLL_SNAP_POINTS_Y_NUMBER_TYPES],
-  };
+  scrollSnapPointsY = new ScrollSnapPointsYConfig();
 
   /** scroll-snap-stop 属性配置 */
-  scrollSnapStop: ScrollSnapStopConfig = {
-    keywords: [...SCROLL_SNAP_STOP_KEYWORDS],
-  };
+  scrollSnapStop = new ScrollSnapStopConfig();
 
   /** scroll-snap-type 属性配置 */
-  scrollSnapType: ScrollSnapTypeConfig = {
-    keywords: [...SCROLL_SNAP_TYPE_KEYWORDS],
-  };
+  scrollSnapType = new ScrollSnapTypeConfig();
 
   /** scroll-snap-type-x 属性配置 */
-  scrollSnapTypeX: ScrollSnapTypeXConfig = {
-    keywords: [...SCROLL_SNAP_TYPE_X_KEYWORDS],
-  };
+  scrollSnapTypeX = new ScrollSnapTypeXConfig();
 
   /** scroll-snap-type-y 属性配置 */
-  scrollSnapTypeY: ScrollSnapTypeYConfig = {
-    keywords: [...SCROLL_SNAP_TYPE_Y_KEYWORDS],
-  };
+  scrollSnapTypeY = new ScrollSnapTypeYConfig();
 
   /** scroll-timeline-axis 属性配置 */
-  scrollTimelineAxis: ScrollTimelineAxisConfig = {
-    keywords: [...SCROLL_TIMELINE_AXIS_KEYWORDS],
-  };
+  scrollTimelineAxis = new ScrollTimelineAxisConfig();
 
   /** scroll-timeline-name 属性配置 */
-  scrollTimelineName: ScrollTimelineNameConfig = {
-    keywords: [...SCROLL_TIMELINE_NAME_KEYWORDS],
-  };
+  scrollTimelineName = new ScrollTimelineNameConfig();
 
   /** scrollbar-color 属性配置 */
-  scrollbarColor: ScrollbarColorConfig = {
-    keywords: [...SCROLLBAR_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...SCROLLBAR_COLOR_NUMBER_TYPES],
-  };
+  scrollbarColor = new ScrollbarColorConfig();
 
   /** scrollbar-gutter 属性配置 */
-  scrollbarGutter: ScrollbarGutterConfig = {
-    keywords: [...SCROLLBAR_GUTTER_KEYWORDS],
-  };
+  scrollbarGutter = new ScrollbarGutterConfig();
 
   /** scrollbar-width 属性配置 */
-  scrollbarWidth: ScrollbarWidthConfig = {
-    keywords: [...SCROLLBAR_WIDTH_KEYWORDS],
-  };
+  scrollbarWidth = new ScrollbarWidthConfig();
 
   /** shape-image-threshold 属性配置 */
-  shapeImageThreshold: ShapeImageThresholdConfig = {
-    numberTypes: [...SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES],
-  };
+  shapeImageThreshold = new ShapeImageThresholdConfig();
 
   /** shape-margin 属性配置 */
-  shapeMargin: ShapeMarginConfig = {
-    numberTypes: [...SHAPE_MARGIN_NUMBER_TYPES],
-  };
+  shapeMargin = new ShapeMarginConfig();
 
   /** shape-outside 属性配置 */
-  shapeOutside: ShapeOutsideConfig = {
-    keywords: [...SHAPE_OUTSIDE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...SHAPE_OUTSIDE_NUMBER_TYPES],
-  };
+  shapeOutside = new ShapeOutsideConfig();
 
   /** shape-rendering 属性配置 */
-  shapeRendering: ShapeRenderingConfig = {
-    keywords: [...SHAPE_RENDERING_KEYWORDS],
-  };
+  shapeRendering = new ShapeRenderingConfig();
 
   /** speak 属性配置 */
-  speak: SpeakConfig = {
-    keywords: [...SPEAK_KEYWORDS],
-  };
+  speak = new SpeakConfig();
 
   /** speak-as 属性配置 */
-  speakAs: SpeakAsConfig = {
-    keywords: [...SPEAK_AS_KEYWORDS],
-  };
+  speakAs = new SpeakAsConfig();
 
   /** stroke 属性配置 */
-  stroke: StrokeConfig = {
-    keywords: [...STROKE_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...STROKE_NUMBER_TYPES],
-  };
+  stroke = new StrokeConfig();
 
   /** stroke-dasharray 属性配置 */
-  strokeDasharray: StrokeDasharrayConfig = {
-    keywords: [...STROKE_DASHARRAY_KEYWORDS],
-    numberTypes: [...STROKE_DASHARRAY_NUMBER_TYPES],
-  };
+  strokeDasharray = new StrokeDasharrayConfig();
 
   /** stroke-dashoffset 属性配置 */
-  strokeDashoffset: StrokeDashoffsetConfig = {
-    numberTypes: [...STROKE_DASHOFFSET_NUMBER_TYPES],
-  };
+  strokeDashoffset = new StrokeDashoffsetConfig();
 
   /** stroke-linecap 属性配置 */
-  strokeLinecap: StrokeLinecapConfig = {
-    keywords: [...STROKE_LINECAP_KEYWORDS],
-  };
+  strokeLinecap = new StrokeLinecapConfig();
 
   /** stroke-linejoin 属性配置 */
-  strokeLinejoin: StrokeLinejoinConfig = {
-    keywords: [...STROKE_LINEJOIN_KEYWORDS],
-  };
+  strokeLinejoin = new StrokeLinejoinConfig();
 
   /** stroke-miterlimit 属性配置 */
-  strokeMiterlimit: StrokeMiterlimitConfig = {
-    numberTypes: [...STROKE_MITERLIMIT_NUMBER_TYPES],
-  };
+  strokeMiterlimit = new StrokeMiterlimitConfig();
 
   /** stroke-width 属性配置 */
-  strokeWidth: StrokeWidthConfig = {
-    numberTypes: [...STROKE_WIDTH_NUMBER_TYPES],
-  };
+  strokeWidth = new StrokeWidthConfig();
 
   /** tab-size 属性配置 */
-  tabSize: TabSizeConfig = {
-    numberTypes: [...TAB_SIZE_NUMBER_TYPES],
-  };
+  tabSize = new TabSizeConfig();
 
   /** table-layout 属性配置 */
-  tableLayout: TableLayoutConfig = {
-    keywords: [...TABLE_LAYOUT_KEYWORDS],
-  };
+  tableLayout = new TableLayoutConfig();
 
   /** text-align 属性配置 */
-  textAlign: TextAlignConfig = {
-    keywords: [...TEXT_ALIGN_KEYWORDS],
-  };
+  textAlign = new TextAlignConfig();
 
   /** text-align-last 属性配置 */
-  textAlignLast: TextAlignLastConfig = {
-    keywords: [...TEXT_ALIGN_LAST_KEYWORDS],
-  };
+  textAlignLast = new TextAlignLastConfig();
 
   /** text-anchor 属性配置 */
-  textAnchor: TextAnchorConfig = {
-    keywords: [...TEXT_ANCHOR_KEYWORDS],
-  };
+  textAnchor = new TextAnchorConfig();
 
   /** text-combine-upright 属性配置 */
-  textCombineUpright: TextCombineUprightConfig = {
-    keywords: [...TEXT_COMBINE_UPRIGHT_KEYWORDS],
-    numberTypes: [...TEXT_COMBINE_UPRIGHT_NUMBER_TYPES],
-  };
+  textCombineUpright = new TextCombineUprightConfig();
 
   /** text-decoration-color 属性配置 */
-  textDecorationColor: TextDecorationColorConfig = {
-    keywords: [...TEXT_DECORATION_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...TEXT_DECORATION_COLOR_NUMBER_TYPES],
-  };
+  textDecorationColor = new TextDecorationColorConfig();
 
   /** text-decoration-line 属性配置 */
-  textDecorationLine: TextDecorationLineConfig = {
-    keywords: [...TEXT_DECORATION_LINE_KEYWORDS],
-  };
+  textDecorationLine = new TextDecorationLineConfig();
 
   /** text-decoration-skip 属性配置 */
-  textDecorationSkip: TextDecorationSkipConfig = {
-    keywords: [...TEXT_DECORATION_SKIP_KEYWORDS],
-  };
+  textDecorationSkip = new TextDecorationSkipConfig();
 
   /** text-decoration-skip-ink 属性配置 */
-  textDecorationSkipInk: TextDecorationSkipInkConfig = {
-    keywords: [...TEXT_DECORATION_SKIP_INK_KEYWORDS],
-  };
+  textDecorationSkipInk = new TextDecorationSkipInkConfig();
 
   /** text-decoration-style 属性配置 */
-  textDecorationStyle: TextDecorationStyleConfig = {
-    keywords: [...TEXT_DECORATION_STYLE_KEYWORDS],
-  };
+  textDecorationStyle = new TextDecorationStyleConfig();
 
   /** text-decoration-thickness 属性配置 */
-  textDecorationThickness: TextDecorationThicknessConfig = {
-    keywords: [...TEXT_DECORATION_THICKNESS_KEYWORDS],
-    numberTypes: [...TEXT_DECORATION_THICKNESS_NUMBER_TYPES],
-  };
+  textDecorationThickness = new TextDecorationThicknessConfig();
 
   /** text-emphasis-color 属性配置 */
-  textEmphasisColor: TextEmphasisColorConfig = {
-    keywords: [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES],
-  };
+  textEmphasisColor = new TextEmphasisColorConfig();
 
   /** text-emphasis-position 属性配置 */
-  textEmphasisPosition: TextEmphasisPositionConfig = {
-    keywords: [...TEXT_EMPHASIS_POSITION_KEYWORDS],
-  };
+  textEmphasisPosition = new TextEmphasisPositionConfig();
 
   /** text-emphasis-style 属性配置 */
-  textEmphasisStyle: TextEmphasisStyleConfig = {
-    keywords: [...TEXT_EMPHASIS_STYLE_KEYWORDS],
-  };
+  textEmphasisStyle = new TextEmphasisStyleConfig();
 
   /** text-indent 属性配置 */
-  textIndent: TextIndentConfig = {
-    keywords: [...TEXT_INDENT_KEYWORDS],
-    numberTypes: [...TEXT_INDENT_NUMBER_TYPES],
-  };
+  textIndent = new TextIndentConfig();
 
   /** text-justify 属性配置 */
-  textJustify: TextJustifyConfig = {
-    keywords: [...TEXT_JUSTIFY_KEYWORDS],
-  };
+  textJustify = new TextJustifyConfig();
 
   /** text-orientation 属性配置 */
-  textOrientation: TextOrientationConfig = {
-    keywords: [...TEXT_ORIENTATION_KEYWORDS],
-  };
+  textOrientation = new TextOrientationConfig();
 
   /** text-overflow 属性配置 */
-  textOverflow: TextOverflowConfig = {
-    keywords: [...TEXT_OVERFLOW_KEYWORDS],
-  };
+  textOverflow = new TextOverflowConfig();
 
   /** text-rendering 属性配置 */
-  textRendering: TextRenderingConfig = {
-    keywords: [...TEXT_RENDERING_KEYWORDS],
-  };
+  textRendering = new TextRenderingConfig();
 
   /** text-shadow 属性配置 */
-  textShadow: TextShadowConfig = {
-    keywords: [...TEXT_SHADOW_KEYWORDS, ...ALL_COLORS],
-    numberTypes: [...TEXT_SHADOW_NUMBER_TYPES],
-  };
+  textShadow = new TextShadowConfig();
 
   /** text-size-adjust 属性配置 */
-  textSizeAdjust: TextSizeAdjustConfig = {
-    keywords: [...TEXT_SIZE_ADJUST_KEYWORDS],
-    numberTypes: [...TEXT_SIZE_ADJUST_NUMBER_TYPES],
-  };
+  textSizeAdjust = new TextSizeAdjustConfig();
 
   /** text-spacing-trim 属性配置 */
-  textSpacingTrim: TextSpacingTrimConfig = {
-    keywords: [...TEXT_SPACING_TRIM_KEYWORDS],
-  };
+  textSpacingTrim = new TextSpacingTrimConfig();
 
   /** text-transform 属性配置 */
-  textTransform: TextTransformConfig = {
-    keywords: [...TEXT_TRANSFORM_KEYWORDS],
-  };
+  textTransform = new TextTransformConfig();
 
   /** text-underline-offset 属性配置 */
-  textUnderlineOffset: TextUnderlineOffsetConfig = {
-    keywords: [...TEXT_UNDERLINE_OFFSET_KEYWORDS],
-    numberTypes: [...TEXT_UNDERLINE_OFFSET_NUMBER_TYPES],
-  };
+  textUnderlineOffset = new TextUnderlineOffsetConfig();
 
   /** text-underline-position 属性配置 */
-  textUnderlinePosition: TextUnderlinePositionConfig = {
-    keywords: [...TEXT_UNDERLINE_POSITION_KEYWORDS],
-  };
+  textUnderlinePosition = new TextUnderlinePositionConfig();
 
   /** text-wrap-mode 属性配置 */
-  textWrapMode: TextWrapModeConfig = {
-    keywords: [...TEXT_WRAP_MODE_KEYWORDS],
-  };
+  textWrapMode = new TextWrapModeConfig();
 
   /** text-wrap-style 属性配置 */
-  textWrapStyle: TextWrapStyleConfig = {
-    keywords: [...TEXT_WRAP_STYLE_KEYWORDS],
-  };
+  textWrapStyle = new TextWrapStyleConfig();
 
   /** timeline-scope 属性配置 */
-  timelineScope: TimelineScopeConfig = {
-    keywords: [...TIMELINE_SCOPE_KEYWORDS],
-  };
+  timelineScope = new TimelineScopeConfig();
 
   /** top 属性配置 */
-  top: TopConfig = {
-    keywords: [...TOP_KEYWORDS],
-    numberTypes: [...TOP_NUMBER_TYPES],
-  };
+  top = new TopConfig();
 
   /** touch-action 属性配置 */
-  touchAction: TouchActionConfig = {
-    keywords: [...TOUCH_ACTION_KEYWORDS],
-  };
+  touchAction = new TouchActionConfig();
 
   /** transform 属性配置 */
-  transform: TransformConfig = {
-    keywords: [...TRANSFORM_KEYWORDS],
-    numberTypes: [...TRANSFORM_NUMBER_TYPES],
-  };
+  transform = new TransformConfig();
 
   /** transform-box 属性配置 */
-  transformBox: TransformBoxConfig = {
-    keywords: [...TRANSFORM_BOX_KEYWORDS],
-  };
+  transformBox = new TransformBoxConfig();
 
   /** transform-origin 属性配置 */
-  transformOrigin: TransformOriginConfig = {
-    keywords: [...TRANSFORM_ORIGIN_KEYWORDS],
-    numberTypes: [...TRANSFORM_ORIGIN_NUMBER_TYPES],
-  };
+  transformOrigin = new TransformOriginConfig();
 
   /** transform-style 属性配置 */
-  transformStyle: TransformStyleConfig = {
-    keywords: [...TRANSFORM_STYLE_KEYWORDS],
-  };
+  transformStyle = new TransformStyleConfig();
 
   /** transition 属性配置 */
-  transition: TransitionConfig = {
-    keywords: [...TRANSITION_KEYWORDS],
-    numberTypes: [...TRANSITION_NUMBER_TYPES],
-  };
+  transition = new TransitionConfig();
 
   /** transition-behavior 属性配置 */
-  transitionBehavior: TransitionBehaviorConfig = {
-    keywords: [...TRANSITION_BEHAVIOR_KEYWORDS],
-  };
+  transitionBehavior = new TransitionBehaviorConfig();
 
   /** transition-delay 属性配置 */
-  transitionDelay: TransitionDelayConfig = {
-    numberTypes: [...TRANSITION_DELAY_NUMBER_TYPES],
-  };
+  transitionDelay = new TransitionDelayConfig();
 
   /** transition-duration 属性配置 */
-  transitionDuration: TransitionDurationConfig = {
-    numberTypes: [...TRANSITION_DURATION_NUMBER_TYPES],
-  };
+  transitionDuration = new TransitionDurationConfig();
 
   /** transition-property 属性配置 */
-  transitionProperty: TransitionPropertyConfig = {
-    keywords: [...TRANSITION_PROPERTY_KEYWORDS],
-  };
+  transitionProperty = new TransitionPropertyConfig();
 
   /** transition-timing-function 属性配置 */
-  transitionTimingFunction: TransitionTimingFunctionConfig = {
-    keywords: [...TRANSITION_TIMING_FUNCTION_KEYWORDS],
-    numberTypes: [...TRANSITION_TIMING_FUNCTION_NUMBER_TYPES],
-  };
+  transitionTimingFunction = new TransitionTimingFunctionConfig();
 
   /** translate 属性配置 */
-  translate: TranslateConfig = {
-    keywords: [...TRANSLATE_KEYWORDS],
-    numberTypes: [...TRANSLATE_NUMBER_TYPES],
-  };
+  translate = new TranslateConfig();
 
   /** unicode-bidi 属性配置 */
-  unicodeBidi: UnicodeBidiConfig = {
-    keywords: [...UNICODE_BIDI_KEYWORDS],
-  };
+  unicodeBidi = new UnicodeBidiConfig();
 
   /** user-select 属性配置 */
-  userSelect: UserSelectConfig = {
-    keywords: [...USER_SELECT_KEYWORDS],
-  };
+  userSelect = new UserSelectConfig();
 
   /** vector-effect 属性配置 */
-  vectorEffect: VectorEffectConfig = {
-    keywords: [...VECTOR_EFFECT_KEYWORDS],
-  };
+  vectorEffect = new VectorEffectConfig();
 
   /** vertical-align 属性配置 */
-  verticalAlign: VerticalAlignConfig = {
-    keywords: [...VERTICAL_ALIGN_KEYWORDS],
-    numberTypes: [...VERTICAL_ALIGN_NUMBER_TYPES],
-  };
+  verticalAlign = new VerticalAlignConfig();
 
   /** view-timeline-axis 属性配置 */
-  viewTimelineAxis: ViewTimelineAxisConfig = {
-    keywords: [...VIEW_TIMELINE_AXIS_KEYWORDS],
-  };
+  viewTimelineAxis = new ViewTimelineAxisConfig();
 
   /** view-timeline-inset 属性配置 */
-  viewTimelineInset: ViewTimelineInsetConfig = {
-    keywords: [...VIEW_TIMELINE_INSET_KEYWORDS],
-    numberTypes: [...VIEW_TIMELINE_INSET_NUMBER_TYPES],
-  };
+  viewTimelineInset = new ViewTimelineInsetConfig();
 
   /** view-timeline-name 属性配置 */
-  viewTimelineName: ViewTimelineNameConfig = {
-    keywords: [...VIEW_TIMELINE_NAME_KEYWORDS],
-  };
+  viewTimelineName = new ViewTimelineNameConfig();
 
   /** view-transition-name 属性配置 */
-  viewTransitionName: ViewTransitionNameConfig = {
-    keywords: [...VIEW_TRANSITION_NAME_KEYWORDS],
-  };
+  viewTransitionName = new ViewTransitionNameConfig();
 
   /** visibility 属性配置 */
-  visibility: VisibilityConfig = {
-    keywords: [...VISIBILITY_KEYWORDS],
-  };
+  visibility = new VisibilityConfig();
 
   /** voice-balance 属性配置 */
-  voiceBalance: VoiceBalanceConfig = {
-    keywords: [...VOICE_BALANCE_KEYWORDS],
-    numberTypes: [...VOICE_BALANCE_NUMBER_TYPES],
-  };
+  voiceBalance = new VoiceBalanceConfig();
 
   /** voice-duration 属性配置 */
-  voiceDuration: VoiceDurationConfig = {
-    keywords: [...VOICE_DURATION_KEYWORDS],
-    numberTypes: [...VOICE_DURATION_NUMBER_TYPES],
-  };
+  voiceDuration = new VoiceDurationConfig();
 
   /** voice-family 属性配置 */
-  voiceFamily: VoiceFamilyConfig = {
-    keywords: [...VOICE_FAMILY_KEYWORDS],
-    numberTypes: [...VOICE_FAMILY_NUMBER_TYPES],
-  };
+  voiceFamily = new VoiceFamilyConfig();
 
   /** voice-pitch 属性配置 */
-  voicePitch: VoicePitchConfig = {
-    keywords: [...VOICE_PITCH_KEYWORDS],
-    numberTypes: [...VOICE_PITCH_NUMBER_TYPES],
-  };
+  voicePitch = new VoicePitchConfig();
 
   /** voice-range 属性配置 */
-  voiceRange: VoiceRangeConfig = {
-    keywords: [...VOICE_RANGE_KEYWORDS],
-    numberTypes: [...VOICE_RANGE_NUMBER_TYPES],
-  };
+  voiceRange = new VoiceRangeConfig();
 
   /** voice-rate 属性配置 */
-  voiceRate: VoiceRateConfig = {
-    keywords: [...VOICE_RATE_KEYWORDS],
-    numberTypes: [...VOICE_RATE_NUMBER_TYPES],
-  };
+  voiceRate = new VoiceRateConfig();
 
   /** voice-stress 属性配置 */
-  voiceStress: VoiceStressConfig = {
-    keywords: [...VOICE_STRESS_KEYWORDS],
-  };
+  voiceStress = new VoiceStressConfig();
 
   /** voice-volume 属性配置 */
-  voiceVolume: VoiceVolumeConfig = {
-    keywords: [...VOICE_VOLUME_KEYWORDS],
-  };
+  voiceVolume = new VoiceVolumeConfig();
 
   /** white-space 属性配置 */
-  whiteSpace: WhiteSpaceConfig = {
-    keywords: [...WHITE_SPACE_KEYWORDS],
-  };
+  whiteSpace = new WhiteSpaceConfig();
 
   /** white-space-collapse 属性配置 */
-  whiteSpaceCollapse: WhiteSpaceCollapseConfig = {
-    keywords: [...WHITE_SPACE_COLLAPSE_KEYWORDS],
-  };
+  whiteSpaceCollapse = new WhiteSpaceCollapseConfig();
 
   /** white-space-trim 属性配置 */
-  whiteSpaceTrim: WhiteSpaceTrimConfig = {
-    keywords: [...WHITE_SPACE_TRIM_KEYWORDS],
-  };
+  whiteSpaceTrim = new WhiteSpaceTrimConfig();
 
   /** widows 属性配置 */
-  widows: WidowsConfig = {
-    numberTypes: [...WIDOWS_NUMBER_TYPES],
-  };
+  widows = new WidowsConfig();
 
   /** width 属性配置 */
-  width: WidthConfig = {
-    keywords: [...WIDTH_KEYWORDS],
-    numberTypes: [...WIDTH_NUMBER_TYPES],
-  };
+  width = new WidthConfig();
 
   /** will-change 属性配置 */
-  willChange: WillChangeConfig = {
-    keywords: [...WILL_CHANGE_KEYWORDS],
-  };
+  willChange = new WillChangeConfig();
 
   /** word-break 属性配置 */
-  wordBreak: WordBreakConfig = {
-    keywords: [...WORD_BREAK_KEYWORDS],
-  };
+  wordBreak = new WordBreakConfig();
 
   /** word-spacing 属性配置 */
-  wordSpacing: WordSpacingConfig = {
-    keywords: [...WORD_SPACING_KEYWORDS],
-    numberTypes: [...WORD_SPACING_NUMBER_TYPES],
-  };
+  wordSpacing = new WordSpacingConfig();
 
   /** word-wrap 属性配置 */
-  wordWrap: WordWrapConfig = {
-    keywords: [...WORD_WRAP_KEYWORDS],
-  };
+  wordWrap = new WordWrapConfig();
 
   /** writing-mode 属性配置 */
-  writingMode: WritingModeConfig = {
-    keywords: [...WRITING_MODE_KEYWORDS],
-  };
+  writingMode = new WritingModeConfig();
 
   /** x 属性配置 */
-  x: XConfig = {
-    numberTypes: [...X_NUMBER_TYPES],
-  };
+  x = new XConfig();
 
   /** y 属性配置 */
-  y: YConfig = {
-    numberTypes: [...Y_NUMBER_TYPES],
-  };
+  y = new YConfig();
 
   /** z-index 属性配置 */
-  zIndex: ZIndexConfig = {
-    keywords: [...Z_INDEX_KEYWORDS],
-    numberTypes: [...Z_INDEX_NUMBER_TYPES],
-  };
+  zIndex = new ZIndexConfig();
 
   /** zoom 属性配置 */
-  zoom: ZoomConfig = {
-    keywords: [...ZOOM_KEYWORDS],
-    numberTypes: [...ZOOM_NUMBER_TYPES],
-  };
+  zoom = new ZoomConfig();
 
 }
 
@@ -3965,30 +2271,31 @@ export function getPropertyConfig<T extends keyof CssPropertyConfigMap>(property
   return CSS_PROPERTY_CONFIG[property];
 }
 
-// ==================== CSSTS 配置类型 ====================
+// ==================== CSSTS 配置类 ====================
+
+/** 自定义属性值类型 */
+export type CustomPropertyValue = string | Record<string, string>;
 
 /** CSSTS 配置 */
 export class CsstsConfig {
   // 属性过滤
-  includeProperties?: CssPropertyCamelName[];
-  excludeProperties?: CssPropertyCamelName[];
+  excludeProperties: CssPropertyCamelName[] = [];
 
   // 全局关键字过滤
-  includeKeywords?: KeywordValue[];
-  excludeKeywords?: KeywordValue[];
+  excludeKeywords: KeywordValue[] = [];
 
   // 全局颜色过滤
-  includeColors?: AllColorValue[];
-  excludeColors?: AllColorValue[];
+  excludeColors: AllColorValue[] = [];
 
   // 全局数值类型过滤
-  includeNumberTypes?: NumberTypeName[];
-  excludeNumberTypes?: NumberTypeName[];
+  excludeNumberTypes: NumberTypeName[] = [];
 
   // 全局单位过滤
-  includeUnits?: UnitType[];
-  excludeUnits?: UnitType[];
+  excludeUnits: UnitType[] = [];
+
+  // 自定义属性
+  customProperties: Record<string, CustomPropertyValue> = {};
 
   // 属性级别覆盖
-  properties?: Partial<CssPropertyConfigMap>;
+  properties = new CssPropertyConfigMap();
 }
