@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "cssts": "^0.2.4",
+    "cssts-ts": "^0.2.4",
     "cssts-compiler": "^0.2.4"
   },
   "devDependencies": {
