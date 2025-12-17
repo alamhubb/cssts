@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "CssTs compiler - parser, AST transformer, and type generator for CSS-in-TS",
   "type": "module",
-  "main": "src/index.ts",
-
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "scripts": {
     "build": "tsdown",
     "test": "vitest run"
