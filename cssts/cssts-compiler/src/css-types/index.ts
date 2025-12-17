@@ -3,9 +3,8 @@
  * 自动生成，请勿手动修改
  */
 
-export * from './css-keywords';
-export * from './css-numeric';
-export * from './css-property-keywords';
-export * from './css-property-number-types';
-export * from './css-property-types';
-export * from './css-property-config';
+export * from './colors';
+export * from './units';
+export * from './keywords';
+export * from './property-config';
+export * from './cssts-config';
