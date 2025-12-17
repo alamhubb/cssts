@@ -2,12 +2,13 @@
  * 原子类生成器
  * 
  * 根据配置生成原子类定义
+ * 使用预生成的 CSS 数据，不再每次从 css-tree 获取
  */
 
-import * as csstree from 'css-tree'
-import type { CsstsConfig, PropertyConfig, UnitConfig, UnitType } from './config.js'
+import type { CsstsConfig, PropertyConfig, UnitType } from './config.js'
 import { defaultConfig, unitToSuffix } from './config.js'
 import { generateValues, resolveUnitConfig } from './value-generator.js'
+import cssData from '../data/css-data.json' with { type: 'json' }
 
 // ==================== 原子类定义 ====================
 
@@ -127,54 +128,18 @@ function generateClassName(property: string, value: string): string {
   return `${property}_${valueFormatted}`
 }
 
-// ==================== CSS-TREE 关键字提取 ====================
+// ==================== CSS 数据访问 ====================
+
+/** 预生成的 CSS 属性数据（属性名 -> 关键字列表） */
+const cssPropertyKeywords = new Map<string, string[]>(
+  cssData.properties.map(p => [p.name, p.keywords])
+)
 
 /**
- * 从 css-tree 语法中提取关键字
- */
-function extractKeywords(syntax: any, visited: Set<string> = new Set()): string[] {
-  const keywords: string[] = []
-  if (!syntax) return keywords
-
-  const lexer = (csstree as any).lexer
-
-  if (syntax.type === 'Keyword') {
-    keywords.push(syntax.name)
-  } else if (syntax.type === 'Group' && syntax.terms) {
-    for (const term of syntax.terms) {
-      keywords.push(...extractKeywords(term, visited))
-    }
-  } else if (syntax.type === 'Type' && syntax.name) {
-    if (!visited.has(syntax.name)) {
-      visited.add(syntax.name)
-      const typeData = lexer.types[syntax.name]
-      if (typeData && typeData.syntax) {
-        keywords.push(...extractKeywords(typeData.syntax, visited))
-      }
-    }
-  } else if (syntax.type === 'Multiplier' && syntax.term) {
-    keywords.push(...extractKeywords(syntax.term, visited))
-  }
-
-  return keywords
-}
-
-/**
- * 获取属性的关键字列表
+ * 获取属性的关键字列表（从预生成数据）
  */
 function getPropertyKeywords(property: string): string[] {
-  const lexer = (csstree as any).lexer
-  const propData = lexer.properties[property]
-
-  if (!propData || !propData.syntax) {
-    return []
-  }
-
-  const keywords = extractKeywords(propData.syntax)
-
-  return [...new Set(keywords)]
-    .filter(k => !k.startsWith('-') && !k.startsWith('webkit') && k.length > 0)
-    .sort()
+  return cssPropertyKeywords.get(property) || []
 }
 
 // ==================== 原子类生成 ====================
@@ -233,9 +198,8 @@ export function generateAtoms(config: CsstsConfig = defaultConfig): AtomDefiniti
   const atoms: AtomDefinition[] = []
   const seenNames = new Set<string>()
 
-  // 从 css-tree 获取所有 CSS 属性
-  const lexer = (csstree as any).lexer
-  const allCssProperties = Object.keys(lexer.properties as Record<string, any>)
+  // 使用预生成的 CSS 属性数据
+  const allCssProperties = cssData.properties.map(p => p.name)
 
   // 合并配置的属性
   const allProperties = new Set<string>([

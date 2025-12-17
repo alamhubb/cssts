@@ -14,17 +14,56 @@ import {
 
 // ==================== 插件配置 ====================
 
-export interface CssTsPluginOptions {
-  classPrefix?: string
-  pseudoUtils?: PseudoUtilsConfig
-  /** 外部传入的共享样式集合，不传则内部创建 */
-  globalStyles?: Set<string>
+/**
+ * CSSTS Vite 插件配置类
+ * 
+ * 使用 class 定义配置，用户可以直接查看默认值
+ * 
+ * @example
+ * ```ts
+ * // 使用默认配置
+ * cssTsPlugin()
+ * 
+ * // 自定义配置（只需传入要覆盖的选项）
+ * cssTsPlugin({ classPrefix: 'my-', dts: false })
+ * ```
+ */
+export class CssTsPluginConfig {
+  /** 
+   * CSS 类名前缀
+   * @default ''
+   */
+  classPrefix: string = ''
+
+  /** 
+   * 伪类工具配置
+   * @default undefined
+   */
+  pseudoUtils?: PseudoUtilsConfig = undefined
+
+  /** 
+   * 外部传入的共享样式集合，不传则内部创建
+   * @default new Set<string>()
+   */
+  globalStyles: Set<string> = new Set<string>()
+
   /**
    * 是否自动生成类型声明文件
-   * 默认: true
+   * @default true
    */
-  dts?: boolean
+  dts: boolean = true
+
+  constructor(options: Partial<CssTsPluginConfig> = {}) {
+    // 用户传入的配置覆盖默认值
+    if (options.classPrefix !== undefined) this.classPrefix = options.classPrefix
+    if (options.pseudoUtils !== undefined) this.pseudoUtils = options.pseudoUtils
+    if (options.globalStyles !== undefined) this.globalStyles = options.globalStyles
+    if (options.dts !== undefined) this.dts = options.dts
+  }
 }
+
+/** 插件配置选项类型（用于函数参数） */
+export type CssTsPluginOptions = Partial<CssTsPluginConfig>
 
 // ==================== 虚拟模块 ====================
 
@@ -209,12 +248,15 @@ declare global {
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
+  // 使用配置类，合并用户配置和默认值
+  const pluginConfig = new CssTsPluginConfig(options)
+  
   let server: any = null
   let config: ResolvedConfig
-  const prefix = options.classPrefix || ''
-  const pseudoUtils = options.pseudoUtils
-  const globalStyles = options.globalStyles || new Set<string>()
-  const enableDts = options.dts !== false
+  const prefix = pluginConfig.classPrefix
+  const pseudoUtils = pluginConfig.pseudoUtils
+  const globalStyles = pluginConfig.globalStyles
+  const enableDts = pluginConfig.dts
 
   /**
    * 检查文件是否需要处理

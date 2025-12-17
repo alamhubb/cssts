@@ -11,9 +11,24 @@ import * as path from 'node:path'
 export type { CsstsConfig, PropertyConfig, UnitConfig, UnitType } from './config.js'
 export { defaultConfig, defaultProperties, systemDefaults, unitToSuffix } from './config.js'
 
+// 导出伪类配置
+export type { PseudoStyleItem, PseudoStyleValue } from './pseudo-config.js'
+export { 
+  PseudoUtilsConfig, 
+  defaultPseudoUtilsConfig,
+  ALL_PSEUDO_CLASSES,
+  COMMON_PSEUDO_CLASSES,
+} from './pseudo-config.js'
+
+// 导出 CSS 数据
+export { default as cssData } from '../data/css-data.json' with { type: 'json' }
+
 // 导出原子类生成
 export type { AtomDefinition } from './atom-generator.js'
 export { generateAtoms, generatePropertiesJson } from './atom-generator.js'
+
+// 导出 Legacy 版本（用于一致性验证，验证通过后可删除）
+export { generateAtomsLegacy, generatePropertiesJsonLegacy } from './atom-generator-legacy.js'
 
 // 导出类型定义生成
 export {

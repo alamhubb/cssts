@@ -1,0 +1,498 @@
+{
+  "generatedAt": "2025-12-17T12:50:36.250Z",
+  "source": "MDN Web Docs / W3C Selectors",
+  "total": 60,
+  "categories": [
+    "user-action",
+    "link",
+    "form",
+    "structural",
+    "logical",
+    "linguistic",
+    "display",
+    "media",
+    "web-components"
+  ],
+  "pseudoClasses": [
+    {
+      "name": "hover",
+      "category": "user-action",
+      "description": {
+        "en": "Mouse over element",
+        "zh": "鼠标悬停在元素上"
+      }
+    },
+    {
+      "name": "active",
+      "category": "user-action",
+      "description": {
+        "en": "Element being activated",
+        "zh": "元素被激活时"
+      }
+    },
+    {
+      "name": "focus",
+      "category": "user-action",
+      "description": {
+        "en": "Element has focus",
+        "zh": "元素获得焦点"
+      }
+    },
+    {
+      "name": "focus-visible",
+      "category": "user-action",
+      "description": {
+        "en": "Element has focus and focus should be visible",
+        "zh": "元素获得焦点且焦点应可见"
+      }
+    },
+    {
+      "name": "focus-within",
+      "category": "user-action",
+      "description": {
+        "en": "Element or descendant has focus",
+        "zh": "元素或其后代获得焦点"
+      }
+    },
+    {
+      "name": "link",
+      "category": "link",
+      "description": {
+        "en": "Unvisited link",
+        "zh": "未访问的链接"
+      }
+    },
+    {
+      "name": "visited",
+      "category": "link",
+      "description": {
+        "en": "Visited link",
+        "zh": "已访问的链接"
+      }
+    },
+    {
+      "name": "any-link",
+      "category": "link",
+      "description": {
+        "en": "Any link (visited or not)",
+        "zh": "任何链接（已访问或未访问）"
+      }
+    },
+    {
+      "name": "local-link",
+      "category": "link",
+      "description": {
+        "en": "Link to same document",
+        "zh": "指向同一文档的链接"
+      }
+    },
+    {
+      "name": "target",
+      "category": "link",
+      "description": {
+        "en": "Element targeted by URL fragment",
+        "zh": "URL 片段指向的元素"
+      }
+    },
+    {
+      "name": "target-within",
+      "category": "link",
+      "description": {
+        "en": "Element or descendant is target",
+        "zh": "元素或其后代是目标"
+      }
+    },
+    {
+      "name": "enabled",
+      "category": "form",
+      "description": {
+        "en": "Enabled form element",
+        "zh": "启用的表单元素"
+      }
+    },
+    {
+      "name": "disabled",
+      "category": "form",
+      "description": {
+        "en": "Disabled form element",
+        "zh": "禁用的表单元素"
+      }
+    },
+    {
+      "name": "read-only",
+      "category": "form",
+      "description": {
+        "en": "Read-only element",
+        "zh": "只读元素"
+      }
+    },
+    {
+      "name": "read-write",
+      "category": "form",
+      "description": {
+        "en": "Editable element",
+        "zh": "可编辑元素"
+      }
+    },
+    {
+      "name": "placeholder-shown",
+      "category": "form",
+      "description": {
+        "en": "Input showing placeholder",
+        "zh": "显示占位符的输入框"
+      }
+    },
+    {
+      "name": "default",
+      "category": "form",
+      "description": {
+        "en": "Default form element",
+        "zh": "默认表单元素"
+      }
+    },
+    {
+      "name": "checked",
+      "category": "form",
+      "description": {
+        "en": "Checked checkbox/radio",
+        "zh": "选中的复选框/单选框"
+      }
+    },
+    {
+      "name": "indeterminate",
+      "category": "form",
+      "description": {
+        "en": "Indeterminate state",
+        "zh": "不确定状态"
+      }
+    },
+    {
+      "name": "valid",
+      "category": "form",
+      "description": {
+        "en": "Valid input",
+        "zh": "有效输入"
+      }
+    },
+    {
+      "name": "invalid",
+      "category": "form",
+      "description": {
+        "en": "Invalid input",
+        "zh": "无效输入"
+      }
+    },
+    {
+      "name": "in-range",
+      "category": "form",
+      "description": {
+        "en": "Value in range",
+        "zh": "值在范围内"
+      }
+    },
+    {
+      "name": "out-of-range",
+      "category": "form",
+      "description": {
+        "en": "Value out of range",
+        "zh": "值超出范围"
+      }
+    },
+    {
+      "name": "required",
+      "category": "form",
+      "description": {
+        "en": "Required field",
+        "zh": "必填字段"
+      }
+    },
+    {
+      "name": "optional",
+      "category": "form",
+      "description": {
+        "en": "Optional field",
+        "zh": "可选字段"
+      }
+    },
+    {
+      "name": "user-valid",
+      "category": "form",
+      "description": {
+        "en": "User-validated valid input",
+        "zh": "用户验证后的有效输入"
+      }
+    },
+    {
+      "name": "user-invalid",
+      "category": "form",
+      "description": {
+        "en": "User-validated invalid input",
+        "zh": "用户验证后的无效输入"
+      }
+    },
+    {
+      "name": "autofill",
+      "category": "form",
+      "description": {
+        "en": "Autofilled input",
+        "zh": "自动填充的输入"
+      }
+    },
+    {
+      "name": "root",
+      "category": "structural",
+      "description": {
+        "en": "Document root element",
+        "zh": "文档根元素"
+      }
+    },
+    {
+      "name": "empty",
+      "category": "structural",
+      "description": {
+        "en": "Element with no children",
+        "zh": "没有子元素的元素"
+      }
+    },
+    {
+      "name": "first-child",
+      "category": "structural",
+      "description": {
+        "en": "First child element",
+        "zh": "第一个子元素"
+      }
+    },
+    {
+      "name": "last-child",
+      "category": "structural",
+      "description": {
+        "en": "Last child element",
+        "zh": "最后一个子元素"
+      }
+    },
+    {
+      "name": "only-child",
+      "category": "structural",
+      "description": {
+        "en": "Only child element",
+        "zh": "唯一子元素"
+      }
+    },
+    {
+      "name": "first-of-type",
+      "category": "structural",
+      "description": {
+        "en": "First of its type",
+        "zh": "同类型中的第一个"
+      }
+    },
+    {
+      "name": "last-of-type",
+      "category": "structural",
+      "description": {
+        "en": "Last of its type",
+        "zh": "同类型中的最后一个"
+      }
+    },
+    {
+      "name": "only-of-type",
+      "category": "structural",
+      "description": {
+        "en": "Only one of its type",
+        "zh": "同类型中的唯一一个"
+      }
+    },
+    {
+      "name": "nth-child",
+      "category": "structural",
+      "description": {
+        "en": "Nth child element",
+        "zh": "第 N 个子元素"
+      }
+    },
+    {
+      "name": "nth-last-child",
+      "category": "structural",
+      "description": {
+        "en": "Nth child from end",
+        "zh": "倒数第 N 个子元素"
+      }
+    },
+    {
+      "name": "nth-of-type",
+      "category": "structural",
+      "description": {
+        "en": "Nth of its type",
+        "zh": "同类型中的第 N 个"
+      }
+    },
+    {
+      "name": "nth-last-of-type",
+      "category": "structural",
+      "description": {
+        "en": "Nth of type from end",
+        "zh": "同类型中倒数第 N 个"
+      }
+    },
+    {
+      "name": "not",
+      "category": "logical",
+      "description": {
+        "en": "Negation pseudo-class",
+        "zh": "否定伪类"
+      }
+    },
+    {
+      "name": "is",
+      "category": "logical",
+      "description": {
+        "en": "Matches any selector in list",
+        "zh": "匹配列表中的任何选择器"
+      }
+    },
+    {
+      "name": "where",
+      "category": "logical",
+      "description": {
+        "en": "Like :is() but zero specificity",
+        "zh": "类似 :is() 但优先级为零"
+      }
+    },
+    {
+      "name": "has",
+      "category": "logical",
+      "description": {
+        "en": "Parent selector",
+        "zh": "父选择器"
+      }
+    },
+    {
+      "name": "lang",
+      "category": "linguistic",
+      "description": {
+        "en": "Element language",
+        "zh": "元素语言"
+      }
+    },
+    {
+      "name": "dir",
+      "category": "linguistic",
+      "description": {
+        "en": "Text direction",
+        "zh": "文本方向"
+      }
+    },
+    {
+      "name": "fullscreen",
+      "category": "display",
+      "description": {
+        "en": "Fullscreen element",
+        "zh": "全屏元素"
+      }
+    },
+    {
+      "name": "modal",
+      "category": "display",
+      "description": {
+        "en": "Modal dialog",
+        "zh": "模态对话框"
+      }
+    },
+    {
+      "name": "picture-in-picture",
+      "category": "display",
+      "description": {
+        "en": "Picture-in-picture mode",
+        "zh": "画中画模式"
+      }
+    },
+    {
+      "name": "playing",
+      "category": "media",
+      "description": {
+        "en": "Media is playing",
+        "zh": "媒体正在播放"
+      }
+    },
+    {
+      "name": "paused",
+      "category": "media",
+      "description": {
+        "en": "Media is paused",
+        "zh": "媒体已暂停"
+      }
+    },
+    {
+      "name": "seeking",
+      "category": "media",
+      "description": {
+        "en": "Media is seeking",
+        "zh": "媒体正在定位"
+      }
+    },
+    {
+      "name": "buffering",
+      "category": "media",
+      "description": {
+        "en": "Media is buffering",
+        "zh": "媒体正在缓冲"
+      }
+    },
+    {
+      "name": "stalled",
+      "category": "media",
+      "description": {
+        "en": "Media stalled",
+        "zh": "媒体停滞"
+      }
+    },
+    {
+      "name": "muted",
+      "category": "media",
+      "description": {
+        "en": "Media is muted",
+        "zh": "媒体已静音"
+      }
+    },
+    {
+      "name": "volume-locked",
+      "category": "media",
+      "description": {
+        "en": "Volume is locked",
+        "zh": "音量已锁定"
+      }
+    },
+    {
+      "name": "defined",
+      "category": "web-components",
+      "description": {
+        "en": "Custom element is defined",
+        "zh": "自定义元素已定义"
+      }
+    },
+    {
+      "name": "host",
+      "category": "web-components",
+      "description": {
+        "en": "Shadow host",
+        "zh": "Shadow 宿主"
+      }
+    },
+    {
+      "name": "host-context",
+      "category": "web-components",
+      "description": {
+        "en": "Shadow host in context",
+        "zh": "上下文中的 Shadow 宿主"
+      }
+    },
+    {
+      "name": "scope",
+      "category": "web-components",
+      "description": {
+        "en": "Scoped element",
+        "zh": "作用域元素"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2025-12-17T12:50:36.250Z",
+  "source": "MDN Web Docs / W3C CSS Values and Units",
+  "unitsByType": {
+    "length": {
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw",
+        "vmin",
+        "vmax",
+        "cm",
+        "mm",
+        "in",
+        "pt",
+        "pc",
+        "ch",
+        "ex",
+        "cap",
+        "ic",
+        "Q",
+        "lh",
+        "rlh",
+        "vi",
+        "vb",
+        "svw",
+        "svh",
+        "lvw",
+        "lvh",
+        "dvw",
+        "dvh"
+      ],
+      "description": {
+        "en": "Length units for measuring distances",
+        "zh": "用于测量距离的长度单位"
+      }
+    },
+    "angle": {
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
+      ],
+      "description": {
+        "en": "Angle units for rotations and directions",
+        "zh": "用于旋转和方向的角度单位"
+      }
+    },
+    "time": {
+      "units": [
+        "s",
+        "ms"
+      ],
+      "description": {
+        "en": "Time units for durations",
+        "zh": "用于持续时间的时间单位"
+      }
+    },
+    "frequency": {
+      "units": [
+        "Hz",
+        "kHz"
+      ],
+      "description": {
+        "en": "Frequency units for sound pitch",
+        "zh": "用于声音音调的频率单位"
+      }
+    },
+    "resolution": {
+      "units": [
+        "dpi",
+        "dpcm",
+        "dppx",
+        "x"
+      ],
+      "description": {
+        "en": "Resolution units for pixel density",
+        "zh": "用于像素密度的分辨率单位"
+      }
+    },
+    "flex": {
+      "units": [
+        "fr"
+      ],
+      "description": {
+        "en": "Flexible length units for CSS Grid",
+        "zh": "用于 CSS Grid 的弹性长度单位"
+      }
+    }
+  }
+}
