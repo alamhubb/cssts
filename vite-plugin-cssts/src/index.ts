@@ -1,10 +1,13 @@
-import type { Plugin } from 'vite'
+import type { Plugin, ResolvedConfig } from 'vite'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
+// 在 monorepo 中直接引用源码，发布时需要改为包名
 import { 
   transformCssTs,
   generateStylesCss,
   generateCsstsAtomModule
-} from 'cssts-compiler/src/transform/index.js'
-import { type PseudoUtilsConfig } from 'cssts-compiler/src/generator/config.ts'
+} from '../../cssts/packages/cssts-compiler/src/transform/index.js'
+import { type PseudoUtilsConfig } from '../../cssts/packages/cssts-compiler/src/generator/config.js'
 
 // ==================== 插件配置 ====================
 
@@ -18,6 +21,11 @@ export interface CssTsPluginOptions {
    * 默认: ['.cssts', '.vue']
    */
   include?: string[]
+  /**
+   * 是否自动生成类型声明文件
+   * 默认: true
+   */
+  dts?: boolean
 }
 
 // ==================== 虚拟模块 ====================
@@ -108,14 +116,98 @@ function createEsbuildPlugin() {
   }
 }
 
+// ==================== 自动生成类型文件 ====================
+
+import { 
+  generateAtoms,
+  generateCsstsAtomsDts,
+  type CsstsConfig,
+  defaultConfig
+} from '../../cssts/packages/cssts-compiler/src/generator/index.js'
+
+/**
+ * 生成类型文件到 node_modules/@types/cssts/
+ * TypeScript 会自动从 @types 目录发现类型
+ */
+function generateDtsFiles(root: string, userConfig?: CsstsConfig): void {
+  const typesDir = path.join(root, 'node_modules', '@types', 'cssts')
+  
+  // 确保目录存在
+  if (!fs.existsSync(typesDir)) {
+    fs.mkdirSync(typesDir, { recursive: true })
+  }
+
+  // 使用用户配置或默认配置生成原子类
+  const config = userConfig || defaultConfig
+  const atoms = generateAtoms(config)
+
+  // 生成 package.json
+  const packageJson = {
+    name: '@types/cssts',
+    version: '0.0.0',
+    types: 'index.d.ts'
+  }
+  fs.writeFileSync(
+    path.join(typesDir, 'package.json'),
+    JSON.stringify(packageJson, null, 2)
+  )
+
+  // 生成 CsstsAtoms.d.ts
+  const atomsDts = generateCsstsAtomsDts(atoms)
+  fs.writeFileSync(path.join(typesDir, 'CsstsAtoms.d.ts'), atomsDts)
+
+  // 生成 index.d.ts
+  const indexDts = `/**
+ * CSSTS 类型声明 - 自动生成
+ * 由 vite-plugin-cssts 在启动时生成
+ */
+
+import type { CsstsAtoms } from './CsstsAtoms'
+
+export type { CsstsAtoms }
+
+export type StyleObject = Record<string, boolean>
+
+export interface CsstsRuntime {
+  $cls(...styles: (StyleObject | false | null | undefined)[]): StyleObject
+  replace(target: string | StyleObject, newAtom: StyleObject | string): string | StyleObject
+  replaceAll(target: string | StyleObject, newAtoms: (StyleObject | string)[]): string | StyleObject
+}
+
+declare module 'cssts' {
+  export const cssts: CsstsRuntime
+  export const $cls: CsstsRuntime['$cls']
+  export const replace: CsstsRuntime['replace']
+  export const replaceAll: CsstsRuntime['replaceAll']
+  export default cssts
+}
+
+declare module 'virtual:cssts.css' {}
+
+declare module 'virtual:csstsAtom' {
+  export const csstsAtom: CsstsAtoms
+  export default csstsAtom
+}
+
+declare global {
+  const csstsAtom: CsstsAtoms
+}
+`
+  fs.writeFileSync(path.join(typesDir, 'index.d.ts'), indexDts)
+
+  console.log(`[cssts] 已生成类型定义 (${atoms.length} 个原子类)`)
+}
+
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
   let server: any = null
+  let config: ResolvedConfig
   const prefix = options.classPrefix || ''
   const pseudoUtils = options.pseudoUtils
   const globalStyles = options.globalStyles || new Set<string>()
   const includeExts = options.include || ['.cssts', '.vue']
+  const enableDts = options.dts !== false
 
   /**
    * 检查文件是否需要处理
@@ -156,6 +248,14 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
             plugins: [createEsbuildPlugin()]
           }
         }
+      }
+    },
+
+    configResolved(resolvedConfig) {
+      config = resolvedConfig
+      // 自动生成类型文件到 node_modules/@types/cssts/
+      if (enableDts) {
+        generateDtsFiles(config.root)
       }
     },
 

@@ -124,6 +124,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   protected ensureCsstsImports(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
     let hasCsstsImport = false
     let hasCsstsAtomImport = false
+    let hasCsstsCssImport = false
 
     for (const stmt of body) {
       if (stmt.type === SlimeNodeType.ImportDeclaration) {
@@ -141,10 +142,12 @@ export class CssTsCstToAst extends SlimeCstToAst {
           }
         }
         if (source === 'virtual:csstsAtom') hasCsstsAtomImport = true
+        if (source === 'virtual:cssts.css') hasCsstsCssImport = true
       }
     }
 
     const newImports: SlimeModuleDeclaration[] = []
+    if (!hasCsstsCssImport) newImports.push(this.createCsstsCssImport())
     if (!hasCsstsImport) newImports.push(this.createCsstsImport())
     if (!hasCsstsAtomImport) newImports.push(this.createCsstsAtomImport())
 
@@ -180,6 +183,15 @@ export class CssTsCstToAst extends SlimeCstToAst {
         local: SlimeNodeCreate.createIdentifier('csstsAtom')
       }],
       source: SlimeNodeCreate.createStringLiteral('virtual:csstsAtom')
+    } as any
+  }
+
+  /** 创建 import 'virtual:cssts.css' 导入（副作用导入，无 specifiers） */
+  private createCsstsCssImport(): SlimeModuleDeclaration {
+    return {
+      type: SlimeNodeType.ImportDeclaration,
+      specifiers: [],
+      source: SlimeNodeCreate.createStringLiteral('virtual:cssts.css')
     } as any
   }
 

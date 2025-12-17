@@ -1,52 +1,22 @@
 // CSSTS Demo File
 // This file demonstrates the CSSTS language features
 
-import { css } from 'cssts'
+// 基础按钮样式
+const buttonBase = css { displayInlineFlex, alignItemsCenter, justifyContentCenter }
 
-// Define a simple style
-const buttonStyle = css({
-  backgroundColor: '#007bff',
-  color: '#ffffff',
-  padding: '10px 20px',
-  borderRadius: '4px',
-  border: 'none',
-  cursor: 'pointer',
-  fontSize: '14px',
-  fontWeight: 'bold',
-  
-  '&:hover': {
-    backgroundColor: '#0056b3',
-  },
-  
-  '&:active': {
-    backgroundColor: '#004085',
-  },
-  
-  '&:disabled': {
-    backgroundColor: '#6c757d',
-    cursor: 'not-allowed',
-  },
-})
+// 带伪类的按钮样式（使用 $ 分隔伪类）
+const btn$hover$active = css { cursorPointer }
 
-// Define a container style
-const containerStyle = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  minHeight: '100vh',
-  padding: '20px',
-  backgroundColor: '#f8f9fa',
-})
+// 主要按钮
+const primaryButton = css { buttonBase, backgroundColorBlue, colorWhite }
 
-// Define a card style
-const cardStyle = css({
-  backgroundColor: '#ffffff',
-  borderRadius: '8px',
-  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-  padding: '24px',
-  maxWidth: '400px',
-  width: '100%',
-})
+// 容器样式
+const containerStyle = css { displayFlex, flexDirectionColumn, alignItemsCenter }
 
-export { buttonStyle, containerStyle, cardStyle }
+// 卡片样式
+const cardStyle = css { backgroundColorWhite, borderRadius8px, padding24px }
+
+// 组合样式
+const combinedStyle = css { containerStyle, cardStyle }
+
+export { buttonBase, primaryButton, containerStyle, cardStyle, combinedStyle }

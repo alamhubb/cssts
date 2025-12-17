@@ -41,6 +41,15 @@ export interface TransformResult {
   hasStyles: boolean
 }
 
+/**
+ * 带 mapping 的转换结果（用于 LSP）
+ */
+export interface TransformResultWithMapping {
+  code: string
+  mapping: any[]
+  hasStyles: boolean
+}
+
 // ==================== 样式名解析 ====================
 
 /**
@@ -94,6 +103,36 @@ export function transformCssTs(code: string, context: TransformContext): Transfo
   
   return { 
     code: result.code, 
+    hasStyles: localUsedAtoms.size > 0 
+  }
+}
+
+/**
+ * 转换 .cssts 文件（带 mapping，用于 LSP）
+ * 
+ * @param code - 源代码
+ * @returns 转换结果（包含 code 和 mapping）
+ */
+export function transformCssTsWithMapping(code: string): TransformResultWithMapping {
+  const parser = new CssTsParser(code)
+  const cst = parser.Program()
+  const transformer = new CssTsCstToAst()
+  const ast = transformer.toFileAst(cst)
+  
+  const localUsedAtoms = transformer.getUsedAtoms()
+  
+  // 生成代码
+  const tokens = parser.parsedTokens
+  const result = SlimeGenerator.generator(ast, tokens)
+  
+  // 过滤无效的 mapping
+  const mapping = result.mapping.filter(
+    (m: any) => m.source && m.source.value && m.source.value !== '' && m.source.length > 0
+  )
+  
+  return { 
+    code: result.code, 
+    mapping,
     hasStyles: localUsedAtoms.size > 0 
   }
 }

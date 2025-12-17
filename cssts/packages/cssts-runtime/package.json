@@ -4,7 +4,6 @@
   "description": "CssTs runtime - style merging and conflict resolution",
   "type": "module",
   "main": "src/index.ts",
-
   "scripts": {
     "build": "tsdown",
     "test": "vitest run"

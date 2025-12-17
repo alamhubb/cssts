@@ -9,9 +9,11 @@ export {
   type ParsedStyleInfo,
   type TransformContext,
   type TransformResult,
+  type TransformResultWithMapping,
   parseStyleName,
   hasPseudos,
   transformCssTs,
+  transformCssTsWithMapping,
   generateStylesCss,
   generateCsstsAtomModule,
 } from './transform/index.js'
