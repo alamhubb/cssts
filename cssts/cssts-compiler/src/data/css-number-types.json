@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-17T13:04:58.727Z",
+  "generatedAt": "2025-12-17T13:15:09.704Z",
   "csstreeVersion": "3.1.0",
   "totalProperties": 286,
   "typeDescriptions": {
@@ -63,6 +63,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -71,6 +79,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -79,6 +95,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -87,12 +111,49 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "-moz-image-region",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -100,6 +161,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -107,6 +198,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -114,6 +235,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -121,6 +272,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -128,30 +309,72 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-content-zoom-limit-max",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
       "name": "-ms-content-zoom-limit-min",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
       "name": "-ms-content-zoom-snap-points",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
       "name": "-ms-flex-order",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -162,6 +385,38 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -172,18 +427,56 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-hyphenate-limit-chars",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "-ms-hyphenate-limit-lines",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -191,30 +484,176 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-scroll-limit-x-max",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-scroll-limit-x-min",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-scroll-limit-y-max",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "-ms-scroll-limit-y-min",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -223,6 +662,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -231,6 +700,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -239,6 +738,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -247,6 +754,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -255,6 +770,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -263,6 +786,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -271,6 +802,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -279,6 +818,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -287,6 +834,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -295,12 +850,49 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "-ms-wrap-margin",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -309,6 +901,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -317,6 +917,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -329,12 +937,54 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
       "name": "-webkit-line-clamp",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -347,6 +997,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -358,6 +1047,41 @@
         "length-percentage",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -370,6 +1094,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -378,6 +1141,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -386,6 +1179,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -394,6 +1217,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -402,6 +1255,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -410,6 +1293,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -418,6 +1309,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -427,6 +1326,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -435,12 +1369,49 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "-webkit-text-stroke-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -449,6 +1420,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -456,24 +1435,38 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "animation-delay",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "animation-duration",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "animation-iteration-count",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -482,6 +1475,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -490,6 +1513,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -497,18 +1550,30 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "aspect-ratio",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "azimuth",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -518,6 +1583,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -530,6 +1630,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -538,6 +1677,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -550,6 +1697,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -558,6 +1744,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -566,6 +1782,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -574,6 +1820,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -582,6 +1858,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -590,6 +1896,37 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -599,6 +1936,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -607,6 +1979,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -615,6 +1995,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -623,6 +2011,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -632,6 +2028,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -640,6 +2071,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -648,12 +2109,71 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "border-bottom-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -662,6 +2182,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -670,6 +2198,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -678,6 +2236,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -685,6 +2273,36 @@
       "numberTypes": [
         "length",
         "number"
+      ],
+      "units": [
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -692,6 +2310,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     },
     {
@@ -704,6 +2326,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -713,6 +2374,37 @@
         "length-percentage",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -721,6 +2413,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -729,6 +2429,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -737,6 +2445,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -746,6 +2462,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -754,12 +2505,49 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "border-left-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -768,6 +2556,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -777,6 +2595,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -785,18 +2638,84 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "border-right-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "border-spacing",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -805,6 +2724,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -813,6 +2762,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -822,6 +2801,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -830,6 +2844,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -838,6 +2860,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -846,18 +2898,106 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "border-top-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "border-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -865,24 +3005,63 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "box-flex",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "box-flex-group",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "box-ordinal-group",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -892,6 +3071,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -900,12 +3114,49 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "clip",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -914,6 +3165,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -922,12 +3203,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "column-count",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -936,6 +3228,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -944,42 +3266,224 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "column-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "contain-intrinsic-block-size",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "contain-intrinsic-height",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "contain-intrinsic-inline-size",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "contain-intrinsic-size",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "contain-intrinsic-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -992,30 +3496,81 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
       "name": "counter-increment",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "counter-reset",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "counter-set",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "cursor",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1023,6 +3578,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1030,6 +3615,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1038,12 +3653,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "fill-opacity",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1053,24 +3679,68 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "flex-grow",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "flex-shrink",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "font-feature-settings",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1079,60 +3749,152 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "font-size-adjust",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "font-smooth",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "font-stretch",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
       "name": "font-style",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "font-variation-settings",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "font-weight",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "glyph-orientation-horizontal",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "glyph-orientation-vertical",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "grid-area",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1142,6 +3904,37 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1151,18 +3944,55 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "grid-column",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "grid-column-end",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1171,24 +4001,63 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "grid-column-start",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "grid-row",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "grid-row-end",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1197,12 +4066,45 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "grid-row-start",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1212,6 +4114,37 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1222,6 +4155,38 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1232,6 +4197,38 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "fr",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1240,24 +4237,69 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "hyphenate-limit-chars",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "image-orientation",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "image-resolution",
       "numberTypes": [
         "resolution"
+      ],
+      "units": [
+        "dpcm",
+        "dpi",
+        "dppx",
+        "x"
       ]
     },
     {
@@ -1265,6 +4307,9 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1273,6 +4318,37 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1280,6 +4356,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1288,12 +4394,45 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "line-clamp",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1302,12 +4441,72 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "line-height-step",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1320,6 +4519,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -1327,6 +4565,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1334,6 +4602,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1341,6 +4639,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1348,6 +4676,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1355,6 +4713,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1367,6 +4755,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -1374,6 +4801,36 @@
       "numberTypes": [
         "length",
         "number"
+      ],
+      "units": [
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1381,6 +4838,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     },
     {
@@ -1393,6 +4854,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -1402,6 +4902,37 @@
         "length-percentage",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1414,6 +4945,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -1422,6 +4992,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1430,12 +5030,45 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "math-depth",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1444,12 +5077,45 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "max-lines",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1458,6 +5124,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1466,6 +5162,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1474,6 +5200,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1482,6 +5238,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1490,6 +5276,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1498,6 +5314,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1507,6 +5353,40 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1515,12 +5395,48 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "offset-rotate",
       "numberTypes": [
         "angle"
+      ],
+      "units": [
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1528,18 +5444,28 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     },
     {
       "name": "order",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "orphans",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1548,24 +5474,119 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
       "name": "outline-offset",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "outline-width",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "overflow-clip-margin",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1573,6 +5594,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1580,6 +5631,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1587,6 +5668,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1594,6 +5705,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1601,24 +5742,91 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "pause-after",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "pause-before",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "perspective",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1627,6 +5835,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1634,18 +5872,56 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "rest-after",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "rest-before",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
@@ -1653,6 +5929,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1660,6 +5966,13 @@
       "numberTypes": [
         "angle",
         "number"
+      ],
+      "units": [
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1668,6 +5981,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1675,6 +6018,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1682,6 +6055,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1689,72 +6092,395 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     },
     {
       "name": "scroll-margin",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-block",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-block-end",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-block-start",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-bottom",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-inline",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-inline-end",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-inline-start",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-left",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-right",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "scroll-margin-top",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1763,6 +6489,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1771,6 +6527,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1779,6 +6565,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1787,6 +6603,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1795,6 +6641,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1803,6 +6679,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1811,6 +6717,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1819,6 +6755,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1827,6 +6793,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1835,6 +6831,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1843,6 +6869,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1851,6 +6907,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1859,6 +6945,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1867,6 +6983,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1875,6 +7021,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1883,6 +7059,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1890,6 +7074,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     },
     {
@@ -1898,6 +7086,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1910,6 +7128,45 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
       ]
     },
     {
@@ -1918,6 +7175,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1926,6 +7191,37 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1934,12 +7230,46 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "stroke-miterlimit",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1948,6 +7278,37 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1955,12 +7316,45 @@
       "numberTypes": [
         "integer",
         "length"
+      ],
+      "units": [
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "text-combine-upright",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -1969,6 +7363,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1976,6 +7378,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -1984,6 +7416,14 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "deg",
+        "grad",
+        "rad",
+        "turn"
       ]
     },
     {
@@ -1992,6 +7432,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2001,12 +7471,50 @@
         "length",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "text-size-adjust",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
@@ -2014,6 +7522,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2021,6 +7559,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2031,6 +7599,41 @@
         "length-percentage",
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "deg",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "grad",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rad",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "turn",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2039,6 +7642,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2047,18 +7680,31 @@
         "integer",
         "number",
         "time"
+      ],
+      "units": [
+        "<number>",
+        "ms",
+        "s"
       ]
     },
     {
       "name": "transition-delay",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "transition-duration",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
@@ -2066,6 +7712,9 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -2074,6 +7723,36 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2081,6 +7760,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2089,24 +7798,64 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "voice-balance",
       "numberTypes": [
         "number"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
       "name": "voice-duration",
       "numberTypes": [
         "time"
+      ],
+      "units": [
+        "ms",
+        "s"
       ]
     },
     {
       "name": "voice-family",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -2114,6 +7863,11 @@
       "numberTypes": [
         "frequency",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Hz",
+        "kHz"
       ]
     },
     {
@@ -2121,18 +7875,29 @@
       "numberTypes": [
         "frequency",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Hz",
+        "kHz"
       ]
     },
     {
       "name": "voice-rate",
       "numberTypes": [
         "percentage"
+      ],
+      "units": [
+        "%"
       ]
     },
     {
       "name": "widows",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -2141,12 +7906,71 @@
         "length",
         "length-percentage",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "word-spacing",
       "numberTypes": [
         "length"
+      ],
+      "units": [
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2154,6 +7978,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
@@ -2161,12 +8015,45 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "Q",
+        "cap",
+        "ch",
+        "cm",
+        "dvh",
+        "dvw",
+        "em",
+        "ex",
+        "ic",
+        "in",
+        "lh",
+        "lvh",
+        "lvw",
+        "mm",
+        "pc",
+        "pt",
+        "px",
+        "rem",
+        "rlh",
+        "svh",
+        "svw",
+        "vb",
+        "vh",
+        "vi",
+        "vmax",
+        "vmin",
+        "vw"
       ]
     },
     {
       "name": "z-index",
       "numberTypes": [
         "integer"
+      ],
+      "units": [
+        "<number>"
       ]
     },
     {
@@ -2174,6 +8061,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "units": [
+        "%",
+        "<number>"
       ]
     }
   ]
