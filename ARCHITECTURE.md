@@ -481,29 +481,39 @@ Button.ovs
     └─► 注入 import 'virtual:cssts.css'
 ```
 
-### .vue 文件
+### .vue 文件（使用 `<script lang="cssts">`）
+
+**重要**：只有 `<script lang="cssts">` 才会被处理，普通的 `<script>` 或 `<script lang="ts">` 不支持 `css {}` 语法。
 
 ```
-Button.vue
+Button.vue (包含 <script lang="cssts">)
     │
     ├─► esbuild 依赖扫描阶段（内存中）
     │   • cssts esbuild 插件拦截
-    │   • 将 css {} 替换为 {}（简单替换，让 esbuild 能解析）
+    │   • 检测到 <script lang="cssts">
+    │   • 将 css {} 替换为 {}，将 lang="cssts" 改为 lang="ts"
     │   • 结果只用于依赖分析，不保存
     │
     └─► Vite transform 阶段（内存中）
         │
         ▼ vite-plugin-cssts.transform()
         │
-        ├─► 提取 <script> 内容
+        ├─► 检测 <script lang="cssts">（普通 script 不处理）
+        ├─► 提取 <script lang="cssts"> 内容
         ├─► transformCssTs(scriptContent, { styles: globalStyles })
         │   • 解析 css {} 语法
         │   • 收集原子类名到 globalStyles
         │   • 转换为 cssts.$cls() 调用
-        ├─► 重建 .vue 文件（替换 <script> 内容）
+        ├─► 重建 .vue 文件
+        │   • 替换 <script> 内容
+        │   • 将 lang="cssts" 改为 lang="ts"（让 Vue 编译器能处理）
         │
         └─► 注入 import 'virtual:cssts.css'
 ```
+
+**为什么要将 `lang="cssts"` 改为 `lang="ts"`？**
+
+因为 Vue 编译器不认识 `lang="cssts"`，如果保持原样会报错。vite-plugin-cssts 设置了 `enforce: 'pre'`，会在 Vue 插件之前执行，转换后 Vue 看到的就是标准的 `<script lang="ts">`。
 
 
 ## 常见问题与修复记录
@@ -644,6 +654,14 @@ document.querySelector('button').className
 
 `cssts-language` 是一个 VSCode 扩展，为 `.cssts` 文件提供语言服务支持（LSP）。基于 [Volar](https://github.com/volarjs/volar.js) 框架构建。
 
+### 与 cssts-compiler 的关系
+
+`cssts-language` 使用 `cssts-compiler` 的 `transformCssTsWithMapping` 函数进行代码转换，确保：
+
+- 编辑器中的语法检查与 Vite 构建时一致
+- 代码补全基于实际的转换结果
+- 错误提示准确反映编译问题
+
 ### 功能
 
 - **语法高亮**：通过 TextMate 语法定义
@@ -652,6 +670,7 @@ document.querySelector('button').className
 - **跳转到定义**：支持变量和导入的跳转
 - **查找引用**：查找样式变量的所有引用
 - **语义令牌**：更精确的语法着色
+- **错误诊断**：实时显示语法和类型错误
 
 ### 目录结构
 

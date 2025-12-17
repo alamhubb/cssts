@@ -4,8 +4,8 @@
 // 基础按钮样式
 const buttonBase = css { displayInlineFlex, alignItemsCenter, justifyContentCenter }
 
-// 带伪类的按钮样式（使用 $ 分隔伪类）
-const btn$hover$active = css { cursorPointer }
+// 带伪类的按钮样式（使用 $$ 双美元符号分隔伪类）
+const btn$$hover$$active = css { cursorPointer }
 
 // 主要按钮
 const primaryButton = css { buttonBase, backgroundColorBlue, colorWhite }

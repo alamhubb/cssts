@@ -1,6 +1,6 @@
 # vite-plugin-cssts
 
-> Vite 插件，用于处理 `.cssts` 和 `.vue` 文件中的 `css {}` 语法，按需生成原子类 CSS
+> Vite 插件，用于处理 `.cssts` 文件和 `<script lang="cssts">` 中的 `css {}` 语法，按需生成原子类 CSS
 
 ## 安装
 
@@ -13,6 +13,15 @@ npm install vite-plugin-cssts -D
 ## 零配置类型提示
 
 插件启动时会自动生成类型定义到 `node_modules/@types/cssts/`，TypeScript 自动发现，无需任何配置。
+
+## 支持的文件类型
+
+| 文件类型 | 支持 css {} 语法 |
+|---------|-----------------|
+| `.cssts` 文件 | ✅ 支持 |
+| `.vue` 文件 `<script lang="cssts">` | ✅ 支持 |
+| `.ts` 文件 | ❌ 不支持 |
+| `.vue` 文件 `<script lang="ts">` | ❌ 不支持 |
 
 ## 使用
 
@@ -32,9 +41,10 @@ export default defineConfig({
 })
 ```
 
-### 在代码中使用
+### 在 .cssts 文件中使用
 
-```javascript
+```typescript
+// Button.cssts
 import { cssts } from 'cssts'
 
 // css {} 语法，自动有类型提示
@@ -42,37 +52,43 @@ const buttonStyle = css { displayFlex, padding16px, colorWhite }
 
 // 运行时 API
 const merged = cssts.$cls(buttonStyle, anotherStyle)
+
+export { buttonStyle }
 ```
 
-### 在 .vue 文件中使用
+### 在 .vue 文件中使用 `<script lang="cssts">`
 
 ```vue
 <template>
   <button :class="buttonStyle">Click me</button>
 </template>
 
-<script setup>
+<script setup lang="cssts">
+// 在 <script lang="cssts"> 中可以使用 css {} 语法
 const buttonStyle = css { displayInlineFlex, padding8px, borderRadius4px }
 </script>
 ```
+
+> **注意**：Vite 插件会自动将 `<script lang="cssts">` 转换为 `<script lang="ts">`，然后交给 Vue 编译器处理。
 
 ## 配置选项
 
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `classPrefix` | `string` | `''` | CSS 类名前缀 |
-| `include` | `string[]` | `['.cssts', '.vue']` | 处理的文件扩展名 |
 | `pseudoUtils` | `PseudoUtilsConfig` | `undefined` | 伪类配置 |
 | `dts` | `boolean` | `true` | 是否自动生成类型定义 |
 
 ## 伪类语法
 
-使用 `$` 分隔符定义伪类样式：
+使用 `$$` 双美元符号分隔符定义伪类样式：
 
 ```javascript
-// 变量名中的 $hover 会生成 :hover 伪类
-const button$hover$active = css { cursorPointer, bgBlue600 }
+// 变量名中的 $$hover 会生成 :hover 伪类（注意是双美元符号 $$）
+const button$$hover$$active = css { cursorPointer, bgBlue600 }
 ```
+
+> **重要**：伪类分隔符是 `$$`（双美元符号），不是 `$`（单美元符号）！
 
 ## 工作原理
 
@@ -82,6 +98,13 @@ const button$hover$active = css { cursorPointer, bgBlue600 }
 2. 调用 cssts-compiler 根据配置生成类型定义
 3. 写入 `node_modules/@types/cssts/`
 4. TypeScript 自动从 `@types` 目录发现类型
+
+### Vue 文件处理
+
+1. 检测 `<script lang="cssts">` 标签
+2. 提取 script 内容，使用 cssts-compiler 转换
+3. 将 `lang="cssts"` 改为 `lang="ts"`
+4. 重建 Vue 文件，交给 Vue 编译器处理
 
 ### 依赖关系
 
