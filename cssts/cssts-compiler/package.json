@@ -21,13 +21,13 @@
   "license": "MIT",
   "dependencies": {
     "css-tree": "^3.1.0",
-    "cssts-runtime": "file:../cssts-runtime",
-    "subhuti": "*",
-    "slime-parser": "*",
-    "slime-ast": "*",
-    "slime-token": "*"
+    "subhuti": "^0.2.3",
+    "slime-parser": "^0.2.3",
+    "slime-ast": "^0.2.3",
+    "slime-token": "^0.2.3"
   },
   "devDependencies": {
+    "slime-test": "^0.2.3",
     "tsdown": "^0.11.10",
     "typescript": "^5.8.3"
   }
