@@ -1,7 +1,7 @@
 /**
  * CSS 数值类型定义
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T17:02:37.690Z
+ * 生成时间: 2025-12-17T17:21:02.050Z
  *
  * 类型层级：
  * 层级1: 单位类型 (PxUnitType = 'px')
@@ -9,23 +9,76 @@
  * 层级3: 属性数值类型 = 数值类型联合 (WidthPropertyNumberType = LengthNumberType | ...)
  */
 
-// ==================== 数值类型（13种） ====================
+// ==================== 数值类型名称（13种） ====================
+// 每个数值类型名称都有常量和对应的类型
+
+/** 角度值，以度 (deg)、百分度 (grad)、弧度 (rad) 或圈数 (turn) 表示。 */
+export const ANGLE_NUMBER_TYPE_NAME = 'angle' as const;
+export type AngleNumberTypeName = typeof ANGLE_NUMBER_TYPE_NAME;
+
+/** 可以是 <angle> 或 <percentage> 的值。 */
+export const ANGLE_PERCENTAGE_NUMBER_TYPE_NAME = 'angle-percentage' as const;
+export type AnglePercentageNumberTypeName = typeof ANGLE_PERCENTAGE_NUMBER_TYPE_NAME;
+
+/** 弹性长度，以 fr 为单位，表示网格容器中剩余空间的分数。 */
+export const FLEX_NUMBER_TYPE_NAME = 'flex' as const;
+export type FlexNumberTypeName = typeof FLEX_NUMBER_TYPE_NAME;
+
+/** 频率值，以赫兹 (Hz) 或千赫兹 (kHz) 表示。 */
+export const FREQUENCY_NUMBER_TYPE_NAME = 'frequency' as const;
+export type FrequencyNumberTypeName = typeof FREQUENCY_NUMBER_TYPE_NAME;
+
+/** 可以是 <frequency> 或 <percentage> 的值。 */
+export const FREQUENCY_PERCENTAGE_NUMBER_TYPE_NAME = 'frequency-percentage' as const;
+export type FrequencyPercentageNumberTypeName = typeof FREQUENCY_PERCENTAGE_NUMBER_TYPE_NAME;
+
+/** 整数，正数或负数。 */
+export const INTEGER_NUMBER_TYPE_NAME = 'integer' as const;
+export type IntegerNumberTypeName = typeof INTEGER_NUMBER_TYPE_NAME;
+
+/** 距离度量。表示长度值，如 px、em、rem、vh、vw 等。 */
+export const LENGTH_NUMBER_TYPE_NAME = 'length' as const;
+export type LengthNumberTypeName = typeof LENGTH_NUMBER_TYPE_NAME;
+
+/** 可以是 <length> 或 <percentage> 的值。 */
+export const LENGTH_PERCENTAGE_NUMBER_TYPE_NAME = 'length-percentage' as const;
+export type LengthPercentageNumberTypeName = typeof LENGTH_PERCENTAGE_NUMBER_TYPE_NAME;
+
+/** 实数，可能带有小数部分。 */
+export const NUMBER_NUMBER_TYPE_NAME = 'number' as const;
+export type NumberNumberTypeName = typeof NUMBER_NUMBER_TYPE_NAME;
+
+/** 百分比值。表示某个其他值的分数。 */
+export const PERCENTAGE_NUMBER_TYPE_NAME = 'percentage' as const;
+export type PercentageNumberTypeName = typeof PERCENTAGE_NUMBER_TYPE_NAME;
+
+/** 分辨率值，用于描述输出设备的像素密度 (dpi、dpcm、dppx)。 */
+export const RESOLUTION_NUMBER_TYPE_NAME = 'resolution' as const;
+export type ResolutionNumberTypeName = typeof RESOLUTION_NUMBER_TYPE_NAME;
+
+/** 时间值，以秒 (s) 或毫秒 (ms) 表示。 */
+export const TIME_NUMBER_TYPE_NAME = 'time' as const;
+export type TimeNumberTypeName = typeof TIME_NUMBER_TYPE_NAME;
+
+/** 可以是 <time> 或 <percentage> 的值。 */
+export const TIME_PERCENTAGE_NUMBER_TYPE_NAME = 'time-percentage' as const;
+export type TimePercentageNumberTypeName = typeof TIME_PERCENTAGE_NUMBER_TYPE_NAME;
 
 /** 所有数值类型名称 */
 export const NUMBER_TYPES = [
-  'angle', // 角度值，以度 (deg)、百分度 (grad)、弧度 (rad) 或圈数 (turn) 表示。
-  'angle-percentage', // 可以是 <angle> 或 <percentage> 的值。
-  'flex', // 弹性长度，以 fr 为单位，表示网格容器中剩余空间的分数。
-  'frequency', // 频率值，以赫兹 (Hz) 或千赫兹 (kHz) 表示。
-  'frequency-percentage', // 可以是 <frequency> 或 <percentage> 的值。
-  'integer', // 整数，正数或负数。
-  'length', // 距离度量。表示长度值，如 px、em、rem、vh、vw 等。
-  'length-percentage', // 可以是 <length> 或 <percentage> 的值。
-  'number', // 实数，可能带有小数部分。
-  'percentage', // 百分比值。表示某个其他值的分数。
-  'resolution', // 分辨率值，用于描述输出设备的像素密度 (dpi、dpcm、dppx)。
-  'time', // 时间值，以秒 (s) 或毫秒 (ms) 表示。
-  'time-percentage', // 可以是 <time> 或 <percentage> 的值。
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  FLEX_NUMBER_TYPE_NAME,
+  FREQUENCY_NUMBER_TYPE_NAME,
+  FREQUENCY_PERCENTAGE_NUMBER_TYPE_NAME,
+  INTEGER_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
+  TIME_NUMBER_TYPE_NAME,
+  TIME_PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** 数值类型名称联合 */
@@ -1037,1499 +1090,1499 @@ export type ZoomPropertyUnitType = NumberNumberType | PercentageNumberType;
 
 /** accent-color 属性支持的数值类型 */
 export const ACCENT_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation 属性支持的数值类型 */
 export const ANIMATION_NUMBER_TYPES = [
-  'integer',
-  'number',
+  INTEGER_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-delay 属性支持的数值类型 */
 export const ANIMATION_DELAY_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-duration 属性支持的数值类型 */
 export const ANIMATION_DURATION_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-iteration-count 属性支持的数值类型 */
 export const ANIMATION_ITERATION_COUNT_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-range-end 属性支持的数值类型 */
 export const ANIMATION_RANGE_END_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-range-start 属性支持的数值类型 */
 export const ANIMATION_RANGE_START_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** animation-timing-function 属性支持的数值类型 */
 export const ANIMATION_TIMING_FUNCTION_NUMBER_TYPES = [
-  'integer',
-  'number',
+  INTEGER_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** aspect-ratio 属性支持的数值类型 */
 export const ASPECT_RATIO_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** azimuth 属性支持的数值类型 */
 export const AZIMUTH_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** backdrop-filter 属性支持的数值类型 */
 export const BACKDROP_FILTER_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background 属性支持的数值类型 */
 export const BACKGROUND_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-color 属性支持的数值类型 */
 export const BACKGROUND_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-image 属性支持的数值类型 */
 export const BACKGROUND_IMAGE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-position 属性支持的数值类型 */
 export const BACKGROUND_POSITION_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-position-x 属性支持的数值类型 */
 export const BACKGROUND_POSITION_X_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-position-y 属性支持的数值类型 */
 export const BACKGROUND_POSITION_Y_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** background-size 属性支持的数值类型 */
 export const BACKGROUND_SIZE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** baseline-shift 属性支持的数值类型 */
 export const BASELINE_SHIFT_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border 属性支持的数值类型 */
 export const BORDER_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-block 属性支持的数值类型 */
 export const BORDER_BLOCK_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-block-end 属性支持的数值类型 */
 export const BORDER_BLOCK_END_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-block-start 属性支持的数值类型 */
 export const BORDER_BLOCK_START_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-bottom 属性支持的数值类型 */
 export const BORDER_BOTTOM_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-bottom-left-radius 属性支持的数值类型 */
 export const BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-bottom-right-radius 属性支持的数值类型 */
 export const BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-bottom-width 属性支持的数值类型 */
 export const BORDER_BOTTOM_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-color 属性支持的数值类型 */
 export const BORDER_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-end-end-radius 属性支持的数值类型 */
 export const BORDER_END_END_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-end-start-radius 属性支持的数值类型 */
 export const BORDER_END_START_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-image-outset 属性支持的数值类型 */
 export const BORDER_IMAGE_OUTSET_NUMBER_TYPES = [
-  'length',
-  'number',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-image-slice 属性支持的数值类型 */
 export const BORDER_IMAGE_SLICE_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-image-source 属性支持的数值类型 */
 export const BORDER_IMAGE_SOURCE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-image-width 属性支持的数值类型 */
 export const BORDER_IMAGE_WIDTH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-inline 属性支持的数值类型 */
 export const BORDER_INLINE_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-inline-end 属性支持的数值类型 */
 export const BORDER_INLINE_END_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-inline-start 属性支持的数值类型 */
 export const BORDER_INLINE_START_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-left 属性支持的数值类型 */
 export const BORDER_LEFT_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-left-color 属性支持的数值类型 */
 export const BORDER_LEFT_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-left-width 属性支持的数值类型 */
 export const BORDER_LEFT_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-radius 属性支持的数值类型 */
 export const BORDER_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-right 属性支持的数值类型 */
 export const BORDER_RIGHT_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-right-color 属性支持的数值类型 */
 export const BORDER_RIGHT_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-right-width 属性支持的数值类型 */
 export const BORDER_RIGHT_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-spacing 属性支持的数值类型 */
 export const BORDER_SPACING_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-start-end-radius 属性支持的数值类型 */
 export const BORDER_START_END_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-start-start-radius 属性支持的数值类型 */
 export const BORDER_START_START_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-top 属性支持的数值类型 */
 export const BORDER_TOP_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-top-color 属性支持的数值类型 */
 export const BORDER_TOP_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-top-left-radius 属性支持的数值类型 */
 export const BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-top-right-radius 属性支持的数值类型 */
 export const BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-top-width 属性支持的数值类型 */
 export const BORDER_TOP_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** border-width 属性支持的数值类型 */
 export const BORDER_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** bottom 属性支持的数值类型 */
 export const BOTTOM_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** box-flex 属性支持的数值类型 */
 export const BOX_FLEX_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** box-flex-group 属性支持的数值类型 */
 export const BOX_FLEX_GROUP_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** box-ordinal-group 属性支持的数值类型 */
 export const BOX_ORDINAL_GROUP_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** box-shadow 属性支持的数值类型 */
 export const BOX_SHADOW_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** caret-color 属性支持的数值类型 */
 export const CARET_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** clip 属性支持的数值类型 */
 export const CLIP_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** clip-path 属性支持的数值类型 */
 export const CLIP_PATH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** color 属性支持的数值类型 */
 export const COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** column-count 属性支持的数值类型 */
 export const COLUMN_COUNT_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** column-gap 属性支持的数值类型 */
 export const COLUMN_GAP_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** column-rule-color 属性支持的数值类型 */
 export const COLUMN_RULE_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** column-width 属性支持的数值类型 */
 export const COLUMN_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** contain-intrinsic-block-size 属性支持的数值类型 */
 export const CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** contain-intrinsic-height 属性支持的数值类型 */
 export const CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** contain-intrinsic-inline-size 属性支持的数值类型 */
 export const CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** contain-intrinsic-size 属性支持的数值类型 */
 export const CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** contain-intrinsic-width 属性支持的数值类型 */
 export const CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** content 属性支持的数值类型 */
 export const CONTENT_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** counter-increment 属性支持的数值类型 */
 export const COUNTER_INCREMENT_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** counter-reset 属性支持的数值类型 */
 export const COUNTER_RESET_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** counter-set 属性支持的数值类型 */
 export const COUNTER_SET_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** cursor 属性支持的数值类型 */
 export const CURSOR_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** cx 属性支持的数值类型 */
 export const CX_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** cy 属性支持的数值类型 */
 export const CY_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** fill 属性支持的数值类型 */
 export const FILL_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** fill-opacity 属性支持的数值类型 */
 export const FILL_OPACITY_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** filter 属性支持的数值类型 */
 export const FILTER_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** flex-grow 属性支持的数值类型 */
 export const FLEX_GROW_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** flex-shrink 属性支持的数值类型 */
 export const FLEX_SHRINK_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-feature-settings 属性支持的数值类型 */
 export const FONT_FEATURE_SETTINGS_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-size 属性支持的数值类型 */
 export const FONT_SIZE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-size-adjust 属性支持的数值类型 */
 export const FONT_SIZE_ADJUST_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-smooth 属性支持的数值类型 */
 export const FONT_SMOOTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-stretch 属性支持的数值类型 */
 export const FONT_STRETCH_NUMBER_TYPES = [
-  'percentage',
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-style 属性支持的数值类型 */
 export const FONT_STYLE_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-variation-settings 属性支持的数值类型 */
 export const FONT_VARIATION_SETTINGS_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** font-weight 属性支持的数值类型 */
 export const FONT_WEIGHT_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** glyph-orientation-horizontal 属性支持的数值类型 */
 export const GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** glyph-orientation-vertical 属性支持的数值类型 */
 export const GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-area 属性支持的数值类型 */
 export const GRID_AREA_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-auto-columns 属性支持的数值类型 */
 export const GRID_AUTO_COLUMNS_NUMBER_TYPES = [
-  'flex',
-  'length',
-  'length-percentage',
-  'percentage',
+  FLEX_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-auto-rows 属性支持的数值类型 */
 export const GRID_AUTO_ROWS_NUMBER_TYPES = [
-  'flex',
-  'length',
-  'length-percentage',
-  'percentage',
+  FLEX_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-column 属性支持的数值类型 */
 export const GRID_COLUMN_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-column-end 属性支持的数值类型 */
 export const GRID_COLUMN_END_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-column-gap 属性支持的数值类型 */
 export const GRID_COLUMN_GAP_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-column-start 属性支持的数值类型 */
 export const GRID_COLUMN_START_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-row 属性支持的数值类型 */
 export const GRID_ROW_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-row-end 属性支持的数值类型 */
 export const GRID_ROW_END_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-row-gap 属性支持的数值类型 */
 export const GRID_ROW_GAP_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-row-start 属性支持的数值类型 */
 export const GRID_ROW_START_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-template 属性支持的数值类型 */
 export const GRID_TEMPLATE_NUMBER_TYPES = [
-  'flex',
-  'length',
-  'length-percentage',
-  'percentage',
+  FLEX_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-template-columns 属性支持的数值类型 */
 export const GRID_TEMPLATE_COLUMNS_NUMBER_TYPES = [
-  'flex',
-  'integer',
-  'length',
-  'length-percentage',
-  'percentage',
+  FLEX_NUMBER_TYPE_NAME,
+  INTEGER_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** grid-template-rows 属性支持的数值类型 */
 export const GRID_TEMPLATE_ROWS_NUMBER_TYPES = [
-  'flex',
-  'integer',
-  'length',
-  'length-percentage',
-  'percentage',
+  FLEX_NUMBER_TYPE_NAME,
+  INTEGER_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** height 属性支持的数值类型 */
 export const HEIGHT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** hyphenate-limit-chars 属性支持的数值类型 */
 export const HYPHENATE_LIMIT_CHARS_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** image-orientation 属性支持的数值类型 */
 export const IMAGE_ORIENTATION_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** image-resolution 属性支持的数值类型 */
 export const IMAGE_RESOLUTION_NUMBER_TYPES = [
-  'resolution',
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** initial-letter 属性支持的数值类型 */
 export const INITIAL_LETTER_NUMBER_TYPES = [
-  'integer',
-  'number',
+  INTEGER_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** kerning 属性支持的数值类型 */
 export const KERNING_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** left 属性支持的数值类型 */
 export const LEFT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** letter-spacing 属性支持的数值类型 */
 export const LETTER_SPACING_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** line-clamp 属性支持的数值类型 */
 export const LINE_CLAMP_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** line-height 属性支持的数值类型 */
 export const LINE_HEIGHT_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** line-height-step 属性支持的数值类型 */
 export const LINE_HEIGHT_STEP_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** list-style-image 属性支持的数值类型 */
 export const LIST_STYLE_IMAGE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** margin 属性支持的数值类型 */
 export const MARGIN_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** margin-bottom 属性支持的数值类型 */
 export const MARGIN_BOTTOM_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** margin-left 属性支持的数值类型 */
 export const MARGIN_LEFT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** margin-right 属性支持的数值类型 */
 export const MARGIN_RIGHT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** margin-top 属性支持的数值类型 */
 export const MARGIN_TOP_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask 属性支持的数值类型 */
 export const MASK_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-border-outset 属性支持的数值类型 */
 export const MASK_BORDER_OUTSET_NUMBER_TYPES = [
-  'length',
-  'number',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-border-slice 属性支持的数值类型 */
 export const MASK_BORDER_SLICE_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-border-source 属性支持的数值类型 */
 export const MASK_BORDER_SOURCE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-border-width 属性支持的数值类型 */
 export const MASK_BORDER_WIDTH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-image 属性支持的数值类型 */
 export const MASK_IMAGE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-position 属性支持的数值类型 */
 export const MASK_POSITION_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** mask-size 属性支持的数值类型 */
 export const MASK_SIZE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** math-depth 属性支持的数值类型 */
 export const MATH_DEPTH_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** max-height 属性支持的数值类型 */
 export const MAX_HEIGHT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** max-lines 属性支持的数值类型 */
 export const MAX_LINES_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** max-width 属性支持的数值类型 */
 export const MAX_WIDTH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** min-height 属性支持的数值类型 */
 export const MIN_HEIGHT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** min-width 属性支持的数值类型 */
 export const MIN_WIDTH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** object-position 属性支持的数值类型 */
 export const OBJECT_POSITION_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** offset-anchor 属性支持的数值类型 */
 export const OFFSET_ANCHOR_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** offset-distance 属性支持的数值类型 */
 export const OFFSET_DISTANCE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** offset-path 属性支持的数值类型 */
 export const OFFSET_PATH_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'length-percentage',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** offset-position 属性支持的数值类型 */
 export const OFFSET_POSITION_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** offset-rotate 属性支持的数值类型 */
 export const OFFSET_ROTATE_NUMBER_TYPES = [
-  'angle',
+  ANGLE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** opacity 属性支持的数值类型 */
 export const OPACITY_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** order 属性支持的数值类型 */
 export const ORDER_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** orphans 属性支持的数值类型 */
 export const ORPHANS_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** outline-color 属性支持的数值类型 */
 export const OUTLINE_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** outline-offset 属性支持的数值类型 */
 export const OUTLINE_OFFSET_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** outline-width 属性支持的数值类型 */
 export const OUTLINE_WIDTH_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** overflow-clip-margin 属性支持的数值类型 */
 export const OVERFLOW_CLIP_MARGIN_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** padding 属性支持的数值类型 */
 export const PADDING_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** padding-bottom 属性支持的数值类型 */
 export const PADDING_BOTTOM_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** padding-left 属性支持的数值类型 */
 export const PADDING_LEFT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** padding-right 属性支持的数值类型 */
 export const PADDING_RIGHT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** padding-top 属性支持的数值类型 */
 export const PADDING_TOP_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** pause-after 属性支持的数值类型 */
 export const PAUSE_AFTER_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** pause-before 属性支持的数值类型 */
 export const PAUSE_BEFORE_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** perspective 属性支持的数值类型 */
 export const PERSPECTIVE_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** perspective-origin 属性支持的数值类型 */
 export const PERSPECTIVE_ORIGIN_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** r 属性支持的数值类型 */
 export const R_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** rest-after 属性支持的数值类型 */
 export const REST_AFTER_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** rest-before 属性支持的数值类型 */
 export const REST_BEFORE_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** right 属性支持的数值类型 */
 export const RIGHT_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** rotate 属性支持的数值类型 */
 export const ROTATE_NUMBER_TYPES = [
-  'angle',
-  'number',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** row-gap 属性支持的数值类型 */
 export const ROW_GAP_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** rx 属性支持的数值类型 */
 export const RX_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** ry 属性支持的数值类型 */
 export const RY_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scale 属性支持的数值类型 */
 export const SCALE_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin 属性支持的数值类型 */
 export const SCROLL_MARGIN_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-block 属性支持的数值类型 */
 export const SCROLL_MARGIN_BLOCK_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-block-end 属性支持的数值类型 */
 export const SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-block-start 属性支持的数值类型 */
 export const SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-bottom 属性支持的数值类型 */
 export const SCROLL_MARGIN_BOTTOM_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-inline 属性支持的数值类型 */
 export const SCROLL_MARGIN_INLINE_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-inline-end 属性支持的数值类型 */
 export const SCROLL_MARGIN_INLINE_END_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-inline-start 属性支持的数值类型 */
 export const SCROLL_MARGIN_INLINE_START_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-left 属性支持的数值类型 */
 export const SCROLL_MARGIN_LEFT_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-right 属性支持的数值类型 */
 export const SCROLL_MARGIN_RIGHT_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-margin-top 属性支持的数值类型 */
 export const SCROLL_MARGIN_TOP_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding 属性支持的数值类型 */
 export const SCROLL_PADDING_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-block 属性支持的数值类型 */
 export const SCROLL_PADDING_BLOCK_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-block-end 属性支持的数值类型 */
 export const SCROLL_PADDING_BLOCK_END_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-block-start 属性支持的数值类型 */
 export const SCROLL_PADDING_BLOCK_START_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-bottom 属性支持的数值类型 */
 export const SCROLL_PADDING_BOTTOM_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-inline 属性支持的数值类型 */
 export const SCROLL_PADDING_INLINE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-inline-end 属性支持的数值类型 */
 export const SCROLL_PADDING_INLINE_END_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-inline-start 属性支持的数值类型 */
 export const SCROLL_PADDING_INLINE_START_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-left 属性支持的数值类型 */
 export const SCROLL_PADDING_LEFT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-right 属性支持的数值类型 */
 export const SCROLL_PADDING_RIGHT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-padding-top 属性支持的数值类型 */
 export const SCROLL_PADDING_TOP_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-snap-coordinate 属性支持的数值类型 */
 export const SCROLL_SNAP_COORDINATE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-snap-destination 属性支持的数值类型 */
 export const SCROLL_SNAP_DESTINATION_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-snap-points-x 属性支持的数值类型 */
 export const SCROLL_SNAP_POINTS_X_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scroll-snap-points-y 属性支持的数值类型 */
 export const SCROLL_SNAP_POINTS_Y_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** scrollbar-color 属性支持的数值类型 */
 export const SCROLLBAR_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** shape-image-threshold 属性支持的数值类型 */
 export const SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** shape-margin 属性支持的数值类型 */
 export const SHAPE_MARGIN_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** shape-outside 属性支持的数值类型 */
 export const SHAPE_OUTSIDE_NUMBER_TYPES = [
-  'angle',
-  'angle-percentage',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
-  'resolution',
+  ANGLE_NUMBER_TYPE_NAME,
+  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
+  RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 
 /** stroke 属性支持的数值类型 */
 export const STROKE_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** stroke-dasharray 属性支持的数值类型 */
 export const STROKE_DASHARRAY_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** stroke-dashoffset 属性支持的数值类型 */
 export const STROKE_DASHOFFSET_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** stroke-miterlimit 属性支持的数值类型 */
 export const STROKE_MITERLIMIT_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** stroke-width 属性支持的数值类型 */
 export const STROKE_WIDTH_NUMBER_TYPES = [
-  'length',
-  'number',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** tab-size 属性支持的数值类型 */
 export const TAB_SIZE_NUMBER_TYPES = [
-  'integer',
-  'length',
+  INTEGER_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-combine-upright 属性支持的数值类型 */
 export const TEXT_COMBINE_UPRIGHT_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-decoration-color 属性支持的数值类型 */
 export const TEXT_DECORATION_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-decoration-thickness 属性支持的数值类型 */
 export const TEXT_DECORATION_THICKNESS_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-emphasis-color 属性支持的数值类型 */
 export const TEXT_EMPHASIS_COLOR_NUMBER_TYPES = [
-  'angle',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-indent 属性支持的数值类型 */
 export const TEXT_INDENT_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-shadow 属性支持的数值类型 */
 export const TEXT_SHADOW_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-size-adjust 属性支持的数值类型 */
 export const TEXT_SIZE_ADJUST_NUMBER_TYPES = [
-  'percentage',
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** text-underline-offset 属性支持的数值类型 */
 export const TEXT_UNDERLINE_OFFSET_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** top 属性支持的数值类型 */
 export const TOP_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transform 属性支持的数值类型 */
 export const TRANSFORM_NUMBER_TYPES = [
-  'angle',
-  'length',
-  'length-percentage',
-  'number',
-  'percentage',
+  ANGLE_NUMBER_TYPE_NAME,
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transform-origin 属性支持的数值类型 */
 export const TRANSFORM_ORIGIN_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transition 属性支持的数值类型 */
 export const TRANSITION_NUMBER_TYPES = [
-  'integer',
-  'number',
-  'time',
+  INTEGER_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transition-delay 属性支持的数值类型 */
 export const TRANSITION_DELAY_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transition-duration 属性支持的数值类型 */
 export const TRANSITION_DURATION_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** transition-timing-function 属性支持的数值类型 */
 export const TRANSITION_TIMING_FUNCTION_NUMBER_TYPES = [
-  'integer',
-  'number',
+  INTEGER_NUMBER_TYPE_NAME,
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** translate 属性支持的数值类型 */
 export const TRANSLATE_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** vertical-align 属性支持的数值类型 */
 export const VERTICAL_ALIGN_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** view-timeline-inset 属性支持的数值类型 */
 export const VIEW_TIMELINE_INSET_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-balance 属性支持的数值类型 */
 export const VOICE_BALANCE_NUMBER_TYPES = [
-  'number',
+  NUMBER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-duration 属性支持的数值类型 */
 export const VOICE_DURATION_NUMBER_TYPES = [
-  'time',
+  TIME_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-family 属性支持的数值类型 */
 export const VOICE_FAMILY_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-pitch 属性支持的数值类型 */
 export const VOICE_PITCH_NUMBER_TYPES = [
-  'frequency',
-  'percentage',
+  FREQUENCY_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-range 属性支持的数值类型 */
 export const VOICE_RANGE_NUMBER_TYPES = [
-  'frequency',
-  'percentage',
+  FREQUENCY_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** voice-rate 属性支持的数值类型 */
 export const VOICE_RATE_NUMBER_TYPES = [
-  'percentage',
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** widows 属性支持的数值类型 */
 export const WIDOWS_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** width 属性支持的数值类型 */
 export const WIDTH_NUMBER_TYPES = [
-  'length',
-  'length-percentage',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** word-spacing 属性支持的数值类型 */
 export const WORD_SPACING_NUMBER_TYPES = [
-  'length',
+  LENGTH_NUMBER_TYPE_NAME,
 ] as const;
 
 /** x 属性支持的数值类型 */
 export const X_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** y 属性支持的数值类型 */
 export const Y_NUMBER_TYPES = [
-  'length',
-  'percentage',
+  LENGTH_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** z-index 属性支持的数值类型 */
 export const Z_INDEX_NUMBER_TYPES = [
-  'integer',
+  INTEGER_NUMBER_TYPE_NAME,
 ] as const;
 
 /** zoom 属性支持的数值类型 */
 export const ZOOM_NUMBER_TYPES = [
-  'number',
-  'percentage',
+  NUMBER_NUMBER_TYPE_NAME,
+  PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** 数值属性名列表 */

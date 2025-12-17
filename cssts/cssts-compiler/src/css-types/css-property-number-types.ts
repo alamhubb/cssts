@@ -2,955 +2,730 @@
  * CSS 属性数值类型名称定义
  * 每个属性都有一个对应的数值类型名称类型
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T17:02:37.694Z
+ * 生成时间: 2025-12-17T17:21:02.055Z
  */
 
-import {
-  ACCENT_COLOR_NUMBER_TYPES,
-  ANIMATION_NUMBER_TYPES,
-  ANIMATION_DELAY_NUMBER_TYPES,
-  ANIMATION_DURATION_NUMBER_TYPES,
-  ANIMATION_ITERATION_COUNT_NUMBER_TYPES,
-  ANIMATION_RANGE_END_NUMBER_TYPES,
-  ANIMATION_RANGE_START_NUMBER_TYPES,
-  ANIMATION_TIMING_FUNCTION_NUMBER_TYPES,
-  ASPECT_RATIO_NUMBER_TYPES,
-  AZIMUTH_NUMBER_TYPES,
-  BACKDROP_FILTER_NUMBER_TYPES,
-  BACKGROUND_NUMBER_TYPES,
-  BACKGROUND_COLOR_NUMBER_TYPES,
-  BACKGROUND_IMAGE_NUMBER_TYPES,
-  BACKGROUND_POSITION_NUMBER_TYPES,
-  BACKGROUND_POSITION_X_NUMBER_TYPES,
-  BACKGROUND_POSITION_Y_NUMBER_TYPES,
-  BACKGROUND_SIZE_NUMBER_TYPES,
-  BASELINE_SHIFT_NUMBER_TYPES,
-  BORDER_NUMBER_TYPES,
-  BORDER_BLOCK_NUMBER_TYPES,
-  BORDER_BLOCK_END_NUMBER_TYPES,
-  BORDER_BLOCK_START_NUMBER_TYPES,
-  BORDER_BOTTOM_NUMBER_TYPES,
-  BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES,
-  BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES,
-  BORDER_BOTTOM_WIDTH_NUMBER_TYPES,
-  BORDER_COLOR_NUMBER_TYPES,
-  BORDER_END_END_RADIUS_NUMBER_TYPES,
-  BORDER_END_START_RADIUS_NUMBER_TYPES,
-  BORDER_IMAGE_OUTSET_NUMBER_TYPES,
-  BORDER_IMAGE_SLICE_NUMBER_TYPES,
-  BORDER_IMAGE_SOURCE_NUMBER_TYPES,
-  BORDER_IMAGE_WIDTH_NUMBER_TYPES,
-  BORDER_INLINE_NUMBER_TYPES,
-  BORDER_INLINE_END_NUMBER_TYPES,
-  BORDER_INLINE_START_NUMBER_TYPES,
-  BORDER_LEFT_NUMBER_TYPES,
-  BORDER_LEFT_COLOR_NUMBER_TYPES,
-  BORDER_LEFT_WIDTH_NUMBER_TYPES,
-  BORDER_RADIUS_NUMBER_TYPES,
-  BORDER_RIGHT_NUMBER_TYPES,
-  BORDER_RIGHT_COLOR_NUMBER_TYPES,
-  BORDER_RIGHT_WIDTH_NUMBER_TYPES,
-  BORDER_SPACING_NUMBER_TYPES,
-  BORDER_START_END_RADIUS_NUMBER_TYPES,
-  BORDER_START_START_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_NUMBER_TYPES,
-  BORDER_TOP_COLOR_NUMBER_TYPES,
-  BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES,
-  BORDER_TOP_WIDTH_NUMBER_TYPES,
-  BORDER_WIDTH_NUMBER_TYPES,
-  BOTTOM_NUMBER_TYPES,
-  BOX_FLEX_NUMBER_TYPES,
-  BOX_FLEX_GROUP_NUMBER_TYPES,
-  BOX_ORDINAL_GROUP_NUMBER_TYPES,
-  BOX_SHADOW_NUMBER_TYPES,
-  CARET_COLOR_NUMBER_TYPES,
-  CLIP_NUMBER_TYPES,
-  CLIP_PATH_NUMBER_TYPES,
-  COLOR_NUMBER_TYPES,
-  COLUMN_COUNT_NUMBER_TYPES,
-  COLUMN_GAP_NUMBER_TYPES,
-  COLUMN_RULE_COLOR_NUMBER_TYPES,
-  COLUMN_WIDTH_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES,
-  CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES,
-  CONTENT_NUMBER_TYPES,
-  COUNTER_INCREMENT_NUMBER_TYPES,
-  COUNTER_RESET_NUMBER_TYPES,
-  COUNTER_SET_NUMBER_TYPES,
-  CURSOR_NUMBER_TYPES,
-  CX_NUMBER_TYPES,
-  CY_NUMBER_TYPES,
-  FILL_NUMBER_TYPES,
-  FILL_OPACITY_NUMBER_TYPES,
-  FILTER_NUMBER_TYPES,
-  FLEX_GROW_NUMBER_TYPES,
-  FLEX_SHRINK_NUMBER_TYPES,
-  FONT_FEATURE_SETTINGS_NUMBER_TYPES,
-  FONT_SIZE_NUMBER_TYPES,
-  FONT_SIZE_ADJUST_NUMBER_TYPES,
-  FONT_SMOOTH_NUMBER_TYPES,
-  FONT_STRETCH_NUMBER_TYPES,
-  FONT_STYLE_NUMBER_TYPES,
-  FONT_VARIATION_SETTINGS_NUMBER_TYPES,
-  FONT_WEIGHT_NUMBER_TYPES,
-  GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES,
-  GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES,
-  GRID_AREA_NUMBER_TYPES,
-  GRID_AUTO_COLUMNS_NUMBER_TYPES,
-  GRID_AUTO_ROWS_NUMBER_TYPES,
-  GRID_COLUMN_NUMBER_TYPES,
-  GRID_COLUMN_END_NUMBER_TYPES,
-  GRID_COLUMN_GAP_NUMBER_TYPES,
-  GRID_COLUMN_START_NUMBER_TYPES,
-  GRID_ROW_NUMBER_TYPES,
-  GRID_ROW_END_NUMBER_TYPES,
-  GRID_ROW_GAP_NUMBER_TYPES,
-  GRID_ROW_START_NUMBER_TYPES,
-  GRID_TEMPLATE_NUMBER_TYPES,
-  GRID_TEMPLATE_COLUMNS_NUMBER_TYPES,
-  GRID_TEMPLATE_ROWS_NUMBER_TYPES,
-  HEIGHT_NUMBER_TYPES,
-  HYPHENATE_LIMIT_CHARS_NUMBER_TYPES,
-  IMAGE_ORIENTATION_NUMBER_TYPES,
-  IMAGE_RESOLUTION_NUMBER_TYPES,
-  INITIAL_LETTER_NUMBER_TYPES,
-  KERNING_NUMBER_TYPES,
-  LEFT_NUMBER_TYPES,
-  LETTER_SPACING_NUMBER_TYPES,
-  LINE_CLAMP_NUMBER_TYPES,
-  LINE_HEIGHT_NUMBER_TYPES,
-  LINE_HEIGHT_STEP_NUMBER_TYPES,
-  LIST_STYLE_IMAGE_NUMBER_TYPES,
-  MARGIN_NUMBER_TYPES,
-  MARGIN_BOTTOM_NUMBER_TYPES,
-  MARGIN_LEFT_NUMBER_TYPES,
-  MARGIN_RIGHT_NUMBER_TYPES,
-  MARGIN_TOP_NUMBER_TYPES,
-  MASK_NUMBER_TYPES,
-  MASK_BORDER_OUTSET_NUMBER_TYPES,
-  MASK_BORDER_SLICE_NUMBER_TYPES,
-  MASK_BORDER_SOURCE_NUMBER_TYPES,
-  MASK_BORDER_WIDTH_NUMBER_TYPES,
-  MASK_IMAGE_NUMBER_TYPES,
-  MASK_POSITION_NUMBER_TYPES,
-  MASK_SIZE_NUMBER_TYPES,
-  MATH_DEPTH_NUMBER_TYPES,
-  MAX_HEIGHT_NUMBER_TYPES,
-  MAX_LINES_NUMBER_TYPES,
-  MAX_WIDTH_NUMBER_TYPES,
-  MIN_HEIGHT_NUMBER_TYPES,
-  MIN_WIDTH_NUMBER_TYPES,
-  OBJECT_POSITION_NUMBER_TYPES,
-  OFFSET_ANCHOR_NUMBER_TYPES,
-  OFFSET_DISTANCE_NUMBER_TYPES,
-  OFFSET_PATH_NUMBER_TYPES,
-  OFFSET_POSITION_NUMBER_TYPES,
-  OFFSET_ROTATE_NUMBER_TYPES,
-  OPACITY_NUMBER_TYPES,
-  ORDER_NUMBER_TYPES,
-  ORPHANS_NUMBER_TYPES,
-  OUTLINE_COLOR_NUMBER_TYPES,
-  OUTLINE_OFFSET_NUMBER_TYPES,
-  OUTLINE_WIDTH_NUMBER_TYPES,
-  OVERFLOW_CLIP_MARGIN_NUMBER_TYPES,
-  PADDING_NUMBER_TYPES,
-  PADDING_BOTTOM_NUMBER_TYPES,
-  PADDING_LEFT_NUMBER_TYPES,
-  PADDING_RIGHT_NUMBER_TYPES,
-  PADDING_TOP_NUMBER_TYPES,
-  PAUSE_AFTER_NUMBER_TYPES,
-  PAUSE_BEFORE_NUMBER_TYPES,
-  PERSPECTIVE_NUMBER_TYPES,
-  PERSPECTIVE_ORIGIN_NUMBER_TYPES,
-  R_NUMBER_TYPES,
-  REST_AFTER_NUMBER_TYPES,
-  REST_BEFORE_NUMBER_TYPES,
-  RIGHT_NUMBER_TYPES,
-  ROTATE_NUMBER_TYPES,
-  ROW_GAP_NUMBER_TYPES,
-  RX_NUMBER_TYPES,
-  RY_NUMBER_TYPES,
-  SCALE_NUMBER_TYPES,
-  SCROLL_MARGIN_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES,
-  SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES,
-  SCROLL_MARGIN_BOTTOM_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_END_NUMBER_TYPES,
-  SCROLL_MARGIN_INLINE_START_NUMBER_TYPES,
-  SCROLL_MARGIN_LEFT_NUMBER_TYPES,
-  SCROLL_MARGIN_RIGHT_NUMBER_TYPES,
-  SCROLL_MARGIN_TOP_NUMBER_TYPES,
-  SCROLL_PADDING_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_END_NUMBER_TYPES,
-  SCROLL_PADDING_BLOCK_START_NUMBER_TYPES,
-  SCROLL_PADDING_BOTTOM_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_END_NUMBER_TYPES,
-  SCROLL_PADDING_INLINE_START_NUMBER_TYPES,
-  SCROLL_PADDING_LEFT_NUMBER_TYPES,
-  SCROLL_PADDING_RIGHT_NUMBER_TYPES,
-  SCROLL_PADDING_TOP_NUMBER_TYPES,
-  SCROLL_SNAP_COORDINATE_NUMBER_TYPES,
-  SCROLL_SNAP_DESTINATION_NUMBER_TYPES,
-  SCROLL_SNAP_POINTS_X_NUMBER_TYPES,
-  SCROLL_SNAP_POINTS_Y_NUMBER_TYPES,
-  SCROLLBAR_COLOR_NUMBER_TYPES,
-  SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES,
-  SHAPE_MARGIN_NUMBER_TYPES,
-  SHAPE_OUTSIDE_NUMBER_TYPES,
-  STROKE_NUMBER_TYPES,
-  STROKE_DASHARRAY_NUMBER_TYPES,
-  STROKE_DASHOFFSET_NUMBER_TYPES,
-  STROKE_MITERLIMIT_NUMBER_TYPES,
-  STROKE_WIDTH_NUMBER_TYPES,
-  TAB_SIZE_NUMBER_TYPES,
-  TEXT_COMBINE_UPRIGHT_NUMBER_TYPES,
-  TEXT_DECORATION_COLOR_NUMBER_TYPES,
-  TEXT_DECORATION_THICKNESS_NUMBER_TYPES,
-  TEXT_EMPHASIS_COLOR_NUMBER_TYPES,
-  TEXT_INDENT_NUMBER_TYPES,
-  TEXT_SHADOW_NUMBER_TYPES,
-  TEXT_SIZE_ADJUST_NUMBER_TYPES,
-  TEXT_UNDERLINE_OFFSET_NUMBER_TYPES,
-  TOP_NUMBER_TYPES,
-  TRANSFORM_NUMBER_TYPES,
-  TRANSFORM_ORIGIN_NUMBER_TYPES,
-  TRANSITION_NUMBER_TYPES,
-  TRANSITION_DELAY_NUMBER_TYPES,
-  TRANSITION_DURATION_NUMBER_TYPES,
-  TRANSITION_TIMING_FUNCTION_NUMBER_TYPES,
-  TRANSLATE_NUMBER_TYPES,
-  VERTICAL_ALIGN_NUMBER_TYPES,
-  VIEW_TIMELINE_INSET_NUMBER_TYPES,
-  VOICE_BALANCE_NUMBER_TYPES,
-  VOICE_DURATION_NUMBER_TYPES,
-  VOICE_FAMILY_NUMBER_TYPES,
-  VOICE_PITCH_NUMBER_TYPES,
-  VOICE_RANGE_NUMBER_TYPES,
-  VOICE_RATE_NUMBER_TYPES,
-  WIDOWS_NUMBER_TYPES,
-  WIDTH_NUMBER_TYPES,
-  WORD_SPACING_NUMBER_TYPES,
-  X_NUMBER_TYPES,
-  Y_NUMBER_TYPES,
-  Z_INDEX_NUMBER_TYPES,
-  ZOOM_NUMBER_TYPES,
+import type {
+  AngleNumberTypeName,
+  AnglePercentageNumberTypeName,
+  FlexNumberTypeName,
+  FrequencyNumberTypeName,
+  IntegerNumberTypeName,
+  LengthNumberTypeName,
+  LengthPercentageNumberTypeName,
+  NumberNumberTypeName,
+  PercentageNumberTypeName,
+  ResolutionNumberTypeName,
+  TimeNumberTypeName,
 } from './css-numeric';
 
 // ==================== 属性数值类型名称类型 ====================
-// 类型基于 css-numeric.ts 中的常量定义
+// 类型是数值类型名称类型的联合
 
 /** accent-color 属性支持的数值类型名称 */
-export type AccentColorPropertyNumberType = typeof ACCENT_COLOR_NUMBER_TYPES[number];
+export type AccentColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** animation 属性支持的数值类型名称 */
-export type AnimationPropertyNumberType = typeof ANIMATION_NUMBER_TYPES[number];
+export type AnimationPropertyNumberType = IntegerNumberTypeName | NumberNumberTypeName;
 
 /** animation-delay 属性支持的数值类型名称 */
-export type AnimationDelayPropertyNumberType = typeof ANIMATION_DELAY_NUMBER_TYPES[number];
+export type AnimationDelayPropertyNumberType = TimeNumberTypeName;
 
 /** animation-duration 属性支持的数值类型名称 */
-export type AnimationDurationPropertyNumberType = typeof ANIMATION_DURATION_NUMBER_TYPES[number];
+export type AnimationDurationPropertyNumberType = TimeNumberTypeName;
 
 /** animation-iteration-count 属性支持的数值类型名称 */
-export type AnimationIterationCountPropertyNumberType = typeof ANIMATION_ITERATION_COUNT_NUMBER_TYPES[number];
+export type AnimationIterationCountPropertyNumberType = NumberNumberTypeName;
 
 /** animation-range-end 属性支持的数值类型名称 */
-export type AnimationRangeEndPropertyNumberType = typeof ANIMATION_RANGE_END_NUMBER_TYPES[number];
+export type AnimationRangeEndPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** animation-range-start 属性支持的数值类型名称 */
-export type AnimationRangeStartPropertyNumberType = typeof ANIMATION_RANGE_START_NUMBER_TYPES[number];
+export type AnimationRangeStartPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** animation-timing-function 属性支持的数值类型名称 */
-export type AnimationTimingFunctionPropertyNumberType = typeof ANIMATION_TIMING_FUNCTION_NUMBER_TYPES[number];
+export type AnimationTimingFunctionPropertyNumberType = IntegerNumberTypeName | NumberNumberTypeName;
 
 /** aspect-ratio 属性支持的数值类型名称 */
-export type AspectRatioPropertyNumberType = typeof ASPECT_RATIO_NUMBER_TYPES[number];
+export type AspectRatioPropertyNumberType = NumberNumberTypeName;
 
 /** azimuth 属性支持的数值类型名称 */
-export type AzimuthPropertyNumberType = typeof AZIMUTH_NUMBER_TYPES[number];
+export type AzimuthPropertyNumberType = AngleNumberTypeName;
 
 /** backdrop-filter 属性支持的数值类型名称 */
-export type BackdropFilterPropertyNumberType = typeof BACKDROP_FILTER_NUMBER_TYPES[number];
+export type BackdropFilterPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** background 属性支持的数值类型名称 */
-export type BackgroundPropertyNumberType = typeof BACKGROUND_NUMBER_TYPES[number];
+export type BackgroundPropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** background-color 属性支持的数值类型名称 */
-export type BackgroundColorPropertyNumberType = typeof BACKGROUND_COLOR_NUMBER_TYPES[number];
+export type BackgroundColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** background-image 属性支持的数值类型名称 */
-export type BackgroundImagePropertyNumberType = typeof BACKGROUND_IMAGE_NUMBER_TYPES[number];
+export type BackgroundImagePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** background-position 属性支持的数值类型名称 */
-export type BackgroundPositionPropertyNumberType = typeof BACKGROUND_POSITION_NUMBER_TYPES[number];
+export type BackgroundPositionPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** background-position-x 属性支持的数值类型名称 */
-export type BackgroundPositionXPropertyNumberType = typeof BACKGROUND_POSITION_X_NUMBER_TYPES[number];
+export type BackgroundPositionXPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** background-position-y 属性支持的数值类型名称 */
-export type BackgroundPositionYPropertyNumberType = typeof BACKGROUND_POSITION_Y_NUMBER_TYPES[number];
+export type BackgroundPositionYPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** background-size 属性支持的数值类型名称 */
-export type BackgroundSizePropertyNumberType = typeof BACKGROUND_SIZE_NUMBER_TYPES[number];
+export type BackgroundSizePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** baseline-shift 属性支持的数值类型名称 */
-export type BaselineShiftPropertyNumberType = typeof BASELINE_SHIFT_NUMBER_TYPES[number];
+export type BaselineShiftPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border 属性支持的数值类型名称 */
-export type BorderPropertyNumberType = typeof BORDER_NUMBER_TYPES[number];
+export type BorderPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-block 属性支持的数值类型名称 */
-export type BorderBlockPropertyNumberType = typeof BORDER_BLOCK_NUMBER_TYPES[number];
+export type BorderBlockPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-block-end 属性支持的数值类型名称 */
-export type BorderBlockEndPropertyNumberType = typeof BORDER_BLOCK_END_NUMBER_TYPES[number];
+export type BorderBlockEndPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-block-start 属性支持的数值类型名称 */
-export type BorderBlockStartPropertyNumberType = typeof BORDER_BLOCK_START_NUMBER_TYPES[number];
+export type BorderBlockStartPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-bottom 属性支持的数值类型名称 */
-export type BorderBottomPropertyNumberType = typeof BORDER_BOTTOM_NUMBER_TYPES[number];
+export type BorderBottomPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-bottom-left-radius 属性支持的数值类型名称 */
-export type BorderBottomLeftRadiusPropertyNumberType = typeof BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES[number];
+export type BorderBottomLeftRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-bottom-right-radius 属性支持的数值类型名称 */
-export type BorderBottomRightRadiusPropertyNumberType = typeof BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES[number];
+export type BorderBottomRightRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-bottom-width 属性支持的数值类型名称 */
-export type BorderBottomWidthPropertyNumberType = typeof BORDER_BOTTOM_WIDTH_NUMBER_TYPES[number];
+export type BorderBottomWidthPropertyNumberType = LengthNumberTypeName;
 
 /** border-color 属性支持的数值类型名称 */
-export type BorderColorPropertyNumberType = typeof BORDER_COLOR_NUMBER_TYPES[number];
+export type BorderColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-end-end-radius 属性支持的数值类型名称 */
-export type BorderEndEndRadiusPropertyNumberType = typeof BORDER_END_END_RADIUS_NUMBER_TYPES[number];
+export type BorderEndEndRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-end-start-radius 属性支持的数值类型名称 */
-export type BorderEndStartRadiusPropertyNumberType = typeof BORDER_END_START_RADIUS_NUMBER_TYPES[number];
+export type BorderEndStartRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-image-outset 属性支持的数值类型名称 */
-export type BorderImageOutsetPropertyNumberType = typeof BORDER_IMAGE_OUTSET_NUMBER_TYPES[number];
+export type BorderImageOutsetPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName;
 
 /** border-image-slice 属性支持的数值类型名称 */
-export type BorderImageSlicePropertyNumberType = typeof BORDER_IMAGE_SLICE_NUMBER_TYPES[number];
+export type BorderImageSlicePropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-image-source 属性支持的数值类型名称 */
-export type BorderImageSourcePropertyNumberType = typeof BORDER_IMAGE_SOURCE_NUMBER_TYPES[number];
+export type BorderImageSourcePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** border-image-width 属性支持的数值类型名称 */
-export type BorderImageWidthPropertyNumberType = typeof BORDER_IMAGE_WIDTH_NUMBER_TYPES[number];
+export type BorderImageWidthPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-inline 属性支持的数值类型名称 */
-export type BorderInlinePropertyNumberType = typeof BORDER_INLINE_NUMBER_TYPES[number];
+export type BorderInlinePropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-inline-end 属性支持的数值类型名称 */
-export type BorderInlineEndPropertyNumberType = typeof BORDER_INLINE_END_NUMBER_TYPES[number];
+export type BorderInlineEndPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-inline-start 属性支持的数值类型名称 */
-export type BorderInlineStartPropertyNumberType = typeof BORDER_INLINE_START_NUMBER_TYPES[number];
+export type BorderInlineStartPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-left 属性支持的数值类型名称 */
-export type BorderLeftPropertyNumberType = typeof BORDER_LEFT_NUMBER_TYPES[number];
+export type BorderLeftPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-left-color 属性支持的数值类型名称 */
-export type BorderLeftColorPropertyNumberType = typeof BORDER_LEFT_COLOR_NUMBER_TYPES[number];
+export type BorderLeftColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-left-width 属性支持的数值类型名称 */
-export type BorderLeftWidthPropertyNumberType = typeof BORDER_LEFT_WIDTH_NUMBER_TYPES[number];
+export type BorderLeftWidthPropertyNumberType = LengthNumberTypeName;
 
 /** border-radius 属性支持的数值类型名称 */
-export type BorderRadiusPropertyNumberType = typeof BORDER_RADIUS_NUMBER_TYPES[number];
+export type BorderRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-right 属性支持的数值类型名称 */
-export type BorderRightPropertyNumberType = typeof BORDER_RIGHT_NUMBER_TYPES[number];
+export type BorderRightPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-right-color 属性支持的数值类型名称 */
-export type BorderRightColorPropertyNumberType = typeof BORDER_RIGHT_COLOR_NUMBER_TYPES[number];
+export type BorderRightColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-right-width 属性支持的数值类型名称 */
-export type BorderRightWidthPropertyNumberType = typeof BORDER_RIGHT_WIDTH_NUMBER_TYPES[number];
+export type BorderRightWidthPropertyNumberType = LengthNumberTypeName;
 
 /** border-spacing 属性支持的数值类型名称 */
-export type BorderSpacingPropertyNumberType = typeof BORDER_SPACING_NUMBER_TYPES[number];
+export type BorderSpacingPropertyNumberType = LengthNumberTypeName;
 
 /** border-start-end-radius 属性支持的数值类型名称 */
-export type BorderStartEndRadiusPropertyNumberType = typeof BORDER_START_END_RADIUS_NUMBER_TYPES[number];
+export type BorderStartEndRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-start-start-radius 属性支持的数值类型名称 */
-export type BorderStartStartRadiusPropertyNumberType = typeof BORDER_START_START_RADIUS_NUMBER_TYPES[number];
+export type BorderStartStartRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-top 属性支持的数值类型名称 */
-export type BorderTopPropertyNumberType = typeof BORDER_TOP_NUMBER_TYPES[number];
+export type BorderTopPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-top-color 属性支持的数值类型名称 */
-export type BorderTopColorPropertyNumberType = typeof BORDER_TOP_COLOR_NUMBER_TYPES[number];
+export type BorderTopColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** border-top-left-radius 属性支持的数值类型名称 */
-export type BorderTopLeftRadiusPropertyNumberType = typeof BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES[number];
+export type BorderTopLeftRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-top-right-radius 属性支持的数值类型名称 */
-export type BorderTopRightRadiusPropertyNumberType = typeof BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES[number];
+export type BorderTopRightRadiusPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** border-top-width 属性支持的数值类型名称 */
-export type BorderTopWidthPropertyNumberType = typeof BORDER_TOP_WIDTH_NUMBER_TYPES[number];
+export type BorderTopWidthPropertyNumberType = LengthNumberTypeName;
 
 /** border-width 属性支持的数值类型名称 */
-export type BorderWidthPropertyNumberType = typeof BORDER_WIDTH_NUMBER_TYPES[number];
+export type BorderWidthPropertyNumberType = LengthNumberTypeName;
 
 /** bottom 属性支持的数值类型名称 */
-export type BottomPropertyNumberType = typeof BOTTOM_NUMBER_TYPES[number];
+export type BottomPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** box-flex 属性支持的数值类型名称 */
-export type BoxFlexPropertyNumberType = typeof BOX_FLEX_NUMBER_TYPES[number];
+export type BoxFlexPropertyNumberType = NumberNumberTypeName;
 
 /** box-flex-group 属性支持的数值类型名称 */
-export type BoxFlexGroupPropertyNumberType = typeof BOX_FLEX_GROUP_NUMBER_TYPES[number];
+export type BoxFlexGroupPropertyNumberType = IntegerNumberTypeName;
 
 /** box-ordinal-group 属性支持的数值类型名称 */
-export type BoxOrdinalGroupPropertyNumberType = typeof BOX_ORDINAL_GROUP_NUMBER_TYPES[number];
+export type BoxOrdinalGroupPropertyNumberType = IntegerNumberTypeName;
 
 /** box-shadow 属性支持的数值类型名称 */
-export type BoxShadowPropertyNumberType = typeof BOX_SHADOW_NUMBER_TYPES[number];
+export type BoxShadowPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** caret-color 属性支持的数值类型名称 */
-export type CaretColorPropertyNumberType = typeof CARET_COLOR_NUMBER_TYPES[number];
+export type CaretColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** clip 属性支持的数值类型名称 */
-export type ClipPropertyNumberType = typeof CLIP_NUMBER_TYPES[number];
+export type ClipPropertyNumberType = LengthNumberTypeName;
 
 /** clip-path 属性支持的数值类型名称 */
-export type ClipPathPropertyNumberType = typeof CLIP_PATH_NUMBER_TYPES[number];
+export type ClipPathPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** color 属性支持的数值类型名称 */
-export type ColorPropertyNumberType = typeof COLOR_NUMBER_TYPES[number];
+export type ColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** column-count 属性支持的数值类型名称 */
-export type ColumnCountPropertyNumberType = typeof COLUMN_COUNT_NUMBER_TYPES[number];
+export type ColumnCountPropertyNumberType = IntegerNumberTypeName;
 
 /** column-gap 属性支持的数值类型名称 */
-export type ColumnGapPropertyNumberType = typeof COLUMN_GAP_NUMBER_TYPES[number];
+export type ColumnGapPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** column-rule-color 属性支持的数值类型名称 */
-export type ColumnRuleColorPropertyNumberType = typeof COLUMN_RULE_COLOR_NUMBER_TYPES[number];
+export type ColumnRuleColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** column-width 属性支持的数值类型名称 */
-export type ColumnWidthPropertyNumberType = typeof COLUMN_WIDTH_NUMBER_TYPES[number];
+export type ColumnWidthPropertyNumberType = LengthNumberTypeName;
 
 /** contain-intrinsic-block-size 属性支持的数值类型名称 */
-export type ContainIntrinsicBlockSizePropertyNumberType = typeof CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES[number];
+export type ContainIntrinsicBlockSizePropertyNumberType = LengthNumberTypeName;
 
 /** contain-intrinsic-height 属性支持的数值类型名称 */
-export type ContainIntrinsicHeightPropertyNumberType = typeof CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES[number];
+export type ContainIntrinsicHeightPropertyNumberType = LengthNumberTypeName;
 
 /** contain-intrinsic-inline-size 属性支持的数值类型名称 */
-export type ContainIntrinsicInlineSizePropertyNumberType = typeof CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES[number];
+export type ContainIntrinsicInlineSizePropertyNumberType = LengthNumberTypeName;
 
 /** contain-intrinsic-size 属性支持的数值类型名称 */
-export type ContainIntrinsicSizePropertyNumberType = typeof CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES[number];
+export type ContainIntrinsicSizePropertyNumberType = LengthNumberTypeName;
 
 /** contain-intrinsic-width 属性支持的数值类型名称 */
-export type ContainIntrinsicWidthPropertyNumberType = typeof CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES[number];
+export type ContainIntrinsicWidthPropertyNumberType = LengthNumberTypeName;
 
 /** content 属性支持的数值类型名称 */
-export type ContentPropertyNumberType = typeof CONTENT_NUMBER_TYPES[number];
+export type ContentPropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** counter-increment 属性支持的数值类型名称 */
-export type CounterIncrementPropertyNumberType = typeof COUNTER_INCREMENT_NUMBER_TYPES[number];
+export type CounterIncrementPropertyNumberType = IntegerNumberTypeName;
 
 /** counter-reset 属性支持的数值类型名称 */
-export type CounterResetPropertyNumberType = typeof COUNTER_RESET_NUMBER_TYPES[number];
+export type CounterResetPropertyNumberType = IntegerNumberTypeName;
 
 /** counter-set 属性支持的数值类型名称 */
-export type CounterSetPropertyNumberType = typeof COUNTER_SET_NUMBER_TYPES[number];
+export type CounterSetPropertyNumberType = IntegerNumberTypeName;
 
 /** cursor 属性支持的数值类型名称 */
-export type CursorPropertyNumberType = typeof CURSOR_NUMBER_TYPES[number];
+export type CursorPropertyNumberType = NumberNumberTypeName;
 
 /** cx 属性支持的数值类型名称 */
-export type CxPropertyNumberType = typeof CX_NUMBER_TYPES[number];
+export type CxPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** cy 属性支持的数值类型名称 */
-export type CyPropertyNumberType = typeof CY_NUMBER_TYPES[number];
+export type CyPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** fill 属性支持的数值类型名称 */
-export type FillPropertyNumberType = typeof FILL_NUMBER_TYPES[number];
+export type FillPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** fill-opacity 属性支持的数值类型名称 */
-export type FillOpacityPropertyNumberType = typeof FILL_OPACITY_NUMBER_TYPES[number];
+export type FillOpacityPropertyNumberType = NumberNumberTypeName;
 
 /** filter 属性支持的数值类型名称 */
-export type FilterPropertyNumberType = typeof FILTER_NUMBER_TYPES[number];
+export type FilterPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** flex-grow 属性支持的数值类型名称 */
-export type FlexGrowPropertyNumberType = typeof FLEX_GROW_NUMBER_TYPES[number];
+export type FlexGrowPropertyNumberType = NumberNumberTypeName;
 
 /** flex-shrink 属性支持的数值类型名称 */
-export type FlexShrinkPropertyNumberType = typeof FLEX_SHRINK_NUMBER_TYPES[number];
+export type FlexShrinkPropertyNumberType = NumberNumberTypeName;
 
 /** font-feature-settings 属性支持的数值类型名称 */
-export type FontFeatureSettingsPropertyNumberType = typeof FONT_FEATURE_SETTINGS_NUMBER_TYPES[number];
+export type FontFeatureSettingsPropertyNumberType = IntegerNumberTypeName;
 
 /** font-size 属性支持的数值类型名称 */
-export type FontSizePropertyNumberType = typeof FONT_SIZE_NUMBER_TYPES[number];
+export type FontSizePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** font-size-adjust 属性支持的数值类型名称 */
-export type FontSizeAdjustPropertyNumberType = typeof FONT_SIZE_ADJUST_NUMBER_TYPES[number];
+export type FontSizeAdjustPropertyNumberType = NumberNumberTypeName;
 
 /** font-smooth 属性支持的数值类型名称 */
-export type FontSmoothPropertyNumberType = typeof FONT_SMOOTH_NUMBER_TYPES[number];
+export type FontSmoothPropertyNumberType = LengthNumberTypeName;
 
 /** font-stretch 属性支持的数值类型名称 */
-export type FontStretchPropertyNumberType = typeof FONT_STRETCH_NUMBER_TYPES[number];
+export type FontStretchPropertyNumberType = PercentageNumberTypeName;
 
 /** font-style 属性支持的数值类型名称 */
-export type FontStylePropertyNumberType = typeof FONT_STYLE_NUMBER_TYPES[number];
+export type FontStylePropertyNumberType = AngleNumberTypeName;
 
 /** font-variation-settings 属性支持的数值类型名称 */
-export type FontVariationSettingsPropertyNumberType = typeof FONT_VARIATION_SETTINGS_NUMBER_TYPES[number];
+export type FontVariationSettingsPropertyNumberType = NumberNumberTypeName;
 
 /** font-weight 属性支持的数值类型名称 */
-export type FontWeightPropertyNumberType = typeof FONT_WEIGHT_NUMBER_TYPES[number];
+export type FontWeightPropertyNumberType = NumberNumberTypeName;
 
 /** glyph-orientation-horizontal 属性支持的数值类型名称 */
-export type GlyphOrientationHorizontalPropertyNumberType = typeof GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES[number];
+export type GlyphOrientationHorizontalPropertyNumberType = AngleNumberTypeName;
 
 /** glyph-orientation-vertical 属性支持的数值类型名称 */
-export type GlyphOrientationVerticalPropertyNumberType = typeof GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES[number];
+export type GlyphOrientationVerticalPropertyNumberType = AngleNumberTypeName;
 
 /** grid-area 属性支持的数值类型名称 */
-export type GridAreaPropertyNumberType = typeof GRID_AREA_NUMBER_TYPES[number];
+export type GridAreaPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-auto-columns 属性支持的数值类型名称 */
-export type GridAutoColumnsPropertyNumberType = typeof GRID_AUTO_COLUMNS_NUMBER_TYPES[number];
+export type GridAutoColumnsPropertyNumberType = FlexNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-auto-rows 属性支持的数值类型名称 */
-export type GridAutoRowsPropertyNumberType = typeof GRID_AUTO_ROWS_NUMBER_TYPES[number];
+export type GridAutoRowsPropertyNumberType = FlexNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-column 属性支持的数值类型名称 */
-export type GridColumnPropertyNumberType = typeof GRID_COLUMN_NUMBER_TYPES[number];
+export type GridColumnPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-column-end 属性支持的数值类型名称 */
-export type GridColumnEndPropertyNumberType = typeof GRID_COLUMN_END_NUMBER_TYPES[number];
+export type GridColumnEndPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-column-gap 属性支持的数值类型名称 */
-export type GridColumnGapPropertyNumberType = typeof GRID_COLUMN_GAP_NUMBER_TYPES[number];
+export type GridColumnGapPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-column-start 属性支持的数值类型名称 */
-export type GridColumnStartPropertyNumberType = typeof GRID_COLUMN_START_NUMBER_TYPES[number];
+export type GridColumnStartPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-row 属性支持的数值类型名称 */
-export type GridRowPropertyNumberType = typeof GRID_ROW_NUMBER_TYPES[number];
+export type GridRowPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-row-end 属性支持的数值类型名称 */
-export type GridRowEndPropertyNumberType = typeof GRID_ROW_END_NUMBER_TYPES[number];
+export type GridRowEndPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-row-gap 属性支持的数值类型名称 */
-export type GridRowGapPropertyNumberType = typeof GRID_ROW_GAP_NUMBER_TYPES[number];
+export type GridRowGapPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-row-start 属性支持的数值类型名称 */
-export type GridRowStartPropertyNumberType = typeof GRID_ROW_START_NUMBER_TYPES[number];
+export type GridRowStartPropertyNumberType = IntegerNumberTypeName;
 
 /** grid-template 属性支持的数值类型名称 */
-export type GridTemplatePropertyNumberType = typeof GRID_TEMPLATE_NUMBER_TYPES[number];
+export type GridTemplatePropertyNumberType = FlexNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-template-columns 属性支持的数值类型名称 */
-export type GridTemplateColumnsPropertyNumberType = typeof GRID_TEMPLATE_COLUMNS_NUMBER_TYPES[number];
+export type GridTemplateColumnsPropertyNumberType = FlexNumberTypeName | IntegerNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** grid-template-rows 属性支持的数值类型名称 */
-export type GridTemplateRowsPropertyNumberType = typeof GRID_TEMPLATE_ROWS_NUMBER_TYPES[number];
+export type GridTemplateRowsPropertyNumberType = FlexNumberTypeName | IntegerNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** height 属性支持的数值类型名称 */
-export type HeightPropertyNumberType = typeof HEIGHT_NUMBER_TYPES[number];
+export type HeightPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** hyphenate-limit-chars 属性支持的数值类型名称 */
-export type HyphenateLimitCharsPropertyNumberType = typeof HYPHENATE_LIMIT_CHARS_NUMBER_TYPES[number];
+export type HyphenateLimitCharsPropertyNumberType = IntegerNumberTypeName;
 
 /** image-orientation 属性支持的数值类型名称 */
-export type ImageOrientationPropertyNumberType = typeof IMAGE_ORIENTATION_NUMBER_TYPES[number];
+export type ImageOrientationPropertyNumberType = AngleNumberTypeName;
 
 /** image-resolution 属性支持的数值类型名称 */
-export type ImageResolutionPropertyNumberType = typeof IMAGE_RESOLUTION_NUMBER_TYPES[number];
+export type ImageResolutionPropertyNumberType = ResolutionNumberTypeName;
 
 /** initial-letter 属性支持的数值类型名称 */
-export type InitialLetterPropertyNumberType = typeof INITIAL_LETTER_NUMBER_TYPES[number];
+export type InitialLetterPropertyNumberType = IntegerNumberTypeName | NumberNumberTypeName;
 
 /** kerning 属性支持的数值类型名称 */
-export type KerningPropertyNumberType = typeof KERNING_NUMBER_TYPES[number];
+export type KerningPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** left 属性支持的数值类型名称 */
-export type LeftPropertyNumberType = typeof LEFT_NUMBER_TYPES[number];
+export type LeftPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** letter-spacing 属性支持的数值类型名称 */
-export type LetterSpacingPropertyNumberType = typeof LETTER_SPACING_NUMBER_TYPES[number];
+export type LetterSpacingPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** line-clamp 属性支持的数值类型名称 */
-export type LineClampPropertyNumberType = typeof LINE_CLAMP_NUMBER_TYPES[number];
+export type LineClampPropertyNumberType = IntegerNumberTypeName;
 
 /** line-height 属性支持的数值类型名称 */
-export type LineHeightPropertyNumberType = typeof LINE_HEIGHT_NUMBER_TYPES[number];
+export type LineHeightPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** line-height-step 属性支持的数值类型名称 */
-export type LineHeightStepPropertyNumberType = typeof LINE_HEIGHT_STEP_NUMBER_TYPES[number];
+export type LineHeightStepPropertyNumberType = LengthNumberTypeName;
 
 /** list-style-image 属性支持的数值类型名称 */
-export type ListStyleImagePropertyNumberType = typeof LIST_STYLE_IMAGE_NUMBER_TYPES[number];
+export type ListStyleImagePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** margin 属性支持的数值类型名称 */
-export type MarginPropertyNumberType = typeof MARGIN_NUMBER_TYPES[number];
+export type MarginPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** margin-bottom 属性支持的数值类型名称 */
-export type MarginBottomPropertyNumberType = typeof MARGIN_BOTTOM_NUMBER_TYPES[number];
+export type MarginBottomPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** margin-left 属性支持的数值类型名称 */
-export type MarginLeftPropertyNumberType = typeof MARGIN_LEFT_NUMBER_TYPES[number];
+export type MarginLeftPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** margin-right 属性支持的数值类型名称 */
-export type MarginRightPropertyNumberType = typeof MARGIN_RIGHT_NUMBER_TYPES[number];
+export type MarginRightPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** margin-top 属性支持的数值类型名称 */
-export type MarginTopPropertyNumberType = typeof MARGIN_TOP_NUMBER_TYPES[number];
+export type MarginTopPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** mask 属性支持的数值类型名称 */
-export type MaskPropertyNumberType = typeof MASK_NUMBER_TYPES[number];
+export type MaskPropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** mask-border-outset 属性支持的数值类型名称 */
-export type MaskBorderOutsetPropertyNumberType = typeof MASK_BORDER_OUTSET_NUMBER_TYPES[number];
+export type MaskBorderOutsetPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName;
 
 /** mask-border-slice 属性支持的数值类型名称 */
-export type MaskBorderSlicePropertyNumberType = typeof MASK_BORDER_SLICE_NUMBER_TYPES[number];
+export type MaskBorderSlicePropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
 
 /** mask-border-source 属性支持的数值类型名称 */
-export type MaskBorderSourcePropertyNumberType = typeof MASK_BORDER_SOURCE_NUMBER_TYPES[number];
+export type MaskBorderSourcePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** mask-border-width 属性支持的数值类型名称 */
-export type MaskBorderWidthPropertyNumberType = typeof MASK_BORDER_WIDTH_NUMBER_TYPES[number];
+export type MaskBorderWidthPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** mask-image 属性支持的数值类型名称 */
-export type MaskImagePropertyNumberType = typeof MASK_IMAGE_NUMBER_TYPES[number];
+export type MaskImagePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** mask-position 属性支持的数值类型名称 */
-export type MaskPositionPropertyNumberType = typeof MASK_POSITION_NUMBER_TYPES[number];
+export type MaskPositionPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** mask-size 属性支持的数值类型名称 */
-export type MaskSizePropertyNumberType = typeof MASK_SIZE_NUMBER_TYPES[number];
+export type MaskSizePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** math-depth 属性支持的数值类型名称 */
-export type MathDepthPropertyNumberType = typeof MATH_DEPTH_NUMBER_TYPES[number];
+export type MathDepthPropertyNumberType = IntegerNumberTypeName;
 
 /** max-height 属性支持的数值类型名称 */
-export type MaxHeightPropertyNumberType = typeof MAX_HEIGHT_NUMBER_TYPES[number];
+export type MaxHeightPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** max-lines 属性支持的数值类型名称 */
-export type MaxLinesPropertyNumberType = typeof MAX_LINES_NUMBER_TYPES[number];
+export type MaxLinesPropertyNumberType = IntegerNumberTypeName;
 
 /** max-width 属性支持的数值类型名称 */
-export type MaxWidthPropertyNumberType = typeof MAX_WIDTH_NUMBER_TYPES[number];
+export type MaxWidthPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** min-height 属性支持的数值类型名称 */
-export type MinHeightPropertyNumberType = typeof MIN_HEIGHT_NUMBER_TYPES[number];
+export type MinHeightPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** min-width 属性支持的数值类型名称 */
-export type MinWidthPropertyNumberType = typeof MIN_WIDTH_NUMBER_TYPES[number];
+export type MinWidthPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** object-position 属性支持的数值类型名称 */
-export type ObjectPositionPropertyNumberType = typeof OBJECT_POSITION_NUMBER_TYPES[number];
+export type ObjectPositionPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** offset-anchor 属性支持的数值类型名称 */
-export type OffsetAnchorPropertyNumberType = typeof OFFSET_ANCHOR_NUMBER_TYPES[number];
+export type OffsetAnchorPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** offset-distance 属性支持的数值类型名称 */
-export type OffsetDistancePropertyNumberType = typeof OFFSET_DISTANCE_NUMBER_TYPES[number];
+export type OffsetDistancePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** offset-path 属性支持的数值类型名称 */
-export type OffsetPathPropertyNumberType = typeof OFFSET_PATH_NUMBER_TYPES[number];
+export type OffsetPathPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** offset-position 属性支持的数值类型名称 */
-export type OffsetPositionPropertyNumberType = typeof OFFSET_POSITION_NUMBER_TYPES[number];
+export type OffsetPositionPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** offset-rotate 属性支持的数值类型名称 */
-export type OffsetRotatePropertyNumberType = typeof OFFSET_ROTATE_NUMBER_TYPES[number];
+export type OffsetRotatePropertyNumberType = AngleNumberTypeName;
 
 /** opacity 属性支持的数值类型名称 */
-export type OpacityPropertyNumberType = typeof OPACITY_NUMBER_TYPES[number];
+export type OpacityPropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
 
 /** order 属性支持的数值类型名称 */
-export type OrderPropertyNumberType = typeof ORDER_NUMBER_TYPES[number];
+export type OrderPropertyNumberType = IntegerNumberTypeName;
 
 /** orphans 属性支持的数值类型名称 */
-export type OrphansPropertyNumberType = typeof ORPHANS_NUMBER_TYPES[number];
+export type OrphansPropertyNumberType = IntegerNumberTypeName;
 
 /** outline-color 属性支持的数值类型名称 */
-export type OutlineColorPropertyNumberType = typeof OUTLINE_COLOR_NUMBER_TYPES[number];
+export type OutlineColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** outline-offset 属性支持的数值类型名称 */
-export type OutlineOffsetPropertyNumberType = typeof OUTLINE_OFFSET_NUMBER_TYPES[number];
+export type OutlineOffsetPropertyNumberType = LengthNumberTypeName;
 
 /** outline-width 属性支持的数值类型名称 */
-export type OutlineWidthPropertyNumberType = typeof OUTLINE_WIDTH_NUMBER_TYPES[number];
+export type OutlineWidthPropertyNumberType = LengthNumberTypeName;
 
 /** overflow-clip-margin 属性支持的数值类型名称 */
-export type OverflowClipMarginPropertyNumberType = typeof OVERFLOW_CLIP_MARGIN_NUMBER_TYPES[number];
+export type OverflowClipMarginPropertyNumberType = LengthNumberTypeName;
 
 /** padding 属性支持的数值类型名称 */
-export type PaddingPropertyNumberType = typeof PADDING_NUMBER_TYPES[number];
+export type PaddingPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** padding-bottom 属性支持的数值类型名称 */
-export type PaddingBottomPropertyNumberType = typeof PADDING_BOTTOM_NUMBER_TYPES[number];
+export type PaddingBottomPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** padding-left 属性支持的数值类型名称 */
-export type PaddingLeftPropertyNumberType = typeof PADDING_LEFT_NUMBER_TYPES[number];
+export type PaddingLeftPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** padding-right 属性支持的数值类型名称 */
-export type PaddingRightPropertyNumberType = typeof PADDING_RIGHT_NUMBER_TYPES[number];
+export type PaddingRightPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** padding-top 属性支持的数值类型名称 */
-export type PaddingTopPropertyNumberType = typeof PADDING_TOP_NUMBER_TYPES[number];
+export type PaddingTopPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** pause-after 属性支持的数值类型名称 */
-export type PauseAfterPropertyNumberType = typeof PAUSE_AFTER_NUMBER_TYPES[number];
+export type PauseAfterPropertyNumberType = TimeNumberTypeName;
 
 /** pause-before 属性支持的数值类型名称 */
-export type PauseBeforePropertyNumberType = typeof PAUSE_BEFORE_NUMBER_TYPES[number];
+export type PauseBeforePropertyNumberType = TimeNumberTypeName;
 
 /** perspective 属性支持的数值类型名称 */
-export type PerspectivePropertyNumberType = typeof PERSPECTIVE_NUMBER_TYPES[number];
+export type PerspectivePropertyNumberType = LengthNumberTypeName;
 
 /** perspective-origin 属性支持的数值类型名称 */
-export type PerspectiveOriginPropertyNumberType = typeof PERSPECTIVE_ORIGIN_NUMBER_TYPES[number];
+export type PerspectiveOriginPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** r 属性支持的数值类型名称 */
-export type RPropertyNumberType = typeof R_NUMBER_TYPES[number];
+export type RPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** rest-after 属性支持的数值类型名称 */
-export type RestAfterPropertyNumberType = typeof REST_AFTER_NUMBER_TYPES[number];
+export type RestAfterPropertyNumberType = TimeNumberTypeName;
 
 /** rest-before 属性支持的数值类型名称 */
-export type RestBeforePropertyNumberType = typeof REST_BEFORE_NUMBER_TYPES[number];
+export type RestBeforePropertyNumberType = TimeNumberTypeName;
 
 /** right 属性支持的数值类型名称 */
-export type RightPropertyNumberType = typeof RIGHT_NUMBER_TYPES[number];
+export type RightPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** rotate 属性支持的数值类型名称 */
-export type RotatePropertyNumberType = typeof ROTATE_NUMBER_TYPES[number];
+export type RotatePropertyNumberType = AngleNumberTypeName | NumberNumberTypeName;
 
 /** row-gap 属性支持的数值类型名称 */
-export type RowGapPropertyNumberType = typeof ROW_GAP_NUMBER_TYPES[number];
+export type RowGapPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** rx 属性支持的数值类型名称 */
-export type RxPropertyNumberType = typeof RX_NUMBER_TYPES[number];
+export type RxPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** ry 属性支持的数值类型名称 */
-export type RyPropertyNumberType = typeof RY_NUMBER_TYPES[number];
+export type RyPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** scale 属性支持的数值类型名称 */
-export type ScalePropertyNumberType = typeof SCALE_NUMBER_TYPES[number];
+export type ScalePropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-margin 属性支持的数值类型名称 */
-export type ScrollMarginPropertyNumberType = typeof SCROLL_MARGIN_NUMBER_TYPES[number];
+export type ScrollMarginPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-block 属性支持的数值类型名称 */
-export type ScrollMarginBlockPropertyNumberType = typeof SCROLL_MARGIN_BLOCK_NUMBER_TYPES[number];
+export type ScrollMarginBlockPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-block-end 属性支持的数值类型名称 */
-export type ScrollMarginBlockEndPropertyNumberType = typeof SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES[number];
+export type ScrollMarginBlockEndPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-block-start 属性支持的数值类型名称 */
-export type ScrollMarginBlockStartPropertyNumberType = typeof SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES[number];
+export type ScrollMarginBlockStartPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-bottom 属性支持的数值类型名称 */
-export type ScrollMarginBottomPropertyNumberType = typeof SCROLL_MARGIN_BOTTOM_NUMBER_TYPES[number];
+export type ScrollMarginBottomPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-inline 属性支持的数值类型名称 */
-export type ScrollMarginInlinePropertyNumberType = typeof SCROLL_MARGIN_INLINE_NUMBER_TYPES[number];
+export type ScrollMarginInlinePropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-inline-end 属性支持的数值类型名称 */
-export type ScrollMarginInlineEndPropertyNumberType = typeof SCROLL_MARGIN_INLINE_END_NUMBER_TYPES[number];
+export type ScrollMarginInlineEndPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-inline-start 属性支持的数值类型名称 */
-export type ScrollMarginInlineStartPropertyNumberType = typeof SCROLL_MARGIN_INLINE_START_NUMBER_TYPES[number];
+export type ScrollMarginInlineStartPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-left 属性支持的数值类型名称 */
-export type ScrollMarginLeftPropertyNumberType = typeof SCROLL_MARGIN_LEFT_NUMBER_TYPES[number];
+export type ScrollMarginLeftPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-right 属性支持的数值类型名称 */
-export type ScrollMarginRightPropertyNumberType = typeof SCROLL_MARGIN_RIGHT_NUMBER_TYPES[number];
+export type ScrollMarginRightPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-margin-top 属性支持的数值类型名称 */
-export type ScrollMarginTopPropertyNumberType = typeof SCROLL_MARGIN_TOP_NUMBER_TYPES[number];
+export type ScrollMarginTopPropertyNumberType = LengthNumberTypeName;
 
 /** scroll-padding 属性支持的数值类型名称 */
-export type ScrollPaddingPropertyNumberType = typeof SCROLL_PADDING_NUMBER_TYPES[number];
+export type ScrollPaddingPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-block 属性支持的数值类型名称 */
-export type ScrollPaddingBlockPropertyNumberType = typeof SCROLL_PADDING_BLOCK_NUMBER_TYPES[number];
+export type ScrollPaddingBlockPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-block-end 属性支持的数值类型名称 */
-export type ScrollPaddingBlockEndPropertyNumberType = typeof SCROLL_PADDING_BLOCK_END_NUMBER_TYPES[number];
+export type ScrollPaddingBlockEndPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-block-start 属性支持的数值类型名称 */
-export type ScrollPaddingBlockStartPropertyNumberType = typeof SCROLL_PADDING_BLOCK_START_NUMBER_TYPES[number];
+export type ScrollPaddingBlockStartPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-bottom 属性支持的数值类型名称 */
-export type ScrollPaddingBottomPropertyNumberType = typeof SCROLL_PADDING_BOTTOM_NUMBER_TYPES[number];
+export type ScrollPaddingBottomPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-inline 属性支持的数值类型名称 */
-export type ScrollPaddingInlinePropertyNumberType = typeof SCROLL_PADDING_INLINE_NUMBER_TYPES[number];
+export type ScrollPaddingInlinePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-inline-end 属性支持的数值类型名称 */
-export type ScrollPaddingInlineEndPropertyNumberType = typeof SCROLL_PADDING_INLINE_END_NUMBER_TYPES[number];
+export type ScrollPaddingInlineEndPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-inline-start 属性支持的数值类型名称 */
-export type ScrollPaddingInlineStartPropertyNumberType = typeof SCROLL_PADDING_INLINE_START_NUMBER_TYPES[number];
+export type ScrollPaddingInlineStartPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-left 属性支持的数值类型名称 */
-export type ScrollPaddingLeftPropertyNumberType = typeof SCROLL_PADDING_LEFT_NUMBER_TYPES[number];
+export type ScrollPaddingLeftPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-right 属性支持的数值类型名称 */
-export type ScrollPaddingRightPropertyNumberType = typeof SCROLL_PADDING_RIGHT_NUMBER_TYPES[number];
+export type ScrollPaddingRightPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-padding-top 属性支持的数值类型名称 */
-export type ScrollPaddingTopPropertyNumberType = typeof SCROLL_PADDING_TOP_NUMBER_TYPES[number];
+export type ScrollPaddingTopPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-snap-coordinate 属性支持的数值类型名称 */
-export type ScrollSnapCoordinatePropertyNumberType = typeof SCROLL_SNAP_COORDINATE_NUMBER_TYPES[number];
+export type ScrollSnapCoordinatePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-snap-destination 属性支持的数值类型名称 */
-export type ScrollSnapDestinationPropertyNumberType = typeof SCROLL_SNAP_DESTINATION_NUMBER_TYPES[number];
+export type ScrollSnapDestinationPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-snap-points-x 属性支持的数值类型名称 */
-export type ScrollSnapPointsXPropertyNumberType = typeof SCROLL_SNAP_POINTS_X_NUMBER_TYPES[number];
+export type ScrollSnapPointsXPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scroll-snap-points-y 属性支持的数值类型名称 */
-export type ScrollSnapPointsYPropertyNumberType = typeof SCROLL_SNAP_POINTS_Y_NUMBER_TYPES[number];
+export type ScrollSnapPointsYPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** scrollbar-color 属性支持的数值类型名称 */
-export type ScrollbarColorPropertyNumberType = typeof SCROLLBAR_COLOR_NUMBER_TYPES[number];
+export type ScrollbarColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** shape-image-threshold 属性支持的数值类型名称 */
-export type ShapeImageThresholdPropertyNumberType = typeof SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES[number];
+export type ShapeImageThresholdPropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
 
 /** shape-margin 属性支持的数值类型名称 */
-export type ShapeMarginPropertyNumberType = typeof SHAPE_MARGIN_NUMBER_TYPES[number];
+export type ShapeMarginPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** shape-outside 属性支持的数值类型名称 */
-export type ShapeOutsidePropertyNumberType = typeof SHAPE_OUTSIDE_NUMBER_TYPES[number];
+export type ShapeOutsidePropertyNumberType = AngleNumberTypeName | AnglePercentageNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName | ResolutionNumberTypeName;
 
 /** stroke 属性支持的数值类型名称 */
-export type StrokePropertyNumberType = typeof STROKE_NUMBER_TYPES[number];
+export type StrokePropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** stroke-dasharray 属性支持的数值类型名称 */
-export type StrokeDasharrayPropertyNumberType = typeof STROKE_DASHARRAY_NUMBER_TYPES[number];
+export type StrokeDasharrayPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** stroke-dashoffset 属性支持的数值类型名称 */
-export type StrokeDashoffsetPropertyNumberType = typeof STROKE_DASHOFFSET_NUMBER_TYPES[number];
+export type StrokeDashoffsetPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** stroke-miterlimit 属性支持的数值类型名称 */
-export type StrokeMiterlimitPropertyNumberType = typeof STROKE_MITERLIMIT_NUMBER_TYPES[number];
+export type StrokeMiterlimitPropertyNumberType = NumberNumberTypeName;
 
 /** stroke-width 属性支持的数值类型名称 */
-export type StrokeWidthPropertyNumberType = typeof STROKE_WIDTH_NUMBER_TYPES[number];
+export type StrokeWidthPropertyNumberType = LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** tab-size 属性支持的数值类型名称 */
-export type TabSizePropertyNumberType = typeof TAB_SIZE_NUMBER_TYPES[number];
+export type TabSizePropertyNumberType = IntegerNumberTypeName | LengthNumberTypeName;
 
 /** text-combine-upright 属性支持的数值类型名称 */
-export type TextCombineUprightPropertyNumberType = typeof TEXT_COMBINE_UPRIGHT_NUMBER_TYPES[number];
+export type TextCombineUprightPropertyNumberType = IntegerNumberTypeName;
 
 /** text-decoration-color 属性支持的数值类型名称 */
-export type TextDecorationColorPropertyNumberType = typeof TEXT_DECORATION_COLOR_NUMBER_TYPES[number];
+export type TextDecorationColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** text-decoration-thickness 属性支持的数值类型名称 */
-export type TextDecorationThicknessPropertyNumberType = typeof TEXT_DECORATION_THICKNESS_NUMBER_TYPES[number];
+export type TextDecorationThicknessPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** text-emphasis-color 属性支持的数值类型名称 */
-export type TextEmphasisColorPropertyNumberType = typeof TEXT_EMPHASIS_COLOR_NUMBER_TYPES[number];
+export type TextEmphasisColorPropertyNumberType = AngleNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** text-indent 属性支持的数值类型名称 */
-export type TextIndentPropertyNumberType = typeof TEXT_INDENT_NUMBER_TYPES[number];
+export type TextIndentPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** text-shadow 属性支持的数值类型名称 */
-export type TextShadowPropertyNumberType = typeof TEXT_SHADOW_NUMBER_TYPES[number];
+export type TextShadowPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** text-size-adjust 属性支持的数值类型名称 */
-export type TextSizeAdjustPropertyNumberType = typeof TEXT_SIZE_ADJUST_NUMBER_TYPES[number];
+export type TextSizeAdjustPropertyNumberType = PercentageNumberTypeName;
 
 /** text-underline-offset 属性支持的数值类型名称 */
-export type TextUnderlineOffsetPropertyNumberType = typeof TEXT_UNDERLINE_OFFSET_NUMBER_TYPES[number];
+export type TextUnderlineOffsetPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** top 属性支持的数值类型名称 */
-export type TopPropertyNumberType = typeof TOP_NUMBER_TYPES[number];
+export type TopPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** transform 属性支持的数值类型名称 */
-export type TransformPropertyNumberType = typeof TRANSFORM_NUMBER_TYPES[number];
+export type TransformPropertyNumberType = AngleNumberTypeName | LengthNumberTypeName | LengthPercentageNumberTypeName | NumberNumberTypeName | PercentageNumberTypeName;
 
 /** transform-origin 属性支持的数值类型名称 */
-export type TransformOriginPropertyNumberType = typeof TRANSFORM_ORIGIN_NUMBER_TYPES[number];
+export type TransformOriginPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** transition 属性支持的数值类型名称 */
-export type TransitionPropertyNumberType = typeof TRANSITION_NUMBER_TYPES[number];
+export type TransitionPropertyNumberType = IntegerNumberTypeName | NumberNumberTypeName | TimeNumberTypeName;
 
 /** transition-delay 属性支持的数值类型名称 */
-export type TransitionDelayPropertyNumberType = typeof TRANSITION_DELAY_NUMBER_TYPES[number];
+export type TransitionDelayPropertyNumberType = TimeNumberTypeName;
 
 /** transition-duration 属性支持的数值类型名称 */
-export type TransitionDurationPropertyNumberType = typeof TRANSITION_DURATION_NUMBER_TYPES[number];
+export type TransitionDurationPropertyNumberType = TimeNumberTypeName;
 
 /** transition-timing-function 属性支持的数值类型名称 */
-export type TransitionTimingFunctionPropertyNumberType = typeof TRANSITION_TIMING_FUNCTION_NUMBER_TYPES[number];
+export type TransitionTimingFunctionPropertyNumberType = IntegerNumberTypeName | NumberNumberTypeName;
 
 /** translate 属性支持的数值类型名称 */
-export type TranslatePropertyNumberType = typeof TRANSLATE_NUMBER_TYPES[number];
+export type TranslatePropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** vertical-align 属性支持的数值类型名称 */
-export type VerticalAlignPropertyNumberType = typeof VERTICAL_ALIGN_NUMBER_TYPES[number];
+export type VerticalAlignPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** view-timeline-inset 属性支持的数值类型名称 */
-export type ViewTimelineInsetPropertyNumberType = typeof VIEW_TIMELINE_INSET_NUMBER_TYPES[number];
+export type ViewTimelineInsetPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** voice-balance 属性支持的数值类型名称 */
-export type VoiceBalancePropertyNumberType = typeof VOICE_BALANCE_NUMBER_TYPES[number];
+export type VoiceBalancePropertyNumberType = NumberNumberTypeName;
 
 /** voice-duration 属性支持的数值类型名称 */
-export type VoiceDurationPropertyNumberType = typeof VOICE_DURATION_NUMBER_TYPES[number];
+export type VoiceDurationPropertyNumberType = TimeNumberTypeName;
 
 /** voice-family 属性支持的数值类型名称 */
-export type VoiceFamilyPropertyNumberType = typeof VOICE_FAMILY_NUMBER_TYPES[number];
+export type VoiceFamilyPropertyNumberType = IntegerNumberTypeName;
 
 /** voice-pitch 属性支持的数值类型名称 */
-export type VoicePitchPropertyNumberType = typeof VOICE_PITCH_NUMBER_TYPES[number];
+export type VoicePitchPropertyNumberType = FrequencyNumberTypeName | PercentageNumberTypeName;
 
 /** voice-range 属性支持的数值类型名称 */
-export type VoiceRangePropertyNumberType = typeof VOICE_RANGE_NUMBER_TYPES[number];
+export type VoiceRangePropertyNumberType = FrequencyNumberTypeName | PercentageNumberTypeName;
 
 /** voice-rate 属性支持的数值类型名称 */
-export type VoiceRatePropertyNumberType = typeof VOICE_RATE_NUMBER_TYPES[number];
+export type VoiceRatePropertyNumberType = PercentageNumberTypeName;
 
 /** widows 属性支持的数值类型名称 */
-export type WidowsPropertyNumberType = typeof WIDOWS_NUMBER_TYPES[number];
+export type WidowsPropertyNumberType = IntegerNumberTypeName;
 
 /** width 属性支持的数值类型名称 */
-export type WidthPropertyNumberType = typeof WIDTH_NUMBER_TYPES[number];
+export type WidthPropertyNumberType = LengthNumberTypeName | LengthPercentageNumberTypeName | PercentageNumberTypeName;
 
 /** word-spacing 属性支持的数值类型名称 */
-export type WordSpacingPropertyNumberType = typeof WORD_SPACING_NUMBER_TYPES[number];
+export type WordSpacingPropertyNumberType = LengthNumberTypeName;
 
 /** x 属性支持的数值类型名称 */
-export type XPropertyNumberType = typeof X_NUMBER_TYPES[number];
+export type XPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** y 属性支持的数值类型名称 */
-export type YPropertyNumberType = typeof Y_NUMBER_TYPES[number];
+export type YPropertyNumberType = LengthNumberTypeName | PercentageNumberTypeName;
 
 /** z-index 属性支持的数值类型名称 */
-export type ZIndexPropertyNumberType = typeof Z_INDEX_NUMBER_TYPES[number];
+export type ZIndexPropertyNumberType = IntegerNumberTypeName;
 
 /** zoom 属性支持的数值类型名称 */
-export type ZoomPropertyNumberType = typeof ZOOM_NUMBER_TYPES[number];
+export type ZoomPropertyNumberType = NumberNumberTypeName | PercentageNumberTypeName;
