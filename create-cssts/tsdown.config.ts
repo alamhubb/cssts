@@ -6,5 +6,6 @@ export default defineConfig({
   clean: true,
   banner: {
     js: '#!/usr/bin/env node'
-  }
+  },
+  external: [/node_modules/],
 })

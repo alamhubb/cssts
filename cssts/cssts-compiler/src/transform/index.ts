@@ -14,7 +14,7 @@ import {
   CSSTS_CONFIG
 } from '../utils/cssClassName.js'
 import { type PseudoUtilsConfig } from '../generator/config.js'
-import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
+import { SlimeGenerator } from 'slime-generator'
 
 // ==================== 类型定义 ====================
 

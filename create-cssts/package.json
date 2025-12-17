@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "description": "🎨 Create CssTs projects - compile-time CSS class management for Vue + Vite",
   "type": "module",
-  "main": "dist/index.mjs",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "bin": {
     "create-cssts": "dist/index.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    }
   },
   "files": [
     "dist",

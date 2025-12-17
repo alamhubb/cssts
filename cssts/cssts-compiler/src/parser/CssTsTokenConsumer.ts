@@ -1,7 +1,7 @@
-import { createRegToken } from 'subhuti/src/struct/SubhutiCreateToken.ts'
-import { SlimeTokensObj } from "slime-parser/src/language/es2025/SlimeTokens.ts"
-import { SlimeTokenType } from "slime-token/src/SlimeTokenType.ts"
-import SlimeTokenConsumer from "slime-parser/src/language/es2025/SlimeTokenConsumer.ts"
+import { createRegToken } from 'subhuti'
+import { SlimeTokensObj } from "slime-parser"
+import { SlimeTokenType } from "slime-token"
+import { SlimeTokenConsumer } from "slime-parser"
 
 export const cssTsTokenName = {
   ...SlimeTokenType,

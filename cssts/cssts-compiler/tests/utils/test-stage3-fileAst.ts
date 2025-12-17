@@ -12,7 +12,7 @@
  *   npx tsx tests/utils/test-stage3-fileAst.ts 10           # 从第10个开始
  *   npx tsx tests/utils/test-stage3-fileAst.ts 10 -s        # 从第10个开始，遇错停止
  */
-import {runTests, testStage3} from 'slime-test/src/utils/test-framework.ts'
+import { runTests, testStage3 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'
 import {CssTsCstToAst} from '../../src/factory/CssTsCstToAst'
 

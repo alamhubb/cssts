@@ -12,7 +12,7 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 import CssTsParser from '../../src/parser/CssTsParser'
 import { CssTsCstToAst } from '../../src/factory/CssTsCstToAst'
-import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
+import { SlimeGenerator } from 'slime-generator'
 
 // ES module 兼容
 const __filename = fileURLToPath(import.meta.url)

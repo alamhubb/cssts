@@ -1,14 +1,14 @@
-﻿import { SlimeCstToAst } from "slime-parser/src/language/SlimeCstToAstUtil.ts"
-import SubhutiCst from "subhuti/src/struct/SubhutiCst.ts"
+﻿import { SlimeCstToAst } from "slime-parser"
+import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
-import { SlimeNodeType } from "slime-ast/src/SlimeNodeType.ts"
 import {
+  SlimeNodeType,
   type SlimeExpression,
   type SlimeStatement,
   type SlimeModuleDeclaration,
   type SlimeProgram,
-} from "slime-ast/src/SlimeESTree.ts"
-import SlimeNodeCreate from "slime-ast/src/SlimeNodeCreate.ts"
+  SlimeAstUtil as SlimeNodeCreate,
+} from "slime-ast"
 import { CSSTS_CONFIG, parseTsAtomName } from "../utils/cssClassName.js"
 
 export interface CssStyleInfo {

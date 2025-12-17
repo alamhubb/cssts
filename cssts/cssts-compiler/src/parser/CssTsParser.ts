@@ -1,8 +1,8 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
-import { Subhuti, SubhutiRule } from 'subhuti/src/SubhutiParser.ts'
-import type { SubhutiParserOptions } from 'subhuti/src/SubhutiParser.ts'
-import SlimeParser from "slime-parser/src/language/es2025/SlimeParser.ts"
-import type { ExpressionParams } from "slime-parser/src/language/es2025/SlimeParser.ts"
+import { Subhuti, SubhutiRule } from 'subhuti'
+import type { SubhutiParserOptions } from 'subhuti'
+import { SlimeParser } from "slime-parser"
+import type { ExpressionParams } from "slime-parser"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器

@@ -3,7 +3,7 @@
  */
 import { CssTsCstToAst } from '../src/factory/CssTsCstToAst.ts'
 import { CssTsParser } from '../src/parser/index.ts'
-import SlimeGenerator from 'slime-generator/src/SlimeGenerator.ts'
+import { SlimeGenerator } from 'slime-generator'
 
 const code = `
 const baseStyles = css { colorRed, fontBold }
