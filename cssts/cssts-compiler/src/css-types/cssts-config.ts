@@ -48,17 +48,69 @@ export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
 
 /** 默认单位配置 */
 export const DEFAULT_UNIT_CONFIGS: Record<string, UnitValueConfig> = {
-  px: { min: 1, max: 10000 },
-  rem: { min: 1, max: 100, step: 1 },
-  em: { min: 1, max: 100, step: 1 },
+  // 百分比
   '%': { min: 1, max: 100 },
-  vw: { min: 1, max: 100 },
-  vh: { min: 1, max: 100 },
+
+  // 无单位数值
+  unitless: { min: 0, max: 100 },
+
+  // 频率
+  Hz: { min: 0, max: 20000, step: 100 },
+  kHz: { min: 0, max: 20, step: 1 },
+
+  // 长度 - 绝对单位
+  px: { min: 1, max: 10000 },
+  cm: { min: 0, max: 100, step: 1 },
+  mm: { min: 0, max: 1000, step: 1 },
+  Q: { min: 0, max: 400, step: 1 },      // 1/4 毫米
+  in: { min: 0, max: 40, step: 1 },      // 英寸
+  pc: { min: 0, max: 100, step: 1 },     // pica (1pc = 12pt)
+  pt: { min: 0, max: 1000, step: 1 },    // point (1pt = 1/72 in)
+
+  // 长度 - 相对单位（字体）
+  em: { min: 0, max: 100, step: 0.25 },
+  rem: { min: 0, max: 100, step: 0.25 },
+  ex: { min: 0, max: 100, step: 1 },     // x-height
+  ch: { min: 0, max: 100, step: 1 },     // 字符宽度
+  ic: { min: 0, max: 100, step: 1 },     // CJK 字符宽度
+  cap: { min: 0, max: 100, step: 1 },    // 大写字母高度
+  lh: { min: 0, max: 10, step: 0.25 },   // 行高
+  rlh: { min: 0, max: 10, step: 0.25 },  // 根元素行高
+
+  // 长度 - 视口单位
+  vw: { min: 0, max: 100 },
+  vh: { min: 0, max: 100 },
+  vmin: { min: 0, max: 100 },
+  vmax: { min: 0, max: 100 },
+  vi: { min: 0, max: 100 },              // 内联方向
+  vb: { min: 0, max: 100 },              // 块方向
+
+  // 长度 - 动态视口单位
+  dvw: { min: 0, max: 100 },
+  dvh: { min: 0, max: 100 },
+  lvw: { min: 0, max: 100 },             // 大视口
+  lvh: { min: 0, max: 100 },
+  svw: { min: 0, max: 100 },             // 小视口
+  svh: { min: 0, max: 100 },
+
+  // 角度
   deg: { min: 0, max: 360 },
-  ms: { min: 0, max: 10000, step: 100 },
-  s: { min: 0, max: 60, step: 1 },
-  fr: { min: 1, max: 12 },
-  '<number>': { min: 0, max: 100 },
+  grad: { min: 0, max: 400 },            // 百分度 (400grad = 360deg)
+  rad: { min: 0, max: 6.28, step: 0.01 }, // 弧度 (2π ≈ 6.28)
+  turn: { min: 0, max: 1, step: 0.01 },  // 圈数
+
+  // 时间
+  ms: { min: 0, max: 10000, step: 50 },
+  s: { min: 0, max: 60, step: 0.1 },
+
+  // 分辨率
+  dpi: { min: 72, max: 300, step: 1 },
+  dpcm: { min: 28, max: 118, step: 1 },
+  dppx: { min: 1, max: 4, step: 0.5 },
+  x: { min: 1, max: 4, step: 0.5 },      // dppx 的别名
+
+  // 弹性
+  fr: { min: 1, max: 12, step: 1 },
 };
 
 /** 自定义属性值类型 */

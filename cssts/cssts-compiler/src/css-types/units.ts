@@ -57,7 +57,7 @@ export type NumberTypeName = typeof NUMBER_TYPES[number];
 /** 所有单位 */
 export const ALL_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Hz',
   'Q',
   'cap',
@@ -107,7 +107,7 @@ export type UnitType = typeof ALL_UNITS[number];
 
 export const ANGLE_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -146,7 +146,7 @@ export const ANGLE_UNITS = [
 ] as const;
 export const ANGLE_PERCENTAGE_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -185,7 +185,7 @@ export const ANGLE_PERCENTAGE_UNITS = [
 ] as const;
 export const FLEX_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -224,7 +224,7 @@ export const FREQUENCY_PERCENTAGE_UNITS = [
 ] as const;
 export const INTEGER_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -258,7 +258,7 @@ export const INTEGER_UNITS = [
 ] as const;
 export const LENGTH_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -298,7 +298,7 @@ export const LENGTH_UNITS = [
 ] as const;
 export const LENGTH_PERCENTAGE_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -338,7 +338,7 @@ export const LENGTH_PERCENTAGE_UNITS = [
 ] as const;
 export const NUMBER_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -379,7 +379,7 @@ export const NUMBER_UNITS = [
 ] as const;
 export const PERCENTAGE_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Hz',
   'Q',
   'cap',
@@ -421,7 +421,7 @@ export const PERCENTAGE_UNITS = [
 ] as const;
 export const RESOLUTION_UNITS = [
   '%',
-  '<number>',
+  'unitless',
   'Q',
   'cap',
   'ch',
@@ -459,7 +459,7 @@ export const RESOLUTION_UNITS = [
   'x',
 ] as const;
 export const TIME_UNITS = [
-  '<number>',
+  'unitless',
   'ms',
   's',
 ] as const;
