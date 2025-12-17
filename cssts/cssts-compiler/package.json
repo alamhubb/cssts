@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "slime-test": "^0.2.3",
-    "tsdown": "^0.11.10",
+    "tsdown": "^0.18.0",
     "typescript": "^5.8.3"
   }
 }
