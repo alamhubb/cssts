@@ -20,7 +20,7 @@ export {
 
 // CSS class name utilities
 export {
-  CSSTS_SEPARATOR,
+  CSSTS_CONFIG,
   camelToKebab,
   parseTsAtomName,
   getCssProperty,
