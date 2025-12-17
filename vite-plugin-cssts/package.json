@@ -4,7 +4,7 @@
   "description": "Vite plugin for CssTs - compile-time CSS class management",
   "type": "module",
   "main": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
