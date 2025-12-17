@@ -8,3 +8,4 @@ export * from './units';
 export * from './keywords';
 export * from './property-config';
 export * from './cssts-config';
+export * from './config-utils';
