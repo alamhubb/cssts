@@ -5,7 +5,7 @@
  */
 
 import { generateAtoms, generatePropertiesJson } from "../generator/index.js"
-import { CSSTS_CONFIG } from "cssts"
+import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）
 export { CSSTS_CONFIG }

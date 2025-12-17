@@ -3,14 +3,13 @@
   "version": "0.2.5",
   "description": "Vite plugin for CssTs - compile-time CSS class management",
   "type": "module",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
     }
   },

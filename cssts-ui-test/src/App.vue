@@ -9,13 +9,6 @@
       <el-button type="success">Success</el-button>
     </div>
 
-    <h2>CSSTS Button - OVS 语法 (from ./components/CsstsButton.ovs)</h2>
-    <div class="button-group">
-      <CsstsButton @click="count++">Default</CsstsButton>
-      <CsstsButton type="primary" @click="count++">Primary</CsstsButton>
-      <CsstsButton type="success" @click="count++">Success</CsstsButton>
-    </div>
-
     <h2>Vue Button - 直接在 .vue 中使用 css {} (from ./components/VueButton.vue)</h2>
     <div class="button-group">
       <VueButton @click="count++">Default</VueButton>
@@ -29,9 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-// OVS 组件
-import CsstsButton from './components/CsstsButton.ovs'
-// Vue + .cssts 组件
+// Vue + cssts 组件 (使用 <script lang="cssts">)
 import VueButton from './components/VueButton.vue'
 
 const count = ref(0)

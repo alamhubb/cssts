@@ -33,7 +33,7 @@ export interface GroupUtilInfo {
  * 1. 将 CssTsParser 解析出的 CST 转换为标准 ESTree AST
  * 2. 处理 css { } 表达式语法，转换为 cssts.$cls() 调用
  * 3. 收集使用的原子类名（usedAtoms），供 vite 插件生成 CSS
- * 4. 处理伪类变量（如 btn$hover），注入运行时参数
+ * 4. 处理伪类变量（如 btn$$hover），注入运行时参数
  * 5. 作用域分析：区分局部变量和原子类名，支持自动解构
  */
 export class CssTsCstToAst extends SlimeCstToAst {
@@ -170,7 +170,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
         imported: SlimeNodeCreate.createIdentifier('cssts'),
         local: SlimeNodeCreate.createIdentifier('cssts')
       }],
-      source: SlimeNodeCreate.createStringLiteral('cssts')
+      source: SlimeNodeCreate.createStringLiteral('cssts-ts')
     } as any
   }
 

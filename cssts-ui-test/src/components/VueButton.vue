@@ -4,7 +4,7 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="cssts">
 /**
  * VueButton - 直接在 Vue 文件中使用 css {} 语法
  * 

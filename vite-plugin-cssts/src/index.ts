@@ -37,9 +37,14 @@ const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
 
 /**
  * 检查 Vue 文件是否有 <script lang="cssts"> 标签
+ * 注意：必须确保匹配的是真正的 script 标签，而不是注释中的文本
  */
 function hasScriptLangCssts(code: string): boolean {
-  return /<script[^>]*\slang\s*=\s*["']cssts["'][^>]*>/.test(code)
+  // 先移除所有注释，避免匹配到注释中的 <script lang="cssts">
+  const codeWithoutComments = code
+    .replace(/\/\/.*$/gm, '') // 移除单行注释
+    .replace(/\/\*[\s\S]*?\*\//g, '') // 移除多行注释
+  return /<script[^>]*\slang\s*=\s*["']cssts["'][^>]*>/.test(codeWithoutComments)
 }
 
 /**
@@ -177,7 +182,7 @@ export interface CsstsRuntime {
   replaceAll(target: string | StyleObject, newAtoms: (StyleObject | string)[]): string | StyleObject
 }
 
-declare module 'cssts' {
+declare module 'cssts-ts' {
   export const cssts: CsstsRuntime
   export const $cls: CsstsRuntime['$cls']
   export const replace: CsstsRuntime['replace']
@@ -217,6 +222,10 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
    */
   function shouldTransform(id: string, code: string): boolean {
     if (id.includes('node_modules')) return false
+
+    // 忽略 Vue 虚拟模块（带有 ? 查询参数的请求）
+    // 这些是 @vitejs/plugin-vue 处理后的虚拟模块
+    if (id.includes('?')) return false
 
     // .cssts 文件总是处理
     if (id.endsWith('.cssts')) return true

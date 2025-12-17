@@ -32,7 +32,9 @@
   "license": "MIT",
   "dependencies": {
     "css-tree": "^3.1.0",
+    "cssts-ts": "^0.2.5",
     "slime-ast": "^0.2.3",
+    "slime-generator": "^0.2.3",
     "slime-parser": "^0.2.3",
     "slime-token": "^0.2.3",
     "subhuti": "^0.2.3"
