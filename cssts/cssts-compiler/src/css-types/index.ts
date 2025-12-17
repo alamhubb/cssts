@@ -5,4 +5,7 @@
 
 export * from './css-keywords';
 export * from './css-numeric';
+export * from './css-property-keywords';
+export * from './css-property-number-types';
+export * from './css-property-types';
 export * from './css-property-config';

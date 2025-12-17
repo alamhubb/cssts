@@ -1,13 +1,11 @@
 /**
  * CSS 属性配置
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T16:20:10.310Z
+ * 生成时间: 2025-12-17T17:02:37.700Z
  */
 
 import {
   COLORS,
-  ColorValue,
-  PROPERTY_KEYWORDS,
   ACCENT_COLOR_KEYWORDS,
   ALIGN_CONTENT_KEYWORDS,
   ALIGN_ITEMS_KEYWORDS,
@@ -395,4216 +393,3111 @@ import {
 } from './css-keywords';
 
 import {
-  NumberTypeName,
-  AccentColorPropertyNumberType,
-  AnimationPropertyNumberType,
-  AnimationDelayPropertyNumberType,
-  AnimationDurationPropertyNumberType,
-  AnimationIterationCountPropertyNumberType,
-  AnimationRangeEndPropertyNumberType,
-  AnimationRangeStartPropertyNumberType,
-  AnimationTimingFunctionPropertyNumberType,
-  AspectRatioPropertyNumberType,
-  AzimuthPropertyNumberType,
-  BackdropFilterPropertyNumberType,
-  BackgroundPropertyNumberType,
-  BackgroundColorPropertyNumberType,
-  BackgroundImagePropertyNumberType,
-  BackgroundPositionPropertyNumberType,
-  BackgroundPositionXPropertyNumberType,
-  BackgroundPositionYPropertyNumberType,
-  BackgroundSizePropertyNumberType,
-  BaselineShiftPropertyNumberType,
-  BorderPropertyNumberType,
-  BorderBlockPropertyNumberType,
-  BorderBlockEndPropertyNumberType,
-  BorderBlockStartPropertyNumberType,
-  BorderBottomPropertyNumberType,
-  BorderBottomLeftRadiusPropertyNumberType,
-  BorderBottomRightRadiusPropertyNumberType,
-  BorderBottomWidthPropertyNumberType,
-  BorderColorPropertyNumberType,
-  BorderEndEndRadiusPropertyNumberType,
-  BorderEndStartRadiusPropertyNumberType,
-  BorderImageOutsetPropertyNumberType,
-  BorderImageSlicePropertyNumberType,
-  BorderImageSourcePropertyNumberType,
-  BorderImageWidthPropertyNumberType,
-  BorderInlinePropertyNumberType,
-  BorderInlineEndPropertyNumberType,
-  BorderInlineStartPropertyNumberType,
-  BorderLeftPropertyNumberType,
-  BorderLeftColorPropertyNumberType,
-  BorderLeftWidthPropertyNumberType,
-  BorderRadiusPropertyNumberType,
-  BorderRightPropertyNumberType,
-  BorderRightColorPropertyNumberType,
-  BorderRightWidthPropertyNumberType,
-  BorderSpacingPropertyNumberType,
-  BorderStartEndRadiusPropertyNumberType,
-  BorderStartStartRadiusPropertyNumberType,
-  BorderTopPropertyNumberType,
-  BorderTopColorPropertyNumberType,
-  BorderTopLeftRadiusPropertyNumberType,
-  BorderTopRightRadiusPropertyNumberType,
-  BorderTopWidthPropertyNumberType,
-  BorderWidthPropertyNumberType,
-  BottomPropertyNumberType,
-  BoxFlexPropertyNumberType,
-  BoxFlexGroupPropertyNumberType,
-  BoxOrdinalGroupPropertyNumberType,
-  BoxShadowPropertyNumberType,
-  CaretColorPropertyNumberType,
-  ClipPropertyNumberType,
-  ClipPathPropertyNumberType,
-  ColorPropertyNumberType,
-  ColumnCountPropertyNumberType,
-  ColumnGapPropertyNumberType,
-  ColumnRuleColorPropertyNumberType,
-  ColumnWidthPropertyNumberType,
-  ContainIntrinsicBlockSizePropertyNumberType,
-  ContainIntrinsicHeightPropertyNumberType,
-  ContainIntrinsicInlineSizePropertyNumberType,
-  ContainIntrinsicSizePropertyNumberType,
-  ContainIntrinsicWidthPropertyNumberType,
-  ContentPropertyNumberType,
-  CounterIncrementPropertyNumberType,
-  CounterResetPropertyNumberType,
-  CounterSetPropertyNumberType,
-  CursorPropertyNumberType,
-  CxPropertyNumberType,
-  CyPropertyNumberType,
-  FillPropertyNumberType,
-  FillOpacityPropertyNumberType,
-  FilterPropertyNumberType,
-  FlexGrowPropertyNumberType,
-  FlexShrinkPropertyNumberType,
-  FontFeatureSettingsPropertyNumberType,
-  FontSizePropertyNumberType,
-  FontSizeAdjustPropertyNumberType,
-  FontSmoothPropertyNumberType,
-  FontStretchPropertyNumberType,
-  FontStylePropertyNumberType,
-  FontVariationSettingsPropertyNumberType,
-  FontWeightPropertyNumberType,
-  GlyphOrientationHorizontalPropertyNumberType,
-  GlyphOrientationVerticalPropertyNumberType,
-  GridAreaPropertyNumberType,
-  GridAutoColumnsPropertyNumberType,
-  GridAutoRowsPropertyNumberType,
-  GridColumnPropertyNumberType,
-  GridColumnEndPropertyNumberType,
-  GridColumnGapPropertyNumberType,
-  GridColumnStartPropertyNumberType,
-  GridRowPropertyNumberType,
-  GridRowEndPropertyNumberType,
-  GridRowGapPropertyNumberType,
-  GridRowStartPropertyNumberType,
-  GridTemplatePropertyNumberType,
-  GridTemplateColumnsPropertyNumberType,
-  GridTemplateRowsPropertyNumberType,
-  HeightPropertyNumberType,
-  HyphenateLimitCharsPropertyNumberType,
-  ImageOrientationPropertyNumberType,
-  ImageResolutionPropertyNumberType,
-  InitialLetterPropertyNumberType,
-  KerningPropertyNumberType,
-  LeftPropertyNumberType,
-  LetterSpacingPropertyNumberType,
-  LineClampPropertyNumberType,
-  LineHeightPropertyNumberType,
-  LineHeightStepPropertyNumberType,
-  ListStyleImagePropertyNumberType,
-  MarginPropertyNumberType,
-  MarginBottomPropertyNumberType,
-  MarginLeftPropertyNumberType,
-  MarginRightPropertyNumberType,
-  MarginTopPropertyNumberType,
-  MaskPropertyNumberType,
-  MaskBorderOutsetPropertyNumberType,
-  MaskBorderSlicePropertyNumberType,
-  MaskBorderSourcePropertyNumberType,
-  MaskBorderWidthPropertyNumberType,
-  MaskImagePropertyNumberType,
-  MaskPositionPropertyNumberType,
-  MaskSizePropertyNumberType,
-  MathDepthPropertyNumberType,
-  MaxHeightPropertyNumberType,
-  MaxLinesPropertyNumberType,
-  MaxWidthPropertyNumberType,
-  MinHeightPropertyNumberType,
-  MinWidthPropertyNumberType,
-  ObjectPositionPropertyNumberType,
-  OffsetAnchorPropertyNumberType,
-  OffsetDistancePropertyNumberType,
-  OffsetPathPropertyNumberType,
-  OffsetPositionPropertyNumberType,
-  OffsetRotatePropertyNumberType,
-  OpacityPropertyNumberType,
-  OrderPropertyNumberType,
-  OrphansPropertyNumberType,
-  OutlineColorPropertyNumberType,
-  OutlineOffsetPropertyNumberType,
-  OutlineWidthPropertyNumberType,
-  OverflowClipMarginPropertyNumberType,
-  PaddingPropertyNumberType,
-  PaddingBottomPropertyNumberType,
-  PaddingLeftPropertyNumberType,
-  PaddingRightPropertyNumberType,
-  PaddingTopPropertyNumberType,
-  PauseAfterPropertyNumberType,
-  PauseBeforePropertyNumberType,
-  PerspectivePropertyNumberType,
-  PerspectiveOriginPropertyNumberType,
-  RPropertyNumberType,
-  RestAfterPropertyNumberType,
-  RestBeforePropertyNumberType,
-  RightPropertyNumberType,
-  RotatePropertyNumberType,
-  RowGapPropertyNumberType,
-  RxPropertyNumberType,
-  RyPropertyNumberType,
-  ScalePropertyNumberType,
-  ScrollMarginPropertyNumberType,
-  ScrollMarginBlockPropertyNumberType,
-  ScrollMarginBlockEndPropertyNumberType,
-  ScrollMarginBlockStartPropertyNumberType,
-  ScrollMarginBottomPropertyNumberType,
-  ScrollMarginInlinePropertyNumberType,
-  ScrollMarginInlineEndPropertyNumberType,
-  ScrollMarginInlineStartPropertyNumberType,
-  ScrollMarginLeftPropertyNumberType,
-  ScrollMarginRightPropertyNumberType,
-  ScrollMarginTopPropertyNumberType,
-  ScrollPaddingPropertyNumberType,
-  ScrollPaddingBlockPropertyNumberType,
-  ScrollPaddingBlockEndPropertyNumberType,
-  ScrollPaddingBlockStartPropertyNumberType,
-  ScrollPaddingBottomPropertyNumberType,
-  ScrollPaddingInlinePropertyNumberType,
-  ScrollPaddingInlineEndPropertyNumberType,
-  ScrollPaddingInlineStartPropertyNumberType,
-  ScrollPaddingLeftPropertyNumberType,
-  ScrollPaddingRightPropertyNumberType,
-  ScrollPaddingTopPropertyNumberType,
-  ScrollSnapCoordinatePropertyNumberType,
-  ScrollSnapDestinationPropertyNumberType,
-  ScrollSnapPointsXPropertyNumberType,
-  ScrollSnapPointsYPropertyNumberType,
-  ScrollbarColorPropertyNumberType,
-  ShapeImageThresholdPropertyNumberType,
-  ShapeMarginPropertyNumberType,
-  ShapeOutsidePropertyNumberType,
-  StrokePropertyNumberType,
-  StrokeDasharrayPropertyNumberType,
-  StrokeDashoffsetPropertyNumberType,
-  StrokeMiterlimitPropertyNumberType,
-  StrokeWidthPropertyNumberType,
-  TabSizePropertyNumberType,
-  TextCombineUprightPropertyNumberType,
-  TextDecorationColorPropertyNumberType,
-  TextDecorationThicknessPropertyNumberType,
-  TextEmphasisColorPropertyNumberType,
-  TextIndentPropertyNumberType,
-  TextShadowPropertyNumberType,
-  TextSizeAdjustPropertyNumberType,
-  TextUnderlineOffsetPropertyNumberType,
-  TopPropertyNumberType,
-  TransformPropertyNumberType,
-  TransformOriginPropertyNumberType,
-  TransitionPropertyNumberType,
-  TransitionDelayPropertyNumberType,
-  TransitionDurationPropertyNumberType,
-  TransitionTimingFunctionPropertyNumberType,
-  TranslatePropertyNumberType,
-  VerticalAlignPropertyNumberType,
-  ViewTimelineInsetPropertyNumberType,
-  VoiceBalancePropertyNumberType,
-  VoiceDurationPropertyNumberType,
-  VoiceFamilyPropertyNumberType,
-  VoicePitchPropertyNumberType,
-  VoiceRangePropertyNumberType,
-  VoiceRatePropertyNumberType,
-  WidowsPropertyNumberType,
-  WidthPropertyNumberType,
-  WordSpacingPropertyNumberType,
-  XPropertyNumberType,
-  YPropertyNumberType,
-  ZIndexPropertyNumberType,
-  ZoomPropertyNumberType,
+  ACCENT_COLOR_NUMBER_TYPES,
+  ANIMATION_NUMBER_TYPES,
+  ANIMATION_DELAY_NUMBER_TYPES,
+  ANIMATION_DURATION_NUMBER_TYPES,
+  ANIMATION_ITERATION_COUNT_NUMBER_TYPES,
+  ANIMATION_RANGE_END_NUMBER_TYPES,
+  ANIMATION_RANGE_START_NUMBER_TYPES,
+  ANIMATION_TIMING_FUNCTION_NUMBER_TYPES,
+  ASPECT_RATIO_NUMBER_TYPES,
+  AZIMUTH_NUMBER_TYPES,
+  BACKDROP_FILTER_NUMBER_TYPES,
+  BACKGROUND_NUMBER_TYPES,
+  BACKGROUND_COLOR_NUMBER_TYPES,
+  BACKGROUND_IMAGE_NUMBER_TYPES,
+  BACKGROUND_POSITION_NUMBER_TYPES,
+  BACKGROUND_POSITION_X_NUMBER_TYPES,
+  BACKGROUND_POSITION_Y_NUMBER_TYPES,
+  BACKGROUND_SIZE_NUMBER_TYPES,
+  BASELINE_SHIFT_NUMBER_TYPES,
+  BORDER_NUMBER_TYPES,
+  BORDER_BLOCK_NUMBER_TYPES,
+  BORDER_BLOCK_END_NUMBER_TYPES,
+  BORDER_BLOCK_START_NUMBER_TYPES,
+  BORDER_BOTTOM_NUMBER_TYPES,
+  BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES,
+  BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES,
+  BORDER_BOTTOM_WIDTH_NUMBER_TYPES,
+  BORDER_COLOR_NUMBER_TYPES,
+  BORDER_END_END_RADIUS_NUMBER_TYPES,
+  BORDER_END_START_RADIUS_NUMBER_TYPES,
+  BORDER_IMAGE_OUTSET_NUMBER_TYPES,
+  BORDER_IMAGE_SLICE_NUMBER_TYPES,
+  BORDER_IMAGE_SOURCE_NUMBER_TYPES,
+  BORDER_IMAGE_WIDTH_NUMBER_TYPES,
+  BORDER_INLINE_NUMBER_TYPES,
+  BORDER_INLINE_END_NUMBER_TYPES,
+  BORDER_INLINE_START_NUMBER_TYPES,
+  BORDER_LEFT_NUMBER_TYPES,
+  BORDER_LEFT_COLOR_NUMBER_TYPES,
+  BORDER_LEFT_WIDTH_NUMBER_TYPES,
+  BORDER_RADIUS_NUMBER_TYPES,
+  BORDER_RIGHT_NUMBER_TYPES,
+  BORDER_RIGHT_COLOR_NUMBER_TYPES,
+  BORDER_RIGHT_WIDTH_NUMBER_TYPES,
+  BORDER_SPACING_NUMBER_TYPES,
+  BORDER_START_END_RADIUS_NUMBER_TYPES,
+  BORDER_START_START_RADIUS_NUMBER_TYPES,
+  BORDER_TOP_NUMBER_TYPES,
+  BORDER_TOP_COLOR_NUMBER_TYPES,
+  BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES,
+  BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES,
+  BORDER_TOP_WIDTH_NUMBER_TYPES,
+  BORDER_WIDTH_NUMBER_TYPES,
+  BOTTOM_NUMBER_TYPES,
+  BOX_FLEX_NUMBER_TYPES,
+  BOX_FLEX_GROUP_NUMBER_TYPES,
+  BOX_ORDINAL_GROUP_NUMBER_TYPES,
+  BOX_SHADOW_NUMBER_TYPES,
+  CARET_COLOR_NUMBER_TYPES,
+  CLIP_NUMBER_TYPES,
+  CLIP_PATH_NUMBER_TYPES,
+  COLOR_NUMBER_TYPES,
+  COLUMN_COUNT_NUMBER_TYPES,
+  COLUMN_GAP_NUMBER_TYPES,
+  COLUMN_RULE_COLOR_NUMBER_TYPES,
+  COLUMN_WIDTH_NUMBER_TYPES,
+  CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES,
+  CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES,
+  CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES,
+  CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES,
+  CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES,
+  CONTENT_NUMBER_TYPES,
+  COUNTER_INCREMENT_NUMBER_TYPES,
+  COUNTER_RESET_NUMBER_TYPES,
+  COUNTER_SET_NUMBER_TYPES,
+  CURSOR_NUMBER_TYPES,
+  CX_NUMBER_TYPES,
+  CY_NUMBER_TYPES,
+  FILL_NUMBER_TYPES,
+  FILL_OPACITY_NUMBER_TYPES,
+  FILTER_NUMBER_TYPES,
+  FLEX_GROW_NUMBER_TYPES,
+  FLEX_SHRINK_NUMBER_TYPES,
+  FONT_FEATURE_SETTINGS_NUMBER_TYPES,
+  FONT_SIZE_NUMBER_TYPES,
+  FONT_SIZE_ADJUST_NUMBER_TYPES,
+  FONT_SMOOTH_NUMBER_TYPES,
+  FONT_STRETCH_NUMBER_TYPES,
+  FONT_STYLE_NUMBER_TYPES,
+  FONT_VARIATION_SETTINGS_NUMBER_TYPES,
+  FONT_WEIGHT_NUMBER_TYPES,
+  GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES,
+  GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES,
+  GRID_AREA_NUMBER_TYPES,
+  GRID_AUTO_COLUMNS_NUMBER_TYPES,
+  GRID_AUTO_ROWS_NUMBER_TYPES,
+  GRID_COLUMN_NUMBER_TYPES,
+  GRID_COLUMN_END_NUMBER_TYPES,
+  GRID_COLUMN_GAP_NUMBER_TYPES,
+  GRID_COLUMN_START_NUMBER_TYPES,
+  GRID_ROW_NUMBER_TYPES,
+  GRID_ROW_END_NUMBER_TYPES,
+  GRID_ROW_GAP_NUMBER_TYPES,
+  GRID_ROW_START_NUMBER_TYPES,
+  GRID_TEMPLATE_NUMBER_TYPES,
+  GRID_TEMPLATE_COLUMNS_NUMBER_TYPES,
+  GRID_TEMPLATE_ROWS_NUMBER_TYPES,
+  HEIGHT_NUMBER_TYPES,
+  HYPHENATE_LIMIT_CHARS_NUMBER_TYPES,
+  IMAGE_ORIENTATION_NUMBER_TYPES,
+  IMAGE_RESOLUTION_NUMBER_TYPES,
+  INITIAL_LETTER_NUMBER_TYPES,
+  KERNING_NUMBER_TYPES,
+  LEFT_NUMBER_TYPES,
+  LETTER_SPACING_NUMBER_TYPES,
+  LINE_CLAMP_NUMBER_TYPES,
+  LINE_HEIGHT_NUMBER_TYPES,
+  LINE_HEIGHT_STEP_NUMBER_TYPES,
+  LIST_STYLE_IMAGE_NUMBER_TYPES,
+  MARGIN_NUMBER_TYPES,
+  MARGIN_BOTTOM_NUMBER_TYPES,
+  MARGIN_LEFT_NUMBER_TYPES,
+  MARGIN_RIGHT_NUMBER_TYPES,
+  MARGIN_TOP_NUMBER_TYPES,
+  MASK_NUMBER_TYPES,
+  MASK_BORDER_OUTSET_NUMBER_TYPES,
+  MASK_BORDER_SLICE_NUMBER_TYPES,
+  MASK_BORDER_SOURCE_NUMBER_TYPES,
+  MASK_BORDER_WIDTH_NUMBER_TYPES,
+  MASK_IMAGE_NUMBER_TYPES,
+  MASK_POSITION_NUMBER_TYPES,
+  MASK_SIZE_NUMBER_TYPES,
+  MATH_DEPTH_NUMBER_TYPES,
+  MAX_HEIGHT_NUMBER_TYPES,
+  MAX_LINES_NUMBER_TYPES,
+  MAX_WIDTH_NUMBER_TYPES,
+  MIN_HEIGHT_NUMBER_TYPES,
+  MIN_WIDTH_NUMBER_TYPES,
+  OBJECT_POSITION_NUMBER_TYPES,
+  OFFSET_ANCHOR_NUMBER_TYPES,
+  OFFSET_DISTANCE_NUMBER_TYPES,
+  OFFSET_PATH_NUMBER_TYPES,
+  OFFSET_POSITION_NUMBER_TYPES,
+  OFFSET_ROTATE_NUMBER_TYPES,
+  OPACITY_NUMBER_TYPES,
+  ORDER_NUMBER_TYPES,
+  ORPHANS_NUMBER_TYPES,
+  OUTLINE_COLOR_NUMBER_TYPES,
+  OUTLINE_OFFSET_NUMBER_TYPES,
+  OUTLINE_WIDTH_NUMBER_TYPES,
+  OVERFLOW_CLIP_MARGIN_NUMBER_TYPES,
+  PADDING_NUMBER_TYPES,
+  PADDING_BOTTOM_NUMBER_TYPES,
+  PADDING_LEFT_NUMBER_TYPES,
+  PADDING_RIGHT_NUMBER_TYPES,
+  PADDING_TOP_NUMBER_TYPES,
+  PAUSE_AFTER_NUMBER_TYPES,
+  PAUSE_BEFORE_NUMBER_TYPES,
+  PERSPECTIVE_NUMBER_TYPES,
+  PERSPECTIVE_ORIGIN_NUMBER_TYPES,
+  R_NUMBER_TYPES,
+  REST_AFTER_NUMBER_TYPES,
+  REST_BEFORE_NUMBER_TYPES,
+  RIGHT_NUMBER_TYPES,
+  ROTATE_NUMBER_TYPES,
+  ROW_GAP_NUMBER_TYPES,
+  RX_NUMBER_TYPES,
+  RY_NUMBER_TYPES,
+  SCALE_NUMBER_TYPES,
+  SCROLL_MARGIN_NUMBER_TYPES,
+  SCROLL_MARGIN_BLOCK_NUMBER_TYPES,
+  SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES,
+  SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES,
+  SCROLL_MARGIN_BOTTOM_NUMBER_TYPES,
+  SCROLL_MARGIN_INLINE_NUMBER_TYPES,
+  SCROLL_MARGIN_INLINE_END_NUMBER_TYPES,
+  SCROLL_MARGIN_INLINE_START_NUMBER_TYPES,
+  SCROLL_MARGIN_LEFT_NUMBER_TYPES,
+  SCROLL_MARGIN_RIGHT_NUMBER_TYPES,
+  SCROLL_MARGIN_TOP_NUMBER_TYPES,
+  SCROLL_PADDING_NUMBER_TYPES,
+  SCROLL_PADDING_BLOCK_NUMBER_TYPES,
+  SCROLL_PADDING_BLOCK_END_NUMBER_TYPES,
+  SCROLL_PADDING_BLOCK_START_NUMBER_TYPES,
+  SCROLL_PADDING_BOTTOM_NUMBER_TYPES,
+  SCROLL_PADDING_INLINE_NUMBER_TYPES,
+  SCROLL_PADDING_INLINE_END_NUMBER_TYPES,
+  SCROLL_PADDING_INLINE_START_NUMBER_TYPES,
+  SCROLL_PADDING_LEFT_NUMBER_TYPES,
+  SCROLL_PADDING_RIGHT_NUMBER_TYPES,
+  SCROLL_PADDING_TOP_NUMBER_TYPES,
+  SCROLL_SNAP_COORDINATE_NUMBER_TYPES,
+  SCROLL_SNAP_DESTINATION_NUMBER_TYPES,
+  SCROLL_SNAP_POINTS_X_NUMBER_TYPES,
+  SCROLL_SNAP_POINTS_Y_NUMBER_TYPES,
+  SCROLLBAR_COLOR_NUMBER_TYPES,
+  SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES,
+  SHAPE_MARGIN_NUMBER_TYPES,
+  SHAPE_OUTSIDE_NUMBER_TYPES,
+  STROKE_NUMBER_TYPES,
+  STROKE_DASHARRAY_NUMBER_TYPES,
+  STROKE_DASHOFFSET_NUMBER_TYPES,
+  STROKE_MITERLIMIT_NUMBER_TYPES,
+  STROKE_WIDTH_NUMBER_TYPES,
+  TAB_SIZE_NUMBER_TYPES,
+  TEXT_COMBINE_UPRIGHT_NUMBER_TYPES,
+  TEXT_DECORATION_COLOR_NUMBER_TYPES,
+  TEXT_DECORATION_THICKNESS_NUMBER_TYPES,
+  TEXT_EMPHASIS_COLOR_NUMBER_TYPES,
+  TEXT_INDENT_NUMBER_TYPES,
+  TEXT_SHADOW_NUMBER_TYPES,
+  TEXT_SIZE_ADJUST_NUMBER_TYPES,
+  TEXT_UNDERLINE_OFFSET_NUMBER_TYPES,
+  TOP_NUMBER_TYPES,
+  TRANSFORM_NUMBER_TYPES,
+  TRANSFORM_ORIGIN_NUMBER_TYPES,
+  TRANSITION_NUMBER_TYPES,
+  TRANSITION_DELAY_NUMBER_TYPES,
+  TRANSITION_DURATION_NUMBER_TYPES,
+  TRANSITION_TIMING_FUNCTION_NUMBER_TYPES,
+  TRANSLATE_NUMBER_TYPES,
+  VERTICAL_ALIGN_NUMBER_TYPES,
+  VIEW_TIMELINE_INSET_NUMBER_TYPES,
+  VOICE_BALANCE_NUMBER_TYPES,
+  VOICE_DURATION_NUMBER_TYPES,
+  VOICE_FAMILY_NUMBER_TYPES,
+  VOICE_PITCH_NUMBER_TYPES,
+  VOICE_RANGE_NUMBER_TYPES,
+  VOICE_RATE_NUMBER_TYPES,
+  WIDOWS_NUMBER_TYPES,
+  WIDTH_NUMBER_TYPES,
+  WORD_SPACING_NUMBER_TYPES,
+  X_NUMBER_TYPES,
+  Y_NUMBER_TYPES,
+  Z_INDEX_NUMBER_TYPES,
+  ZOOM_NUMBER_TYPES,
 } from './css-numeric';
 
-// ==================== 属性配置类型 ====================
-
-/** 属性配置类型 */
-export type CssPropertyConfigMap = {
-  'accent-color': {
-    keywords: (AccentColorKeyword | ColorValue)[];
-    numberTypes: AccentColorPropertyNumberType[];
-  };
-  'align-content': {
-    keywords: AlignContentKeyword[];
-    numberTypes: never[];
-  };
-  'align-items': {
-    keywords: AlignItemsKeyword[];
-    numberTypes: never[];
-  };
-  'align-self': {
-    keywords: AlignSelfKeyword[];
-    numberTypes: never[];
-  };
-  'align-tracks': {
-    keywords: AlignTracksKeyword[];
-    numberTypes: never[];
-  };
-  'alignment-baseline': {
-    keywords: AlignmentBaselineKeyword[];
-    numberTypes: never[];
-  };
-  'all': {
-    keywords: AllKeyword[];
-    numberTypes: never[];
-  };
-  'anchor-name': {
-    keywords: AnchorNameKeyword[];
-    numberTypes: never[];
-  };
-  'anchor-scope': {
-    keywords: AnchorScopeKeyword[];
-    numberTypes: never[];
-  };
-  'animation': {
-    keywords: AnimationKeyword[];
-    numberTypes: AnimationPropertyNumberType[];
-  };
-  'animation-composition': {
-    keywords: AnimationCompositionKeyword[];
-    numberTypes: never[];
-  };
-  'animation-delay': {
-    keywords: never[];
-    numberTypes: AnimationDelayPropertyNumberType[];
-  };
-  'animation-direction': {
-    keywords: AnimationDirectionKeyword[];
-    numberTypes: never[];
-  };
-  'animation-duration': {
-    keywords: never[];
-    numberTypes: AnimationDurationPropertyNumberType[];
-  };
-  'animation-fill-mode': {
-    keywords: AnimationFillModeKeyword[];
-    numberTypes: never[];
-  };
-  'animation-iteration-count': {
-    keywords: AnimationIterationCountKeyword[];
-    numberTypes: AnimationIterationCountPropertyNumberType[];
-  };
-  'animation-name': {
-    keywords: AnimationNameKeyword[];
-    numberTypes: never[];
-  };
-  'animation-play-state': {
-    keywords: AnimationPlayStateKeyword[];
-    numberTypes: never[];
-  };
-  'animation-range-end': {
-    keywords: AnimationRangeEndKeyword[];
-    numberTypes: AnimationRangeEndPropertyNumberType[];
-  };
-  'animation-range-start': {
-    keywords: AnimationRangeStartKeyword[];
-    numberTypes: AnimationRangeStartPropertyNumberType[];
-  };
-  'animation-timeline': {
-    keywords: AnimationTimelineKeyword[];
-    numberTypes: never[];
-  };
-  'animation-timing-function': {
-    keywords: AnimationTimingFunctionKeyword[];
-    numberTypes: AnimationTimingFunctionPropertyNumberType[];
-  };
-  'appearance': {
-    keywords: AppearanceKeyword[];
-    numberTypes: never[];
-  };
-  'aspect-ratio': {
-    keywords: AspectRatioKeyword[];
-    numberTypes: AspectRatioPropertyNumberType[];
-  };
-  'azimuth': {
-    keywords: AzimuthKeyword[];
-    numberTypes: AzimuthPropertyNumberType[];
-  };
-  'backdrop-filter': {
-    keywords: (BackdropFilterKeyword | ColorValue)[];
-    numberTypes: BackdropFilterPropertyNumberType[];
-  };
-  'backface-visibility': {
-    keywords: BackfaceVisibilityKeyword[];
-    numberTypes: never[];
-  };
-  'background': {
-    keywords: (BackgroundKeyword | ColorValue)[];
-    numberTypes: BackgroundPropertyNumberType[];
-  };
-  'background-attachment': {
-    keywords: BackgroundAttachmentKeyword[];
-    numberTypes: never[];
-  };
-  'background-blend-mode': {
-    keywords: BackgroundBlendModeKeyword[];
-    numberTypes: never[];
-  };
-  'background-clip': {
-    keywords: BackgroundClipKeyword[];
-    numberTypes: never[];
-  };
-  'background-color': {
-    keywords: (BackgroundColorKeyword | ColorValue)[];
-    numberTypes: BackgroundColorPropertyNumberType[];
-  };
-  'background-image': {
-    keywords: (BackgroundImageKeyword | ColorValue)[];
-    numberTypes: BackgroundImagePropertyNumberType[];
-  };
-  'background-origin': {
-    keywords: BackgroundOriginKeyword[];
-    numberTypes: never[];
-  };
-  'background-position': {
-    keywords: BackgroundPositionKeyword[];
-    numberTypes: BackgroundPositionPropertyNumberType[];
-  };
-  'background-position-x': {
-    keywords: BackgroundPositionXKeyword[];
-    numberTypes: BackgroundPositionXPropertyNumberType[];
-  };
-  'background-position-y': {
-    keywords: BackgroundPositionYKeyword[];
-    numberTypes: BackgroundPositionYPropertyNumberType[];
-  };
-  'background-repeat': {
-    keywords: BackgroundRepeatKeyword[];
-    numberTypes: never[];
-  };
-  'background-size': {
-    keywords: BackgroundSizeKeyword[];
-    numberTypes: BackgroundSizePropertyNumberType[];
-  };
-  'baseline-shift': {
-    keywords: BaselineShiftKeyword[];
-    numberTypes: BaselineShiftPropertyNumberType[];
-  };
-  'border': {
-    keywords: (BorderKeyword | ColorValue)[];
-    numberTypes: BorderPropertyNumberType[];
-  };
-  'border-block': {
-    keywords: (BorderBlockKeyword | ColorValue)[];
-    numberTypes: BorderBlockPropertyNumberType[];
-  };
-  'border-block-end': {
-    keywords: (BorderBlockEndKeyword | ColorValue)[];
-    numberTypes: BorderBlockEndPropertyNumberType[];
-  };
-  'border-block-start': {
-    keywords: (BorderBlockStartKeyword | ColorValue)[];
-    numberTypes: BorderBlockStartPropertyNumberType[];
-  };
-  'border-bottom': {
-    keywords: (BorderBottomKeyword | ColorValue)[];
-    numberTypes: BorderBottomPropertyNumberType[];
-  };
-  'border-bottom-left-radius': {
-    keywords: never[];
-    numberTypes: BorderBottomLeftRadiusPropertyNumberType[];
-  };
-  'border-bottom-right-radius': {
-    keywords: never[];
-    numberTypes: BorderBottomRightRadiusPropertyNumberType[];
-  };
-  'border-bottom-style': {
-    keywords: BorderBottomStyleKeyword[];
-    numberTypes: never[];
-  };
-  'border-bottom-width': {
-    keywords: BorderBottomWidthKeyword[];
-    numberTypes: BorderBottomWidthPropertyNumberType[];
-  };
-  'border-collapse': {
-    keywords: BorderCollapseKeyword[];
-    numberTypes: never[];
-  };
-  'border-color': {
-    keywords: (BorderColorKeyword | ColorValue)[];
-    numberTypes: BorderColorPropertyNumberType[];
-  };
-  'border-end-end-radius': {
-    keywords: never[];
-    numberTypes: BorderEndEndRadiusPropertyNumberType[];
-  };
-  'border-end-start-radius': {
-    keywords: never[];
-    numberTypes: BorderEndStartRadiusPropertyNumberType[];
-  };
-  'border-image-outset': {
-    keywords: never[];
-    numberTypes: BorderImageOutsetPropertyNumberType[];
-  };
-  'border-image-repeat': {
-    keywords: BorderImageRepeatKeyword[];
-    numberTypes: never[];
-  };
-  'border-image-slice': {
-    keywords: BorderImageSliceKeyword[];
-    numberTypes: BorderImageSlicePropertyNumberType[];
-  };
-  'border-image-source': {
-    keywords: (BorderImageSourceKeyword | ColorValue)[];
-    numberTypes: BorderImageSourcePropertyNumberType[];
-  };
-  'border-image-width': {
-    keywords: BorderImageWidthKeyword[];
-    numberTypes: BorderImageWidthPropertyNumberType[];
-  };
-  'border-inline': {
-    keywords: (BorderInlineKeyword | ColorValue)[];
-    numberTypes: BorderInlinePropertyNumberType[];
-  };
-  'border-inline-end': {
-    keywords: (BorderInlineEndKeyword | ColorValue)[];
-    numberTypes: BorderInlineEndPropertyNumberType[];
-  };
-  'border-inline-start': {
-    keywords: (BorderInlineStartKeyword | ColorValue)[];
-    numberTypes: BorderInlineStartPropertyNumberType[];
-  };
-  'border-left': {
-    keywords: (BorderLeftKeyword | ColorValue)[];
-    numberTypes: BorderLeftPropertyNumberType[];
-  };
-  'border-left-color': {
-    keywords: (BorderLeftColorKeyword | ColorValue)[];
-    numberTypes: BorderLeftColorPropertyNumberType[];
-  };
-  'border-left-style': {
-    keywords: BorderLeftStyleKeyword[];
-    numberTypes: never[];
-  };
-  'border-left-width': {
-    keywords: BorderLeftWidthKeyword[];
-    numberTypes: BorderLeftWidthPropertyNumberType[];
-  };
-  'border-radius': {
-    keywords: never[];
-    numberTypes: BorderRadiusPropertyNumberType[];
-  };
-  'border-right': {
-    keywords: (BorderRightKeyword | ColorValue)[];
-    numberTypes: BorderRightPropertyNumberType[];
-  };
-  'border-right-color': {
-    keywords: (BorderRightColorKeyword | ColorValue)[];
-    numberTypes: BorderRightColorPropertyNumberType[];
-  };
-  'border-right-style': {
-    keywords: BorderRightStyleKeyword[];
-    numberTypes: never[];
-  };
-  'border-right-width': {
-    keywords: BorderRightWidthKeyword[];
-    numberTypes: BorderRightWidthPropertyNumberType[];
-  };
-  'border-spacing': {
-    keywords: never[];
-    numberTypes: BorderSpacingPropertyNumberType[];
-  };
-  'border-start-end-radius': {
-    keywords: never[];
-    numberTypes: BorderStartEndRadiusPropertyNumberType[];
-  };
-  'border-start-start-radius': {
-    keywords: never[];
-    numberTypes: BorderStartStartRadiusPropertyNumberType[];
-  };
-  'border-style': {
-    keywords: BorderStyleKeyword[];
-    numberTypes: never[];
-  };
-  'border-top': {
-    keywords: (BorderTopKeyword | ColorValue)[];
-    numberTypes: BorderTopPropertyNumberType[];
-  };
-  'border-top-color': {
-    keywords: (BorderTopColorKeyword | ColorValue)[];
-    numberTypes: BorderTopColorPropertyNumberType[];
-  };
-  'border-top-left-radius': {
-    keywords: never[];
-    numberTypes: BorderTopLeftRadiusPropertyNumberType[];
-  };
-  'border-top-right-radius': {
-    keywords: never[];
-    numberTypes: BorderTopRightRadiusPropertyNumberType[];
-  };
-  'border-top-style': {
-    keywords: BorderTopStyleKeyword[];
-    numberTypes: never[];
-  };
-  'border-top-width': {
-    keywords: BorderTopWidthKeyword[];
-    numberTypes: BorderTopWidthPropertyNumberType[];
-  };
-  'border-width': {
-    keywords: BorderWidthKeyword[];
-    numberTypes: BorderWidthPropertyNumberType[];
-  };
-  'bottom': {
-    keywords: BottomKeyword[];
-    numberTypes: BottomPropertyNumberType[];
-  };
-  'box-align': {
-    keywords: BoxAlignKeyword[];
-    numberTypes: never[];
-  };
-  'box-decoration-break': {
-    keywords: BoxDecorationBreakKeyword[];
-    numberTypes: never[];
-  };
-  'box-direction': {
-    keywords: BoxDirectionKeyword[];
-    numberTypes: never[];
-  };
-  'box-flex': {
-    keywords: never[];
-    numberTypes: BoxFlexPropertyNumberType[];
-  };
-  'box-flex-group': {
-    keywords: never[];
-    numberTypes: BoxFlexGroupPropertyNumberType[];
-  };
-  'box-lines': {
-    keywords: BoxLinesKeyword[];
-    numberTypes: never[];
-  };
-  'box-ordinal-group': {
-    keywords: never[];
-    numberTypes: BoxOrdinalGroupPropertyNumberType[];
-  };
-  'box-orient': {
-    keywords: BoxOrientKeyword[];
-    numberTypes: never[];
-  };
-  'box-pack': {
-    keywords: BoxPackKeyword[];
-    numberTypes: never[];
-  };
-  'box-shadow': {
-    keywords: (BoxShadowKeyword | ColorValue)[];
-    numberTypes: BoxShadowPropertyNumberType[];
-  };
-  'box-sizing': {
-    keywords: BoxSizingKeyword[];
-    numberTypes: never[];
-  };
-  'break-after': {
-    keywords: BreakAfterKeyword[];
-    numberTypes: never[];
-  };
-  'break-before': {
-    keywords: BreakBeforeKeyword[];
-    numberTypes: never[];
-  };
-  'break-inside': {
-    keywords: BreakInsideKeyword[];
-    numberTypes: never[];
-  };
-  'caption-side': {
-    keywords: CaptionSideKeyword[];
-    numberTypes: never[];
-  };
-  'caret-color': {
-    keywords: (CaretColorKeyword | ColorValue)[];
-    numberTypes: CaretColorPropertyNumberType[];
-  };
-  'caret-shape': {
-    keywords: CaretShapeKeyword[];
-    numberTypes: never[];
-  };
-  'clear': {
-    keywords: ClearKeyword[];
-    numberTypes: never[];
-  };
-  'clip': {
-    keywords: ClipKeyword[];
-    numberTypes: ClipPropertyNumberType[];
-  };
-  'clip-path': {
-    keywords: ClipPathKeyword[];
-    numberTypes: ClipPathPropertyNumberType[];
-  };
-  'clip-rule': {
-    keywords: ClipRuleKeyword[];
-    numberTypes: never[];
-  };
-  'color': {
-    keywords: (ColorKeyword | ColorValue)[];
-    numberTypes: ColorPropertyNumberType[];
-  };
-  'color-interpolation-filters': {
-    keywords: ColorInterpolationFiltersKeyword[];
-    numberTypes: never[];
-  };
-  'color-scheme': {
-    keywords: ColorSchemeKeyword[];
-    numberTypes: never[];
-  };
-  'column-count': {
-    keywords: ColumnCountKeyword[];
-    numberTypes: ColumnCountPropertyNumberType[];
-  };
-  'column-fill': {
-    keywords: ColumnFillKeyword[];
-    numberTypes: never[];
-  };
-  'column-gap': {
-    keywords: ColumnGapKeyword[];
-    numberTypes: ColumnGapPropertyNumberType[];
-  };
-  'column-rule-color': {
-    keywords: (ColumnRuleColorKeyword | ColorValue)[];
-    numberTypes: ColumnRuleColorPropertyNumberType[];
-  };
-  'column-span': {
-    keywords: ColumnSpanKeyword[];
-    numberTypes: never[];
-  };
-  'column-width': {
-    keywords: ColumnWidthKeyword[];
-    numberTypes: ColumnWidthPropertyNumberType[];
-  };
-  'contain': {
-    keywords: ContainKeyword[];
-    numberTypes: never[];
-  };
-  'contain-intrinsic-block-size': {
-    keywords: ContainIntrinsicBlockSizeKeyword[];
-    numberTypes: ContainIntrinsicBlockSizePropertyNumberType[];
-  };
-  'contain-intrinsic-height': {
-    keywords: ContainIntrinsicHeightKeyword[];
-    numberTypes: ContainIntrinsicHeightPropertyNumberType[];
-  };
-  'contain-intrinsic-inline-size': {
-    keywords: ContainIntrinsicInlineSizeKeyword[];
-    numberTypes: ContainIntrinsicInlineSizePropertyNumberType[];
-  };
-  'contain-intrinsic-size': {
-    keywords: ContainIntrinsicSizeKeyword[];
-    numberTypes: ContainIntrinsicSizePropertyNumberType[];
-  };
-  'contain-intrinsic-width': {
-    keywords: ContainIntrinsicWidthKeyword[];
-    numberTypes: ContainIntrinsicWidthPropertyNumberType[];
-  };
-  'container-name': {
-    keywords: ContainerNameKeyword[];
-    numberTypes: never[];
-  };
-  'container-type': {
-    keywords: ContainerTypeKeyword[];
-    numberTypes: never[];
-  };
-  'content': {
-    keywords: (ContentKeyword | ColorValue)[];
-    numberTypes: ContentPropertyNumberType[];
-  };
-  'content-visibility': {
-    keywords: ContentVisibilityKeyword[];
-    numberTypes: never[];
-  };
-  'counter-increment': {
-    keywords: CounterIncrementKeyword[];
-    numberTypes: CounterIncrementPropertyNumberType[];
-  };
-  'counter-reset': {
-    keywords: CounterResetKeyword[];
-    numberTypes: CounterResetPropertyNumberType[];
-  };
-  'counter-set': {
-    keywords: CounterSetKeyword[];
-    numberTypes: CounterSetPropertyNumberType[];
-  };
-  'cue-after': {
-    keywords: CueAfterKeyword[];
-    numberTypes: never[];
-  };
-  'cue-before': {
-    keywords: CueBeforeKeyword[];
-    numberTypes: never[];
-  };
-  'cursor': {
-    keywords: CursorKeyword[];
-    numberTypes: CursorPropertyNumberType[];
-  };
-  'cx': {
-    keywords: never[];
-    numberTypes: CxPropertyNumberType[];
-  };
-  'cy': {
-    keywords: never[];
-    numberTypes: CyPropertyNumberType[];
-  };
-  'd': {
-    keywords: DKeyword[];
-    numberTypes: never[];
-  };
-  'direction': {
-    keywords: DirectionKeyword[];
-    numberTypes: never[];
-  };
-  'display': {
-    keywords: DisplayKeyword[];
-    numberTypes: never[];
-  };
-  'dominant-baseline': {
-    keywords: DominantBaselineKeyword[];
-    numberTypes: never[];
-  };
-  'empty-cells': {
-    keywords: EmptyCellsKeyword[];
-    numberTypes: never[];
-  };
-  'field-sizing': {
-    keywords: FieldSizingKeyword[];
-    numberTypes: never[];
-  };
-  'fill': {
-    keywords: (FillKeyword | ColorValue)[];
-    numberTypes: FillPropertyNumberType[];
-  };
-  'fill-opacity': {
-    keywords: never[];
-    numberTypes: FillOpacityPropertyNumberType[];
-  };
-  'fill-rule': {
-    keywords: FillRuleKeyword[];
-    numberTypes: never[];
-  };
-  'filter': {
-    keywords: (FilterKeyword | ColorValue)[];
-    numberTypes: FilterPropertyNumberType[];
-  };
-  'flex': {
-    keywords: FlexKeyword[];
-    numberTypes: never[];
-  };
-  'flex-basis': {
-    keywords: FlexBasisKeyword[];
-    numberTypes: never[];
-  };
-  'flex-direction': {
-    keywords: FlexDirectionKeyword[];
-    numberTypes: never[];
-  };
-  'flex-grow': {
-    keywords: never[];
-    numberTypes: FlexGrowPropertyNumberType[];
-  };
-  'flex-shrink': {
-    keywords: never[];
-    numberTypes: FlexShrinkPropertyNumberType[];
-  };
-  'flex-wrap': {
-    keywords: FlexWrapKeyword[];
-    numberTypes: never[];
-  };
-  'float': {
-    keywords: FloatKeyword[];
-    numberTypes: never[];
-  };
-  'font': {
-    keywords: FontKeyword[];
-    numberTypes: never[];
-  };
-  'font-family': {
-    keywords: FontFamilyKeyword[];
-    numberTypes: never[];
-  };
-  'font-feature-settings': {
-    keywords: FontFeatureSettingsKeyword[];
-    numberTypes: FontFeatureSettingsPropertyNumberType[];
-  };
-  'font-kerning': {
-    keywords: FontKerningKeyword[];
-    numberTypes: never[];
-  };
-  'font-language-override': {
-    keywords: FontLanguageOverrideKeyword[];
-    numberTypes: never[];
-  };
-  'font-optical-sizing': {
-    keywords: FontOpticalSizingKeyword[];
-    numberTypes: never[];
-  };
-  'font-palette': {
-    keywords: FontPaletteKeyword[];
-    numberTypes: never[];
-  };
-  'font-size': {
-    keywords: FontSizeKeyword[];
-    numberTypes: FontSizePropertyNumberType[];
-  };
-  'font-size-adjust': {
-    keywords: FontSizeAdjustKeyword[];
-    numberTypes: FontSizeAdjustPropertyNumberType[];
-  };
-  'font-smooth': {
-    keywords: FontSmoothKeyword[];
-    numberTypes: FontSmoothPropertyNumberType[];
-  };
-  'font-stretch': {
-    keywords: FontStretchKeyword[];
-    numberTypes: FontStretchPropertyNumberType[];
-  };
-  'font-style': {
-    keywords: FontStyleKeyword[];
-    numberTypes: FontStylePropertyNumberType[];
-  };
-  'font-synthesis': {
-    keywords: FontSynthesisKeyword[];
-    numberTypes: never[];
-  };
-  'font-synthesis-position': {
-    keywords: FontSynthesisPositionKeyword[];
-    numberTypes: never[];
-  };
-  'font-synthesis-small-caps': {
-    keywords: FontSynthesisSmallCapsKeyword[];
-    numberTypes: never[];
-  };
-  'font-synthesis-style': {
-    keywords: FontSynthesisStyleKeyword[];
-    numberTypes: never[];
-  };
-  'font-synthesis-weight': {
-    keywords: FontSynthesisWeightKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant': {
-    keywords: FontVariantKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-alternates': {
-    keywords: FontVariantAlternatesKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-caps': {
-    keywords: FontVariantCapsKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-east-asian': {
-    keywords: FontVariantEastAsianKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-emoji': {
-    keywords: FontVariantEmojiKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-ligatures': {
-    keywords: FontVariantLigaturesKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-numeric': {
-    keywords: FontVariantNumericKeyword[];
-    numberTypes: never[];
-  };
-  'font-variant-position': {
-    keywords: FontVariantPositionKeyword[];
-    numberTypes: never[];
-  };
-  'font-variation-settings': {
-    keywords: FontVariationSettingsKeyword[];
-    numberTypes: FontVariationSettingsPropertyNumberType[];
-  };
-  'font-weight': {
-    keywords: FontWeightKeyword[];
-    numberTypes: FontWeightPropertyNumberType[];
-  };
-  'forced-color-adjust': {
-    keywords: ForcedColorAdjustKeyword[];
-    numberTypes: never[];
-  };
-  'glyph-orientation-horizontal': {
-    keywords: never[];
-    numberTypes: GlyphOrientationHorizontalPropertyNumberType[];
-  };
-  'glyph-orientation-vertical': {
-    keywords: never[];
-    numberTypes: GlyphOrientationVerticalPropertyNumberType[];
-  };
-  'grid': {
-    keywords: GridKeyword[];
-    numberTypes: never[];
-  };
-  'grid-area': {
-    keywords: GridAreaKeyword[];
-    numberTypes: GridAreaPropertyNumberType[];
-  };
-  'grid-auto-columns': {
-    keywords: GridAutoColumnsKeyword[];
-    numberTypes: GridAutoColumnsPropertyNumberType[];
-  };
-  'grid-auto-flow': {
-    keywords: GridAutoFlowKeyword[];
-    numberTypes: never[];
-  };
-  'grid-auto-rows': {
-    keywords: GridAutoRowsKeyword[];
-    numberTypes: GridAutoRowsPropertyNumberType[];
-  };
-  'grid-column': {
-    keywords: GridColumnKeyword[];
-    numberTypes: GridColumnPropertyNumberType[];
-  };
-  'grid-column-end': {
-    keywords: GridColumnEndKeyword[];
-    numberTypes: GridColumnEndPropertyNumberType[];
-  };
-  'grid-column-gap': {
-    keywords: never[];
-    numberTypes: GridColumnGapPropertyNumberType[];
-  };
-  'grid-column-start': {
-    keywords: GridColumnStartKeyword[];
-    numberTypes: GridColumnStartPropertyNumberType[];
-  };
-  'grid-row': {
-    keywords: GridRowKeyword[];
-    numberTypes: GridRowPropertyNumberType[];
-  };
-  'grid-row-end': {
-    keywords: GridRowEndKeyword[];
-    numberTypes: GridRowEndPropertyNumberType[];
-  };
-  'grid-row-gap': {
-    keywords: never[];
-    numberTypes: GridRowGapPropertyNumberType[];
-  };
-  'grid-row-start': {
-    keywords: GridRowStartKeyword[];
-    numberTypes: GridRowStartPropertyNumberType[];
-  };
-  'grid-template': {
-    keywords: GridTemplateKeyword[];
-    numberTypes: GridTemplatePropertyNumberType[];
-  };
-  'grid-template-areas': {
-    keywords: GridTemplateAreasKeyword[];
-    numberTypes: never[];
-  };
-  'grid-template-columns': {
-    keywords: GridTemplateColumnsKeyword[];
-    numberTypes: GridTemplateColumnsPropertyNumberType[];
-  };
-  'grid-template-rows': {
-    keywords: GridTemplateRowsKeyword[];
-    numberTypes: GridTemplateRowsPropertyNumberType[];
-  };
-  'hanging-punctuation': {
-    keywords: HangingPunctuationKeyword[];
-    numberTypes: never[];
-  };
-  'height': {
-    keywords: HeightKeyword[];
-    numberTypes: HeightPropertyNumberType[];
-  };
-  'hyphenate-character': {
-    keywords: HyphenateCharacterKeyword[];
-    numberTypes: never[];
-  };
-  'hyphenate-limit-chars': {
-    keywords: HyphenateLimitCharsKeyword[];
-    numberTypes: HyphenateLimitCharsPropertyNumberType[];
-  };
-  'hyphens': {
-    keywords: HyphensKeyword[];
-    numberTypes: never[];
-  };
-  'image-orientation': {
-    keywords: ImageOrientationKeyword[];
-    numberTypes: ImageOrientationPropertyNumberType[];
-  };
-  'image-rendering': {
-    keywords: ImageRenderingKeyword[];
-    numberTypes: never[];
-  };
-  'image-resolution': {
-    keywords: ImageResolutionKeyword[];
-    numberTypes: ImageResolutionPropertyNumberType[];
-  };
-  'ime-mode': {
-    keywords: ImeModeKeyword[];
-    numberTypes: never[];
-  };
-  'initial-letter': {
-    keywords: InitialLetterKeyword[];
-    numberTypes: InitialLetterPropertyNumberType[];
-  };
-  'initial-letter-align': {
-    keywords: InitialLetterAlignKeyword[];
-    numberTypes: never[];
-  };
-  'input-security': {
-    keywords: InputSecurityKeyword[];
-    numberTypes: never[];
-  };
-  'interpolate-size': {
-    keywords: InterpolateSizeKeyword[];
-    numberTypes: never[];
-  };
-  'isolation': {
-    keywords: IsolationKeyword[];
-    numberTypes: never[];
-  };
-  'justify-content': {
-    keywords: JustifyContentKeyword[];
-    numberTypes: never[];
-  };
-  'justify-items': {
-    keywords: JustifyItemsKeyword[];
-    numberTypes: never[];
-  };
-  'justify-self': {
-    keywords: JustifySelfKeyword[];
-    numberTypes: never[];
-  };
-  'justify-tracks': {
-    keywords: JustifyTracksKeyword[];
-    numberTypes: never[];
-  };
-  'kerning': {
-    keywords: KerningKeyword[];
-    numberTypes: KerningPropertyNumberType[];
-  };
-  'left': {
-    keywords: LeftKeyword[];
-    numberTypes: LeftPropertyNumberType[];
-  };
-  'letter-spacing': {
-    keywords: LetterSpacingKeyword[];
-    numberTypes: LetterSpacingPropertyNumberType[];
-  };
-  'line-break': {
-    keywords: LineBreakKeyword[];
-    numberTypes: never[];
-  };
-  'line-clamp': {
-    keywords: LineClampKeyword[];
-    numberTypes: LineClampPropertyNumberType[];
-  };
-  'line-height': {
-    keywords: LineHeightKeyword[];
-    numberTypes: LineHeightPropertyNumberType[];
-  };
-  'line-height-step': {
-    keywords: never[];
-    numberTypes: LineHeightStepPropertyNumberType[];
-  };
-  'list-style-image': {
-    keywords: (ListStyleImageKeyword | ColorValue)[];
-    numberTypes: ListStyleImagePropertyNumberType[];
-  };
-  'list-style-position': {
-    keywords: ListStylePositionKeyword[];
-    numberTypes: never[];
-  };
-  'list-style-type': {
-    keywords: ListStyleTypeKeyword[];
-    numberTypes: never[];
-  };
-  'margin': {
-    keywords: MarginKeyword[];
-    numberTypes: MarginPropertyNumberType[];
-  };
-  'margin-bottom': {
-    keywords: MarginBottomKeyword[];
-    numberTypes: MarginBottomPropertyNumberType[];
-  };
-  'margin-left': {
-    keywords: MarginLeftKeyword[];
-    numberTypes: MarginLeftPropertyNumberType[];
-  };
-  'margin-right': {
-    keywords: MarginRightKeyword[];
-    numberTypes: MarginRightPropertyNumberType[];
-  };
-  'margin-top': {
-    keywords: MarginTopKeyword[];
-    numberTypes: MarginTopPropertyNumberType[];
-  };
-  'margin-trim': {
-    keywords: MarginTrimKeyword[];
-    numberTypes: never[];
-  };
-  'marker': {
-    keywords: MarkerKeyword[];
-    numberTypes: never[];
-  };
-  'marker-end': {
-    keywords: MarkerEndKeyword[];
-    numberTypes: never[];
-  };
-  'marker-mid': {
-    keywords: MarkerMidKeyword[];
-    numberTypes: never[];
-  };
-  'marker-start': {
-    keywords: MarkerStartKeyword[];
-    numberTypes: never[];
-  };
-  'mask': {
-    keywords: (MaskKeyword | ColorValue)[];
-    numberTypes: MaskPropertyNumberType[];
-  };
-  'mask-border-mode': {
-    keywords: MaskBorderModeKeyword[];
-    numberTypes: never[];
-  };
-  'mask-border-outset': {
-    keywords: never[];
-    numberTypes: MaskBorderOutsetPropertyNumberType[];
-  };
-  'mask-border-repeat': {
-    keywords: MaskBorderRepeatKeyword[];
-    numberTypes: never[];
-  };
-  'mask-border-slice': {
-    keywords: MaskBorderSliceKeyword[];
-    numberTypes: MaskBorderSlicePropertyNumberType[];
-  };
-  'mask-border-source': {
-    keywords: (MaskBorderSourceKeyword | ColorValue)[];
-    numberTypes: MaskBorderSourcePropertyNumberType[];
-  };
-  'mask-border-width': {
-    keywords: MaskBorderWidthKeyword[];
-    numberTypes: MaskBorderWidthPropertyNumberType[];
-  };
-  'mask-clip': {
-    keywords: MaskClipKeyword[];
-    numberTypes: never[];
-  };
-  'mask-composite': {
-    keywords: MaskCompositeKeyword[];
-    numberTypes: never[];
-  };
-  'mask-image': {
-    keywords: (MaskImageKeyword | ColorValue)[];
-    numberTypes: MaskImagePropertyNumberType[];
-  };
-  'mask-mode': {
-    keywords: MaskModeKeyword[];
-    numberTypes: never[];
-  };
-  'mask-origin': {
-    keywords: MaskOriginKeyword[];
-    numberTypes: never[];
-  };
-  'mask-position': {
-    keywords: MaskPositionKeyword[];
-    numberTypes: MaskPositionPropertyNumberType[];
-  };
-  'mask-repeat': {
-    keywords: MaskRepeatKeyword[];
-    numberTypes: never[];
-  };
-  'mask-size': {
-    keywords: MaskSizeKeyword[];
-    numberTypes: MaskSizePropertyNumberType[];
-  };
-  'mask-type': {
-    keywords: MaskTypeKeyword[];
-    numberTypes: never[];
-  };
-  'masonry-auto-flow': {
-    keywords: MasonryAutoFlowKeyword[];
-    numberTypes: never[];
-  };
-  'math-depth': {
-    keywords: MathDepthKeyword[];
-    numberTypes: MathDepthPropertyNumberType[];
-  };
-  'math-shift': {
-    keywords: MathShiftKeyword[];
-    numberTypes: never[];
-  };
-  'math-style': {
-    keywords: MathStyleKeyword[];
-    numberTypes: never[];
-  };
-  'max-height': {
-    keywords: MaxHeightKeyword[];
-    numberTypes: MaxHeightPropertyNumberType[];
-  };
-  'max-lines': {
-    keywords: MaxLinesKeyword[];
-    numberTypes: MaxLinesPropertyNumberType[];
-  };
-  'max-width': {
-    keywords: MaxWidthKeyword[];
-    numberTypes: MaxWidthPropertyNumberType[];
-  };
-  'min-height': {
-    keywords: MinHeightKeyword[];
-    numberTypes: MinHeightPropertyNumberType[];
-  };
-  'min-width': {
-    keywords: MinWidthKeyword[];
-    numberTypes: MinWidthPropertyNumberType[];
-  };
-  'mix-blend-mode': {
-    keywords: MixBlendModeKeyword[];
-    numberTypes: never[];
-  };
-  'object-fit': {
-    keywords: ObjectFitKeyword[];
-    numberTypes: never[];
-  };
-  'object-position': {
-    keywords: ObjectPositionKeyword[];
-    numberTypes: ObjectPositionPropertyNumberType[];
-  };
-  'offset-anchor': {
-    keywords: OffsetAnchorKeyword[];
-    numberTypes: OffsetAnchorPropertyNumberType[];
-  };
-  'offset-distance': {
-    keywords: never[];
-    numberTypes: OffsetDistancePropertyNumberType[];
-  };
-  'offset-path': {
-    keywords: OffsetPathKeyword[];
-    numberTypes: OffsetPathPropertyNumberType[];
-  };
-  'offset-position': {
-    keywords: OffsetPositionKeyword[];
-    numberTypes: OffsetPositionPropertyNumberType[];
-  };
-  'offset-rotate': {
-    keywords: OffsetRotateKeyword[];
-    numberTypes: OffsetRotatePropertyNumberType[];
-  };
-  'opacity': {
-    keywords: never[];
-    numberTypes: OpacityPropertyNumberType[];
-  };
-  'order': {
-    keywords: never[];
-    numberTypes: OrderPropertyNumberType[];
-  };
-  'orphans': {
-    keywords: never[];
-    numberTypes: OrphansPropertyNumberType[];
-  };
-  'outline-color': {
-    keywords: (OutlineColorKeyword | ColorValue)[];
-    numberTypes: OutlineColorPropertyNumberType[];
-  };
-  'outline-offset': {
-    keywords: never[];
-    numberTypes: OutlineOffsetPropertyNumberType[];
-  };
-  'outline-style': {
-    keywords: OutlineStyleKeyword[];
-    numberTypes: never[];
-  };
-  'outline-width': {
-    keywords: OutlineWidthKeyword[];
-    numberTypes: OutlineWidthPropertyNumberType[];
-  };
-  'overflow': {
-    keywords: OverflowKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-anchor': {
-    keywords: OverflowAnchorKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-block': {
-    keywords: OverflowBlockKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-clip-box': {
-    keywords: OverflowClipBoxKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-clip-margin': {
-    keywords: OverflowClipMarginKeyword[];
-    numberTypes: OverflowClipMarginPropertyNumberType[];
-  };
-  'overflow-inline': {
-    keywords: OverflowInlineKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-wrap': {
-    keywords: OverflowWrapKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-x': {
-    keywords: OverflowXKeyword[];
-    numberTypes: never[];
-  };
-  'overflow-y': {
-    keywords: OverflowYKeyword[];
-    numberTypes: never[];
-  };
-  'overlay': {
-    keywords: OverlayKeyword[];
-    numberTypes: never[];
-  };
-  'overscroll-behavior': {
-    keywords: OverscrollBehaviorKeyword[];
-    numberTypes: never[];
-  };
-  'overscroll-behavior-block': {
-    keywords: OverscrollBehaviorBlockKeyword[];
-    numberTypes: never[];
-  };
-  'overscroll-behavior-inline': {
-    keywords: OverscrollBehaviorInlineKeyword[];
-    numberTypes: never[];
-  };
-  'overscroll-behavior-x': {
-    keywords: OverscrollBehaviorXKeyword[];
-    numberTypes: never[];
-  };
-  'overscroll-behavior-y': {
-    keywords: OverscrollBehaviorYKeyword[];
-    numberTypes: never[];
-  };
-  'padding': {
-    keywords: never[];
-    numberTypes: PaddingPropertyNumberType[];
-  };
-  'padding-bottom': {
-    keywords: never[];
-    numberTypes: PaddingBottomPropertyNumberType[];
-  };
-  'padding-left': {
-    keywords: never[];
-    numberTypes: PaddingLeftPropertyNumberType[];
-  };
-  'padding-right': {
-    keywords: never[];
-    numberTypes: PaddingRightPropertyNumberType[];
-  };
-  'padding-top': {
-    keywords: never[];
-    numberTypes: PaddingTopPropertyNumberType[];
-  };
-  'page': {
-    keywords: PageKeyword[];
-    numberTypes: never[];
-  };
-  'page-break-after': {
-    keywords: PageBreakAfterKeyword[];
-    numberTypes: never[];
-  };
-  'page-break-before': {
-    keywords: PageBreakBeforeKeyword[];
-    numberTypes: never[];
-  };
-  'page-break-inside': {
-    keywords: PageBreakInsideKeyword[];
-    numberTypes: never[];
-  };
-  'paint-order': {
-    keywords: PaintOrderKeyword[];
-    numberTypes: never[];
-  };
-  'pause-after': {
-    keywords: PauseAfterKeyword[];
-    numberTypes: PauseAfterPropertyNumberType[];
-  };
-  'pause-before': {
-    keywords: PauseBeforeKeyword[];
-    numberTypes: PauseBeforePropertyNumberType[];
-  };
-  'perspective': {
-    keywords: PerspectiveKeyword[];
-    numberTypes: PerspectivePropertyNumberType[];
-  };
-  'perspective-origin': {
-    keywords: PerspectiveOriginKeyword[];
-    numberTypes: PerspectiveOriginPropertyNumberType[];
-  };
-  'pointer-events': {
-    keywords: PointerEventsKeyword[];
-    numberTypes: never[];
-  };
-  'position': {
-    keywords: PositionKeyword[];
-    numberTypes: never[];
-  };
-  'position-anchor': {
-    keywords: PositionAnchorKeyword[];
-    numberTypes: never[];
-  };
-  'position-area': {
-    keywords: PositionAreaKeyword[];
-    numberTypes: never[];
-  };
-  'position-try-fallbacks': {
-    keywords: PositionTryFallbacksKeyword[];
-    numberTypes: never[];
-  };
-  'position-try-order': {
-    keywords: PositionTryOrderKeyword[];
-    numberTypes: never[];
-  };
-  'position-visibility': {
-    keywords: PositionVisibilityKeyword[];
-    numberTypes: never[];
-  };
-  'print-color-adjust': {
-    keywords: PrintColorAdjustKeyword[];
-    numberTypes: never[];
-  };
-  'quotes': {
-    keywords: QuotesKeyword[];
-    numberTypes: never[];
-  };
-  'r': {
-    keywords: never[];
-    numberTypes: RPropertyNumberType[];
-  };
-  'resize': {
-    keywords: ResizeKeyword[];
-    numberTypes: never[];
-  };
-  'rest-after': {
-    keywords: RestAfterKeyword[];
-    numberTypes: RestAfterPropertyNumberType[];
-  };
-  'rest-before': {
-    keywords: RestBeforeKeyword[];
-    numberTypes: RestBeforePropertyNumberType[];
-  };
-  'right': {
-    keywords: RightKeyword[];
-    numberTypes: RightPropertyNumberType[];
-  };
-  'rotate': {
-    keywords: RotateKeyword[];
-    numberTypes: RotatePropertyNumberType[];
-  };
-  'row-gap': {
-    keywords: RowGapKeyword[];
-    numberTypes: RowGapPropertyNumberType[];
-  };
-  'ruby-align': {
-    keywords: RubyAlignKeyword[];
-    numberTypes: never[];
-  };
-  'ruby-merge': {
-    keywords: RubyMergeKeyword[];
-    numberTypes: never[];
-  };
-  'ruby-position': {
-    keywords: RubyPositionKeyword[];
-    numberTypes: never[];
-  };
-  'rx': {
-    keywords: never[];
-    numberTypes: RxPropertyNumberType[];
-  };
-  'ry': {
-    keywords: never[];
-    numberTypes: RyPropertyNumberType[];
-  };
-  'scale': {
-    keywords: ScaleKeyword[];
-    numberTypes: ScalePropertyNumberType[];
-  };
-  'scroll-behavior': {
-    keywords: ScrollBehaviorKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-margin': {
-    keywords: never[];
-    numberTypes: ScrollMarginPropertyNumberType[];
-  };
-  'scroll-margin-block': {
-    keywords: never[];
-    numberTypes: ScrollMarginBlockPropertyNumberType[];
-  };
-  'scroll-margin-block-end': {
-    keywords: never[];
-    numberTypes: ScrollMarginBlockEndPropertyNumberType[];
-  };
-  'scroll-margin-block-start': {
-    keywords: never[];
-    numberTypes: ScrollMarginBlockStartPropertyNumberType[];
-  };
-  'scroll-margin-bottom': {
-    keywords: never[];
-    numberTypes: ScrollMarginBottomPropertyNumberType[];
-  };
-  'scroll-margin-inline': {
-    keywords: never[];
-    numberTypes: ScrollMarginInlinePropertyNumberType[];
-  };
-  'scroll-margin-inline-end': {
-    keywords: never[];
-    numberTypes: ScrollMarginInlineEndPropertyNumberType[];
-  };
-  'scroll-margin-inline-start': {
-    keywords: never[];
-    numberTypes: ScrollMarginInlineStartPropertyNumberType[];
-  };
-  'scroll-margin-left': {
-    keywords: never[];
-    numberTypes: ScrollMarginLeftPropertyNumberType[];
-  };
-  'scroll-margin-right': {
-    keywords: never[];
-    numberTypes: ScrollMarginRightPropertyNumberType[];
-  };
-  'scroll-margin-top': {
-    keywords: never[];
-    numberTypes: ScrollMarginTopPropertyNumberType[];
-  };
-  'scroll-padding': {
-    keywords: ScrollPaddingKeyword[];
-    numberTypes: ScrollPaddingPropertyNumberType[];
-  };
-  'scroll-padding-block': {
-    keywords: ScrollPaddingBlockKeyword[];
-    numberTypes: ScrollPaddingBlockPropertyNumberType[];
-  };
-  'scroll-padding-block-end': {
-    keywords: ScrollPaddingBlockEndKeyword[];
-    numberTypes: ScrollPaddingBlockEndPropertyNumberType[];
-  };
-  'scroll-padding-block-start': {
-    keywords: ScrollPaddingBlockStartKeyword[];
-    numberTypes: ScrollPaddingBlockStartPropertyNumberType[];
-  };
-  'scroll-padding-bottom': {
-    keywords: ScrollPaddingBottomKeyword[];
-    numberTypes: ScrollPaddingBottomPropertyNumberType[];
-  };
-  'scroll-padding-inline': {
-    keywords: ScrollPaddingInlineKeyword[];
-    numberTypes: ScrollPaddingInlinePropertyNumberType[];
-  };
-  'scroll-padding-inline-end': {
-    keywords: ScrollPaddingInlineEndKeyword[];
-    numberTypes: ScrollPaddingInlineEndPropertyNumberType[];
-  };
-  'scroll-padding-inline-start': {
-    keywords: ScrollPaddingInlineStartKeyword[];
-    numberTypes: ScrollPaddingInlineStartPropertyNumberType[];
-  };
-  'scroll-padding-left': {
-    keywords: ScrollPaddingLeftKeyword[];
-    numberTypes: ScrollPaddingLeftPropertyNumberType[];
-  };
-  'scroll-padding-right': {
-    keywords: ScrollPaddingRightKeyword[];
-    numberTypes: ScrollPaddingRightPropertyNumberType[];
-  };
-  'scroll-padding-top': {
-    keywords: ScrollPaddingTopKeyword[];
-    numberTypes: ScrollPaddingTopPropertyNumberType[];
-  };
-  'scroll-snap-align': {
-    keywords: ScrollSnapAlignKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-snap-coordinate': {
-    keywords: ScrollSnapCoordinateKeyword[];
-    numberTypes: ScrollSnapCoordinatePropertyNumberType[];
-  };
-  'scroll-snap-destination': {
-    keywords: ScrollSnapDestinationKeyword[];
-    numberTypes: ScrollSnapDestinationPropertyNumberType[];
-  };
-  'scroll-snap-points-x': {
-    keywords: ScrollSnapPointsXKeyword[];
-    numberTypes: ScrollSnapPointsXPropertyNumberType[];
-  };
-  'scroll-snap-points-y': {
-    keywords: ScrollSnapPointsYKeyword[];
-    numberTypes: ScrollSnapPointsYPropertyNumberType[];
-  };
-  'scroll-snap-stop': {
-    keywords: ScrollSnapStopKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-snap-type': {
-    keywords: ScrollSnapTypeKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-snap-type-x': {
-    keywords: ScrollSnapTypeXKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-snap-type-y': {
-    keywords: ScrollSnapTypeYKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-timeline-axis': {
-    keywords: ScrollTimelineAxisKeyword[];
-    numberTypes: never[];
-  };
-  'scroll-timeline-name': {
-    keywords: ScrollTimelineNameKeyword[];
-    numberTypes: never[];
-  };
-  'scrollbar-color': {
-    keywords: (ScrollbarColorKeyword | ColorValue)[];
-    numberTypes: ScrollbarColorPropertyNumberType[];
-  };
-  'scrollbar-gutter': {
-    keywords: ScrollbarGutterKeyword[];
-    numberTypes: never[];
-  };
-  'scrollbar-width': {
-    keywords: ScrollbarWidthKeyword[];
-    numberTypes: never[];
-  };
-  'shape-image-threshold': {
-    keywords: never[];
-    numberTypes: ShapeImageThresholdPropertyNumberType[];
-  };
-  'shape-margin': {
-    keywords: never[];
-    numberTypes: ShapeMarginPropertyNumberType[];
-  };
-  'shape-outside': {
-    keywords: (ShapeOutsideKeyword | ColorValue)[];
-    numberTypes: ShapeOutsidePropertyNumberType[];
-  };
-  'shape-rendering': {
-    keywords: ShapeRenderingKeyword[];
-    numberTypes: never[];
-  };
-  'speak': {
-    keywords: SpeakKeyword[];
-    numberTypes: never[];
-  };
-  'speak-as': {
-    keywords: SpeakAsKeyword[];
-    numberTypes: never[];
-  };
-  'stroke': {
-    keywords: (StrokeKeyword | ColorValue)[];
-    numberTypes: StrokePropertyNumberType[];
-  };
-  'stroke-dasharray': {
-    keywords: StrokeDasharrayKeyword[];
-    numberTypes: StrokeDasharrayPropertyNumberType[];
-  };
-  'stroke-dashoffset': {
-    keywords: never[];
-    numberTypes: StrokeDashoffsetPropertyNumberType[];
-  };
-  'stroke-linecap': {
-    keywords: StrokeLinecapKeyword[];
-    numberTypes: never[];
-  };
-  'stroke-linejoin': {
-    keywords: StrokeLinejoinKeyword[];
-    numberTypes: never[];
-  };
-  'stroke-miterlimit': {
-    keywords: never[];
-    numberTypes: StrokeMiterlimitPropertyNumberType[];
-  };
-  'stroke-width': {
-    keywords: never[];
-    numberTypes: StrokeWidthPropertyNumberType[];
-  };
-  'tab-size': {
-    keywords: never[];
-    numberTypes: TabSizePropertyNumberType[];
-  };
-  'table-layout': {
-    keywords: TableLayoutKeyword[];
-    numberTypes: never[];
-  };
-  'text-align': {
-    keywords: TextAlignKeyword[];
-    numberTypes: never[];
-  };
-  'text-align-last': {
-    keywords: TextAlignLastKeyword[];
-    numberTypes: never[];
-  };
-  'text-anchor': {
-    keywords: TextAnchorKeyword[];
-    numberTypes: never[];
-  };
-  'text-combine-upright': {
-    keywords: TextCombineUprightKeyword[];
-    numberTypes: TextCombineUprightPropertyNumberType[];
-  };
-  'text-decoration-color': {
-    keywords: (TextDecorationColorKeyword | ColorValue)[];
-    numberTypes: TextDecorationColorPropertyNumberType[];
-  };
-  'text-decoration-line': {
-    keywords: TextDecorationLineKeyword[];
-    numberTypes: never[];
-  };
-  'text-decoration-skip': {
-    keywords: TextDecorationSkipKeyword[];
-    numberTypes: never[];
-  };
-  'text-decoration-skip-ink': {
-    keywords: TextDecorationSkipInkKeyword[];
-    numberTypes: never[];
-  };
-  'text-decoration-style': {
-    keywords: TextDecorationStyleKeyword[];
-    numberTypes: never[];
-  };
-  'text-decoration-thickness': {
-    keywords: TextDecorationThicknessKeyword[];
-    numberTypes: TextDecorationThicknessPropertyNumberType[];
-  };
-  'text-emphasis-color': {
-    keywords: (TextEmphasisColorKeyword | ColorValue)[];
-    numberTypes: TextEmphasisColorPropertyNumberType[];
-  };
-  'text-emphasis-position': {
-    keywords: TextEmphasisPositionKeyword[];
-    numberTypes: never[];
-  };
-  'text-emphasis-style': {
-    keywords: TextEmphasisStyleKeyword[];
-    numberTypes: never[];
-  };
-  'text-indent': {
-    keywords: TextIndentKeyword[];
-    numberTypes: TextIndentPropertyNumberType[];
-  };
-  'text-justify': {
-    keywords: TextJustifyKeyword[];
-    numberTypes: never[];
-  };
-  'text-orientation': {
-    keywords: TextOrientationKeyword[];
-    numberTypes: never[];
-  };
-  'text-overflow': {
-    keywords: TextOverflowKeyword[];
-    numberTypes: never[];
-  };
-  'text-rendering': {
-    keywords: TextRenderingKeyword[];
-    numberTypes: never[];
-  };
-  'text-shadow': {
-    keywords: (TextShadowKeyword | ColorValue)[];
-    numberTypes: TextShadowPropertyNumberType[];
-  };
-  'text-size-adjust': {
-    keywords: TextSizeAdjustKeyword[];
-    numberTypes: TextSizeAdjustPropertyNumberType[];
-  };
-  'text-spacing-trim': {
-    keywords: TextSpacingTrimKeyword[];
-    numberTypes: never[];
-  };
-  'text-transform': {
-    keywords: TextTransformKeyword[];
-    numberTypes: never[];
-  };
-  'text-underline-offset': {
-    keywords: TextUnderlineOffsetKeyword[];
-    numberTypes: TextUnderlineOffsetPropertyNumberType[];
-  };
-  'text-underline-position': {
-    keywords: TextUnderlinePositionKeyword[];
-    numberTypes: never[];
-  };
-  'text-wrap-mode': {
-    keywords: TextWrapModeKeyword[];
-    numberTypes: never[];
-  };
-  'text-wrap-style': {
-    keywords: TextWrapStyleKeyword[];
-    numberTypes: never[];
-  };
-  'timeline-scope': {
-    keywords: TimelineScopeKeyword[];
-    numberTypes: never[];
-  };
-  'top': {
-    keywords: TopKeyword[];
-    numberTypes: TopPropertyNumberType[];
-  };
-  'touch-action': {
-    keywords: TouchActionKeyword[];
-    numberTypes: never[];
-  };
-  'transform': {
-    keywords: TransformKeyword[];
-    numberTypes: TransformPropertyNumberType[];
-  };
-  'transform-box': {
-    keywords: TransformBoxKeyword[];
-    numberTypes: never[];
-  };
-  'transform-origin': {
-    keywords: TransformOriginKeyword[];
-    numberTypes: TransformOriginPropertyNumberType[];
-  };
-  'transform-style': {
-    keywords: TransformStyleKeyword[];
-    numberTypes: never[];
-  };
-  'transition': {
-    keywords: TransitionKeyword[];
-    numberTypes: TransitionPropertyNumberType[];
-  };
-  'transition-behavior': {
-    keywords: TransitionBehaviorKeyword[];
-    numberTypes: never[];
-  };
-  'transition-delay': {
-    keywords: never[];
-    numberTypes: TransitionDelayPropertyNumberType[];
-  };
-  'transition-duration': {
-    keywords: never[];
-    numberTypes: TransitionDurationPropertyNumberType[];
-  };
-  'transition-property': {
-    keywords: TransitionPropertyKeyword[];
-    numberTypes: never[];
-  };
-  'transition-timing-function': {
-    keywords: TransitionTimingFunctionKeyword[];
-    numberTypes: TransitionTimingFunctionPropertyNumberType[];
-  };
-  'translate': {
-    keywords: TranslateKeyword[];
-    numberTypes: TranslatePropertyNumberType[];
-  };
-  'unicode-bidi': {
-    keywords: UnicodeBidiKeyword[];
-    numberTypes: never[];
-  };
-  'user-select': {
-    keywords: UserSelectKeyword[];
-    numberTypes: never[];
-  };
-  'vector-effect': {
-    keywords: VectorEffectKeyword[];
-    numberTypes: never[];
-  };
-  'vertical-align': {
-    keywords: VerticalAlignKeyword[];
-    numberTypes: VerticalAlignPropertyNumberType[];
-  };
-  'view-timeline-axis': {
-    keywords: ViewTimelineAxisKeyword[];
-    numberTypes: never[];
-  };
-  'view-timeline-inset': {
-    keywords: ViewTimelineInsetKeyword[];
-    numberTypes: ViewTimelineInsetPropertyNumberType[];
-  };
-  'view-timeline-name': {
-    keywords: ViewTimelineNameKeyword[];
-    numberTypes: never[];
-  };
-  'view-transition-name': {
-    keywords: ViewTransitionNameKeyword[];
-    numberTypes: never[];
-  };
-  'visibility': {
-    keywords: VisibilityKeyword[];
-    numberTypes: never[];
-  };
-  'voice-balance': {
-    keywords: VoiceBalanceKeyword[];
-    numberTypes: VoiceBalancePropertyNumberType[];
-  };
-  'voice-duration': {
-    keywords: VoiceDurationKeyword[];
-    numberTypes: VoiceDurationPropertyNumberType[];
-  };
-  'voice-family': {
-    keywords: VoiceFamilyKeyword[];
-    numberTypes: VoiceFamilyPropertyNumberType[];
-  };
-  'voice-pitch': {
-    keywords: VoicePitchKeyword[];
-    numberTypes: VoicePitchPropertyNumberType[];
-  };
-  'voice-range': {
-    keywords: VoiceRangeKeyword[];
-    numberTypes: VoiceRangePropertyNumberType[];
-  };
-  'voice-rate': {
-    keywords: VoiceRateKeyword[];
-    numberTypes: VoiceRatePropertyNumberType[];
-  };
-  'voice-stress': {
-    keywords: VoiceStressKeyword[];
-    numberTypes: never[];
-  };
-  'voice-volume': {
-    keywords: VoiceVolumeKeyword[];
-    numberTypes: never[];
-  };
-  'white-space': {
-    keywords: WhiteSpaceKeyword[];
-    numberTypes: never[];
-  };
-  'white-space-collapse': {
-    keywords: WhiteSpaceCollapseKeyword[];
-    numberTypes: never[];
-  };
-  'white-space-trim': {
-    keywords: WhiteSpaceTrimKeyword[];
-    numberTypes: never[];
-  };
-  'widows': {
-    keywords: never[];
-    numberTypes: WidowsPropertyNumberType[];
-  };
-  'width': {
-    keywords: WidthKeyword[];
-    numberTypes: WidthPropertyNumberType[];
-  };
-  'will-change': {
-    keywords: WillChangeKeyword[];
-    numberTypes: never[];
-  };
-  'word-break': {
-    keywords: WordBreakKeyword[];
-    numberTypes: never[];
-  };
-  'word-spacing': {
-    keywords: WordSpacingKeyword[];
-    numberTypes: WordSpacingPropertyNumberType[];
-  };
-  'word-wrap': {
-    keywords: WordWrapKeyword[];
-    numberTypes: never[];
-  };
-  'writing-mode': {
-    keywords: WritingModeKeyword[];
-    numberTypes: never[];
-  };
-  'x': {
-    keywords: never[];
-    numberTypes: XPropertyNumberType[];
-  };
-  'y': {
-    keywords: never[];
-    numberTypes: YPropertyNumberType[];
-  };
-  'z-index': {
-    keywords: ZIndexKeyword[];
-    numberTypes: ZIndexPropertyNumberType[];
-  };
-  'zoom': {
-    keywords: ZoomKeyword[];
-    numberTypes: ZoomPropertyNumberType[];
-  };
-};
-
-// 重新导出关键词类型供类型使用
 import type {
-  AccentColorKeyword,
-  AlignContentKeyword,
-  AlignItemsKeyword,
-  AlignSelfKeyword,
-  AlignTracksKeyword,
-  AlignmentBaselineKeyword,
-  AllKeyword,
-  AnchorNameKeyword,
-  AnchorScopeKeyword,
-  AnimationKeyword,
-  AnimationCompositionKeyword,
-  AnimationDirectionKeyword,
-  AnimationFillModeKeyword,
-  AnimationIterationCountKeyword,
-  AnimationNameKeyword,
-  AnimationPlayStateKeyword,
-  AnimationRangeEndKeyword,
-  AnimationRangeStartKeyword,
-  AnimationTimelineKeyword,
-  AnimationTimingFunctionKeyword,
-  AppearanceKeyword,
-  AspectRatioKeyword,
-  AzimuthKeyword,
-  BackdropFilterKeyword,
-  BackfaceVisibilityKeyword,
-  BackgroundKeyword,
-  BackgroundAttachmentKeyword,
-  BackgroundBlendModeKeyword,
-  BackgroundClipKeyword,
-  BackgroundColorKeyword,
-  BackgroundImageKeyword,
-  BackgroundOriginKeyword,
-  BackgroundPositionKeyword,
-  BackgroundPositionXKeyword,
-  BackgroundPositionYKeyword,
-  BackgroundRepeatKeyword,
-  BackgroundSizeKeyword,
-  BaselineShiftKeyword,
-  BorderKeyword,
-  BorderBlockKeyword,
-  BorderBlockEndKeyword,
-  BorderBlockStartKeyword,
-  BorderBottomKeyword,
-  BorderBottomStyleKeyword,
-  BorderBottomWidthKeyword,
-  BorderCollapseKeyword,
-  BorderColorKeyword,
-  BorderImageRepeatKeyword,
-  BorderImageSliceKeyword,
-  BorderImageSourceKeyword,
-  BorderImageWidthKeyword,
-  BorderInlineKeyword,
-  BorderInlineEndKeyword,
-  BorderInlineStartKeyword,
-  BorderLeftKeyword,
-  BorderLeftColorKeyword,
-  BorderLeftStyleKeyword,
-  BorderLeftWidthKeyword,
-  BorderRightKeyword,
-  BorderRightColorKeyword,
-  BorderRightStyleKeyword,
-  BorderRightWidthKeyword,
-  BorderStyleKeyword,
-  BorderTopKeyword,
-  BorderTopColorKeyword,
-  BorderTopStyleKeyword,
-  BorderTopWidthKeyword,
-  BorderWidthKeyword,
-  BottomKeyword,
-  BoxAlignKeyword,
-  BoxDecorationBreakKeyword,
-  BoxDirectionKeyword,
-  BoxLinesKeyword,
-  BoxOrientKeyword,
-  BoxPackKeyword,
-  BoxShadowKeyword,
-  BoxSizingKeyword,
-  BreakAfterKeyword,
-  BreakBeforeKeyword,
-  BreakInsideKeyword,
-  CaptionSideKeyword,
-  CaretColorKeyword,
-  CaretShapeKeyword,
-  ClearKeyword,
-  ClipKeyword,
-  ClipPathKeyword,
-  ClipRuleKeyword,
-  ColorKeyword,
-  ColorInterpolationFiltersKeyword,
-  ColorSchemeKeyword,
-  ColumnCountKeyword,
-  ColumnFillKeyword,
-  ColumnGapKeyword,
-  ColumnRuleColorKeyword,
-  ColumnSpanKeyword,
-  ColumnWidthKeyword,
-  ContainKeyword,
-  ContainIntrinsicBlockSizeKeyword,
-  ContainIntrinsicHeightKeyword,
-  ContainIntrinsicInlineSizeKeyword,
-  ContainIntrinsicSizeKeyword,
-  ContainIntrinsicWidthKeyword,
-  ContainerNameKeyword,
-  ContainerTypeKeyword,
-  ContentKeyword,
-  ContentVisibilityKeyword,
-  CounterIncrementKeyword,
-  CounterResetKeyword,
-  CounterSetKeyword,
-  CueAfterKeyword,
-  CueBeforeKeyword,
-  CursorKeyword,
-  DKeyword,
-  DirectionKeyword,
-  DisplayKeyword,
-  DominantBaselineKeyword,
-  EmptyCellsKeyword,
-  FieldSizingKeyword,
-  FillKeyword,
-  FillRuleKeyword,
-  FilterKeyword,
-  FlexKeyword,
-  FlexBasisKeyword,
-  FlexDirectionKeyword,
-  FlexWrapKeyword,
-  FloatKeyword,
-  FontKeyword,
-  FontFamilyKeyword,
-  FontFeatureSettingsKeyword,
-  FontKerningKeyword,
-  FontLanguageOverrideKeyword,
-  FontOpticalSizingKeyword,
-  FontPaletteKeyword,
-  FontSizeKeyword,
-  FontSizeAdjustKeyword,
-  FontSmoothKeyword,
-  FontStretchKeyword,
-  FontStyleKeyword,
-  FontSynthesisKeyword,
-  FontSynthesisPositionKeyword,
-  FontSynthesisSmallCapsKeyword,
-  FontSynthesisStyleKeyword,
-  FontSynthesisWeightKeyword,
-  FontVariantKeyword,
-  FontVariantAlternatesKeyword,
-  FontVariantCapsKeyword,
-  FontVariantEastAsianKeyword,
-  FontVariantEmojiKeyword,
-  FontVariantLigaturesKeyword,
-  FontVariantNumericKeyword,
-  FontVariantPositionKeyword,
-  FontVariationSettingsKeyword,
-  FontWeightKeyword,
-  ForcedColorAdjustKeyword,
-  GridKeyword,
-  GridAreaKeyword,
-  GridAutoColumnsKeyword,
-  GridAutoFlowKeyword,
-  GridAutoRowsKeyword,
-  GridColumnKeyword,
-  GridColumnEndKeyword,
-  GridColumnStartKeyword,
-  GridRowKeyword,
-  GridRowEndKeyword,
-  GridRowStartKeyword,
-  GridTemplateKeyword,
-  GridTemplateAreasKeyword,
-  GridTemplateColumnsKeyword,
-  GridTemplateRowsKeyword,
-  HangingPunctuationKeyword,
-  HeightKeyword,
-  HyphenateCharacterKeyword,
-  HyphenateLimitCharsKeyword,
-  HyphensKeyword,
-  ImageOrientationKeyword,
-  ImageRenderingKeyword,
-  ImageResolutionKeyword,
-  ImeModeKeyword,
-  InitialLetterKeyword,
-  InitialLetterAlignKeyword,
-  InputSecurityKeyword,
-  InterpolateSizeKeyword,
-  IsolationKeyword,
-  JustifyContentKeyword,
-  JustifyItemsKeyword,
-  JustifySelfKeyword,
-  JustifyTracksKeyword,
-  KerningKeyword,
-  LeftKeyword,
-  LetterSpacingKeyword,
-  LineBreakKeyword,
-  LineClampKeyword,
-  LineHeightKeyword,
-  ListStyleImageKeyword,
-  ListStylePositionKeyword,
-  ListStyleTypeKeyword,
-  MarginKeyword,
-  MarginBottomKeyword,
-  MarginLeftKeyword,
-  MarginRightKeyword,
-  MarginTopKeyword,
-  MarginTrimKeyword,
-  MarkerKeyword,
-  MarkerEndKeyword,
-  MarkerMidKeyword,
-  MarkerStartKeyword,
-  MaskKeyword,
-  MaskBorderModeKeyword,
-  MaskBorderRepeatKeyword,
-  MaskBorderSliceKeyword,
-  MaskBorderSourceKeyword,
-  MaskBorderWidthKeyword,
-  MaskClipKeyword,
-  MaskCompositeKeyword,
-  MaskImageKeyword,
-  MaskModeKeyword,
-  MaskOriginKeyword,
-  MaskPositionKeyword,
-  MaskRepeatKeyword,
-  MaskSizeKeyword,
-  MaskTypeKeyword,
-  MasonryAutoFlowKeyword,
-  MathDepthKeyword,
-  MathShiftKeyword,
-  MathStyleKeyword,
-  MaxHeightKeyword,
-  MaxLinesKeyword,
-  MaxWidthKeyword,
-  MinHeightKeyword,
-  MinWidthKeyword,
-  MixBlendModeKeyword,
-  ObjectFitKeyword,
-  ObjectPositionKeyword,
-  OffsetAnchorKeyword,
-  OffsetPathKeyword,
-  OffsetPositionKeyword,
-  OffsetRotateKeyword,
-  OutlineColorKeyword,
-  OutlineStyleKeyword,
-  OutlineWidthKeyword,
-  OverflowKeyword,
-  OverflowAnchorKeyword,
-  OverflowBlockKeyword,
-  OverflowClipBoxKeyword,
-  OverflowClipMarginKeyword,
-  OverflowInlineKeyword,
-  OverflowWrapKeyword,
-  OverflowXKeyword,
-  OverflowYKeyword,
-  OverlayKeyword,
-  OverscrollBehaviorKeyword,
-  OverscrollBehaviorBlockKeyword,
-  OverscrollBehaviorInlineKeyword,
-  OverscrollBehaviorXKeyword,
-  OverscrollBehaviorYKeyword,
-  PageKeyword,
-  PageBreakAfterKeyword,
-  PageBreakBeforeKeyword,
-  PageBreakInsideKeyword,
-  PaintOrderKeyword,
-  PauseAfterKeyword,
-  PauseBeforeKeyword,
-  PerspectiveKeyword,
-  PerspectiveOriginKeyword,
-  PointerEventsKeyword,
-  PositionKeyword,
-  PositionAnchorKeyword,
-  PositionAreaKeyword,
-  PositionTryFallbacksKeyword,
-  PositionTryOrderKeyword,
-  PositionVisibilityKeyword,
-  PrintColorAdjustKeyword,
-  QuotesKeyword,
-  ResizeKeyword,
-  RestAfterKeyword,
-  RestBeforeKeyword,
-  RightKeyword,
-  RotateKeyword,
-  RowGapKeyword,
-  RubyAlignKeyword,
-  RubyMergeKeyword,
-  RubyPositionKeyword,
-  ScaleKeyword,
-  ScrollBehaviorKeyword,
-  ScrollPaddingKeyword,
-  ScrollPaddingBlockKeyword,
-  ScrollPaddingBlockEndKeyword,
-  ScrollPaddingBlockStartKeyword,
-  ScrollPaddingBottomKeyword,
-  ScrollPaddingInlineKeyword,
-  ScrollPaddingInlineEndKeyword,
-  ScrollPaddingInlineStartKeyword,
-  ScrollPaddingLeftKeyword,
-  ScrollPaddingRightKeyword,
-  ScrollPaddingTopKeyword,
-  ScrollSnapAlignKeyword,
-  ScrollSnapCoordinateKeyword,
-  ScrollSnapDestinationKeyword,
-  ScrollSnapPointsXKeyword,
-  ScrollSnapPointsYKeyword,
-  ScrollSnapStopKeyword,
-  ScrollSnapTypeKeyword,
-  ScrollSnapTypeXKeyword,
-  ScrollSnapTypeYKeyword,
-  ScrollTimelineAxisKeyword,
-  ScrollTimelineNameKeyword,
-  ScrollbarColorKeyword,
-  ScrollbarGutterKeyword,
-  ScrollbarWidthKeyword,
-  ShapeOutsideKeyword,
-  ShapeRenderingKeyword,
-  SpeakKeyword,
-  SpeakAsKeyword,
-  StrokeKeyword,
-  StrokeDasharrayKeyword,
-  StrokeLinecapKeyword,
-  StrokeLinejoinKeyword,
-  TableLayoutKeyword,
-  TextAlignKeyword,
-  TextAlignLastKeyword,
-  TextAnchorKeyword,
-  TextCombineUprightKeyword,
-  TextDecorationColorKeyword,
-  TextDecorationLineKeyword,
-  TextDecorationSkipKeyword,
-  TextDecorationSkipInkKeyword,
-  TextDecorationStyleKeyword,
-  TextDecorationThicknessKeyword,
-  TextEmphasisColorKeyword,
-  TextEmphasisPositionKeyword,
-  TextEmphasisStyleKeyword,
-  TextIndentKeyword,
-  TextJustifyKeyword,
-  TextOrientationKeyword,
-  TextOverflowKeyword,
-  TextRenderingKeyword,
-  TextShadowKeyword,
-  TextSizeAdjustKeyword,
-  TextSpacingTrimKeyword,
-  TextTransformKeyword,
-  TextUnderlineOffsetKeyword,
-  TextUnderlinePositionKeyword,
-  TextWrapModeKeyword,
-  TextWrapStyleKeyword,
-  TimelineScopeKeyword,
-  TopKeyword,
-  TouchActionKeyword,
-  TransformKeyword,
-  TransformBoxKeyword,
-  TransformOriginKeyword,
-  TransformStyleKeyword,
-  TransitionKeyword,
-  TransitionBehaviorKeyword,
-  TransitionPropertyKeyword,
-  TransitionTimingFunctionKeyword,
-  TranslateKeyword,
-  UnicodeBidiKeyword,
-  UserSelectKeyword,
-  VectorEffectKeyword,
-  VerticalAlignKeyword,
-  ViewTimelineAxisKeyword,
-  ViewTimelineInsetKeyword,
-  ViewTimelineNameKeyword,
-  ViewTransitionNameKeyword,
-  VisibilityKeyword,
-  VoiceBalanceKeyword,
-  VoiceDurationKeyword,
-  VoiceFamilyKeyword,
-  VoicePitchKeyword,
-  VoiceRangeKeyword,
-  VoiceRateKeyword,
-  VoiceStressKeyword,
-  VoiceVolumeKeyword,
-  WhiteSpaceKeyword,
-  WhiteSpaceCollapseKeyword,
-  WhiteSpaceTrimKeyword,
-  WidthKeyword,
-  WillChangeKeyword,
-  WordBreakKeyword,
-  WordSpacingKeyword,
-  WordWrapKeyword,
-  WritingModeKeyword,
-  ZIndexKeyword,
-  ZoomKeyword,
-} from './css-keywords';
+  AccentColorConfig,
+  AlignContentConfig,
+  AlignItemsConfig,
+  AlignSelfConfig,
+  AlignTracksConfig,
+  AlignmentBaselineConfig,
+  AllConfig,
+  AnchorNameConfig,
+  AnchorScopeConfig,
+  AnimationConfig,
+  AnimationCompositionConfig,
+  AnimationDelayConfig,
+  AnimationDirectionConfig,
+  AnimationDurationConfig,
+  AnimationFillModeConfig,
+  AnimationIterationCountConfig,
+  AnimationNameConfig,
+  AnimationPlayStateConfig,
+  AnimationRangeEndConfig,
+  AnimationRangeStartConfig,
+  AnimationTimelineConfig,
+  AnimationTimingFunctionConfig,
+  AppearanceConfig,
+  AspectRatioConfig,
+  AzimuthConfig,
+  BackdropFilterConfig,
+  BackfaceVisibilityConfig,
+  BackgroundConfig,
+  BackgroundAttachmentConfig,
+  BackgroundBlendModeConfig,
+  BackgroundClipConfig,
+  BackgroundColorConfig,
+  BackgroundImageConfig,
+  BackgroundOriginConfig,
+  BackgroundPositionConfig,
+  BackgroundPositionXConfig,
+  BackgroundPositionYConfig,
+  BackgroundRepeatConfig,
+  BackgroundSizeConfig,
+  BaselineShiftConfig,
+  BorderConfig,
+  BorderBlockConfig,
+  BorderBlockEndConfig,
+  BorderBlockStartConfig,
+  BorderBottomConfig,
+  BorderBottomLeftRadiusConfig,
+  BorderBottomRightRadiusConfig,
+  BorderBottomStyleConfig,
+  BorderBottomWidthConfig,
+  BorderCollapseConfig,
+  BorderColorConfig,
+  BorderEndEndRadiusConfig,
+  BorderEndStartRadiusConfig,
+  BorderImageOutsetConfig,
+  BorderImageRepeatConfig,
+  BorderImageSliceConfig,
+  BorderImageSourceConfig,
+  BorderImageWidthConfig,
+  BorderInlineConfig,
+  BorderInlineEndConfig,
+  BorderInlineStartConfig,
+  BorderLeftConfig,
+  BorderLeftColorConfig,
+  BorderLeftStyleConfig,
+  BorderLeftWidthConfig,
+  BorderRadiusConfig,
+  BorderRightConfig,
+  BorderRightColorConfig,
+  BorderRightStyleConfig,
+  BorderRightWidthConfig,
+  BorderSpacingConfig,
+  BorderStartEndRadiusConfig,
+  BorderStartStartRadiusConfig,
+  BorderStyleConfig,
+  BorderTopConfig,
+  BorderTopColorConfig,
+  BorderTopLeftRadiusConfig,
+  BorderTopRightRadiusConfig,
+  BorderTopStyleConfig,
+  BorderTopWidthConfig,
+  BorderWidthConfig,
+  BottomConfig,
+  BoxAlignConfig,
+  BoxDecorationBreakConfig,
+  BoxDirectionConfig,
+  BoxFlexConfig,
+  BoxFlexGroupConfig,
+  BoxLinesConfig,
+  BoxOrdinalGroupConfig,
+  BoxOrientConfig,
+  BoxPackConfig,
+  BoxShadowConfig,
+  BoxSizingConfig,
+  BreakAfterConfig,
+  BreakBeforeConfig,
+  BreakInsideConfig,
+  CaptionSideConfig,
+  CaretColorConfig,
+  CaretShapeConfig,
+  ClearConfig,
+  ClipConfig,
+  ClipPathConfig,
+  ClipRuleConfig,
+  ColorConfig,
+  ColorInterpolationFiltersConfig,
+  ColorSchemeConfig,
+  ColumnCountConfig,
+  ColumnFillConfig,
+  ColumnGapConfig,
+  ColumnRuleColorConfig,
+  ColumnSpanConfig,
+  ColumnWidthConfig,
+  ContainConfig,
+  ContainIntrinsicBlockSizeConfig,
+  ContainIntrinsicHeightConfig,
+  ContainIntrinsicInlineSizeConfig,
+  ContainIntrinsicSizeConfig,
+  ContainIntrinsicWidthConfig,
+  ContainerNameConfig,
+  ContainerTypeConfig,
+  ContentConfig,
+  ContentVisibilityConfig,
+  CounterIncrementConfig,
+  CounterResetConfig,
+  CounterSetConfig,
+  CueAfterConfig,
+  CueBeforeConfig,
+  CursorConfig,
+  CxConfig,
+  CyConfig,
+  DConfig,
+  DirectionConfig,
+  DisplayConfig,
+  DominantBaselineConfig,
+  EmptyCellsConfig,
+  FieldSizingConfig,
+  FillConfig,
+  FillOpacityConfig,
+  FillRuleConfig,
+  FilterConfig,
+  FlexConfig,
+  FlexBasisConfig,
+  FlexDirectionConfig,
+  FlexGrowConfig,
+  FlexShrinkConfig,
+  FlexWrapConfig,
+  FloatConfig,
+  FontConfig,
+  FontFamilyConfig,
+  FontFeatureSettingsConfig,
+  FontKerningConfig,
+  FontLanguageOverrideConfig,
+  FontOpticalSizingConfig,
+  FontPaletteConfig,
+  FontSizeConfig,
+  FontSizeAdjustConfig,
+  FontSmoothConfig,
+  FontStretchConfig,
+  FontStyleConfig,
+  FontSynthesisConfig,
+  FontSynthesisPositionConfig,
+  FontSynthesisSmallCapsConfig,
+  FontSynthesisStyleConfig,
+  FontSynthesisWeightConfig,
+  FontVariantConfig,
+  FontVariantAlternatesConfig,
+  FontVariantCapsConfig,
+  FontVariantEastAsianConfig,
+  FontVariantEmojiConfig,
+  FontVariantLigaturesConfig,
+  FontVariantNumericConfig,
+  FontVariantPositionConfig,
+  FontVariationSettingsConfig,
+  FontWeightConfig,
+  ForcedColorAdjustConfig,
+  GlyphOrientationHorizontalConfig,
+  GlyphOrientationVerticalConfig,
+  GridConfig,
+  GridAreaConfig,
+  GridAutoColumnsConfig,
+  GridAutoFlowConfig,
+  GridAutoRowsConfig,
+  GridColumnConfig,
+  GridColumnEndConfig,
+  GridColumnGapConfig,
+  GridColumnStartConfig,
+  GridRowConfig,
+  GridRowEndConfig,
+  GridRowGapConfig,
+  GridRowStartConfig,
+  GridTemplateConfig,
+  GridTemplateAreasConfig,
+  GridTemplateColumnsConfig,
+  GridTemplateRowsConfig,
+  HangingPunctuationConfig,
+  HeightConfig,
+  HyphenateCharacterConfig,
+  HyphenateLimitCharsConfig,
+  HyphensConfig,
+  ImageOrientationConfig,
+  ImageRenderingConfig,
+  ImageResolutionConfig,
+  ImeModeConfig,
+  InitialLetterConfig,
+  InitialLetterAlignConfig,
+  InputSecurityConfig,
+  InterpolateSizeConfig,
+  IsolationConfig,
+  JustifyContentConfig,
+  JustifyItemsConfig,
+  JustifySelfConfig,
+  JustifyTracksConfig,
+  KerningConfig,
+  LeftConfig,
+  LetterSpacingConfig,
+  LineBreakConfig,
+  LineClampConfig,
+  LineHeightConfig,
+  LineHeightStepConfig,
+  ListStyleImageConfig,
+  ListStylePositionConfig,
+  ListStyleTypeConfig,
+  MarginConfig,
+  MarginBottomConfig,
+  MarginLeftConfig,
+  MarginRightConfig,
+  MarginTopConfig,
+  MarginTrimConfig,
+  MarkerConfig,
+  MarkerEndConfig,
+  MarkerMidConfig,
+  MarkerStartConfig,
+  MaskConfig,
+  MaskBorderModeConfig,
+  MaskBorderOutsetConfig,
+  MaskBorderRepeatConfig,
+  MaskBorderSliceConfig,
+  MaskBorderSourceConfig,
+  MaskBorderWidthConfig,
+  MaskClipConfig,
+  MaskCompositeConfig,
+  MaskImageConfig,
+  MaskModeConfig,
+  MaskOriginConfig,
+  MaskPositionConfig,
+  MaskRepeatConfig,
+  MaskSizeConfig,
+  MaskTypeConfig,
+  MasonryAutoFlowConfig,
+  MathDepthConfig,
+  MathShiftConfig,
+  MathStyleConfig,
+  MaxHeightConfig,
+  MaxLinesConfig,
+  MaxWidthConfig,
+  MinHeightConfig,
+  MinWidthConfig,
+  MixBlendModeConfig,
+  ObjectFitConfig,
+  ObjectPositionConfig,
+  OffsetAnchorConfig,
+  OffsetDistanceConfig,
+  OffsetPathConfig,
+  OffsetPositionConfig,
+  OffsetRotateConfig,
+  OpacityConfig,
+  OrderConfig,
+  OrphansConfig,
+  OutlineColorConfig,
+  OutlineOffsetConfig,
+  OutlineStyleConfig,
+  OutlineWidthConfig,
+  OverflowConfig,
+  OverflowAnchorConfig,
+  OverflowBlockConfig,
+  OverflowClipBoxConfig,
+  OverflowClipMarginConfig,
+  OverflowInlineConfig,
+  OverflowWrapConfig,
+  OverflowXConfig,
+  OverflowYConfig,
+  OverlayConfig,
+  OverscrollBehaviorConfig,
+  OverscrollBehaviorBlockConfig,
+  OverscrollBehaviorInlineConfig,
+  OverscrollBehaviorXConfig,
+  OverscrollBehaviorYConfig,
+  PaddingConfig,
+  PaddingBottomConfig,
+  PaddingLeftConfig,
+  PaddingRightConfig,
+  PaddingTopConfig,
+  PageConfig,
+  PageBreakAfterConfig,
+  PageBreakBeforeConfig,
+  PageBreakInsideConfig,
+  PaintOrderConfig,
+  PauseAfterConfig,
+  PauseBeforeConfig,
+  PerspectiveConfig,
+  PerspectiveOriginConfig,
+  PointerEventsConfig,
+  PositionConfig,
+  PositionAnchorConfig,
+  PositionAreaConfig,
+  PositionTryFallbacksConfig,
+  PositionTryOrderConfig,
+  PositionVisibilityConfig,
+  PrintColorAdjustConfig,
+  QuotesConfig,
+  RConfig,
+  ResizeConfig,
+  RestAfterConfig,
+  RestBeforeConfig,
+  RightConfig,
+  RotateConfig,
+  RowGapConfig,
+  RubyAlignConfig,
+  RubyMergeConfig,
+  RubyPositionConfig,
+  RxConfig,
+  RyConfig,
+  ScaleConfig,
+  ScrollBehaviorConfig,
+  ScrollMarginConfig,
+  ScrollMarginBlockConfig,
+  ScrollMarginBlockEndConfig,
+  ScrollMarginBlockStartConfig,
+  ScrollMarginBottomConfig,
+  ScrollMarginInlineConfig,
+  ScrollMarginInlineEndConfig,
+  ScrollMarginInlineStartConfig,
+  ScrollMarginLeftConfig,
+  ScrollMarginRightConfig,
+  ScrollMarginTopConfig,
+  ScrollPaddingConfig,
+  ScrollPaddingBlockConfig,
+  ScrollPaddingBlockEndConfig,
+  ScrollPaddingBlockStartConfig,
+  ScrollPaddingBottomConfig,
+  ScrollPaddingInlineConfig,
+  ScrollPaddingInlineEndConfig,
+  ScrollPaddingInlineStartConfig,
+  ScrollPaddingLeftConfig,
+  ScrollPaddingRightConfig,
+  ScrollPaddingTopConfig,
+  ScrollSnapAlignConfig,
+  ScrollSnapCoordinateConfig,
+  ScrollSnapDestinationConfig,
+  ScrollSnapPointsXConfig,
+  ScrollSnapPointsYConfig,
+  ScrollSnapStopConfig,
+  ScrollSnapTypeConfig,
+  ScrollSnapTypeXConfig,
+  ScrollSnapTypeYConfig,
+  ScrollTimelineAxisConfig,
+  ScrollTimelineNameConfig,
+  ScrollbarColorConfig,
+  ScrollbarGutterConfig,
+  ScrollbarWidthConfig,
+  ShapeImageThresholdConfig,
+  ShapeMarginConfig,
+  ShapeOutsideConfig,
+  ShapeRenderingConfig,
+  SpeakConfig,
+  SpeakAsConfig,
+  StrokeConfig,
+  StrokeDasharrayConfig,
+  StrokeDashoffsetConfig,
+  StrokeLinecapConfig,
+  StrokeLinejoinConfig,
+  StrokeMiterlimitConfig,
+  StrokeWidthConfig,
+  TabSizeConfig,
+  TableLayoutConfig,
+  TextAlignConfig,
+  TextAlignLastConfig,
+  TextAnchorConfig,
+  TextCombineUprightConfig,
+  TextDecorationColorConfig,
+  TextDecorationLineConfig,
+  TextDecorationSkipConfig,
+  TextDecorationSkipInkConfig,
+  TextDecorationStyleConfig,
+  TextDecorationThicknessConfig,
+  TextEmphasisColorConfig,
+  TextEmphasisPositionConfig,
+  TextEmphasisStyleConfig,
+  TextIndentConfig,
+  TextJustifyConfig,
+  TextOrientationConfig,
+  TextOverflowConfig,
+  TextRenderingConfig,
+  TextShadowConfig,
+  TextSizeAdjustConfig,
+  TextSpacingTrimConfig,
+  TextTransformConfig,
+  TextUnderlineOffsetConfig,
+  TextUnderlinePositionConfig,
+  TextWrapModeConfig,
+  TextWrapStyleConfig,
+  TimelineScopeConfig,
+  TopConfig,
+  TouchActionConfig,
+  TransformConfig,
+  TransformBoxConfig,
+  TransformOriginConfig,
+  TransformStyleConfig,
+  TransitionConfig,
+  TransitionBehaviorConfig,
+  TransitionDelayConfig,
+  TransitionDurationConfig,
+  TransitionPropertyConfig,
+  TransitionTimingFunctionConfig,
+  TranslateConfig,
+  UnicodeBidiConfig,
+  UserSelectConfig,
+  VectorEffectConfig,
+  VerticalAlignConfig,
+  ViewTimelineAxisConfig,
+  ViewTimelineInsetConfig,
+  ViewTimelineNameConfig,
+  ViewTransitionNameConfig,
+  VisibilityConfig,
+  VoiceBalanceConfig,
+  VoiceDurationConfig,
+  VoiceFamilyConfig,
+  VoicePitchConfig,
+  VoiceRangeConfig,
+  VoiceRateConfig,
+  VoiceStressConfig,
+  VoiceVolumeConfig,
+  WhiteSpaceConfig,
+  WhiteSpaceCollapseConfig,
+  WhiteSpaceTrimConfig,
+  WidowsConfig,
+  WidthConfig,
+  WillChangeConfig,
+  WordBreakConfig,
+  WordSpacingConfig,
+  WordWrapConfig,
+  WritingModeConfig,
+  XConfig,
+  YConfig,
+  ZIndexConfig,
+  ZoomConfig,
+} from './css-property-types';
+
+// ==================== 属性配置 Class ====================
+
+/** CSS 属性配置 Class */
+export class CssPropertyConfigMap {
+  /** accent-color 属性配置 */
+  'accent-color': AccentColorConfig = {
+    keywords: [...ACCENT_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...ACCENT_COLOR_NUMBER_TYPES],
+  };
+
+  /** align-content 属性配置 */
+  'align-content': AlignContentConfig = {
+    keywords: [...ALIGN_CONTENT_KEYWORDS],
+  };
+
+  /** align-items 属性配置 */
+  'align-items': AlignItemsConfig = {
+    keywords: [...ALIGN_ITEMS_KEYWORDS],
+  };
+
+  /** align-self 属性配置 */
+  'align-self': AlignSelfConfig = {
+    keywords: [...ALIGN_SELF_KEYWORDS],
+  };
+
+  /** align-tracks 属性配置 */
+  'align-tracks': AlignTracksConfig = {
+    keywords: [...ALIGN_TRACKS_KEYWORDS],
+  };
+
+  /** alignment-baseline 属性配置 */
+  'alignment-baseline': AlignmentBaselineConfig = {
+    keywords: [...ALIGNMENT_BASELINE_KEYWORDS],
+  };
+
+  /** all 属性配置 */
+  'all': AllConfig = {
+    keywords: [...ALL_KEYWORDS],
+  };
+
+  /** anchor-name 属性配置 */
+  'anchor-name': AnchorNameConfig = {
+    keywords: [...ANCHOR_NAME_KEYWORDS],
+  };
+
+  /** anchor-scope 属性配置 */
+  'anchor-scope': AnchorScopeConfig = {
+    keywords: [...ANCHOR_SCOPE_KEYWORDS],
+  };
+
+  /** animation 属性配置 */
+  'animation': AnimationConfig = {
+    keywords: [...ANIMATION_KEYWORDS],
+    numberTypes: [...ANIMATION_NUMBER_TYPES],
+  };
+
+  /** animation-composition 属性配置 */
+  'animation-composition': AnimationCompositionConfig = {
+    keywords: [...ANIMATION_COMPOSITION_KEYWORDS],
+  };
+
+  /** animation-delay 属性配置 */
+  'animation-delay': AnimationDelayConfig = {
+    numberTypes: [...ANIMATION_DELAY_NUMBER_TYPES],
+  };
+
+  /** animation-direction 属性配置 */
+  'animation-direction': AnimationDirectionConfig = {
+    keywords: [...ANIMATION_DIRECTION_KEYWORDS],
+  };
+
+  /** animation-duration 属性配置 */
+  'animation-duration': AnimationDurationConfig = {
+    numberTypes: [...ANIMATION_DURATION_NUMBER_TYPES],
+  };
+
+  /** animation-fill-mode 属性配置 */
+  'animation-fill-mode': AnimationFillModeConfig = {
+    keywords: [...ANIMATION_FILL_MODE_KEYWORDS],
+  };
+
+  /** animation-iteration-count 属性配置 */
+  'animation-iteration-count': AnimationIterationCountConfig = {
+    keywords: [...ANIMATION_ITERATION_COUNT_KEYWORDS],
+    numberTypes: [...ANIMATION_ITERATION_COUNT_NUMBER_TYPES],
+  };
+
+  /** animation-name 属性配置 */
+  'animation-name': AnimationNameConfig = {
+    keywords: [...ANIMATION_NAME_KEYWORDS],
+  };
+
+  /** animation-play-state 属性配置 */
+  'animation-play-state': AnimationPlayStateConfig = {
+    keywords: [...ANIMATION_PLAY_STATE_KEYWORDS],
+  };
+
+  /** animation-range-end 属性配置 */
+  'animation-range-end': AnimationRangeEndConfig = {
+    keywords: [...ANIMATION_RANGE_END_KEYWORDS],
+    numberTypes: [...ANIMATION_RANGE_END_NUMBER_TYPES],
+  };
+
+  /** animation-range-start 属性配置 */
+  'animation-range-start': AnimationRangeStartConfig = {
+    keywords: [...ANIMATION_RANGE_START_KEYWORDS],
+    numberTypes: [...ANIMATION_RANGE_START_NUMBER_TYPES],
+  };
+
+  /** animation-timeline 属性配置 */
+  'animation-timeline': AnimationTimelineConfig = {
+    keywords: [...ANIMATION_TIMELINE_KEYWORDS],
+  };
+
+  /** animation-timing-function 属性配置 */
+  'animation-timing-function': AnimationTimingFunctionConfig = {
+    keywords: [...ANIMATION_TIMING_FUNCTION_KEYWORDS],
+    numberTypes: [...ANIMATION_TIMING_FUNCTION_NUMBER_TYPES],
+  };
+
+  /** appearance 属性配置 */
+  'appearance': AppearanceConfig = {
+    keywords: [...APPEARANCE_KEYWORDS],
+  };
+
+  /** aspect-ratio 属性配置 */
+  'aspect-ratio': AspectRatioConfig = {
+    keywords: [...ASPECT_RATIO_KEYWORDS],
+    numberTypes: [...ASPECT_RATIO_NUMBER_TYPES],
+  };
+
+  /** azimuth 属性配置 */
+  'azimuth': AzimuthConfig = {
+    keywords: [...AZIMUTH_KEYWORDS],
+    numberTypes: [...AZIMUTH_NUMBER_TYPES],
+  };
+
+  /** backdrop-filter 属性配置 */
+  'backdrop-filter': BackdropFilterConfig = {
+    keywords: [...BACKDROP_FILTER_KEYWORDS, ...COLORS],
+    numberTypes: [...BACKDROP_FILTER_NUMBER_TYPES],
+  };
+
+  /** backface-visibility 属性配置 */
+  'backface-visibility': BackfaceVisibilityConfig = {
+    keywords: [...BACKFACE_VISIBILITY_KEYWORDS],
+  };
+
+  /** background 属性配置 */
+  'background': BackgroundConfig = {
+    keywords: [...BACKGROUND_KEYWORDS, ...COLORS],
+    numberTypes: [...BACKGROUND_NUMBER_TYPES],
+  };
+
+  /** background-attachment 属性配置 */
+  'background-attachment': BackgroundAttachmentConfig = {
+    keywords: [...BACKGROUND_ATTACHMENT_KEYWORDS],
+  };
+
+  /** background-blend-mode 属性配置 */
+  'background-blend-mode': BackgroundBlendModeConfig = {
+    keywords: [...BACKGROUND_BLEND_MODE_KEYWORDS],
+  };
+
+  /** background-clip 属性配置 */
+  'background-clip': BackgroundClipConfig = {
+    keywords: [...BACKGROUND_CLIP_KEYWORDS],
+  };
+
+  /** background-color 属性配置 */
+  'background-color': BackgroundColorConfig = {
+    keywords: [...BACKGROUND_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...BACKGROUND_COLOR_NUMBER_TYPES],
+  };
+
+  /** background-image 属性配置 */
+  'background-image': BackgroundImageConfig = {
+    keywords: [...BACKGROUND_IMAGE_KEYWORDS, ...COLORS],
+    numberTypes: [...BACKGROUND_IMAGE_NUMBER_TYPES],
+  };
+
+  /** background-origin 属性配置 */
+  'background-origin': BackgroundOriginConfig = {
+    keywords: [...BACKGROUND_ORIGIN_KEYWORDS],
+  };
+
+  /** background-position 属性配置 */
+  'background-position': BackgroundPositionConfig = {
+    keywords: [...BACKGROUND_POSITION_KEYWORDS],
+    numberTypes: [...BACKGROUND_POSITION_NUMBER_TYPES],
+  };
+
+  /** background-position-x 属性配置 */
+  'background-position-x': BackgroundPositionXConfig = {
+    keywords: [...BACKGROUND_POSITION_X_KEYWORDS],
+    numberTypes: [...BACKGROUND_POSITION_X_NUMBER_TYPES],
+  };
+
+  /** background-position-y 属性配置 */
+  'background-position-y': BackgroundPositionYConfig = {
+    keywords: [...BACKGROUND_POSITION_Y_KEYWORDS],
+    numberTypes: [...BACKGROUND_POSITION_Y_NUMBER_TYPES],
+  };
+
+  /** background-repeat 属性配置 */
+  'background-repeat': BackgroundRepeatConfig = {
+    keywords: [...BACKGROUND_REPEAT_KEYWORDS],
+  };
+
+  /** background-size 属性配置 */
+  'background-size': BackgroundSizeConfig = {
+    keywords: [...BACKGROUND_SIZE_KEYWORDS],
+    numberTypes: [...BACKGROUND_SIZE_NUMBER_TYPES],
+  };
+
+  /** baseline-shift 属性配置 */
+  'baseline-shift': BaselineShiftConfig = {
+    keywords: [...BASELINE_SHIFT_KEYWORDS],
+    numberTypes: [...BASELINE_SHIFT_NUMBER_TYPES],
+  };
+
+  /** border 属性配置 */
+  'border': BorderConfig = {
+    keywords: [...BORDER_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_NUMBER_TYPES],
+  };
+
+  /** border-block 属性配置 */
+  'border-block': BorderBlockConfig = {
+    keywords: [...BORDER_BLOCK_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_BLOCK_NUMBER_TYPES],
+  };
+
+  /** border-block-end 属性配置 */
+  'border-block-end': BorderBlockEndConfig = {
+    keywords: [...BORDER_BLOCK_END_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_BLOCK_END_NUMBER_TYPES],
+  };
+
+  /** border-block-start 属性配置 */
+  'border-block-start': BorderBlockStartConfig = {
+    keywords: [...BORDER_BLOCK_START_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_BLOCK_START_NUMBER_TYPES],
+  };
+
+  /** border-bottom 属性配置 */
+  'border-bottom': BorderBottomConfig = {
+    keywords: [...BORDER_BOTTOM_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_BOTTOM_NUMBER_TYPES],
+  };
+
+  /** border-bottom-left-radius 属性配置 */
+  'border-bottom-left-radius': BorderBottomLeftRadiusConfig = {
+    numberTypes: [...BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-bottom-right-radius 属性配置 */
+  'border-bottom-right-radius': BorderBottomRightRadiusConfig = {
+    numberTypes: [...BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-bottom-style 属性配置 */
+  'border-bottom-style': BorderBottomStyleConfig = {
+    keywords: [...BORDER_BOTTOM_STYLE_KEYWORDS],
+  };
+
+  /** border-bottom-width 属性配置 */
+  'border-bottom-width': BorderBottomWidthConfig = {
+    keywords: [...BORDER_BOTTOM_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_BOTTOM_WIDTH_NUMBER_TYPES],
+  };
+
+  /** border-collapse 属性配置 */
+  'border-collapse': BorderCollapseConfig = {
+    keywords: [...BORDER_COLLAPSE_KEYWORDS],
+  };
+
+  /** border-color 属性配置 */
+  'border-color': BorderColorConfig = {
+    keywords: [...BORDER_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_COLOR_NUMBER_TYPES],
+  };
+
+  /** border-end-end-radius 属性配置 */
+  'border-end-end-radius': BorderEndEndRadiusConfig = {
+    numberTypes: [...BORDER_END_END_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-end-start-radius 属性配置 */
+  'border-end-start-radius': BorderEndStartRadiusConfig = {
+    numberTypes: [...BORDER_END_START_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-image-outset 属性配置 */
+  'border-image-outset': BorderImageOutsetConfig = {
+    numberTypes: [...BORDER_IMAGE_OUTSET_NUMBER_TYPES],
+  };
+
+  /** border-image-repeat 属性配置 */
+  'border-image-repeat': BorderImageRepeatConfig = {
+    keywords: [...BORDER_IMAGE_REPEAT_KEYWORDS],
+  };
+
+  /** border-image-slice 属性配置 */
+  'border-image-slice': BorderImageSliceConfig = {
+    keywords: [...BORDER_IMAGE_SLICE_KEYWORDS],
+    numberTypes: [...BORDER_IMAGE_SLICE_NUMBER_TYPES],
+  };
+
+  /** border-image-source 属性配置 */
+  'border-image-source': BorderImageSourceConfig = {
+    keywords: [...BORDER_IMAGE_SOURCE_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_IMAGE_SOURCE_NUMBER_TYPES],
+  };
+
+  /** border-image-width 属性配置 */
+  'border-image-width': BorderImageWidthConfig = {
+    keywords: [...BORDER_IMAGE_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_IMAGE_WIDTH_NUMBER_TYPES],
+  };
+
+  /** border-inline 属性配置 */
+  'border-inline': BorderInlineConfig = {
+    keywords: [...BORDER_INLINE_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_INLINE_NUMBER_TYPES],
+  };
+
+  /** border-inline-end 属性配置 */
+  'border-inline-end': BorderInlineEndConfig = {
+    keywords: [...BORDER_INLINE_END_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_INLINE_END_NUMBER_TYPES],
+  };
+
+  /** border-inline-start 属性配置 */
+  'border-inline-start': BorderInlineStartConfig = {
+    keywords: [...BORDER_INLINE_START_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_INLINE_START_NUMBER_TYPES],
+  };
+
+  /** border-left 属性配置 */
+  'border-left': BorderLeftConfig = {
+    keywords: [...BORDER_LEFT_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_LEFT_NUMBER_TYPES],
+  };
+
+  /** border-left-color 属性配置 */
+  'border-left-color': BorderLeftColorConfig = {
+    keywords: [...BORDER_LEFT_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_LEFT_COLOR_NUMBER_TYPES],
+  };
+
+  /** border-left-style 属性配置 */
+  'border-left-style': BorderLeftStyleConfig = {
+    keywords: [...BORDER_LEFT_STYLE_KEYWORDS],
+  };
+
+  /** border-left-width 属性配置 */
+  'border-left-width': BorderLeftWidthConfig = {
+    keywords: [...BORDER_LEFT_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_LEFT_WIDTH_NUMBER_TYPES],
+  };
+
+  /** border-radius 属性配置 */
+  'border-radius': BorderRadiusConfig = {
+    numberTypes: [...BORDER_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-right 属性配置 */
+  'border-right': BorderRightConfig = {
+    keywords: [...BORDER_RIGHT_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_RIGHT_NUMBER_TYPES],
+  };
+
+  /** border-right-color 属性配置 */
+  'border-right-color': BorderRightColorConfig = {
+    keywords: [...BORDER_RIGHT_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_RIGHT_COLOR_NUMBER_TYPES],
+  };
+
+  /** border-right-style 属性配置 */
+  'border-right-style': BorderRightStyleConfig = {
+    keywords: [...BORDER_RIGHT_STYLE_KEYWORDS],
+  };
+
+  /** border-right-width 属性配置 */
+  'border-right-width': BorderRightWidthConfig = {
+    keywords: [...BORDER_RIGHT_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_RIGHT_WIDTH_NUMBER_TYPES],
+  };
+
+  /** border-spacing 属性配置 */
+  'border-spacing': BorderSpacingConfig = {
+    numberTypes: [...BORDER_SPACING_NUMBER_TYPES],
+  };
+
+  /** border-start-end-radius 属性配置 */
+  'border-start-end-radius': BorderStartEndRadiusConfig = {
+    numberTypes: [...BORDER_START_END_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-start-start-radius 属性配置 */
+  'border-start-start-radius': BorderStartStartRadiusConfig = {
+    numberTypes: [...BORDER_START_START_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-style 属性配置 */
+  'border-style': BorderStyleConfig = {
+    keywords: [...BORDER_STYLE_KEYWORDS],
+  };
+
+  /** border-top 属性配置 */
+  'border-top': BorderTopConfig = {
+    keywords: [...BORDER_TOP_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_TOP_NUMBER_TYPES],
+  };
+
+  /** border-top-color 属性配置 */
+  'border-top-color': BorderTopColorConfig = {
+    keywords: [...BORDER_TOP_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...BORDER_TOP_COLOR_NUMBER_TYPES],
+  };
+
+  /** border-top-left-radius 属性配置 */
+  'border-top-left-radius': BorderTopLeftRadiusConfig = {
+    numberTypes: [...BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-top-right-radius 属性配置 */
+  'border-top-right-radius': BorderTopRightRadiusConfig = {
+    numberTypes: [...BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES],
+  };
+
+  /** border-top-style 属性配置 */
+  'border-top-style': BorderTopStyleConfig = {
+    keywords: [...BORDER_TOP_STYLE_KEYWORDS],
+  };
+
+  /** border-top-width 属性配置 */
+  'border-top-width': BorderTopWidthConfig = {
+    keywords: [...BORDER_TOP_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_TOP_WIDTH_NUMBER_TYPES],
+  };
+
+  /** border-width 属性配置 */
+  'border-width': BorderWidthConfig = {
+    keywords: [...BORDER_WIDTH_KEYWORDS],
+    numberTypes: [...BORDER_WIDTH_NUMBER_TYPES],
+  };
+
+  /** bottom 属性配置 */
+  'bottom': BottomConfig = {
+    keywords: [...BOTTOM_KEYWORDS],
+    numberTypes: [...BOTTOM_NUMBER_TYPES],
+  };
+
+  /** box-align 属性配置 */
+  'box-align': BoxAlignConfig = {
+    keywords: [...BOX_ALIGN_KEYWORDS],
+  };
+
+  /** box-decoration-break 属性配置 */
+  'box-decoration-break': BoxDecorationBreakConfig = {
+    keywords: [...BOX_DECORATION_BREAK_KEYWORDS],
+  };
+
+  /** box-direction 属性配置 */
+  'box-direction': BoxDirectionConfig = {
+    keywords: [...BOX_DIRECTION_KEYWORDS],
+  };
+
+  /** box-flex 属性配置 */
+  'box-flex': BoxFlexConfig = {
+    numberTypes: [...BOX_FLEX_NUMBER_TYPES],
+  };
+
+  /** box-flex-group 属性配置 */
+  'box-flex-group': BoxFlexGroupConfig = {
+    numberTypes: [...BOX_FLEX_GROUP_NUMBER_TYPES],
+  };
+
+  /** box-lines 属性配置 */
+  'box-lines': BoxLinesConfig = {
+    keywords: [...BOX_LINES_KEYWORDS],
+  };
+
+  /** box-ordinal-group 属性配置 */
+  'box-ordinal-group': BoxOrdinalGroupConfig = {
+    numberTypes: [...BOX_ORDINAL_GROUP_NUMBER_TYPES],
+  };
+
+  /** box-orient 属性配置 */
+  'box-orient': BoxOrientConfig = {
+    keywords: [...BOX_ORIENT_KEYWORDS],
+  };
+
+  /** box-pack 属性配置 */
+  'box-pack': BoxPackConfig = {
+    keywords: [...BOX_PACK_KEYWORDS],
+  };
+
+  /** box-shadow 属性配置 */
+  'box-shadow': BoxShadowConfig = {
+    keywords: [...BOX_SHADOW_KEYWORDS, ...COLORS],
+    numberTypes: [...BOX_SHADOW_NUMBER_TYPES],
+  };
+
+  /** box-sizing 属性配置 */
+  'box-sizing': BoxSizingConfig = {
+    keywords: [...BOX_SIZING_KEYWORDS],
+  };
+
+  /** break-after 属性配置 */
+  'break-after': BreakAfterConfig = {
+    keywords: [...BREAK_AFTER_KEYWORDS],
+  };
+
+  /** break-before 属性配置 */
+  'break-before': BreakBeforeConfig = {
+    keywords: [...BREAK_BEFORE_KEYWORDS],
+  };
+
+  /** break-inside 属性配置 */
+  'break-inside': BreakInsideConfig = {
+    keywords: [...BREAK_INSIDE_KEYWORDS],
+  };
+
+  /** caption-side 属性配置 */
+  'caption-side': CaptionSideConfig = {
+    keywords: [...CAPTION_SIDE_KEYWORDS],
+  };
+
+  /** caret-color 属性配置 */
+  'caret-color': CaretColorConfig = {
+    keywords: [...CARET_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...CARET_COLOR_NUMBER_TYPES],
+  };
+
+  /** caret-shape 属性配置 */
+  'caret-shape': CaretShapeConfig = {
+    keywords: [...CARET_SHAPE_KEYWORDS],
+  };
+
+  /** clear 属性配置 */
+  'clear': ClearConfig = {
+    keywords: [...CLEAR_KEYWORDS],
+  };
+
+  /** clip 属性配置 */
+  'clip': ClipConfig = {
+    keywords: [...CLIP_KEYWORDS],
+    numberTypes: [...CLIP_NUMBER_TYPES],
+  };
+
+  /** clip-path 属性配置 */
+  'clip-path': ClipPathConfig = {
+    keywords: [...CLIP_PATH_KEYWORDS],
+    numberTypes: [...CLIP_PATH_NUMBER_TYPES],
+  };
+
+  /** clip-rule 属性配置 */
+  'clip-rule': ClipRuleConfig = {
+    keywords: [...CLIP_RULE_KEYWORDS],
+  };
+
+  /** color 属性配置 */
+  'color': ColorConfig = {
+    keywords: [...COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...COLOR_NUMBER_TYPES],
+  };
+
+  /** color-interpolation-filters 属性配置 */
+  'color-interpolation-filters': ColorInterpolationFiltersConfig = {
+    keywords: [...COLOR_INTERPOLATION_FILTERS_KEYWORDS],
+  };
+
+  /** color-scheme 属性配置 */
+  'color-scheme': ColorSchemeConfig = {
+    keywords: [...COLOR_SCHEME_KEYWORDS],
+  };
+
+  /** column-count 属性配置 */
+  'column-count': ColumnCountConfig = {
+    keywords: [...COLUMN_COUNT_KEYWORDS],
+    numberTypes: [...COLUMN_COUNT_NUMBER_TYPES],
+  };
+
+  /** column-fill 属性配置 */
+  'column-fill': ColumnFillConfig = {
+    keywords: [...COLUMN_FILL_KEYWORDS],
+  };
+
+  /** column-gap 属性配置 */
+  'column-gap': ColumnGapConfig = {
+    keywords: [...COLUMN_GAP_KEYWORDS],
+    numberTypes: [...COLUMN_GAP_NUMBER_TYPES],
+  };
+
+  /** column-rule-color 属性配置 */
+  'column-rule-color': ColumnRuleColorConfig = {
+    keywords: [...COLUMN_RULE_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...COLUMN_RULE_COLOR_NUMBER_TYPES],
+  };
+
+  /** column-span 属性配置 */
+  'column-span': ColumnSpanConfig = {
+    keywords: [...COLUMN_SPAN_KEYWORDS],
+  };
+
+  /** column-width 属性配置 */
+  'column-width': ColumnWidthConfig = {
+    keywords: [...COLUMN_WIDTH_KEYWORDS],
+    numberTypes: [...COLUMN_WIDTH_NUMBER_TYPES],
+  };
+
+  /** contain 属性配置 */
+  'contain': ContainConfig = {
+    keywords: [...CONTAIN_KEYWORDS],
+  };
+
+  /** contain-intrinsic-block-size 属性配置 */
+  'contain-intrinsic-block-size': ContainIntrinsicBlockSizeConfig = {
+    keywords: [...CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS],
+    numberTypes: [...CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES],
+  };
+
+  /** contain-intrinsic-height 属性配置 */
+  'contain-intrinsic-height': ContainIntrinsicHeightConfig = {
+    keywords: [...CONTAIN_INTRINSIC_HEIGHT_KEYWORDS],
+    numberTypes: [...CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES],
+  };
+
+  /** contain-intrinsic-inline-size 属性配置 */
+  'contain-intrinsic-inline-size': ContainIntrinsicInlineSizeConfig = {
+    keywords: [...CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS],
+    numberTypes: [...CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES],
+  };
+
+  /** contain-intrinsic-size 属性配置 */
+  'contain-intrinsic-size': ContainIntrinsicSizeConfig = {
+    keywords: [...CONTAIN_INTRINSIC_SIZE_KEYWORDS],
+    numberTypes: [...CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES],
+  };
+
+  /** contain-intrinsic-width 属性配置 */
+  'contain-intrinsic-width': ContainIntrinsicWidthConfig = {
+    keywords: [...CONTAIN_INTRINSIC_WIDTH_KEYWORDS],
+    numberTypes: [...CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES],
+  };
+
+  /** container-name 属性配置 */
+  'container-name': ContainerNameConfig = {
+    keywords: [...CONTAINER_NAME_KEYWORDS],
+  };
+
+  /** container-type 属性配置 */
+  'container-type': ContainerTypeConfig = {
+    keywords: [...CONTAINER_TYPE_KEYWORDS],
+  };
+
+  /** content 属性配置 */
+  'content': ContentConfig = {
+    keywords: [...CONTENT_KEYWORDS, ...COLORS],
+    numberTypes: [...CONTENT_NUMBER_TYPES],
+  };
+
+  /** content-visibility 属性配置 */
+  'content-visibility': ContentVisibilityConfig = {
+    keywords: [...CONTENT_VISIBILITY_KEYWORDS],
+  };
+
+  /** counter-increment 属性配置 */
+  'counter-increment': CounterIncrementConfig = {
+    keywords: [...COUNTER_INCREMENT_KEYWORDS],
+    numberTypes: [...COUNTER_INCREMENT_NUMBER_TYPES],
+  };
+
+  /** counter-reset 属性配置 */
+  'counter-reset': CounterResetConfig = {
+    keywords: [...COUNTER_RESET_KEYWORDS],
+    numberTypes: [...COUNTER_RESET_NUMBER_TYPES],
+  };
+
+  /** counter-set 属性配置 */
+  'counter-set': CounterSetConfig = {
+    keywords: [...COUNTER_SET_KEYWORDS],
+    numberTypes: [...COUNTER_SET_NUMBER_TYPES],
+  };
+
+  /** cue-after 属性配置 */
+  'cue-after': CueAfterConfig = {
+    keywords: [...CUE_AFTER_KEYWORDS],
+  };
+
+  /** cue-before 属性配置 */
+  'cue-before': CueBeforeConfig = {
+    keywords: [...CUE_BEFORE_KEYWORDS],
+  };
+
+  /** cursor 属性配置 */
+  'cursor': CursorConfig = {
+    keywords: [...CURSOR_KEYWORDS],
+    numberTypes: [...CURSOR_NUMBER_TYPES],
+  };
+
+  /** cx 属性配置 */
+  'cx': CxConfig = {
+    numberTypes: [...CX_NUMBER_TYPES],
+  };
+
+  /** cy 属性配置 */
+  'cy': CyConfig = {
+    numberTypes: [...CY_NUMBER_TYPES],
+  };
+
+  /** d 属性配置 */
+  'd': DConfig = {
+    keywords: [...D_KEYWORDS],
+  };
+
+  /** direction 属性配置 */
+  'direction': DirectionConfig = {
+    keywords: [...DIRECTION_KEYWORDS],
+  };
+
+  /** display 属性配置 */
+  'display': DisplayConfig = {
+    keywords: [...DISPLAY_KEYWORDS],
+  };
+
+  /** dominant-baseline 属性配置 */
+  'dominant-baseline': DominantBaselineConfig = {
+    keywords: [...DOMINANT_BASELINE_KEYWORDS],
+  };
+
+  /** empty-cells 属性配置 */
+  'empty-cells': EmptyCellsConfig = {
+    keywords: [...EMPTY_CELLS_KEYWORDS],
+  };
+
+  /** field-sizing 属性配置 */
+  'field-sizing': FieldSizingConfig = {
+    keywords: [...FIELD_SIZING_KEYWORDS],
+  };
+
+  /** fill 属性配置 */
+  'fill': FillConfig = {
+    keywords: [...FILL_KEYWORDS, ...COLORS],
+    numberTypes: [...FILL_NUMBER_TYPES],
+  };
+
+  /** fill-opacity 属性配置 */
+  'fill-opacity': FillOpacityConfig = {
+    numberTypes: [...FILL_OPACITY_NUMBER_TYPES],
+  };
+
+  /** fill-rule 属性配置 */
+  'fill-rule': FillRuleConfig = {
+    keywords: [...FILL_RULE_KEYWORDS],
+  };
+
+  /** filter 属性配置 */
+  'filter': FilterConfig = {
+    keywords: [...FILTER_KEYWORDS, ...COLORS],
+    numberTypes: [...FILTER_NUMBER_TYPES],
+  };
+
+  /** flex 属性配置 */
+  'flex': FlexConfig = {
+    keywords: [...FLEX_KEYWORDS],
+  };
+
+  /** flex-basis 属性配置 */
+  'flex-basis': FlexBasisConfig = {
+    keywords: [...FLEX_BASIS_KEYWORDS],
+  };
+
+  /** flex-direction 属性配置 */
+  'flex-direction': FlexDirectionConfig = {
+    keywords: [...FLEX_DIRECTION_KEYWORDS],
+  };
+
+  /** flex-grow 属性配置 */
+  'flex-grow': FlexGrowConfig = {
+    numberTypes: [...FLEX_GROW_NUMBER_TYPES],
+  };
+
+  /** flex-shrink 属性配置 */
+  'flex-shrink': FlexShrinkConfig = {
+    numberTypes: [...FLEX_SHRINK_NUMBER_TYPES],
+  };
+
+  /** flex-wrap 属性配置 */
+  'flex-wrap': FlexWrapConfig = {
+    keywords: [...FLEX_WRAP_KEYWORDS],
+  };
+
+  /** float 属性配置 */
+  'float': FloatConfig = {
+    keywords: [...FLOAT_KEYWORDS],
+  };
+
+  /** font 属性配置 */
+  'font': FontConfig = {
+    keywords: [...FONT_KEYWORDS],
+  };
+
+  /** font-family 属性配置 */
+  'font-family': FontFamilyConfig = {
+    keywords: [...FONT_FAMILY_KEYWORDS],
+  };
+
+  /** font-feature-settings 属性配置 */
+  'font-feature-settings': FontFeatureSettingsConfig = {
+    keywords: [...FONT_FEATURE_SETTINGS_KEYWORDS],
+    numberTypes: [...FONT_FEATURE_SETTINGS_NUMBER_TYPES],
+  };
+
+  /** font-kerning 属性配置 */
+  'font-kerning': FontKerningConfig = {
+    keywords: [...FONT_KERNING_KEYWORDS],
+  };
+
+  /** font-language-override 属性配置 */
+  'font-language-override': FontLanguageOverrideConfig = {
+    keywords: [...FONT_LANGUAGE_OVERRIDE_KEYWORDS],
+  };
+
+  /** font-optical-sizing 属性配置 */
+  'font-optical-sizing': FontOpticalSizingConfig = {
+    keywords: [...FONT_OPTICAL_SIZING_KEYWORDS],
+  };
+
+  /** font-palette 属性配置 */
+  'font-palette': FontPaletteConfig = {
+    keywords: [...FONT_PALETTE_KEYWORDS],
+  };
+
+  /** font-size 属性配置 */
+  'font-size': FontSizeConfig = {
+    keywords: [...FONT_SIZE_KEYWORDS],
+    numberTypes: [...FONT_SIZE_NUMBER_TYPES],
+  };
+
+  /** font-size-adjust 属性配置 */
+  'font-size-adjust': FontSizeAdjustConfig = {
+    keywords: [...FONT_SIZE_ADJUST_KEYWORDS],
+    numberTypes: [...FONT_SIZE_ADJUST_NUMBER_TYPES],
+  };
+
+  /** font-smooth 属性配置 */
+  'font-smooth': FontSmoothConfig = {
+    keywords: [...FONT_SMOOTH_KEYWORDS],
+    numberTypes: [...FONT_SMOOTH_NUMBER_TYPES],
+  };
+
+  /** font-stretch 属性配置 */
+  'font-stretch': FontStretchConfig = {
+    keywords: [...FONT_STRETCH_KEYWORDS],
+    numberTypes: [...FONT_STRETCH_NUMBER_TYPES],
+  };
+
+  /** font-style 属性配置 */
+  'font-style': FontStyleConfig = {
+    keywords: [...FONT_STYLE_KEYWORDS],
+    numberTypes: [...FONT_STYLE_NUMBER_TYPES],
+  };
+
+  /** font-synthesis 属性配置 */
+  'font-synthesis': FontSynthesisConfig = {
+    keywords: [...FONT_SYNTHESIS_KEYWORDS],
+  };
+
+  /** font-synthesis-position 属性配置 */
+  'font-synthesis-position': FontSynthesisPositionConfig = {
+    keywords: [...FONT_SYNTHESIS_POSITION_KEYWORDS],
+  };
+
+  /** font-synthesis-small-caps 属性配置 */
+  'font-synthesis-small-caps': FontSynthesisSmallCapsConfig = {
+    keywords: [...FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS],
+  };
+
+  /** font-synthesis-style 属性配置 */
+  'font-synthesis-style': FontSynthesisStyleConfig = {
+    keywords: [...FONT_SYNTHESIS_STYLE_KEYWORDS],
+  };
+
+  /** font-synthesis-weight 属性配置 */
+  'font-synthesis-weight': FontSynthesisWeightConfig = {
+    keywords: [...FONT_SYNTHESIS_WEIGHT_KEYWORDS],
+  };
+
+  /** font-variant 属性配置 */
+  'font-variant': FontVariantConfig = {
+    keywords: [...FONT_VARIANT_KEYWORDS],
+  };
+
+  /** font-variant-alternates 属性配置 */
+  'font-variant-alternates': FontVariantAlternatesConfig = {
+    keywords: [...FONT_VARIANT_ALTERNATES_KEYWORDS],
+  };
+
+  /** font-variant-caps 属性配置 */
+  'font-variant-caps': FontVariantCapsConfig = {
+    keywords: [...FONT_VARIANT_CAPS_KEYWORDS],
+  };
+
+  /** font-variant-east-asian 属性配置 */
+  'font-variant-east-asian': FontVariantEastAsianConfig = {
+    keywords: [...FONT_VARIANT_EAST_ASIAN_KEYWORDS],
+  };
+
+  /** font-variant-emoji 属性配置 */
+  'font-variant-emoji': FontVariantEmojiConfig = {
+    keywords: [...FONT_VARIANT_EMOJI_KEYWORDS],
+  };
+
+  /** font-variant-ligatures 属性配置 */
+  'font-variant-ligatures': FontVariantLigaturesConfig = {
+    keywords: [...FONT_VARIANT_LIGATURES_KEYWORDS],
+  };
+
+  /** font-variant-numeric 属性配置 */
+  'font-variant-numeric': FontVariantNumericConfig = {
+    keywords: [...FONT_VARIANT_NUMERIC_KEYWORDS],
+  };
+
+  /** font-variant-position 属性配置 */
+  'font-variant-position': FontVariantPositionConfig = {
+    keywords: [...FONT_VARIANT_POSITION_KEYWORDS],
+  };
+
+  /** font-variation-settings 属性配置 */
+  'font-variation-settings': FontVariationSettingsConfig = {
+    keywords: [...FONT_VARIATION_SETTINGS_KEYWORDS],
+    numberTypes: [...FONT_VARIATION_SETTINGS_NUMBER_TYPES],
+  };
+
+  /** font-weight 属性配置 */
+  'font-weight': FontWeightConfig = {
+    keywords: [...FONT_WEIGHT_KEYWORDS],
+    numberTypes: [...FONT_WEIGHT_NUMBER_TYPES],
+  };
+
+  /** forced-color-adjust 属性配置 */
+  'forced-color-adjust': ForcedColorAdjustConfig = {
+    keywords: [...FORCED_COLOR_ADJUST_KEYWORDS],
+  };
+
+  /** glyph-orientation-horizontal 属性配置 */
+  'glyph-orientation-horizontal': GlyphOrientationHorizontalConfig = {
+    numberTypes: [...GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES],
+  };
+
+  /** glyph-orientation-vertical 属性配置 */
+  'glyph-orientation-vertical': GlyphOrientationVerticalConfig = {
+    numberTypes: [...GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES],
+  };
+
+  /** grid 属性配置 */
+  'grid': GridConfig = {
+    keywords: [...GRID_KEYWORDS],
+  };
+
+  /** grid-area 属性配置 */
+  'grid-area': GridAreaConfig = {
+    keywords: [...GRID_AREA_KEYWORDS],
+    numberTypes: [...GRID_AREA_NUMBER_TYPES],
+  };
+
+  /** grid-auto-columns 属性配置 */
+  'grid-auto-columns': GridAutoColumnsConfig = {
+    keywords: [...GRID_AUTO_COLUMNS_KEYWORDS],
+    numberTypes: [...GRID_AUTO_COLUMNS_NUMBER_TYPES],
+  };
+
+  /** grid-auto-flow 属性配置 */
+  'grid-auto-flow': GridAutoFlowConfig = {
+    keywords: [...GRID_AUTO_FLOW_KEYWORDS],
+  };
+
+  /** grid-auto-rows 属性配置 */
+  'grid-auto-rows': GridAutoRowsConfig = {
+    keywords: [...GRID_AUTO_ROWS_KEYWORDS],
+    numberTypes: [...GRID_AUTO_ROWS_NUMBER_TYPES],
+  };
+
+  /** grid-column 属性配置 */
+  'grid-column': GridColumnConfig = {
+    keywords: [...GRID_COLUMN_KEYWORDS],
+    numberTypes: [...GRID_COLUMN_NUMBER_TYPES],
+  };
+
+  /** grid-column-end 属性配置 */
+  'grid-column-end': GridColumnEndConfig = {
+    keywords: [...GRID_COLUMN_END_KEYWORDS],
+    numberTypes: [...GRID_COLUMN_END_NUMBER_TYPES],
+  };
+
+  /** grid-column-gap 属性配置 */
+  'grid-column-gap': GridColumnGapConfig = {
+    numberTypes: [...GRID_COLUMN_GAP_NUMBER_TYPES],
+  };
+
+  /** grid-column-start 属性配置 */
+  'grid-column-start': GridColumnStartConfig = {
+    keywords: [...GRID_COLUMN_START_KEYWORDS],
+    numberTypes: [...GRID_COLUMN_START_NUMBER_TYPES],
+  };
+
+  /** grid-row 属性配置 */
+  'grid-row': GridRowConfig = {
+    keywords: [...GRID_ROW_KEYWORDS],
+    numberTypes: [...GRID_ROW_NUMBER_TYPES],
+  };
+
+  /** grid-row-end 属性配置 */
+  'grid-row-end': GridRowEndConfig = {
+    keywords: [...GRID_ROW_END_KEYWORDS],
+    numberTypes: [...GRID_ROW_END_NUMBER_TYPES],
+  };
+
+  /** grid-row-gap 属性配置 */
+  'grid-row-gap': GridRowGapConfig = {
+    numberTypes: [...GRID_ROW_GAP_NUMBER_TYPES],
+  };
+
+  /** grid-row-start 属性配置 */
+  'grid-row-start': GridRowStartConfig = {
+    keywords: [...GRID_ROW_START_KEYWORDS],
+    numberTypes: [...GRID_ROW_START_NUMBER_TYPES],
+  };
+
+  /** grid-template 属性配置 */
+  'grid-template': GridTemplateConfig = {
+    keywords: [...GRID_TEMPLATE_KEYWORDS],
+    numberTypes: [...GRID_TEMPLATE_NUMBER_TYPES],
+  };
+
+  /** grid-template-areas 属性配置 */
+  'grid-template-areas': GridTemplateAreasConfig = {
+    keywords: [...GRID_TEMPLATE_AREAS_KEYWORDS],
+  };
+
+  /** grid-template-columns 属性配置 */
+  'grid-template-columns': GridTemplateColumnsConfig = {
+    keywords: [...GRID_TEMPLATE_COLUMNS_KEYWORDS],
+    numberTypes: [...GRID_TEMPLATE_COLUMNS_NUMBER_TYPES],
+  };
+
+  /** grid-template-rows 属性配置 */
+  'grid-template-rows': GridTemplateRowsConfig = {
+    keywords: [...GRID_TEMPLATE_ROWS_KEYWORDS],
+    numberTypes: [...GRID_TEMPLATE_ROWS_NUMBER_TYPES],
+  };
+
+  /** hanging-punctuation 属性配置 */
+  'hanging-punctuation': HangingPunctuationConfig = {
+    keywords: [...HANGING_PUNCTUATION_KEYWORDS],
+  };
+
+  /** height 属性配置 */
+  'height': HeightConfig = {
+    keywords: [...HEIGHT_KEYWORDS],
+    numberTypes: [...HEIGHT_NUMBER_TYPES],
+  };
+
+  /** hyphenate-character 属性配置 */
+  'hyphenate-character': HyphenateCharacterConfig = {
+    keywords: [...HYPHENATE_CHARACTER_KEYWORDS],
+  };
+
+  /** hyphenate-limit-chars 属性配置 */
+  'hyphenate-limit-chars': HyphenateLimitCharsConfig = {
+    keywords: [...HYPHENATE_LIMIT_CHARS_KEYWORDS],
+    numberTypes: [...HYPHENATE_LIMIT_CHARS_NUMBER_TYPES],
+  };
+
+  /** hyphens 属性配置 */
+  'hyphens': HyphensConfig = {
+    keywords: [...HYPHENS_KEYWORDS],
+  };
+
+  /** image-orientation 属性配置 */
+  'image-orientation': ImageOrientationConfig = {
+    keywords: [...IMAGE_ORIENTATION_KEYWORDS],
+    numberTypes: [...IMAGE_ORIENTATION_NUMBER_TYPES],
+  };
+
+  /** image-rendering 属性配置 */
+  'image-rendering': ImageRenderingConfig = {
+    keywords: [...IMAGE_RENDERING_KEYWORDS],
+  };
+
+  /** image-resolution 属性配置 */
+  'image-resolution': ImageResolutionConfig = {
+    keywords: [...IMAGE_RESOLUTION_KEYWORDS],
+    numberTypes: [...IMAGE_RESOLUTION_NUMBER_TYPES],
+  };
+
+  /** ime-mode 属性配置 */
+  'ime-mode': ImeModeConfig = {
+    keywords: [...IME_MODE_KEYWORDS],
+  };
+
+  /** initial-letter 属性配置 */
+  'initial-letter': InitialLetterConfig = {
+    keywords: [...INITIAL_LETTER_KEYWORDS],
+    numberTypes: [...INITIAL_LETTER_NUMBER_TYPES],
+  };
+
+  /** initial-letter-align 属性配置 */
+  'initial-letter-align': InitialLetterAlignConfig = {
+    keywords: [...INITIAL_LETTER_ALIGN_KEYWORDS],
+  };
+
+  /** input-security 属性配置 */
+  'input-security': InputSecurityConfig = {
+    keywords: [...INPUT_SECURITY_KEYWORDS],
+  };
+
+  /** interpolate-size 属性配置 */
+  'interpolate-size': InterpolateSizeConfig = {
+    keywords: [...INTERPOLATE_SIZE_KEYWORDS],
+  };
+
+  /** isolation 属性配置 */
+  'isolation': IsolationConfig = {
+    keywords: [...ISOLATION_KEYWORDS],
+  };
+
+  /** justify-content 属性配置 */
+  'justify-content': JustifyContentConfig = {
+    keywords: [...JUSTIFY_CONTENT_KEYWORDS],
+  };
+
+  /** justify-items 属性配置 */
+  'justify-items': JustifyItemsConfig = {
+    keywords: [...JUSTIFY_ITEMS_KEYWORDS],
+  };
+
+  /** justify-self 属性配置 */
+  'justify-self': JustifySelfConfig = {
+    keywords: [...JUSTIFY_SELF_KEYWORDS],
+  };
+
+  /** justify-tracks 属性配置 */
+  'justify-tracks': JustifyTracksConfig = {
+    keywords: [...JUSTIFY_TRACKS_KEYWORDS],
+  };
+
+  /** kerning 属性配置 */
+  'kerning': KerningConfig = {
+    keywords: [...KERNING_KEYWORDS],
+    numberTypes: [...KERNING_NUMBER_TYPES],
+  };
+
+  /** left 属性配置 */
+  'left': LeftConfig = {
+    keywords: [...LEFT_KEYWORDS],
+    numberTypes: [...LEFT_NUMBER_TYPES],
+  };
+
+  /** letter-spacing 属性配置 */
+  'letter-spacing': LetterSpacingConfig = {
+    keywords: [...LETTER_SPACING_KEYWORDS],
+    numberTypes: [...LETTER_SPACING_NUMBER_TYPES],
+  };
+
+  /** line-break 属性配置 */
+  'line-break': LineBreakConfig = {
+    keywords: [...LINE_BREAK_KEYWORDS],
+  };
+
+  /** line-clamp 属性配置 */
+  'line-clamp': LineClampConfig = {
+    keywords: [...LINE_CLAMP_KEYWORDS],
+    numberTypes: [...LINE_CLAMP_NUMBER_TYPES],
+  };
+
+  /** line-height 属性配置 */
+  'line-height': LineHeightConfig = {
+    keywords: [...LINE_HEIGHT_KEYWORDS],
+    numberTypes: [...LINE_HEIGHT_NUMBER_TYPES],
+  };
+
+  /** line-height-step 属性配置 */
+  'line-height-step': LineHeightStepConfig = {
+    numberTypes: [...LINE_HEIGHT_STEP_NUMBER_TYPES],
+  };
+
+  /** list-style-image 属性配置 */
+  'list-style-image': ListStyleImageConfig = {
+    keywords: [...LIST_STYLE_IMAGE_KEYWORDS, ...COLORS],
+    numberTypes: [...LIST_STYLE_IMAGE_NUMBER_TYPES],
+  };
+
+  /** list-style-position 属性配置 */
+  'list-style-position': ListStylePositionConfig = {
+    keywords: [...LIST_STYLE_POSITION_KEYWORDS],
+  };
+
+  /** list-style-type 属性配置 */
+  'list-style-type': ListStyleTypeConfig = {
+    keywords: [...LIST_STYLE_TYPE_KEYWORDS],
+  };
+
+  /** margin 属性配置 */
+  'margin': MarginConfig = {
+    keywords: [...MARGIN_KEYWORDS],
+    numberTypes: [...MARGIN_NUMBER_TYPES],
+  };
+
+  /** margin-bottom 属性配置 */
+  'margin-bottom': MarginBottomConfig = {
+    keywords: [...MARGIN_BOTTOM_KEYWORDS],
+    numberTypes: [...MARGIN_BOTTOM_NUMBER_TYPES],
+  };
+
+  /** margin-left 属性配置 */
+  'margin-left': MarginLeftConfig = {
+    keywords: [...MARGIN_LEFT_KEYWORDS],
+    numberTypes: [...MARGIN_LEFT_NUMBER_TYPES],
+  };
+
+  /** margin-right 属性配置 */
+  'margin-right': MarginRightConfig = {
+    keywords: [...MARGIN_RIGHT_KEYWORDS],
+    numberTypes: [...MARGIN_RIGHT_NUMBER_TYPES],
+  };
+
+  /** margin-top 属性配置 */
+  'margin-top': MarginTopConfig = {
+    keywords: [...MARGIN_TOP_KEYWORDS],
+    numberTypes: [...MARGIN_TOP_NUMBER_TYPES],
+  };
+
+  /** margin-trim 属性配置 */
+  'margin-trim': MarginTrimConfig = {
+    keywords: [...MARGIN_TRIM_KEYWORDS],
+  };
+
+  /** marker 属性配置 */
+  'marker': MarkerConfig = {
+    keywords: [...MARKER_KEYWORDS],
+  };
+
+  /** marker-end 属性配置 */
+  'marker-end': MarkerEndConfig = {
+    keywords: [...MARKER_END_KEYWORDS],
+  };
+
+  /** marker-mid 属性配置 */
+  'marker-mid': MarkerMidConfig = {
+    keywords: [...MARKER_MID_KEYWORDS],
+  };
+
+  /** marker-start 属性配置 */
+  'marker-start': MarkerStartConfig = {
+    keywords: [...MARKER_START_KEYWORDS],
+  };
+
+  /** mask 属性配置 */
+  'mask': MaskConfig = {
+    keywords: [...MASK_KEYWORDS, ...COLORS],
+    numberTypes: [...MASK_NUMBER_TYPES],
+  };
+
+  /** mask-border-mode 属性配置 */
+  'mask-border-mode': MaskBorderModeConfig = {
+    keywords: [...MASK_BORDER_MODE_KEYWORDS],
+  };
+
+  /** mask-border-outset 属性配置 */
+  'mask-border-outset': MaskBorderOutsetConfig = {
+    numberTypes: [...MASK_BORDER_OUTSET_NUMBER_TYPES],
+  };
+
+  /** mask-border-repeat 属性配置 */
+  'mask-border-repeat': MaskBorderRepeatConfig = {
+    keywords: [...MASK_BORDER_REPEAT_KEYWORDS],
+  };
+
+  /** mask-border-slice 属性配置 */
+  'mask-border-slice': MaskBorderSliceConfig = {
+    keywords: [...MASK_BORDER_SLICE_KEYWORDS],
+    numberTypes: [...MASK_BORDER_SLICE_NUMBER_TYPES],
+  };
+
+  /** mask-border-source 属性配置 */
+  'mask-border-source': MaskBorderSourceConfig = {
+    keywords: [...MASK_BORDER_SOURCE_KEYWORDS, ...COLORS],
+    numberTypes: [...MASK_BORDER_SOURCE_NUMBER_TYPES],
+  };
+
+  /** mask-border-width 属性配置 */
+  'mask-border-width': MaskBorderWidthConfig = {
+    keywords: [...MASK_BORDER_WIDTH_KEYWORDS],
+    numberTypes: [...MASK_BORDER_WIDTH_NUMBER_TYPES],
+  };
+
+  /** mask-clip 属性配置 */
+  'mask-clip': MaskClipConfig = {
+    keywords: [...MASK_CLIP_KEYWORDS],
+  };
+
+  /** mask-composite 属性配置 */
+  'mask-composite': MaskCompositeConfig = {
+    keywords: [...MASK_COMPOSITE_KEYWORDS],
+  };
+
+  /** mask-image 属性配置 */
+  'mask-image': MaskImageConfig = {
+    keywords: [...MASK_IMAGE_KEYWORDS, ...COLORS],
+    numberTypes: [...MASK_IMAGE_NUMBER_TYPES],
+  };
+
+  /** mask-mode 属性配置 */
+  'mask-mode': MaskModeConfig = {
+    keywords: [...MASK_MODE_KEYWORDS],
+  };
+
+  /** mask-origin 属性配置 */
+  'mask-origin': MaskOriginConfig = {
+    keywords: [...MASK_ORIGIN_KEYWORDS],
+  };
+
+  /** mask-position 属性配置 */
+  'mask-position': MaskPositionConfig = {
+    keywords: [...MASK_POSITION_KEYWORDS],
+    numberTypes: [...MASK_POSITION_NUMBER_TYPES],
+  };
+
+  /** mask-repeat 属性配置 */
+  'mask-repeat': MaskRepeatConfig = {
+    keywords: [...MASK_REPEAT_KEYWORDS],
+  };
+
+  /** mask-size 属性配置 */
+  'mask-size': MaskSizeConfig = {
+    keywords: [...MASK_SIZE_KEYWORDS],
+    numberTypes: [...MASK_SIZE_NUMBER_TYPES],
+  };
+
+  /** mask-type 属性配置 */
+  'mask-type': MaskTypeConfig = {
+    keywords: [...MASK_TYPE_KEYWORDS],
+  };
+
+  /** masonry-auto-flow 属性配置 */
+  'masonry-auto-flow': MasonryAutoFlowConfig = {
+    keywords: [...MASONRY_AUTO_FLOW_KEYWORDS],
+  };
+
+  /** math-depth 属性配置 */
+  'math-depth': MathDepthConfig = {
+    keywords: [...MATH_DEPTH_KEYWORDS],
+    numberTypes: [...MATH_DEPTH_NUMBER_TYPES],
+  };
+
+  /** math-shift 属性配置 */
+  'math-shift': MathShiftConfig = {
+    keywords: [...MATH_SHIFT_KEYWORDS],
+  };
+
+  /** math-style 属性配置 */
+  'math-style': MathStyleConfig = {
+    keywords: [...MATH_STYLE_KEYWORDS],
+  };
+
+  /** max-height 属性配置 */
+  'max-height': MaxHeightConfig = {
+    keywords: [...MAX_HEIGHT_KEYWORDS],
+    numberTypes: [...MAX_HEIGHT_NUMBER_TYPES],
+  };
+
+  /** max-lines 属性配置 */
+  'max-lines': MaxLinesConfig = {
+    keywords: [...MAX_LINES_KEYWORDS],
+    numberTypes: [...MAX_LINES_NUMBER_TYPES],
+  };
+
+  /** max-width 属性配置 */
+  'max-width': MaxWidthConfig = {
+    keywords: [...MAX_WIDTH_KEYWORDS],
+    numberTypes: [...MAX_WIDTH_NUMBER_TYPES],
+  };
+
+  /** min-height 属性配置 */
+  'min-height': MinHeightConfig = {
+    keywords: [...MIN_HEIGHT_KEYWORDS],
+    numberTypes: [...MIN_HEIGHT_NUMBER_TYPES],
+  };
+
+  /** min-width 属性配置 */
+  'min-width': MinWidthConfig = {
+    keywords: [...MIN_WIDTH_KEYWORDS],
+    numberTypes: [...MIN_WIDTH_NUMBER_TYPES],
+  };
+
+  /** mix-blend-mode 属性配置 */
+  'mix-blend-mode': MixBlendModeConfig = {
+    keywords: [...MIX_BLEND_MODE_KEYWORDS],
+  };
+
+  /** object-fit 属性配置 */
+  'object-fit': ObjectFitConfig = {
+    keywords: [...OBJECT_FIT_KEYWORDS],
+  };
+
+  /** object-position 属性配置 */
+  'object-position': ObjectPositionConfig = {
+    keywords: [...OBJECT_POSITION_KEYWORDS],
+    numberTypes: [...OBJECT_POSITION_NUMBER_TYPES],
+  };
+
+  /** offset-anchor 属性配置 */
+  'offset-anchor': OffsetAnchorConfig = {
+    keywords: [...OFFSET_ANCHOR_KEYWORDS],
+    numberTypes: [...OFFSET_ANCHOR_NUMBER_TYPES],
+  };
+
+  /** offset-distance 属性配置 */
+  'offset-distance': OffsetDistanceConfig = {
+    numberTypes: [...OFFSET_DISTANCE_NUMBER_TYPES],
+  };
+
+  /** offset-path 属性配置 */
+  'offset-path': OffsetPathConfig = {
+    keywords: [...OFFSET_PATH_KEYWORDS],
+    numberTypes: [...OFFSET_PATH_NUMBER_TYPES],
+  };
+
+  /** offset-position 属性配置 */
+  'offset-position': OffsetPositionConfig = {
+    keywords: [...OFFSET_POSITION_KEYWORDS],
+    numberTypes: [...OFFSET_POSITION_NUMBER_TYPES],
+  };
+
+  /** offset-rotate 属性配置 */
+  'offset-rotate': OffsetRotateConfig = {
+    keywords: [...OFFSET_ROTATE_KEYWORDS],
+    numberTypes: [...OFFSET_ROTATE_NUMBER_TYPES],
+  };
+
+  /** opacity 属性配置 */
+  'opacity': OpacityConfig = {
+    numberTypes: [...OPACITY_NUMBER_TYPES],
+  };
+
+  /** order 属性配置 */
+  'order': OrderConfig = {
+    numberTypes: [...ORDER_NUMBER_TYPES],
+  };
+
+  /** orphans 属性配置 */
+  'orphans': OrphansConfig = {
+    numberTypes: [...ORPHANS_NUMBER_TYPES],
+  };
+
+  /** outline-color 属性配置 */
+  'outline-color': OutlineColorConfig = {
+    keywords: [...OUTLINE_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...OUTLINE_COLOR_NUMBER_TYPES],
+  };
+
+  /** outline-offset 属性配置 */
+  'outline-offset': OutlineOffsetConfig = {
+    numberTypes: [...OUTLINE_OFFSET_NUMBER_TYPES],
+  };
+
+  /** outline-style 属性配置 */
+  'outline-style': OutlineStyleConfig = {
+    keywords: [...OUTLINE_STYLE_KEYWORDS],
+  };
+
+  /** outline-width 属性配置 */
+  'outline-width': OutlineWidthConfig = {
+    keywords: [...OUTLINE_WIDTH_KEYWORDS],
+    numberTypes: [...OUTLINE_WIDTH_NUMBER_TYPES],
+  };
+
+  /** overflow 属性配置 */
+  'overflow': OverflowConfig = {
+    keywords: [...OVERFLOW_KEYWORDS],
+  };
+
+  /** overflow-anchor 属性配置 */
+  'overflow-anchor': OverflowAnchorConfig = {
+    keywords: [...OVERFLOW_ANCHOR_KEYWORDS],
+  };
+
+  /** overflow-block 属性配置 */
+  'overflow-block': OverflowBlockConfig = {
+    keywords: [...OVERFLOW_BLOCK_KEYWORDS],
+  };
+
+  /** overflow-clip-box 属性配置 */
+  'overflow-clip-box': OverflowClipBoxConfig = {
+    keywords: [...OVERFLOW_CLIP_BOX_KEYWORDS],
+  };
+
+  /** overflow-clip-margin 属性配置 */
+  'overflow-clip-margin': OverflowClipMarginConfig = {
+    keywords: [...OVERFLOW_CLIP_MARGIN_KEYWORDS],
+    numberTypes: [...OVERFLOW_CLIP_MARGIN_NUMBER_TYPES],
+  };
+
+  /** overflow-inline 属性配置 */
+  'overflow-inline': OverflowInlineConfig = {
+    keywords: [...OVERFLOW_INLINE_KEYWORDS],
+  };
+
+  /** overflow-wrap 属性配置 */
+  'overflow-wrap': OverflowWrapConfig = {
+    keywords: [...OVERFLOW_WRAP_KEYWORDS],
+  };
+
+  /** overflow-x 属性配置 */
+  'overflow-x': OverflowXConfig = {
+    keywords: [...OVERFLOW_X_KEYWORDS],
+  };
+
+  /** overflow-y 属性配置 */
+  'overflow-y': OverflowYConfig = {
+    keywords: [...OVERFLOW_Y_KEYWORDS],
+  };
+
+  /** overlay 属性配置 */
+  'overlay': OverlayConfig = {
+    keywords: [...OVERLAY_KEYWORDS],
+  };
+
+  /** overscroll-behavior 属性配置 */
+  'overscroll-behavior': OverscrollBehaviorConfig = {
+    keywords: [...OVERSCROLL_BEHAVIOR_KEYWORDS],
+  };
+
+  /** overscroll-behavior-block 属性配置 */
+  'overscroll-behavior-block': OverscrollBehaviorBlockConfig = {
+    keywords: [...OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS],
+  };
+
+  /** overscroll-behavior-inline 属性配置 */
+  'overscroll-behavior-inline': OverscrollBehaviorInlineConfig = {
+    keywords: [...OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS],
+  };
+
+  /** overscroll-behavior-x 属性配置 */
+  'overscroll-behavior-x': OverscrollBehaviorXConfig = {
+    keywords: [...OVERSCROLL_BEHAVIOR_X_KEYWORDS],
+  };
+
+  /** overscroll-behavior-y 属性配置 */
+  'overscroll-behavior-y': OverscrollBehaviorYConfig = {
+    keywords: [...OVERSCROLL_BEHAVIOR_Y_KEYWORDS],
+  };
+
+  /** padding 属性配置 */
+  'padding': PaddingConfig = {
+    numberTypes: [...PADDING_NUMBER_TYPES],
+  };
+
+  /** padding-bottom 属性配置 */
+  'padding-bottom': PaddingBottomConfig = {
+    numberTypes: [...PADDING_BOTTOM_NUMBER_TYPES],
+  };
+
+  /** padding-left 属性配置 */
+  'padding-left': PaddingLeftConfig = {
+    numberTypes: [...PADDING_LEFT_NUMBER_TYPES],
+  };
+
+  /** padding-right 属性配置 */
+  'padding-right': PaddingRightConfig = {
+    numberTypes: [...PADDING_RIGHT_NUMBER_TYPES],
+  };
+
+  /** padding-top 属性配置 */
+  'padding-top': PaddingTopConfig = {
+    numberTypes: [...PADDING_TOP_NUMBER_TYPES],
+  };
+
+  /** page 属性配置 */
+  'page': PageConfig = {
+    keywords: [...PAGE_KEYWORDS],
+  };
+
+  /** page-break-after 属性配置 */
+  'page-break-after': PageBreakAfterConfig = {
+    keywords: [...PAGE_BREAK_AFTER_KEYWORDS],
+  };
+
+  /** page-break-before 属性配置 */
+  'page-break-before': PageBreakBeforeConfig = {
+    keywords: [...PAGE_BREAK_BEFORE_KEYWORDS],
+  };
+
+  /** page-break-inside 属性配置 */
+  'page-break-inside': PageBreakInsideConfig = {
+    keywords: [...PAGE_BREAK_INSIDE_KEYWORDS],
+  };
+
+  /** paint-order 属性配置 */
+  'paint-order': PaintOrderConfig = {
+    keywords: [...PAINT_ORDER_KEYWORDS],
+  };
+
+  /** pause-after 属性配置 */
+  'pause-after': PauseAfterConfig = {
+    keywords: [...PAUSE_AFTER_KEYWORDS],
+    numberTypes: [...PAUSE_AFTER_NUMBER_TYPES],
+  };
+
+  /** pause-before 属性配置 */
+  'pause-before': PauseBeforeConfig = {
+    keywords: [...PAUSE_BEFORE_KEYWORDS],
+    numberTypes: [...PAUSE_BEFORE_NUMBER_TYPES],
+  };
+
+  /** perspective 属性配置 */
+  'perspective': PerspectiveConfig = {
+    keywords: [...PERSPECTIVE_KEYWORDS],
+    numberTypes: [...PERSPECTIVE_NUMBER_TYPES],
+  };
+
+  /** perspective-origin 属性配置 */
+  'perspective-origin': PerspectiveOriginConfig = {
+    keywords: [...PERSPECTIVE_ORIGIN_KEYWORDS],
+    numberTypes: [...PERSPECTIVE_ORIGIN_NUMBER_TYPES],
+  };
+
+  /** pointer-events 属性配置 */
+  'pointer-events': PointerEventsConfig = {
+    keywords: [...POINTER_EVENTS_KEYWORDS],
+  };
+
+  /** position 属性配置 */
+  'position': PositionConfig = {
+    keywords: [...POSITION_KEYWORDS],
+  };
+
+  /** position-anchor 属性配置 */
+  'position-anchor': PositionAnchorConfig = {
+    keywords: [...POSITION_ANCHOR_KEYWORDS],
+  };
+
+  /** position-area 属性配置 */
+  'position-area': PositionAreaConfig = {
+    keywords: [...POSITION_AREA_KEYWORDS],
+  };
+
+  /** position-try-fallbacks 属性配置 */
+  'position-try-fallbacks': PositionTryFallbacksConfig = {
+    keywords: [...POSITION_TRY_FALLBACKS_KEYWORDS],
+  };
+
+  /** position-try-order 属性配置 */
+  'position-try-order': PositionTryOrderConfig = {
+    keywords: [...POSITION_TRY_ORDER_KEYWORDS],
+  };
+
+  /** position-visibility 属性配置 */
+  'position-visibility': PositionVisibilityConfig = {
+    keywords: [...POSITION_VISIBILITY_KEYWORDS],
+  };
+
+  /** print-color-adjust 属性配置 */
+  'print-color-adjust': PrintColorAdjustConfig = {
+    keywords: [...PRINT_COLOR_ADJUST_KEYWORDS],
+  };
+
+  /** quotes 属性配置 */
+  'quotes': QuotesConfig = {
+    keywords: [...QUOTES_KEYWORDS],
+  };
+
+  /** r 属性配置 */
+  'r': RConfig = {
+    numberTypes: [...R_NUMBER_TYPES],
+  };
+
+  /** resize 属性配置 */
+  'resize': ResizeConfig = {
+    keywords: [...RESIZE_KEYWORDS],
+  };
+
+  /** rest-after 属性配置 */
+  'rest-after': RestAfterConfig = {
+    keywords: [...REST_AFTER_KEYWORDS],
+    numberTypes: [...REST_AFTER_NUMBER_TYPES],
+  };
+
+  /** rest-before 属性配置 */
+  'rest-before': RestBeforeConfig = {
+    keywords: [...REST_BEFORE_KEYWORDS],
+    numberTypes: [...REST_BEFORE_NUMBER_TYPES],
+  };
+
+  /** right 属性配置 */
+  'right': RightConfig = {
+    keywords: [...RIGHT_KEYWORDS],
+    numberTypes: [...RIGHT_NUMBER_TYPES],
+  };
+
+  /** rotate 属性配置 */
+  'rotate': RotateConfig = {
+    keywords: [...ROTATE_KEYWORDS],
+    numberTypes: [...ROTATE_NUMBER_TYPES],
+  };
+
+  /** row-gap 属性配置 */
+  'row-gap': RowGapConfig = {
+    keywords: [...ROW_GAP_KEYWORDS],
+    numberTypes: [...ROW_GAP_NUMBER_TYPES],
+  };
+
+  /** ruby-align 属性配置 */
+  'ruby-align': RubyAlignConfig = {
+    keywords: [...RUBY_ALIGN_KEYWORDS],
+  };
+
+  /** ruby-merge 属性配置 */
+  'ruby-merge': RubyMergeConfig = {
+    keywords: [...RUBY_MERGE_KEYWORDS],
+  };
+
+  /** ruby-position 属性配置 */
+  'ruby-position': RubyPositionConfig = {
+    keywords: [...RUBY_POSITION_KEYWORDS],
+  };
+
+  /** rx 属性配置 */
+  'rx': RxConfig = {
+    numberTypes: [...RX_NUMBER_TYPES],
+  };
+
+  /** ry 属性配置 */
+  'ry': RyConfig = {
+    numberTypes: [...RY_NUMBER_TYPES],
+  };
+
+  /** scale 属性配置 */
+  'scale': ScaleConfig = {
+    keywords: [...SCALE_KEYWORDS],
+    numberTypes: [...SCALE_NUMBER_TYPES],
+  };
+
+  /** scroll-behavior 属性配置 */
+  'scroll-behavior': ScrollBehaviorConfig = {
+    keywords: [...SCROLL_BEHAVIOR_KEYWORDS],
+  };
+
+  /** scroll-margin 属性配置 */
+  'scroll-margin': ScrollMarginConfig = {
+    numberTypes: [...SCROLL_MARGIN_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-block 属性配置 */
+  'scroll-margin-block': ScrollMarginBlockConfig = {
+    numberTypes: [...SCROLL_MARGIN_BLOCK_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-block-end 属性配置 */
+  'scroll-margin-block-end': ScrollMarginBlockEndConfig = {
+    numberTypes: [...SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-block-start 属性配置 */
+  'scroll-margin-block-start': ScrollMarginBlockStartConfig = {
+    numberTypes: [...SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-bottom 属性配置 */
+  'scroll-margin-bottom': ScrollMarginBottomConfig = {
+    numberTypes: [...SCROLL_MARGIN_BOTTOM_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-inline 属性配置 */
+  'scroll-margin-inline': ScrollMarginInlineConfig = {
+    numberTypes: [...SCROLL_MARGIN_INLINE_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-inline-end 属性配置 */
+  'scroll-margin-inline-end': ScrollMarginInlineEndConfig = {
+    numberTypes: [...SCROLL_MARGIN_INLINE_END_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-inline-start 属性配置 */
+  'scroll-margin-inline-start': ScrollMarginInlineStartConfig = {
+    numberTypes: [...SCROLL_MARGIN_INLINE_START_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-left 属性配置 */
+  'scroll-margin-left': ScrollMarginLeftConfig = {
+    numberTypes: [...SCROLL_MARGIN_LEFT_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-right 属性配置 */
+  'scroll-margin-right': ScrollMarginRightConfig = {
+    numberTypes: [...SCROLL_MARGIN_RIGHT_NUMBER_TYPES],
+  };
+
+  /** scroll-margin-top 属性配置 */
+  'scroll-margin-top': ScrollMarginTopConfig = {
+    numberTypes: [...SCROLL_MARGIN_TOP_NUMBER_TYPES],
+  };
+
+  /** scroll-padding 属性配置 */
+  'scroll-padding': ScrollPaddingConfig = {
+    keywords: [...SCROLL_PADDING_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-block 属性配置 */
+  'scroll-padding-block': ScrollPaddingBlockConfig = {
+    keywords: [...SCROLL_PADDING_BLOCK_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_BLOCK_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-block-end 属性配置 */
+  'scroll-padding-block-end': ScrollPaddingBlockEndConfig = {
+    keywords: [...SCROLL_PADDING_BLOCK_END_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_BLOCK_END_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-block-start 属性配置 */
+  'scroll-padding-block-start': ScrollPaddingBlockStartConfig = {
+    keywords: [...SCROLL_PADDING_BLOCK_START_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_BLOCK_START_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-bottom 属性配置 */
+  'scroll-padding-bottom': ScrollPaddingBottomConfig = {
+    keywords: [...SCROLL_PADDING_BOTTOM_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_BOTTOM_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-inline 属性配置 */
+  'scroll-padding-inline': ScrollPaddingInlineConfig = {
+    keywords: [...SCROLL_PADDING_INLINE_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_INLINE_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-inline-end 属性配置 */
+  'scroll-padding-inline-end': ScrollPaddingInlineEndConfig = {
+    keywords: [...SCROLL_PADDING_INLINE_END_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_INLINE_END_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-inline-start 属性配置 */
+  'scroll-padding-inline-start': ScrollPaddingInlineStartConfig = {
+    keywords: [...SCROLL_PADDING_INLINE_START_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_INLINE_START_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-left 属性配置 */
+  'scroll-padding-left': ScrollPaddingLeftConfig = {
+    keywords: [...SCROLL_PADDING_LEFT_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_LEFT_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-right 属性配置 */
+  'scroll-padding-right': ScrollPaddingRightConfig = {
+    keywords: [...SCROLL_PADDING_RIGHT_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_RIGHT_NUMBER_TYPES],
+  };
+
+  /** scroll-padding-top 属性配置 */
+  'scroll-padding-top': ScrollPaddingTopConfig = {
+    keywords: [...SCROLL_PADDING_TOP_KEYWORDS],
+    numberTypes: [...SCROLL_PADDING_TOP_NUMBER_TYPES],
+  };
+
+  /** scroll-snap-align 属性配置 */
+  'scroll-snap-align': ScrollSnapAlignConfig = {
+    keywords: [...SCROLL_SNAP_ALIGN_KEYWORDS],
+  };
+
+  /** scroll-snap-coordinate 属性配置 */
+  'scroll-snap-coordinate': ScrollSnapCoordinateConfig = {
+    keywords: [...SCROLL_SNAP_COORDINATE_KEYWORDS],
+    numberTypes: [...SCROLL_SNAP_COORDINATE_NUMBER_TYPES],
+  };
+
+  /** scroll-snap-destination 属性配置 */
+  'scroll-snap-destination': ScrollSnapDestinationConfig = {
+    keywords: [...SCROLL_SNAP_DESTINATION_KEYWORDS],
+    numberTypes: [...SCROLL_SNAP_DESTINATION_NUMBER_TYPES],
+  };
+
+  /** scroll-snap-points-x 属性配置 */
+  'scroll-snap-points-x': ScrollSnapPointsXConfig = {
+    keywords: [...SCROLL_SNAP_POINTS_X_KEYWORDS],
+    numberTypes: [...SCROLL_SNAP_POINTS_X_NUMBER_TYPES],
+  };
+
+  /** scroll-snap-points-y 属性配置 */
+  'scroll-snap-points-y': ScrollSnapPointsYConfig = {
+    keywords: [...SCROLL_SNAP_POINTS_Y_KEYWORDS],
+    numberTypes: [...SCROLL_SNAP_POINTS_Y_NUMBER_TYPES],
+  };
+
+  /** scroll-snap-stop 属性配置 */
+  'scroll-snap-stop': ScrollSnapStopConfig = {
+    keywords: [...SCROLL_SNAP_STOP_KEYWORDS],
+  };
+
+  /** scroll-snap-type 属性配置 */
+  'scroll-snap-type': ScrollSnapTypeConfig = {
+    keywords: [...SCROLL_SNAP_TYPE_KEYWORDS],
+  };
+
+  /** scroll-snap-type-x 属性配置 */
+  'scroll-snap-type-x': ScrollSnapTypeXConfig = {
+    keywords: [...SCROLL_SNAP_TYPE_X_KEYWORDS],
+  };
+
+  /** scroll-snap-type-y 属性配置 */
+  'scroll-snap-type-y': ScrollSnapTypeYConfig = {
+    keywords: [...SCROLL_SNAP_TYPE_Y_KEYWORDS],
+  };
+
+  /** scroll-timeline-axis 属性配置 */
+  'scroll-timeline-axis': ScrollTimelineAxisConfig = {
+    keywords: [...SCROLL_TIMELINE_AXIS_KEYWORDS],
+  };
+
+  /** scroll-timeline-name 属性配置 */
+  'scroll-timeline-name': ScrollTimelineNameConfig = {
+    keywords: [...SCROLL_TIMELINE_NAME_KEYWORDS],
+  };
+
+  /** scrollbar-color 属性配置 */
+  'scrollbar-color': ScrollbarColorConfig = {
+    keywords: [...SCROLLBAR_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...SCROLLBAR_COLOR_NUMBER_TYPES],
+  };
+
+  /** scrollbar-gutter 属性配置 */
+  'scrollbar-gutter': ScrollbarGutterConfig = {
+    keywords: [...SCROLLBAR_GUTTER_KEYWORDS],
+  };
+
+  /** scrollbar-width 属性配置 */
+  'scrollbar-width': ScrollbarWidthConfig = {
+    keywords: [...SCROLLBAR_WIDTH_KEYWORDS],
+  };
+
+  /** shape-image-threshold 属性配置 */
+  'shape-image-threshold': ShapeImageThresholdConfig = {
+    numberTypes: [...SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES],
+  };
+
+  /** shape-margin 属性配置 */
+  'shape-margin': ShapeMarginConfig = {
+    numberTypes: [...SHAPE_MARGIN_NUMBER_TYPES],
+  };
+
+  /** shape-outside 属性配置 */
+  'shape-outside': ShapeOutsideConfig = {
+    keywords: [...SHAPE_OUTSIDE_KEYWORDS, ...COLORS],
+    numberTypes: [...SHAPE_OUTSIDE_NUMBER_TYPES],
+  };
+
+  /** shape-rendering 属性配置 */
+  'shape-rendering': ShapeRenderingConfig = {
+    keywords: [...SHAPE_RENDERING_KEYWORDS],
+  };
+
+  /** speak 属性配置 */
+  'speak': SpeakConfig = {
+    keywords: [...SPEAK_KEYWORDS],
+  };
+
+  /** speak-as 属性配置 */
+  'speak-as': SpeakAsConfig = {
+    keywords: [...SPEAK_AS_KEYWORDS],
+  };
+
+  /** stroke 属性配置 */
+  'stroke': StrokeConfig = {
+    keywords: [...STROKE_KEYWORDS, ...COLORS],
+    numberTypes: [...STROKE_NUMBER_TYPES],
+  };
+
+  /** stroke-dasharray 属性配置 */
+  'stroke-dasharray': StrokeDasharrayConfig = {
+    keywords: [...STROKE_DASHARRAY_KEYWORDS],
+    numberTypes: [...STROKE_DASHARRAY_NUMBER_TYPES],
+  };
+
+  /** stroke-dashoffset 属性配置 */
+  'stroke-dashoffset': StrokeDashoffsetConfig = {
+    numberTypes: [...STROKE_DASHOFFSET_NUMBER_TYPES],
+  };
+
+  /** stroke-linecap 属性配置 */
+  'stroke-linecap': StrokeLinecapConfig = {
+    keywords: [...STROKE_LINECAP_KEYWORDS],
+  };
+
+  /** stroke-linejoin 属性配置 */
+  'stroke-linejoin': StrokeLinejoinConfig = {
+    keywords: [...STROKE_LINEJOIN_KEYWORDS],
+  };
+
+  /** stroke-miterlimit 属性配置 */
+  'stroke-miterlimit': StrokeMiterlimitConfig = {
+    numberTypes: [...STROKE_MITERLIMIT_NUMBER_TYPES],
+  };
+
+  /** stroke-width 属性配置 */
+  'stroke-width': StrokeWidthConfig = {
+    numberTypes: [...STROKE_WIDTH_NUMBER_TYPES],
+  };
+
+  /** tab-size 属性配置 */
+  'tab-size': TabSizeConfig = {
+    numberTypes: [...TAB_SIZE_NUMBER_TYPES],
+  };
+
+  /** table-layout 属性配置 */
+  'table-layout': TableLayoutConfig = {
+    keywords: [...TABLE_LAYOUT_KEYWORDS],
+  };
+
+  /** text-align 属性配置 */
+  'text-align': TextAlignConfig = {
+    keywords: [...TEXT_ALIGN_KEYWORDS],
+  };
+
+  /** text-align-last 属性配置 */
+  'text-align-last': TextAlignLastConfig = {
+    keywords: [...TEXT_ALIGN_LAST_KEYWORDS],
+  };
+
+  /** text-anchor 属性配置 */
+  'text-anchor': TextAnchorConfig = {
+    keywords: [...TEXT_ANCHOR_KEYWORDS],
+  };
+
+  /** text-combine-upright 属性配置 */
+  'text-combine-upright': TextCombineUprightConfig = {
+    keywords: [...TEXT_COMBINE_UPRIGHT_KEYWORDS],
+    numberTypes: [...TEXT_COMBINE_UPRIGHT_NUMBER_TYPES],
+  };
+
+  /** text-decoration-color 属性配置 */
+  'text-decoration-color': TextDecorationColorConfig = {
+    keywords: [...TEXT_DECORATION_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...TEXT_DECORATION_COLOR_NUMBER_TYPES],
+  };
+
+  /** text-decoration-line 属性配置 */
+  'text-decoration-line': TextDecorationLineConfig = {
+    keywords: [...TEXT_DECORATION_LINE_KEYWORDS],
+  };
+
+  /** text-decoration-skip 属性配置 */
+  'text-decoration-skip': TextDecorationSkipConfig = {
+    keywords: [...TEXT_DECORATION_SKIP_KEYWORDS],
+  };
+
+  /** text-decoration-skip-ink 属性配置 */
+  'text-decoration-skip-ink': TextDecorationSkipInkConfig = {
+    keywords: [...TEXT_DECORATION_SKIP_INK_KEYWORDS],
+  };
+
+  /** text-decoration-style 属性配置 */
+  'text-decoration-style': TextDecorationStyleConfig = {
+    keywords: [...TEXT_DECORATION_STYLE_KEYWORDS],
+  };
+
+  /** text-decoration-thickness 属性配置 */
+  'text-decoration-thickness': TextDecorationThicknessConfig = {
+    keywords: [...TEXT_DECORATION_THICKNESS_KEYWORDS],
+    numberTypes: [...TEXT_DECORATION_THICKNESS_NUMBER_TYPES],
+  };
+
+  /** text-emphasis-color 属性配置 */
+  'text-emphasis-color': TextEmphasisColorConfig = {
+    keywords: [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...COLORS],
+    numberTypes: [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES],
+  };
+
+  /** text-emphasis-position 属性配置 */
+  'text-emphasis-position': TextEmphasisPositionConfig = {
+    keywords: [...TEXT_EMPHASIS_POSITION_KEYWORDS],
+  };
+
+  /** text-emphasis-style 属性配置 */
+  'text-emphasis-style': TextEmphasisStyleConfig = {
+    keywords: [...TEXT_EMPHASIS_STYLE_KEYWORDS],
+  };
+
+  /** text-indent 属性配置 */
+  'text-indent': TextIndentConfig = {
+    keywords: [...TEXT_INDENT_KEYWORDS],
+    numberTypes: [...TEXT_INDENT_NUMBER_TYPES],
+  };
+
+  /** text-justify 属性配置 */
+  'text-justify': TextJustifyConfig = {
+    keywords: [...TEXT_JUSTIFY_KEYWORDS],
+  };
+
+  /** text-orientation 属性配置 */
+  'text-orientation': TextOrientationConfig = {
+    keywords: [...TEXT_ORIENTATION_KEYWORDS],
+  };
+
+  /** text-overflow 属性配置 */
+  'text-overflow': TextOverflowConfig = {
+    keywords: [...TEXT_OVERFLOW_KEYWORDS],
+  };
+
+  /** text-rendering 属性配置 */
+  'text-rendering': TextRenderingConfig = {
+    keywords: [...TEXT_RENDERING_KEYWORDS],
+  };
+
+  /** text-shadow 属性配置 */
+  'text-shadow': TextShadowConfig = {
+    keywords: [...TEXT_SHADOW_KEYWORDS, ...COLORS],
+    numberTypes: [...TEXT_SHADOW_NUMBER_TYPES],
+  };
+
+  /** text-size-adjust 属性配置 */
+  'text-size-adjust': TextSizeAdjustConfig = {
+    keywords: [...TEXT_SIZE_ADJUST_KEYWORDS],
+    numberTypes: [...TEXT_SIZE_ADJUST_NUMBER_TYPES],
+  };
+
+  /** text-spacing-trim 属性配置 */
+  'text-spacing-trim': TextSpacingTrimConfig = {
+    keywords: [...TEXT_SPACING_TRIM_KEYWORDS],
+  };
+
+  /** text-transform 属性配置 */
+  'text-transform': TextTransformConfig = {
+    keywords: [...TEXT_TRANSFORM_KEYWORDS],
+  };
+
+  /** text-underline-offset 属性配置 */
+  'text-underline-offset': TextUnderlineOffsetConfig = {
+    keywords: [...TEXT_UNDERLINE_OFFSET_KEYWORDS],
+    numberTypes: [...TEXT_UNDERLINE_OFFSET_NUMBER_TYPES],
+  };
+
+  /** text-underline-position 属性配置 */
+  'text-underline-position': TextUnderlinePositionConfig = {
+    keywords: [...TEXT_UNDERLINE_POSITION_KEYWORDS],
+  };
+
+  /** text-wrap-mode 属性配置 */
+  'text-wrap-mode': TextWrapModeConfig = {
+    keywords: [...TEXT_WRAP_MODE_KEYWORDS],
+  };
+
+  /** text-wrap-style 属性配置 */
+  'text-wrap-style': TextWrapStyleConfig = {
+    keywords: [...TEXT_WRAP_STYLE_KEYWORDS],
+  };
+
+  /** timeline-scope 属性配置 */
+  'timeline-scope': TimelineScopeConfig = {
+    keywords: [...TIMELINE_SCOPE_KEYWORDS],
+  };
+
+  /** top 属性配置 */
+  'top': TopConfig = {
+    keywords: [...TOP_KEYWORDS],
+    numberTypes: [...TOP_NUMBER_TYPES],
+  };
+
+  /** touch-action 属性配置 */
+  'touch-action': TouchActionConfig = {
+    keywords: [...TOUCH_ACTION_KEYWORDS],
+  };
+
+  /** transform 属性配置 */
+  'transform': TransformConfig = {
+    keywords: [...TRANSFORM_KEYWORDS],
+    numberTypes: [...TRANSFORM_NUMBER_TYPES],
+  };
+
+  /** transform-box 属性配置 */
+  'transform-box': TransformBoxConfig = {
+    keywords: [...TRANSFORM_BOX_KEYWORDS],
+  };
+
+  /** transform-origin 属性配置 */
+  'transform-origin': TransformOriginConfig = {
+    keywords: [...TRANSFORM_ORIGIN_KEYWORDS],
+    numberTypes: [...TRANSFORM_ORIGIN_NUMBER_TYPES],
+  };
+
+  /** transform-style 属性配置 */
+  'transform-style': TransformStyleConfig = {
+    keywords: [...TRANSFORM_STYLE_KEYWORDS],
+  };
+
+  /** transition 属性配置 */
+  'transition': TransitionConfig = {
+    keywords: [...TRANSITION_KEYWORDS],
+    numberTypes: [...TRANSITION_NUMBER_TYPES],
+  };
+
+  /** transition-behavior 属性配置 */
+  'transition-behavior': TransitionBehaviorConfig = {
+    keywords: [...TRANSITION_BEHAVIOR_KEYWORDS],
+  };
+
+  /** transition-delay 属性配置 */
+  'transition-delay': TransitionDelayConfig = {
+    numberTypes: [...TRANSITION_DELAY_NUMBER_TYPES],
+  };
+
+  /** transition-duration 属性配置 */
+  'transition-duration': TransitionDurationConfig = {
+    numberTypes: [...TRANSITION_DURATION_NUMBER_TYPES],
+  };
+
+  /** transition-property 属性配置 */
+  'transition-property': TransitionPropertyConfig = {
+    keywords: [...TRANSITION_PROPERTY_KEYWORDS],
+  };
+
+  /** transition-timing-function 属性配置 */
+  'transition-timing-function': TransitionTimingFunctionConfig = {
+    keywords: [...TRANSITION_TIMING_FUNCTION_KEYWORDS],
+    numberTypes: [...TRANSITION_TIMING_FUNCTION_NUMBER_TYPES],
+  };
+
+  /** translate 属性配置 */
+  'translate': TranslateConfig = {
+    keywords: [...TRANSLATE_KEYWORDS],
+    numberTypes: [...TRANSLATE_NUMBER_TYPES],
+  };
+
+  /** unicode-bidi 属性配置 */
+  'unicode-bidi': UnicodeBidiConfig = {
+    keywords: [...UNICODE_BIDI_KEYWORDS],
+  };
+
+  /** user-select 属性配置 */
+  'user-select': UserSelectConfig = {
+    keywords: [...USER_SELECT_KEYWORDS],
+  };
+
+  /** vector-effect 属性配置 */
+  'vector-effect': VectorEffectConfig = {
+    keywords: [...VECTOR_EFFECT_KEYWORDS],
+  };
+
+  /** vertical-align 属性配置 */
+  'vertical-align': VerticalAlignConfig = {
+    keywords: [...VERTICAL_ALIGN_KEYWORDS],
+    numberTypes: [...VERTICAL_ALIGN_NUMBER_TYPES],
+  };
+
+  /** view-timeline-axis 属性配置 */
+  'view-timeline-axis': ViewTimelineAxisConfig = {
+    keywords: [...VIEW_TIMELINE_AXIS_KEYWORDS],
+  };
+
+  /** view-timeline-inset 属性配置 */
+  'view-timeline-inset': ViewTimelineInsetConfig = {
+    keywords: [...VIEW_TIMELINE_INSET_KEYWORDS],
+    numberTypes: [...VIEW_TIMELINE_INSET_NUMBER_TYPES],
+  };
+
+  /** view-timeline-name 属性配置 */
+  'view-timeline-name': ViewTimelineNameConfig = {
+    keywords: [...VIEW_TIMELINE_NAME_KEYWORDS],
+  };
+
+  /** view-transition-name 属性配置 */
+  'view-transition-name': ViewTransitionNameConfig = {
+    keywords: [...VIEW_TRANSITION_NAME_KEYWORDS],
+  };
+
+  /** visibility 属性配置 */
+  'visibility': VisibilityConfig = {
+    keywords: [...VISIBILITY_KEYWORDS],
+  };
+
+  /** voice-balance 属性配置 */
+  'voice-balance': VoiceBalanceConfig = {
+    keywords: [...VOICE_BALANCE_KEYWORDS],
+    numberTypes: [...VOICE_BALANCE_NUMBER_TYPES],
+  };
+
+  /** voice-duration 属性配置 */
+  'voice-duration': VoiceDurationConfig = {
+    keywords: [...VOICE_DURATION_KEYWORDS],
+    numberTypes: [...VOICE_DURATION_NUMBER_TYPES],
+  };
+
+  /** voice-family 属性配置 */
+  'voice-family': VoiceFamilyConfig = {
+    keywords: [...VOICE_FAMILY_KEYWORDS],
+    numberTypes: [...VOICE_FAMILY_NUMBER_TYPES],
+  };
+
+  /** voice-pitch 属性配置 */
+  'voice-pitch': VoicePitchConfig = {
+    keywords: [...VOICE_PITCH_KEYWORDS],
+    numberTypes: [...VOICE_PITCH_NUMBER_TYPES],
+  };
+
+  /** voice-range 属性配置 */
+  'voice-range': VoiceRangeConfig = {
+    keywords: [...VOICE_RANGE_KEYWORDS],
+    numberTypes: [...VOICE_RANGE_NUMBER_TYPES],
+  };
+
+  /** voice-rate 属性配置 */
+  'voice-rate': VoiceRateConfig = {
+    keywords: [...VOICE_RATE_KEYWORDS],
+    numberTypes: [...VOICE_RATE_NUMBER_TYPES],
+  };
+
+  /** voice-stress 属性配置 */
+  'voice-stress': VoiceStressConfig = {
+    keywords: [...VOICE_STRESS_KEYWORDS],
+  };
+
+  /** voice-volume 属性配置 */
+  'voice-volume': VoiceVolumeConfig = {
+    keywords: [...VOICE_VOLUME_KEYWORDS],
+  };
+
+  /** white-space 属性配置 */
+  'white-space': WhiteSpaceConfig = {
+    keywords: [...WHITE_SPACE_KEYWORDS],
+  };
+
+  /** white-space-collapse 属性配置 */
+  'white-space-collapse': WhiteSpaceCollapseConfig = {
+    keywords: [...WHITE_SPACE_COLLAPSE_KEYWORDS],
+  };
+
+  /** white-space-trim 属性配置 */
+  'white-space-trim': WhiteSpaceTrimConfig = {
+    keywords: [...WHITE_SPACE_TRIM_KEYWORDS],
+  };
+
+  /** widows 属性配置 */
+  'widows': WidowsConfig = {
+    numberTypes: [...WIDOWS_NUMBER_TYPES],
+  };
+
+  /** width 属性配置 */
+  'width': WidthConfig = {
+    keywords: [...WIDTH_KEYWORDS],
+    numberTypes: [...WIDTH_NUMBER_TYPES],
+  };
+
+  /** will-change 属性配置 */
+  'will-change': WillChangeConfig = {
+    keywords: [...WILL_CHANGE_KEYWORDS],
+  };
+
+  /** word-break 属性配置 */
+  'word-break': WordBreakConfig = {
+    keywords: [...WORD_BREAK_KEYWORDS],
+  };
+
+  /** word-spacing 属性配置 */
+  'word-spacing': WordSpacingConfig = {
+    keywords: [...WORD_SPACING_KEYWORDS],
+    numberTypes: [...WORD_SPACING_NUMBER_TYPES],
+  };
+
+  /** word-wrap 属性配置 */
+  'word-wrap': WordWrapConfig = {
+    keywords: [...WORD_WRAP_KEYWORDS],
+  };
+
+  /** writing-mode 属性配置 */
+  'writing-mode': WritingModeConfig = {
+    keywords: [...WRITING_MODE_KEYWORDS],
+  };
+
+  /** x 属性配置 */
+  'x': XConfig = {
+    numberTypes: [...X_NUMBER_TYPES],
+  };
+
+  /** y 属性配置 */
+  'y': YConfig = {
+    numberTypes: [...Y_NUMBER_TYPES],
+  };
+
+  /** z-index 属性配置 */
+  'z-index': ZIndexConfig = {
+    keywords: [...Z_INDEX_KEYWORDS],
+    numberTypes: [...Z_INDEX_NUMBER_TYPES],
+  };
+
+  /** zoom 属性配置 */
+  'zoom': ZoomConfig = {
+    keywords: [...ZOOM_KEYWORDS],
+    numberTypes: [...ZOOM_NUMBER_TYPES],
+  };
+
+}
 
 // ==================== 运行时配置数据 ====================
 
-/** 属性配置数据 */
-export const CSS_PROPERTY_CONFIG = {
-  'accent-color': {
-    keywords: [...ACCENT_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'align-content': {
-    keywords: ALIGN_CONTENT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'align-items': {
-    keywords: ALIGN_ITEMS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'align-self': {
-    keywords: ALIGN_SELF_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'align-tracks': {
-    keywords: ALIGN_TRACKS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'alignment-baseline': {
-    keywords: ALIGNMENT_BASELINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'all': {
-    keywords: ALL_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'anchor-name': {
-    keywords: ANCHOR_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'anchor-scope': {
-    keywords: ANCHOR_SCOPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation': {
-    keywords: ANIMATION_KEYWORDS,
-    numberTypes: ['integer', 'number'] as const,
-  },
-  'animation-composition': {
-    keywords: ANIMATION_COMPOSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-delay': {
-    keywords: [] as const,
-    numberTypes: ['time'] as const,
-  },
-  'animation-direction': {
-    keywords: ANIMATION_DIRECTION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-duration': {
-    keywords: [] as const,
-    numberTypes: ['time'] as const,
-  },
-  'animation-fill-mode': {
-    keywords: ANIMATION_FILL_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-iteration-count': {
-    keywords: ANIMATION_ITERATION_COUNT_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'animation-name': {
-    keywords: ANIMATION_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-play-state': {
-    keywords: ANIMATION_PLAY_STATE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-range-end': {
-    keywords: ANIMATION_RANGE_END_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'animation-range-start': {
-    keywords: ANIMATION_RANGE_START_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'animation-timeline': {
-    keywords: ANIMATION_TIMELINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'animation-timing-function': {
-    keywords: ANIMATION_TIMING_FUNCTION_KEYWORDS,
-    numberTypes: ['integer', 'number'] as const,
-  },
-  'appearance': {
-    keywords: APPEARANCE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'aspect-ratio': {
-    keywords: ASPECT_RATIO_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'azimuth': {
-    keywords: AZIMUTH_KEYWORDS,
-    numberTypes: ['angle'] as const,
-  },
-  'backdrop-filter': {
-    keywords: [...BACKDROP_FILTER_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'backface-visibility': {
-    keywords: BACKFACE_VISIBILITY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background': {
-    keywords: [...BACKGROUND_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'background-attachment': {
-    keywords: BACKGROUND_ATTACHMENT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background-blend-mode': {
-    keywords: BACKGROUND_BLEND_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background-clip': {
-    keywords: BACKGROUND_CLIP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background-color': {
-    keywords: [...BACKGROUND_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'background-image': {
-    keywords: [...BACKGROUND_IMAGE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'background-origin': {
-    keywords: BACKGROUND_ORIGIN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background-position': {
-    keywords: BACKGROUND_POSITION_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'background-position-x': {
-    keywords: BACKGROUND_POSITION_X_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'background-position-y': {
-    keywords: BACKGROUND_POSITION_Y_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'background-repeat': {
-    keywords: BACKGROUND_REPEAT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'background-size': {
-    keywords: BACKGROUND_SIZE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'baseline-shift': {
-    keywords: BASELINE_SHIFT_KEYWORDS,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'border': {
-    keywords: [...BORDER_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'border-block': {
-    keywords: [...BORDER_BLOCK_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-block-end': {
-    keywords: [...BORDER_BLOCK_END_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-block-start': {
-    keywords: [...BORDER_BLOCK_START_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-bottom': {
-    keywords: [...BORDER_BOTTOM_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'border-bottom-left-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-bottom-right-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-bottom-style': {
-    keywords: BORDER_BOTTOM_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-bottom-width': {
-    keywords: BORDER_BOTTOM_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'border-collapse': {
-    keywords: BORDER_COLLAPSE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-color': {
-    keywords: [...BORDER_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-end-end-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-end-start-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-image-outset': {
-    keywords: [] as const,
-    numberTypes: ['length', 'number'] as const,
-  },
-  'border-image-repeat': {
-    keywords: BORDER_IMAGE_REPEAT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-image-slice': {
-    keywords: BORDER_IMAGE_SLICE_KEYWORDS,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-  'border-image-source': {
-    keywords: [...BORDER_IMAGE_SOURCE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'border-image-width': {
-    keywords: BORDER_IMAGE_WIDTH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'number', 'percentage'] as const,
-  },
-  'border-inline': {
-    keywords: [...BORDER_INLINE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-inline-end': {
-    keywords: [...BORDER_INLINE_END_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-inline-start': {
-    keywords: [...BORDER_INLINE_START_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-left': {
-    keywords: [...BORDER_LEFT_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'border-left-color': {
-    keywords: [...BORDER_LEFT_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-left-style': {
-    keywords: BORDER_LEFT_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-left-width': {
-    keywords: BORDER_LEFT_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'border-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-right': {
-    keywords: [...BORDER_RIGHT_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'border-right-color': {
-    keywords: [...BORDER_RIGHT_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-right-style': {
-    keywords: BORDER_RIGHT_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-right-width': {
-    keywords: BORDER_RIGHT_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'border-spacing': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'border-start-end-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-start-start-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-style': {
-    keywords: BORDER_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-top': {
-    keywords: [...BORDER_TOP_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'border-top-color': {
-    keywords: [...BORDER_TOP_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'border-top-left-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-top-right-radius': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'border-top-style': {
-    keywords: BORDER_TOP_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'border-top-width': {
-    keywords: BORDER_TOP_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'border-width': {
-    keywords: BORDER_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'bottom': {
-    keywords: BOTTOM_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'box-align': {
-    keywords: BOX_ALIGN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-decoration-break': {
-    keywords: BOX_DECORATION_BREAK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-direction': {
-    keywords: BOX_DIRECTION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-flex': {
-    keywords: [] as const,
-    numberTypes: ['number'] as const,
-  },
-  'box-flex-group': {
-    keywords: [] as const,
-    numberTypes: ['integer'] as const,
-  },
-  'box-lines': {
-    keywords: BOX_LINES_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-ordinal-group': {
-    keywords: [] as const,
-    numberTypes: ['integer'] as const,
-  },
-  'box-orient': {
-    keywords: BOX_ORIENT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-pack': {
-    keywords: BOX_PACK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'box-shadow': {
-    keywords: [...BOX_SHADOW_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'box-sizing': {
-    keywords: BOX_SIZING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'break-after': {
-    keywords: BREAK_AFTER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'break-before': {
-    keywords: BREAK_BEFORE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'break-inside': {
-    keywords: BREAK_INSIDE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'caption-side': {
-    keywords: CAPTION_SIDE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'caret-color': {
-    keywords: [...CARET_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'caret-shape': {
-    keywords: CARET_SHAPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'clear': {
-    keywords: CLEAR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'clip': {
-    keywords: CLIP_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'clip-path': {
-    keywords: CLIP_PATH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'clip-rule': {
-    keywords: CLIP_RULE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'color': {
-    keywords: [...COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'color-interpolation-filters': {
-    keywords: COLOR_INTERPOLATION_FILTERS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'color-scheme': {
-    keywords: COLOR_SCHEME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'column-count': {
-    keywords: COLUMN_COUNT_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'column-fill': {
-    keywords: COLUMN_FILL_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'column-gap': {
-    keywords: COLUMN_GAP_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'column-rule-color': {
-    keywords: [...COLUMN_RULE_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'column-span': {
-    keywords: COLUMN_SPAN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'column-width': {
-    keywords: COLUMN_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'contain': {
-    keywords: CONTAIN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'contain-intrinsic-block-size': {
-    keywords: CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'contain-intrinsic-height': {
-    keywords: CONTAIN_INTRINSIC_HEIGHT_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'contain-intrinsic-inline-size': {
-    keywords: CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'contain-intrinsic-size': {
-    keywords: CONTAIN_INTRINSIC_SIZE_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'contain-intrinsic-width': {
-    keywords: CONTAIN_INTRINSIC_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'container-name': {
-    keywords: CONTAINER_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'container-type': {
-    keywords: CONTAINER_TYPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'content': {
-    keywords: [...CONTENT_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'content-visibility': {
-    keywords: CONTENT_VISIBILITY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'counter-increment': {
-    keywords: COUNTER_INCREMENT_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'counter-reset': {
-    keywords: COUNTER_RESET_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'counter-set': {
-    keywords: COUNTER_SET_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'cue-after': {
-    keywords: CUE_AFTER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'cue-before': {
-    keywords: CUE_BEFORE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'cursor': {
-    keywords: CURSOR_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'cx': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'cy': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'd': {
-    keywords: D_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'direction': {
-    keywords: DIRECTION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'display': {
-    keywords: DISPLAY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'dominant-baseline': {
-    keywords: DOMINANT_BASELINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'empty-cells': {
-    keywords: EMPTY_CELLS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'field-sizing': {
-    keywords: FIELD_SIZING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'fill': {
-    keywords: [...FILL_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'fill-opacity': {
-    keywords: [] as const,
-    numberTypes: ['number'] as const,
-  },
-  'fill-rule': {
-    keywords: FILL_RULE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'filter': {
-    keywords: [...FILTER_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'flex': {
-    keywords: FLEX_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'flex-basis': {
-    keywords: FLEX_BASIS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'flex-direction': {
-    keywords: FLEX_DIRECTION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'flex-grow': {
-    keywords: [] as const,
-    numberTypes: ['number'] as const,
-  },
-  'flex-shrink': {
-    keywords: [] as const,
-    numberTypes: ['number'] as const,
-  },
-  'flex-wrap': {
-    keywords: FLEX_WRAP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'float': {
-    keywords: FLOAT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font': {
-    keywords: FONT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-family': {
-    keywords: FONT_FAMILY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-feature-settings': {
-    keywords: FONT_FEATURE_SETTINGS_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'font-kerning': {
-    keywords: FONT_KERNING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-language-override': {
-    keywords: FONT_LANGUAGE_OVERRIDE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-optical-sizing': {
-    keywords: FONT_OPTICAL_SIZING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-palette': {
-    keywords: FONT_PALETTE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-size': {
-    keywords: FONT_SIZE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'font-size-adjust': {
-    keywords: FONT_SIZE_ADJUST_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'font-smooth': {
-    keywords: FONT_SMOOTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'font-stretch': {
-    keywords: FONT_STRETCH_KEYWORDS,
-    numberTypes: ['percentage'] as const,
-  },
-  'font-style': {
-    keywords: FONT_STYLE_KEYWORDS,
-    numberTypes: ['angle'] as const,
-  },
-  'font-synthesis': {
-    keywords: FONT_SYNTHESIS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-synthesis-position': {
-    keywords: FONT_SYNTHESIS_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-synthesis-small-caps': {
-    keywords: FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-synthesis-style': {
-    keywords: FONT_SYNTHESIS_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-synthesis-weight': {
-    keywords: FONT_SYNTHESIS_WEIGHT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant': {
-    keywords: FONT_VARIANT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-alternates': {
-    keywords: FONT_VARIANT_ALTERNATES_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-caps': {
-    keywords: FONT_VARIANT_CAPS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-east-asian': {
-    keywords: FONT_VARIANT_EAST_ASIAN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-emoji': {
-    keywords: FONT_VARIANT_EMOJI_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-ligatures': {
-    keywords: FONT_VARIANT_LIGATURES_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-numeric': {
-    keywords: FONT_VARIANT_NUMERIC_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variant-position': {
-    keywords: FONT_VARIANT_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'font-variation-settings': {
-    keywords: FONT_VARIATION_SETTINGS_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'font-weight': {
-    keywords: FONT_WEIGHT_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'forced-color-adjust': {
-    keywords: FORCED_COLOR_ADJUST_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'glyph-orientation-horizontal': {
-    keywords: [] as const,
-    numberTypes: ['angle'] as const,
-  },
-  'glyph-orientation-vertical': {
-    keywords: [] as const,
-    numberTypes: ['angle'] as const,
-  },
-  'grid': {
-    keywords: GRID_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'grid-area': {
-    keywords: GRID_AREA_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-auto-columns': {
-    keywords: GRID_AUTO_COLUMNS_KEYWORDS,
-    numberTypes: ['flex', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-auto-flow': {
-    keywords: GRID_AUTO_FLOW_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'grid-auto-rows': {
-    keywords: GRID_AUTO_ROWS_KEYWORDS,
-    numberTypes: ['flex', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-column': {
-    keywords: GRID_COLUMN_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-column-end': {
-    keywords: GRID_COLUMN_END_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-column-gap': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-column-start': {
-    keywords: GRID_COLUMN_START_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-row': {
-    keywords: GRID_ROW_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-row-end': {
-    keywords: GRID_ROW_END_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-row-gap': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-row-start': {
-    keywords: GRID_ROW_START_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'grid-template': {
-    keywords: GRID_TEMPLATE_KEYWORDS,
-    numberTypes: ['flex', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-template-areas': {
-    keywords: GRID_TEMPLATE_AREAS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'grid-template-columns': {
-    keywords: GRID_TEMPLATE_COLUMNS_KEYWORDS,
-    numberTypes: ['flex', 'integer', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'grid-template-rows': {
-    keywords: GRID_TEMPLATE_ROWS_KEYWORDS,
-    numberTypes: ['flex', 'integer', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'hanging-punctuation': {
-    keywords: HANGING_PUNCTUATION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'height': {
-    keywords: HEIGHT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'hyphenate-character': {
-    keywords: HYPHENATE_CHARACTER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'hyphenate-limit-chars': {
-    keywords: HYPHENATE_LIMIT_CHARS_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'hyphens': {
-    keywords: HYPHENS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'image-orientation': {
-    keywords: IMAGE_ORIENTATION_KEYWORDS,
-    numberTypes: ['angle'] as const,
-  },
-  'image-rendering': {
-    keywords: IMAGE_RENDERING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'image-resolution': {
-    keywords: IMAGE_RESOLUTION_KEYWORDS,
-    numberTypes: ['resolution'] as const,
-  },
-  'ime-mode': {
-    keywords: IME_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'initial-letter': {
-    keywords: INITIAL_LETTER_KEYWORDS,
-    numberTypes: ['integer', 'number'] as const,
-  },
-  'initial-letter-align': {
-    keywords: INITIAL_LETTER_ALIGN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'input-security': {
-    keywords: INPUT_SECURITY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'interpolate-size': {
-    keywords: INTERPOLATE_SIZE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'isolation': {
-    keywords: ISOLATION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'justify-content': {
-    keywords: JUSTIFY_CONTENT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'justify-items': {
-    keywords: JUSTIFY_ITEMS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'justify-self': {
-    keywords: JUSTIFY_SELF_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'justify-tracks': {
-    keywords: JUSTIFY_TRACKS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'kerning': {
-    keywords: KERNING_KEYWORDS,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'left': {
-    keywords: LEFT_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'letter-spacing': {
-    keywords: LETTER_SPACING_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'line-break': {
-    keywords: LINE_BREAK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'line-clamp': {
-    keywords: LINE_CLAMP_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'line-height': {
-    keywords: LINE_HEIGHT_KEYWORDS,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'line-height-step': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'list-style-image': {
-    keywords: [...LIST_STYLE_IMAGE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'list-style-position': {
-    keywords: LIST_STYLE_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'list-style-type': {
-    keywords: LIST_STYLE_TYPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'margin': {
-    keywords: MARGIN_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'margin-bottom': {
-    keywords: MARGIN_BOTTOM_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'margin-left': {
-    keywords: MARGIN_LEFT_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'margin-right': {
-    keywords: MARGIN_RIGHT_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'margin-top': {
-    keywords: MARGIN_TOP_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'margin-trim': {
-    keywords: MARGIN_TRIM_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'marker': {
-    keywords: MARKER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'marker-end': {
-    keywords: MARKER_END_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'marker-mid': {
-    keywords: MARKER_MID_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'marker-start': {
-    keywords: MARKER_START_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask': {
-    keywords: [...MASK_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'mask-border-mode': {
-    keywords: MASK_BORDER_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-border-outset': {
-    keywords: [] as const,
-    numberTypes: ['length', 'number'] as const,
-  },
-  'mask-border-repeat': {
-    keywords: MASK_BORDER_REPEAT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-border-slice': {
-    keywords: MASK_BORDER_SLICE_KEYWORDS,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-  'mask-border-source': {
-    keywords: [...MASK_BORDER_SOURCE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'mask-border-width': {
-    keywords: MASK_BORDER_WIDTH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'number', 'percentage'] as const,
-  },
-  'mask-clip': {
-    keywords: MASK_CLIP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-composite': {
-    keywords: MASK_COMPOSITE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-image': {
-    keywords: [...MASK_IMAGE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'mask-mode': {
-    keywords: MASK_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-origin': {
-    keywords: MASK_ORIGIN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-position': {
-    keywords: MASK_POSITION_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'mask-repeat': {
-    keywords: MASK_REPEAT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'mask-size': {
-    keywords: MASK_SIZE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'mask-type': {
-    keywords: MASK_TYPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'masonry-auto-flow': {
-    keywords: MASONRY_AUTO_FLOW_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'math-depth': {
-    keywords: MATH_DEPTH_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'math-shift': {
-    keywords: MATH_SHIFT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'math-style': {
-    keywords: MATH_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'max-height': {
-    keywords: MAX_HEIGHT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'max-lines': {
-    keywords: MAX_LINES_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'max-width': {
-    keywords: MAX_WIDTH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'min-height': {
-    keywords: MIN_HEIGHT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'min-width': {
-    keywords: MIN_WIDTH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'mix-blend-mode': {
-    keywords: MIX_BLEND_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'object-fit': {
-    keywords: OBJECT_FIT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'object-position': {
-    keywords: OBJECT_POSITION_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'offset-anchor': {
-    keywords: OFFSET_ANCHOR_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'offset-distance': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'offset-path': {
-    keywords: OFFSET_PATH_KEYWORDS,
-    numberTypes: ['angle', 'length', 'length-percentage', 'percentage'] as const,
-  },
-  'offset-position': {
-    keywords: OFFSET_POSITION_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'offset-rotate': {
-    keywords: OFFSET_ROTATE_KEYWORDS,
-    numberTypes: ['angle'] as const,
-  },
-  'opacity': {
-    keywords: [] as const,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-  'order': {
-    keywords: [] as const,
-    numberTypes: ['integer'] as const,
-  },
-  'orphans': {
-    keywords: [] as const,
-    numberTypes: ['integer'] as const,
-  },
-  'outline-color': {
-    keywords: [...OUTLINE_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'outline-offset': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'outline-style': {
-    keywords: OUTLINE_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'outline-width': {
-    keywords: OUTLINE_WIDTH_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'overflow': {
-    keywords: OVERFLOW_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-anchor': {
-    keywords: OVERFLOW_ANCHOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-block': {
-    keywords: OVERFLOW_BLOCK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-clip-box': {
-    keywords: OVERFLOW_CLIP_BOX_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-clip-margin': {
-    keywords: OVERFLOW_CLIP_MARGIN_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'overflow-inline': {
-    keywords: OVERFLOW_INLINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-wrap': {
-    keywords: OVERFLOW_WRAP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-x': {
-    keywords: OVERFLOW_X_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overflow-y': {
-    keywords: OVERFLOW_Y_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overlay': {
-    keywords: OVERLAY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overscroll-behavior': {
-    keywords: OVERSCROLL_BEHAVIOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overscroll-behavior-block': {
-    keywords: OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overscroll-behavior-inline': {
-    keywords: OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overscroll-behavior-x': {
-    keywords: OVERSCROLL_BEHAVIOR_X_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'overscroll-behavior-y': {
-    keywords: OVERSCROLL_BEHAVIOR_Y_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'padding': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'padding-bottom': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'padding-left': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'padding-right': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'padding-top': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'page': {
-    keywords: PAGE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'page-break-after': {
-    keywords: PAGE_BREAK_AFTER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'page-break-before': {
-    keywords: PAGE_BREAK_BEFORE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'page-break-inside': {
-    keywords: PAGE_BREAK_INSIDE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'paint-order': {
-    keywords: PAINT_ORDER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'pause-after': {
-    keywords: PAUSE_AFTER_KEYWORDS,
-    numberTypes: ['time'] as const,
-  },
-  'pause-before': {
-    keywords: PAUSE_BEFORE_KEYWORDS,
-    numberTypes: ['time'] as const,
-  },
-  'perspective': {
-    keywords: PERSPECTIVE_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'perspective-origin': {
-    keywords: PERSPECTIVE_ORIGIN_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'pointer-events': {
-    keywords: POINTER_EVENTS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position': {
-    keywords: POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position-anchor': {
-    keywords: POSITION_ANCHOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position-area': {
-    keywords: POSITION_AREA_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position-try-fallbacks': {
-    keywords: POSITION_TRY_FALLBACKS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position-try-order': {
-    keywords: POSITION_TRY_ORDER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'position-visibility': {
-    keywords: POSITION_VISIBILITY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'print-color-adjust': {
-    keywords: PRINT_COLOR_ADJUST_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'quotes': {
-    keywords: QUOTES_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'r': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'resize': {
-    keywords: RESIZE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'rest-after': {
-    keywords: REST_AFTER_KEYWORDS,
-    numberTypes: ['time'] as const,
-  },
-  'rest-before': {
-    keywords: REST_BEFORE_KEYWORDS,
-    numberTypes: ['time'] as const,
-  },
-  'right': {
-    keywords: RIGHT_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'rotate': {
-    keywords: ROTATE_KEYWORDS,
-    numberTypes: ['angle', 'number'] as const,
-  },
-  'row-gap': {
-    keywords: ROW_GAP_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'ruby-align': {
-    keywords: RUBY_ALIGN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'ruby-merge': {
-    keywords: RUBY_MERGE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'ruby-position': {
-    keywords: RUBY_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'rx': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'ry': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'scale': {
-    keywords: SCALE_KEYWORDS,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-  'scroll-behavior': {
-    keywords: SCROLL_BEHAVIOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-margin': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-block': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-block-end': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-block-start': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-bottom': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-inline': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-inline-end': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-inline-start': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-left': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-right': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-margin-top': {
-    keywords: [] as const,
-    numberTypes: ['length'] as const,
-  },
-  'scroll-padding': {
-    keywords: SCROLL_PADDING_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-block': {
-    keywords: SCROLL_PADDING_BLOCK_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-block-end': {
-    keywords: SCROLL_PADDING_BLOCK_END_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-block-start': {
-    keywords: SCROLL_PADDING_BLOCK_START_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-bottom': {
-    keywords: SCROLL_PADDING_BOTTOM_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-inline': {
-    keywords: SCROLL_PADDING_INLINE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-inline-end': {
-    keywords: SCROLL_PADDING_INLINE_END_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-inline-start': {
-    keywords: SCROLL_PADDING_INLINE_START_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-left': {
-    keywords: SCROLL_PADDING_LEFT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-right': {
-    keywords: SCROLL_PADDING_RIGHT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-padding-top': {
-    keywords: SCROLL_PADDING_TOP_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-snap-align': {
-    keywords: SCROLL_SNAP_ALIGN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-snap-coordinate': {
-    keywords: SCROLL_SNAP_COORDINATE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-snap-destination': {
-    keywords: SCROLL_SNAP_DESTINATION_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-snap-points-x': {
-    keywords: SCROLL_SNAP_POINTS_X_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-snap-points-y': {
-    keywords: SCROLL_SNAP_POINTS_Y_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'scroll-snap-stop': {
-    keywords: SCROLL_SNAP_STOP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-snap-type': {
-    keywords: SCROLL_SNAP_TYPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-snap-type-x': {
-    keywords: SCROLL_SNAP_TYPE_X_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-snap-type-y': {
-    keywords: SCROLL_SNAP_TYPE_Y_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-timeline-axis': {
-    keywords: SCROLL_TIMELINE_AXIS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scroll-timeline-name': {
-    keywords: SCROLL_TIMELINE_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scrollbar-color': {
-    keywords: [...SCROLLBAR_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'scrollbar-gutter': {
-    keywords: SCROLLBAR_GUTTER_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'scrollbar-width': {
-    keywords: SCROLLBAR_WIDTH_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'shape-image-threshold': {
-    keywords: [] as const,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-  'shape-margin': {
-    keywords: [] as const,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'shape-outside': {
-    keywords: [...SHAPE_OUTSIDE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'angle-percentage', 'length', 'length-percentage', 'number', 'percentage', 'resolution'] as const,
-  },
-  'shape-rendering': {
-    keywords: SHAPE_RENDERING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'speak': {
-    keywords: SPEAK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'speak-as': {
-    keywords: SPEAK_AS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'stroke': {
-    keywords: [...STROKE_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'stroke-dasharray': {
-    keywords: STROKE_DASHARRAY_KEYWORDS,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'stroke-dashoffset': {
-    keywords: [] as const,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'stroke-linecap': {
-    keywords: STROKE_LINECAP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'stroke-linejoin': {
-    keywords: STROKE_LINEJOIN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'stroke-miterlimit': {
-    keywords: [] as const,
-    numberTypes: ['number'] as const,
-  },
-  'stroke-width': {
-    keywords: [] as const,
-    numberTypes: ['length', 'number', 'percentage'] as const,
-  },
-  'tab-size': {
-    keywords: [] as const,
-    numberTypes: ['integer', 'length'] as const,
-  },
-  'table-layout': {
-    keywords: TABLE_LAYOUT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-align': {
-    keywords: TEXT_ALIGN_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-align-last': {
-    keywords: TEXT_ALIGN_LAST_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-anchor': {
-    keywords: TEXT_ANCHOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-combine-upright': {
-    keywords: TEXT_COMBINE_UPRIGHT_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'text-decoration-color': {
-    keywords: [...TEXT_DECORATION_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'text-decoration-line': {
-    keywords: TEXT_DECORATION_LINE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-decoration-skip': {
-    keywords: TEXT_DECORATION_SKIP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-decoration-skip-ink': {
-    keywords: TEXT_DECORATION_SKIP_INK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-decoration-style': {
-    keywords: TEXT_DECORATION_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-decoration-thickness': {
-    keywords: TEXT_DECORATION_THICKNESS_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'text-emphasis-color': {
-    keywords: [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'number', 'percentage'] as const,
-  },
-  'text-emphasis-position': {
-    keywords: TEXT_EMPHASIS_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-emphasis-style': {
-    keywords: TEXT_EMPHASIS_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-indent': {
-    keywords: TEXT_INDENT_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'text-justify': {
-    keywords: TEXT_JUSTIFY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-orientation': {
-    keywords: TEXT_ORIENTATION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-overflow': {
-    keywords: TEXT_OVERFLOW_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-rendering': {
-    keywords: TEXT_RENDERING_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-shadow': {
-    keywords: [...TEXT_SHADOW_KEYWORDS, ...COLORS] as const,
-    numberTypes: ['angle', 'length', 'number', 'percentage'] as const,
-  },
-  'text-size-adjust': {
-    keywords: TEXT_SIZE_ADJUST_KEYWORDS,
-    numberTypes: ['percentage'] as const,
-  },
-  'text-spacing-trim': {
-    keywords: TEXT_SPACING_TRIM_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-transform': {
-    keywords: TEXT_TRANSFORM_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-underline-offset': {
-    keywords: TEXT_UNDERLINE_OFFSET_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'text-underline-position': {
-    keywords: TEXT_UNDERLINE_POSITION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-wrap-mode': {
-    keywords: TEXT_WRAP_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'text-wrap-style': {
-    keywords: TEXT_WRAP_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'timeline-scope': {
-    keywords: TIMELINE_SCOPE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'top': {
-    keywords: TOP_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'touch-action': {
-    keywords: TOUCH_ACTION_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'transform': {
-    keywords: TRANSFORM_KEYWORDS,
-    numberTypes: ['angle', 'length', 'length-percentage', 'number', 'percentage'] as const,
-  },
-  'transform-box': {
-    keywords: TRANSFORM_BOX_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'transform-origin': {
-    keywords: TRANSFORM_ORIGIN_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'transform-style': {
-    keywords: TRANSFORM_STYLE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'transition': {
-    keywords: TRANSITION_KEYWORDS,
-    numberTypes: ['integer', 'number', 'time'] as const,
-  },
-  'transition-behavior': {
-    keywords: TRANSITION_BEHAVIOR_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'transition-delay': {
-    keywords: [] as const,
-    numberTypes: ['time'] as const,
-  },
-  'transition-duration': {
-    keywords: [] as const,
-    numberTypes: ['time'] as const,
-  },
-  'transition-property': {
-    keywords: TRANSITION_PROPERTY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'transition-timing-function': {
-    keywords: TRANSITION_TIMING_FUNCTION_KEYWORDS,
-    numberTypes: ['integer', 'number'] as const,
-  },
-  'translate': {
-    keywords: TRANSLATE_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'unicode-bidi': {
-    keywords: UNICODE_BIDI_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'user-select': {
-    keywords: USER_SELECT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'vector-effect': {
-    keywords: VECTOR_EFFECT_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'vertical-align': {
-    keywords: VERTICAL_ALIGN_KEYWORDS,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'view-timeline-axis': {
-    keywords: VIEW_TIMELINE_AXIS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'view-timeline-inset': {
-    keywords: VIEW_TIMELINE_INSET_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'view-timeline-name': {
-    keywords: VIEW_TIMELINE_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'view-transition-name': {
-    keywords: VIEW_TRANSITION_NAME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'visibility': {
-    keywords: VISIBILITY_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'voice-balance': {
-    keywords: VOICE_BALANCE_KEYWORDS,
-    numberTypes: ['number'] as const,
-  },
-  'voice-duration': {
-    keywords: VOICE_DURATION_KEYWORDS,
-    numberTypes: ['time'] as const,
-  },
-  'voice-family': {
-    keywords: VOICE_FAMILY_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'voice-pitch': {
-    keywords: VOICE_PITCH_KEYWORDS,
-    numberTypes: ['frequency', 'percentage'] as const,
-  },
-  'voice-range': {
-    keywords: VOICE_RANGE_KEYWORDS,
-    numberTypes: ['frequency', 'percentage'] as const,
-  },
-  'voice-rate': {
-    keywords: VOICE_RATE_KEYWORDS,
-    numberTypes: ['percentage'] as const,
-  },
-  'voice-stress': {
-    keywords: VOICE_STRESS_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'voice-volume': {
-    keywords: VOICE_VOLUME_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'white-space': {
-    keywords: WHITE_SPACE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'white-space-collapse': {
-    keywords: WHITE_SPACE_COLLAPSE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'white-space-trim': {
-    keywords: WHITE_SPACE_TRIM_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'widows': {
-    keywords: [] as const,
-    numberTypes: ['integer'] as const,
-  },
-  'width': {
-    keywords: WIDTH_KEYWORDS,
-    numberTypes: ['length', 'length-percentage', 'percentage'] as const,
-  },
-  'will-change': {
-    keywords: WILL_CHANGE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'word-break': {
-    keywords: WORD_BREAK_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'word-spacing': {
-    keywords: WORD_SPACING_KEYWORDS,
-    numberTypes: ['length'] as const,
-  },
-  'word-wrap': {
-    keywords: WORD_WRAP_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'writing-mode': {
-    keywords: WRITING_MODE_KEYWORDS,
-    numberTypes: [] as const,
-  },
-  'x': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'y': {
-    keywords: [] as const,
-    numberTypes: ['length', 'percentage'] as const,
-  },
-  'z-index': {
-    keywords: Z_INDEX_KEYWORDS,
-    numberTypes: ['integer'] as const,
-  },
-  'zoom': {
-    keywords: ZOOM_KEYWORDS,
-    numberTypes: ['number', 'percentage'] as const,
-  },
-} as const;
+/** 属性配置数据实例 */
+export const CSS_PROPERTY_CONFIG = new CssPropertyConfigMap();
 
 // ==================== 辅助函数 ====================
 
 /** 获取属性配置 */
-export function getPropertyConfig<T extends keyof typeof CSS_PROPERTY_CONFIG>(property: T) {
+export function getPropertyConfig<T extends keyof CssPropertyConfigMap>(property: T) {
   return CSS_PROPERTY_CONFIG[property];
 }
