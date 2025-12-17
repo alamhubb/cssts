@@ -54,6 +54,34 @@ const colorsData: ColorsData = JSON.parse(
   fs.readFileSync(path.join(dataDir, 'css-colors.json'), 'utf-8')
 )
 
+interface PseudoClassItem {
+  name: string
+  category: string
+  description: { en: string; zh: string }
+}
+
+interface PseudoElementItem {
+  name: string
+  description: { en: string; zh: string }
+}
+
+interface PseudoClassesData {
+  pseudoClasses: PseudoClassItem[]
+  categories: string[]
+}
+
+interface PseudoElementsData {
+  pseudoElements: PseudoElementItem[]
+}
+
+const pseudoClassesData: PseudoClassesData = JSON.parse(
+  fs.readFileSync(path.join(dataDir, 'css-pseudo-classes.json'), 'utf-8')
+)
+
+const pseudoElementsData: PseudoElementsData = JSON.parse(
+  fs.readFileSync(path.join(dataDir, 'css-pseudo-elements.json'), 'utf-8')
+)
+
 // ==================== 工具函数 ====================
 
 function toPascalCase(str: string): string {
@@ -405,6 +433,123 @@ function generatePropertyConfigFile(): string {
 
 // 注意：cssts-config.ts 是手动维护的文件，不在此脚本中生成
 
+// ==================== 生成 pseudo.ts ====================
+
+function generatePseudoFile(): string {
+  const lines: string[] = []
+
+  lines.push(`/**`)
+  lines.push(` * CSS 伪类和伪元素定义`)
+  lines.push(` * 自动生成，请勿手动修改`)
+  lines.push(` */`)
+  lines.push(``)
+
+  // 伪类分类
+  const categories = pseudoClassesData.categories
+  lines.push(`/** 伪类分类 */`)
+  lines.push(`export const PSEUDO_CLASS_CATEGORIES = [`)
+  categories.forEach(c => lines.push(`  '${c}',`))
+  lines.push(`] as const;`)
+  lines.push(``)
+  lines.push(`export type PseudoClassCategory = typeof PSEUDO_CLASS_CATEGORIES[number];`)
+  lines.push(``)
+
+  // 按分类分组伪类
+  const pseudoByCategory = new Map<string, PseudoClassItem[]>()
+  for (const category of categories) {
+    pseudoByCategory.set(category, [])
+  }
+  for (const item of pseudoClassesData.pseudoClasses) {
+    const list = pseudoByCategory.get(item.category)
+    if (list) list.push(item)
+  }
+
+  // 生成各分类的伪类常量
+  for (const category of categories) {
+    const items = pseudoByCategory.get(category) || []
+    const constName = `${toConstName(category)}_PSEUDO_CLASSES`
+    lines.push(`/** ${category} 伪类 */`)
+    lines.push(`export const ${constName} = [`)
+    items.forEach(item => lines.push(`  '${item.name}',`))
+    lines.push(`] as const;`)
+    lines.push(``)
+  }
+
+  // 所有伪类
+  lines.push(`/** 所有 CSS 伪类 */`)
+  lines.push(`export const PSEUDO_CLASSES = [`)
+  pseudoClassesData.pseudoClasses.forEach(item => lines.push(`  '${item.name}',`))
+  lines.push(`] as const;`)
+  lines.push(``)
+  lines.push(`/** 伪类名称类型 */`)
+  lines.push(`export type PseudoClassName = typeof PSEUDO_CLASSES[number];`)
+  lines.push(``)
+
+  // 常用伪类
+  const commonPseudoClasses = ['hover', 'active', 'focus', 'focus-visible', 'focus-within',
+    'disabled', 'enabled', 'checked', 'valid', 'invalid', 'required', 'optional',
+    'read-only', 'read-write', 'first-child', 'last-child', 'empty']
+  lines.push(`/** 常用伪类 */`)
+  lines.push(`export const COMMON_PSEUDO_CLASSES = [`)
+  commonPseudoClasses.forEach(c => lines.push(`  '${c}',`))
+  lines.push(`] as const;`)
+  lines.push(``)
+  lines.push(`export type CommonPseudoClass = typeof COMMON_PSEUDO_CLASSES[number];`)
+  lines.push(``)
+
+  // 伪元素
+  lines.push(`// ==================== 伪元素 ====================`)
+  lines.push(``)
+  lines.push(`/** 所有 CSS 伪元素 */`)
+  lines.push(`export const PSEUDO_ELEMENTS = [`)
+  pseudoElementsData.pseudoElements.forEach(item => lines.push(`  '${item.name}',`))
+  lines.push(`] as const;`)
+  lines.push(``)
+  lines.push(`/** 伪元素名称类型 */`)
+  lines.push(`export type PseudoElementName = typeof PSEUDO_ELEMENTS[number];`)
+  lines.push(``)
+
+  // 常用伪元素
+  const commonPseudoElements = ['before', 'after', 'placeholder', 'selection', 'first-line', 'first-letter']
+  lines.push(`/** 常用伪元素 */`)
+  lines.push(`export const COMMON_PSEUDO_ELEMENTS = [`)
+  commonPseudoElements.forEach(c => lines.push(`  '${c}',`))
+  lines.push(`] as const;`)
+  lines.push(``)
+  lines.push(`export type CommonPseudoElement = typeof COMMON_PSEUDO_ELEMENTS[number];`)
+  lines.push(``)
+
+  // 伪类描述映射
+  lines.push(`// ==================== 描述映射 ====================`)
+  lines.push(``)
+  lines.push(`/** 伪类描述 */`)
+  lines.push(`export const PSEUDO_CLASS_DESCRIPTIONS: Record<PseudoClassName, { en: string; zh: string }> = {`)
+  for (const item of pseudoClassesData.pseudoClasses) {
+    lines.push(`  '${item.name}': { en: '${item.description.en}', zh: '${item.description.zh}' },`)
+  }
+  lines.push(`};`)
+  lines.push(``)
+
+  lines.push(`/** 伪元素描述 */`)
+  lines.push(`export const PSEUDO_ELEMENT_DESCRIPTIONS: Record<PseudoElementName, { en: string; zh: string }> = {`)
+  for (const item of pseudoElementsData.pseudoElements) {
+    lines.push(`  '${item.name}': { en: '${item.description.en}', zh: '${item.description.zh}' },`)
+  }
+  lines.push(`};`)
+  lines.push(``)
+
+  // 伪类分类映射
+  lines.push(`/** 伪类分类映射 */`)
+  lines.push(`export const PSEUDO_CLASS_CATEGORY_MAP: Record<PseudoClassName, PseudoClassCategory> = {`)
+  for (const item of pseudoClassesData.pseudoClasses) {
+    lines.push(`  '${item.name}': '${item.category}',`)
+  }
+  lines.push(`};`)
+  lines.push(``)
+
+  return lines.join('\n')
+}
+
 // ==================== 生成 index.ts ====================
 
 function generateIndexFile(): string {
@@ -419,6 +564,7 @@ function generateIndexFile(): string {
   lines.push(`export * from './units';`)
   lines.push(`export * from './keywords';`)
   lines.push(`export * from './property-config';`)
+  lines.push(`export * from './pseudo';`)
   lines.push(`export * from './cssts-config';`)
   lines.push(`export * from './config-utils';`)
   lines.push(``)
@@ -459,6 +605,9 @@ function main() {
 
   fs.writeFileSync(path.join(outputDir, 'property-config.ts'), generatePropertyConfigFile())
   console.log('✅ Created: property-config.ts')
+
+  fs.writeFileSync(path.join(outputDir, 'pseudo.ts'), generatePseudoFile())
+  console.log('✅ Created: pseudo.ts')
 
   // cssts-config.ts 是手动维护的，不自动生成
   console.log('ℹ️  Skipped: cssts-config.ts (手动维护)')

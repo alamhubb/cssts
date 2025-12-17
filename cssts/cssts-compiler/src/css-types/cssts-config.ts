@@ -9,6 +9,7 @@ import type { AllColorValue } from './colors';
 import type { NumberTypeName, UnitType } from './units';
 import type { KeywordValue } from './keywords';
 import { CssPropertyConfigMap, type CssPropertyCamelName } from './property-config';
+import type { PseudoClassName, PseudoElementName } from './pseudo';
 
 // ==================== 数值生成配置 ====================
 
@@ -141,9 +142,33 @@ export class CsstsConfig {
   /** 渐进步长策略（不设置则使用默认策略） */
   progressiveRanges: ProgressiveRange[] = DEFAULT_PROGRESSIVE_RANGES;
 
-  /** 单位默认配置（覆盖 DEFAULT_UNIT_CONFIGS） */
-  unitConfigs: Record<string, UnitValueConfig> = {};
+  /** 单位配置（覆盖 DEFAULT_UNIT_CONFIGS） */
+  unitConfigs: Partial<Record<UnitType, UnitValueConfig>> = {};
 
   /** 属性级别配置 */
   properties = new CssPropertyConfigMap();
+
+  // ==================== 伪类/伪元素配置 ====================
+
+  /** 排除的伪类 */
+  excludePseudoClasses: PseudoClassName[] = [];
+
+  /** 排除的伪元素 */
+  excludePseudoElements: PseudoElementName[] = [];
+
+  /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
+  pseudoStyles: Partial<Record<PseudoClassName, PseudoStyleValue>> = {
+    hover: { opacity: '0.9' },
+    active: { opacity: '0.6' },
+    focus: { opacity: '0.9' },
+    disabled: [{ opacity: '0.5' }, { cursor: 'not-allowed' }],
+  };
 }
+
+// ==================== 伪类样式类型 ====================
+
+/** 伪类样式项（每个对象只能有一个 CSS 属性） */
+export type PseudoStyleItem = { [cssProperty: string]: string };
+
+/** 伪类样式值 */
+export type PseudoStyleValue = PseudoStyleItem | PseudoStyleItem[];
