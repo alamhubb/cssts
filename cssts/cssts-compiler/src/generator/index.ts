@@ -1,7 +1,9 @@
 /**
  * CssTs Generator
  *
- * 提供类型定义和 properties.json 的生成功能
+ * 提供类型定义生成功能
+ * 
+ * 注意：properties.json 在 src/data/ 目录下，由 extract-css-data.ts 生成
  */
 
 import * as fs from 'node:fs';
@@ -13,9 +15,9 @@ import { fileURLToPath } from 'node:url';
 // 配置类型
 export {
   CsstsConfig,
-  UnitValueConfig,
   DEFAULT_UNIT_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
+  type UnitValueConfig,
   type CustomPropertyValue,
   type PseudoStyleItem,
   type PseudoStyleValue,
@@ -96,13 +98,11 @@ export interface GeneratorOptions {
   outDir?: string;
   /** 配置 */
   config?: any; // 兼容旧 CsstsConfig
-  /** 是否生成 .d.ts 文件（开发环境需要，生产环境不需要） */
-  generateDts?: boolean;
 }
 
-// ==================== 同步生成 properties.json ====================
+// ==================== 异步生成 .d.ts ====================
 
-import { generateAtoms, generatePropertiesJson } from './atom-generator.js';
+import { generateAtoms } from './atom-generator.js';
 import {
   generateCsstsAtomsDts,
   generateGlobalDts,
@@ -110,28 +110,6 @@ import {
   generateIndexDts,
 } from './dts-generator.js';
 import { defaultConfig } from './config.js';
-
-/**
- * 同步生成 properties.json
- */
-export function generatePropertiesJsonSync(options: GeneratorOptions = {}): string {
-  const outDir = options.outDir ?? DEFAULT_OUT_DIR;
-  const config = options.config ?? defaultConfig;
-  const atoms = generateAtoms(config);
-  const properties = generatePropertiesJson(atoms);
-  const content = JSON.stringify(properties, null, 2);
-
-  if (!fs.existsSync(outDir)) {
-    fs.mkdirSync(outDir, { recursive: true });
-  }
-
-  const filePath = path.join(outDir, 'properties.json');
-  fs.writeFileSync(filePath, content);
-
-  return filePath;
-}
-
-// ==================== 异步生成 .d.ts ====================
 
 /**
  * 异步生成 .d.ts 文件
@@ -164,70 +142,4 @@ export async function generateDtsAsync(options: GeneratorOptions = {}): Promise<
   files.push(indexDtsPath);
 
   return files;
-}
-
-// ==================== 完整生成 ====================
-
-/**
- * 完整生成（同步 properties.json + 异步 .d.ts）
- */
-export async function generate(
-  options: GeneratorOptions = {}
-): Promise<{
-  propertiesJson: string;
-  dtsFiles: string[];
-}> {
-  const propertiesJson = generatePropertiesJsonSync(options);
-
-  let dtsFiles: string[] = [];
-  if (options.generateDts !== false) {
-    dtsFiles = await generateDtsAsync(options);
-  }
-
-  return { propertiesJson, dtsFiles };
-}
-
-// ==================== 配置合并工具 ====================
-
-/**
- * 深度合并配置
- * @deprecated 直接修改 CsstsConfig 实例
- */
-export function mergeConfig(base: any, override: any): any {
-  const result = {
-    defaults: { ...base.defaults },
-    properties: { ...base.properties },
-  };
-
-  if (override.defaults) {
-    for (const [unit, config] of Object.entries(override.defaults)) {
-      if (config && typeof config === 'object') {
-        (result.defaults as any)[unit] = {
-          ...((result.defaults as any)?.[unit] || {}),
-          ...config,
-        };
-      }
-    }
-  }
-
-  if (override.properties) {
-    for (const [prop, config] of Object.entries(override.properties)) {
-      if (config && typeof config === 'object') {
-        result.properties[prop] = {
-          ...(result.properties[prop] || {}),
-          ...(config as object),
-        };
-      }
-    }
-  }
-
-  return result;
-}
-
-/**
- * 创建配置（基于默认配置合并）
- * @deprecated 使用 new CsstsConfig()
- */
-export function createConfig(override: any): any {
-  return mergeConfig(defaultConfig, override);
 }

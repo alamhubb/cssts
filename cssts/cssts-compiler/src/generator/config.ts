@@ -8,9 +8,9 @@
 // 从 css-types 重新导出
 export {
   CsstsConfig,
-  UnitValueConfig as UnitConfig,
   DEFAULT_UNIT_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
+  type UnitValueConfig as UnitConfig,
   type CustomPropertyValue,
   type PseudoStyleItem,
   type PseudoStyleValue,
