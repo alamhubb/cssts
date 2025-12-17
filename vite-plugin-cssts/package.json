@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cssts",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Vite plugin for CssTs - compile-time CSS class management",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -30,8 +30,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "cssts-ts": "^0.2.4",
-    "cssts-compiler": "^0.2.4"
+    "cssts-compiler": "^0.2.5",
+    "cssts-ts": "^0.2.5"
   },
   "devDependencies": {
     "@types/node": "^25.0.2",
@@ -42,5 +42,5 @@
   "peerDependencies": {
     "vite": "^5.0.0 || ^6.0.0"
   },
-  "gitHead": "4dbe04f31d770e413fa5a3eae426324e7af1e92c"
+  "gitHead": "ff5a24ff2b6715bac6935396648066dc1d417f04"
 }
