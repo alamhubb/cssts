@@ -1,11 +1,11 @@
 /**
  * CSS 属性配置
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T17:21:02.060Z
+ * 生成时间: 2025-12-17T17:50:29.636Z
  */
 
 import {
-  COLORS,
+  ALL_COLORS,
   ACCENT_COLOR_KEYWORDS,
   ALIGN_CONTENT_KEYWORDS,
   ALIGN_ITEMS_KEYWORDS,
@@ -1086,7 +1086,7 @@ import type {
 export class CssPropertyConfigMap {
   /** accent-color 属性配置 */
   'accent-color': AccentColorConfig = {
-    keywords: [...ACCENT_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...ACCENT_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...ACCENT_COLOR_NUMBER_TYPES],
   };
 
@@ -1219,7 +1219,7 @@ export class CssPropertyConfigMap {
 
   /** backdrop-filter 属性配置 */
   'backdrop-filter': BackdropFilterConfig = {
-    keywords: [...BACKDROP_FILTER_KEYWORDS, ...COLORS],
+    keywords: [...BACKDROP_FILTER_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BACKDROP_FILTER_NUMBER_TYPES],
   };
 
@@ -1230,7 +1230,7 @@ export class CssPropertyConfigMap {
 
   /** background 属性配置 */
   'background': BackgroundConfig = {
-    keywords: [...BACKGROUND_KEYWORDS, ...COLORS],
+    keywords: [...BACKGROUND_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BACKGROUND_NUMBER_TYPES],
   };
 
@@ -1251,13 +1251,13 @@ export class CssPropertyConfigMap {
 
   /** background-color 属性配置 */
   'background-color': BackgroundColorConfig = {
-    keywords: [...BACKGROUND_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...BACKGROUND_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BACKGROUND_COLOR_NUMBER_TYPES],
   };
 
   /** background-image 属性配置 */
   'background-image': BackgroundImageConfig = {
-    keywords: [...BACKGROUND_IMAGE_KEYWORDS, ...COLORS],
+    keywords: [...BACKGROUND_IMAGE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BACKGROUND_IMAGE_NUMBER_TYPES],
   };
 
@@ -1303,31 +1303,31 @@ export class CssPropertyConfigMap {
 
   /** border 属性配置 */
   'border': BorderConfig = {
-    keywords: [...BORDER_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_NUMBER_TYPES],
   };
 
   /** border-block 属性配置 */
   'border-block': BorderBlockConfig = {
-    keywords: [...BORDER_BLOCK_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_BLOCK_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_BLOCK_NUMBER_TYPES],
   };
 
   /** border-block-end 属性配置 */
   'border-block-end': BorderBlockEndConfig = {
-    keywords: [...BORDER_BLOCK_END_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_BLOCK_END_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_BLOCK_END_NUMBER_TYPES],
   };
 
   /** border-block-start 属性配置 */
   'border-block-start': BorderBlockStartConfig = {
-    keywords: [...BORDER_BLOCK_START_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_BLOCK_START_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_BLOCK_START_NUMBER_TYPES],
   };
 
   /** border-bottom 属性配置 */
   'border-bottom': BorderBottomConfig = {
-    keywords: [...BORDER_BOTTOM_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_BOTTOM_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_BOTTOM_NUMBER_TYPES],
   };
 
@@ -1359,7 +1359,7 @@ export class CssPropertyConfigMap {
 
   /** border-color 属性配置 */
   'border-color': BorderColorConfig = {
-    keywords: [...BORDER_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_COLOR_NUMBER_TYPES],
   };
 
@@ -1391,7 +1391,7 @@ export class CssPropertyConfigMap {
 
   /** border-image-source 属性配置 */
   'border-image-source': BorderImageSourceConfig = {
-    keywords: [...BORDER_IMAGE_SOURCE_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_IMAGE_SOURCE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_IMAGE_SOURCE_NUMBER_TYPES],
   };
 
@@ -1403,31 +1403,31 @@ export class CssPropertyConfigMap {
 
   /** border-inline 属性配置 */
   'border-inline': BorderInlineConfig = {
-    keywords: [...BORDER_INLINE_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_INLINE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_INLINE_NUMBER_TYPES],
   };
 
   /** border-inline-end 属性配置 */
   'border-inline-end': BorderInlineEndConfig = {
-    keywords: [...BORDER_INLINE_END_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_INLINE_END_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_INLINE_END_NUMBER_TYPES],
   };
 
   /** border-inline-start 属性配置 */
   'border-inline-start': BorderInlineStartConfig = {
-    keywords: [...BORDER_INLINE_START_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_INLINE_START_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_INLINE_START_NUMBER_TYPES],
   };
 
   /** border-left 属性配置 */
   'border-left': BorderLeftConfig = {
-    keywords: [...BORDER_LEFT_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_LEFT_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_LEFT_NUMBER_TYPES],
   };
 
   /** border-left-color 属性配置 */
   'border-left-color': BorderLeftColorConfig = {
-    keywords: [...BORDER_LEFT_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_LEFT_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_LEFT_COLOR_NUMBER_TYPES],
   };
 
@@ -1449,13 +1449,13 @@ export class CssPropertyConfigMap {
 
   /** border-right 属性配置 */
   'border-right': BorderRightConfig = {
-    keywords: [...BORDER_RIGHT_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_RIGHT_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_RIGHT_NUMBER_TYPES],
   };
 
   /** border-right-color 属性配置 */
   'border-right-color': BorderRightColorConfig = {
-    keywords: [...BORDER_RIGHT_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_RIGHT_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_RIGHT_COLOR_NUMBER_TYPES],
   };
 
@@ -1492,13 +1492,13 @@ export class CssPropertyConfigMap {
 
   /** border-top 属性配置 */
   'border-top': BorderTopConfig = {
-    keywords: [...BORDER_TOP_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_TOP_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_TOP_NUMBER_TYPES],
   };
 
   /** border-top-color 属性配置 */
   'border-top-color': BorderTopColorConfig = {
-    keywords: [...BORDER_TOP_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...BORDER_TOP_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BORDER_TOP_COLOR_NUMBER_TYPES],
   };
 
@@ -1582,7 +1582,7 @@ export class CssPropertyConfigMap {
 
   /** box-shadow 属性配置 */
   'box-shadow': BoxShadowConfig = {
-    keywords: [...BOX_SHADOW_KEYWORDS, ...COLORS],
+    keywords: [...BOX_SHADOW_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...BOX_SHADOW_NUMBER_TYPES],
   };
 
@@ -1613,7 +1613,7 @@ export class CssPropertyConfigMap {
 
   /** caret-color 属性配置 */
   'caret-color': CaretColorConfig = {
-    keywords: [...CARET_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...CARET_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...CARET_COLOR_NUMBER_TYPES],
   };
 
@@ -1646,7 +1646,7 @@ export class CssPropertyConfigMap {
 
   /** color 属性配置 */
   'color': ColorConfig = {
-    keywords: [...COLOR_KEYWORDS, ...COLORS],
+    keywords: [...COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...COLOR_NUMBER_TYPES],
   };
 
@@ -1679,7 +1679,7 @@ export class CssPropertyConfigMap {
 
   /** column-rule-color 属性配置 */
   'column-rule-color': ColumnRuleColorConfig = {
-    keywords: [...COLUMN_RULE_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...COLUMN_RULE_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...COLUMN_RULE_COLOR_NUMBER_TYPES],
   };
 
@@ -1741,7 +1741,7 @@ export class CssPropertyConfigMap {
 
   /** content 属性配置 */
   'content': ContentConfig = {
-    keywords: [...CONTENT_KEYWORDS, ...COLORS],
+    keywords: [...CONTENT_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...CONTENT_NUMBER_TYPES],
   };
 
@@ -1826,7 +1826,7 @@ export class CssPropertyConfigMap {
 
   /** fill 属性配置 */
   'fill': FillConfig = {
-    keywords: [...FILL_KEYWORDS, ...COLORS],
+    keywords: [...FILL_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...FILL_NUMBER_TYPES],
   };
 
@@ -1842,7 +1842,7 @@ export class CssPropertyConfigMap {
 
   /** filter 属性配置 */
   'filter': FilterConfig = {
-    keywords: [...FILTER_KEYWORDS, ...COLORS],
+    keywords: [...FILTER_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...FILTER_NUMBER_TYPES],
   };
 
@@ -2273,7 +2273,7 @@ export class CssPropertyConfigMap {
 
   /** list-style-image 属性配置 */
   'list-style-image': ListStyleImageConfig = {
-    keywords: [...LIST_STYLE_IMAGE_KEYWORDS, ...COLORS],
+    keywords: [...LIST_STYLE_IMAGE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...LIST_STYLE_IMAGE_NUMBER_TYPES],
   };
 
@@ -2344,7 +2344,7 @@ export class CssPropertyConfigMap {
 
   /** mask 属性配置 */
   'mask': MaskConfig = {
-    keywords: [...MASK_KEYWORDS, ...COLORS],
+    keywords: [...MASK_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...MASK_NUMBER_TYPES],
   };
 
@@ -2371,7 +2371,7 @@ export class CssPropertyConfigMap {
 
   /** mask-border-source 属性配置 */
   'mask-border-source': MaskBorderSourceConfig = {
-    keywords: [...MASK_BORDER_SOURCE_KEYWORDS, ...COLORS],
+    keywords: [...MASK_BORDER_SOURCE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...MASK_BORDER_SOURCE_NUMBER_TYPES],
   };
 
@@ -2393,7 +2393,7 @@ export class CssPropertyConfigMap {
 
   /** mask-image 属性配置 */
   'mask-image': MaskImageConfig = {
-    keywords: [...MASK_IMAGE_KEYWORDS, ...COLORS],
+    keywords: [...MASK_IMAGE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...MASK_IMAGE_NUMBER_TYPES],
   };
 
@@ -2542,7 +2542,7 @@ export class CssPropertyConfigMap {
 
   /** outline-color 属性配置 */
   'outline-color': OutlineColorConfig = {
-    keywords: [...OUTLINE_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...OUTLINE_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...OUTLINE_COLOR_NUMBER_TYPES],
   };
 
@@ -3015,7 +3015,7 @@ export class CssPropertyConfigMap {
 
   /** scrollbar-color 属性配置 */
   'scrollbar-color': ScrollbarColorConfig = {
-    keywords: [...SCROLLBAR_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...SCROLLBAR_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...SCROLLBAR_COLOR_NUMBER_TYPES],
   };
 
@@ -3041,7 +3041,7 @@ export class CssPropertyConfigMap {
 
   /** shape-outside 属性配置 */
   'shape-outside': ShapeOutsideConfig = {
-    keywords: [...SHAPE_OUTSIDE_KEYWORDS, ...COLORS],
+    keywords: [...SHAPE_OUTSIDE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...SHAPE_OUTSIDE_NUMBER_TYPES],
   };
 
@@ -3062,7 +3062,7 @@ export class CssPropertyConfigMap {
 
   /** stroke 属性配置 */
   'stroke': StrokeConfig = {
-    keywords: [...STROKE_KEYWORDS, ...COLORS],
+    keywords: [...STROKE_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...STROKE_NUMBER_TYPES],
   };
 
@@ -3130,7 +3130,7 @@ export class CssPropertyConfigMap {
 
   /** text-decoration-color 属性配置 */
   'text-decoration-color': TextDecorationColorConfig = {
-    keywords: [...TEXT_DECORATION_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...TEXT_DECORATION_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...TEXT_DECORATION_COLOR_NUMBER_TYPES],
   };
 
@@ -3162,7 +3162,7 @@ export class CssPropertyConfigMap {
 
   /** text-emphasis-color 属性配置 */
   'text-emphasis-color': TextEmphasisColorConfig = {
-    keywords: [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...COLORS],
+    keywords: [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES],
   };
 
@@ -3204,7 +3204,7 @@ export class CssPropertyConfigMap {
 
   /** text-shadow 属性配置 */
   'text-shadow': TextShadowConfig = {
-    keywords: [...TEXT_SHADOW_KEYWORDS, ...COLORS],
+    keywords: [...TEXT_SHADOW_KEYWORDS, ...ALL_COLORS],
     numberTypes: [...TEXT_SHADOW_NUMBER_TYPES],
   };
 

@@ -2,11 +2,11 @@
  * CSS 属性配置类型定义
  * 每个属性都有一个对应的配置类型
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-17T17:21:02.057Z
+ * 生成时间: 2025-12-17T17:50:29.633Z
  */
 
 import type {
-  ColorValue,
+  AllColorValue,
 } from './css-keywords';
 
 import type {
@@ -639,7 +639,7 @@ import type {
 
 /** accent-color 属性配置类型 */
 export type AccentColorConfig = {
-  keywords: (AccentColorKeyword | ColorValue)[];
+  keywords: (AccentColorKeyword | AllColorValue)[];
   numberTypes: AccentColorPropertyNumberType[];
 };
 
@@ -772,7 +772,7 @@ export type AzimuthConfig = {
 
 /** backdrop-filter 属性配置类型 */
 export type BackdropFilterConfig = {
-  keywords: (BackdropFilterKeyword | ColorValue)[];
+  keywords: (BackdropFilterKeyword | AllColorValue)[];
   numberTypes: BackdropFilterPropertyNumberType[];
 };
 
@@ -783,7 +783,7 @@ export type BackfaceVisibilityConfig = {
 
 /** background 属性配置类型 */
 export type BackgroundConfig = {
-  keywords: (BackgroundKeyword | ColorValue)[];
+  keywords: (BackgroundKeyword | AllColorValue)[];
   numberTypes: BackgroundPropertyNumberType[];
 };
 
@@ -804,13 +804,13 @@ export type BackgroundClipConfig = {
 
 /** background-color 属性配置类型 */
 export type BackgroundColorConfig = {
-  keywords: (BackgroundColorKeyword | ColorValue)[];
+  keywords: (BackgroundColorKeyword | AllColorValue)[];
   numberTypes: BackgroundColorPropertyNumberType[];
 };
 
 /** background-image 属性配置类型 */
 export type BackgroundImageConfig = {
-  keywords: (BackgroundImageKeyword | ColorValue)[];
+  keywords: (BackgroundImageKeyword | AllColorValue)[];
   numberTypes: BackgroundImagePropertyNumberType[];
 };
 
@@ -856,31 +856,31 @@ export type BaselineShiftConfig = {
 
 /** border 属性配置类型 */
 export type BorderConfig = {
-  keywords: (BorderKeyword | ColorValue)[];
+  keywords: (BorderKeyword | AllColorValue)[];
   numberTypes: BorderPropertyNumberType[];
 };
 
 /** border-block 属性配置类型 */
 export type BorderBlockConfig = {
-  keywords: (BorderBlockKeyword | ColorValue)[];
+  keywords: (BorderBlockKeyword | AllColorValue)[];
   numberTypes: BorderBlockPropertyNumberType[];
 };
 
 /** border-block-end 属性配置类型 */
 export type BorderBlockEndConfig = {
-  keywords: (BorderBlockEndKeyword | ColorValue)[];
+  keywords: (BorderBlockEndKeyword | AllColorValue)[];
   numberTypes: BorderBlockEndPropertyNumberType[];
 };
 
 /** border-block-start 属性配置类型 */
 export type BorderBlockStartConfig = {
-  keywords: (BorderBlockStartKeyword | ColorValue)[];
+  keywords: (BorderBlockStartKeyword | AllColorValue)[];
   numberTypes: BorderBlockStartPropertyNumberType[];
 };
 
 /** border-bottom 属性配置类型 */
 export type BorderBottomConfig = {
-  keywords: (BorderBottomKeyword | ColorValue)[];
+  keywords: (BorderBottomKeyword | AllColorValue)[];
   numberTypes: BorderBottomPropertyNumberType[];
 };
 
@@ -912,7 +912,7 @@ export type BorderCollapseConfig = {
 
 /** border-color 属性配置类型 */
 export type BorderColorConfig = {
-  keywords: (BorderColorKeyword | ColorValue)[];
+  keywords: (BorderColorKeyword | AllColorValue)[];
   numberTypes: BorderColorPropertyNumberType[];
 };
 
@@ -944,7 +944,7 @@ export type BorderImageSliceConfig = {
 
 /** border-image-source 属性配置类型 */
 export type BorderImageSourceConfig = {
-  keywords: (BorderImageSourceKeyword | ColorValue)[];
+  keywords: (BorderImageSourceKeyword | AllColorValue)[];
   numberTypes: BorderImageSourcePropertyNumberType[];
 };
 
@@ -956,31 +956,31 @@ export type BorderImageWidthConfig = {
 
 /** border-inline 属性配置类型 */
 export type BorderInlineConfig = {
-  keywords: (BorderInlineKeyword | ColorValue)[];
+  keywords: (BorderInlineKeyword | AllColorValue)[];
   numberTypes: BorderInlinePropertyNumberType[];
 };
 
 /** border-inline-end 属性配置类型 */
 export type BorderInlineEndConfig = {
-  keywords: (BorderInlineEndKeyword | ColorValue)[];
+  keywords: (BorderInlineEndKeyword | AllColorValue)[];
   numberTypes: BorderInlineEndPropertyNumberType[];
 };
 
 /** border-inline-start 属性配置类型 */
 export type BorderInlineStartConfig = {
-  keywords: (BorderInlineStartKeyword | ColorValue)[];
+  keywords: (BorderInlineStartKeyword | AllColorValue)[];
   numberTypes: BorderInlineStartPropertyNumberType[];
 };
 
 /** border-left 属性配置类型 */
 export type BorderLeftConfig = {
-  keywords: (BorderLeftKeyword | ColorValue)[];
+  keywords: (BorderLeftKeyword | AllColorValue)[];
   numberTypes: BorderLeftPropertyNumberType[];
 };
 
 /** border-left-color 属性配置类型 */
 export type BorderLeftColorConfig = {
-  keywords: (BorderLeftColorKeyword | ColorValue)[];
+  keywords: (BorderLeftColorKeyword | AllColorValue)[];
   numberTypes: BorderLeftColorPropertyNumberType[];
 };
 
@@ -1002,13 +1002,13 @@ export type BorderRadiusConfig = {
 
 /** border-right 属性配置类型 */
 export type BorderRightConfig = {
-  keywords: (BorderRightKeyword | ColorValue)[];
+  keywords: (BorderRightKeyword | AllColorValue)[];
   numberTypes: BorderRightPropertyNumberType[];
 };
 
 /** border-right-color 属性配置类型 */
 export type BorderRightColorConfig = {
-  keywords: (BorderRightColorKeyword | ColorValue)[];
+  keywords: (BorderRightColorKeyword | AllColorValue)[];
   numberTypes: BorderRightColorPropertyNumberType[];
 };
 
@@ -1045,13 +1045,13 @@ export type BorderStyleConfig = {
 
 /** border-top 属性配置类型 */
 export type BorderTopConfig = {
-  keywords: (BorderTopKeyword | ColorValue)[];
+  keywords: (BorderTopKeyword | AllColorValue)[];
   numberTypes: BorderTopPropertyNumberType[];
 };
 
 /** border-top-color 属性配置类型 */
 export type BorderTopColorConfig = {
-  keywords: (BorderTopColorKeyword | ColorValue)[];
+  keywords: (BorderTopColorKeyword | AllColorValue)[];
   numberTypes: BorderTopColorPropertyNumberType[];
 };
 
@@ -1135,7 +1135,7 @@ export type BoxPackConfig = {
 
 /** box-shadow 属性配置类型 */
 export type BoxShadowConfig = {
-  keywords: (BoxShadowKeyword | ColorValue)[];
+  keywords: (BoxShadowKeyword | AllColorValue)[];
   numberTypes: BoxShadowPropertyNumberType[];
 };
 
@@ -1166,7 +1166,7 @@ export type CaptionSideConfig = {
 
 /** caret-color 属性配置类型 */
 export type CaretColorConfig = {
-  keywords: (CaretColorKeyword | ColorValue)[];
+  keywords: (CaretColorKeyword | AllColorValue)[];
   numberTypes: CaretColorPropertyNumberType[];
 };
 
@@ -1199,7 +1199,7 @@ export type ClipRuleConfig = {
 
 /** color 属性配置类型 */
 export type ColorConfig = {
-  keywords: (ColorKeyword | ColorValue)[];
+  keywords: (ColorKeyword | AllColorValue)[];
   numberTypes: ColorPropertyNumberType[];
 };
 
@@ -1232,7 +1232,7 @@ export type ColumnGapConfig = {
 
 /** column-rule-color 属性配置类型 */
 export type ColumnRuleColorConfig = {
-  keywords: (ColumnRuleColorKeyword | ColorValue)[];
+  keywords: (ColumnRuleColorKeyword | AllColorValue)[];
   numberTypes: ColumnRuleColorPropertyNumberType[];
 };
 
@@ -1294,7 +1294,7 @@ export type ContainerTypeConfig = {
 
 /** content 属性配置类型 */
 export type ContentConfig = {
-  keywords: (ContentKeyword | ColorValue)[];
+  keywords: (ContentKeyword | AllColorValue)[];
   numberTypes: ContentPropertyNumberType[];
 };
 
@@ -1379,7 +1379,7 @@ export type FieldSizingConfig = {
 
 /** fill 属性配置类型 */
 export type FillConfig = {
-  keywords: (FillKeyword | ColorValue)[];
+  keywords: (FillKeyword | AllColorValue)[];
   numberTypes: FillPropertyNumberType[];
 };
 
@@ -1395,7 +1395,7 @@ export type FillRuleConfig = {
 
 /** filter 属性配置类型 */
 export type FilterConfig = {
-  keywords: (FilterKeyword | ColorValue)[];
+  keywords: (FilterKeyword | AllColorValue)[];
   numberTypes: FilterPropertyNumberType[];
 };
 
@@ -1826,7 +1826,7 @@ export type LineHeightStepConfig = {
 
 /** list-style-image 属性配置类型 */
 export type ListStyleImageConfig = {
-  keywords: (ListStyleImageKeyword | ColorValue)[];
+  keywords: (ListStyleImageKeyword | AllColorValue)[];
   numberTypes: ListStyleImagePropertyNumberType[];
 };
 
@@ -1897,7 +1897,7 @@ export type MarkerStartConfig = {
 
 /** mask 属性配置类型 */
 export type MaskConfig = {
-  keywords: (MaskKeyword | ColorValue)[];
+  keywords: (MaskKeyword | AllColorValue)[];
   numberTypes: MaskPropertyNumberType[];
 };
 
@@ -1924,7 +1924,7 @@ export type MaskBorderSliceConfig = {
 
 /** mask-border-source 属性配置类型 */
 export type MaskBorderSourceConfig = {
-  keywords: (MaskBorderSourceKeyword | ColorValue)[];
+  keywords: (MaskBorderSourceKeyword | AllColorValue)[];
   numberTypes: MaskBorderSourcePropertyNumberType[];
 };
 
@@ -1946,7 +1946,7 @@ export type MaskCompositeConfig = {
 
 /** mask-image 属性配置类型 */
 export type MaskImageConfig = {
-  keywords: (MaskImageKeyword | ColorValue)[];
+  keywords: (MaskImageKeyword | AllColorValue)[];
   numberTypes: MaskImagePropertyNumberType[];
 };
 
@@ -2095,7 +2095,7 @@ export type OrphansConfig = {
 
 /** outline-color 属性配置类型 */
 export type OutlineColorConfig = {
-  keywords: (OutlineColorKeyword | ColorValue)[];
+  keywords: (OutlineColorKeyword | AllColorValue)[];
   numberTypes: OutlineColorPropertyNumberType[];
 };
 
@@ -2568,7 +2568,7 @@ export type ScrollTimelineNameConfig = {
 
 /** scrollbar-color 属性配置类型 */
 export type ScrollbarColorConfig = {
-  keywords: (ScrollbarColorKeyword | ColorValue)[];
+  keywords: (ScrollbarColorKeyword | AllColorValue)[];
   numberTypes: ScrollbarColorPropertyNumberType[];
 };
 
@@ -2594,7 +2594,7 @@ export type ShapeMarginConfig = {
 
 /** shape-outside 属性配置类型 */
 export type ShapeOutsideConfig = {
-  keywords: (ShapeOutsideKeyword | ColorValue)[];
+  keywords: (ShapeOutsideKeyword | AllColorValue)[];
   numberTypes: ShapeOutsidePropertyNumberType[];
 };
 
@@ -2615,7 +2615,7 @@ export type SpeakAsConfig = {
 
 /** stroke 属性配置类型 */
 export type StrokeConfig = {
-  keywords: (StrokeKeyword | ColorValue)[];
+  keywords: (StrokeKeyword | AllColorValue)[];
   numberTypes: StrokePropertyNumberType[];
 };
 
@@ -2683,7 +2683,7 @@ export type TextCombineUprightConfig = {
 
 /** text-decoration-color 属性配置类型 */
 export type TextDecorationColorConfig = {
-  keywords: (TextDecorationColorKeyword | ColorValue)[];
+  keywords: (TextDecorationColorKeyword | AllColorValue)[];
   numberTypes: TextDecorationColorPropertyNumberType[];
 };
 
@@ -2715,7 +2715,7 @@ export type TextDecorationThicknessConfig = {
 
 /** text-emphasis-color 属性配置类型 */
 export type TextEmphasisColorConfig = {
-  keywords: (TextEmphasisColorKeyword | ColorValue)[];
+  keywords: (TextEmphasisColorKeyword | AllColorValue)[];
   numberTypes: TextEmphasisColorPropertyNumberType[];
 };
 
@@ -2757,7 +2757,7 @@ export type TextRenderingConfig = {
 
 /** text-shadow 属性配置类型 */
 export type TextShadowConfig = {
-  keywords: (TextShadowKeyword | ColorValue)[];
+  keywords: (TextShadowKeyword | AllColorValue)[];
   numberTypes: TextShadowPropertyNumberType[];
 };
 
