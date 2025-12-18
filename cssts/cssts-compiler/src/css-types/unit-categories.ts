@@ -64,6 +64,11 @@ export const UNITLESS = [
   'unitless',
 ] as const;
 
+/** 零值（只有 0，无单位） */
+export const ZERO_UNITS = [
+  'zero',
+] as const;
+
 // ==================== 类型定义 ====================
 
 export type PercentageUnit = typeof PERCENTAGE_UNITS[number];
@@ -76,6 +81,7 @@ export type FrequencyUnit = typeof FREQUENCY_UNITS[number];
 export type ResolutionUnit = typeof RESOLUTION_UNITS[number];
 export type FlexUnit = typeof FLEX_UNITS[number];
 export type Unitless = typeof UNITLESS[number];
+export type ZeroUnit = typeof ZERO_UNITS[number];
 
 /** 所有单位类型 */
 export type UnitCategory =
@@ -88,7 +94,8 @@ export type UnitCategory =
   | FrequencyUnit
   | ResolutionUnit
   | FlexUnit
-  | Unitless;
+  | Unitless
+  | ZeroUnit;
 
 // ==================== 分类映射 ====================
 
@@ -104,6 +111,7 @@ export const UNIT_CATEGORY_NAMES = [
   'resolution',
   'flex',
   'unitless',
+  'zero',
 ] as const;
 
 export type UnitCategoryName = typeof UNIT_CATEGORY_NAMES[number];
@@ -120,6 +128,7 @@ export const UNITS_BY_CATEGORY: Record<UnitCategoryName, readonly string[]> = {
   resolution: RESOLUTION_UNITS,
   flex: FLEX_UNITS,
   unitless: UNITLESS,
+  zero: ZERO_UNITS,
 };
 
 /** 单位到分类的映射 */
@@ -149,6 +158,8 @@ export const CATEGORY_BY_UNIT: Record<string, UnitCategoryName> = {
   'fr': 'flex',
   // unitless
   'unitless': 'unitless',
+  // zero
+  'zero': 'zero',
 };
 
 // ==================== 分类描述 ====================
@@ -195,7 +206,62 @@ export const UNIT_CATEGORY_DESCRIPTIONS: Record<UnitCategoryName, { en: string; 
     en: 'Unitless numbers (opacity, z-index, etc.)',
     zh: '无单位数值 (opacity, z-index 等)',
   },
+  zero: {
+    en: 'Zero value only (0)',
+    zh: '仅零值 (0)',
+  },
 };
+
+// ==================== NumberType 到 UnitCategory 映射 ====================
+
+import type { NumberTypeName } from './units';
+
+/**
+ * NumberType 到 UnitCategory 的映射
+ * 
+ * 这是核心映射：numberType → unitCategory → units
+ * - length 包含多个 unitCategory: pixel, fontRelative, physical, percentage (viewport units)
+ * - 其他 numberType 基本一一对应
+ */
+export const NUMBER_TYPE_TO_CATEGORIES: Record<NumberTypeName, UnitCategoryName[]> = {
+  length: ['pixel', 'fontRelative', 'physical', 'percentage'],  // length 包含多种单位分类
+  angle: ['angle'],
+  time: ['time'],
+  frequency: ['frequency'],
+  percentage: ['percentage'],
+  number: ['unitless'],
+  integer: ['unitless'],
+  resolution: ['resolution'],
+  flex: ['flex'],
+};
+
+/**
+ * 根据 numberTypes 获取对应的 unitCategories
+ */
+export function getUnitCategoriesFromNumberTypes(numberTypes: NumberTypeName[]): UnitCategoryName[] {
+  const categories = new Set<UnitCategoryName>();
+  for (const nt of numberTypes) {
+    const cats = NUMBER_TYPE_TO_CATEGORIES[nt];
+    if (cats) {
+      cats.forEach(c => categories.add(c));
+    }
+  }
+  return Array.from(categories);
+}
+
+/**
+ * 根据 unitCategories 获取对应的 units
+ */
+export function getUnitsFromCategories(categories: UnitCategoryName[]): string[] {
+  const units = new Set<string>();
+  for (const cat of categories) {
+    const catUnits = UNITS_BY_CATEGORY[cat];
+    if (catUnits) {
+      catUnits.forEach(u => units.add(u));
+    }
+  }
+  return Array.from(units);
+}
 
 // ==================== 工具函数 ====================
 

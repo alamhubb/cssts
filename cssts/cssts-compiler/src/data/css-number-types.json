@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-18T03:51:04.220Z",
+  "generatedAt": "2025-12-18T06:33:53.879Z",
   "csstreeVersion": "3.1.0",
   "totalProperties": 286,
   "typeDescriptions": {
@@ -103,6 +103,38 @@
       "fr"
     ]
   },
+  "numberTypeToCategories": {
+    "length": [
+      "pixel",
+      "fontRelative",
+      "physical",
+      "percentage"
+    ],
+    "angle": [
+      "angle"
+    ],
+    "time": [
+      "time"
+    ],
+    "frequency": [
+      "frequency"
+    ],
+    "percentage": [
+      "percentage"
+    ],
+    "number": [
+      "unitless"
+    ],
+    "integer": [
+      "unitless"
+    ],
+    "resolution": [
+      "resolution"
+    ],
+    "flex": [
+      "flex"
+    ]
+  },
   "properties": [
     {
       "name": "-moz-border-bottom-colors",
@@ -110,6 +142,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -118,6 +155,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -126,6 +168,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -134,12 +181,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "-moz-image-region",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -147,6 +205,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -154,6 +218,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -161,6 +231,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -168,6 +244,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -175,11 +257,20 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "-ms-content-zoom-limit-max",
       "numberTypes": [
+        "percentage"
+      ],
+      "unitCategories": [
         "percentage"
       ]
     },
@@ -187,11 +278,17 @@
       "name": "-ms-content-zoom-limit-min",
       "numberTypes": [
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage"
       ]
     },
     {
       "name": "-ms-content-zoom-snap-points",
       "numberTypes": [
+        "percentage"
+      ],
+      "unitCategories": [
         "percentage"
       ]
     },
@@ -199,6 +296,9 @@
       "name": "-ms-flex-order",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -208,6 +308,14 @@
         "integer",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -217,18 +325,32 @@
         "integer",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "-ms-hyphenate-limit-chars",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "-ms-hyphenate-limit-lines",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -236,30 +358,60 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "-ms-scroll-limit-x-max",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "-ms-scroll-limit-x-min",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "-ms-scroll-limit-y-max",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "-ms-scroll-limit-y-min",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -267,6 +419,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -274,6 +432,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -282,6 +446,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -290,6 +459,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -298,6 +472,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -306,6 +485,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -314,6 +498,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -322,6 +511,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -330,6 +524,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -338,12 +537,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "-ms-wrap-margin",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -352,6 +562,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -360,6 +575,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -370,12 +590,24 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
       "name": "-webkit-line-clamp",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -386,6 +618,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -395,6 +636,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -405,6 +654,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -412,6 +670,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -419,6 +683,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -426,6 +696,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -433,6 +709,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -441,6 +723,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -449,6 +736,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -458,6 +750,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -466,12 +766,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "-webkit-text-stroke-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -480,6 +791,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -487,11 +803,17 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "animation-delay",
       "numberTypes": [
+        "time"
+      ],
+      "unitCategories": [
         "time"
       ]
     },
@@ -499,12 +821,18 @@
       "name": "animation-duration",
       "numberTypes": [
         "time"
+      ],
+      "unitCategories": [
+        "time"
       ]
     },
     {
       "name": "animation-iteration-count",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -512,6 +840,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -519,6 +853,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -526,17 +866,26 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "aspect-ratio",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "azimuth",
       "numberTypes": [
+        "angle"
+      ],
+      "unitCategories": [
         "angle"
       ]
     },
@@ -547,6 +896,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -557,6 +914,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -565,6 +931,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -575,6 +946,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -582,6 +962,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -589,6 +975,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -596,6 +988,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -603,6 +1001,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -611,6 +1015,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -620,6 +1031,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -628,6 +1047,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -636,6 +1060,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -644,6 +1073,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -653,6 +1087,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -660,6 +1102,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -667,12 +1115,24 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "border-bottom-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -681,6 +1141,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -688,6 +1153,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -695,6 +1166,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -702,6 +1179,13 @@
       "numberTypes": [
         "length",
         "number"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -709,6 +1193,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -719,6 +1207,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -727,6 +1224,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -735,6 +1239,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -743,6 +1252,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -751,6 +1265,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -760,6 +1279,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -768,12 +1295,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "border-left-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -781,6 +1319,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -790,6 +1334,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -798,18 +1350,35 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "border-right-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "border-spacing",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -817,6 +1386,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -824,6 +1399,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -833,6 +1414,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -841,6 +1430,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -848,6 +1442,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -855,18 +1455,36 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "border-top-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "border-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -874,24 +1492,39 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "box-flex",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "box-flex-group",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "box-ordinal-group",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -901,6 +1534,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -909,12 +1550,23 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "clip",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -922,6 +1574,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -930,12 +1588,20 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "column-count",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -943,6 +1609,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -951,42 +1623,83 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "column-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "contain-intrinsic-block-size",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "contain-intrinsic-height",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "contain-intrinsic-inline-size",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "contain-intrinsic-size",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "contain-intrinsic-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -997,30 +1710,51 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
       "name": "counter-increment",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "counter-reset",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "counter-set",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "cursor",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1028,6 +1762,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1035,6 +1775,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1043,12 +1789,20 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "fill-opacity",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1058,24 +1812,41 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "flex-grow",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "flex-shrink",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "font-feature-settings",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1083,23 +1854,41 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "font-size-adjust",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "font-smooth",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "font-stretch",
       "numberTypes": [
+        "percentage"
+      ],
+      "unitCategories": [
         "percentage"
       ]
     },
@@ -1107,23 +1896,35 @@
       "name": "font-style",
       "numberTypes": [
         "angle"
+      ],
+      "unitCategories": [
+        "angle"
       ]
     },
     {
       "name": "font-variation-settings",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "font-weight",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "glyph-orientation-horizontal",
       "numberTypes": [
+        "angle"
+      ],
+      "unitCategories": [
         "angle"
       ]
     },
@@ -1131,12 +1932,18 @@
       "name": "glyph-orientation-vertical",
       "numberTypes": [
         "angle"
+      ],
+      "unitCategories": [
+        "angle"
       ]
     },
     {
       "name": "grid-area",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1145,6 +1952,13 @@
         "flex",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1153,18 +1967,31 @@
         "flex",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "grid-column",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "grid-column-end",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1172,24 +1999,39 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "grid-column-start",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "grid-row",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "grid-row-end",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1197,12 +2039,21 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "grid-row-start",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1211,6 +2062,13 @@
         "flex",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1220,6 +2078,14 @@
         "integer",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1229,6 +2095,14 @@
         "integer",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "flex",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1236,23 +2110,38 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "hyphenate-limit-chars",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "image-orientation",
       "numberTypes": [
         "angle"
+      ],
+      "unitCategories": [
+        "angle"
       ]
     },
     {
       "name": "image-resolution",
       "numberTypes": [
+        "resolution"
+      ],
+      "unitCategories": [
         "resolution"
       ]
     },
@@ -1261,6 +2150,9 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1269,6 +2161,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1276,6 +2175,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1283,12 +2188,21 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "line-clamp",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1297,12 +2211,25 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "line-height-step",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1313,6 +2240,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -1320,6 +2256,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1327,6 +2269,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1334,6 +2282,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1341,6 +2295,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1348,6 +2308,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1358,6 +2324,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -1365,6 +2340,13 @@
       "numberTypes": [
         "length",
         "number"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1372,6 +2354,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1382,6 +2368,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -1390,6 +2385,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1400,6 +2402,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -1407,6 +2418,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1414,12 +2431,21 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "math-depth",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1427,12 +2453,21 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "max-lines",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1440,6 +2475,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1447,6 +2488,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1454,6 +2501,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1461,6 +2514,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1468,6 +2527,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1475,6 +2540,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1483,6 +2554,13 @@
         "angle",
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1490,11 +2568,20 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "offset-rotate",
       "numberTypes": [
+        "angle"
+      ],
+      "unitCategories": [
         "angle"
       ]
     },
@@ -1503,18 +2590,28 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "order",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "orphans",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1523,24 +2620,47 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "outline-offset",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "outline-width",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "overflow-clip-margin",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1548,6 +2668,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1555,6 +2681,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1562,6 +2694,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1569,6 +2707,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1576,11 +2720,20 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "pause-after",
       "numberTypes": [
+        "time"
+      ],
+      "unitCategories": [
         "time"
       ]
     },
@@ -1588,12 +2741,21 @@
       "name": "pause-before",
       "numberTypes": [
         "time"
+      ],
+      "unitCategories": [
+        "time"
       ]
     },
     {
       "name": "perspective",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1601,6 +2763,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1608,17 +2776,29 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "rest-after",
       "numberTypes": [
         "time"
+      ],
+      "unitCategories": [
+        "time"
       ]
     },
     {
       "name": "rest-before",
       "numberTypes": [
+        "time"
+      ],
+      "unitCategories": [
         "time"
       ]
     },
@@ -1627,6 +2807,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1634,6 +2820,10 @@
       "numberTypes": [
         "angle",
         "number"
+      ],
+      "unitCategories": [
+        "angle",
+        "unitless"
       ]
     },
     {
@@ -1641,6 +2831,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1648,6 +2844,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1655,6 +2857,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1662,72 +2870,142 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     },
     {
       "name": "scroll-margin",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-block",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-block-end",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-block-start",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-bottom",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-inline",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-inline-end",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-inline-start",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-left",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-right",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "scroll-margin-top",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1735,6 +3013,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1742,6 +3026,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1749,6 +3039,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1756,6 +3052,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1763,6 +3065,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1770,6 +3078,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1777,6 +3091,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1784,6 +3104,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1791,6 +3117,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1798,6 +3130,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1805,6 +3143,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1812,6 +3156,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1819,6 +3169,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1826,6 +3182,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1833,6 +3195,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1841,6 +3209,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1848,6 +3221,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1855,6 +3232,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1865,6 +3248,15 @@
         "number",
         "percentage",
         "resolution"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "resolution",
+        "unitless"
       ]
     },
     {
@@ -1873,6 +3265,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1881,6 +3278,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1889,12 +3293,22 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "stroke-miterlimit",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1903,6 +3317,13 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1910,12 +3331,22 @@
       "numberTypes": [
         "integer",
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "text-combine-upright",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -1924,6 +3355,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1931,6 +3367,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1939,6 +3381,11 @@
         "angle",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "percentage",
+        "unitless"
       ]
     },
     {
@@ -1946,6 +3393,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1955,11 +3408,22 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
       "name": "text-size-adjust",
       "numberTypes": [
+        "percentage"
+      ],
+      "unitCategories": [
         "percentage"
       ]
     },
@@ -1968,6 +3432,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1975,6 +3445,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1984,6 +3460,14 @@
         "length",
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "angle",
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel",
+        "unitless"
       ]
     },
     {
@@ -1991,6 +3475,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -1999,17 +3489,27 @@
         "integer",
         "number",
         "time"
+      ],
+      "unitCategories": [
+        "time",
+        "unitless"
       ]
     },
     {
       "name": "transition-delay",
       "numberTypes": [
         "time"
+      ],
+      "unitCategories": [
+        "time"
       ]
     },
     {
       "name": "transition-duration",
       "numberTypes": [
+        "time"
+      ],
+      "unitCategories": [
         "time"
       ]
     },
@@ -2018,6 +3518,9 @@
       "numberTypes": [
         "integer",
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -2025,6 +3528,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -2032,6 +3541,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -2039,17 +3554,29 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "voice-balance",
       "numberTypes": [
         "number"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "voice-duration",
       "numberTypes": [
+        "time"
+      ],
+      "unitCategories": [
         "time"
       ]
     },
@@ -2057,11 +3584,18 @@
       "name": "voice-family",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
       "name": "voice-pitch",
       "numberTypes": [
+        "frequency",
+        "percentage"
+      ],
+      "unitCategories": [
         "frequency",
         "percentage"
       ]
@@ -2071,11 +3605,18 @@
       "numberTypes": [
         "frequency",
         "percentage"
+      ],
+      "unitCategories": [
+        "frequency",
+        "percentage"
       ]
     },
     {
       "name": "voice-rate",
       "numberTypes": [
+        "percentage"
+      ],
+      "unitCategories": [
         "percentage"
       ]
     },
@@ -2083,6 +3624,9 @@
       "name": "widows",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -2090,12 +3634,24 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "word-spacing",
       "numberTypes": [
         "length"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -2103,6 +3659,12 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
@@ -2110,12 +3672,21 @@
       "numberTypes": [
         "length",
         "percentage"
+      ],
+      "unitCategories": [
+        "fontRelative",
+        "percentage",
+        "physical",
+        "pixel"
       ]
     },
     {
       "name": "z-index",
       "numberTypes": [
         "integer"
+      ],
+      "unitCategories": [
+        "unitless"
       ]
     },
     {
@@ -2123,6 +3694,10 @@
       "numberTypes": [
         "number",
         "percentage"
+      ],
+      "unitCategories": [
+        "percentage",
+        "unitless"
       ]
     }
   ]

@@ -244,6 +244,13 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
         max: 100,
         negative: true,
     },
+
+    // 零值（只有 0）
+    zero: {
+        min: 0,
+        max: 0,
+        negative: false,
+    },
 };
 
 /** 默认单位配置 */
