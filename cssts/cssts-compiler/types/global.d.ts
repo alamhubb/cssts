@@ -2,7 +2,7 @@
  * CssTs Global Type Declarations
  *
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-18T11:58:06.388Z
+ * 生成时间: 2025-12-18T12:11:54.336Z
  */
 
 import type { CsstsAtoms } from './CsstsAtoms'

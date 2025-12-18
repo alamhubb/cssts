@@ -42,7 +42,6 @@ export {
   // 默认配置
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
-  DEFAULT_UNIT_CONFIGS,
   // 伪类/伪元素样式配置
   PseudoClassStylesConfig,
   PseudoElementStylesConfig,
