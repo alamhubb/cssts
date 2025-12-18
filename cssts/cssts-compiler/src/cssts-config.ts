@@ -137,7 +137,6 @@ export const cssDefaultProperties: CssPropertyCamelName[] = [
 ];
 
 
-
 // ==================== 系统级别默认配置 ====================
 
 /** 默认渐进步长策略 */
@@ -152,9 +151,9 @@ export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
     {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
 ];
 
-/** 
+/**
  * 默认单位分类配置（Tailwind 风格）
- * 
+ *
  * 基于分类配置数值，同一分类下的所有单位共享相同的数值范围
  * 使用 presets 模式可以精确控制生成的数值
  */
@@ -236,7 +235,7 @@ export class CsstsConfig {
      * 如果配置了此项，则只生成这些属性的原子类，忽略 excludeProperties
      * 为空或 undefined 时使用 excludeProperties 逻辑
      */
-    includeProperties?: CssPropertyCamelName[];
+    includeProperties?: CssPropertyCamelName[] | CssPropertyConfigMap[];
 
     /**
      * 排除的属性列表（黑名单）
@@ -251,7 +250,7 @@ export class CsstsConfig {
      * 支持的数值类型列表（白名单）
      * 可以是字符串数组或混合数组（字符串 + 对象）
      * 对象格式：{ numberType: { unitCategory: { unit: { step: 4 } } } }
-     * 
+     *
      * @example
      * includeNumberTypes: [
      *   'length',
@@ -264,7 +263,7 @@ export class CsstsConfig {
      * 排除的数值类型列表（黑名单）
      * 仅当 includeNumberTypes 为空时生效
      * 支持混合数组格式，可以排除整个数值类型、特定单位或特定分类下的单位
-     * 
+     *
      * @example
      * excludeNumberTypes: [
      *   'angle',                           // 排除整个 angle 数值类型
@@ -280,9 +279,9 @@ export class CsstsConfig {
      * 支持的单位分类列表（白名单）
      * 可以是字符串数组或混合数组（字符串 + 对象）
      * 对象格式：{ unitCategory: { unit: { step: 4 } } }
-     * 
+     *
      * 默认包含除了系统级别低频分类外的所有分类
-     * 
+     *
      * @example
      * includeUnitCategories: [
      *   'pixel',
@@ -295,7 +294,7 @@ export class CsstsConfig {
      * 排除的单位分类列表（黑名单）
      * 仅当 includeUnitCategories 为空时生效
      * 支持混合数组格式，可以排除整个分类或特定单位
-     * 
+     *
      * @example
      * excludeUnitCategories: [
      *   'resolution',               // 排除整个 resolution 分类
@@ -310,7 +309,7 @@ export class CsstsConfig {
      * 支持的单位列表（白名单）
      * 可以是字符串数组或混合数组（字符串 + 对象）
      * 对象格式：{ unit: { step: 4, max: 500 } }
-     * 
+     *
      * @example
      * includeUnits: [
      *   'px',
@@ -324,7 +323,7 @@ export class CsstsConfig {
      * 排除的单位列表（黑名单）
      * 仅当 includeUnits 为空时生效
      * 支持混合数组格式（为了保持一致性）
-     * 
+     *
      * @example
      * excludeUnits: [
      *   'px',
@@ -369,9 +368,6 @@ export class CsstsConfig {
 
     /** 渐进步长策略（不设置则使用默认策略） */
     progressiveRanges: ProgressiveRange[];
-
-    /** 属性级别配置 */
-    properties: CssPropertyConfigMap;
 
     // ==================== 伪类/伪元素配置 ====================
 
@@ -441,7 +437,6 @@ export class CsstsConfig {
         // 其他配置
         this.customProperties = options.customProperties ?? {};
         this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
-        this.properties = new CssPropertyConfigMap(options.properties);
 
         // 属性配置
         this.includeProperties = options.includeProperties ?? cssDefaultProperties
