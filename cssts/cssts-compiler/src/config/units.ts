@@ -46,18 +46,3 @@ export const CATEGORY_BY_UNIT: Record<string, UnitCategoryName> = Object.entries
     (units as readonly string[]).forEach(unit => { acc[unit] = category as UnitCategoryName; });
     return acc;
   }, {} as Record<string, UnitCategoryName>);
-
-// Re-export configuration types from types/
-export type {
-    ProgressiveRange,
-    StepConfig,
-    UnitValueConfig,
-    UnitCategoryConfig,
-    UnitsConfigValue,
-    NumberTypeConfigItem,
-    UnitCategoryConfigItem,
-    UnitConfigItem,
-    NumberTypeExcludeItem,
-    UnitCategoryExcludeItem,
-    UnitExcludeItem,
-} from '../types/config';

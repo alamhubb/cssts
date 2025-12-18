@@ -2,6 +2,8 @@
  * CSS 关键词配置（自动生成）
  */
 
+import type { AllColorValue } from './colors';
+
 export const ACCENT_COLOR_KEYWORDS = [
   '-moz-ButtonDefault',
   '-moz-ButtonHoverFace',

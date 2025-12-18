@@ -267,7 +267,14 @@ function generateKeywordsFile(
   sortedPropertyNames: string[],
   colorSupportingProps: string[]
 ): string {
-  const lines: string[] = ['/**', ' * CSS 关键词配置（自动生成）', ' */', ''];
+  const lines: string[] = [
+    '/**',
+    ' * CSS 关键词配置（自动生成）',
+    ' */',
+    '',
+    "import type { AllColorValue } from './colors';",
+    ''
+  ];
 
   // 关键词数组
   for (const prop of keywordProperties) {
