@@ -1,4 +1,4 @@
-# CSSTS Compiler 配置指南
+ # CSSTS Compiler 配置指南
 
 本文档说明 cssts-compiler 的配置系统、数据来源和实现原理。
 
