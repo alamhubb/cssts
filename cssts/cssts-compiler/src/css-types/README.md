@@ -114,8 +114,23 @@ CATEGORY_BY_UNIT['px']  // => 'pixel'
 CATEGORY_BY_UNIT['em']  // => 'fontRelative'
 ```
 
-## 重新生成配置
+## 生成脚本
 
 ```bash
-npx tsx src/css-types/scripts/generate-config.ts
+# 从 csstree 提取数据，生成 data/ 和 config/
+npx tsx src/css-types/scripts/generator-data/index.ts
+
+# 根据 config/ 生成用户使用的 .d.ts 文件
+npx tsx src/css-types/scripts/generator-dts/index.ts
+```
+
+### 脚本目录结构
+
+```
+scripts/
+├── generator-data/        # csstree → data/ + config/
+│   ├── index.ts           # 入口
+│   └── generate-config.ts # 生成逻辑
+└── generator-dts/         # config/ → .d.ts
+    └── index.ts           # 入口（调用 src/generator/）
 ```
