@@ -20,6 +20,9 @@ import {
   extractUnitCategoryConfigsFromArray,
   extractNumberTypeConfigsFromArray,
   extractStringsFromArray,
+  extractStringsFromNumberTypeExcludeArray,
+  extractStringsFromUnitCategoryExcludeArray,
+  extractStringsFromUnitExcludeArray,
 } from '../utils/config-utils.js';
 import {
   cssPropertyNameMap,
@@ -336,10 +339,11 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
       const supportedUnits = new Set<string>();
       const includeNumberTypesList = extractStringsFromArray(config.includeNumberTypes);
+      const excludeNumberTypesList = extractStringsFromNumberTypeExcludeArray(config.excludeNumberTypes);
       
       for (const nt of propConfig.numberTypes as string[]) {
         // 使用 shouldInclude 处理数值类型过滤
-        if (!shouldInclude(nt, includeNumberTypesList.length > 0 ? includeNumberTypesList : undefined, config.excludeNumberTypes)) continue;
+        if (!shouldInclude(nt, includeNumberTypesList.length > 0 ? includeNumberTypesList : undefined, excludeNumberTypesList)) continue;
         
         const typeUnits = NUMBER_TYPE_UNITS[nt as keyof typeof NUMBER_TYPE_UNITS];
         if (typeUnits) {
@@ -350,15 +354,17 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
       }
 
       const includeUnitsList = extractStringsFromArray(config.includeUnits);
+      const excludeUnitsList = extractStringsFromUnitExcludeArray(config.excludeUnits);
       const includeUnitCategoriesList = extractStringsFromArray(config.includeUnitCategories);
+      const excludeUnitCategoriesList = extractStringsFromUnitCategoryExcludeArray(config.excludeUnitCategories);
       
       for (const unit of supportedUnits) {
         // 使用 shouldInclude 处理单位过滤
-        if (!shouldInclude(unit, includeUnitsList.length > 0 ? includeUnitsList : undefined, config.excludeUnits)) continue;
+        if (!shouldInclude(unit, includeUnitsList.length > 0 ? includeUnitsList : undefined, excludeUnitsList)) continue;
         
         // 使用 shouldInclude 处理单位分类过滤
         const category = CATEGORY_BY_UNIT[unit] as UnitCategoryName | undefined;
-        if (category && !shouldInclude(category, includeUnitCategoriesList.length > 0 ? includeUnitCategoriesList : undefined, config.excludeUnitCategories)) continue;
+        if (category && !shouldInclude(category, includeUnitCategoriesList.length > 0 ? includeUnitCategoriesList : undefined, excludeUnitCategoriesList)) continue;
 
         const values = generateValuesForUnit(unit, config);
         

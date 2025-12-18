@@ -2,13 +2,21 @@
 
 > CssTs 编译器 - 解析、转换、生成
 
-## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
+## 📚 文档导航
+
+- **[配置系统](./CONFIG.md)** - 详细的配置指南和最佳实践
+- **[核心 API](#核心-api)** - 编译器 API 文档
+- **[类型定义生成](#类型定义生成)** - 生成 `.d.ts` 文件
+
+## ⚠️ 重要：伪类分隔符是双美元符号
+
+使用两个美元符号标记伪类（不是单个美元符号）：
 
 ```typescript
-// ✅ 正确：使用双美元符号 $$
+// ✅ 正确：使用两个美元符号
 const btn$$hover$$active = css { cursorPointer }
 
-// ❌ 错误：使用单美元符号 $（伪类不会生效！）
+// ❌ 错误：使用单个美元符号（伪类不会生效！）
 const btn$hover$active = css { cursorPointer }
 ```
 
@@ -45,7 +53,7 @@ cssts-compiler/
 import { CSSTS_CONFIG } from 'cssts'
 
 CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$'  - 伪类分隔符（双美元符号）
 ```
 
 > **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
@@ -57,8 +65,8 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 ```typescript
 // 存储
 const styles = new Set<string>()
-styles.add('displayFlex')                 // 普通原子类
-styles.add('clickable$$hover$$active')    // 带伪类的样式（双美元符号）
+styles.add('displayFlex')                    // 普通原子类
+styles.add('clickable$$hover$$active')       // 带伪类的样式（双美元符号）
 
 // 解析
 parseStyleName('displayFlex')
@@ -90,7 +98,7 @@ const result = transformCssTs(code, context)
 // result.code - 转换后的 JS 代码
 // result.hasStyles - 是否有样式
 
-// context.styles 会被自动填充（包括 $$ 伪类样式）
+// context.styles 会被自动填充（包括 $ 伪类样式）
 ```
 
 ### parseStyleName - 样式名解析
@@ -152,9 +160,9 @@ const atomsDts = generateCsstsAtomsDts(atoms)
 await generate() // 输出到 cssts-compiler/types/
 ```
 
-## $$ 伪类语法
+## 伪类语法
 
-使用 `$$` 双美元符号标记伪类：
+使用两个美元符号标记伪类：
 
 ```typescript
 // 输入

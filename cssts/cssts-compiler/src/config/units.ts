@@ -33,11 +33,11 @@ export const NUMBER_TYPE_UNITS = {
 /**
  * 单位到分类的反向映射（从 unitsByCategory 自动生成）
  * 
- * 用途：根据单位（如 'px'）快速查找其所属分类（如 'px'），
+ * 用途：根据单位（如 'px'）快速查找其所属分类（如 'pixel'），
  * 从而获取该分类的步长策略和数值范围配置。
  * 
  * @example
- * CATEGORY_BY_UNIT['px']  // => 'px'
+ * CATEGORY_BY_UNIT['px']  // => 'pixel'
  * CATEGORY_BY_UNIT['em']  // => 'fontRelative'
  * CATEGORY_BY_UNIT['deg'] // => 'angle'
  */

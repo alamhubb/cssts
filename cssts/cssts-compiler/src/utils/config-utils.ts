@@ -147,9 +147,10 @@ export function extractUnitConfigsFromArray<T extends string>(
 /**
  * 从新的层级配置格式中提取单位分类配置
  * 支持混合数组格式：['px', { em: { step: 0.25 } }]
+ * 支持跨层级配置：{ px: { step: 0.25 } }
  */
 export function extractUnitCategoryConfigsFromArray<T extends string>(
-    items: (T | Record<T, Record<string, UnitValueConfig>>)[] | undefined
+    items: (T | Record<T, Record<string, UnitValueConfig> | UnitValueConfig>)[] | undefined
 ): Partial<Record<T, Record<string, UnitValueConfig>>> {
     if (!items) return {};
 
@@ -161,7 +162,17 @@ export function extractUnitCategoryConfigsFromArray<T extends string>(
             result[item] = {};
         } else if (typeof item === 'object') {
             // 对象项：提取配置
-            Object.assign(result, item);
+            for (const [key, value] of Object.entries(item)) {
+                if (typeof value === 'object' && value !== null) {
+                    // 检查是否是 UnitValueConfig
+                    if ('step' in value || 'max' in value || 'min' in value || 'presets' in value || 'negative' in value) {
+                        // 这是单位配置，跳过（应该在 includeUnits 中处理）
+                    } else {
+                        // 这是单位配置对象
+                        result[key as T] = value as Record<string, UnitValueConfig>;
+                    }
+                }
+            }
         }
     }
 
@@ -210,6 +221,145 @@ export function extractStringsFromArray<T extends string>(
         } else if (typeof item === 'object') {
             // 从对象中提取 key
             result.push(...(Object.keys(item) as T[]));
+        }
+    }
+
+    return result;
+}
+
+
+/**
+ * 从数值类型配置中智能提取单位配置
+ * 支持跨层级配置：
+ * - { time: { px: { px: { step: 4 } } } } - 完整三层
+ * - { time: { em: { step: 4 } } } - 跨越 unitCategory 层级
+ */
+export function extractUnitConfigsFromNumberTypeConfig(
+    numberTypeConfigs: Record<string, Record<string, Record<string, UnitValueConfig> | UnitValueConfig>> | undefined,
+    unitToCategory: Record<string, string>  // 单位到分类的映射
+): Partial<Record<string, UnitValueConfig>> {
+    if (!numberTypeConfigs) return {};
+
+    const result: Partial<Record<string, UnitValueConfig>> = {};
+
+    for (const [_numberType, categoryOrUnitConfigs] of Object.entries(numberTypeConfigs)) {
+        for (const [key, value] of Object.entries(categoryOrUnitConfigs)) {
+            if (typeof value === 'object' && value !== null) {
+                // 检查 value 是否是 UnitValueConfig（有 step、max、presets 等属性）
+                if ('step' in value || 'max' in value || 'min' in value || 'presets' in value || 'negative' in value) {
+                    // 这是单位配置
+                    result[key] = value as UnitValueConfig;
+                } else {
+                    // 这是 unitCategory 配置，需要递归提取
+                    for (const [unitKey, unitValue] of Object.entries(value)) {
+                        if (typeof unitValue === 'object' && unitValue !== null) {
+                            result[unitKey] = unitValue as UnitValueConfig;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return result;
+}
+
+/**
+ * 从排除数值类型数组中提取要排除的项目名字
+ * 支持混合数组格式：['angle', { time: ['ms', 's'] }, { length: { pixel: ['px'] } }]
+ */
+export function extractStringsFromNumberTypeExcludeArray<T extends string>(
+    items: (T | Record<T, string[] | Record<string, string[]>>)[] | undefined
+): T[] {
+    if (!items) return [];
+
+    const result: T[] = [];
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            result.push(item);
+        } else if (typeof item === 'object') {
+            // 从对象中提取 key（数值类型名）
+            result.push(...(Object.keys(item) as T[]));
+        }
+    }
+
+    return result;
+}
+
+/**
+ * 从排除单位分类数组中提取要排除的项目名字
+ * 支持混合数组格式：['resolution', { pixel: ['px'] }]
+ */
+export function extractStringsFromUnitCategoryExcludeArray<T extends string>(
+    items: (T | Record<T, string[]>)[] | undefined
+): T[] {
+    if (!items) return [];
+
+    const result: T[] = [];
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            result.push(item);
+        } else if (typeof item === 'object') {
+            // 从对象中提取 key（分类名）
+            result.push(...(Object.keys(item) as T[]));
+        }
+    }
+
+    return result;
+}
+
+/**
+ * 从排除单位数组中提取要排除的单位名字
+ * 支持混合数组格式：['px', { em: {} }]
+ */
+export function extractStringsFromUnitExcludeArray<T extends string>(
+    items: (T | Record<T, {}>)[] | undefined
+): T[] {
+    if (!items) return [];
+
+    const result: T[] = [];
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            result.push(item);
+        } else if (typeof item === 'object') {
+            // 从对象中提取 key（单位名）
+            result.push(...(Object.keys(item) as T[]));
+        }
+    }
+
+    return result;
+}
+
+/**
+ * 从单位分类配置中智能提取单位配置
+ * 支持跨层级配置：
+ * - { px: { px: { step: 4 } } } - 完整两层
+ * - { px: { step: 4 } } - 直接配置
+ */
+export function extractUnitConfigsFromCategoryConfig(
+    categoryConfigs: Record<string, Record<string, UnitValueConfig> | UnitValueConfig> | undefined
+): Partial<Record<string, UnitValueConfig>> {
+    if (!categoryConfigs) return {};
+
+    const result: Partial<Record<string, UnitValueConfig>> = {};
+
+    for (const [_category, value] of Object.entries(categoryConfigs)) {
+        if (typeof value === 'object' && value !== null) {
+            // 检查是否是 UnitValueConfig
+            if ('step' in value || 'max' in value || 'min' in value || 'presets' in value || 'negative' in value) {
+                // 这是单位配置，但应用到分类级别
+                // 暂时跳过，因为这需要特殊处理
+            } else {
+                // 这是单位配置对象
+                for (const [unitKey, unitValue] of Object.entries(value)) {
+                    if (typeof unitValue === 'object' && unitValue !== null) {
+                        result[unitKey] = unitValue as UnitValueConfig;
+                    }
+                }
+            }
         }
     }
 

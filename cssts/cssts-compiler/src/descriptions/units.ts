@@ -9,7 +9,7 @@ import type { UnitCategoryName } from '../custom/unit-categories';
 /** 鍗曚綅鍒嗙被鎻忚堪 */
 export const UNIT_CATEGORY_DESCRIPTIONS: Record<UnitCategoryName, { en: string; zh: string }> = {
   percentage: { en: 'Percentage and viewport units (0-100)', zh: '鐧惧垎姣斿拰瑙嗗彛鍗曚綅 (0-100)' },
-  px: { en: 'Pixel units', zh: '鍍忕礌鍗曚綅' },
+  pixel: { en: 'Pixel units', zh: '鍍忕礌鍗曚綅' },
   fontRelative: { en: 'Font-relative units (0-10)', zh: '鐩稿瀛椾綋鍗曚綅 (0-10)' },
   physical: { en: 'Physical length units (0-50)', zh: '鐗╃悊闀垮害鍗曚綅 (0-50)' },
   angle: { en: 'Angle units (deg, grad, rad, turn)', zh: '瑙掑害鍗曚綅 (deg, grad, rad, turn)' },

@@ -52,7 +52,7 @@ export type UnitlessUnit = typeof UNITLESS_UNITS[number];
 /** 鍗曚綅鍒嗙被鍚嶇О */
 export const UNIT_CATEGORY_NAMES = [
   'percentage',
-  'px',
+  'pixel',
   'fontRelative',
   'physical',
   'angle',
@@ -70,7 +70,7 @@ export type UnitCategoryName = typeof UNIT_CATEGORY_NAMES[number];
 /** 鍒嗙被鍒板崟浣嶇殑鏄犲皠绫?*/
 class UnitsByCategoryMapping {
   readonly percentage: readonly PercentageUnit[] = PERCENTAGE_UNITS;
-  readonly px: readonly PxUnit[] = PX_UNITS;
+  readonly pixel: readonly PxUnit[] = PX_UNITS;
   readonly fontRelative: readonly FontRelativeUnit[] = FONT_RELATIVE_UNITS;
   readonly physical: readonly PhysicalUnit[] = PHYSICAL_UNITS;
   readonly angle: readonly AngleUnit[] = ANGLE_UNITS;

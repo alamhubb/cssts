@@ -2,7 +2,7 @@
  * CsstsAtoms 接口 - 原子类类型定义
  *
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-18T10:03:40.505Z
+ * 生成时间: 2025-12-18T11:58:06.351Z
  */
 
 export interface CsstsAtoms {
@@ -515,16 +515,6 @@ export interface CsstsAtoms {
   readonly animationRangeEndExit: { 'animation-range-end_exit': true }
   readonly animationRangeEndExitCrossing: { 'animation-range-end_exit-crossing': true }
   readonly animationRangeEndNormal: { 'animation-range-end_normal': true }
-  readonly animationRangeEnd0Q: { 'animation-range-end_0Q': true }
-  readonly animationRangeEnd1Q: { 'animation-range-end_1Q': true }
-  readonly animationRangeEnd2Q: { 'animation-range-end_2Q': true }
-  readonly animationRangeEnd4Q: { 'animation-range-end_4Q': true }
-  readonly animationRangeEnd6Q: { 'animation-range-end_6Q': true }
-  readonly animationRangeEnd8Q: { 'animation-range-end_8Q': true }
-  readonly animationRangeEnd10Q: { 'animation-range-end_10Q': true }
-  readonly animationRangeEnd12Q: { 'animation-range-end_12Q': true }
-  readonly animationRangeEnd16Q: { 'animation-range-end_16Q': true }
-  readonly animationRangeEnd20Q: { 'animation-range-end_20Q': true }
   readonly animationRangeEnd0cap: { 'animation-range-end_0cap': true }
   readonly animationRangeEnd0p25cap: { 'animation-range-end_0\.25cap': true }
   readonly animationRangeEnd0p5cap: { 'animation-range-end_0\.5cap': true }
@@ -553,16 +543,6 @@ export interface CsstsAtoms {
   readonly animationRangeEnd5ch: { 'animation-range-end_5ch': true }
   readonly animationRangeEnd6ch: { 'animation-range-end_6ch': true }
   readonly animationRangeEnd8ch: { 'animation-range-end_8ch': true }
-  readonly animationRangeEnd0cm: { 'animation-range-end_0cm': true }
-  readonly animationRangeEnd1cm: { 'animation-range-end_1cm': true }
-  readonly animationRangeEnd2cm: { 'animation-range-end_2cm': true }
-  readonly animationRangeEnd4cm: { 'animation-range-end_4cm': true }
-  readonly animationRangeEnd6cm: { 'animation-range-end_6cm': true }
-  readonly animationRangeEnd8cm: { 'animation-range-end_8cm': true }
-  readonly animationRangeEnd10cm: { 'animation-range-end_10cm': true }
-  readonly animationRangeEnd12cm: { 'animation-range-end_12cm': true }
-  readonly animationRangeEnd16cm: { 'animation-range-end_16cm': true }
-  readonly animationRangeEnd20cm: { 'animation-range-end_20cm': true }
   readonly animationRangeEnd0dvh: { 'animation-range-end_0dvh': true }
   readonly animationRangeEnd10dvh: { 'animation-range-end_10dvh': true }
   readonly animationRangeEnd20dvh: { 'animation-range-end_20dvh': true }
@@ -635,16 +615,6 @@ export interface CsstsAtoms {
   readonly animationRangeEnd5ic: { 'animation-range-end_5ic': true }
   readonly animationRangeEnd6ic: { 'animation-range-end_6ic': true }
   readonly animationRangeEnd8ic: { 'animation-range-end_8ic': true }
-  readonly animationRangeEnd0in: { 'animation-range-end_0in': true }
-  readonly animationRangeEnd1in: { 'animation-range-end_1in': true }
-  readonly animationRangeEnd2in: { 'animation-range-end_2in': true }
-  readonly animationRangeEnd4in: { 'animation-range-end_4in': true }
-  readonly animationRangeEnd6in: { 'animation-range-end_6in': true }
-  readonly animationRangeEnd8in: { 'animation-range-end_8in': true }
-  readonly animationRangeEnd10in: { 'animation-range-end_10in': true }
-  readonly animationRangeEnd12in: { 'animation-range-end_12in': true }
-  readonly animationRangeEnd16in: { 'animation-range-end_16in': true }
-  readonly animationRangeEnd20in: { 'animation-range-end_20in': true }
   readonly animationRangeEnd0lh: { 'animation-range-end_0lh': true }
   readonly animationRangeEnd0p25lh: { 'animation-range-end_0\.25lh': true }
   readonly animationRangeEnd0p5lh: { 'animation-range-end_0\.5lh': true }
@@ -689,36 +659,6 @@ export interface CsstsAtoms {
   readonly animationRangeEnd80lvw: { 'animation-range-end_80lvw': true }
   readonly animationRangeEnd90lvw: { 'animation-range-end_90lvw': true }
   readonly animationRangeEnd100lvw: { 'animation-range-end_100lvw': true }
-  readonly animationRangeEnd0mm: { 'animation-range-end_0mm': true }
-  readonly animationRangeEnd1mm: { 'animation-range-end_1mm': true }
-  readonly animationRangeEnd2mm: { 'animation-range-end_2mm': true }
-  readonly animationRangeEnd4mm: { 'animation-range-end_4mm': true }
-  readonly animationRangeEnd6mm: { 'animation-range-end_6mm': true }
-  readonly animationRangeEnd8mm: { 'animation-range-end_8mm': true }
-  readonly animationRangeEnd10mm: { 'animation-range-end_10mm': true }
-  readonly animationRangeEnd12mm: { 'animation-range-end_12mm': true }
-  readonly animationRangeEnd16mm: { 'animation-range-end_16mm': true }
-  readonly animationRangeEnd20mm: { 'animation-range-end_20mm': true }
-  readonly animationRangeEnd0pc: { 'animation-range-end_0pc': true }
-  readonly animationRangeEnd1pc: { 'animation-range-end_1pc': true }
-  readonly animationRangeEnd2pc: { 'animation-range-end_2pc': true }
-  readonly animationRangeEnd4pc: { 'animation-range-end_4pc': true }
-  readonly animationRangeEnd6pc: { 'animation-range-end_6pc': true }
-  readonly animationRangeEnd8pc: { 'animation-range-end_8pc': true }
-  readonly animationRangeEnd10pc: { 'animation-range-end_10pc': true }
-  readonly animationRangeEnd12pc: { 'animation-range-end_12pc': true }
-  readonly animationRangeEnd16pc: { 'animation-range-end_16pc': true }
-  readonly animationRangeEnd20pc: { 'animation-range-end_20pc': true }
-  readonly animationRangeEnd0pt: { 'animation-range-end_0pt': true }
-  readonly animationRangeEnd1pt: { 'animation-range-end_1pt': true }
-  readonly animationRangeEnd2pt: { 'animation-range-end_2pt': true }
-  readonly animationRangeEnd4pt: { 'animation-range-end_4pt': true }
-  readonly animationRangeEnd6pt: { 'animation-range-end_6pt': true }
-  readonly animationRangeEnd8pt: { 'animation-range-end_8pt': true }
-  readonly animationRangeEnd10pt: { 'animation-range-end_10pt': true }
-  readonly animationRangeEnd12pt: { 'animation-range-end_12pt': true }
-  readonly animationRangeEnd16pt: { 'animation-range-end_16pt': true }
-  readonly animationRangeEnd20pt: { 'animation-range-end_20pt': true }
   readonly animationRangeEndN384px: { 'animation-range-end_-384px': true }
   readonly animationRangeEndN320px: { 'animation-range-end_-320px': true }
   readonly animationRangeEndN256px: { 'animation-range-end_-256px': true }
@@ -944,16 +884,6 @@ export interface CsstsAtoms {
   readonly animationRangeStartExit: { 'animation-range-start_exit': true }
   readonly animationRangeStartExitCrossing: { 'animation-range-start_exit-crossing': true }
   readonly animationRangeStartNormal: { 'animation-range-start_normal': true }
-  readonly animationRangeStart0Q: { 'animation-range-start_0Q': true }
-  readonly animationRangeStart1Q: { 'animation-range-start_1Q': true }
-  readonly animationRangeStart2Q: { 'animation-range-start_2Q': true }
-  readonly animationRangeStart4Q: { 'animation-range-start_4Q': true }
-  readonly animationRangeStart6Q: { 'animation-range-start_6Q': true }
-  readonly animationRangeStart8Q: { 'animation-range-start_8Q': true }
-  readonly animationRangeStart10Q: { 'animation-range-start_10Q': true }
-  readonly animationRangeStart12Q: { 'animation-range-start_12Q': true }
-  readonly animationRangeStart16Q: { 'animation-range-start_16Q': true }
-  readonly animationRangeStart20Q: { 'animation-range-start_20Q': true }
   readonly animationRangeStart0cap: { 'animation-range-start_0cap': true }
   readonly animationRangeStart0p25cap: { 'animation-range-start_0\.25cap': true }
   readonly animationRangeStart0p5cap: { 'animation-range-start_0\.5cap': true }
@@ -982,16 +912,6 @@ export interface CsstsAtoms {
   readonly animationRangeStart5ch: { 'animation-range-start_5ch': true }
   readonly animationRangeStart6ch: { 'animation-range-start_6ch': true }
   readonly animationRangeStart8ch: { 'animation-range-start_8ch': true }
-  readonly animationRangeStart0cm: { 'animation-range-start_0cm': true }
-  readonly animationRangeStart1cm: { 'animation-range-start_1cm': true }
-  readonly animationRangeStart2cm: { 'animation-range-start_2cm': true }
-  readonly animationRangeStart4cm: { 'animation-range-start_4cm': true }
-  readonly animationRangeStart6cm: { 'animation-range-start_6cm': true }
-  readonly animationRangeStart8cm: { 'animation-range-start_8cm': true }
-  readonly animationRangeStart10cm: { 'animation-range-start_10cm': true }
-  readonly animationRangeStart12cm: { 'animation-range-start_12cm': true }
-  readonly animationRangeStart16cm: { 'animation-range-start_16cm': true }
-  readonly animationRangeStart20cm: { 'animation-range-start_20cm': true }
   readonly animationRangeStart0dvh: { 'animation-range-start_0dvh': true }
   readonly animationRangeStart10dvh: { 'animation-range-start_10dvh': true }
   readonly animationRangeStart20dvh: { 'animation-range-start_20dvh': true }
@@ -1064,16 +984,6 @@ export interface CsstsAtoms {
   readonly animationRangeStart5ic: { 'animation-range-start_5ic': true }
   readonly animationRangeStart6ic: { 'animation-range-start_6ic': true }
   readonly animationRangeStart8ic: { 'animation-range-start_8ic': true }
-  readonly animationRangeStart0in: { 'animation-range-start_0in': true }
-  readonly animationRangeStart1in: { 'animation-range-start_1in': true }
-  readonly animationRangeStart2in: { 'animation-range-start_2in': true }
-  readonly animationRangeStart4in: { 'animation-range-start_4in': true }
-  readonly animationRangeStart6in: { 'animation-range-start_6in': true }
-  readonly animationRangeStart8in: { 'animation-range-start_8in': true }
-  readonly animationRangeStart10in: { 'animation-range-start_10in': true }
-  readonly animationRangeStart12in: { 'animation-range-start_12in': true }
-  readonly animationRangeStart16in: { 'animation-range-start_16in': true }
-  readonly animationRangeStart20in: { 'animation-range-start_20in': true }
   readonly animationRangeStart0lh: { 'animation-range-start_0lh': true }
   readonly animationRangeStart0p25lh: { 'animation-range-start_0\.25lh': true }
   readonly animationRangeStart0p5lh: { 'animation-range-start_0\.5lh': true }
@@ -1118,36 +1028,6 @@ export interface CsstsAtoms {
   readonly animationRangeStart80lvw: { 'animation-range-start_80lvw': true }
   readonly animationRangeStart90lvw: { 'animation-range-start_90lvw': true }
   readonly animationRangeStart100lvw: { 'animation-range-start_100lvw': true }
-  readonly animationRangeStart0mm: { 'animation-range-start_0mm': true }
-  readonly animationRangeStart1mm: { 'animation-range-start_1mm': true }
-  readonly animationRangeStart2mm: { 'animation-range-start_2mm': true }
-  readonly animationRangeStart4mm: { 'animation-range-start_4mm': true }
-  readonly animationRangeStart6mm: { 'animation-range-start_6mm': true }
-  readonly animationRangeStart8mm: { 'animation-range-start_8mm': true }
-  readonly animationRangeStart10mm: { 'animation-range-start_10mm': true }
-  readonly animationRangeStart12mm: { 'animation-range-start_12mm': true }
-  readonly animationRangeStart16mm: { 'animation-range-start_16mm': true }
-  readonly animationRangeStart20mm: { 'animation-range-start_20mm': true }
-  readonly animationRangeStart0pc: { 'animation-range-start_0pc': true }
-  readonly animationRangeStart1pc: { 'animation-range-start_1pc': true }
-  readonly animationRangeStart2pc: { 'animation-range-start_2pc': true }
-  readonly animationRangeStart4pc: { 'animation-range-start_4pc': true }
-  readonly animationRangeStart6pc: { 'animation-range-start_6pc': true }
-  readonly animationRangeStart8pc: { 'animation-range-start_8pc': true }
-  readonly animationRangeStart10pc: { 'animation-range-start_10pc': true }
-  readonly animationRangeStart12pc: { 'animation-range-start_12pc': true }
-  readonly animationRangeStart16pc: { 'animation-range-start_16pc': true }
-  readonly animationRangeStart20pc: { 'animation-range-start_20pc': true }
-  readonly animationRangeStart0pt: { 'animation-range-start_0pt': true }
-  readonly animationRangeStart1pt: { 'animation-range-start_1pt': true }
-  readonly animationRangeStart2pt: { 'animation-range-start_2pt': true }
-  readonly animationRangeStart4pt: { 'animation-range-start_4pt': true }
-  readonly animationRangeStart6pt: { 'animation-range-start_6pt': true }
-  readonly animationRangeStart8pt: { 'animation-range-start_8pt': true }
-  readonly animationRangeStart10pt: { 'animation-range-start_10pt': true }
-  readonly animationRangeStart12pt: { 'animation-range-start_12pt': true }
-  readonly animationRangeStart16pt: { 'animation-range-start_16pt': true }
-  readonly animationRangeStart20pt: { 'animation-range-start_20pt': true }
   readonly animationRangeStartN384px: { 'animation-range-start_-384px': true }
   readonly animationRangeStartN320px: { 'animation-range-start_-320px': true }
   readonly animationRangeStartN256px: { 'animation-range-start_-256px': true }
@@ -1741,16 +1621,6 @@ export interface CsstsAtoms {
   readonly backdropFilter270turn: { 'backdrop-filter_270turn': true }
   readonly backdropFilter315turn: { 'backdrop-filter_315turn': true }
   readonly backdropFilter360turn: { 'backdrop-filter_360turn': true }
-  readonly backdropFilter0Q: { 'backdrop-filter_0Q': true }
-  readonly backdropFilter1Q: { 'backdrop-filter_1Q': true }
-  readonly backdropFilter2Q: { 'backdrop-filter_2Q': true }
-  readonly backdropFilter4Q: { 'backdrop-filter_4Q': true }
-  readonly backdropFilter6Q: { 'backdrop-filter_6Q': true }
-  readonly backdropFilter8Q: { 'backdrop-filter_8Q': true }
-  readonly backdropFilter10Q: { 'backdrop-filter_10Q': true }
-  readonly backdropFilter12Q: { 'backdrop-filter_12Q': true }
-  readonly backdropFilter16Q: { 'backdrop-filter_16Q': true }
-  readonly backdropFilter20Q: { 'backdrop-filter_20Q': true }
   readonly backdropFilter0cap: { 'backdrop-filter_0cap': true }
   readonly backdropFilter0p25cap: { 'backdrop-filter_0\.25cap': true }
   readonly backdropFilter0p5cap: { 'backdrop-filter_0\.5cap': true }
@@ -1779,16 +1649,6 @@ export interface CsstsAtoms {
   readonly backdropFilter5ch: { 'backdrop-filter_5ch': true }
   readonly backdropFilter6ch: { 'backdrop-filter_6ch': true }
   readonly backdropFilter8ch: { 'backdrop-filter_8ch': true }
-  readonly backdropFilter0cm: { 'backdrop-filter_0cm': true }
-  readonly backdropFilter1cm: { 'backdrop-filter_1cm': true }
-  readonly backdropFilter2cm: { 'backdrop-filter_2cm': true }
-  readonly backdropFilter4cm: { 'backdrop-filter_4cm': true }
-  readonly backdropFilter6cm: { 'backdrop-filter_6cm': true }
-  readonly backdropFilter8cm: { 'backdrop-filter_8cm': true }
-  readonly backdropFilter10cm: { 'backdrop-filter_10cm': true }
-  readonly backdropFilter12cm: { 'backdrop-filter_12cm': true }
-  readonly backdropFilter16cm: { 'backdrop-filter_16cm': true }
-  readonly backdropFilter20cm: { 'backdrop-filter_20cm': true }
   readonly backdropFilter0dvh: { 'backdrop-filter_0dvh': true }
   readonly backdropFilter10dvh: { 'backdrop-filter_10dvh': true }
   readonly backdropFilter20dvh: { 'backdrop-filter_20dvh': true }
@@ -1861,16 +1721,6 @@ export interface CsstsAtoms {
   readonly backdropFilter5ic: { 'backdrop-filter_5ic': true }
   readonly backdropFilter6ic: { 'backdrop-filter_6ic': true }
   readonly backdropFilter8ic: { 'backdrop-filter_8ic': true }
-  readonly backdropFilter0in: { 'backdrop-filter_0in': true }
-  readonly backdropFilter1in: { 'backdrop-filter_1in': true }
-  readonly backdropFilter2in: { 'backdrop-filter_2in': true }
-  readonly backdropFilter4in: { 'backdrop-filter_4in': true }
-  readonly backdropFilter6in: { 'backdrop-filter_6in': true }
-  readonly backdropFilter8in: { 'backdrop-filter_8in': true }
-  readonly backdropFilter10in: { 'backdrop-filter_10in': true }
-  readonly backdropFilter12in: { 'backdrop-filter_12in': true }
-  readonly backdropFilter16in: { 'backdrop-filter_16in': true }
-  readonly backdropFilter20in: { 'backdrop-filter_20in': true }
   readonly backdropFilter0lh: { 'backdrop-filter_0lh': true }
   readonly backdropFilter0p25lh: { 'backdrop-filter_0\.25lh': true }
   readonly backdropFilter0p5lh: { 'backdrop-filter_0\.5lh': true }
@@ -1915,36 +1765,6 @@ export interface CsstsAtoms {
   readonly backdropFilter80lvw: { 'backdrop-filter_80lvw': true }
   readonly backdropFilter90lvw: { 'backdrop-filter_90lvw': true }
   readonly backdropFilter100lvw: { 'backdrop-filter_100lvw': true }
-  readonly backdropFilter0mm: { 'backdrop-filter_0mm': true }
-  readonly backdropFilter1mm: { 'backdrop-filter_1mm': true }
-  readonly backdropFilter2mm: { 'backdrop-filter_2mm': true }
-  readonly backdropFilter4mm: { 'backdrop-filter_4mm': true }
-  readonly backdropFilter6mm: { 'backdrop-filter_6mm': true }
-  readonly backdropFilter8mm: { 'backdrop-filter_8mm': true }
-  readonly backdropFilter10mm: { 'backdrop-filter_10mm': true }
-  readonly backdropFilter12mm: { 'backdrop-filter_12mm': true }
-  readonly backdropFilter16mm: { 'backdrop-filter_16mm': true }
-  readonly backdropFilter20mm: { 'backdrop-filter_20mm': true }
-  readonly backdropFilter0pc: { 'backdrop-filter_0pc': true }
-  readonly backdropFilter1pc: { 'backdrop-filter_1pc': true }
-  readonly backdropFilter2pc: { 'backdrop-filter_2pc': true }
-  readonly backdropFilter4pc: { 'backdrop-filter_4pc': true }
-  readonly backdropFilter6pc: { 'backdrop-filter_6pc': true }
-  readonly backdropFilter8pc: { 'backdrop-filter_8pc': true }
-  readonly backdropFilter10pc: { 'backdrop-filter_10pc': true }
-  readonly backdropFilter12pc: { 'backdrop-filter_12pc': true }
-  readonly backdropFilter16pc: { 'backdrop-filter_16pc': true }
-  readonly backdropFilter20pc: { 'backdrop-filter_20pc': true }
-  readonly backdropFilter0pt: { 'backdrop-filter_0pt': true }
-  readonly backdropFilter1pt: { 'backdrop-filter_1pt': true }
-  readonly backdropFilter2pt: { 'backdrop-filter_2pt': true }
-  readonly backdropFilter4pt: { 'backdrop-filter_4pt': true }
-  readonly backdropFilter6pt: { 'backdrop-filter_6pt': true }
-  readonly backdropFilter8pt: { 'backdrop-filter_8pt': true }
-  readonly backdropFilter10pt: { 'backdrop-filter_10pt': true }
-  readonly backdropFilter12pt: { 'backdrop-filter_12pt': true }
-  readonly backdropFilter16pt: { 'backdrop-filter_16pt': true }
-  readonly backdropFilter20pt: { 'backdrop-filter_20pt': true }
   readonly backdropFilterN384px: { 'backdrop-filter_-384px': true }
   readonly backdropFilterN320px: { 'backdrop-filter_-320px': true }
   readonly backdropFilterN256px: { 'backdrop-filter_-256px': true }
@@ -2516,16 +2336,6 @@ export interface CsstsAtoms {
   readonly background270turn: { 'background_270turn': true }
   readonly background315turn: { 'background_315turn': true }
   readonly background360turn: { 'background_360turn': true }
-  readonly background0Q: { 'background_0Q': true }
-  readonly background1Q: { 'background_1Q': true }
-  readonly background2Q: { 'background_2Q': true }
-  readonly background4Q: { 'background_4Q': true }
-  readonly background6Q: { 'background_6Q': true }
-  readonly background8Q: { 'background_8Q': true }
-  readonly background10Q: { 'background_10Q': true }
-  readonly background12Q: { 'background_12Q': true }
-  readonly background16Q: { 'background_16Q': true }
-  readonly background20Q: { 'background_20Q': true }
   readonly background0cap: { 'background_0cap': true }
   readonly background0p25cap: { 'background_0\.25cap': true }
   readonly background0p5cap: { 'background_0\.5cap': true }
@@ -2554,16 +2364,6 @@ export interface CsstsAtoms {
   readonly background5ch: { 'background_5ch': true }
   readonly background6ch: { 'background_6ch': true }
   readonly background8ch: { 'background_8ch': true }
-  readonly background0cm: { 'background_0cm': true }
-  readonly background1cm: { 'background_1cm': true }
-  readonly background2cm: { 'background_2cm': true }
-  readonly background4cm: { 'background_4cm': true }
-  readonly background6cm: { 'background_6cm': true }
-  readonly background8cm: { 'background_8cm': true }
-  readonly background10cm: { 'background_10cm': true }
-  readonly background12cm: { 'background_12cm': true }
-  readonly background16cm: { 'background_16cm': true }
-  readonly background20cm: { 'background_20cm': true }
   readonly background0dvh: { 'background_0dvh': true }
   readonly background10dvh: { 'background_10dvh': true }
   readonly background20dvh: { 'background_20dvh': true }
@@ -2636,16 +2436,6 @@ export interface CsstsAtoms {
   readonly background5ic: { 'background_5ic': true }
   readonly background6ic: { 'background_6ic': true }
   readonly background8ic: { 'background_8ic': true }
-  readonly background0in: { 'background_0in': true }
-  readonly background1in: { 'background_1in': true }
-  readonly background2in: { 'background_2in': true }
-  readonly background4in: { 'background_4in': true }
-  readonly background6in: { 'background_6in': true }
-  readonly background8in: { 'background_8in': true }
-  readonly background10in: { 'background_10in': true }
-  readonly background12in: { 'background_12in': true }
-  readonly background16in: { 'background_16in': true }
-  readonly background20in: { 'background_20in': true }
   readonly background0lh: { 'background_0lh': true }
   readonly background0p25lh: { 'background_0\.25lh': true }
   readonly background0p5lh: { 'background_0\.5lh': true }
@@ -2690,36 +2480,6 @@ export interface CsstsAtoms {
   readonly background80lvw: { 'background_80lvw': true }
   readonly background90lvw: { 'background_90lvw': true }
   readonly background100lvw: { 'background_100lvw': true }
-  readonly background0mm: { 'background_0mm': true }
-  readonly background1mm: { 'background_1mm': true }
-  readonly background2mm: { 'background_2mm': true }
-  readonly background4mm: { 'background_4mm': true }
-  readonly background6mm: { 'background_6mm': true }
-  readonly background8mm: { 'background_8mm': true }
-  readonly background10mm: { 'background_10mm': true }
-  readonly background12mm: { 'background_12mm': true }
-  readonly background16mm: { 'background_16mm': true }
-  readonly background20mm: { 'background_20mm': true }
-  readonly background0pc: { 'background_0pc': true }
-  readonly background1pc: { 'background_1pc': true }
-  readonly background2pc: { 'background_2pc': true }
-  readonly background4pc: { 'background_4pc': true }
-  readonly background6pc: { 'background_6pc': true }
-  readonly background8pc: { 'background_8pc': true }
-  readonly background10pc: { 'background_10pc': true }
-  readonly background12pc: { 'background_12pc': true }
-  readonly background16pc: { 'background_16pc': true }
-  readonly background20pc: { 'background_20pc': true }
-  readonly background0pt: { 'background_0pt': true }
-  readonly background1pt: { 'background_1pt': true }
-  readonly background2pt: { 'background_2pt': true }
-  readonly background4pt: { 'background_4pt': true }
-  readonly background6pt: { 'background_6pt': true }
-  readonly background8pt: { 'background_8pt': true }
-  readonly background10pt: { 'background_10pt': true }
-  readonly background12pt: { 'background_12pt': true }
-  readonly background16pt: { 'background_16pt': true }
-  readonly background20pt: { 'background_20pt': true }
   readonly backgroundN384px: { 'background_-384px': true }
   readonly backgroundN320px: { 'background_-320px': true }
   readonly backgroundN256px: { 'background_-256px': true }
@@ -2948,26 +2708,6 @@ export interface CsstsAtoms {
   readonly background80Pct: { 'background_80\%': true }
   readonly background90Pct: { 'background_90\%': true }
   readonly background100Pct: { 'background_100\%': true }
-  readonly background1dpcm: { 'background_1dpcm': true }
-  readonly background2dpcm: { 'background_2dpcm': true }
-  readonly background3dpcm: { 'background_3dpcm': true }
-  readonly background96dpcm: { 'background_96dpcm': true }
-  readonly background300dpcm: { 'background_300dpcm': true }
-  readonly background1dpi: { 'background_1dpi': true }
-  readonly background2dpi: { 'background_2dpi': true }
-  readonly background3dpi: { 'background_3dpi': true }
-  readonly background96dpi: { 'background_96dpi': true }
-  readonly background300dpi: { 'background_300dpi': true }
-  readonly background1dppx: { 'background_1dppx': true }
-  readonly background2dppx: { 'background_2dppx': true }
-  readonly background3dppx: { 'background_3dppx': true }
-  readonly background96dppx: { 'background_96dppx': true }
-  readonly background300dppx: { 'background_300dppx': true }
-  readonly background1x: { 'background_1x': true }
-  readonly background2x: { 'background_2x': true }
-  readonly background3x: { 'background_3x': true }
-  readonly background96x: { 'background_96x': true }
-  readonly background300x: { 'background_300x': true }
 
   // ==================== background-attachment ====================
   readonly backgroundAttachmentFixed: { 'background-attachment_fixed': true }
@@ -3661,16 +3401,6 @@ export interface CsstsAtoms {
   readonly backgroundImage270turn: { 'background-image_270turn': true }
   readonly backgroundImage315turn: { 'background-image_315turn': true }
   readonly backgroundImage360turn: { 'background-image_360turn': true }
-  readonly backgroundImage0Q: { 'background-image_0Q': true }
-  readonly backgroundImage1Q: { 'background-image_1Q': true }
-  readonly backgroundImage2Q: { 'background-image_2Q': true }
-  readonly backgroundImage4Q: { 'background-image_4Q': true }
-  readonly backgroundImage6Q: { 'background-image_6Q': true }
-  readonly backgroundImage8Q: { 'background-image_8Q': true }
-  readonly backgroundImage10Q: { 'background-image_10Q': true }
-  readonly backgroundImage12Q: { 'background-image_12Q': true }
-  readonly backgroundImage16Q: { 'background-image_16Q': true }
-  readonly backgroundImage20Q: { 'background-image_20Q': true }
   readonly backgroundImage0cap: { 'background-image_0cap': true }
   readonly backgroundImage0p25cap: { 'background-image_0\.25cap': true }
   readonly backgroundImage0p5cap: { 'background-image_0\.5cap': true }
@@ -3699,16 +3429,6 @@ export interface CsstsAtoms {
   readonly backgroundImage5ch: { 'background-image_5ch': true }
   readonly backgroundImage6ch: { 'background-image_6ch': true }
   readonly backgroundImage8ch: { 'background-image_8ch': true }
-  readonly backgroundImage0cm: { 'background-image_0cm': true }
-  readonly backgroundImage1cm: { 'background-image_1cm': true }
-  readonly backgroundImage2cm: { 'background-image_2cm': true }
-  readonly backgroundImage4cm: { 'background-image_4cm': true }
-  readonly backgroundImage6cm: { 'background-image_6cm': true }
-  readonly backgroundImage8cm: { 'background-image_8cm': true }
-  readonly backgroundImage10cm: { 'background-image_10cm': true }
-  readonly backgroundImage12cm: { 'background-image_12cm': true }
-  readonly backgroundImage16cm: { 'background-image_16cm': true }
-  readonly backgroundImage20cm: { 'background-image_20cm': true }
   readonly backgroundImage0dvh: { 'background-image_0dvh': true }
   readonly backgroundImage10dvh: { 'background-image_10dvh': true }
   readonly backgroundImage20dvh: { 'background-image_20dvh': true }
@@ -3781,16 +3501,6 @@ export interface CsstsAtoms {
   readonly backgroundImage5ic: { 'background-image_5ic': true }
   readonly backgroundImage6ic: { 'background-image_6ic': true }
   readonly backgroundImage8ic: { 'background-image_8ic': true }
-  readonly backgroundImage0in: { 'background-image_0in': true }
-  readonly backgroundImage1in: { 'background-image_1in': true }
-  readonly backgroundImage2in: { 'background-image_2in': true }
-  readonly backgroundImage4in: { 'background-image_4in': true }
-  readonly backgroundImage6in: { 'background-image_6in': true }
-  readonly backgroundImage8in: { 'background-image_8in': true }
-  readonly backgroundImage10in: { 'background-image_10in': true }
-  readonly backgroundImage12in: { 'background-image_12in': true }
-  readonly backgroundImage16in: { 'background-image_16in': true }
-  readonly backgroundImage20in: { 'background-image_20in': true }
   readonly backgroundImage0lh: { 'background-image_0lh': true }
   readonly backgroundImage0p25lh: { 'background-image_0\.25lh': true }
   readonly backgroundImage0p5lh: { 'background-image_0\.5lh': true }
@@ -3835,36 +3545,6 @@ export interface CsstsAtoms {
   readonly backgroundImage80lvw: { 'background-image_80lvw': true }
   readonly backgroundImage90lvw: { 'background-image_90lvw': true }
   readonly backgroundImage100lvw: { 'background-image_100lvw': true }
-  readonly backgroundImage0mm: { 'background-image_0mm': true }
-  readonly backgroundImage1mm: { 'background-image_1mm': true }
-  readonly backgroundImage2mm: { 'background-image_2mm': true }
-  readonly backgroundImage4mm: { 'background-image_4mm': true }
-  readonly backgroundImage6mm: { 'background-image_6mm': true }
-  readonly backgroundImage8mm: { 'background-image_8mm': true }
-  readonly backgroundImage10mm: { 'background-image_10mm': true }
-  readonly backgroundImage12mm: { 'background-image_12mm': true }
-  readonly backgroundImage16mm: { 'background-image_16mm': true }
-  readonly backgroundImage20mm: { 'background-image_20mm': true }
-  readonly backgroundImage0pc: { 'background-image_0pc': true }
-  readonly backgroundImage1pc: { 'background-image_1pc': true }
-  readonly backgroundImage2pc: { 'background-image_2pc': true }
-  readonly backgroundImage4pc: { 'background-image_4pc': true }
-  readonly backgroundImage6pc: { 'background-image_6pc': true }
-  readonly backgroundImage8pc: { 'background-image_8pc': true }
-  readonly backgroundImage10pc: { 'background-image_10pc': true }
-  readonly backgroundImage12pc: { 'background-image_12pc': true }
-  readonly backgroundImage16pc: { 'background-image_16pc': true }
-  readonly backgroundImage20pc: { 'background-image_20pc': true }
-  readonly backgroundImage0pt: { 'background-image_0pt': true }
-  readonly backgroundImage1pt: { 'background-image_1pt': true }
-  readonly backgroundImage2pt: { 'background-image_2pt': true }
-  readonly backgroundImage4pt: { 'background-image_4pt': true }
-  readonly backgroundImage6pt: { 'background-image_6pt': true }
-  readonly backgroundImage8pt: { 'background-image_8pt': true }
-  readonly backgroundImage10pt: { 'background-image_10pt': true }
-  readonly backgroundImage12pt: { 'background-image_12pt': true }
-  readonly backgroundImage16pt: { 'background-image_16pt': true }
-  readonly backgroundImage20pt: { 'background-image_20pt': true }
   readonly backgroundImageN384px: { 'background-image_-384px': true }
   readonly backgroundImageN320px: { 'background-image_-320px': true }
   readonly backgroundImageN256px: { 'background-image_-256px': true }
@@ -4093,26 +3773,6 @@ export interface CsstsAtoms {
   readonly backgroundImage80Pct: { 'background-image_80\%': true }
   readonly backgroundImage90Pct: { 'background-image_90\%': true }
   readonly backgroundImage100Pct: { 'background-image_100\%': true }
-  readonly backgroundImage1dpcm: { 'background-image_1dpcm': true }
-  readonly backgroundImage2dpcm: { 'background-image_2dpcm': true }
-  readonly backgroundImage3dpcm: { 'background-image_3dpcm': true }
-  readonly backgroundImage96dpcm: { 'background-image_96dpcm': true }
-  readonly backgroundImage300dpcm: { 'background-image_300dpcm': true }
-  readonly backgroundImage1dpi: { 'background-image_1dpi': true }
-  readonly backgroundImage2dpi: { 'background-image_2dpi': true }
-  readonly backgroundImage3dpi: { 'background-image_3dpi': true }
-  readonly backgroundImage96dpi: { 'background-image_96dpi': true }
-  readonly backgroundImage300dpi: { 'background-image_300dpi': true }
-  readonly backgroundImage1dppx: { 'background-image_1dppx': true }
-  readonly backgroundImage2dppx: { 'background-image_2dppx': true }
-  readonly backgroundImage3dppx: { 'background-image_3dppx': true }
-  readonly backgroundImage96dppx: { 'background-image_96dppx': true }
-  readonly backgroundImage300dppx: { 'background-image_300dppx': true }
-  readonly backgroundImage1x: { 'background-image_1x': true }
-  readonly backgroundImage2x: { 'background-image_2x': true }
-  readonly backgroundImage3x: { 'background-image_3x': true }
-  readonly backgroundImage96x: { 'background-image_96x': true }
-  readonly backgroundImage300x: { 'background-image_300x': true }
 
   // ==================== background-origin ====================
   readonly backgroundOriginBorderBox: { 'background-origin_border-box': true }
@@ -4125,16 +3785,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionLeft: { 'background-position_left': true }
   readonly backgroundPositionRight: { 'background-position_right': true }
   readonly backgroundPositionTop: { 'background-position_top': true }
-  readonly backgroundPosition0Q: { 'background-position_0Q': true }
-  readonly backgroundPosition1Q: { 'background-position_1Q': true }
-  readonly backgroundPosition2Q: { 'background-position_2Q': true }
-  readonly backgroundPosition4Q: { 'background-position_4Q': true }
-  readonly backgroundPosition6Q: { 'background-position_6Q': true }
-  readonly backgroundPosition8Q: { 'background-position_8Q': true }
-  readonly backgroundPosition10Q: { 'background-position_10Q': true }
-  readonly backgroundPosition12Q: { 'background-position_12Q': true }
-  readonly backgroundPosition16Q: { 'background-position_16Q': true }
-  readonly backgroundPosition20Q: { 'background-position_20Q': true }
   readonly backgroundPosition0cap: { 'background-position_0cap': true }
   readonly backgroundPosition0p25cap: { 'background-position_0\.25cap': true }
   readonly backgroundPosition0p5cap: { 'background-position_0\.5cap': true }
@@ -4163,16 +3813,6 @@ export interface CsstsAtoms {
   readonly backgroundPosition5ch: { 'background-position_5ch': true }
   readonly backgroundPosition6ch: { 'background-position_6ch': true }
   readonly backgroundPosition8ch: { 'background-position_8ch': true }
-  readonly backgroundPosition0cm: { 'background-position_0cm': true }
-  readonly backgroundPosition1cm: { 'background-position_1cm': true }
-  readonly backgroundPosition2cm: { 'background-position_2cm': true }
-  readonly backgroundPosition4cm: { 'background-position_4cm': true }
-  readonly backgroundPosition6cm: { 'background-position_6cm': true }
-  readonly backgroundPosition8cm: { 'background-position_8cm': true }
-  readonly backgroundPosition10cm: { 'background-position_10cm': true }
-  readonly backgroundPosition12cm: { 'background-position_12cm': true }
-  readonly backgroundPosition16cm: { 'background-position_16cm': true }
-  readonly backgroundPosition20cm: { 'background-position_20cm': true }
   readonly backgroundPosition0dvh: { 'background-position_0dvh': true }
   readonly backgroundPosition10dvh: { 'background-position_10dvh': true }
   readonly backgroundPosition20dvh: { 'background-position_20dvh': true }
@@ -4245,16 +3885,6 @@ export interface CsstsAtoms {
   readonly backgroundPosition5ic: { 'background-position_5ic': true }
   readonly backgroundPosition6ic: { 'background-position_6ic': true }
   readonly backgroundPosition8ic: { 'background-position_8ic': true }
-  readonly backgroundPosition0in: { 'background-position_0in': true }
-  readonly backgroundPosition1in: { 'background-position_1in': true }
-  readonly backgroundPosition2in: { 'background-position_2in': true }
-  readonly backgroundPosition4in: { 'background-position_4in': true }
-  readonly backgroundPosition6in: { 'background-position_6in': true }
-  readonly backgroundPosition8in: { 'background-position_8in': true }
-  readonly backgroundPosition10in: { 'background-position_10in': true }
-  readonly backgroundPosition12in: { 'background-position_12in': true }
-  readonly backgroundPosition16in: { 'background-position_16in': true }
-  readonly backgroundPosition20in: { 'background-position_20in': true }
   readonly backgroundPosition0lh: { 'background-position_0lh': true }
   readonly backgroundPosition0p25lh: { 'background-position_0\.25lh': true }
   readonly backgroundPosition0p5lh: { 'background-position_0\.5lh': true }
@@ -4299,36 +3929,6 @@ export interface CsstsAtoms {
   readonly backgroundPosition80lvw: { 'background-position_80lvw': true }
   readonly backgroundPosition90lvw: { 'background-position_90lvw': true }
   readonly backgroundPosition100lvw: { 'background-position_100lvw': true }
-  readonly backgroundPosition0mm: { 'background-position_0mm': true }
-  readonly backgroundPosition1mm: { 'background-position_1mm': true }
-  readonly backgroundPosition2mm: { 'background-position_2mm': true }
-  readonly backgroundPosition4mm: { 'background-position_4mm': true }
-  readonly backgroundPosition6mm: { 'background-position_6mm': true }
-  readonly backgroundPosition8mm: { 'background-position_8mm': true }
-  readonly backgroundPosition10mm: { 'background-position_10mm': true }
-  readonly backgroundPosition12mm: { 'background-position_12mm': true }
-  readonly backgroundPosition16mm: { 'background-position_16mm': true }
-  readonly backgroundPosition20mm: { 'background-position_20mm': true }
-  readonly backgroundPosition0pc: { 'background-position_0pc': true }
-  readonly backgroundPosition1pc: { 'background-position_1pc': true }
-  readonly backgroundPosition2pc: { 'background-position_2pc': true }
-  readonly backgroundPosition4pc: { 'background-position_4pc': true }
-  readonly backgroundPosition6pc: { 'background-position_6pc': true }
-  readonly backgroundPosition8pc: { 'background-position_8pc': true }
-  readonly backgroundPosition10pc: { 'background-position_10pc': true }
-  readonly backgroundPosition12pc: { 'background-position_12pc': true }
-  readonly backgroundPosition16pc: { 'background-position_16pc': true }
-  readonly backgroundPosition20pc: { 'background-position_20pc': true }
-  readonly backgroundPosition0pt: { 'background-position_0pt': true }
-  readonly backgroundPosition1pt: { 'background-position_1pt': true }
-  readonly backgroundPosition2pt: { 'background-position_2pt': true }
-  readonly backgroundPosition4pt: { 'background-position_4pt': true }
-  readonly backgroundPosition6pt: { 'background-position_6pt': true }
-  readonly backgroundPosition8pt: { 'background-position_8pt': true }
-  readonly backgroundPosition10pt: { 'background-position_10pt': true }
-  readonly backgroundPosition12pt: { 'background-position_12pt': true }
-  readonly backgroundPosition16pt: { 'background-position_16pt': true }
-  readonly backgroundPosition20pt: { 'background-position_20pt': true }
   readonly backgroundPositionN384px: { 'background-position_-384px': true }
   readonly backgroundPositionN320px: { 'background-position_-320px': true }
   readonly backgroundPositionN256px: { 'background-position_-256px': true }
@@ -4552,16 +4152,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionXRight: { 'background-position-x_right': true }
   readonly backgroundPositionXXEnd: { 'background-position-x_x-end': true }
   readonly backgroundPositionXXStart: { 'background-position-x_x-start': true }
-  readonly backgroundPositionX0Q: { 'background-position-x_0Q': true }
-  readonly backgroundPositionX1Q: { 'background-position-x_1Q': true }
-  readonly backgroundPositionX2Q: { 'background-position-x_2Q': true }
-  readonly backgroundPositionX4Q: { 'background-position-x_4Q': true }
-  readonly backgroundPositionX6Q: { 'background-position-x_6Q': true }
-  readonly backgroundPositionX8Q: { 'background-position-x_8Q': true }
-  readonly backgroundPositionX10Q: { 'background-position-x_10Q': true }
-  readonly backgroundPositionX12Q: { 'background-position-x_12Q': true }
-  readonly backgroundPositionX16Q: { 'background-position-x_16Q': true }
-  readonly backgroundPositionX20Q: { 'background-position-x_20Q': true }
   readonly backgroundPositionX0cap: { 'background-position-x_0cap': true }
   readonly backgroundPositionX0p25cap: { 'background-position-x_0\.25cap': true }
   readonly backgroundPositionX0p5cap: { 'background-position-x_0\.5cap': true }
@@ -4590,16 +4180,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionX5ch: { 'background-position-x_5ch': true }
   readonly backgroundPositionX6ch: { 'background-position-x_6ch': true }
   readonly backgroundPositionX8ch: { 'background-position-x_8ch': true }
-  readonly backgroundPositionX0cm: { 'background-position-x_0cm': true }
-  readonly backgroundPositionX1cm: { 'background-position-x_1cm': true }
-  readonly backgroundPositionX2cm: { 'background-position-x_2cm': true }
-  readonly backgroundPositionX4cm: { 'background-position-x_4cm': true }
-  readonly backgroundPositionX6cm: { 'background-position-x_6cm': true }
-  readonly backgroundPositionX8cm: { 'background-position-x_8cm': true }
-  readonly backgroundPositionX10cm: { 'background-position-x_10cm': true }
-  readonly backgroundPositionX12cm: { 'background-position-x_12cm': true }
-  readonly backgroundPositionX16cm: { 'background-position-x_16cm': true }
-  readonly backgroundPositionX20cm: { 'background-position-x_20cm': true }
   readonly backgroundPositionX0dvh: { 'background-position-x_0dvh': true }
   readonly backgroundPositionX10dvh: { 'background-position-x_10dvh': true }
   readonly backgroundPositionX20dvh: { 'background-position-x_20dvh': true }
@@ -4672,16 +4252,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionX5ic: { 'background-position-x_5ic': true }
   readonly backgroundPositionX6ic: { 'background-position-x_6ic': true }
   readonly backgroundPositionX8ic: { 'background-position-x_8ic': true }
-  readonly backgroundPositionX0in: { 'background-position-x_0in': true }
-  readonly backgroundPositionX1in: { 'background-position-x_1in': true }
-  readonly backgroundPositionX2in: { 'background-position-x_2in': true }
-  readonly backgroundPositionX4in: { 'background-position-x_4in': true }
-  readonly backgroundPositionX6in: { 'background-position-x_6in': true }
-  readonly backgroundPositionX8in: { 'background-position-x_8in': true }
-  readonly backgroundPositionX10in: { 'background-position-x_10in': true }
-  readonly backgroundPositionX12in: { 'background-position-x_12in': true }
-  readonly backgroundPositionX16in: { 'background-position-x_16in': true }
-  readonly backgroundPositionX20in: { 'background-position-x_20in': true }
   readonly backgroundPositionX0lh: { 'background-position-x_0lh': true }
   readonly backgroundPositionX0p25lh: { 'background-position-x_0\.25lh': true }
   readonly backgroundPositionX0p5lh: { 'background-position-x_0\.5lh': true }
@@ -4726,36 +4296,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionX80lvw: { 'background-position-x_80lvw': true }
   readonly backgroundPositionX90lvw: { 'background-position-x_90lvw': true }
   readonly backgroundPositionX100lvw: { 'background-position-x_100lvw': true }
-  readonly backgroundPositionX0mm: { 'background-position-x_0mm': true }
-  readonly backgroundPositionX1mm: { 'background-position-x_1mm': true }
-  readonly backgroundPositionX2mm: { 'background-position-x_2mm': true }
-  readonly backgroundPositionX4mm: { 'background-position-x_4mm': true }
-  readonly backgroundPositionX6mm: { 'background-position-x_6mm': true }
-  readonly backgroundPositionX8mm: { 'background-position-x_8mm': true }
-  readonly backgroundPositionX10mm: { 'background-position-x_10mm': true }
-  readonly backgroundPositionX12mm: { 'background-position-x_12mm': true }
-  readonly backgroundPositionX16mm: { 'background-position-x_16mm': true }
-  readonly backgroundPositionX20mm: { 'background-position-x_20mm': true }
-  readonly backgroundPositionX0pc: { 'background-position-x_0pc': true }
-  readonly backgroundPositionX1pc: { 'background-position-x_1pc': true }
-  readonly backgroundPositionX2pc: { 'background-position-x_2pc': true }
-  readonly backgroundPositionX4pc: { 'background-position-x_4pc': true }
-  readonly backgroundPositionX6pc: { 'background-position-x_6pc': true }
-  readonly backgroundPositionX8pc: { 'background-position-x_8pc': true }
-  readonly backgroundPositionX10pc: { 'background-position-x_10pc': true }
-  readonly backgroundPositionX12pc: { 'background-position-x_12pc': true }
-  readonly backgroundPositionX16pc: { 'background-position-x_16pc': true }
-  readonly backgroundPositionX20pc: { 'background-position-x_20pc': true }
-  readonly backgroundPositionX0pt: { 'background-position-x_0pt': true }
-  readonly backgroundPositionX1pt: { 'background-position-x_1pt': true }
-  readonly backgroundPositionX2pt: { 'background-position-x_2pt': true }
-  readonly backgroundPositionX4pt: { 'background-position-x_4pt': true }
-  readonly backgroundPositionX6pt: { 'background-position-x_6pt': true }
-  readonly backgroundPositionX8pt: { 'background-position-x_8pt': true }
-  readonly backgroundPositionX10pt: { 'background-position-x_10pt': true }
-  readonly backgroundPositionX12pt: { 'background-position-x_12pt': true }
-  readonly backgroundPositionX16pt: { 'background-position-x_16pt': true }
-  readonly backgroundPositionX20pt: { 'background-position-x_20pt': true }
   readonly backgroundPositionXN384px: { 'background-position-x_-384px': true }
   readonly backgroundPositionXN320px: { 'background-position-x_-320px': true }
   readonly backgroundPositionXN256px: { 'background-position-x_-256px': true }
@@ -4979,16 +4519,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionYTop: { 'background-position-y_top': true }
   readonly backgroundPositionYYEnd: { 'background-position-y_y-end': true }
   readonly backgroundPositionYYStart: { 'background-position-y_y-start': true }
-  readonly backgroundPositionY0Q: { 'background-position-y_0Q': true }
-  readonly backgroundPositionY1Q: { 'background-position-y_1Q': true }
-  readonly backgroundPositionY2Q: { 'background-position-y_2Q': true }
-  readonly backgroundPositionY4Q: { 'background-position-y_4Q': true }
-  readonly backgroundPositionY6Q: { 'background-position-y_6Q': true }
-  readonly backgroundPositionY8Q: { 'background-position-y_8Q': true }
-  readonly backgroundPositionY10Q: { 'background-position-y_10Q': true }
-  readonly backgroundPositionY12Q: { 'background-position-y_12Q': true }
-  readonly backgroundPositionY16Q: { 'background-position-y_16Q': true }
-  readonly backgroundPositionY20Q: { 'background-position-y_20Q': true }
   readonly backgroundPositionY0cap: { 'background-position-y_0cap': true }
   readonly backgroundPositionY0p25cap: { 'background-position-y_0\.25cap': true }
   readonly backgroundPositionY0p5cap: { 'background-position-y_0\.5cap': true }
@@ -5017,16 +4547,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionY5ch: { 'background-position-y_5ch': true }
   readonly backgroundPositionY6ch: { 'background-position-y_6ch': true }
   readonly backgroundPositionY8ch: { 'background-position-y_8ch': true }
-  readonly backgroundPositionY0cm: { 'background-position-y_0cm': true }
-  readonly backgroundPositionY1cm: { 'background-position-y_1cm': true }
-  readonly backgroundPositionY2cm: { 'background-position-y_2cm': true }
-  readonly backgroundPositionY4cm: { 'background-position-y_4cm': true }
-  readonly backgroundPositionY6cm: { 'background-position-y_6cm': true }
-  readonly backgroundPositionY8cm: { 'background-position-y_8cm': true }
-  readonly backgroundPositionY10cm: { 'background-position-y_10cm': true }
-  readonly backgroundPositionY12cm: { 'background-position-y_12cm': true }
-  readonly backgroundPositionY16cm: { 'background-position-y_16cm': true }
-  readonly backgroundPositionY20cm: { 'background-position-y_20cm': true }
   readonly backgroundPositionY0dvh: { 'background-position-y_0dvh': true }
   readonly backgroundPositionY10dvh: { 'background-position-y_10dvh': true }
   readonly backgroundPositionY20dvh: { 'background-position-y_20dvh': true }
@@ -5099,16 +4619,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionY5ic: { 'background-position-y_5ic': true }
   readonly backgroundPositionY6ic: { 'background-position-y_6ic': true }
   readonly backgroundPositionY8ic: { 'background-position-y_8ic': true }
-  readonly backgroundPositionY0in: { 'background-position-y_0in': true }
-  readonly backgroundPositionY1in: { 'background-position-y_1in': true }
-  readonly backgroundPositionY2in: { 'background-position-y_2in': true }
-  readonly backgroundPositionY4in: { 'background-position-y_4in': true }
-  readonly backgroundPositionY6in: { 'background-position-y_6in': true }
-  readonly backgroundPositionY8in: { 'background-position-y_8in': true }
-  readonly backgroundPositionY10in: { 'background-position-y_10in': true }
-  readonly backgroundPositionY12in: { 'background-position-y_12in': true }
-  readonly backgroundPositionY16in: { 'background-position-y_16in': true }
-  readonly backgroundPositionY20in: { 'background-position-y_20in': true }
   readonly backgroundPositionY0lh: { 'background-position-y_0lh': true }
   readonly backgroundPositionY0p25lh: { 'background-position-y_0\.25lh': true }
   readonly backgroundPositionY0p5lh: { 'background-position-y_0\.5lh': true }
@@ -5153,36 +4663,6 @@ export interface CsstsAtoms {
   readonly backgroundPositionY80lvw: { 'background-position-y_80lvw': true }
   readonly backgroundPositionY90lvw: { 'background-position-y_90lvw': true }
   readonly backgroundPositionY100lvw: { 'background-position-y_100lvw': true }
-  readonly backgroundPositionY0mm: { 'background-position-y_0mm': true }
-  readonly backgroundPositionY1mm: { 'background-position-y_1mm': true }
-  readonly backgroundPositionY2mm: { 'background-position-y_2mm': true }
-  readonly backgroundPositionY4mm: { 'background-position-y_4mm': true }
-  readonly backgroundPositionY6mm: { 'background-position-y_6mm': true }
-  readonly backgroundPositionY8mm: { 'background-position-y_8mm': true }
-  readonly backgroundPositionY10mm: { 'background-position-y_10mm': true }
-  readonly backgroundPositionY12mm: { 'background-position-y_12mm': true }
-  readonly backgroundPositionY16mm: { 'background-position-y_16mm': true }
-  readonly backgroundPositionY20mm: { 'background-position-y_20mm': true }
-  readonly backgroundPositionY0pc: { 'background-position-y_0pc': true }
-  readonly backgroundPositionY1pc: { 'background-position-y_1pc': true }
-  readonly backgroundPositionY2pc: { 'background-position-y_2pc': true }
-  readonly backgroundPositionY4pc: { 'background-position-y_4pc': true }
-  readonly backgroundPositionY6pc: { 'background-position-y_6pc': true }
-  readonly backgroundPositionY8pc: { 'background-position-y_8pc': true }
-  readonly backgroundPositionY10pc: { 'background-position-y_10pc': true }
-  readonly backgroundPositionY12pc: { 'background-position-y_12pc': true }
-  readonly backgroundPositionY16pc: { 'background-position-y_16pc': true }
-  readonly backgroundPositionY20pc: { 'background-position-y_20pc': true }
-  readonly backgroundPositionY0pt: { 'background-position-y_0pt': true }
-  readonly backgroundPositionY1pt: { 'background-position-y_1pt': true }
-  readonly backgroundPositionY2pt: { 'background-position-y_2pt': true }
-  readonly backgroundPositionY4pt: { 'background-position-y_4pt': true }
-  readonly backgroundPositionY6pt: { 'background-position-y_6pt': true }
-  readonly backgroundPositionY8pt: { 'background-position-y_8pt': true }
-  readonly backgroundPositionY10pt: { 'background-position-y_10pt': true }
-  readonly backgroundPositionY12pt: { 'background-position-y_12pt': true }
-  readonly backgroundPositionY16pt: { 'background-position-y_16pt': true }
-  readonly backgroundPositionY20pt: { 'background-position-y_20pt': true }
   readonly backgroundPositionYN384px: { 'background-position-y_-384px': true }
   readonly backgroundPositionYN320px: { 'background-position-y_-320px': true }
   readonly backgroundPositionYN256px: { 'background-position-y_-256px': true }
@@ -5412,16 +4892,6 @@ export interface CsstsAtoms {
   readonly backgroundSizeAuto: { 'background-size_auto': true }
   readonly backgroundSizeContain: { 'background-size_contain': true }
   readonly backgroundSizeCover: { 'background-size_cover': true }
-  readonly backgroundSize0Q: { 'background-size_0Q': true }
-  readonly backgroundSize1Q: { 'background-size_1Q': true }
-  readonly backgroundSize2Q: { 'background-size_2Q': true }
-  readonly backgroundSize4Q: { 'background-size_4Q': true }
-  readonly backgroundSize6Q: { 'background-size_6Q': true }
-  readonly backgroundSize8Q: { 'background-size_8Q': true }
-  readonly backgroundSize10Q: { 'background-size_10Q': true }
-  readonly backgroundSize12Q: { 'background-size_12Q': true }
-  readonly backgroundSize16Q: { 'background-size_16Q': true }
-  readonly backgroundSize20Q: { 'background-size_20Q': true }
   readonly backgroundSize0cap: { 'background-size_0cap': true }
   readonly backgroundSize0p25cap: { 'background-size_0\.25cap': true }
   readonly backgroundSize0p5cap: { 'background-size_0\.5cap': true }
@@ -5450,16 +4920,6 @@ export interface CsstsAtoms {
   readonly backgroundSize5ch: { 'background-size_5ch': true }
   readonly backgroundSize6ch: { 'background-size_6ch': true }
   readonly backgroundSize8ch: { 'background-size_8ch': true }
-  readonly backgroundSize0cm: { 'background-size_0cm': true }
-  readonly backgroundSize1cm: { 'background-size_1cm': true }
-  readonly backgroundSize2cm: { 'background-size_2cm': true }
-  readonly backgroundSize4cm: { 'background-size_4cm': true }
-  readonly backgroundSize6cm: { 'background-size_6cm': true }
-  readonly backgroundSize8cm: { 'background-size_8cm': true }
-  readonly backgroundSize10cm: { 'background-size_10cm': true }
-  readonly backgroundSize12cm: { 'background-size_12cm': true }
-  readonly backgroundSize16cm: { 'background-size_16cm': true }
-  readonly backgroundSize20cm: { 'background-size_20cm': true }
   readonly backgroundSize0dvh: { 'background-size_0dvh': true }
   readonly backgroundSize10dvh: { 'background-size_10dvh': true }
   readonly backgroundSize20dvh: { 'background-size_20dvh': true }
@@ -5532,16 +4992,6 @@ export interface CsstsAtoms {
   readonly backgroundSize5ic: { 'background-size_5ic': true }
   readonly backgroundSize6ic: { 'background-size_6ic': true }
   readonly backgroundSize8ic: { 'background-size_8ic': true }
-  readonly backgroundSize0in: { 'background-size_0in': true }
-  readonly backgroundSize1in: { 'background-size_1in': true }
-  readonly backgroundSize2in: { 'background-size_2in': true }
-  readonly backgroundSize4in: { 'background-size_4in': true }
-  readonly backgroundSize6in: { 'background-size_6in': true }
-  readonly backgroundSize8in: { 'background-size_8in': true }
-  readonly backgroundSize10in: { 'background-size_10in': true }
-  readonly backgroundSize12in: { 'background-size_12in': true }
-  readonly backgroundSize16in: { 'background-size_16in': true }
-  readonly backgroundSize20in: { 'background-size_20in': true }
   readonly backgroundSize0lh: { 'background-size_0lh': true }
   readonly backgroundSize0p25lh: { 'background-size_0\.25lh': true }
   readonly backgroundSize0p5lh: { 'background-size_0\.5lh': true }
@@ -5586,36 +5036,6 @@ export interface CsstsAtoms {
   readonly backgroundSize80lvw: { 'background-size_80lvw': true }
   readonly backgroundSize90lvw: { 'background-size_90lvw': true }
   readonly backgroundSize100lvw: { 'background-size_100lvw': true }
-  readonly backgroundSize0mm: { 'background-size_0mm': true }
-  readonly backgroundSize1mm: { 'background-size_1mm': true }
-  readonly backgroundSize2mm: { 'background-size_2mm': true }
-  readonly backgroundSize4mm: { 'background-size_4mm': true }
-  readonly backgroundSize6mm: { 'background-size_6mm': true }
-  readonly backgroundSize8mm: { 'background-size_8mm': true }
-  readonly backgroundSize10mm: { 'background-size_10mm': true }
-  readonly backgroundSize12mm: { 'background-size_12mm': true }
-  readonly backgroundSize16mm: { 'background-size_16mm': true }
-  readonly backgroundSize20mm: { 'background-size_20mm': true }
-  readonly backgroundSize0pc: { 'background-size_0pc': true }
-  readonly backgroundSize1pc: { 'background-size_1pc': true }
-  readonly backgroundSize2pc: { 'background-size_2pc': true }
-  readonly backgroundSize4pc: { 'background-size_4pc': true }
-  readonly backgroundSize6pc: { 'background-size_6pc': true }
-  readonly backgroundSize8pc: { 'background-size_8pc': true }
-  readonly backgroundSize10pc: { 'background-size_10pc': true }
-  readonly backgroundSize12pc: { 'background-size_12pc': true }
-  readonly backgroundSize16pc: { 'background-size_16pc': true }
-  readonly backgroundSize20pc: { 'background-size_20pc': true }
-  readonly backgroundSize0pt: { 'background-size_0pt': true }
-  readonly backgroundSize1pt: { 'background-size_1pt': true }
-  readonly backgroundSize2pt: { 'background-size_2pt': true }
-  readonly backgroundSize4pt: { 'background-size_4pt': true }
-  readonly backgroundSize6pt: { 'background-size_6pt': true }
-  readonly backgroundSize8pt: { 'background-size_8pt': true }
-  readonly backgroundSize10pt: { 'background-size_10pt': true }
-  readonly backgroundSize12pt: { 'background-size_12pt': true }
-  readonly backgroundSize16pt: { 'background-size_16pt': true }
-  readonly backgroundSize20pt: { 'background-size_20pt': true }
   readonly backgroundSizeN384px: { 'background-size_-384px': true }
   readonly backgroundSizeN320px: { 'background-size_-320px': true }
   readonly backgroundSizeN256px: { 'background-size_-256px': true }
@@ -6150,16 +5570,6 @@ export interface CsstsAtoms {
   readonly border270turn: { 'border_270turn': true }
   readonly border315turn: { 'border_315turn': true }
   readonly border360turn: { 'border_360turn': true }
-  readonly border0Q: { 'border_0Q': true }
-  readonly border1Q: { 'border_1Q': true }
-  readonly border2Q: { 'border_2Q': true }
-  readonly border4Q: { 'border_4Q': true }
-  readonly border6Q: { 'border_6Q': true }
-  readonly border8Q: { 'border_8Q': true }
-  readonly border10Q: { 'border_10Q': true }
-  readonly border12Q: { 'border_12Q': true }
-  readonly border16Q: { 'border_16Q': true }
-  readonly border20Q: { 'border_20Q': true }
   readonly border0cap: { 'border_0cap': true }
   readonly border0p25cap: { 'border_0\.25cap': true }
   readonly border0p5cap: { 'border_0\.5cap': true }
@@ -6188,16 +5598,6 @@ export interface CsstsAtoms {
   readonly border5ch: { 'border_5ch': true }
   readonly border6ch: { 'border_6ch': true }
   readonly border8ch: { 'border_8ch': true }
-  readonly border0cm: { 'border_0cm': true }
-  readonly border1cm: { 'border_1cm': true }
-  readonly border2cm: { 'border_2cm': true }
-  readonly border4cm: { 'border_4cm': true }
-  readonly border6cm: { 'border_6cm': true }
-  readonly border8cm: { 'border_8cm': true }
-  readonly border10cm: { 'border_10cm': true }
-  readonly border12cm: { 'border_12cm': true }
-  readonly border16cm: { 'border_16cm': true }
-  readonly border20cm: { 'border_20cm': true }
   readonly border0dvh: { 'border_0dvh': true }
   readonly border10dvh: { 'border_10dvh': true }
   readonly border20dvh: { 'border_20dvh': true }
@@ -6270,16 +5670,6 @@ export interface CsstsAtoms {
   readonly border5ic: { 'border_5ic': true }
   readonly border6ic: { 'border_6ic': true }
   readonly border8ic: { 'border_8ic': true }
-  readonly border0in: { 'border_0in': true }
-  readonly border1in: { 'border_1in': true }
-  readonly border2in: { 'border_2in': true }
-  readonly border4in: { 'border_4in': true }
-  readonly border6in: { 'border_6in': true }
-  readonly border8in: { 'border_8in': true }
-  readonly border10in: { 'border_10in': true }
-  readonly border12in: { 'border_12in': true }
-  readonly border16in: { 'border_16in': true }
-  readonly border20in: { 'border_20in': true }
   readonly border0lh: { 'border_0lh': true }
   readonly border0p25lh: { 'border_0\.25lh': true }
   readonly border0p5lh: { 'border_0\.5lh': true }
@@ -6324,36 +5714,6 @@ export interface CsstsAtoms {
   readonly border80lvw: { 'border_80lvw': true }
   readonly border90lvw: { 'border_90lvw': true }
   readonly border100lvw: { 'border_100lvw': true }
-  readonly border0mm: { 'border_0mm': true }
-  readonly border1mm: { 'border_1mm': true }
-  readonly border2mm: { 'border_2mm': true }
-  readonly border4mm: { 'border_4mm': true }
-  readonly border6mm: { 'border_6mm': true }
-  readonly border8mm: { 'border_8mm': true }
-  readonly border10mm: { 'border_10mm': true }
-  readonly border12mm: { 'border_12mm': true }
-  readonly border16mm: { 'border_16mm': true }
-  readonly border20mm: { 'border_20mm': true }
-  readonly border0pc: { 'border_0pc': true }
-  readonly border1pc: { 'border_1pc': true }
-  readonly border2pc: { 'border_2pc': true }
-  readonly border4pc: { 'border_4pc': true }
-  readonly border6pc: { 'border_6pc': true }
-  readonly border8pc: { 'border_8pc': true }
-  readonly border10pc: { 'border_10pc': true }
-  readonly border12pc: { 'border_12pc': true }
-  readonly border16pc: { 'border_16pc': true }
-  readonly border20pc: { 'border_20pc': true }
-  readonly border0pt: { 'border_0pt': true }
-  readonly border1pt: { 'border_1pt': true }
-  readonly border2pt: { 'border_2pt': true }
-  readonly border4pt: { 'border_4pt': true }
-  readonly border6pt: { 'border_6pt': true }
-  readonly border8pt: { 'border_8pt': true }
-  readonly border10pt: { 'border_10pt': true }
-  readonly border12pt: { 'border_12pt': true }
-  readonly border16pt: { 'border_16pt': true }
-  readonly border20pt: { 'border_20pt': true }
   readonly borderN384px: { 'border_-384px': true }
   readonly borderN320px: { 'border_-320px': true }
   readonly borderN256px: { 'border_-256px': true }
@@ -7899,16 +7259,6 @@ export interface CsstsAtoms {
   readonly borderBottom270turn: { 'border-bottom_270turn': true }
   readonly borderBottom315turn: { 'border-bottom_315turn': true }
   readonly borderBottom360turn: { 'border-bottom_360turn': true }
-  readonly borderBottom0Q: { 'border-bottom_0Q': true }
-  readonly borderBottom1Q: { 'border-bottom_1Q': true }
-  readonly borderBottom2Q: { 'border-bottom_2Q': true }
-  readonly borderBottom4Q: { 'border-bottom_4Q': true }
-  readonly borderBottom6Q: { 'border-bottom_6Q': true }
-  readonly borderBottom8Q: { 'border-bottom_8Q': true }
-  readonly borderBottom10Q: { 'border-bottom_10Q': true }
-  readonly borderBottom12Q: { 'border-bottom_12Q': true }
-  readonly borderBottom16Q: { 'border-bottom_16Q': true }
-  readonly borderBottom20Q: { 'border-bottom_20Q': true }
   readonly borderBottom0cap: { 'border-bottom_0cap': true }
   readonly borderBottom0p25cap: { 'border-bottom_0\.25cap': true }
   readonly borderBottom0p5cap: { 'border-bottom_0\.5cap': true }
@@ -7937,16 +7287,6 @@ export interface CsstsAtoms {
   readonly borderBottom5ch: { 'border-bottom_5ch': true }
   readonly borderBottom6ch: { 'border-bottom_6ch': true }
   readonly borderBottom8ch: { 'border-bottom_8ch': true }
-  readonly borderBottom0cm: { 'border-bottom_0cm': true }
-  readonly borderBottom1cm: { 'border-bottom_1cm': true }
-  readonly borderBottom2cm: { 'border-bottom_2cm': true }
-  readonly borderBottom4cm: { 'border-bottom_4cm': true }
-  readonly borderBottom6cm: { 'border-bottom_6cm': true }
-  readonly borderBottom8cm: { 'border-bottom_8cm': true }
-  readonly borderBottom10cm: { 'border-bottom_10cm': true }
-  readonly borderBottom12cm: { 'border-bottom_12cm': true }
-  readonly borderBottom16cm: { 'border-bottom_16cm': true }
-  readonly borderBottom20cm: { 'border-bottom_20cm': true }
   readonly borderBottom0dvh: { 'border-bottom_0dvh': true }
   readonly borderBottom10dvh: { 'border-bottom_10dvh': true }
   readonly borderBottom20dvh: { 'border-bottom_20dvh': true }
@@ -8019,16 +7359,6 @@ export interface CsstsAtoms {
   readonly borderBottom5ic: { 'border-bottom_5ic': true }
   readonly borderBottom6ic: { 'border-bottom_6ic': true }
   readonly borderBottom8ic: { 'border-bottom_8ic': true }
-  readonly borderBottom0in: { 'border-bottom_0in': true }
-  readonly borderBottom1in: { 'border-bottom_1in': true }
-  readonly borderBottom2in: { 'border-bottom_2in': true }
-  readonly borderBottom4in: { 'border-bottom_4in': true }
-  readonly borderBottom6in: { 'border-bottom_6in': true }
-  readonly borderBottom8in: { 'border-bottom_8in': true }
-  readonly borderBottom10in: { 'border-bottom_10in': true }
-  readonly borderBottom12in: { 'border-bottom_12in': true }
-  readonly borderBottom16in: { 'border-bottom_16in': true }
-  readonly borderBottom20in: { 'border-bottom_20in': true }
   readonly borderBottom0lh: { 'border-bottom_0lh': true }
   readonly borderBottom0p25lh: { 'border-bottom_0\.25lh': true }
   readonly borderBottom0p5lh: { 'border-bottom_0\.5lh': true }
@@ -8073,36 +7403,6 @@ export interface CsstsAtoms {
   readonly borderBottom80lvw: { 'border-bottom_80lvw': true }
   readonly borderBottom90lvw: { 'border-bottom_90lvw': true }
   readonly borderBottom100lvw: { 'border-bottom_100lvw': true }
-  readonly borderBottom0mm: { 'border-bottom_0mm': true }
-  readonly borderBottom1mm: { 'border-bottom_1mm': true }
-  readonly borderBottom2mm: { 'border-bottom_2mm': true }
-  readonly borderBottom4mm: { 'border-bottom_4mm': true }
-  readonly borderBottom6mm: { 'border-bottom_6mm': true }
-  readonly borderBottom8mm: { 'border-bottom_8mm': true }
-  readonly borderBottom10mm: { 'border-bottom_10mm': true }
-  readonly borderBottom12mm: { 'border-bottom_12mm': true }
-  readonly borderBottom16mm: { 'border-bottom_16mm': true }
-  readonly borderBottom20mm: { 'border-bottom_20mm': true }
-  readonly borderBottom0pc: { 'border-bottom_0pc': true }
-  readonly borderBottom1pc: { 'border-bottom_1pc': true }
-  readonly borderBottom2pc: { 'border-bottom_2pc': true }
-  readonly borderBottom4pc: { 'border-bottom_4pc': true }
-  readonly borderBottom6pc: { 'border-bottom_6pc': true }
-  readonly borderBottom8pc: { 'border-bottom_8pc': true }
-  readonly borderBottom10pc: { 'border-bottom_10pc': true }
-  readonly borderBottom12pc: { 'border-bottom_12pc': true }
-  readonly borderBottom16pc: { 'border-bottom_16pc': true }
-  readonly borderBottom20pc: { 'border-bottom_20pc': true }
-  readonly borderBottom0pt: { 'border-bottom_0pt': true }
-  readonly borderBottom1pt: { 'border-bottom_1pt': true }
-  readonly borderBottom2pt: { 'border-bottom_2pt': true }
-  readonly borderBottom4pt: { 'border-bottom_4pt': true }
-  readonly borderBottom6pt: { 'border-bottom_6pt': true }
-  readonly borderBottom8pt: { 'border-bottom_8pt': true }
-  readonly borderBottom10pt: { 'border-bottom_10pt': true }
-  readonly borderBottom12pt: { 'border-bottom_12pt': true }
-  readonly borderBottom16pt: { 'border-bottom_16pt': true }
-  readonly borderBottom20pt: { 'border-bottom_20pt': true }
   readonly borderBottomN384px: { 'border-bottom_-384px': true }
   readonly borderBottomN320px: { 'border-bottom_-320px': true }
   readonly borderBottomN256px: { 'border-bottom_-256px': true }
@@ -8333,16 +7633,6 @@ export interface CsstsAtoms {
   readonly borderBottom100Pct: { 'border-bottom_100\%': true }
 
   // ==================== border-bottom-left-radius ====================
-  readonly borderBottomLeftRadius0Q: { 'border-bottom-left-radius_0Q': true }
-  readonly borderBottomLeftRadius1Q: { 'border-bottom-left-radius_1Q': true }
-  readonly borderBottomLeftRadius2Q: { 'border-bottom-left-radius_2Q': true }
-  readonly borderBottomLeftRadius4Q: { 'border-bottom-left-radius_4Q': true }
-  readonly borderBottomLeftRadius6Q: { 'border-bottom-left-radius_6Q': true }
-  readonly borderBottomLeftRadius8Q: { 'border-bottom-left-radius_8Q': true }
-  readonly borderBottomLeftRadius10Q: { 'border-bottom-left-radius_10Q': true }
-  readonly borderBottomLeftRadius12Q: { 'border-bottom-left-radius_12Q': true }
-  readonly borderBottomLeftRadius16Q: { 'border-bottom-left-radius_16Q': true }
-  readonly borderBottomLeftRadius20Q: { 'border-bottom-left-radius_20Q': true }
   readonly borderBottomLeftRadius0cap: { 'border-bottom-left-radius_0cap': true }
   readonly borderBottomLeftRadius0p25cap: { 'border-bottom-left-radius_0\.25cap': true }
   readonly borderBottomLeftRadius0p5cap: { 'border-bottom-left-radius_0\.5cap': true }
@@ -8371,16 +7661,6 @@ export interface CsstsAtoms {
   readonly borderBottomLeftRadius5ch: { 'border-bottom-left-radius_5ch': true }
   readonly borderBottomLeftRadius6ch: { 'border-bottom-left-radius_6ch': true }
   readonly borderBottomLeftRadius8ch: { 'border-bottom-left-radius_8ch': true }
-  readonly borderBottomLeftRadius0cm: { 'border-bottom-left-radius_0cm': true }
-  readonly borderBottomLeftRadius1cm: { 'border-bottom-left-radius_1cm': true }
-  readonly borderBottomLeftRadius2cm: { 'border-bottom-left-radius_2cm': true }
-  readonly borderBottomLeftRadius4cm: { 'border-bottom-left-radius_4cm': true }
-  readonly borderBottomLeftRadius6cm: { 'border-bottom-left-radius_6cm': true }
-  readonly borderBottomLeftRadius8cm: { 'border-bottom-left-radius_8cm': true }
-  readonly borderBottomLeftRadius10cm: { 'border-bottom-left-radius_10cm': true }
-  readonly borderBottomLeftRadius12cm: { 'border-bottom-left-radius_12cm': true }
-  readonly borderBottomLeftRadius16cm: { 'border-bottom-left-radius_16cm': true }
-  readonly borderBottomLeftRadius20cm: { 'border-bottom-left-radius_20cm': true }
   readonly borderBottomLeftRadius0dvh: { 'border-bottom-left-radius_0dvh': true }
   readonly borderBottomLeftRadius10dvh: { 'border-bottom-left-radius_10dvh': true }
   readonly borderBottomLeftRadius20dvh: { 'border-bottom-left-radius_20dvh': true }
@@ -8453,16 +7733,6 @@ export interface CsstsAtoms {
   readonly borderBottomLeftRadius5ic: { 'border-bottom-left-radius_5ic': true }
   readonly borderBottomLeftRadius6ic: { 'border-bottom-left-radius_6ic': true }
   readonly borderBottomLeftRadius8ic: { 'border-bottom-left-radius_8ic': true }
-  readonly borderBottomLeftRadius0in: { 'border-bottom-left-radius_0in': true }
-  readonly borderBottomLeftRadius1in: { 'border-bottom-left-radius_1in': true }
-  readonly borderBottomLeftRadius2in: { 'border-bottom-left-radius_2in': true }
-  readonly borderBottomLeftRadius4in: { 'border-bottom-left-radius_4in': true }
-  readonly borderBottomLeftRadius6in: { 'border-bottom-left-radius_6in': true }
-  readonly borderBottomLeftRadius8in: { 'border-bottom-left-radius_8in': true }
-  readonly borderBottomLeftRadius10in: { 'border-bottom-left-radius_10in': true }
-  readonly borderBottomLeftRadius12in: { 'border-bottom-left-radius_12in': true }
-  readonly borderBottomLeftRadius16in: { 'border-bottom-left-radius_16in': true }
-  readonly borderBottomLeftRadius20in: { 'border-bottom-left-radius_20in': true }
   readonly borderBottomLeftRadius0lh: { 'border-bottom-left-radius_0lh': true }
   readonly borderBottomLeftRadius0p25lh: { 'border-bottom-left-radius_0\.25lh': true }
   readonly borderBottomLeftRadius0p5lh: { 'border-bottom-left-radius_0\.5lh': true }
@@ -8507,36 +7777,6 @@ export interface CsstsAtoms {
   readonly borderBottomLeftRadius80lvw: { 'border-bottom-left-radius_80lvw': true }
   readonly borderBottomLeftRadius90lvw: { 'border-bottom-left-radius_90lvw': true }
   readonly borderBottomLeftRadius100lvw: { 'border-bottom-left-radius_100lvw': true }
-  readonly borderBottomLeftRadius0mm: { 'border-bottom-left-radius_0mm': true }
-  readonly borderBottomLeftRadius1mm: { 'border-bottom-left-radius_1mm': true }
-  readonly borderBottomLeftRadius2mm: { 'border-bottom-left-radius_2mm': true }
-  readonly borderBottomLeftRadius4mm: { 'border-bottom-left-radius_4mm': true }
-  readonly borderBottomLeftRadius6mm: { 'border-bottom-left-radius_6mm': true }
-  readonly borderBottomLeftRadius8mm: { 'border-bottom-left-radius_8mm': true }
-  readonly borderBottomLeftRadius10mm: { 'border-bottom-left-radius_10mm': true }
-  readonly borderBottomLeftRadius12mm: { 'border-bottom-left-radius_12mm': true }
-  readonly borderBottomLeftRadius16mm: { 'border-bottom-left-radius_16mm': true }
-  readonly borderBottomLeftRadius20mm: { 'border-bottom-left-radius_20mm': true }
-  readonly borderBottomLeftRadius0pc: { 'border-bottom-left-radius_0pc': true }
-  readonly borderBottomLeftRadius1pc: { 'border-bottom-left-radius_1pc': true }
-  readonly borderBottomLeftRadius2pc: { 'border-bottom-left-radius_2pc': true }
-  readonly borderBottomLeftRadius4pc: { 'border-bottom-left-radius_4pc': true }
-  readonly borderBottomLeftRadius6pc: { 'border-bottom-left-radius_6pc': true }
-  readonly borderBottomLeftRadius8pc: { 'border-bottom-left-radius_8pc': true }
-  readonly borderBottomLeftRadius10pc: { 'border-bottom-left-radius_10pc': true }
-  readonly borderBottomLeftRadius12pc: { 'border-bottom-left-radius_12pc': true }
-  readonly borderBottomLeftRadius16pc: { 'border-bottom-left-radius_16pc': true }
-  readonly borderBottomLeftRadius20pc: { 'border-bottom-left-radius_20pc': true }
-  readonly borderBottomLeftRadius0pt: { 'border-bottom-left-radius_0pt': true }
-  readonly borderBottomLeftRadius1pt: { 'border-bottom-left-radius_1pt': true }
-  readonly borderBottomLeftRadius2pt: { 'border-bottom-left-radius_2pt': true }
-  readonly borderBottomLeftRadius4pt: { 'border-bottom-left-radius_4pt': true }
-  readonly borderBottomLeftRadius6pt: { 'border-bottom-left-radius_6pt': true }
-  readonly borderBottomLeftRadius8pt: { 'border-bottom-left-radius_8pt': true }
-  readonly borderBottomLeftRadius10pt: { 'border-bottom-left-radius_10pt': true }
-  readonly borderBottomLeftRadius12pt: { 'border-bottom-left-radius_12pt': true }
-  readonly borderBottomLeftRadius16pt: { 'border-bottom-left-radius_16pt': true }
-  readonly borderBottomLeftRadius20pt: { 'border-bottom-left-radius_20pt': true }
   readonly borderBottomLeftRadiusN384px: { 'border-bottom-left-radius_-384px': true }
   readonly borderBottomLeftRadiusN320px: { 'border-bottom-left-radius_-320px': true }
   readonly borderBottomLeftRadiusN256px: { 'border-bottom-left-radius_-256px': true }
@@ -8755,16 +7995,6 @@ export interface CsstsAtoms {
   readonly borderBottomLeftRadius100Pct: { 'border-bottom-left-radius_100\%': true }
 
   // ==================== border-bottom-right-radius ====================
-  readonly borderBottomRightRadius0Q: { 'border-bottom-right-radius_0Q': true }
-  readonly borderBottomRightRadius1Q: { 'border-bottom-right-radius_1Q': true }
-  readonly borderBottomRightRadius2Q: { 'border-bottom-right-radius_2Q': true }
-  readonly borderBottomRightRadius4Q: { 'border-bottom-right-radius_4Q': true }
-  readonly borderBottomRightRadius6Q: { 'border-bottom-right-radius_6Q': true }
-  readonly borderBottomRightRadius8Q: { 'border-bottom-right-radius_8Q': true }
-  readonly borderBottomRightRadius10Q: { 'border-bottom-right-radius_10Q': true }
-  readonly borderBottomRightRadius12Q: { 'border-bottom-right-radius_12Q': true }
-  readonly borderBottomRightRadius16Q: { 'border-bottom-right-radius_16Q': true }
-  readonly borderBottomRightRadius20Q: { 'border-bottom-right-radius_20Q': true }
   readonly borderBottomRightRadius0cap: { 'border-bottom-right-radius_0cap': true }
   readonly borderBottomRightRadius0p25cap: { 'border-bottom-right-radius_0\.25cap': true }
   readonly borderBottomRightRadius0p5cap: { 'border-bottom-right-radius_0\.5cap': true }
@@ -8793,16 +8023,6 @@ export interface CsstsAtoms {
   readonly borderBottomRightRadius5ch: { 'border-bottom-right-radius_5ch': true }
   readonly borderBottomRightRadius6ch: { 'border-bottom-right-radius_6ch': true }
   readonly borderBottomRightRadius8ch: { 'border-bottom-right-radius_8ch': true }
-  readonly borderBottomRightRadius0cm: { 'border-bottom-right-radius_0cm': true }
-  readonly borderBottomRightRadius1cm: { 'border-bottom-right-radius_1cm': true }
-  readonly borderBottomRightRadius2cm: { 'border-bottom-right-radius_2cm': true }
-  readonly borderBottomRightRadius4cm: { 'border-bottom-right-radius_4cm': true }
-  readonly borderBottomRightRadius6cm: { 'border-bottom-right-radius_6cm': true }
-  readonly borderBottomRightRadius8cm: { 'border-bottom-right-radius_8cm': true }
-  readonly borderBottomRightRadius10cm: { 'border-bottom-right-radius_10cm': true }
-  readonly borderBottomRightRadius12cm: { 'border-bottom-right-radius_12cm': true }
-  readonly borderBottomRightRadius16cm: { 'border-bottom-right-radius_16cm': true }
-  readonly borderBottomRightRadius20cm: { 'border-bottom-right-radius_20cm': true }
   readonly borderBottomRightRadius0dvh: { 'border-bottom-right-radius_0dvh': true }
   readonly borderBottomRightRadius10dvh: { 'border-bottom-right-radius_10dvh': true }
   readonly borderBottomRightRadius20dvh: { 'border-bottom-right-radius_20dvh': true }
@@ -8875,16 +8095,6 @@ export interface CsstsAtoms {
   readonly borderBottomRightRadius5ic: { 'border-bottom-right-radius_5ic': true }
   readonly borderBottomRightRadius6ic: { 'border-bottom-right-radius_6ic': true }
   readonly borderBottomRightRadius8ic: { 'border-bottom-right-radius_8ic': true }
-  readonly borderBottomRightRadius0in: { 'border-bottom-right-radius_0in': true }
-  readonly borderBottomRightRadius1in: { 'border-bottom-right-radius_1in': true }
-  readonly borderBottomRightRadius2in: { 'border-bottom-right-radius_2in': true }
-  readonly borderBottomRightRadius4in: { 'border-bottom-right-radius_4in': true }
-  readonly borderBottomRightRadius6in: { 'border-bottom-right-radius_6in': true }
-  readonly borderBottomRightRadius8in: { 'border-bottom-right-radius_8in': true }
-  readonly borderBottomRightRadius10in: { 'border-bottom-right-radius_10in': true }
-  readonly borderBottomRightRadius12in: { 'border-bottom-right-radius_12in': true }
-  readonly borderBottomRightRadius16in: { 'border-bottom-right-radius_16in': true }
-  readonly borderBottomRightRadius20in: { 'border-bottom-right-radius_20in': true }
   readonly borderBottomRightRadius0lh: { 'border-bottom-right-radius_0lh': true }
   readonly borderBottomRightRadius0p25lh: { 'border-bottom-right-radius_0\.25lh': true }
   readonly borderBottomRightRadius0p5lh: { 'border-bottom-right-radius_0\.5lh': true }
@@ -8929,36 +8139,6 @@ export interface CsstsAtoms {
   readonly borderBottomRightRadius80lvw: { 'border-bottom-right-radius_80lvw': true }
   readonly borderBottomRightRadius90lvw: { 'border-bottom-right-radius_90lvw': true }
   readonly borderBottomRightRadius100lvw: { 'border-bottom-right-radius_100lvw': true }
-  readonly borderBottomRightRadius0mm: { 'border-bottom-right-radius_0mm': true }
-  readonly borderBottomRightRadius1mm: { 'border-bottom-right-radius_1mm': true }
-  readonly borderBottomRightRadius2mm: { 'border-bottom-right-radius_2mm': true }
-  readonly borderBottomRightRadius4mm: { 'border-bottom-right-radius_4mm': true }
-  readonly borderBottomRightRadius6mm: { 'border-bottom-right-radius_6mm': true }
-  readonly borderBottomRightRadius8mm: { 'border-bottom-right-radius_8mm': true }
-  readonly borderBottomRightRadius10mm: { 'border-bottom-right-radius_10mm': true }
-  readonly borderBottomRightRadius12mm: { 'border-bottom-right-radius_12mm': true }
-  readonly borderBottomRightRadius16mm: { 'border-bottom-right-radius_16mm': true }
-  readonly borderBottomRightRadius20mm: { 'border-bottom-right-radius_20mm': true }
-  readonly borderBottomRightRadius0pc: { 'border-bottom-right-radius_0pc': true }
-  readonly borderBottomRightRadius1pc: { 'border-bottom-right-radius_1pc': true }
-  readonly borderBottomRightRadius2pc: { 'border-bottom-right-radius_2pc': true }
-  readonly borderBottomRightRadius4pc: { 'border-bottom-right-radius_4pc': true }
-  readonly borderBottomRightRadius6pc: { 'border-bottom-right-radius_6pc': true }
-  readonly borderBottomRightRadius8pc: { 'border-bottom-right-radius_8pc': true }
-  readonly borderBottomRightRadius10pc: { 'border-bottom-right-radius_10pc': true }
-  readonly borderBottomRightRadius12pc: { 'border-bottom-right-radius_12pc': true }
-  readonly borderBottomRightRadius16pc: { 'border-bottom-right-radius_16pc': true }
-  readonly borderBottomRightRadius20pc: { 'border-bottom-right-radius_20pc': true }
-  readonly borderBottomRightRadius0pt: { 'border-bottom-right-radius_0pt': true }
-  readonly borderBottomRightRadius1pt: { 'border-bottom-right-radius_1pt': true }
-  readonly borderBottomRightRadius2pt: { 'border-bottom-right-radius_2pt': true }
-  readonly borderBottomRightRadius4pt: { 'border-bottom-right-radius_4pt': true }
-  readonly borderBottomRightRadius6pt: { 'border-bottom-right-radius_6pt': true }
-  readonly borderBottomRightRadius8pt: { 'border-bottom-right-radius_8pt': true }
-  readonly borderBottomRightRadius10pt: { 'border-bottom-right-radius_10pt': true }
-  readonly borderBottomRightRadius12pt: { 'border-bottom-right-radius_12pt': true }
-  readonly borderBottomRightRadius16pt: { 'border-bottom-right-radius_16pt': true }
-  readonly borderBottomRightRadius20pt: { 'border-bottom-right-radius_20pt': true }
   readonly borderBottomRightRadiusN384px: { 'border-bottom-right-radius_-384px': true }
   readonly borderBottomRightRadiusN320px: { 'border-bottom-right-radius_-320px': true }
   readonly borderBottomRightRadiusN256px: { 'border-bottom-right-radius_-256px': true }
@@ -9192,16 +8372,6 @@ export interface CsstsAtoms {
   readonly borderBottomWidthMedium: { 'border-bottom-width_medium': true }
   readonly borderBottomWidthThick: { 'border-bottom-width_thick': true }
   readonly borderBottomWidthThin: { 'border-bottom-width_thin': true }
-  readonly borderBottomWidth0Q: { 'border-bottom-width_0Q': true }
-  readonly borderBottomWidth1Q: { 'border-bottom-width_1Q': true }
-  readonly borderBottomWidth2Q: { 'border-bottom-width_2Q': true }
-  readonly borderBottomWidth4Q: { 'border-bottom-width_4Q': true }
-  readonly borderBottomWidth6Q: { 'border-bottom-width_6Q': true }
-  readonly borderBottomWidth8Q: { 'border-bottom-width_8Q': true }
-  readonly borderBottomWidth10Q: { 'border-bottom-width_10Q': true }
-  readonly borderBottomWidth12Q: { 'border-bottom-width_12Q': true }
-  readonly borderBottomWidth16Q: { 'border-bottom-width_16Q': true }
-  readonly borderBottomWidth20Q: { 'border-bottom-width_20Q': true }
   readonly borderBottomWidth0cap: { 'border-bottom-width_0cap': true }
   readonly borderBottomWidth0p25cap: { 'border-bottom-width_0\.25cap': true }
   readonly borderBottomWidth0p5cap: { 'border-bottom-width_0\.5cap': true }
@@ -9230,16 +8400,6 @@ export interface CsstsAtoms {
   readonly borderBottomWidth5ch: { 'border-bottom-width_5ch': true }
   readonly borderBottomWidth6ch: { 'border-bottom-width_6ch': true }
   readonly borderBottomWidth8ch: { 'border-bottom-width_8ch': true }
-  readonly borderBottomWidth0cm: { 'border-bottom-width_0cm': true }
-  readonly borderBottomWidth1cm: { 'border-bottom-width_1cm': true }
-  readonly borderBottomWidth2cm: { 'border-bottom-width_2cm': true }
-  readonly borderBottomWidth4cm: { 'border-bottom-width_4cm': true }
-  readonly borderBottomWidth6cm: { 'border-bottom-width_6cm': true }
-  readonly borderBottomWidth8cm: { 'border-bottom-width_8cm': true }
-  readonly borderBottomWidth10cm: { 'border-bottom-width_10cm': true }
-  readonly borderBottomWidth12cm: { 'border-bottom-width_12cm': true }
-  readonly borderBottomWidth16cm: { 'border-bottom-width_16cm': true }
-  readonly borderBottomWidth20cm: { 'border-bottom-width_20cm': true }
   readonly borderBottomWidth0dvh: { 'border-bottom-width_0dvh': true }
   readonly borderBottomWidth10dvh: { 'border-bottom-width_10dvh': true }
   readonly borderBottomWidth20dvh: { 'border-bottom-width_20dvh': true }
@@ -9312,16 +8472,6 @@ export interface CsstsAtoms {
   readonly borderBottomWidth5ic: { 'border-bottom-width_5ic': true }
   readonly borderBottomWidth6ic: { 'border-bottom-width_6ic': true }
   readonly borderBottomWidth8ic: { 'border-bottom-width_8ic': true }
-  readonly borderBottomWidth0in: { 'border-bottom-width_0in': true }
-  readonly borderBottomWidth1in: { 'border-bottom-width_1in': true }
-  readonly borderBottomWidth2in: { 'border-bottom-width_2in': true }
-  readonly borderBottomWidth4in: { 'border-bottom-width_4in': true }
-  readonly borderBottomWidth6in: { 'border-bottom-width_6in': true }
-  readonly borderBottomWidth8in: { 'border-bottom-width_8in': true }
-  readonly borderBottomWidth10in: { 'border-bottom-width_10in': true }
-  readonly borderBottomWidth12in: { 'border-bottom-width_12in': true }
-  readonly borderBottomWidth16in: { 'border-bottom-width_16in': true }
-  readonly borderBottomWidth20in: { 'border-bottom-width_20in': true }
   readonly borderBottomWidth0lh: { 'border-bottom-width_0lh': true }
   readonly borderBottomWidth0p25lh: { 'border-bottom-width_0\.25lh': true }
   readonly borderBottomWidth0p5lh: { 'border-bottom-width_0\.5lh': true }
@@ -9366,36 +8516,6 @@ export interface CsstsAtoms {
   readonly borderBottomWidth80lvw: { 'border-bottom-width_80lvw': true }
   readonly borderBottomWidth90lvw: { 'border-bottom-width_90lvw': true }
   readonly borderBottomWidth100lvw: { 'border-bottom-width_100lvw': true }
-  readonly borderBottomWidth0mm: { 'border-bottom-width_0mm': true }
-  readonly borderBottomWidth1mm: { 'border-bottom-width_1mm': true }
-  readonly borderBottomWidth2mm: { 'border-bottom-width_2mm': true }
-  readonly borderBottomWidth4mm: { 'border-bottom-width_4mm': true }
-  readonly borderBottomWidth6mm: { 'border-bottom-width_6mm': true }
-  readonly borderBottomWidth8mm: { 'border-bottom-width_8mm': true }
-  readonly borderBottomWidth10mm: { 'border-bottom-width_10mm': true }
-  readonly borderBottomWidth12mm: { 'border-bottom-width_12mm': true }
-  readonly borderBottomWidth16mm: { 'border-bottom-width_16mm': true }
-  readonly borderBottomWidth20mm: { 'border-bottom-width_20mm': true }
-  readonly borderBottomWidth0pc: { 'border-bottom-width_0pc': true }
-  readonly borderBottomWidth1pc: { 'border-bottom-width_1pc': true }
-  readonly borderBottomWidth2pc: { 'border-bottom-width_2pc': true }
-  readonly borderBottomWidth4pc: { 'border-bottom-width_4pc': true }
-  readonly borderBottomWidth6pc: { 'border-bottom-width_6pc': true }
-  readonly borderBottomWidth8pc: { 'border-bottom-width_8pc': true }
-  readonly borderBottomWidth10pc: { 'border-bottom-width_10pc': true }
-  readonly borderBottomWidth12pc: { 'border-bottom-width_12pc': true }
-  readonly borderBottomWidth16pc: { 'border-bottom-width_16pc': true }
-  readonly borderBottomWidth20pc: { 'border-bottom-width_20pc': true }
-  readonly borderBottomWidth0pt: { 'border-bottom-width_0pt': true }
-  readonly borderBottomWidth1pt: { 'border-bottom-width_1pt': true }
-  readonly borderBottomWidth2pt: { 'border-bottom-width_2pt': true }
-  readonly borderBottomWidth4pt: { 'border-bottom-width_4pt': true }
-  readonly borderBottomWidth6pt: { 'border-bottom-width_6pt': true }
-  readonly borderBottomWidth8pt: { 'border-bottom-width_8pt': true }
-  readonly borderBottomWidth10pt: { 'border-bottom-width_10pt': true }
-  readonly borderBottomWidth12pt: { 'border-bottom-width_12pt': true }
-  readonly borderBottomWidth16pt: { 'border-bottom-width_16pt': true }
-  readonly borderBottomWidth20pt: { 'border-bottom-width_20pt': true }
   readonly borderBottomWidthN384px: { 'border-bottom-width_-384px': true }
   readonly borderBottomWidthN320px: { 'border-bottom-width_-320px': true }
   readonly borderBottomWidthN256px: { 'border-bottom-width_-256px': true }
@@ -9936,16 +9056,6 @@ export interface CsstsAtoms {
   readonly borderColor100Pct: { 'border-color_100\%': true }
 
   // ==================== border-end-end-radius ====================
-  readonly borderEndEndRadius0Q: { 'border-end-end-radius_0Q': true }
-  readonly borderEndEndRadius1Q: { 'border-end-end-radius_1Q': true }
-  readonly borderEndEndRadius2Q: { 'border-end-end-radius_2Q': true }
-  readonly borderEndEndRadius4Q: { 'border-end-end-radius_4Q': true }
-  readonly borderEndEndRadius6Q: { 'border-end-end-radius_6Q': true }
-  readonly borderEndEndRadius8Q: { 'border-end-end-radius_8Q': true }
-  readonly borderEndEndRadius10Q: { 'border-end-end-radius_10Q': true }
-  readonly borderEndEndRadius12Q: { 'border-end-end-radius_12Q': true }
-  readonly borderEndEndRadius16Q: { 'border-end-end-radius_16Q': true }
-  readonly borderEndEndRadius20Q: { 'border-end-end-radius_20Q': true }
   readonly borderEndEndRadius0cap: { 'border-end-end-radius_0cap': true }
   readonly borderEndEndRadius0p25cap: { 'border-end-end-radius_0\.25cap': true }
   readonly borderEndEndRadius0p5cap: { 'border-end-end-radius_0\.5cap': true }
@@ -9974,16 +9084,6 @@ export interface CsstsAtoms {
   readonly borderEndEndRadius5ch: { 'border-end-end-radius_5ch': true }
   readonly borderEndEndRadius6ch: { 'border-end-end-radius_6ch': true }
   readonly borderEndEndRadius8ch: { 'border-end-end-radius_8ch': true }
-  readonly borderEndEndRadius0cm: { 'border-end-end-radius_0cm': true }
-  readonly borderEndEndRadius1cm: { 'border-end-end-radius_1cm': true }
-  readonly borderEndEndRadius2cm: { 'border-end-end-radius_2cm': true }
-  readonly borderEndEndRadius4cm: { 'border-end-end-radius_4cm': true }
-  readonly borderEndEndRadius6cm: { 'border-end-end-radius_6cm': true }
-  readonly borderEndEndRadius8cm: { 'border-end-end-radius_8cm': true }
-  readonly borderEndEndRadius10cm: { 'border-end-end-radius_10cm': true }
-  readonly borderEndEndRadius12cm: { 'border-end-end-radius_12cm': true }
-  readonly borderEndEndRadius16cm: { 'border-end-end-radius_16cm': true }
-  readonly borderEndEndRadius20cm: { 'border-end-end-radius_20cm': true }
   readonly borderEndEndRadius0dvh: { 'border-end-end-radius_0dvh': true }
   readonly borderEndEndRadius10dvh: { 'border-end-end-radius_10dvh': true }
   readonly borderEndEndRadius20dvh: { 'border-end-end-radius_20dvh': true }
@@ -10056,16 +9156,6 @@ export interface CsstsAtoms {
   readonly borderEndEndRadius5ic: { 'border-end-end-radius_5ic': true }
   readonly borderEndEndRadius6ic: { 'border-end-end-radius_6ic': true }
   readonly borderEndEndRadius8ic: { 'border-end-end-radius_8ic': true }
-  readonly borderEndEndRadius0in: { 'border-end-end-radius_0in': true }
-  readonly borderEndEndRadius1in: { 'border-end-end-radius_1in': true }
-  readonly borderEndEndRadius2in: { 'border-end-end-radius_2in': true }
-  readonly borderEndEndRadius4in: { 'border-end-end-radius_4in': true }
-  readonly borderEndEndRadius6in: { 'border-end-end-radius_6in': true }
-  readonly borderEndEndRadius8in: { 'border-end-end-radius_8in': true }
-  readonly borderEndEndRadius10in: { 'border-end-end-radius_10in': true }
-  readonly borderEndEndRadius12in: { 'border-end-end-radius_12in': true }
-  readonly borderEndEndRadius16in: { 'border-end-end-radius_16in': true }
-  readonly borderEndEndRadius20in: { 'border-end-end-radius_20in': true }
   readonly borderEndEndRadius0lh: { 'border-end-end-radius_0lh': true }
   readonly borderEndEndRadius0p25lh: { 'border-end-end-radius_0\.25lh': true }
   readonly borderEndEndRadius0p5lh: { 'border-end-end-radius_0\.5lh': true }
@@ -10110,36 +9200,6 @@ export interface CsstsAtoms {
   readonly borderEndEndRadius80lvw: { 'border-end-end-radius_80lvw': true }
   readonly borderEndEndRadius90lvw: { 'border-end-end-radius_90lvw': true }
   readonly borderEndEndRadius100lvw: { 'border-end-end-radius_100lvw': true }
-  readonly borderEndEndRadius0mm: { 'border-end-end-radius_0mm': true }
-  readonly borderEndEndRadius1mm: { 'border-end-end-radius_1mm': true }
-  readonly borderEndEndRadius2mm: { 'border-end-end-radius_2mm': true }
-  readonly borderEndEndRadius4mm: { 'border-end-end-radius_4mm': true }
-  readonly borderEndEndRadius6mm: { 'border-end-end-radius_6mm': true }
-  readonly borderEndEndRadius8mm: { 'border-end-end-radius_8mm': true }
-  readonly borderEndEndRadius10mm: { 'border-end-end-radius_10mm': true }
-  readonly borderEndEndRadius12mm: { 'border-end-end-radius_12mm': true }
-  readonly borderEndEndRadius16mm: { 'border-end-end-radius_16mm': true }
-  readonly borderEndEndRadius20mm: { 'border-end-end-radius_20mm': true }
-  readonly borderEndEndRadius0pc: { 'border-end-end-radius_0pc': true }
-  readonly borderEndEndRadius1pc: { 'border-end-end-radius_1pc': true }
-  readonly borderEndEndRadius2pc: { 'border-end-end-radius_2pc': true }
-  readonly borderEndEndRadius4pc: { 'border-end-end-radius_4pc': true }
-  readonly borderEndEndRadius6pc: { 'border-end-end-radius_6pc': true }
-  readonly borderEndEndRadius8pc: { 'border-end-end-radius_8pc': true }
-  readonly borderEndEndRadius10pc: { 'border-end-end-radius_10pc': true }
-  readonly borderEndEndRadius12pc: { 'border-end-end-radius_12pc': true }
-  readonly borderEndEndRadius16pc: { 'border-end-end-radius_16pc': true }
-  readonly borderEndEndRadius20pc: { 'border-end-end-radius_20pc': true }
-  readonly borderEndEndRadius0pt: { 'border-end-end-radius_0pt': true }
-  readonly borderEndEndRadius1pt: { 'border-end-end-radius_1pt': true }
-  readonly borderEndEndRadius2pt: { 'border-end-end-radius_2pt': true }
-  readonly borderEndEndRadius4pt: { 'border-end-end-radius_4pt': true }
-  readonly borderEndEndRadius6pt: { 'border-end-end-radius_6pt': true }
-  readonly borderEndEndRadius8pt: { 'border-end-end-radius_8pt': true }
-  readonly borderEndEndRadius10pt: { 'border-end-end-radius_10pt': true }
-  readonly borderEndEndRadius12pt: { 'border-end-end-radius_12pt': true }
-  readonly borderEndEndRadius16pt: { 'border-end-end-radius_16pt': true }
-  readonly borderEndEndRadius20pt: { 'border-end-end-radius_20pt': true }
   readonly borderEndEndRadiusN384px: { 'border-end-end-radius_-384px': true }
   readonly borderEndEndRadiusN320px: { 'border-end-end-radius_-320px': true }
   readonly borderEndEndRadiusN256px: { 'border-end-end-radius_-256px': true }
@@ -10358,16 +9418,6 @@ export interface CsstsAtoms {
   readonly borderEndEndRadius100Pct: { 'border-end-end-radius_100\%': true }
 
   // ==================== border-end-start-radius ====================
-  readonly borderEndStartRadius0Q: { 'border-end-start-radius_0Q': true }
-  readonly borderEndStartRadius1Q: { 'border-end-start-radius_1Q': true }
-  readonly borderEndStartRadius2Q: { 'border-end-start-radius_2Q': true }
-  readonly borderEndStartRadius4Q: { 'border-end-start-radius_4Q': true }
-  readonly borderEndStartRadius6Q: { 'border-end-start-radius_6Q': true }
-  readonly borderEndStartRadius8Q: { 'border-end-start-radius_8Q': true }
-  readonly borderEndStartRadius10Q: { 'border-end-start-radius_10Q': true }
-  readonly borderEndStartRadius12Q: { 'border-end-start-radius_12Q': true }
-  readonly borderEndStartRadius16Q: { 'border-end-start-radius_16Q': true }
-  readonly borderEndStartRadius20Q: { 'border-end-start-radius_20Q': true }
   readonly borderEndStartRadius0cap: { 'border-end-start-radius_0cap': true }
   readonly borderEndStartRadius0p25cap: { 'border-end-start-radius_0\.25cap': true }
   readonly borderEndStartRadius0p5cap: { 'border-end-start-radius_0\.5cap': true }
@@ -10396,16 +9446,6 @@ export interface CsstsAtoms {
   readonly borderEndStartRadius5ch: { 'border-end-start-radius_5ch': true }
   readonly borderEndStartRadius6ch: { 'border-end-start-radius_6ch': true }
   readonly borderEndStartRadius8ch: { 'border-end-start-radius_8ch': true }
-  readonly borderEndStartRadius0cm: { 'border-end-start-radius_0cm': true }
-  readonly borderEndStartRadius1cm: { 'border-end-start-radius_1cm': true }
-  readonly borderEndStartRadius2cm: { 'border-end-start-radius_2cm': true }
-  readonly borderEndStartRadius4cm: { 'border-end-start-radius_4cm': true }
-  readonly borderEndStartRadius6cm: { 'border-end-start-radius_6cm': true }
-  readonly borderEndStartRadius8cm: { 'border-end-start-radius_8cm': true }
-  readonly borderEndStartRadius10cm: { 'border-end-start-radius_10cm': true }
-  readonly borderEndStartRadius12cm: { 'border-end-start-radius_12cm': true }
-  readonly borderEndStartRadius16cm: { 'border-end-start-radius_16cm': true }
-  readonly borderEndStartRadius20cm: { 'border-end-start-radius_20cm': true }
   readonly borderEndStartRadius0dvh: { 'border-end-start-radius_0dvh': true }
   readonly borderEndStartRadius10dvh: { 'border-end-start-radius_10dvh': true }
   readonly borderEndStartRadius20dvh: { 'border-end-start-radius_20dvh': true }
@@ -10478,16 +9518,6 @@ export interface CsstsAtoms {
   readonly borderEndStartRadius5ic: { 'border-end-start-radius_5ic': true }
   readonly borderEndStartRadius6ic: { 'border-end-start-radius_6ic': true }
   readonly borderEndStartRadius8ic: { 'border-end-start-radius_8ic': true }
-  readonly borderEndStartRadius0in: { 'border-end-start-radius_0in': true }
-  readonly borderEndStartRadius1in: { 'border-end-start-radius_1in': true }
-  readonly borderEndStartRadius2in: { 'border-end-start-radius_2in': true }
-  readonly borderEndStartRadius4in: { 'border-end-start-radius_4in': true }
-  readonly borderEndStartRadius6in: { 'border-end-start-radius_6in': true }
-  readonly borderEndStartRadius8in: { 'border-end-start-radius_8in': true }
-  readonly borderEndStartRadius10in: { 'border-end-start-radius_10in': true }
-  readonly borderEndStartRadius12in: { 'border-end-start-radius_12in': true }
-  readonly borderEndStartRadius16in: { 'border-end-start-radius_16in': true }
-  readonly borderEndStartRadius20in: { 'border-end-start-radius_20in': true }
   readonly borderEndStartRadius0lh: { 'border-end-start-radius_0lh': true }
   readonly borderEndStartRadius0p25lh: { 'border-end-start-radius_0\.25lh': true }
   readonly borderEndStartRadius0p5lh: { 'border-end-start-radius_0\.5lh': true }
@@ -10532,36 +9562,6 @@ export interface CsstsAtoms {
   readonly borderEndStartRadius80lvw: { 'border-end-start-radius_80lvw': true }
   readonly borderEndStartRadius90lvw: { 'border-end-start-radius_90lvw': true }
   readonly borderEndStartRadius100lvw: { 'border-end-start-radius_100lvw': true }
-  readonly borderEndStartRadius0mm: { 'border-end-start-radius_0mm': true }
-  readonly borderEndStartRadius1mm: { 'border-end-start-radius_1mm': true }
-  readonly borderEndStartRadius2mm: { 'border-end-start-radius_2mm': true }
-  readonly borderEndStartRadius4mm: { 'border-end-start-radius_4mm': true }
-  readonly borderEndStartRadius6mm: { 'border-end-start-radius_6mm': true }
-  readonly borderEndStartRadius8mm: { 'border-end-start-radius_8mm': true }
-  readonly borderEndStartRadius10mm: { 'border-end-start-radius_10mm': true }
-  readonly borderEndStartRadius12mm: { 'border-end-start-radius_12mm': true }
-  readonly borderEndStartRadius16mm: { 'border-end-start-radius_16mm': true }
-  readonly borderEndStartRadius20mm: { 'border-end-start-radius_20mm': true }
-  readonly borderEndStartRadius0pc: { 'border-end-start-radius_0pc': true }
-  readonly borderEndStartRadius1pc: { 'border-end-start-radius_1pc': true }
-  readonly borderEndStartRadius2pc: { 'border-end-start-radius_2pc': true }
-  readonly borderEndStartRadius4pc: { 'border-end-start-radius_4pc': true }
-  readonly borderEndStartRadius6pc: { 'border-end-start-radius_6pc': true }
-  readonly borderEndStartRadius8pc: { 'border-end-start-radius_8pc': true }
-  readonly borderEndStartRadius10pc: { 'border-end-start-radius_10pc': true }
-  readonly borderEndStartRadius12pc: { 'border-end-start-radius_12pc': true }
-  readonly borderEndStartRadius16pc: { 'border-end-start-radius_16pc': true }
-  readonly borderEndStartRadius20pc: { 'border-end-start-radius_20pc': true }
-  readonly borderEndStartRadius0pt: { 'border-end-start-radius_0pt': true }
-  readonly borderEndStartRadius1pt: { 'border-end-start-radius_1pt': true }
-  readonly borderEndStartRadius2pt: { 'border-end-start-radius_2pt': true }
-  readonly borderEndStartRadius4pt: { 'border-end-start-radius_4pt': true }
-  readonly borderEndStartRadius6pt: { 'border-end-start-radius_6pt': true }
-  readonly borderEndStartRadius8pt: { 'border-end-start-radius_8pt': true }
-  readonly borderEndStartRadius10pt: { 'border-end-start-radius_10pt': true }
-  readonly borderEndStartRadius12pt: { 'border-end-start-radius_12pt': true }
-  readonly borderEndStartRadius16pt: { 'border-end-start-radius_16pt': true }
-  readonly borderEndStartRadius20pt: { 'border-end-start-radius_20pt': true }
   readonly borderEndStartRadiusN384px: { 'border-end-start-radius_-384px': true }
   readonly borderEndStartRadiusN320px: { 'border-end-start-radius_-320px': true }
   readonly borderEndStartRadiusN256px: { 'border-end-start-radius_-256px': true }
@@ -12095,16 +11095,6 @@ export interface CsstsAtoms {
   readonly borderLeft270turn: { 'border-left_270turn': true }
   readonly borderLeft315turn: { 'border-left_315turn': true }
   readonly borderLeft360turn: { 'border-left_360turn': true }
-  readonly borderLeft0Q: { 'border-left_0Q': true }
-  readonly borderLeft1Q: { 'border-left_1Q': true }
-  readonly borderLeft2Q: { 'border-left_2Q': true }
-  readonly borderLeft4Q: { 'border-left_4Q': true }
-  readonly borderLeft6Q: { 'border-left_6Q': true }
-  readonly borderLeft8Q: { 'border-left_8Q': true }
-  readonly borderLeft10Q: { 'border-left_10Q': true }
-  readonly borderLeft12Q: { 'border-left_12Q': true }
-  readonly borderLeft16Q: { 'border-left_16Q': true }
-  readonly borderLeft20Q: { 'border-left_20Q': true }
   readonly borderLeft0cap: { 'border-left_0cap': true }
   readonly borderLeft0p25cap: { 'border-left_0\.25cap': true }
   readonly borderLeft0p5cap: { 'border-left_0\.5cap': true }
@@ -12133,16 +11123,6 @@ export interface CsstsAtoms {
   readonly borderLeft5ch: { 'border-left_5ch': true }
   readonly borderLeft6ch: { 'border-left_6ch': true }
   readonly borderLeft8ch: { 'border-left_8ch': true }
-  readonly borderLeft0cm: { 'border-left_0cm': true }
-  readonly borderLeft1cm: { 'border-left_1cm': true }
-  readonly borderLeft2cm: { 'border-left_2cm': true }
-  readonly borderLeft4cm: { 'border-left_4cm': true }
-  readonly borderLeft6cm: { 'border-left_6cm': true }
-  readonly borderLeft8cm: { 'border-left_8cm': true }
-  readonly borderLeft10cm: { 'border-left_10cm': true }
-  readonly borderLeft12cm: { 'border-left_12cm': true }
-  readonly borderLeft16cm: { 'border-left_16cm': true }
-  readonly borderLeft20cm: { 'border-left_20cm': true }
   readonly borderLeft0dvh: { 'border-left_0dvh': true }
   readonly borderLeft10dvh: { 'border-left_10dvh': true }
   readonly borderLeft20dvh: { 'border-left_20dvh': true }
@@ -12215,16 +11195,6 @@ export interface CsstsAtoms {
   readonly borderLeft5ic: { 'border-left_5ic': true }
   readonly borderLeft6ic: { 'border-left_6ic': true }
   readonly borderLeft8ic: { 'border-left_8ic': true }
-  readonly borderLeft0in: { 'border-left_0in': true }
-  readonly borderLeft1in: { 'border-left_1in': true }
-  readonly borderLeft2in: { 'border-left_2in': true }
-  readonly borderLeft4in: { 'border-left_4in': true }
-  readonly borderLeft6in: { 'border-left_6in': true }
-  readonly borderLeft8in: { 'border-left_8in': true }
-  readonly borderLeft10in: { 'border-left_10in': true }
-  readonly borderLeft12in: { 'border-left_12in': true }
-  readonly borderLeft16in: { 'border-left_16in': true }
-  readonly borderLeft20in: { 'border-left_20in': true }
   readonly borderLeft0lh: { 'border-left_0lh': true }
   readonly borderLeft0p25lh: { 'border-left_0\.25lh': true }
   readonly borderLeft0p5lh: { 'border-left_0\.5lh': true }
@@ -12269,36 +11239,6 @@ export interface CsstsAtoms {
   readonly borderLeft80lvw: { 'border-left_80lvw': true }
   readonly borderLeft90lvw: { 'border-left_90lvw': true }
   readonly borderLeft100lvw: { 'border-left_100lvw': true }
-  readonly borderLeft0mm: { 'border-left_0mm': true }
-  readonly borderLeft1mm: { 'border-left_1mm': true }
-  readonly borderLeft2mm: { 'border-left_2mm': true }
-  readonly borderLeft4mm: { 'border-left_4mm': true }
-  readonly borderLeft6mm: { 'border-left_6mm': true }
-  readonly borderLeft8mm: { 'border-left_8mm': true }
-  readonly borderLeft10mm: { 'border-left_10mm': true }
-  readonly borderLeft12mm: { 'border-left_12mm': true }
-  readonly borderLeft16mm: { 'border-left_16mm': true }
-  readonly borderLeft20mm: { 'border-left_20mm': true }
-  readonly borderLeft0pc: { 'border-left_0pc': true }
-  readonly borderLeft1pc: { 'border-left_1pc': true }
-  readonly borderLeft2pc: { 'border-left_2pc': true }
-  readonly borderLeft4pc: { 'border-left_4pc': true }
-  readonly borderLeft6pc: { 'border-left_6pc': true }
-  readonly borderLeft8pc: { 'border-left_8pc': true }
-  readonly borderLeft10pc: { 'border-left_10pc': true }
-  readonly borderLeft12pc: { 'border-left_12pc': true }
-  readonly borderLeft16pc: { 'border-left_16pc': true }
-  readonly borderLeft20pc: { 'border-left_20pc': true }
-  readonly borderLeft0pt: { 'border-left_0pt': true }
-  readonly borderLeft1pt: { 'border-left_1pt': true }
-  readonly borderLeft2pt: { 'border-left_2pt': true }
-  readonly borderLeft4pt: { 'border-left_4pt': true }
-  readonly borderLeft6pt: { 'border-left_6pt': true }
-  readonly borderLeft8pt: { 'border-left_8pt': true }
-  readonly borderLeft10pt: { 'border-left_10pt': true }
-  readonly borderLeft12pt: { 'border-left_12pt': true }
-  readonly borderLeft16pt: { 'border-left_16pt': true }
-  readonly borderLeft20pt: { 'border-left_20pt': true }
   readonly borderLeftN384px: { 'border-left_-384px': true }
   readonly borderLeftN320px: { 'border-left_-320px': true }
   readonly borderLeftN256px: { 'border-left_-256px': true }
@@ -12877,16 +11817,6 @@ export interface CsstsAtoms {
   readonly borderLeftWidthMedium: { 'border-left-width_medium': true }
   readonly borderLeftWidthThick: { 'border-left-width_thick': true }
   readonly borderLeftWidthThin: { 'border-left-width_thin': true }
-  readonly borderLeftWidth0Q: { 'border-left-width_0Q': true }
-  readonly borderLeftWidth1Q: { 'border-left-width_1Q': true }
-  readonly borderLeftWidth2Q: { 'border-left-width_2Q': true }
-  readonly borderLeftWidth4Q: { 'border-left-width_4Q': true }
-  readonly borderLeftWidth6Q: { 'border-left-width_6Q': true }
-  readonly borderLeftWidth8Q: { 'border-left-width_8Q': true }
-  readonly borderLeftWidth10Q: { 'border-left-width_10Q': true }
-  readonly borderLeftWidth12Q: { 'border-left-width_12Q': true }
-  readonly borderLeftWidth16Q: { 'border-left-width_16Q': true }
-  readonly borderLeftWidth20Q: { 'border-left-width_20Q': true }
   readonly borderLeftWidth0cap: { 'border-left-width_0cap': true }
   readonly borderLeftWidth0p25cap: { 'border-left-width_0\.25cap': true }
   readonly borderLeftWidth0p5cap: { 'border-left-width_0\.5cap': true }
@@ -12915,16 +11845,6 @@ export interface CsstsAtoms {
   readonly borderLeftWidth5ch: { 'border-left-width_5ch': true }
   readonly borderLeftWidth6ch: { 'border-left-width_6ch': true }
   readonly borderLeftWidth8ch: { 'border-left-width_8ch': true }
-  readonly borderLeftWidth0cm: { 'border-left-width_0cm': true }
-  readonly borderLeftWidth1cm: { 'border-left-width_1cm': true }
-  readonly borderLeftWidth2cm: { 'border-left-width_2cm': true }
-  readonly borderLeftWidth4cm: { 'border-left-width_4cm': true }
-  readonly borderLeftWidth6cm: { 'border-left-width_6cm': true }
-  readonly borderLeftWidth8cm: { 'border-left-width_8cm': true }
-  readonly borderLeftWidth10cm: { 'border-left-width_10cm': true }
-  readonly borderLeftWidth12cm: { 'border-left-width_12cm': true }
-  readonly borderLeftWidth16cm: { 'border-left-width_16cm': true }
-  readonly borderLeftWidth20cm: { 'border-left-width_20cm': true }
   readonly borderLeftWidth0dvh: { 'border-left-width_0dvh': true }
   readonly borderLeftWidth10dvh: { 'border-left-width_10dvh': true }
   readonly borderLeftWidth20dvh: { 'border-left-width_20dvh': true }
@@ -12997,16 +11917,6 @@ export interface CsstsAtoms {
   readonly borderLeftWidth5ic: { 'border-left-width_5ic': true }
   readonly borderLeftWidth6ic: { 'border-left-width_6ic': true }
   readonly borderLeftWidth8ic: { 'border-left-width_8ic': true }
-  readonly borderLeftWidth0in: { 'border-left-width_0in': true }
-  readonly borderLeftWidth1in: { 'border-left-width_1in': true }
-  readonly borderLeftWidth2in: { 'border-left-width_2in': true }
-  readonly borderLeftWidth4in: { 'border-left-width_4in': true }
-  readonly borderLeftWidth6in: { 'border-left-width_6in': true }
-  readonly borderLeftWidth8in: { 'border-left-width_8in': true }
-  readonly borderLeftWidth10in: { 'border-left-width_10in': true }
-  readonly borderLeftWidth12in: { 'border-left-width_12in': true }
-  readonly borderLeftWidth16in: { 'border-left-width_16in': true }
-  readonly borderLeftWidth20in: { 'border-left-width_20in': true }
   readonly borderLeftWidth0lh: { 'border-left-width_0lh': true }
   readonly borderLeftWidth0p25lh: { 'border-left-width_0\.25lh': true }
   readonly borderLeftWidth0p5lh: { 'border-left-width_0\.5lh': true }
@@ -13051,36 +11961,6 @@ export interface CsstsAtoms {
   readonly borderLeftWidth80lvw: { 'border-left-width_80lvw': true }
   readonly borderLeftWidth90lvw: { 'border-left-width_90lvw': true }
   readonly borderLeftWidth100lvw: { 'border-left-width_100lvw': true }
-  readonly borderLeftWidth0mm: { 'border-left-width_0mm': true }
-  readonly borderLeftWidth1mm: { 'border-left-width_1mm': true }
-  readonly borderLeftWidth2mm: { 'border-left-width_2mm': true }
-  readonly borderLeftWidth4mm: { 'border-left-width_4mm': true }
-  readonly borderLeftWidth6mm: { 'border-left-width_6mm': true }
-  readonly borderLeftWidth8mm: { 'border-left-width_8mm': true }
-  readonly borderLeftWidth10mm: { 'border-left-width_10mm': true }
-  readonly borderLeftWidth12mm: { 'border-left-width_12mm': true }
-  readonly borderLeftWidth16mm: { 'border-left-width_16mm': true }
-  readonly borderLeftWidth20mm: { 'border-left-width_20mm': true }
-  readonly borderLeftWidth0pc: { 'border-left-width_0pc': true }
-  readonly borderLeftWidth1pc: { 'border-left-width_1pc': true }
-  readonly borderLeftWidth2pc: { 'border-left-width_2pc': true }
-  readonly borderLeftWidth4pc: { 'border-left-width_4pc': true }
-  readonly borderLeftWidth6pc: { 'border-left-width_6pc': true }
-  readonly borderLeftWidth8pc: { 'border-left-width_8pc': true }
-  readonly borderLeftWidth10pc: { 'border-left-width_10pc': true }
-  readonly borderLeftWidth12pc: { 'border-left-width_12pc': true }
-  readonly borderLeftWidth16pc: { 'border-left-width_16pc': true }
-  readonly borderLeftWidth20pc: { 'border-left-width_20pc': true }
-  readonly borderLeftWidth0pt: { 'border-left-width_0pt': true }
-  readonly borderLeftWidth1pt: { 'border-left-width_1pt': true }
-  readonly borderLeftWidth2pt: { 'border-left-width_2pt': true }
-  readonly borderLeftWidth4pt: { 'border-left-width_4pt': true }
-  readonly borderLeftWidth6pt: { 'border-left-width_6pt': true }
-  readonly borderLeftWidth8pt: { 'border-left-width_8pt': true }
-  readonly borderLeftWidth10pt: { 'border-left-width_10pt': true }
-  readonly borderLeftWidth12pt: { 'border-left-width_12pt': true }
-  readonly borderLeftWidth16pt: { 'border-left-width_16pt': true }
-  readonly borderLeftWidth20pt: { 'border-left-width_20pt': true }
   readonly borderLeftWidthN384px: { 'border-left-width_-384px': true }
   readonly borderLeftWidthN320px: { 'border-left-width_-320px': true }
   readonly borderLeftWidthN256px: { 'border-left-width_-256px': true }
@@ -13284,16 +12164,6 @@ export interface CsstsAtoms {
   readonly borderLeftWidth100vw: { 'border-left-width_100vw': true }
 
   // ==================== border-radius ====================
-  readonly borderRadius0Q: { 'border-radius_0Q': true }
-  readonly borderRadius1Q: { 'border-radius_1Q': true }
-  readonly borderRadius2Q: { 'border-radius_2Q': true }
-  readonly borderRadius4Q: { 'border-radius_4Q': true }
-  readonly borderRadius6Q: { 'border-radius_6Q': true }
-  readonly borderRadius8Q: { 'border-radius_8Q': true }
-  readonly borderRadius10Q: { 'border-radius_10Q': true }
-  readonly borderRadius12Q: { 'border-radius_12Q': true }
-  readonly borderRadius16Q: { 'border-radius_16Q': true }
-  readonly borderRadius20Q: { 'border-radius_20Q': true }
   readonly borderRadius0cap: { 'border-radius_0cap': true }
   readonly borderRadius0p25cap: { 'border-radius_0\.25cap': true }
   readonly borderRadius0p5cap: { 'border-radius_0\.5cap': true }
@@ -13322,16 +12192,6 @@ export interface CsstsAtoms {
   readonly borderRadius5ch: { 'border-radius_5ch': true }
   readonly borderRadius6ch: { 'border-radius_6ch': true }
   readonly borderRadius8ch: { 'border-radius_8ch': true }
-  readonly borderRadius0cm: { 'border-radius_0cm': true }
-  readonly borderRadius1cm: { 'border-radius_1cm': true }
-  readonly borderRadius2cm: { 'border-radius_2cm': true }
-  readonly borderRadius4cm: { 'border-radius_4cm': true }
-  readonly borderRadius6cm: { 'border-radius_6cm': true }
-  readonly borderRadius8cm: { 'border-radius_8cm': true }
-  readonly borderRadius10cm: { 'border-radius_10cm': true }
-  readonly borderRadius12cm: { 'border-radius_12cm': true }
-  readonly borderRadius16cm: { 'border-radius_16cm': true }
-  readonly borderRadius20cm: { 'border-radius_20cm': true }
   readonly borderRadius0dvh: { 'border-radius_0dvh': true }
   readonly borderRadius10dvh: { 'border-radius_10dvh': true }
   readonly borderRadius20dvh: { 'border-radius_20dvh': true }
@@ -13404,16 +12264,6 @@ export interface CsstsAtoms {
   readonly borderRadius5ic: { 'border-radius_5ic': true }
   readonly borderRadius6ic: { 'border-radius_6ic': true }
   readonly borderRadius8ic: { 'border-radius_8ic': true }
-  readonly borderRadius0in: { 'border-radius_0in': true }
-  readonly borderRadius1in: { 'border-radius_1in': true }
-  readonly borderRadius2in: { 'border-radius_2in': true }
-  readonly borderRadius4in: { 'border-radius_4in': true }
-  readonly borderRadius6in: { 'border-radius_6in': true }
-  readonly borderRadius8in: { 'border-radius_8in': true }
-  readonly borderRadius10in: { 'border-radius_10in': true }
-  readonly borderRadius12in: { 'border-radius_12in': true }
-  readonly borderRadius16in: { 'border-radius_16in': true }
-  readonly borderRadius20in: { 'border-radius_20in': true }
   readonly borderRadius0lh: { 'border-radius_0lh': true }
   readonly borderRadius0p25lh: { 'border-radius_0\.25lh': true }
   readonly borderRadius0p5lh: { 'border-radius_0\.5lh': true }
@@ -13458,36 +12308,6 @@ export interface CsstsAtoms {
   readonly borderRadius80lvw: { 'border-radius_80lvw': true }
   readonly borderRadius90lvw: { 'border-radius_90lvw': true }
   readonly borderRadius100lvw: { 'border-radius_100lvw': true }
-  readonly borderRadius0mm: { 'border-radius_0mm': true }
-  readonly borderRadius1mm: { 'border-radius_1mm': true }
-  readonly borderRadius2mm: { 'border-radius_2mm': true }
-  readonly borderRadius4mm: { 'border-radius_4mm': true }
-  readonly borderRadius6mm: { 'border-radius_6mm': true }
-  readonly borderRadius8mm: { 'border-radius_8mm': true }
-  readonly borderRadius10mm: { 'border-radius_10mm': true }
-  readonly borderRadius12mm: { 'border-radius_12mm': true }
-  readonly borderRadius16mm: { 'border-radius_16mm': true }
-  readonly borderRadius20mm: { 'border-radius_20mm': true }
-  readonly borderRadius0pc: { 'border-radius_0pc': true }
-  readonly borderRadius1pc: { 'border-radius_1pc': true }
-  readonly borderRadius2pc: { 'border-radius_2pc': true }
-  readonly borderRadius4pc: { 'border-radius_4pc': true }
-  readonly borderRadius6pc: { 'border-radius_6pc': true }
-  readonly borderRadius8pc: { 'border-radius_8pc': true }
-  readonly borderRadius10pc: { 'border-radius_10pc': true }
-  readonly borderRadius12pc: { 'border-radius_12pc': true }
-  readonly borderRadius16pc: { 'border-radius_16pc': true }
-  readonly borderRadius20pc: { 'border-radius_20pc': true }
-  readonly borderRadius0pt: { 'border-radius_0pt': true }
-  readonly borderRadius1pt: { 'border-radius_1pt': true }
-  readonly borderRadius2pt: { 'border-radius_2pt': true }
-  readonly borderRadius4pt: { 'border-radius_4pt': true }
-  readonly borderRadius6pt: { 'border-radius_6pt': true }
-  readonly borderRadius8pt: { 'border-radius_8pt': true }
-  readonly borderRadius10pt: { 'border-radius_10pt': true }
-  readonly borderRadius12pt: { 'border-radius_12pt': true }
-  readonly borderRadius16pt: { 'border-radius_16pt': true }
-  readonly borderRadius20pt: { 'border-radius_20pt': true }
   readonly borderRadiusN384px: { 'border-radius_-384px': true }
   readonly borderRadiusN320px: { 'border-radius_-320px': true }
   readonly borderRadiusN256px: { 'border-radius_-256px': true }
@@ -14022,16 +12842,6 @@ export interface CsstsAtoms {
   readonly borderRight270turn: { 'border-right_270turn': true }
   readonly borderRight315turn: { 'border-right_315turn': true }
   readonly borderRight360turn: { 'border-right_360turn': true }
-  readonly borderRight0Q: { 'border-right_0Q': true }
-  readonly borderRight1Q: { 'border-right_1Q': true }
-  readonly borderRight2Q: { 'border-right_2Q': true }
-  readonly borderRight4Q: { 'border-right_4Q': true }
-  readonly borderRight6Q: { 'border-right_6Q': true }
-  readonly borderRight8Q: { 'border-right_8Q': true }
-  readonly borderRight10Q: { 'border-right_10Q': true }
-  readonly borderRight12Q: { 'border-right_12Q': true }
-  readonly borderRight16Q: { 'border-right_16Q': true }
-  readonly borderRight20Q: { 'border-right_20Q': true }
   readonly borderRight0cap: { 'border-right_0cap': true }
   readonly borderRight0p25cap: { 'border-right_0\.25cap': true }
   readonly borderRight0p5cap: { 'border-right_0\.5cap': true }
@@ -14060,16 +12870,6 @@ export interface CsstsAtoms {
   readonly borderRight5ch: { 'border-right_5ch': true }
   readonly borderRight6ch: { 'border-right_6ch': true }
   readonly borderRight8ch: { 'border-right_8ch': true }
-  readonly borderRight0cm: { 'border-right_0cm': true }
-  readonly borderRight1cm: { 'border-right_1cm': true }
-  readonly borderRight2cm: { 'border-right_2cm': true }
-  readonly borderRight4cm: { 'border-right_4cm': true }
-  readonly borderRight6cm: { 'border-right_6cm': true }
-  readonly borderRight8cm: { 'border-right_8cm': true }
-  readonly borderRight10cm: { 'border-right_10cm': true }
-  readonly borderRight12cm: { 'border-right_12cm': true }
-  readonly borderRight16cm: { 'border-right_16cm': true }
-  readonly borderRight20cm: { 'border-right_20cm': true }
   readonly borderRight0dvh: { 'border-right_0dvh': true }
   readonly borderRight10dvh: { 'border-right_10dvh': true }
   readonly borderRight20dvh: { 'border-right_20dvh': true }
@@ -14142,16 +12942,6 @@ export interface CsstsAtoms {
   readonly borderRight5ic: { 'border-right_5ic': true }
   readonly borderRight6ic: { 'border-right_6ic': true }
   readonly borderRight8ic: { 'border-right_8ic': true }
-  readonly borderRight0in: { 'border-right_0in': true }
-  readonly borderRight1in: { 'border-right_1in': true }
-  readonly borderRight2in: { 'border-right_2in': true }
-  readonly borderRight4in: { 'border-right_4in': true }
-  readonly borderRight6in: { 'border-right_6in': true }
-  readonly borderRight8in: { 'border-right_8in': true }
-  readonly borderRight10in: { 'border-right_10in': true }
-  readonly borderRight12in: { 'border-right_12in': true }
-  readonly borderRight16in: { 'border-right_16in': true }
-  readonly borderRight20in: { 'border-right_20in': true }
   readonly borderRight0lh: { 'border-right_0lh': true }
   readonly borderRight0p25lh: { 'border-right_0\.25lh': true }
   readonly borderRight0p5lh: { 'border-right_0\.5lh': true }
@@ -14196,36 +12986,6 @@ export interface CsstsAtoms {
   readonly borderRight80lvw: { 'border-right_80lvw': true }
   readonly borderRight90lvw: { 'border-right_90lvw': true }
   readonly borderRight100lvw: { 'border-right_100lvw': true }
-  readonly borderRight0mm: { 'border-right_0mm': true }
-  readonly borderRight1mm: { 'border-right_1mm': true }
-  readonly borderRight2mm: { 'border-right_2mm': true }
-  readonly borderRight4mm: { 'border-right_4mm': true }
-  readonly borderRight6mm: { 'border-right_6mm': true }
-  readonly borderRight8mm: { 'border-right_8mm': true }
-  readonly borderRight10mm: { 'border-right_10mm': true }
-  readonly borderRight12mm: { 'border-right_12mm': true }
-  readonly borderRight16mm: { 'border-right_16mm': true }
-  readonly borderRight20mm: { 'border-right_20mm': true }
-  readonly borderRight0pc: { 'border-right_0pc': true }
-  readonly borderRight1pc: { 'border-right_1pc': true }
-  readonly borderRight2pc: { 'border-right_2pc': true }
-  readonly borderRight4pc: { 'border-right_4pc': true }
-  readonly borderRight6pc: { 'border-right_6pc': true }
-  readonly borderRight8pc: { 'border-right_8pc': true }
-  readonly borderRight10pc: { 'border-right_10pc': true }
-  readonly borderRight12pc: { 'border-right_12pc': true }
-  readonly borderRight16pc: { 'border-right_16pc': true }
-  readonly borderRight20pc: { 'border-right_20pc': true }
-  readonly borderRight0pt: { 'border-right_0pt': true }
-  readonly borderRight1pt: { 'border-right_1pt': true }
-  readonly borderRight2pt: { 'border-right_2pt': true }
-  readonly borderRight4pt: { 'border-right_4pt': true }
-  readonly borderRight6pt: { 'border-right_6pt': true }
-  readonly borderRight8pt: { 'border-right_8pt': true }
-  readonly borderRight10pt: { 'border-right_10pt': true }
-  readonly borderRight12pt: { 'border-right_12pt': true }
-  readonly borderRight16pt: { 'border-right_16pt': true }
-  readonly borderRight20pt: { 'border-right_20pt': true }
   readonly borderRightN384px: { 'border-right_-384px': true }
   readonly borderRightN320px: { 'border-right_-320px': true }
   readonly borderRightN256px: { 'border-right_-256px': true }
@@ -14804,16 +13564,6 @@ export interface CsstsAtoms {
   readonly borderRightWidthMedium: { 'border-right-width_medium': true }
   readonly borderRightWidthThick: { 'border-right-width_thick': true }
   readonly borderRightWidthThin: { 'border-right-width_thin': true }
-  readonly borderRightWidth0Q: { 'border-right-width_0Q': true }
-  readonly borderRightWidth1Q: { 'border-right-width_1Q': true }
-  readonly borderRightWidth2Q: { 'border-right-width_2Q': true }
-  readonly borderRightWidth4Q: { 'border-right-width_4Q': true }
-  readonly borderRightWidth6Q: { 'border-right-width_6Q': true }
-  readonly borderRightWidth8Q: { 'border-right-width_8Q': true }
-  readonly borderRightWidth10Q: { 'border-right-width_10Q': true }
-  readonly borderRightWidth12Q: { 'border-right-width_12Q': true }
-  readonly borderRightWidth16Q: { 'border-right-width_16Q': true }
-  readonly borderRightWidth20Q: { 'border-right-width_20Q': true }
   readonly borderRightWidth0cap: { 'border-right-width_0cap': true }
   readonly borderRightWidth0p25cap: { 'border-right-width_0\.25cap': true }
   readonly borderRightWidth0p5cap: { 'border-right-width_0\.5cap': true }
@@ -14842,16 +13592,6 @@ export interface CsstsAtoms {
   readonly borderRightWidth5ch: { 'border-right-width_5ch': true }
   readonly borderRightWidth6ch: { 'border-right-width_6ch': true }
   readonly borderRightWidth8ch: { 'border-right-width_8ch': true }
-  readonly borderRightWidth0cm: { 'border-right-width_0cm': true }
-  readonly borderRightWidth1cm: { 'border-right-width_1cm': true }
-  readonly borderRightWidth2cm: { 'border-right-width_2cm': true }
-  readonly borderRightWidth4cm: { 'border-right-width_4cm': true }
-  readonly borderRightWidth6cm: { 'border-right-width_6cm': true }
-  readonly borderRightWidth8cm: { 'border-right-width_8cm': true }
-  readonly borderRightWidth10cm: { 'border-right-width_10cm': true }
-  readonly borderRightWidth12cm: { 'border-right-width_12cm': true }
-  readonly borderRightWidth16cm: { 'border-right-width_16cm': true }
-  readonly borderRightWidth20cm: { 'border-right-width_20cm': true }
   readonly borderRightWidth0dvh: { 'border-right-width_0dvh': true }
   readonly borderRightWidth10dvh: { 'border-right-width_10dvh': true }
   readonly borderRightWidth20dvh: { 'border-right-width_20dvh': true }
@@ -14924,16 +13664,6 @@ export interface CsstsAtoms {
   readonly borderRightWidth5ic: { 'border-right-width_5ic': true }
   readonly borderRightWidth6ic: { 'border-right-width_6ic': true }
   readonly borderRightWidth8ic: { 'border-right-width_8ic': true }
-  readonly borderRightWidth0in: { 'border-right-width_0in': true }
-  readonly borderRightWidth1in: { 'border-right-width_1in': true }
-  readonly borderRightWidth2in: { 'border-right-width_2in': true }
-  readonly borderRightWidth4in: { 'border-right-width_4in': true }
-  readonly borderRightWidth6in: { 'border-right-width_6in': true }
-  readonly borderRightWidth8in: { 'border-right-width_8in': true }
-  readonly borderRightWidth10in: { 'border-right-width_10in': true }
-  readonly borderRightWidth12in: { 'border-right-width_12in': true }
-  readonly borderRightWidth16in: { 'border-right-width_16in': true }
-  readonly borderRightWidth20in: { 'border-right-width_20in': true }
   readonly borderRightWidth0lh: { 'border-right-width_0lh': true }
   readonly borderRightWidth0p25lh: { 'border-right-width_0\.25lh': true }
   readonly borderRightWidth0p5lh: { 'border-right-width_0\.5lh': true }
@@ -14978,36 +13708,6 @@ export interface CsstsAtoms {
   readonly borderRightWidth80lvw: { 'border-right-width_80lvw': true }
   readonly borderRightWidth90lvw: { 'border-right-width_90lvw': true }
   readonly borderRightWidth100lvw: { 'border-right-width_100lvw': true }
-  readonly borderRightWidth0mm: { 'border-right-width_0mm': true }
-  readonly borderRightWidth1mm: { 'border-right-width_1mm': true }
-  readonly borderRightWidth2mm: { 'border-right-width_2mm': true }
-  readonly borderRightWidth4mm: { 'border-right-width_4mm': true }
-  readonly borderRightWidth6mm: { 'border-right-width_6mm': true }
-  readonly borderRightWidth8mm: { 'border-right-width_8mm': true }
-  readonly borderRightWidth10mm: { 'border-right-width_10mm': true }
-  readonly borderRightWidth12mm: { 'border-right-width_12mm': true }
-  readonly borderRightWidth16mm: { 'border-right-width_16mm': true }
-  readonly borderRightWidth20mm: { 'border-right-width_20mm': true }
-  readonly borderRightWidth0pc: { 'border-right-width_0pc': true }
-  readonly borderRightWidth1pc: { 'border-right-width_1pc': true }
-  readonly borderRightWidth2pc: { 'border-right-width_2pc': true }
-  readonly borderRightWidth4pc: { 'border-right-width_4pc': true }
-  readonly borderRightWidth6pc: { 'border-right-width_6pc': true }
-  readonly borderRightWidth8pc: { 'border-right-width_8pc': true }
-  readonly borderRightWidth10pc: { 'border-right-width_10pc': true }
-  readonly borderRightWidth12pc: { 'border-right-width_12pc': true }
-  readonly borderRightWidth16pc: { 'border-right-width_16pc': true }
-  readonly borderRightWidth20pc: { 'border-right-width_20pc': true }
-  readonly borderRightWidth0pt: { 'border-right-width_0pt': true }
-  readonly borderRightWidth1pt: { 'border-right-width_1pt': true }
-  readonly borderRightWidth2pt: { 'border-right-width_2pt': true }
-  readonly borderRightWidth4pt: { 'border-right-width_4pt': true }
-  readonly borderRightWidth6pt: { 'border-right-width_6pt': true }
-  readonly borderRightWidth8pt: { 'border-right-width_8pt': true }
-  readonly borderRightWidth10pt: { 'border-right-width_10pt': true }
-  readonly borderRightWidth12pt: { 'border-right-width_12pt': true }
-  readonly borderRightWidth16pt: { 'border-right-width_16pt': true }
-  readonly borderRightWidth20pt: { 'border-right-width_20pt': true }
   readonly borderRightWidthN384px: { 'border-right-width_-384px': true }
   readonly borderRightWidthN320px: { 'border-right-width_-320px': true }
   readonly borderRightWidthN256px: { 'border-right-width_-256px': true }
@@ -15211,16 +13911,6 @@ export interface CsstsAtoms {
   readonly borderRightWidth100vw: { 'border-right-width_100vw': true }
 
   // ==================== border-spacing ====================
-  readonly borderSpacing0Q: { 'border-spacing_0Q': true }
-  readonly borderSpacing1Q: { 'border-spacing_1Q': true }
-  readonly borderSpacing2Q: { 'border-spacing_2Q': true }
-  readonly borderSpacing4Q: { 'border-spacing_4Q': true }
-  readonly borderSpacing6Q: { 'border-spacing_6Q': true }
-  readonly borderSpacing8Q: { 'border-spacing_8Q': true }
-  readonly borderSpacing10Q: { 'border-spacing_10Q': true }
-  readonly borderSpacing12Q: { 'border-spacing_12Q': true }
-  readonly borderSpacing16Q: { 'border-spacing_16Q': true }
-  readonly borderSpacing20Q: { 'border-spacing_20Q': true }
   readonly borderSpacing0cap: { 'border-spacing_0cap': true }
   readonly borderSpacing0p25cap: { 'border-spacing_0\.25cap': true }
   readonly borderSpacing0p5cap: { 'border-spacing_0\.5cap': true }
@@ -15249,16 +13939,6 @@ export interface CsstsAtoms {
   readonly borderSpacing5ch: { 'border-spacing_5ch': true }
   readonly borderSpacing6ch: { 'border-spacing_6ch': true }
   readonly borderSpacing8ch: { 'border-spacing_8ch': true }
-  readonly borderSpacing0cm: { 'border-spacing_0cm': true }
-  readonly borderSpacing1cm: { 'border-spacing_1cm': true }
-  readonly borderSpacing2cm: { 'border-spacing_2cm': true }
-  readonly borderSpacing4cm: { 'border-spacing_4cm': true }
-  readonly borderSpacing6cm: { 'border-spacing_6cm': true }
-  readonly borderSpacing8cm: { 'border-spacing_8cm': true }
-  readonly borderSpacing10cm: { 'border-spacing_10cm': true }
-  readonly borderSpacing12cm: { 'border-spacing_12cm': true }
-  readonly borderSpacing16cm: { 'border-spacing_16cm': true }
-  readonly borderSpacing20cm: { 'border-spacing_20cm': true }
   readonly borderSpacing0dvh: { 'border-spacing_0dvh': true }
   readonly borderSpacing10dvh: { 'border-spacing_10dvh': true }
   readonly borderSpacing20dvh: { 'border-spacing_20dvh': true }
@@ -15331,16 +14011,6 @@ export interface CsstsAtoms {
   readonly borderSpacing5ic: { 'border-spacing_5ic': true }
   readonly borderSpacing6ic: { 'border-spacing_6ic': true }
   readonly borderSpacing8ic: { 'border-spacing_8ic': true }
-  readonly borderSpacing0in: { 'border-spacing_0in': true }
-  readonly borderSpacing1in: { 'border-spacing_1in': true }
-  readonly borderSpacing2in: { 'border-spacing_2in': true }
-  readonly borderSpacing4in: { 'border-spacing_4in': true }
-  readonly borderSpacing6in: { 'border-spacing_6in': true }
-  readonly borderSpacing8in: { 'border-spacing_8in': true }
-  readonly borderSpacing10in: { 'border-spacing_10in': true }
-  readonly borderSpacing12in: { 'border-spacing_12in': true }
-  readonly borderSpacing16in: { 'border-spacing_16in': true }
-  readonly borderSpacing20in: { 'border-spacing_20in': true }
   readonly borderSpacing0lh: { 'border-spacing_0lh': true }
   readonly borderSpacing0p25lh: { 'border-spacing_0\.25lh': true }
   readonly borderSpacing0p5lh: { 'border-spacing_0\.5lh': true }
@@ -15385,36 +14055,6 @@ export interface CsstsAtoms {
   readonly borderSpacing80lvw: { 'border-spacing_80lvw': true }
   readonly borderSpacing90lvw: { 'border-spacing_90lvw': true }
   readonly borderSpacing100lvw: { 'border-spacing_100lvw': true }
-  readonly borderSpacing0mm: { 'border-spacing_0mm': true }
-  readonly borderSpacing1mm: { 'border-spacing_1mm': true }
-  readonly borderSpacing2mm: { 'border-spacing_2mm': true }
-  readonly borderSpacing4mm: { 'border-spacing_4mm': true }
-  readonly borderSpacing6mm: { 'border-spacing_6mm': true }
-  readonly borderSpacing8mm: { 'border-spacing_8mm': true }
-  readonly borderSpacing10mm: { 'border-spacing_10mm': true }
-  readonly borderSpacing12mm: { 'border-spacing_12mm': true }
-  readonly borderSpacing16mm: { 'border-spacing_16mm': true }
-  readonly borderSpacing20mm: { 'border-spacing_20mm': true }
-  readonly borderSpacing0pc: { 'border-spacing_0pc': true }
-  readonly borderSpacing1pc: { 'border-spacing_1pc': true }
-  readonly borderSpacing2pc: { 'border-spacing_2pc': true }
-  readonly borderSpacing4pc: { 'border-spacing_4pc': true }
-  readonly borderSpacing6pc: { 'border-spacing_6pc': true }
-  readonly borderSpacing8pc: { 'border-spacing_8pc': true }
-  readonly borderSpacing10pc: { 'border-spacing_10pc': true }
-  readonly borderSpacing12pc: { 'border-spacing_12pc': true }
-  readonly borderSpacing16pc: { 'border-spacing_16pc': true }
-  readonly borderSpacing20pc: { 'border-spacing_20pc': true }
-  readonly borderSpacing0pt: { 'border-spacing_0pt': true }
-  readonly borderSpacing1pt: { 'border-spacing_1pt': true }
-  readonly borderSpacing2pt: { 'border-spacing_2pt': true }
-  readonly borderSpacing4pt: { 'border-spacing_4pt': true }
-  readonly borderSpacing6pt: { 'border-spacing_6pt': true }
-  readonly borderSpacing8pt: { 'border-spacing_8pt': true }
-  readonly borderSpacing10pt: { 'border-spacing_10pt': true }
-  readonly borderSpacing12pt: { 'border-spacing_12pt': true }
-  readonly borderSpacing16pt: { 'border-spacing_16pt': true }
-  readonly borderSpacing20pt: { 'border-spacing_20pt': true }
   readonly borderSpacingN384px: { 'border-spacing_-384px': true }
   readonly borderSpacingN320px: { 'border-spacing_-320px': true }
   readonly borderSpacingN256px: { 'border-spacing_-256px': true }
@@ -15618,16 +14258,6 @@ export interface CsstsAtoms {
   readonly borderSpacing100vw: { 'border-spacing_100vw': true }
 
   // ==================== border-start-end-radius ====================
-  readonly borderStartEndRadius0Q: { 'border-start-end-radius_0Q': true }
-  readonly borderStartEndRadius1Q: { 'border-start-end-radius_1Q': true }
-  readonly borderStartEndRadius2Q: { 'border-start-end-radius_2Q': true }
-  readonly borderStartEndRadius4Q: { 'border-start-end-radius_4Q': true }
-  readonly borderStartEndRadius6Q: { 'border-start-end-radius_6Q': true }
-  readonly borderStartEndRadius8Q: { 'border-start-end-radius_8Q': true }
-  readonly borderStartEndRadius10Q: { 'border-start-end-radius_10Q': true }
-  readonly borderStartEndRadius12Q: { 'border-start-end-radius_12Q': true }
-  readonly borderStartEndRadius16Q: { 'border-start-end-radius_16Q': true }
-  readonly borderStartEndRadius20Q: { 'border-start-end-radius_20Q': true }
   readonly borderStartEndRadius0cap: { 'border-start-end-radius_0cap': true }
   readonly borderStartEndRadius0p25cap: { 'border-start-end-radius_0\.25cap': true }
   readonly borderStartEndRadius0p5cap: { 'border-start-end-radius_0\.5cap': true }
@@ -15656,16 +14286,6 @@ export interface CsstsAtoms {
   readonly borderStartEndRadius5ch: { 'border-start-end-radius_5ch': true }
   readonly borderStartEndRadius6ch: { 'border-start-end-radius_6ch': true }
   readonly borderStartEndRadius8ch: { 'border-start-end-radius_8ch': true }
-  readonly borderStartEndRadius0cm: { 'border-start-end-radius_0cm': true }
-  readonly borderStartEndRadius1cm: { 'border-start-end-radius_1cm': true }
-  readonly borderStartEndRadius2cm: { 'border-start-end-radius_2cm': true }
-  readonly borderStartEndRadius4cm: { 'border-start-end-radius_4cm': true }
-  readonly borderStartEndRadius6cm: { 'border-start-end-radius_6cm': true }
-  readonly borderStartEndRadius8cm: { 'border-start-end-radius_8cm': true }
-  readonly borderStartEndRadius10cm: { 'border-start-end-radius_10cm': true }
-  readonly borderStartEndRadius12cm: { 'border-start-end-radius_12cm': true }
-  readonly borderStartEndRadius16cm: { 'border-start-end-radius_16cm': true }
-  readonly borderStartEndRadius20cm: { 'border-start-end-radius_20cm': true }
   readonly borderStartEndRadius0dvh: { 'border-start-end-radius_0dvh': true }
   readonly borderStartEndRadius10dvh: { 'border-start-end-radius_10dvh': true }
   readonly borderStartEndRadius20dvh: { 'border-start-end-radius_20dvh': true }
@@ -15738,16 +14358,6 @@ export interface CsstsAtoms {
   readonly borderStartEndRadius5ic: { 'border-start-end-radius_5ic': true }
   readonly borderStartEndRadius6ic: { 'border-start-end-radius_6ic': true }
   readonly borderStartEndRadius8ic: { 'border-start-end-radius_8ic': true }
-  readonly borderStartEndRadius0in: { 'border-start-end-radius_0in': true }
-  readonly borderStartEndRadius1in: { 'border-start-end-radius_1in': true }
-  readonly borderStartEndRadius2in: { 'border-start-end-radius_2in': true }
-  readonly borderStartEndRadius4in: { 'border-start-end-radius_4in': true }
-  readonly borderStartEndRadius6in: { 'border-start-end-radius_6in': true }
-  readonly borderStartEndRadius8in: { 'border-start-end-radius_8in': true }
-  readonly borderStartEndRadius10in: { 'border-start-end-radius_10in': true }
-  readonly borderStartEndRadius12in: { 'border-start-end-radius_12in': true }
-  readonly borderStartEndRadius16in: { 'border-start-end-radius_16in': true }
-  readonly borderStartEndRadius20in: { 'border-start-end-radius_20in': true }
   readonly borderStartEndRadius0lh: { 'border-start-end-radius_0lh': true }
   readonly borderStartEndRadius0p25lh: { 'border-start-end-radius_0\.25lh': true }
   readonly borderStartEndRadius0p5lh: { 'border-start-end-radius_0\.5lh': true }
@@ -15792,36 +14402,6 @@ export interface CsstsAtoms {
   readonly borderStartEndRadius80lvw: { 'border-start-end-radius_80lvw': true }
   readonly borderStartEndRadius90lvw: { 'border-start-end-radius_90lvw': true }
   readonly borderStartEndRadius100lvw: { 'border-start-end-radius_100lvw': true }
-  readonly borderStartEndRadius0mm: { 'border-start-end-radius_0mm': true }
-  readonly borderStartEndRadius1mm: { 'border-start-end-radius_1mm': true }
-  readonly borderStartEndRadius2mm: { 'border-start-end-radius_2mm': true }
-  readonly borderStartEndRadius4mm: { 'border-start-end-radius_4mm': true }
-  readonly borderStartEndRadius6mm: { 'border-start-end-radius_6mm': true }
-  readonly borderStartEndRadius8mm: { 'border-start-end-radius_8mm': true }
-  readonly borderStartEndRadius10mm: { 'border-start-end-radius_10mm': true }
-  readonly borderStartEndRadius12mm: { 'border-start-end-radius_12mm': true }
-  readonly borderStartEndRadius16mm: { 'border-start-end-radius_16mm': true }
-  readonly borderStartEndRadius20mm: { 'border-start-end-radius_20mm': true }
-  readonly borderStartEndRadius0pc: { 'border-start-end-radius_0pc': true }
-  readonly borderStartEndRadius1pc: { 'border-start-end-radius_1pc': true }
-  readonly borderStartEndRadius2pc: { 'border-start-end-radius_2pc': true }
-  readonly borderStartEndRadius4pc: { 'border-start-end-radius_4pc': true }
-  readonly borderStartEndRadius6pc: { 'border-start-end-radius_6pc': true }
-  readonly borderStartEndRadius8pc: { 'border-start-end-radius_8pc': true }
-  readonly borderStartEndRadius10pc: { 'border-start-end-radius_10pc': true }
-  readonly borderStartEndRadius12pc: { 'border-start-end-radius_12pc': true }
-  readonly borderStartEndRadius16pc: { 'border-start-end-radius_16pc': true }
-  readonly borderStartEndRadius20pc: { 'border-start-end-radius_20pc': true }
-  readonly borderStartEndRadius0pt: { 'border-start-end-radius_0pt': true }
-  readonly borderStartEndRadius1pt: { 'border-start-end-radius_1pt': true }
-  readonly borderStartEndRadius2pt: { 'border-start-end-radius_2pt': true }
-  readonly borderStartEndRadius4pt: { 'border-start-end-radius_4pt': true }
-  readonly borderStartEndRadius6pt: { 'border-start-end-radius_6pt': true }
-  readonly borderStartEndRadius8pt: { 'border-start-end-radius_8pt': true }
-  readonly borderStartEndRadius10pt: { 'border-start-end-radius_10pt': true }
-  readonly borderStartEndRadius12pt: { 'border-start-end-radius_12pt': true }
-  readonly borderStartEndRadius16pt: { 'border-start-end-radius_16pt': true }
-  readonly borderStartEndRadius20pt: { 'border-start-end-radius_20pt': true }
   readonly borderStartEndRadiusN384px: { 'border-start-end-radius_-384px': true }
   readonly borderStartEndRadiusN320px: { 'border-start-end-radius_-320px': true }
   readonly borderStartEndRadiusN256px: { 'border-start-end-radius_-256px': true }
@@ -16040,16 +14620,6 @@ export interface CsstsAtoms {
   readonly borderStartEndRadius100Pct: { 'border-start-end-radius_100\%': true }
 
   // ==================== border-start-start-radius ====================
-  readonly borderStartStartRadius0Q: { 'border-start-start-radius_0Q': true }
-  readonly borderStartStartRadius1Q: { 'border-start-start-radius_1Q': true }
-  readonly borderStartStartRadius2Q: { 'border-start-start-radius_2Q': true }
-  readonly borderStartStartRadius4Q: { 'border-start-start-radius_4Q': true }
-  readonly borderStartStartRadius6Q: { 'border-start-start-radius_6Q': true }
-  readonly borderStartStartRadius8Q: { 'border-start-start-radius_8Q': true }
-  readonly borderStartStartRadius10Q: { 'border-start-start-radius_10Q': true }
-  readonly borderStartStartRadius12Q: { 'border-start-start-radius_12Q': true }
-  readonly borderStartStartRadius16Q: { 'border-start-start-radius_16Q': true }
-  readonly borderStartStartRadius20Q: { 'border-start-start-radius_20Q': true }
   readonly borderStartStartRadius0cap: { 'border-start-start-radius_0cap': true }
   readonly borderStartStartRadius0p25cap: { 'border-start-start-radius_0\.25cap': true }
   readonly borderStartStartRadius0p5cap: { 'border-start-start-radius_0\.5cap': true }
@@ -16078,16 +14648,6 @@ export interface CsstsAtoms {
   readonly borderStartStartRadius5ch: { 'border-start-start-radius_5ch': true }
   readonly borderStartStartRadius6ch: { 'border-start-start-radius_6ch': true }
   readonly borderStartStartRadius8ch: { 'border-start-start-radius_8ch': true }
-  readonly borderStartStartRadius0cm: { 'border-start-start-radius_0cm': true }
-  readonly borderStartStartRadius1cm: { 'border-start-start-radius_1cm': true }
-  readonly borderStartStartRadius2cm: { 'border-start-start-radius_2cm': true }
-  readonly borderStartStartRadius4cm: { 'border-start-start-radius_4cm': true }
-  readonly borderStartStartRadius6cm: { 'border-start-start-radius_6cm': true }
-  readonly borderStartStartRadius8cm: { 'border-start-start-radius_8cm': true }
-  readonly borderStartStartRadius10cm: { 'border-start-start-radius_10cm': true }
-  readonly borderStartStartRadius12cm: { 'border-start-start-radius_12cm': true }
-  readonly borderStartStartRadius16cm: { 'border-start-start-radius_16cm': true }
-  readonly borderStartStartRadius20cm: { 'border-start-start-radius_20cm': true }
   readonly borderStartStartRadius0dvh: { 'border-start-start-radius_0dvh': true }
   readonly borderStartStartRadius10dvh: { 'border-start-start-radius_10dvh': true }
   readonly borderStartStartRadius20dvh: { 'border-start-start-radius_20dvh': true }
@@ -16160,16 +14720,6 @@ export interface CsstsAtoms {
   readonly borderStartStartRadius5ic: { 'border-start-start-radius_5ic': true }
   readonly borderStartStartRadius6ic: { 'border-start-start-radius_6ic': true }
   readonly borderStartStartRadius8ic: { 'border-start-start-radius_8ic': true }
-  readonly borderStartStartRadius0in: { 'border-start-start-radius_0in': true }
-  readonly borderStartStartRadius1in: { 'border-start-start-radius_1in': true }
-  readonly borderStartStartRadius2in: { 'border-start-start-radius_2in': true }
-  readonly borderStartStartRadius4in: { 'border-start-start-radius_4in': true }
-  readonly borderStartStartRadius6in: { 'border-start-start-radius_6in': true }
-  readonly borderStartStartRadius8in: { 'border-start-start-radius_8in': true }
-  readonly borderStartStartRadius10in: { 'border-start-start-radius_10in': true }
-  readonly borderStartStartRadius12in: { 'border-start-start-radius_12in': true }
-  readonly borderStartStartRadius16in: { 'border-start-start-radius_16in': true }
-  readonly borderStartStartRadius20in: { 'border-start-start-radius_20in': true }
   readonly borderStartStartRadius0lh: { 'border-start-start-radius_0lh': true }
   readonly borderStartStartRadius0p25lh: { 'border-start-start-radius_0\.25lh': true }
   readonly borderStartStartRadius0p5lh: { 'border-start-start-radius_0\.5lh': true }
@@ -16214,36 +14764,6 @@ export interface CsstsAtoms {
   readonly borderStartStartRadius80lvw: { 'border-start-start-radius_80lvw': true }
   readonly borderStartStartRadius90lvw: { 'border-start-start-radius_90lvw': true }
   readonly borderStartStartRadius100lvw: { 'border-start-start-radius_100lvw': true }
-  readonly borderStartStartRadius0mm: { 'border-start-start-radius_0mm': true }
-  readonly borderStartStartRadius1mm: { 'border-start-start-radius_1mm': true }
-  readonly borderStartStartRadius2mm: { 'border-start-start-radius_2mm': true }
-  readonly borderStartStartRadius4mm: { 'border-start-start-radius_4mm': true }
-  readonly borderStartStartRadius6mm: { 'border-start-start-radius_6mm': true }
-  readonly borderStartStartRadius8mm: { 'border-start-start-radius_8mm': true }
-  readonly borderStartStartRadius10mm: { 'border-start-start-radius_10mm': true }
-  readonly borderStartStartRadius12mm: { 'border-start-start-radius_12mm': true }
-  readonly borderStartStartRadius16mm: { 'border-start-start-radius_16mm': true }
-  readonly borderStartStartRadius20mm: { 'border-start-start-radius_20mm': true }
-  readonly borderStartStartRadius0pc: { 'border-start-start-radius_0pc': true }
-  readonly borderStartStartRadius1pc: { 'border-start-start-radius_1pc': true }
-  readonly borderStartStartRadius2pc: { 'border-start-start-radius_2pc': true }
-  readonly borderStartStartRadius4pc: { 'border-start-start-radius_4pc': true }
-  readonly borderStartStartRadius6pc: { 'border-start-start-radius_6pc': true }
-  readonly borderStartStartRadius8pc: { 'border-start-start-radius_8pc': true }
-  readonly borderStartStartRadius10pc: { 'border-start-start-radius_10pc': true }
-  readonly borderStartStartRadius12pc: { 'border-start-start-radius_12pc': true }
-  readonly borderStartStartRadius16pc: { 'border-start-start-radius_16pc': true }
-  readonly borderStartStartRadius20pc: { 'border-start-start-radius_20pc': true }
-  readonly borderStartStartRadius0pt: { 'border-start-start-radius_0pt': true }
-  readonly borderStartStartRadius1pt: { 'border-start-start-radius_1pt': true }
-  readonly borderStartStartRadius2pt: { 'border-start-start-radius_2pt': true }
-  readonly borderStartStartRadius4pt: { 'border-start-start-radius_4pt': true }
-  readonly borderStartStartRadius6pt: { 'border-start-start-radius_6pt': true }
-  readonly borderStartStartRadius8pt: { 'border-start-start-radius_8pt': true }
-  readonly borderStartStartRadius10pt: { 'border-start-start-radius_10pt': true }
-  readonly borderStartStartRadius12pt: { 'border-start-start-radius_12pt': true }
-  readonly borderStartStartRadius16pt: { 'border-start-start-radius_16pt': true }
-  readonly borderStartStartRadius20pt: { 'border-start-start-radius_20pt': true }
   readonly borderStartStartRadiusN384px: { 'border-start-start-radius_-384px': true }
   readonly borderStartStartRadiusN320px: { 'border-start-start-radius_-320px': true }
   readonly borderStartStartRadiusN256px: { 'border-start-start-radius_-256px': true }
@@ -16790,16 +15310,6 @@ export interface CsstsAtoms {
   readonly borderTop270turn: { 'border-top_270turn': true }
   readonly borderTop315turn: { 'border-top_315turn': true }
   readonly borderTop360turn: { 'border-top_360turn': true }
-  readonly borderTop0Q: { 'border-top_0Q': true }
-  readonly borderTop1Q: { 'border-top_1Q': true }
-  readonly borderTop2Q: { 'border-top_2Q': true }
-  readonly borderTop4Q: { 'border-top_4Q': true }
-  readonly borderTop6Q: { 'border-top_6Q': true }
-  readonly borderTop8Q: { 'border-top_8Q': true }
-  readonly borderTop10Q: { 'border-top_10Q': true }
-  readonly borderTop12Q: { 'border-top_12Q': true }
-  readonly borderTop16Q: { 'border-top_16Q': true }
-  readonly borderTop20Q: { 'border-top_20Q': true }
   readonly borderTop0cap: { 'border-top_0cap': true }
   readonly borderTop0p25cap: { 'border-top_0\.25cap': true }
   readonly borderTop0p5cap: { 'border-top_0\.5cap': true }
@@ -16828,16 +15338,6 @@ export interface CsstsAtoms {
   readonly borderTop5ch: { 'border-top_5ch': true }
   readonly borderTop6ch: { 'border-top_6ch': true }
   readonly borderTop8ch: { 'border-top_8ch': true }
-  readonly borderTop0cm: { 'border-top_0cm': true }
-  readonly borderTop1cm: { 'border-top_1cm': true }
-  readonly borderTop2cm: { 'border-top_2cm': true }
-  readonly borderTop4cm: { 'border-top_4cm': true }
-  readonly borderTop6cm: { 'border-top_6cm': true }
-  readonly borderTop8cm: { 'border-top_8cm': true }
-  readonly borderTop10cm: { 'border-top_10cm': true }
-  readonly borderTop12cm: { 'border-top_12cm': true }
-  readonly borderTop16cm: { 'border-top_16cm': true }
-  readonly borderTop20cm: { 'border-top_20cm': true }
   readonly borderTop0dvh: { 'border-top_0dvh': true }
   readonly borderTop10dvh: { 'border-top_10dvh': true }
   readonly borderTop20dvh: { 'border-top_20dvh': true }
@@ -16910,16 +15410,6 @@ export interface CsstsAtoms {
   readonly borderTop5ic: { 'border-top_5ic': true }
   readonly borderTop6ic: { 'border-top_6ic': true }
   readonly borderTop8ic: { 'border-top_8ic': true }
-  readonly borderTop0in: { 'border-top_0in': true }
-  readonly borderTop1in: { 'border-top_1in': true }
-  readonly borderTop2in: { 'border-top_2in': true }
-  readonly borderTop4in: { 'border-top_4in': true }
-  readonly borderTop6in: { 'border-top_6in': true }
-  readonly borderTop8in: { 'border-top_8in': true }
-  readonly borderTop10in: { 'border-top_10in': true }
-  readonly borderTop12in: { 'border-top_12in': true }
-  readonly borderTop16in: { 'border-top_16in': true }
-  readonly borderTop20in: { 'border-top_20in': true }
   readonly borderTop0lh: { 'border-top_0lh': true }
   readonly borderTop0p25lh: { 'border-top_0\.25lh': true }
   readonly borderTop0p5lh: { 'border-top_0\.5lh': true }
@@ -16964,36 +15454,6 @@ export interface CsstsAtoms {
   readonly borderTop80lvw: { 'border-top_80lvw': true }
   readonly borderTop90lvw: { 'border-top_90lvw': true }
   readonly borderTop100lvw: { 'border-top_100lvw': true }
-  readonly borderTop0mm: { 'border-top_0mm': true }
-  readonly borderTop1mm: { 'border-top_1mm': true }
-  readonly borderTop2mm: { 'border-top_2mm': true }
-  readonly borderTop4mm: { 'border-top_4mm': true }
-  readonly borderTop6mm: { 'border-top_6mm': true }
-  readonly borderTop8mm: { 'border-top_8mm': true }
-  readonly borderTop10mm: { 'border-top_10mm': true }
-  readonly borderTop12mm: { 'border-top_12mm': true }
-  readonly borderTop16mm: { 'border-top_16mm': true }
-  readonly borderTop20mm: { 'border-top_20mm': true }
-  readonly borderTop0pc: { 'border-top_0pc': true }
-  readonly borderTop1pc: { 'border-top_1pc': true }
-  readonly borderTop2pc: { 'border-top_2pc': true }
-  readonly borderTop4pc: { 'border-top_4pc': true }
-  readonly borderTop6pc: { 'border-top_6pc': true }
-  readonly borderTop8pc: { 'border-top_8pc': true }
-  readonly borderTop10pc: { 'border-top_10pc': true }
-  readonly borderTop12pc: { 'border-top_12pc': true }
-  readonly borderTop16pc: { 'border-top_16pc': true }
-  readonly borderTop20pc: { 'border-top_20pc': true }
-  readonly borderTop0pt: { 'border-top_0pt': true }
-  readonly borderTop1pt: { 'border-top_1pt': true }
-  readonly borderTop2pt: { 'border-top_2pt': true }
-  readonly borderTop4pt: { 'border-top_4pt': true }
-  readonly borderTop6pt: { 'border-top_6pt': true }
-  readonly borderTop8pt: { 'border-top_8pt': true }
-  readonly borderTop10pt: { 'border-top_10pt': true }
-  readonly borderTop12pt: { 'border-top_12pt': true }
-  readonly borderTop16pt: { 'border-top_16pt': true }
-  readonly borderTop20pt: { 'border-top_20pt': true }
   readonly borderTopN384px: { 'border-top_-384px': true }
   readonly borderTopN320px: { 'border-top_-320px': true }
   readonly borderTopN256px: { 'border-top_-256px': true }
@@ -17557,16 +16017,6 @@ export interface CsstsAtoms {
   readonly borderTopColor100Pct: { 'border-top-color_100\%': true }
 
   // ==================== border-top-left-radius ====================
-  readonly borderTopLeftRadius0Q: { 'border-top-left-radius_0Q': true }
-  readonly borderTopLeftRadius1Q: { 'border-top-left-radius_1Q': true }
-  readonly borderTopLeftRadius2Q: { 'border-top-left-radius_2Q': true }
-  readonly borderTopLeftRadius4Q: { 'border-top-left-radius_4Q': true }
-  readonly borderTopLeftRadius6Q: { 'border-top-left-radius_6Q': true }
-  readonly borderTopLeftRadius8Q: { 'border-top-left-radius_8Q': true }
-  readonly borderTopLeftRadius10Q: { 'border-top-left-radius_10Q': true }
-  readonly borderTopLeftRadius12Q: { 'border-top-left-radius_12Q': true }
-  readonly borderTopLeftRadius16Q: { 'border-top-left-radius_16Q': true }
-  readonly borderTopLeftRadius20Q: { 'border-top-left-radius_20Q': true }
   readonly borderTopLeftRadius0cap: { 'border-top-left-radius_0cap': true }
   readonly borderTopLeftRadius0p25cap: { 'border-top-left-radius_0\.25cap': true }
   readonly borderTopLeftRadius0p5cap: { 'border-top-left-radius_0\.5cap': true }
@@ -17595,16 +16045,6 @@ export interface CsstsAtoms {
   readonly borderTopLeftRadius5ch: { 'border-top-left-radius_5ch': true }
   readonly borderTopLeftRadius6ch: { 'border-top-left-radius_6ch': true }
   readonly borderTopLeftRadius8ch: { 'border-top-left-radius_8ch': true }
-  readonly borderTopLeftRadius0cm: { 'border-top-left-radius_0cm': true }
-  readonly borderTopLeftRadius1cm: { 'border-top-left-radius_1cm': true }
-  readonly borderTopLeftRadius2cm: { 'border-top-left-radius_2cm': true }
-  readonly borderTopLeftRadius4cm: { 'border-top-left-radius_4cm': true }
-  readonly borderTopLeftRadius6cm: { 'border-top-left-radius_6cm': true }
-  readonly borderTopLeftRadius8cm: { 'border-top-left-radius_8cm': true }
-  readonly borderTopLeftRadius10cm: { 'border-top-left-radius_10cm': true }
-  readonly borderTopLeftRadius12cm: { 'border-top-left-radius_12cm': true }
-  readonly borderTopLeftRadius16cm: { 'border-top-left-radius_16cm': true }
-  readonly borderTopLeftRadius20cm: { 'border-top-left-radius_20cm': true }
   readonly borderTopLeftRadius0dvh: { 'border-top-left-radius_0dvh': true }
   readonly borderTopLeftRadius10dvh: { 'border-top-left-radius_10dvh': true }
   readonly borderTopLeftRadius20dvh: { 'border-top-left-radius_20dvh': true }
@@ -17677,16 +16117,6 @@ export interface CsstsAtoms {
   readonly borderTopLeftRadius5ic: { 'border-top-left-radius_5ic': true }
   readonly borderTopLeftRadius6ic: { 'border-top-left-radius_6ic': true }
   readonly borderTopLeftRadius8ic: { 'border-top-left-radius_8ic': true }
-  readonly borderTopLeftRadius0in: { 'border-top-left-radius_0in': true }
-  readonly borderTopLeftRadius1in: { 'border-top-left-radius_1in': true }
-  readonly borderTopLeftRadius2in: { 'border-top-left-radius_2in': true }
-  readonly borderTopLeftRadius4in: { 'border-top-left-radius_4in': true }
-  readonly borderTopLeftRadius6in: { 'border-top-left-radius_6in': true }
-  readonly borderTopLeftRadius8in: { 'border-top-left-radius_8in': true }
-  readonly borderTopLeftRadius10in: { 'border-top-left-radius_10in': true }
-  readonly borderTopLeftRadius12in: { 'border-top-left-radius_12in': true }
-  readonly borderTopLeftRadius16in: { 'border-top-left-radius_16in': true }
-  readonly borderTopLeftRadius20in: { 'border-top-left-radius_20in': true }
   readonly borderTopLeftRadius0lh: { 'border-top-left-radius_0lh': true }
   readonly borderTopLeftRadius0p25lh: { 'border-top-left-radius_0\.25lh': true }
   readonly borderTopLeftRadius0p5lh: { 'border-top-left-radius_0\.5lh': true }
@@ -17731,36 +16161,6 @@ export interface CsstsAtoms {
   readonly borderTopLeftRadius80lvw: { 'border-top-left-radius_80lvw': true }
   readonly borderTopLeftRadius90lvw: { 'border-top-left-radius_90lvw': true }
   readonly borderTopLeftRadius100lvw: { 'border-top-left-radius_100lvw': true }
-  readonly borderTopLeftRadius0mm: { 'border-top-left-radius_0mm': true }
-  readonly borderTopLeftRadius1mm: { 'border-top-left-radius_1mm': true }
-  readonly borderTopLeftRadius2mm: { 'border-top-left-radius_2mm': true }
-  readonly borderTopLeftRadius4mm: { 'border-top-left-radius_4mm': true }
-  readonly borderTopLeftRadius6mm: { 'border-top-left-radius_6mm': true }
-  readonly borderTopLeftRadius8mm: { 'border-top-left-radius_8mm': true }
-  readonly borderTopLeftRadius10mm: { 'border-top-left-radius_10mm': true }
-  readonly borderTopLeftRadius12mm: { 'border-top-left-radius_12mm': true }
-  readonly borderTopLeftRadius16mm: { 'border-top-left-radius_16mm': true }
-  readonly borderTopLeftRadius20mm: { 'border-top-left-radius_20mm': true }
-  readonly borderTopLeftRadius0pc: { 'border-top-left-radius_0pc': true }
-  readonly borderTopLeftRadius1pc: { 'border-top-left-radius_1pc': true }
-  readonly borderTopLeftRadius2pc: { 'border-top-left-radius_2pc': true }
-  readonly borderTopLeftRadius4pc: { 'border-top-left-radius_4pc': true }
-  readonly borderTopLeftRadius6pc: { 'border-top-left-radius_6pc': true }
-  readonly borderTopLeftRadius8pc: { 'border-top-left-radius_8pc': true }
-  readonly borderTopLeftRadius10pc: { 'border-top-left-radius_10pc': true }
-  readonly borderTopLeftRadius12pc: { 'border-top-left-radius_12pc': true }
-  readonly borderTopLeftRadius16pc: { 'border-top-left-radius_16pc': true }
-  readonly borderTopLeftRadius20pc: { 'border-top-left-radius_20pc': true }
-  readonly borderTopLeftRadius0pt: { 'border-top-left-radius_0pt': true }
-  readonly borderTopLeftRadius1pt: { 'border-top-left-radius_1pt': true }
-  readonly borderTopLeftRadius2pt: { 'border-top-left-radius_2pt': true }
-  readonly borderTopLeftRadius4pt: { 'border-top-left-radius_4pt': true }
-  readonly borderTopLeftRadius6pt: { 'border-top-left-radius_6pt': true }
-  readonly borderTopLeftRadius8pt: { 'border-top-left-radius_8pt': true }
-  readonly borderTopLeftRadius10pt: { 'border-top-left-radius_10pt': true }
-  readonly borderTopLeftRadius12pt: { 'border-top-left-radius_12pt': true }
-  readonly borderTopLeftRadius16pt: { 'border-top-left-radius_16pt': true }
-  readonly borderTopLeftRadius20pt: { 'border-top-left-radius_20pt': true }
   readonly borderTopLeftRadiusN384px: { 'border-top-left-radius_-384px': true }
   readonly borderTopLeftRadiusN320px: { 'border-top-left-radius_-320px': true }
   readonly borderTopLeftRadiusN256px: { 'border-top-left-radius_-256px': true }
@@ -17979,16 +16379,6 @@ export interface CsstsAtoms {
   readonly borderTopLeftRadius100Pct: { 'border-top-left-radius_100\%': true }
 
   // ==================== border-top-right-radius ====================
-  readonly borderTopRightRadius0Q: { 'border-top-right-radius_0Q': true }
-  readonly borderTopRightRadius1Q: { 'border-top-right-radius_1Q': true }
-  readonly borderTopRightRadius2Q: { 'border-top-right-radius_2Q': true }
-  readonly borderTopRightRadius4Q: { 'border-top-right-radius_4Q': true }
-  readonly borderTopRightRadius6Q: { 'border-top-right-radius_6Q': true }
-  readonly borderTopRightRadius8Q: { 'border-top-right-radius_8Q': true }
-  readonly borderTopRightRadius10Q: { 'border-top-right-radius_10Q': true }
-  readonly borderTopRightRadius12Q: { 'border-top-right-radius_12Q': true }
-  readonly borderTopRightRadius16Q: { 'border-top-right-radius_16Q': true }
-  readonly borderTopRightRadius20Q: { 'border-top-right-radius_20Q': true }
   readonly borderTopRightRadius0cap: { 'border-top-right-radius_0cap': true }
   readonly borderTopRightRadius0p25cap: { 'border-top-right-radius_0\.25cap': true }
   readonly borderTopRightRadius0p5cap: { 'border-top-right-radius_0\.5cap': true }
@@ -18017,16 +16407,6 @@ export interface CsstsAtoms {
   readonly borderTopRightRadius5ch: { 'border-top-right-radius_5ch': true }
   readonly borderTopRightRadius6ch: { 'border-top-right-radius_6ch': true }
   readonly borderTopRightRadius8ch: { 'border-top-right-radius_8ch': true }
-  readonly borderTopRightRadius0cm: { 'border-top-right-radius_0cm': true }
-  readonly borderTopRightRadius1cm: { 'border-top-right-radius_1cm': true }
-  readonly borderTopRightRadius2cm: { 'border-top-right-radius_2cm': true }
-  readonly borderTopRightRadius4cm: { 'border-top-right-radius_4cm': true }
-  readonly borderTopRightRadius6cm: { 'border-top-right-radius_6cm': true }
-  readonly borderTopRightRadius8cm: { 'border-top-right-radius_8cm': true }
-  readonly borderTopRightRadius10cm: { 'border-top-right-radius_10cm': true }
-  readonly borderTopRightRadius12cm: { 'border-top-right-radius_12cm': true }
-  readonly borderTopRightRadius16cm: { 'border-top-right-radius_16cm': true }
-  readonly borderTopRightRadius20cm: { 'border-top-right-radius_20cm': true }
   readonly borderTopRightRadius0dvh: { 'border-top-right-radius_0dvh': true }
   readonly borderTopRightRadius10dvh: { 'border-top-right-radius_10dvh': true }
   readonly borderTopRightRadius20dvh: { 'border-top-right-radius_20dvh': true }
@@ -18099,16 +16479,6 @@ export interface CsstsAtoms {
   readonly borderTopRightRadius5ic: { 'border-top-right-radius_5ic': true }
   readonly borderTopRightRadius6ic: { 'border-top-right-radius_6ic': true }
   readonly borderTopRightRadius8ic: { 'border-top-right-radius_8ic': true }
-  readonly borderTopRightRadius0in: { 'border-top-right-radius_0in': true }
-  readonly borderTopRightRadius1in: { 'border-top-right-radius_1in': true }
-  readonly borderTopRightRadius2in: { 'border-top-right-radius_2in': true }
-  readonly borderTopRightRadius4in: { 'border-top-right-radius_4in': true }
-  readonly borderTopRightRadius6in: { 'border-top-right-radius_6in': true }
-  readonly borderTopRightRadius8in: { 'border-top-right-radius_8in': true }
-  readonly borderTopRightRadius10in: { 'border-top-right-radius_10in': true }
-  readonly borderTopRightRadius12in: { 'border-top-right-radius_12in': true }
-  readonly borderTopRightRadius16in: { 'border-top-right-radius_16in': true }
-  readonly borderTopRightRadius20in: { 'border-top-right-radius_20in': true }
   readonly borderTopRightRadius0lh: { 'border-top-right-radius_0lh': true }
   readonly borderTopRightRadius0p25lh: { 'border-top-right-radius_0\.25lh': true }
   readonly borderTopRightRadius0p5lh: { 'border-top-right-radius_0\.5lh': true }
@@ -18153,36 +16523,6 @@ export interface CsstsAtoms {
   readonly borderTopRightRadius80lvw: { 'border-top-right-radius_80lvw': true }
   readonly borderTopRightRadius90lvw: { 'border-top-right-radius_90lvw': true }
   readonly borderTopRightRadius100lvw: { 'border-top-right-radius_100lvw': true }
-  readonly borderTopRightRadius0mm: { 'border-top-right-radius_0mm': true }
-  readonly borderTopRightRadius1mm: { 'border-top-right-radius_1mm': true }
-  readonly borderTopRightRadius2mm: { 'border-top-right-radius_2mm': true }
-  readonly borderTopRightRadius4mm: { 'border-top-right-radius_4mm': true }
-  readonly borderTopRightRadius6mm: { 'border-top-right-radius_6mm': true }
-  readonly borderTopRightRadius8mm: { 'border-top-right-radius_8mm': true }
-  readonly borderTopRightRadius10mm: { 'border-top-right-radius_10mm': true }
-  readonly borderTopRightRadius12mm: { 'border-top-right-radius_12mm': true }
-  readonly borderTopRightRadius16mm: { 'border-top-right-radius_16mm': true }
-  readonly borderTopRightRadius20mm: { 'border-top-right-radius_20mm': true }
-  readonly borderTopRightRadius0pc: { 'border-top-right-radius_0pc': true }
-  readonly borderTopRightRadius1pc: { 'border-top-right-radius_1pc': true }
-  readonly borderTopRightRadius2pc: { 'border-top-right-radius_2pc': true }
-  readonly borderTopRightRadius4pc: { 'border-top-right-radius_4pc': true }
-  readonly borderTopRightRadius6pc: { 'border-top-right-radius_6pc': true }
-  readonly borderTopRightRadius8pc: { 'border-top-right-radius_8pc': true }
-  readonly borderTopRightRadius10pc: { 'border-top-right-radius_10pc': true }
-  readonly borderTopRightRadius12pc: { 'border-top-right-radius_12pc': true }
-  readonly borderTopRightRadius16pc: { 'border-top-right-radius_16pc': true }
-  readonly borderTopRightRadius20pc: { 'border-top-right-radius_20pc': true }
-  readonly borderTopRightRadius0pt: { 'border-top-right-radius_0pt': true }
-  readonly borderTopRightRadius1pt: { 'border-top-right-radius_1pt': true }
-  readonly borderTopRightRadius2pt: { 'border-top-right-radius_2pt': true }
-  readonly borderTopRightRadius4pt: { 'border-top-right-radius_4pt': true }
-  readonly borderTopRightRadius6pt: { 'border-top-right-radius_6pt': true }
-  readonly borderTopRightRadius8pt: { 'border-top-right-radius_8pt': true }
-  readonly borderTopRightRadius10pt: { 'border-top-right-radius_10pt': true }
-  readonly borderTopRightRadius12pt: { 'border-top-right-radius_12pt': true }
-  readonly borderTopRightRadius16pt: { 'border-top-right-radius_16pt': true }
-  readonly borderTopRightRadius20pt: { 'border-top-right-radius_20pt': true }
   readonly borderTopRightRadiusN384px: { 'border-top-right-radius_-384px': true }
   readonly borderTopRightRadiusN320px: { 'border-top-right-radius_-320px': true }
   readonly borderTopRightRadiusN256px: { 'border-top-right-radius_-256px': true }
@@ -18416,16 +16756,6 @@ export interface CsstsAtoms {
   readonly borderTopWidthMedium: { 'border-top-width_medium': true }
   readonly borderTopWidthThick: { 'border-top-width_thick': true }
   readonly borderTopWidthThin: { 'border-top-width_thin': true }
-  readonly borderTopWidth0Q: { 'border-top-width_0Q': true }
-  readonly borderTopWidth1Q: { 'border-top-width_1Q': true }
-  readonly borderTopWidth2Q: { 'border-top-width_2Q': true }
-  readonly borderTopWidth4Q: { 'border-top-width_4Q': true }
-  readonly borderTopWidth6Q: { 'border-top-width_6Q': true }
-  readonly borderTopWidth8Q: { 'border-top-width_8Q': true }
-  readonly borderTopWidth10Q: { 'border-top-width_10Q': true }
-  readonly borderTopWidth12Q: { 'border-top-width_12Q': true }
-  readonly borderTopWidth16Q: { 'border-top-width_16Q': true }
-  readonly borderTopWidth20Q: { 'border-top-width_20Q': true }
   readonly borderTopWidth0cap: { 'border-top-width_0cap': true }
   readonly borderTopWidth0p25cap: { 'border-top-width_0\.25cap': true }
   readonly borderTopWidth0p5cap: { 'border-top-width_0\.5cap': true }
@@ -18454,16 +16784,6 @@ export interface CsstsAtoms {
   readonly borderTopWidth5ch: { 'border-top-width_5ch': true }
   readonly borderTopWidth6ch: { 'border-top-width_6ch': true }
   readonly borderTopWidth8ch: { 'border-top-width_8ch': true }
-  readonly borderTopWidth0cm: { 'border-top-width_0cm': true }
-  readonly borderTopWidth1cm: { 'border-top-width_1cm': true }
-  readonly borderTopWidth2cm: { 'border-top-width_2cm': true }
-  readonly borderTopWidth4cm: { 'border-top-width_4cm': true }
-  readonly borderTopWidth6cm: { 'border-top-width_6cm': true }
-  readonly borderTopWidth8cm: { 'border-top-width_8cm': true }
-  readonly borderTopWidth10cm: { 'border-top-width_10cm': true }
-  readonly borderTopWidth12cm: { 'border-top-width_12cm': true }
-  readonly borderTopWidth16cm: { 'border-top-width_16cm': true }
-  readonly borderTopWidth20cm: { 'border-top-width_20cm': true }
   readonly borderTopWidth0dvh: { 'border-top-width_0dvh': true }
   readonly borderTopWidth10dvh: { 'border-top-width_10dvh': true }
   readonly borderTopWidth20dvh: { 'border-top-width_20dvh': true }
@@ -18536,16 +16856,6 @@ export interface CsstsAtoms {
   readonly borderTopWidth5ic: { 'border-top-width_5ic': true }
   readonly borderTopWidth6ic: { 'border-top-width_6ic': true }
   readonly borderTopWidth8ic: { 'border-top-width_8ic': true }
-  readonly borderTopWidth0in: { 'border-top-width_0in': true }
-  readonly borderTopWidth1in: { 'border-top-width_1in': true }
-  readonly borderTopWidth2in: { 'border-top-width_2in': true }
-  readonly borderTopWidth4in: { 'border-top-width_4in': true }
-  readonly borderTopWidth6in: { 'border-top-width_6in': true }
-  readonly borderTopWidth8in: { 'border-top-width_8in': true }
-  readonly borderTopWidth10in: { 'border-top-width_10in': true }
-  readonly borderTopWidth12in: { 'border-top-width_12in': true }
-  readonly borderTopWidth16in: { 'border-top-width_16in': true }
-  readonly borderTopWidth20in: { 'border-top-width_20in': true }
   readonly borderTopWidth0lh: { 'border-top-width_0lh': true }
   readonly borderTopWidth0p25lh: { 'border-top-width_0\.25lh': true }
   readonly borderTopWidth0p5lh: { 'border-top-width_0\.5lh': true }
@@ -18590,36 +16900,6 @@ export interface CsstsAtoms {
   readonly borderTopWidth80lvw: { 'border-top-width_80lvw': true }
   readonly borderTopWidth90lvw: { 'border-top-width_90lvw': true }
   readonly borderTopWidth100lvw: { 'border-top-width_100lvw': true }
-  readonly borderTopWidth0mm: { 'border-top-width_0mm': true }
-  readonly borderTopWidth1mm: { 'border-top-width_1mm': true }
-  readonly borderTopWidth2mm: { 'border-top-width_2mm': true }
-  readonly borderTopWidth4mm: { 'border-top-width_4mm': true }
-  readonly borderTopWidth6mm: { 'border-top-width_6mm': true }
-  readonly borderTopWidth8mm: { 'border-top-width_8mm': true }
-  readonly borderTopWidth10mm: { 'border-top-width_10mm': true }
-  readonly borderTopWidth12mm: { 'border-top-width_12mm': true }
-  readonly borderTopWidth16mm: { 'border-top-width_16mm': true }
-  readonly borderTopWidth20mm: { 'border-top-width_20mm': true }
-  readonly borderTopWidth0pc: { 'border-top-width_0pc': true }
-  readonly borderTopWidth1pc: { 'border-top-width_1pc': true }
-  readonly borderTopWidth2pc: { 'border-top-width_2pc': true }
-  readonly borderTopWidth4pc: { 'border-top-width_4pc': true }
-  readonly borderTopWidth6pc: { 'border-top-width_6pc': true }
-  readonly borderTopWidth8pc: { 'border-top-width_8pc': true }
-  readonly borderTopWidth10pc: { 'border-top-width_10pc': true }
-  readonly borderTopWidth12pc: { 'border-top-width_12pc': true }
-  readonly borderTopWidth16pc: { 'border-top-width_16pc': true }
-  readonly borderTopWidth20pc: { 'border-top-width_20pc': true }
-  readonly borderTopWidth0pt: { 'border-top-width_0pt': true }
-  readonly borderTopWidth1pt: { 'border-top-width_1pt': true }
-  readonly borderTopWidth2pt: { 'border-top-width_2pt': true }
-  readonly borderTopWidth4pt: { 'border-top-width_4pt': true }
-  readonly borderTopWidth6pt: { 'border-top-width_6pt': true }
-  readonly borderTopWidth8pt: { 'border-top-width_8pt': true }
-  readonly borderTopWidth10pt: { 'border-top-width_10pt': true }
-  readonly borderTopWidth12pt: { 'border-top-width_12pt': true }
-  readonly borderTopWidth16pt: { 'border-top-width_16pt': true }
-  readonly borderTopWidth20pt: { 'border-top-width_20pt': true }
   readonly borderTopWidthN384px: { 'border-top-width_-384px': true }
   readonly borderTopWidthN320px: { 'border-top-width_-320px': true }
   readonly borderTopWidthN256px: { 'border-top-width_-256px': true }
@@ -18826,16 +17106,6 @@ export interface CsstsAtoms {
   readonly borderWidthMedium: { 'border-width_medium': true }
   readonly borderWidthThick: { 'border-width_thick': true }
   readonly borderWidthThin: { 'border-width_thin': true }
-  readonly borderWidth0Q: { 'border-width_0Q': true }
-  readonly borderWidth1Q: { 'border-width_1Q': true }
-  readonly borderWidth2Q: { 'border-width_2Q': true }
-  readonly borderWidth4Q: { 'border-width_4Q': true }
-  readonly borderWidth6Q: { 'border-width_6Q': true }
-  readonly borderWidth8Q: { 'border-width_8Q': true }
-  readonly borderWidth10Q: { 'border-width_10Q': true }
-  readonly borderWidth12Q: { 'border-width_12Q': true }
-  readonly borderWidth16Q: { 'border-width_16Q': true }
-  readonly borderWidth20Q: { 'border-width_20Q': true }
   readonly borderWidth0cap: { 'border-width_0cap': true }
   readonly borderWidth0p25cap: { 'border-width_0\.25cap': true }
   readonly borderWidth0p5cap: { 'border-width_0\.5cap': true }
@@ -18864,16 +17134,6 @@ export interface CsstsAtoms {
   readonly borderWidth5ch: { 'border-width_5ch': true }
   readonly borderWidth6ch: { 'border-width_6ch': true }
   readonly borderWidth8ch: { 'border-width_8ch': true }
-  readonly borderWidth0cm: { 'border-width_0cm': true }
-  readonly borderWidth1cm: { 'border-width_1cm': true }
-  readonly borderWidth2cm: { 'border-width_2cm': true }
-  readonly borderWidth4cm: { 'border-width_4cm': true }
-  readonly borderWidth6cm: { 'border-width_6cm': true }
-  readonly borderWidth8cm: { 'border-width_8cm': true }
-  readonly borderWidth10cm: { 'border-width_10cm': true }
-  readonly borderWidth12cm: { 'border-width_12cm': true }
-  readonly borderWidth16cm: { 'border-width_16cm': true }
-  readonly borderWidth20cm: { 'border-width_20cm': true }
   readonly borderWidth0dvh: { 'border-width_0dvh': true }
   readonly borderWidth10dvh: { 'border-width_10dvh': true }
   readonly borderWidth20dvh: { 'border-width_20dvh': true }
@@ -18946,16 +17206,6 @@ export interface CsstsAtoms {
   readonly borderWidth5ic: { 'border-width_5ic': true }
   readonly borderWidth6ic: { 'border-width_6ic': true }
   readonly borderWidth8ic: { 'border-width_8ic': true }
-  readonly borderWidth0in: { 'border-width_0in': true }
-  readonly borderWidth1in: { 'border-width_1in': true }
-  readonly borderWidth2in: { 'border-width_2in': true }
-  readonly borderWidth4in: { 'border-width_4in': true }
-  readonly borderWidth6in: { 'border-width_6in': true }
-  readonly borderWidth8in: { 'border-width_8in': true }
-  readonly borderWidth10in: { 'border-width_10in': true }
-  readonly borderWidth12in: { 'border-width_12in': true }
-  readonly borderWidth16in: { 'border-width_16in': true }
-  readonly borderWidth20in: { 'border-width_20in': true }
   readonly borderWidth0lh: { 'border-width_0lh': true }
   readonly borderWidth0p25lh: { 'border-width_0\.25lh': true }
   readonly borderWidth0p5lh: { 'border-width_0\.5lh': true }
@@ -19000,36 +17250,6 @@ export interface CsstsAtoms {
   readonly borderWidth80lvw: { 'border-width_80lvw': true }
   readonly borderWidth90lvw: { 'border-width_90lvw': true }
   readonly borderWidth100lvw: { 'border-width_100lvw': true }
-  readonly borderWidth0mm: { 'border-width_0mm': true }
-  readonly borderWidth1mm: { 'border-width_1mm': true }
-  readonly borderWidth2mm: { 'border-width_2mm': true }
-  readonly borderWidth4mm: { 'border-width_4mm': true }
-  readonly borderWidth6mm: { 'border-width_6mm': true }
-  readonly borderWidth8mm: { 'border-width_8mm': true }
-  readonly borderWidth10mm: { 'border-width_10mm': true }
-  readonly borderWidth12mm: { 'border-width_12mm': true }
-  readonly borderWidth16mm: { 'border-width_16mm': true }
-  readonly borderWidth20mm: { 'border-width_20mm': true }
-  readonly borderWidth0pc: { 'border-width_0pc': true }
-  readonly borderWidth1pc: { 'border-width_1pc': true }
-  readonly borderWidth2pc: { 'border-width_2pc': true }
-  readonly borderWidth4pc: { 'border-width_4pc': true }
-  readonly borderWidth6pc: { 'border-width_6pc': true }
-  readonly borderWidth8pc: { 'border-width_8pc': true }
-  readonly borderWidth10pc: { 'border-width_10pc': true }
-  readonly borderWidth12pc: { 'border-width_12pc': true }
-  readonly borderWidth16pc: { 'border-width_16pc': true }
-  readonly borderWidth20pc: { 'border-width_20pc': true }
-  readonly borderWidth0pt: { 'border-width_0pt': true }
-  readonly borderWidth1pt: { 'border-width_1pt': true }
-  readonly borderWidth2pt: { 'border-width_2pt': true }
-  readonly borderWidth4pt: { 'border-width_4pt': true }
-  readonly borderWidth6pt: { 'border-width_6pt': true }
-  readonly borderWidth8pt: { 'border-width_8pt': true }
-  readonly borderWidth10pt: { 'border-width_10pt': true }
-  readonly borderWidth12pt: { 'border-width_12pt': true }
-  readonly borderWidth16pt: { 'border-width_16pt': true }
-  readonly borderWidth20pt: { 'border-width_20pt': true }
   readonly borderWidthN384px: { 'border-width_-384px': true }
   readonly borderWidthN320px: { 'border-width_-320px': true }
   readonly borderWidthN256px: { 'border-width_-256px': true }
@@ -19234,16 +17454,6 @@ export interface CsstsAtoms {
 
   // ==================== bottom ====================
   readonly bottomAuto: { 'bottom_auto': true }
-  readonly bottom0Q: { 'bottom_0Q': true }
-  readonly bottom1Q: { 'bottom_1Q': true }
-  readonly bottom2Q: { 'bottom_2Q': true }
-  readonly bottom4Q: { 'bottom_4Q': true }
-  readonly bottom6Q: { 'bottom_6Q': true }
-  readonly bottom8Q: { 'bottom_8Q': true }
-  readonly bottom10Q: { 'bottom_10Q': true }
-  readonly bottom12Q: { 'bottom_12Q': true }
-  readonly bottom16Q: { 'bottom_16Q': true }
-  readonly bottom20Q: { 'bottom_20Q': true }
   readonly bottom0cap: { 'bottom_0cap': true }
   readonly bottom0p25cap: { 'bottom_0\.25cap': true }
   readonly bottom0p5cap: { 'bottom_0\.5cap': true }
@@ -19272,16 +17482,6 @@ export interface CsstsAtoms {
   readonly bottom5ch: { 'bottom_5ch': true }
   readonly bottom6ch: { 'bottom_6ch': true }
   readonly bottom8ch: { 'bottom_8ch': true }
-  readonly bottom0cm: { 'bottom_0cm': true }
-  readonly bottom1cm: { 'bottom_1cm': true }
-  readonly bottom2cm: { 'bottom_2cm': true }
-  readonly bottom4cm: { 'bottom_4cm': true }
-  readonly bottom6cm: { 'bottom_6cm': true }
-  readonly bottom8cm: { 'bottom_8cm': true }
-  readonly bottom10cm: { 'bottom_10cm': true }
-  readonly bottom12cm: { 'bottom_12cm': true }
-  readonly bottom16cm: { 'bottom_16cm': true }
-  readonly bottom20cm: { 'bottom_20cm': true }
   readonly bottom0dvh: { 'bottom_0dvh': true }
   readonly bottom10dvh: { 'bottom_10dvh': true }
   readonly bottom20dvh: { 'bottom_20dvh': true }
@@ -19354,16 +17554,6 @@ export interface CsstsAtoms {
   readonly bottom5ic: { 'bottom_5ic': true }
   readonly bottom6ic: { 'bottom_6ic': true }
   readonly bottom8ic: { 'bottom_8ic': true }
-  readonly bottom0in: { 'bottom_0in': true }
-  readonly bottom1in: { 'bottom_1in': true }
-  readonly bottom2in: { 'bottom_2in': true }
-  readonly bottom4in: { 'bottom_4in': true }
-  readonly bottom6in: { 'bottom_6in': true }
-  readonly bottom8in: { 'bottom_8in': true }
-  readonly bottom10in: { 'bottom_10in': true }
-  readonly bottom12in: { 'bottom_12in': true }
-  readonly bottom16in: { 'bottom_16in': true }
-  readonly bottom20in: { 'bottom_20in': true }
   readonly bottom0lh: { 'bottom_0lh': true }
   readonly bottom0p25lh: { 'bottom_0\.25lh': true }
   readonly bottom0p5lh: { 'bottom_0\.5lh': true }
@@ -19408,36 +17598,6 @@ export interface CsstsAtoms {
   readonly bottom80lvw: { 'bottom_80lvw': true }
   readonly bottom90lvw: { 'bottom_90lvw': true }
   readonly bottom100lvw: { 'bottom_100lvw': true }
-  readonly bottom0mm: { 'bottom_0mm': true }
-  readonly bottom1mm: { 'bottom_1mm': true }
-  readonly bottom2mm: { 'bottom_2mm': true }
-  readonly bottom4mm: { 'bottom_4mm': true }
-  readonly bottom6mm: { 'bottom_6mm': true }
-  readonly bottom8mm: { 'bottom_8mm': true }
-  readonly bottom10mm: { 'bottom_10mm': true }
-  readonly bottom12mm: { 'bottom_12mm': true }
-  readonly bottom16mm: { 'bottom_16mm': true }
-  readonly bottom20mm: { 'bottom_20mm': true }
-  readonly bottom0pc: { 'bottom_0pc': true }
-  readonly bottom1pc: { 'bottom_1pc': true }
-  readonly bottom2pc: { 'bottom_2pc': true }
-  readonly bottom4pc: { 'bottom_4pc': true }
-  readonly bottom6pc: { 'bottom_6pc': true }
-  readonly bottom8pc: { 'bottom_8pc': true }
-  readonly bottom10pc: { 'bottom_10pc': true }
-  readonly bottom12pc: { 'bottom_12pc': true }
-  readonly bottom16pc: { 'bottom_16pc': true }
-  readonly bottom20pc: { 'bottom_20pc': true }
-  readonly bottom0pt: { 'bottom_0pt': true }
-  readonly bottom1pt: { 'bottom_1pt': true }
-  readonly bottom2pt: { 'bottom_2pt': true }
-  readonly bottom4pt: { 'bottom_4pt': true }
-  readonly bottom6pt: { 'bottom_6pt': true }
-  readonly bottom8pt: { 'bottom_8pt': true }
-  readonly bottom10pt: { 'bottom_10pt': true }
-  readonly bottom12pt: { 'bottom_12pt': true }
-  readonly bottom16pt: { 'bottom_16pt': true }
-  readonly bottom20pt: { 'bottom_20pt': true }
   readonly bottomN384px: { 'bottom_-384px': true }
   readonly bottomN320px: { 'bottom_-320px': true }
   readonly bottomN256px: { 'bottom_-256px': true }
@@ -19961,16 +18121,6 @@ export interface CsstsAtoms {
   readonly boxShadow270turn: { 'box-shadow_270turn': true }
   readonly boxShadow315turn: { 'box-shadow_315turn': true }
   readonly boxShadow360turn: { 'box-shadow_360turn': true }
-  readonly boxShadow0Q: { 'box-shadow_0Q': true }
-  readonly boxShadow1Q: { 'box-shadow_1Q': true }
-  readonly boxShadow2Q: { 'box-shadow_2Q': true }
-  readonly boxShadow4Q: { 'box-shadow_4Q': true }
-  readonly boxShadow6Q: { 'box-shadow_6Q': true }
-  readonly boxShadow8Q: { 'box-shadow_8Q': true }
-  readonly boxShadow10Q: { 'box-shadow_10Q': true }
-  readonly boxShadow12Q: { 'box-shadow_12Q': true }
-  readonly boxShadow16Q: { 'box-shadow_16Q': true }
-  readonly boxShadow20Q: { 'box-shadow_20Q': true }
   readonly boxShadow0cap: { 'box-shadow_0cap': true }
   readonly boxShadow0p25cap: { 'box-shadow_0\.25cap': true }
   readonly boxShadow0p5cap: { 'box-shadow_0\.5cap': true }
@@ -19999,16 +18149,6 @@ export interface CsstsAtoms {
   readonly boxShadow5ch: { 'box-shadow_5ch': true }
   readonly boxShadow6ch: { 'box-shadow_6ch': true }
   readonly boxShadow8ch: { 'box-shadow_8ch': true }
-  readonly boxShadow0cm: { 'box-shadow_0cm': true }
-  readonly boxShadow1cm: { 'box-shadow_1cm': true }
-  readonly boxShadow2cm: { 'box-shadow_2cm': true }
-  readonly boxShadow4cm: { 'box-shadow_4cm': true }
-  readonly boxShadow6cm: { 'box-shadow_6cm': true }
-  readonly boxShadow8cm: { 'box-shadow_8cm': true }
-  readonly boxShadow10cm: { 'box-shadow_10cm': true }
-  readonly boxShadow12cm: { 'box-shadow_12cm': true }
-  readonly boxShadow16cm: { 'box-shadow_16cm': true }
-  readonly boxShadow20cm: { 'box-shadow_20cm': true }
   readonly boxShadow0dvh: { 'box-shadow_0dvh': true }
   readonly boxShadow10dvh: { 'box-shadow_10dvh': true }
   readonly boxShadow20dvh: { 'box-shadow_20dvh': true }
@@ -20081,16 +18221,6 @@ export interface CsstsAtoms {
   readonly boxShadow5ic: { 'box-shadow_5ic': true }
   readonly boxShadow6ic: { 'box-shadow_6ic': true }
   readonly boxShadow8ic: { 'box-shadow_8ic': true }
-  readonly boxShadow0in: { 'box-shadow_0in': true }
-  readonly boxShadow1in: { 'box-shadow_1in': true }
-  readonly boxShadow2in: { 'box-shadow_2in': true }
-  readonly boxShadow4in: { 'box-shadow_4in': true }
-  readonly boxShadow6in: { 'box-shadow_6in': true }
-  readonly boxShadow8in: { 'box-shadow_8in': true }
-  readonly boxShadow10in: { 'box-shadow_10in': true }
-  readonly boxShadow12in: { 'box-shadow_12in': true }
-  readonly boxShadow16in: { 'box-shadow_16in': true }
-  readonly boxShadow20in: { 'box-shadow_20in': true }
   readonly boxShadow0lh: { 'box-shadow_0lh': true }
   readonly boxShadow0p25lh: { 'box-shadow_0\.25lh': true }
   readonly boxShadow0p5lh: { 'box-shadow_0\.5lh': true }
@@ -20135,36 +18265,6 @@ export interface CsstsAtoms {
   readonly boxShadow80lvw: { 'box-shadow_80lvw': true }
   readonly boxShadow90lvw: { 'box-shadow_90lvw': true }
   readonly boxShadow100lvw: { 'box-shadow_100lvw': true }
-  readonly boxShadow0mm: { 'box-shadow_0mm': true }
-  readonly boxShadow1mm: { 'box-shadow_1mm': true }
-  readonly boxShadow2mm: { 'box-shadow_2mm': true }
-  readonly boxShadow4mm: { 'box-shadow_4mm': true }
-  readonly boxShadow6mm: { 'box-shadow_6mm': true }
-  readonly boxShadow8mm: { 'box-shadow_8mm': true }
-  readonly boxShadow10mm: { 'box-shadow_10mm': true }
-  readonly boxShadow12mm: { 'box-shadow_12mm': true }
-  readonly boxShadow16mm: { 'box-shadow_16mm': true }
-  readonly boxShadow20mm: { 'box-shadow_20mm': true }
-  readonly boxShadow0pc: { 'box-shadow_0pc': true }
-  readonly boxShadow1pc: { 'box-shadow_1pc': true }
-  readonly boxShadow2pc: { 'box-shadow_2pc': true }
-  readonly boxShadow4pc: { 'box-shadow_4pc': true }
-  readonly boxShadow6pc: { 'box-shadow_6pc': true }
-  readonly boxShadow8pc: { 'box-shadow_8pc': true }
-  readonly boxShadow10pc: { 'box-shadow_10pc': true }
-  readonly boxShadow12pc: { 'box-shadow_12pc': true }
-  readonly boxShadow16pc: { 'box-shadow_16pc': true }
-  readonly boxShadow20pc: { 'box-shadow_20pc': true }
-  readonly boxShadow0pt: { 'box-shadow_0pt': true }
-  readonly boxShadow1pt: { 'box-shadow_1pt': true }
-  readonly boxShadow2pt: { 'box-shadow_2pt': true }
-  readonly boxShadow4pt: { 'box-shadow_4pt': true }
-  readonly boxShadow6pt: { 'box-shadow_6pt': true }
-  readonly boxShadow8pt: { 'box-shadow_8pt': true }
-  readonly boxShadow10pt: { 'box-shadow_10pt': true }
-  readonly boxShadow12pt: { 'box-shadow_12pt': true }
-  readonly boxShadow16pt: { 'box-shadow_16pt': true }
-  readonly boxShadow20pt: { 'box-shadow_20pt': true }
   readonly boxShadowN384px: { 'box-shadow_-384px': true }
   readonly boxShadowN320px: { 'box-shadow_-320px': true }
   readonly boxShadowN256px: { 'box-shadow_-256px': true }
@@ -20761,16 +18861,6 @@ export interface CsstsAtoms {
   readonly clipPathStrokeBox: { 'clip-path_stroke-box': true }
   readonly clipPathTop: { 'clip-path_top': true }
   readonly clipPathViewBox: { 'clip-path_view-box': true }
-  readonly clipPath0Q: { 'clip-path_0Q': true }
-  readonly clipPath1Q: { 'clip-path_1Q': true }
-  readonly clipPath2Q: { 'clip-path_2Q': true }
-  readonly clipPath4Q: { 'clip-path_4Q': true }
-  readonly clipPath6Q: { 'clip-path_6Q': true }
-  readonly clipPath8Q: { 'clip-path_8Q': true }
-  readonly clipPath10Q: { 'clip-path_10Q': true }
-  readonly clipPath12Q: { 'clip-path_12Q': true }
-  readonly clipPath16Q: { 'clip-path_16Q': true }
-  readonly clipPath20Q: { 'clip-path_20Q': true }
   readonly clipPath0cap: { 'clip-path_0cap': true }
   readonly clipPath0p25cap: { 'clip-path_0\.25cap': true }
   readonly clipPath0p5cap: { 'clip-path_0\.5cap': true }
@@ -20799,16 +18889,6 @@ export interface CsstsAtoms {
   readonly clipPath5ch: { 'clip-path_5ch': true }
   readonly clipPath6ch: { 'clip-path_6ch': true }
   readonly clipPath8ch: { 'clip-path_8ch': true }
-  readonly clipPath0cm: { 'clip-path_0cm': true }
-  readonly clipPath1cm: { 'clip-path_1cm': true }
-  readonly clipPath2cm: { 'clip-path_2cm': true }
-  readonly clipPath4cm: { 'clip-path_4cm': true }
-  readonly clipPath6cm: { 'clip-path_6cm': true }
-  readonly clipPath8cm: { 'clip-path_8cm': true }
-  readonly clipPath10cm: { 'clip-path_10cm': true }
-  readonly clipPath12cm: { 'clip-path_12cm': true }
-  readonly clipPath16cm: { 'clip-path_16cm': true }
-  readonly clipPath20cm: { 'clip-path_20cm': true }
   readonly clipPath0dvh: { 'clip-path_0dvh': true }
   readonly clipPath10dvh: { 'clip-path_10dvh': true }
   readonly clipPath20dvh: { 'clip-path_20dvh': true }
@@ -20881,16 +18961,6 @@ export interface CsstsAtoms {
   readonly clipPath5ic: { 'clip-path_5ic': true }
   readonly clipPath6ic: { 'clip-path_6ic': true }
   readonly clipPath8ic: { 'clip-path_8ic': true }
-  readonly clipPath0in: { 'clip-path_0in': true }
-  readonly clipPath1in: { 'clip-path_1in': true }
-  readonly clipPath2in: { 'clip-path_2in': true }
-  readonly clipPath4in: { 'clip-path_4in': true }
-  readonly clipPath6in: { 'clip-path_6in': true }
-  readonly clipPath8in: { 'clip-path_8in': true }
-  readonly clipPath10in: { 'clip-path_10in': true }
-  readonly clipPath12in: { 'clip-path_12in': true }
-  readonly clipPath16in: { 'clip-path_16in': true }
-  readonly clipPath20in: { 'clip-path_20in': true }
   readonly clipPath0lh: { 'clip-path_0lh': true }
   readonly clipPath0p25lh: { 'clip-path_0\.25lh': true }
   readonly clipPath0p5lh: { 'clip-path_0\.5lh': true }
@@ -20935,36 +19005,6 @@ export interface CsstsAtoms {
   readonly clipPath80lvw: { 'clip-path_80lvw': true }
   readonly clipPath90lvw: { 'clip-path_90lvw': true }
   readonly clipPath100lvw: { 'clip-path_100lvw': true }
-  readonly clipPath0mm: { 'clip-path_0mm': true }
-  readonly clipPath1mm: { 'clip-path_1mm': true }
-  readonly clipPath2mm: { 'clip-path_2mm': true }
-  readonly clipPath4mm: { 'clip-path_4mm': true }
-  readonly clipPath6mm: { 'clip-path_6mm': true }
-  readonly clipPath8mm: { 'clip-path_8mm': true }
-  readonly clipPath10mm: { 'clip-path_10mm': true }
-  readonly clipPath12mm: { 'clip-path_12mm': true }
-  readonly clipPath16mm: { 'clip-path_16mm': true }
-  readonly clipPath20mm: { 'clip-path_20mm': true }
-  readonly clipPath0pc: { 'clip-path_0pc': true }
-  readonly clipPath1pc: { 'clip-path_1pc': true }
-  readonly clipPath2pc: { 'clip-path_2pc': true }
-  readonly clipPath4pc: { 'clip-path_4pc': true }
-  readonly clipPath6pc: { 'clip-path_6pc': true }
-  readonly clipPath8pc: { 'clip-path_8pc': true }
-  readonly clipPath10pc: { 'clip-path_10pc': true }
-  readonly clipPath12pc: { 'clip-path_12pc': true }
-  readonly clipPath16pc: { 'clip-path_16pc': true }
-  readonly clipPath20pc: { 'clip-path_20pc': true }
-  readonly clipPath0pt: { 'clip-path_0pt': true }
-  readonly clipPath1pt: { 'clip-path_1pt': true }
-  readonly clipPath2pt: { 'clip-path_2pt': true }
-  readonly clipPath4pt: { 'clip-path_4pt': true }
-  readonly clipPath6pt: { 'clip-path_6pt': true }
-  readonly clipPath8pt: { 'clip-path_8pt': true }
-  readonly clipPath10pt: { 'clip-path_10pt': true }
-  readonly clipPath12pt: { 'clip-path_12pt': true }
-  readonly clipPath16pt: { 'clip-path_16pt': true }
-  readonly clipPath20pt: { 'clip-path_20pt': true }
   readonly clipPathN384px: { 'clip-path_-384px': true }
   readonly clipPathN320px: { 'clip-path_-320px': true }
   readonly clipPathN256px: { 'clip-path_-256px': true }
@@ -21920,16 +19960,6 @@ export interface CsstsAtoms {
   readonly filter270turn: { 'filter_270turn': true }
   readonly filter315turn: { 'filter_315turn': true }
   readonly filter360turn: { 'filter_360turn': true }
-  readonly filter0Q: { 'filter_0Q': true }
-  readonly filter1Q: { 'filter_1Q': true }
-  readonly filter2Q: { 'filter_2Q': true }
-  readonly filter4Q: { 'filter_4Q': true }
-  readonly filter6Q: { 'filter_6Q': true }
-  readonly filter8Q: { 'filter_8Q': true }
-  readonly filter10Q: { 'filter_10Q': true }
-  readonly filter12Q: { 'filter_12Q': true }
-  readonly filter16Q: { 'filter_16Q': true }
-  readonly filter20Q: { 'filter_20Q': true }
   readonly filter0cap: { 'filter_0cap': true }
   readonly filter0p25cap: { 'filter_0\.25cap': true }
   readonly filter0p5cap: { 'filter_0\.5cap': true }
@@ -21958,16 +19988,6 @@ export interface CsstsAtoms {
   readonly filter5ch: { 'filter_5ch': true }
   readonly filter6ch: { 'filter_6ch': true }
   readonly filter8ch: { 'filter_8ch': true }
-  readonly filter0cm: { 'filter_0cm': true }
-  readonly filter1cm: { 'filter_1cm': true }
-  readonly filter2cm: { 'filter_2cm': true }
-  readonly filter4cm: { 'filter_4cm': true }
-  readonly filter6cm: { 'filter_6cm': true }
-  readonly filter8cm: { 'filter_8cm': true }
-  readonly filter10cm: { 'filter_10cm': true }
-  readonly filter12cm: { 'filter_12cm': true }
-  readonly filter16cm: { 'filter_16cm': true }
-  readonly filter20cm: { 'filter_20cm': true }
   readonly filter0dvh: { 'filter_0dvh': true }
   readonly filter10dvh: { 'filter_10dvh': true }
   readonly filter20dvh: { 'filter_20dvh': true }
@@ -22040,16 +20060,6 @@ export interface CsstsAtoms {
   readonly filter5ic: { 'filter_5ic': true }
   readonly filter6ic: { 'filter_6ic': true }
   readonly filter8ic: { 'filter_8ic': true }
-  readonly filter0in: { 'filter_0in': true }
-  readonly filter1in: { 'filter_1in': true }
-  readonly filter2in: { 'filter_2in': true }
-  readonly filter4in: { 'filter_4in': true }
-  readonly filter6in: { 'filter_6in': true }
-  readonly filter8in: { 'filter_8in': true }
-  readonly filter10in: { 'filter_10in': true }
-  readonly filter12in: { 'filter_12in': true }
-  readonly filter16in: { 'filter_16in': true }
-  readonly filter20in: { 'filter_20in': true }
   readonly filter0lh: { 'filter_0lh': true }
   readonly filter0p25lh: { 'filter_0\.25lh': true }
   readonly filter0p5lh: { 'filter_0\.5lh': true }
@@ -22094,36 +20104,6 @@ export interface CsstsAtoms {
   readonly filter80lvw: { 'filter_80lvw': true }
   readonly filter90lvw: { 'filter_90lvw': true }
   readonly filter100lvw: { 'filter_100lvw': true }
-  readonly filter0mm: { 'filter_0mm': true }
-  readonly filter1mm: { 'filter_1mm': true }
-  readonly filter2mm: { 'filter_2mm': true }
-  readonly filter4mm: { 'filter_4mm': true }
-  readonly filter6mm: { 'filter_6mm': true }
-  readonly filter8mm: { 'filter_8mm': true }
-  readonly filter10mm: { 'filter_10mm': true }
-  readonly filter12mm: { 'filter_12mm': true }
-  readonly filter16mm: { 'filter_16mm': true }
-  readonly filter20mm: { 'filter_20mm': true }
-  readonly filter0pc: { 'filter_0pc': true }
-  readonly filter1pc: { 'filter_1pc': true }
-  readonly filter2pc: { 'filter_2pc': true }
-  readonly filter4pc: { 'filter_4pc': true }
-  readonly filter6pc: { 'filter_6pc': true }
-  readonly filter8pc: { 'filter_8pc': true }
-  readonly filter10pc: { 'filter_10pc': true }
-  readonly filter12pc: { 'filter_12pc': true }
-  readonly filter16pc: { 'filter_16pc': true }
-  readonly filter20pc: { 'filter_20pc': true }
-  readonly filter0pt: { 'filter_0pt': true }
-  readonly filter1pt: { 'filter_1pt': true }
-  readonly filter2pt: { 'filter_2pt': true }
-  readonly filter4pt: { 'filter_4pt': true }
-  readonly filter6pt: { 'filter_6pt': true }
-  readonly filter8pt: { 'filter_8pt': true }
-  readonly filter10pt: { 'filter_10pt': true }
-  readonly filter12pt: { 'filter_12pt': true }
-  readonly filter16pt: { 'filter_16pt': true }
-  readonly filter20pt: { 'filter_20pt': true }
   readonly filterN384px: { 'filter_-384px': true }
   readonly filterN320px: { 'filter_-320px': true }
   readonly filterN256px: { 'filter_-256px': true }
@@ -22464,16 +20444,6 @@ export interface CsstsAtoms {
   readonly fontSizeXxLarge: { 'font-size_xx-large': true }
   readonly fontSizeXxSmall: { 'font-size_xx-small': true }
   readonly fontSizeXxxLarge: { 'font-size_xxx-large': true }
-  readonly fontSize0Q: { 'font-size_0Q': true }
-  readonly fontSize1Q: { 'font-size_1Q': true }
-  readonly fontSize2Q: { 'font-size_2Q': true }
-  readonly fontSize4Q: { 'font-size_4Q': true }
-  readonly fontSize6Q: { 'font-size_6Q': true }
-  readonly fontSize8Q: { 'font-size_8Q': true }
-  readonly fontSize10Q: { 'font-size_10Q': true }
-  readonly fontSize12Q: { 'font-size_12Q': true }
-  readonly fontSize16Q: { 'font-size_16Q': true }
-  readonly fontSize20Q: { 'font-size_20Q': true }
   readonly fontSize0cap: { 'font-size_0cap': true }
   readonly fontSize0p25cap: { 'font-size_0\.25cap': true }
   readonly fontSize0p5cap: { 'font-size_0\.5cap': true }
@@ -22502,16 +20472,6 @@ export interface CsstsAtoms {
   readonly fontSize5ch: { 'font-size_5ch': true }
   readonly fontSize6ch: { 'font-size_6ch': true }
   readonly fontSize8ch: { 'font-size_8ch': true }
-  readonly fontSize0cm: { 'font-size_0cm': true }
-  readonly fontSize1cm: { 'font-size_1cm': true }
-  readonly fontSize2cm: { 'font-size_2cm': true }
-  readonly fontSize4cm: { 'font-size_4cm': true }
-  readonly fontSize6cm: { 'font-size_6cm': true }
-  readonly fontSize8cm: { 'font-size_8cm': true }
-  readonly fontSize10cm: { 'font-size_10cm': true }
-  readonly fontSize12cm: { 'font-size_12cm': true }
-  readonly fontSize16cm: { 'font-size_16cm': true }
-  readonly fontSize20cm: { 'font-size_20cm': true }
   readonly fontSize0dvh: { 'font-size_0dvh': true }
   readonly fontSize10dvh: { 'font-size_10dvh': true }
   readonly fontSize20dvh: { 'font-size_20dvh': true }
@@ -22584,16 +20544,6 @@ export interface CsstsAtoms {
   readonly fontSize5ic: { 'font-size_5ic': true }
   readonly fontSize6ic: { 'font-size_6ic': true }
   readonly fontSize8ic: { 'font-size_8ic': true }
-  readonly fontSize0in: { 'font-size_0in': true }
-  readonly fontSize1in: { 'font-size_1in': true }
-  readonly fontSize2in: { 'font-size_2in': true }
-  readonly fontSize4in: { 'font-size_4in': true }
-  readonly fontSize6in: { 'font-size_6in': true }
-  readonly fontSize8in: { 'font-size_8in': true }
-  readonly fontSize10in: { 'font-size_10in': true }
-  readonly fontSize12in: { 'font-size_12in': true }
-  readonly fontSize16in: { 'font-size_16in': true }
-  readonly fontSize20in: { 'font-size_20in': true }
   readonly fontSize0lh: { 'font-size_0lh': true }
   readonly fontSize0p25lh: { 'font-size_0\.25lh': true }
   readonly fontSize0p5lh: { 'font-size_0\.5lh': true }
@@ -22638,36 +20588,6 @@ export interface CsstsAtoms {
   readonly fontSize80lvw: { 'font-size_80lvw': true }
   readonly fontSize90lvw: { 'font-size_90lvw': true }
   readonly fontSize100lvw: { 'font-size_100lvw': true }
-  readonly fontSize0mm: { 'font-size_0mm': true }
-  readonly fontSize1mm: { 'font-size_1mm': true }
-  readonly fontSize2mm: { 'font-size_2mm': true }
-  readonly fontSize4mm: { 'font-size_4mm': true }
-  readonly fontSize6mm: { 'font-size_6mm': true }
-  readonly fontSize8mm: { 'font-size_8mm': true }
-  readonly fontSize10mm: { 'font-size_10mm': true }
-  readonly fontSize12mm: { 'font-size_12mm': true }
-  readonly fontSize16mm: { 'font-size_16mm': true }
-  readonly fontSize20mm: { 'font-size_20mm': true }
-  readonly fontSize0pc: { 'font-size_0pc': true }
-  readonly fontSize1pc: { 'font-size_1pc': true }
-  readonly fontSize2pc: { 'font-size_2pc': true }
-  readonly fontSize4pc: { 'font-size_4pc': true }
-  readonly fontSize6pc: { 'font-size_6pc': true }
-  readonly fontSize8pc: { 'font-size_8pc': true }
-  readonly fontSize10pc: { 'font-size_10pc': true }
-  readonly fontSize12pc: { 'font-size_12pc': true }
-  readonly fontSize16pc: { 'font-size_16pc': true }
-  readonly fontSize20pc: { 'font-size_20pc': true }
-  readonly fontSize0pt: { 'font-size_0pt': true }
-  readonly fontSize1pt: { 'font-size_1pt': true }
-  readonly fontSize2pt: { 'font-size_2pt': true }
-  readonly fontSize4pt: { 'font-size_4pt': true }
-  readonly fontSize6pt: { 'font-size_6pt': true }
-  readonly fontSize8pt: { 'font-size_8pt': true }
-  readonly fontSize10pt: { 'font-size_10pt': true }
-  readonly fontSize12pt: { 'font-size_12pt': true }
-  readonly fontSize16pt: { 'font-size_16pt': true }
-  readonly fontSize20pt: { 'font-size_20pt': true }
   readonly fontSizeN384px: { 'font-size_-384px': true }
   readonly fontSizeN320px: { 'font-size_-320px': true }
   readonly fontSizeN256px: { 'font-size_-256px': true }
@@ -23000,22 +20920,6 @@ export interface CsstsAtoms {
   readonly gridAutoColumnsAuto: { 'grid-auto-columns_auto': true }
   readonly gridAutoColumnsMaxContent: { 'grid-auto-columns_max-content': true }
   readonly gridAutoColumnsMinContent: { 'grid-auto-columns_min-content': true }
-  readonly gridAutoColumns1fr: { 'grid-auto-columns_1fr': true }
-  readonly gridAutoColumns2fr: { 'grid-auto-columns_2fr': true }
-  readonly gridAutoColumns3fr: { 'grid-auto-columns_3fr': true }
-  readonly gridAutoColumns4fr: { 'grid-auto-columns_4fr': true }
-  readonly gridAutoColumns5fr: { 'grid-auto-columns_5fr': true }
-  readonly gridAutoColumns6fr: { 'grid-auto-columns_6fr': true }
-  readonly gridAutoColumns0Q: { 'grid-auto-columns_0Q': true }
-  readonly gridAutoColumns1Q: { 'grid-auto-columns_1Q': true }
-  readonly gridAutoColumns2Q: { 'grid-auto-columns_2Q': true }
-  readonly gridAutoColumns4Q: { 'grid-auto-columns_4Q': true }
-  readonly gridAutoColumns6Q: { 'grid-auto-columns_6Q': true }
-  readonly gridAutoColumns8Q: { 'grid-auto-columns_8Q': true }
-  readonly gridAutoColumns10Q: { 'grid-auto-columns_10Q': true }
-  readonly gridAutoColumns12Q: { 'grid-auto-columns_12Q': true }
-  readonly gridAutoColumns16Q: { 'grid-auto-columns_16Q': true }
-  readonly gridAutoColumns20Q: { 'grid-auto-columns_20Q': true }
   readonly gridAutoColumns0cap: { 'grid-auto-columns_0cap': true }
   readonly gridAutoColumns0p25cap: { 'grid-auto-columns_0\.25cap': true }
   readonly gridAutoColumns0p5cap: { 'grid-auto-columns_0\.5cap': true }
@@ -23044,16 +20948,6 @@ export interface CsstsAtoms {
   readonly gridAutoColumns5ch: { 'grid-auto-columns_5ch': true }
   readonly gridAutoColumns6ch: { 'grid-auto-columns_6ch': true }
   readonly gridAutoColumns8ch: { 'grid-auto-columns_8ch': true }
-  readonly gridAutoColumns0cm: { 'grid-auto-columns_0cm': true }
-  readonly gridAutoColumns1cm: { 'grid-auto-columns_1cm': true }
-  readonly gridAutoColumns2cm: { 'grid-auto-columns_2cm': true }
-  readonly gridAutoColumns4cm: { 'grid-auto-columns_4cm': true }
-  readonly gridAutoColumns6cm: { 'grid-auto-columns_6cm': true }
-  readonly gridAutoColumns8cm: { 'grid-auto-columns_8cm': true }
-  readonly gridAutoColumns10cm: { 'grid-auto-columns_10cm': true }
-  readonly gridAutoColumns12cm: { 'grid-auto-columns_12cm': true }
-  readonly gridAutoColumns16cm: { 'grid-auto-columns_16cm': true }
-  readonly gridAutoColumns20cm: { 'grid-auto-columns_20cm': true }
   readonly gridAutoColumns0dvh: { 'grid-auto-columns_0dvh': true }
   readonly gridAutoColumns10dvh: { 'grid-auto-columns_10dvh': true }
   readonly gridAutoColumns20dvh: { 'grid-auto-columns_20dvh': true }
@@ -23126,16 +21020,6 @@ export interface CsstsAtoms {
   readonly gridAutoColumns5ic: { 'grid-auto-columns_5ic': true }
   readonly gridAutoColumns6ic: { 'grid-auto-columns_6ic': true }
   readonly gridAutoColumns8ic: { 'grid-auto-columns_8ic': true }
-  readonly gridAutoColumns0in: { 'grid-auto-columns_0in': true }
-  readonly gridAutoColumns1in: { 'grid-auto-columns_1in': true }
-  readonly gridAutoColumns2in: { 'grid-auto-columns_2in': true }
-  readonly gridAutoColumns4in: { 'grid-auto-columns_4in': true }
-  readonly gridAutoColumns6in: { 'grid-auto-columns_6in': true }
-  readonly gridAutoColumns8in: { 'grid-auto-columns_8in': true }
-  readonly gridAutoColumns10in: { 'grid-auto-columns_10in': true }
-  readonly gridAutoColumns12in: { 'grid-auto-columns_12in': true }
-  readonly gridAutoColumns16in: { 'grid-auto-columns_16in': true }
-  readonly gridAutoColumns20in: { 'grid-auto-columns_20in': true }
   readonly gridAutoColumns0lh: { 'grid-auto-columns_0lh': true }
   readonly gridAutoColumns0p25lh: { 'grid-auto-columns_0\.25lh': true }
   readonly gridAutoColumns0p5lh: { 'grid-auto-columns_0\.5lh': true }
@@ -23180,36 +21064,6 @@ export interface CsstsAtoms {
   readonly gridAutoColumns80lvw: { 'grid-auto-columns_80lvw': true }
   readonly gridAutoColumns90lvw: { 'grid-auto-columns_90lvw': true }
   readonly gridAutoColumns100lvw: { 'grid-auto-columns_100lvw': true }
-  readonly gridAutoColumns0mm: { 'grid-auto-columns_0mm': true }
-  readonly gridAutoColumns1mm: { 'grid-auto-columns_1mm': true }
-  readonly gridAutoColumns2mm: { 'grid-auto-columns_2mm': true }
-  readonly gridAutoColumns4mm: { 'grid-auto-columns_4mm': true }
-  readonly gridAutoColumns6mm: { 'grid-auto-columns_6mm': true }
-  readonly gridAutoColumns8mm: { 'grid-auto-columns_8mm': true }
-  readonly gridAutoColumns10mm: { 'grid-auto-columns_10mm': true }
-  readonly gridAutoColumns12mm: { 'grid-auto-columns_12mm': true }
-  readonly gridAutoColumns16mm: { 'grid-auto-columns_16mm': true }
-  readonly gridAutoColumns20mm: { 'grid-auto-columns_20mm': true }
-  readonly gridAutoColumns0pc: { 'grid-auto-columns_0pc': true }
-  readonly gridAutoColumns1pc: { 'grid-auto-columns_1pc': true }
-  readonly gridAutoColumns2pc: { 'grid-auto-columns_2pc': true }
-  readonly gridAutoColumns4pc: { 'grid-auto-columns_4pc': true }
-  readonly gridAutoColumns6pc: { 'grid-auto-columns_6pc': true }
-  readonly gridAutoColumns8pc: { 'grid-auto-columns_8pc': true }
-  readonly gridAutoColumns10pc: { 'grid-auto-columns_10pc': true }
-  readonly gridAutoColumns12pc: { 'grid-auto-columns_12pc': true }
-  readonly gridAutoColumns16pc: { 'grid-auto-columns_16pc': true }
-  readonly gridAutoColumns20pc: { 'grid-auto-columns_20pc': true }
-  readonly gridAutoColumns0pt: { 'grid-auto-columns_0pt': true }
-  readonly gridAutoColumns1pt: { 'grid-auto-columns_1pt': true }
-  readonly gridAutoColumns2pt: { 'grid-auto-columns_2pt': true }
-  readonly gridAutoColumns4pt: { 'grid-auto-columns_4pt': true }
-  readonly gridAutoColumns6pt: { 'grid-auto-columns_6pt': true }
-  readonly gridAutoColumns8pt: { 'grid-auto-columns_8pt': true }
-  readonly gridAutoColumns10pt: { 'grid-auto-columns_10pt': true }
-  readonly gridAutoColumns12pt: { 'grid-auto-columns_12pt': true }
-  readonly gridAutoColumns16pt: { 'grid-auto-columns_16pt': true }
-  readonly gridAutoColumns20pt: { 'grid-auto-columns_20pt': true }
   readonly gridAutoColumnsN384px: { 'grid-auto-columns_-384px': true }
   readonly gridAutoColumnsN320px: { 'grid-auto-columns_-320px': true }
   readonly gridAutoColumnsN256px: { 'grid-auto-columns_-256px': true }
@@ -23436,22 +21290,6 @@ export interface CsstsAtoms {
   readonly gridAutoRowsAuto: { 'grid-auto-rows_auto': true }
   readonly gridAutoRowsMaxContent: { 'grid-auto-rows_max-content': true }
   readonly gridAutoRowsMinContent: { 'grid-auto-rows_min-content': true }
-  readonly gridAutoRows1fr: { 'grid-auto-rows_1fr': true }
-  readonly gridAutoRows2fr: { 'grid-auto-rows_2fr': true }
-  readonly gridAutoRows3fr: { 'grid-auto-rows_3fr': true }
-  readonly gridAutoRows4fr: { 'grid-auto-rows_4fr': true }
-  readonly gridAutoRows5fr: { 'grid-auto-rows_5fr': true }
-  readonly gridAutoRows6fr: { 'grid-auto-rows_6fr': true }
-  readonly gridAutoRows0Q: { 'grid-auto-rows_0Q': true }
-  readonly gridAutoRows1Q: { 'grid-auto-rows_1Q': true }
-  readonly gridAutoRows2Q: { 'grid-auto-rows_2Q': true }
-  readonly gridAutoRows4Q: { 'grid-auto-rows_4Q': true }
-  readonly gridAutoRows6Q: { 'grid-auto-rows_6Q': true }
-  readonly gridAutoRows8Q: { 'grid-auto-rows_8Q': true }
-  readonly gridAutoRows10Q: { 'grid-auto-rows_10Q': true }
-  readonly gridAutoRows12Q: { 'grid-auto-rows_12Q': true }
-  readonly gridAutoRows16Q: { 'grid-auto-rows_16Q': true }
-  readonly gridAutoRows20Q: { 'grid-auto-rows_20Q': true }
   readonly gridAutoRows0cap: { 'grid-auto-rows_0cap': true }
   readonly gridAutoRows0p25cap: { 'grid-auto-rows_0\.25cap': true }
   readonly gridAutoRows0p5cap: { 'grid-auto-rows_0\.5cap': true }
@@ -23480,16 +21318,6 @@ export interface CsstsAtoms {
   readonly gridAutoRows5ch: { 'grid-auto-rows_5ch': true }
   readonly gridAutoRows6ch: { 'grid-auto-rows_6ch': true }
   readonly gridAutoRows8ch: { 'grid-auto-rows_8ch': true }
-  readonly gridAutoRows0cm: { 'grid-auto-rows_0cm': true }
-  readonly gridAutoRows1cm: { 'grid-auto-rows_1cm': true }
-  readonly gridAutoRows2cm: { 'grid-auto-rows_2cm': true }
-  readonly gridAutoRows4cm: { 'grid-auto-rows_4cm': true }
-  readonly gridAutoRows6cm: { 'grid-auto-rows_6cm': true }
-  readonly gridAutoRows8cm: { 'grid-auto-rows_8cm': true }
-  readonly gridAutoRows10cm: { 'grid-auto-rows_10cm': true }
-  readonly gridAutoRows12cm: { 'grid-auto-rows_12cm': true }
-  readonly gridAutoRows16cm: { 'grid-auto-rows_16cm': true }
-  readonly gridAutoRows20cm: { 'grid-auto-rows_20cm': true }
   readonly gridAutoRows0dvh: { 'grid-auto-rows_0dvh': true }
   readonly gridAutoRows10dvh: { 'grid-auto-rows_10dvh': true }
   readonly gridAutoRows20dvh: { 'grid-auto-rows_20dvh': true }
@@ -23562,16 +21390,6 @@ export interface CsstsAtoms {
   readonly gridAutoRows5ic: { 'grid-auto-rows_5ic': true }
   readonly gridAutoRows6ic: { 'grid-auto-rows_6ic': true }
   readonly gridAutoRows8ic: { 'grid-auto-rows_8ic': true }
-  readonly gridAutoRows0in: { 'grid-auto-rows_0in': true }
-  readonly gridAutoRows1in: { 'grid-auto-rows_1in': true }
-  readonly gridAutoRows2in: { 'grid-auto-rows_2in': true }
-  readonly gridAutoRows4in: { 'grid-auto-rows_4in': true }
-  readonly gridAutoRows6in: { 'grid-auto-rows_6in': true }
-  readonly gridAutoRows8in: { 'grid-auto-rows_8in': true }
-  readonly gridAutoRows10in: { 'grid-auto-rows_10in': true }
-  readonly gridAutoRows12in: { 'grid-auto-rows_12in': true }
-  readonly gridAutoRows16in: { 'grid-auto-rows_16in': true }
-  readonly gridAutoRows20in: { 'grid-auto-rows_20in': true }
   readonly gridAutoRows0lh: { 'grid-auto-rows_0lh': true }
   readonly gridAutoRows0p25lh: { 'grid-auto-rows_0\.25lh': true }
   readonly gridAutoRows0p5lh: { 'grid-auto-rows_0\.5lh': true }
@@ -23616,36 +21434,6 @@ export interface CsstsAtoms {
   readonly gridAutoRows80lvw: { 'grid-auto-rows_80lvw': true }
   readonly gridAutoRows90lvw: { 'grid-auto-rows_90lvw': true }
   readonly gridAutoRows100lvw: { 'grid-auto-rows_100lvw': true }
-  readonly gridAutoRows0mm: { 'grid-auto-rows_0mm': true }
-  readonly gridAutoRows1mm: { 'grid-auto-rows_1mm': true }
-  readonly gridAutoRows2mm: { 'grid-auto-rows_2mm': true }
-  readonly gridAutoRows4mm: { 'grid-auto-rows_4mm': true }
-  readonly gridAutoRows6mm: { 'grid-auto-rows_6mm': true }
-  readonly gridAutoRows8mm: { 'grid-auto-rows_8mm': true }
-  readonly gridAutoRows10mm: { 'grid-auto-rows_10mm': true }
-  readonly gridAutoRows12mm: { 'grid-auto-rows_12mm': true }
-  readonly gridAutoRows16mm: { 'grid-auto-rows_16mm': true }
-  readonly gridAutoRows20mm: { 'grid-auto-rows_20mm': true }
-  readonly gridAutoRows0pc: { 'grid-auto-rows_0pc': true }
-  readonly gridAutoRows1pc: { 'grid-auto-rows_1pc': true }
-  readonly gridAutoRows2pc: { 'grid-auto-rows_2pc': true }
-  readonly gridAutoRows4pc: { 'grid-auto-rows_4pc': true }
-  readonly gridAutoRows6pc: { 'grid-auto-rows_6pc': true }
-  readonly gridAutoRows8pc: { 'grid-auto-rows_8pc': true }
-  readonly gridAutoRows10pc: { 'grid-auto-rows_10pc': true }
-  readonly gridAutoRows12pc: { 'grid-auto-rows_12pc': true }
-  readonly gridAutoRows16pc: { 'grid-auto-rows_16pc': true }
-  readonly gridAutoRows20pc: { 'grid-auto-rows_20pc': true }
-  readonly gridAutoRows0pt: { 'grid-auto-rows_0pt': true }
-  readonly gridAutoRows1pt: { 'grid-auto-rows_1pt': true }
-  readonly gridAutoRows2pt: { 'grid-auto-rows_2pt': true }
-  readonly gridAutoRows4pt: { 'grid-auto-rows_4pt': true }
-  readonly gridAutoRows6pt: { 'grid-auto-rows_6pt': true }
-  readonly gridAutoRows8pt: { 'grid-auto-rows_8pt': true }
-  readonly gridAutoRows10pt: { 'grid-auto-rows_10pt': true }
-  readonly gridAutoRows12pt: { 'grid-auto-rows_12pt': true }
-  readonly gridAutoRows16pt: { 'grid-auto-rows_16pt': true }
-  readonly gridAutoRows20pt: { 'grid-auto-rows_20pt': true }
   readonly gridAutoRowsN384px: { 'grid-auto-rows_-384px': true }
   readonly gridAutoRowsN320px: { 'grid-auto-rows_-320px': true }
   readonly gridAutoRowsN256px: { 'grid-auto-rows_-256px': true }
@@ -23964,22 +21752,6 @@ export interface CsstsAtoms {
   readonly gridTemplateMaxContent: { 'grid-template_max-content': true }
   readonly gridTemplateMinContent: { 'grid-template_min-content': true }
   readonly gridTemplateNone: { 'grid-template_none': true }
-  readonly gridTemplate1fr: { 'grid-template_1fr': true }
-  readonly gridTemplate2fr: { 'grid-template_2fr': true }
-  readonly gridTemplate3fr: { 'grid-template_3fr': true }
-  readonly gridTemplate4fr: { 'grid-template_4fr': true }
-  readonly gridTemplate5fr: { 'grid-template_5fr': true }
-  readonly gridTemplate6fr: { 'grid-template_6fr': true }
-  readonly gridTemplate0Q: { 'grid-template_0Q': true }
-  readonly gridTemplate1Q: { 'grid-template_1Q': true }
-  readonly gridTemplate2Q: { 'grid-template_2Q': true }
-  readonly gridTemplate4Q: { 'grid-template_4Q': true }
-  readonly gridTemplate6Q: { 'grid-template_6Q': true }
-  readonly gridTemplate8Q: { 'grid-template_8Q': true }
-  readonly gridTemplate10Q: { 'grid-template_10Q': true }
-  readonly gridTemplate12Q: { 'grid-template_12Q': true }
-  readonly gridTemplate16Q: { 'grid-template_16Q': true }
-  readonly gridTemplate20Q: { 'grid-template_20Q': true }
   readonly gridTemplate0cap: { 'grid-template_0cap': true }
   readonly gridTemplate0p25cap: { 'grid-template_0\.25cap': true }
   readonly gridTemplate0p5cap: { 'grid-template_0\.5cap': true }
@@ -24008,16 +21780,6 @@ export interface CsstsAtoms {
   readonly gridTemplate5ch: { 'grid-template_5ch': true }
   readonly gridTemplate6ch: { 'grid-template_6ch': true }
   readonly gridTemplate8ch: { 'grid-template_8ch': true }
-  readonly gridTemplate0cm: { 'grid-template_0cm': true }
-  readonly gridTemplate1cm: { 'grid-template_1cm': true }
-  readonly gridTemplate2cm: { 'grid-template_2cm': true }
-  readonly gridTemplate4cm: { 'grid-template_4cm': true }
-  readonly gridTemplate6cm: { 'grid-template_6cm': true }
-  readonly gridTemplate8cm: { 'grid-template_8cm': true }
-  readonly gridTemplate10cm: { 'grid-template_10cm': true }
-  readonly gridTemplate12cm: { 'grid-template_12cm': true }
-  readonly gridTemplate16cm: { 'grid-template_16cm': true }
-  readonly gridTemplate20cm: { 'grid-template_20cm': true }
   readonly gridTemplate0dvh: { 'grid-template_0dvh': true }
   readonly gridTemplate10dvh: { 'grid-template_10dvh': true }
   readonly gridTemplate20dvh: { 'grid-template_20dvh': true }
@@ -24090,16 +21852,6 @@ export interface CsstsAtoms {
   readonly gridTemplate5ic: { 'grid-template_5ic': true }
   readonly gridTemplate6ic: { 'grid-template_6ic': true }
   readonly gridTemplate8ic: { 'grid-template_8ic': true }
-  readonly gridTemplate0in: { 'grid-template_0in': true }
-  readonly gridTemplate1in: { 'grid-template_1in': true }
-  readonly gridTemplate2in: { 'grid-template_2in': true }
-  readonly gridTemplate4in: { 'grid-template_4in': true }
-  readonly gridTemplate6in: { 'grid-template_6in': true }
-  readonly gridTemplate8in: { 'grid-template_8in': true }
-  readonly gridTemplate10in: { 'grid-template_10in': true }
-  readonly gridTemplate12in: { 'grid-template_12in': true }
-  readonly gridTemplate16in: { 'grid-template_16in': true }
-  readonly gridTemplate20in: { 'grid-template_20in': true }
   readonly gridTemplate0lh: { 'grid-template_0lh': true }
   readonly gridTemplate0p25lh: { 'grid-template_0\.25lh': true }
   readonly gridTemplate0p5lh: { 'grid-template_0\.5lh': true }
@@ -24144,36 +21896,6 @@ export interface CsstsAtoms {
   readonly gridTemplate80lvw: { 'grid-template_80lvw': true }
   readonly gridTemplate90lvw: { 'grid-template_90lvw': true }
   readonly gridTemplate100lvw: { 'grid-template_100lvw': true }
-  readonly gridTemplate0mm: { 'grid-template_0mm': true }
-  readonly gridTemplate1mm: { 'grid-template_1mm': true }
-  readonly gridTemplate2mm: { 'grid-template_2mm': true }
-  readonly gridTemplate4mm: { 'grid-template_4mm': true }
-  readonly gridTemplate6mm: { 'grid-template_6mm': true }
-  readonly gridTemplate8mm: { 'grid-template_8mm': true }
-  readonly gridTemplate10mm: { 'grid-template_10mm': true }
-  readonly gridTemplate12mm: { 'grid-template_12mm': true }
-  readonly gridTemplate16mm: { 'grid-template_16mm': true }
-  readonly gridTemplate20mm: { 'grid-template_20mm': true }
-  readonly gridTemplate0pc: { 'grid-template_0pc': true }
-  readonly gridTemplate1pc: { 'grid-template_1pc': true }
-  readonly gridTemplate2pc: { 'grid-template_2pc': true }
-  readonly gridTemplate4pc: { 'grid-template_4pc': true }
-  readonly gridTemplate6pc: { 'grid-template_6pc': true }
-  readonly gridTemplate8pc: { 'grid-template_8pc': true }
-  readonly gridTemplate10pc: { 'grid-template_10pc': true }
-  readonly gridTemplate12pc: { 'grid-template_12pc': true }
-  readonly gridTemplate16pc: { 'grid-template_16pc': true }
-  readonly gridTemplate20pc: { 'grid-template_20pc': true }
-  readonly gridTemplate0pt: { 'grid-template_0pt': true }
-  readonly gridTemplate1pt: { 'grid-template_1pt': true }
-  readonly gridTemplate2pt: { 'grid-template_2pt': true }
-  readonly gridTemplate4pt: { 'grid-template_4pt': true }
-  readonly gridTemplate6pt: { 'grid-template_6pt': true }
-  readonly gridTemplate8pt: { 'grid-template_8pt': true }
-  readonly gridTemplate10pt: { 'grid-template_10pt': true }
-  readonly gridTemplate12pt: { 'grid-template_12pt': true }
-  readonly gridTemplate16pt: { 'grid-template_16pt': true }
-  readonly gridTemplate20pt: { 'grid-template_20pt': true }
   readonly gridTemplateN384px: { 'grid-template_-384px': true }
   readonly gridTemplateN320px: { 'grid-template_-320px': true }
   readonly gridTemplateN256px: { 'grid-template_-256px': true }
@@ -24402,12 +22124,6 @@ export interface CsstsAtoms {
   readonly gridTemplateColumnsMinContent: { 'grid-template-columns_min-content': true }
   readonly gridTemplateColumnsNone: { 'grid-template-columns_none': true }
   readonly gridTemplateColumnsSubgrid: { 'grid-template-columns_subgrid': true }
-  readonly gridTemplateColumns1fr: { 'grid-template-columns_1fr': true }
-  readonly gridTemplateColumns2fr: { 'grid-template-columns_2fr': true }
-  readonly gridTemplateColumns3fr: { 'grid-template-columns_3fr': true }
-  readonly gridTemplateColumns4fr: { 'grid-template-columns_4fr': true }
-  readonly gridTemplateColumns5fr: { 'grid-template-columns_5fr': true }
-  readonly gridTemplateColumns6fr: { 'grid-template-columns_6fr': true }
   readonly gridTemplateColumns0: { 'grid-template-columns_0': true }
   readonly gridTemplateColumns0p5: { 'grid-template-columns_0\.5': true }
   readonly gridTemplateColumns1: { 'grid-template-columns_1': true }
@@ -24420,16 +22136,6 @@ export interface CsstsAtoms {
   readonly gridTemplateColumns20: { 'grid-template-columns_20': true }
   readonly gridTemplateColumns50: { 'grid-template-columns_50': true }
   readonly gridTemplateColumns100: { 'grid-template-columns_100': true }
-  readonly gridTemplateColumns0Q: { 'grid-template-columns_0Q': true }
-  readonly gridTemplateColumns1Q: { 'grid-template-columns_1Q': true }
-  readonly gridTemplateColumns2Q: { 'grid-template-columns_2Q': true }
-  readonly gridTemplateColumns4Q: { 'grid-template-columns_4Q': true }
-  readonly gridTemplateColumns6Q: { 'grid-template-columns_6Q': true }
-  readonly gridTemplateColumns8Q: { 'grid-template-columns_8Q': true }
-  readonly gridTemplateColumns10Q: { 'grid-template-columns_10Q': true }
-  readonly gridTemplateColumns12Q: { 'grid-template-columns_12Q': true }
-  readonly gridTemplateColumns16Q: { 'grid-template-columns_16Q': true }
-  readonly gridTemplateColumns20Q: { 'grid-template-columns_20Q': true }
   readonly gridTemplateColumns0cap: { 'grid-template-columns_0cap': true }
   readonly gridTemplateColumns0p25cap: { 'grid-template-columns_0\.25cap': true }
   readonly gridTemplateColumns0p5cap: { 'grid-template-columns_0\.5cap': true }
@@ -24458,16 +22164,6 @@ export interface CsstsAtoms {
   readonly gridTemplateColumns5ch: { 'grid-template-columns_5ch': true }
   readonly gridTemplateColumns6ch: { 'grid-template-columns_6ch': true }
   readonly gridTemplateColumns8ch: { 'grid-template-columns_8ch': true }
-  readonly gridTemplateColumns0cm: { 'grid-template-columns_0cm': true }
-  readonly gridTemplateColumns1cm: { 'grid-template-columns_1cm': true }
-  readonly gridTemplateColumns2cm: { 'grid-template-columns_2cm': true }
-  readonly gridTemplateColumns4cm: { 'grid-template-columns_4cm': true }
-  readonly gridTemplateColumns6cm: { 'grid-template-columns_6cm': true }
-  readonly gridTemplateColumns8cm: { 'grid-template-columns_8cm': true }
-  readonly gridTemplateColumns10cm: { 'grid-template-columns_10cm': true }
-  readonly gridTemplateColumns12cm: { 'grid-template-columns_12cm': true }
-  readonly gridTemplateColumns16cm: { 'grid-template-columns_16cm': true }
-  readonly gridTemplateColumns20cm: { 'grid-template-columns_20cm': true }
   readonly gridTemplateColumns0dvh: { 'grid-template-columns_0dvh': true }
   readonly gridTemplateColumns10dvh: { 'grid-template-columns_10dvh': true }
   readonly gridTemplateColumns20dvh: { 'grid-template-columns_20dvh': true }
@@ -24540,16 +22236,6 @@ export interface CsstsAtoms {
   readonly gridTemplateColumns5ic: { 'grid-template-columns_5ic': true }
   readonly gridTemplateColumns6ic: { 'grid-template-columns_6ic': true }
   readonly gridTemplateColumns8ic: { 'grid-template-columns_8ic': true }
-  readonly gridTemplateColumns0in: { 'grid-template-columns_0in': true }
-  readonly gridTemplateColumns1in: { 'grid-template-columns_1in': true }
-  readonly gridTemplateColumns2in: { 'grid-template-columns_2in': true }
-  readonly gridTemplateColumns4in: { 'grid-template-columns_4in': true }
-  readonly gridTemplateColumns6in: { 'grid-template-columns_6in': true }
-  readonly gridTemplateColumns8in: { 'grid-template-columns_8in': true }
-  readonly gridTemplateColumns10in: { 'grid-template-columns_10in': true }
-  readonly gridTemplateColumns12in: { 'grid-template-columns_12in': true }
-  readonly gridTemplateColumns16in: { 'grid-template-columns_16in': true }
-  readonly gridTemplateColumns20in: { 'grid-template-columns_20in': true }
   readonly gridTemplateColumns0lh: { 'grid-template-columns_0lh': true }
   readonly gridTemplateColumns0p25lh: { 'grid-template-columns_0\.25lh': true }
   readonly gridTemplateColumns0p5lh: { 'grid-template-columns_0\.5lh': true }
@@ -24594,36 +22280,6 @@ export interface CsstsAtoms {
   readonly gridTemplateColumns80lvw: { 'grid-template-columns_80lvw': true }
   readonly gridTemplateColumns90lvw: { 'grid-template-columns_90lvw': true }
   readonly gridTemplateColumns100lvw: { 'grid-template-columns_100lvw': true }
-  readonly gridTemplateColumns0mm: { 'grid-template-columns_0mm': true }
-  readonly gridTemplateColumns1mm: { 'grid-template-columns_1mm': true }
-  readonly gridTemplateColumns2mm: { 'grid-template-columns_2mm': true }
-  readonly gridTemplateColumns4mm: { 'grid-template-columns_4mm': true }
-  readonly gridTemplateColumns6mm: { 'grid-template-columns_6mm': true }
-  readonly gridTemplateColumns8mm: { 'grid-template-columns_8mm': true }
-  readonly gridTemplateColumns10mm: { 'grid-template-columns_10mm': true }
-  readonly gridTemplateColumns12mm: { 'grid-template-columns_12mm': true }
-  readonly gridTemplateColumns16mm: { 'grid-template-columns_16mm': true }
-  readonly gridTemplateColumns20mm: { 'grid-template-columns_20mm': true }
-  readonly gridTemplateColumns0pc: { 'grid-template-columns_0pc': true }
-  readonly gridTemplateColumns1pc: { 'grid-template-columns_1pc': true }
-  readonly gridTemplateColumns2pc: { 'grid-template-columns_2pc': true }
-  readonly gridTemplateColumns4pc: { 'grid-template-columns_4pc': true }
-  readonly gridTemplateColumns6pc: { 'grid-template-columns_6pc': true }
-  readonly gridTemplateColumns8pc: { 'grid-template-columns_8pc': true }
-  readonly gridTemplateColumns10pc: { 'grid-template-columns_10pc': true }
-  readonly gridTemplateColumns12pc: { 'grid-template-columns_12pc': true }
-  readonly gridTemplateColumns16pc: { 'grid-template-columns_16pc': true }
-  readonly gridTemplateColumns20pc: { 'grid-template-columns_20pc': true }
-  readonly gridTemplateColumns0pt: { 'grid-template-columns_0pt': true }
-  readonly gridTemplateColumns1pt: { 'grid-template-columns_1pt': true }
-  readonly gridTemplateColumns2pt: { 'grid-template-columns_2pt': true }
-  readonly gridTemplateColumns4pt: { 'grid-template-columns_4pt': true }
-  readonly gridTemplateColumns6pt: { 'grid-template-columns_6pt': true }
-  readonly gridTemplateColumns8pt: { 'grid-template-columns_8pt': true }
-  readonly gridTemplateColumns10pt: { 'grid-template-columns_10pt': true }
-  readonly gridTemplateColumns12pt: { 'grid-template-columns_12pt': true }
-  readonly gridTemplateColumns16pt: { 'grid-template-columns_16pt': true }
-  readonly gridTemplateColumns20pt: { 'grid-template-columns_20pt': true }
   readonly gridTemplateColumnsN384px: { 'grid-template-columns_-384px': true }
   readonly gridTemplateColumnsN320px: { 'grid-template-columns_-320px': true }
   readonly gridTemplateColumnsN256px: { 'grid-template-columns_-256px': true }
@@ -24849,12 +22505,6 @@ export interface CsstsAtoms {
   readonly gridTemplateRowsMinContent: { 'grid-template-rows_min-content': true }
   readonly gridTemplateRowsNone: { 'grid-template-rows_none': true }
   readonly gridTemplateRowsSubgrid: { 'grid-template-rows_subgrid': true }
-  readonly gridTemplateRows1fr: { 'grid-template-rows_1fr': true }
-  readonly gridTemplateRows2fr: { 'grid-template-rows_2fr': true }
-  readonly gridTemplateRows3fr: { 'grid-template-rows_3fr': true }
-  readonly gridTemplateRows4fr: { 'grid-template-rows_4fr': true }
-  readonly gridTemplateRows5fr: { 'grid-template-rows_5fr': true }
-  readonly gridTemplateRows6fr: { 'grid-template-rows_6fr': true }
   readonly gridTemplateRows0: { 'grid-template-rows_0': true }
   readonly gridTemplateRows0p5: { 'grid-template-rows_0\.5': true }
   readonly gridTemplateRows1: { 'grid-template-rows_1': true }
@@ -24867,16 +22517,6 @@ export interface CsstsAtoms {
   readonly gridTemplateRows20: { 'grid-template-rows_20': true }
   readonly gridTemplateRows50: { 'grid-template-rows_50': true }
   readonly gridTemplateRows100: { 'grid-template-rows_100': true }
-  readonly gridTemplateRows0Q: { 'grid-template-rows_0Q': true }
-  readonly gridTemplateRows1Q: { 'grid-template-rows_1Q': true }
-  readonly gridTemplateRows2Q: { 'grid-template-rows_2Q': true }
-  readonly gridTemplateRows4Q: { 'grid-template-rows_4Q': true }
-  readonly gridTemplateRows6Q: { 'grid-template-rows_6Q': true }
-  readonly gridTemplateRows8Q: { 'grid-template-rows_8Q': true }
-  readonly gridTemplateRows10Q: { 'grid-template-rows_10Q': true }
-  readonly gridTemplateRows12Q: { 'grid-template-rows_12Q': true }
-  readonly gridTemplateRows16Q: { 'grid-template-rows_16Q': true }
-  readonly gridTemplateRows20Q: { 'grid-template-rows_20Q': true }
   readonly gridTemplateRows0cap: { 'grid-template-rows_0cap': true }
   readonly gridTemplateRows0p25cap: { 'grid-template-rows_0\.25cap': true }
   readonly gridTemplateRows0p5cap: { 'grid-template-rows_0\.5cap': true }
@@ -24905,16 +22545,6 @@ export interface CsstsAtoms {
   readonly gridTemplateRows5ch: { 'grid-template-rows_5ch': true }
   readonly gridTemplateRows6ch: { 'grid-template-rows_6ch': true }
   readonly gridTemplateRows8ch: { 'grid-template-rows_8ch': true }
-  readonly gridTemplateRows0cm: { 'grid-template-rows_0cm': true }
-  readonly gridTemplateRows1cm: { 'grid-template-rows_1cm': true }
-  readonly gridTemplateRows2cm: { 'grid-template-rows_2cm': true }
-  readonly gridTemplateRows4cm: { 'grid-template-rows_4cm': true }
-  readonly gridTemplateRows6cm: { 'grid-template-rows_6cm': true }
-  readonly gridTemplateRows8cm: { 'grid-template-rows_8cm': true }
-  readonly gridTemplateRows10cm: { 'grid-template-rows_10cm': true }
-  readonly gridTemplateRows12cm: { 'grid-template-rows_12cm': true }
-  readonly gridTemplateRows16cm: { 'grid-template-rows_16cm': true }
-  readonly gridTemplateRows20cm: { 'grid-template-rows_20cm': true }
   readonly gridTemplateRows0dvh: { 'grid-template-rows_0dvh': true }
   readonly gridTemplateRows10dvh: { 'grid-template-rows_10dvh': true }
   readonly gridTemplateRows20dvh: { 'grid-template-rows_20dvh': true }
@@ -24987,16 +22617,6 @@ export interface CsstsAtoms {
   readonly gridTemplateRows5ic: { 'grid-template-rows_5ic': true }
   readonly gridTemplateRows6ic: { 'grid-template-rows_6ic': true }
   readonly gridTemplateRows8ic: { 'grid-template-rows_8ic': true }
-  readonly gridTemplateRows0in: { 'grid-template-rows_0in': true }
-  readonly gridTemplateRows1in: { 'grid-template-rows_1in': true }
-  readonly gridTemplateRows2in: { 'grid-template-rows_2in': true }
-  readonly gridTemplateRows4in: { 'grid-template-rows_4in': true }
-  readonly gridTemplateRows6in: { 'grid-template-rows_6in': true }
-  readonly gridTemplateRows8in: { 'grid-template-rows_8in': true }
-  readonly gridTemplateRows10in: { 'grid-template-rows_10in': true }
-  readonly gridTemplateRows12in: { 'grid-template-rows_12in': true }
-  readonly gridTemplateRows16in: { 'grid-template-rows_16in': true }
-  readonly gridTemplateRows20in: { 'grid-template-rows_20in': true }
   readonly gridTemplateRows0lh: { 'grid-template-rows_0lh': true }
   readonly gridTemplateRows0p25lh: { 'grid-template-rows_0\.25lh': true }
   readonly gridTemplateRows0p5lh: { 'grid-template-rows_0\.5lh': true }
@@ -25041,36 +22661,6 @@ export interface CsstsAtoms {
   readonly gridTemplateRows80lvw: { 'grid-template-rows_80lvw': true }
   readonly gridTemplateRows90lvw: { 'grid-template-rows_90lvw': true }
   readonly gridTemplateRows100lvw: { 'grid-template-rows_100lvw': true }
-  readonly gridTemplateRows0mm: { 'grid-template-rows_0mm': true }
-  readonly gridTemplateRows1mm: { 'grid-template-rows_1mm': true }
-  readonly gridTemplateRows2mm: { 'grid-template-rows_2mm': true }
-  readonly gridTemplateRows4mm: { 'grid-template-rows_4mm': true }
-  readonly gridTemplateRows6mm: { 'grid-template-rows_6mm': true }
-  readonly gridTemplateRows8mm: { 'grid-template-rows_8mm': true }
-  readonly gridTemplateRows10mm: { 'grid-template-rows_10mm': true }
-  readonly gridTemplateRows12mm: { 'grid-template-rows_12mm': true }
-  readonly gridTemplateRows16mm: { 'grid-template-rows_16mm': true }
-  readonly gridTemplateRows20mm: { 'grid-template-rows_20mm': true }
-  readonly gridTemplateRows0pc: { 'grid-template-rows_0pc': true }
-  readonly gridTemplateRows1pc: { 'grid-template-rows_1pc': true }
-  readonly gridTemplateRows2pc: { 'grid-template-rows_2pc': true }
-  readonly gridTemplateRows4pc: { 'grid-template-rows_4pc': true }
-  readonly gridTemplateRows6pc: { 'grid-template-rows_6pc': true }
-  readonly gridTemplateRows8pc: { 'grid-template-rows_8pc': true }
-  readonly gridTemplateRows10pc: { 'grid-template-rows_10pc': true }
-  readonly gridTemplateRows12pc: { 'grid-template-rows_12pc': true }
-  readonly gridTemplateRows16pc: { 'grid-template-rows_16pc': true }
-  readonly gridTemplateRows20pc: { 'grid-template-rows_20pc': true }
-  readonly gridTemplateRows0pt: { 'grid-template-rows_0pt': true }
-  readonly gridTemplateRows1pt: { 'grid-template-rows_1pt': true }
-  readonly gridTemplateRows2pt: { 'grid-template-rows_2pt': true }
-  readonly gridTemplateRows4pt: { 'grid-template-rows_4pt': true }
-  readonly gridTemplateRows6pt: { 'grid-template-rows_6pt': true }
-  readonly gridTemplateRows8pt: { 'grid-template-rows_8pt': true }
-  readonly gridTemplateRows10pt: { 'grid-template-rows_10pt': true }
-  readonly gridTemplateRows12pt: { 'grid-template-rows_12pt': true }
-  readonly gridTemplateRows16pt: { 'grid-template-rows_16pt': true }
-  readonly gridTemplateRows20pt: { 'grid-template-rows_20pt': true }
   readonly gridTemplateRowsN384px: { 'grid-template-rows_-384px': true }
   readonly gridTemplateRowsN320px: { 'grid-template-rows_-320px': true }
   readonly gridTemplateRowsN256px: { 'grid-template-rows_-256px': true }
@@ -25304,16 +22894,6 @@ export interface CsstsAtoms {
   readonly heightMinContent: { 'height_min-content': true }
   readonly heightMinIntrinsic: { 'height_min-intrinsic': true }
   readonly heightStretch: { 'height_stretch': true }
-  readonly height0Q: { 'height_0Q': true }
-  readonly height1Q: { 'height_1Q': true }
-  readonly height2Q: { 'height_2Q': true }
-  readonly height4Q: { 'height_4Q': true }
-  readonly height6Q: { 'height_6Q': true }
-  readonly height8Q: { 'height_8Q': true }
-  readonly height10Q: { 'height_10Q': true }
-  readonly height12Q: { 'height_12Q': true }
-  readonly height16Q: { 'height_16Q': true }
-  readonly height20Q: { 'height_20Q': true }
   readonly height0cap: { 'height_0cap': true }
   readonly height0p25cap: { 'height_0\.25cap': true }
   readonly height0p5cap: { 'height_0\.5cap': true }
@@ -25342,16 +22922,6 @@ export interface CsstsAtoms {
   readonly height5ch: { 'height_5ch': true }
   readonly height6ch: { 'height_6ch': true }
   readonly height8ch: { 'height_8ch': true }
-  readonly height0cm: { 'height_0cm': true }
-  readonly height1cm: { 'height_1cm': true }
-  readonly height2cm: { 'height_2cm': true }
-  readonly height4cm: { 'height_4cm': true }
-  readonly height6cm: { 'height_6cm': true }
-  readonly height8cm: { 'height_8cm': true }
-  readonly height10cm: { 'height_10cm': true }
-  readonly height12cm: { 'height_12cm': true }
-  readonly height16cm: { 'height_16cm': true }
-  readonly height20cm: { 'height_20cm': true }
   readonly height0dvh: { 'height_0dvh': true }
   readonly height10dvh: { 'height_10dvh': true }
   readonly height20dvh: { 'height_20dvh': true }
@@ -25424,16 +22994,6 @@ export interface CsstsAtoms {
   readonly height5ic: { 'height_5ic': true }
   readonly height6ic: { 'height_6ic': true }
   readonly height8ic: { 'height_8ic': true }
-  readonly height0in: { 'height_0in': true }
-  readonly height1in: { 'height_1in': true }
-  readonly height2in: { 'height_2in': true }
-  readonly height4in: { 'height_4in': true }
-  readonly height6in: { 'height_6in': true }
-  readonly height8in: { 'height_8in': true }
-  readonly height10in: { 'height_10in': true }
-  readonly height12in: { 'height_12in': true }
-  readonly height16in: { 'height_16in': true }
-  readonly height20in: { 'height_20in': true }
   readonly height0lh: { 'height_0lh': true }
   readonly height0p25lh: { 'height_0\.25lh': true }
   readonly height0p5lh: { 'height_0\.5lh': true }
@@ -25478,36 +23038,6 @@ export interface CsstsAtoms {
   readonly height80lvw: { 'height_80lvw': true }
   readonly height90lvw: { 'height_90lvw': true }
   readonly height100lvw: { 'height_100lvw': true }
-  readonly height0mm: { 'height_0mm': true }
-  readonly height1mm: { 'height_1mm': true }
-  readonly height2mm: { 'height_2mm': true }
-  readonly height4mm: { 'height_4mm': true }
-  readonly height6mm: { 'height_6mm': true }
-  readonly height8mm: { 'height_8mm': true }
-  readonly height10mm: { 'height_10mm': true }
-  readonly height12mm: { 'height_12mm': true }
-  readonly height16mm: { 'height_16mm': true }
-  readonly height20mm: { 'height_20mm': true }
-  readonly height0pc: { 'height_0pc': true }
-  readonly height1pc: { 'height_1pc': true }
-  readonly height2pc: { 'height_2pc': true }
-  readonly height4pc: { 'height_4pc': true }
-  readonly height6pc: { 'height_6pc': true }
-  readonly height8pc: { 'height_8pc': true }
-  readonly height10pc: { 'height_10pc': true }
-  readonly height12pc: { 'height_12pc': true }
-  readonly height16pc: { 'height_16pc': true }
-  readonly height20pc: { 'height_20pc': true }
-  readonly height0pt: { 'height_0pt': true }
-  readonly height1pt: { 'height_1pt': true }
-  readonly height2pt: { 'height_2pt': true }
-  readonly height4pt: { 'height_4pt': true }
-  readonly height6pt: { 'height_6pt': true }
-  readonly height8pt: { 'height_8pt': true }
-  readonly height10pt: { 'height_10pt': true }
-  readonly height12pt: { 'height_12pt': true }
-  readonly height16pt: { 'height_16pt': true }
-  readonly height20pt: { 'height_20pt': true }
   readonly heightN384px: { 'height_-384px': true }
   readonly heightN320px: { 'height_-320px': true }
   readonly heightN256px: { 'height_-256px': true }
@@ -25785,16 +23315,6 @@ export interface CsstsAtoms {
 
   // ==================== left ====================
   readonly leftAuto: { 'left_auto': true }
-  readonly left0Q: { 'left_0Q': true }
-  readonly left1Q: { 'left_1Q': true }
-  readonly left2Q: { 'left_2Q': true }
-  readonly left4Q: { 'left_4Q': true }
-  readonly left6Q: { 'left_6Q': true }
-  readonly left8Q: { 'left_8Q': true }
-  readonly left10Q: { 'left_10Q': true }
-  readonly left12Q: { 'left_12Q': true }
-  readonly left16Q: { 'left_16Q': true }
-  readonly left20Q: { 'left_20Q': true }
   readonly left0cap: { 'left_0cap': true }
   readonly left0p25cap: { 'left_0\.25cap': true }
   readonly left0p5cap: { 'left_0\.5cap': true }
@@ -25823,16 +23343,6 @@ export interface CsstsAtoms {
   readonly left5ch: { 'left_5ch': true }
   readonly left6ch: { 'left_6ch': true }
   readonly left8ch: { 'left_8ch': true }
-  readonly left0cm: { 'left_0cm': true }
-  readonly left1cm: { 'left_1cm': true }
-  readonly left2cm: { 'left_2cm': true }
-  readonly left4cm: { 'left_4cm': true }
-  readonly left6cm: { 'left_6cm': true }
-  readonly left8cm: { 'left_8cm': true }
-  readonly left10cm: { 'left_10cm': true }
-  readonly left12cm: { 'left_12cm': true }
-  readonly left16cm: { 'left_16cm': true }
-  readonly left20cm: { 'left_20cm': true }
   readonly left0dvh: { 'left_0dvh': true }
   readonly left10dvh: { 'left_10dvh': true }
   readonly left20dvh: { 'left_20dvh': true }
@@ -25905,16 +23415,6 @@ export interface CsstsAtoms {
   readonly left5ic: { 'left_5ic': true }
   readonly left6ic: { 'left_6ic': true }
   readonly left8ic: { 'left_8ic': true }
-  readonly left0in: { 'left_0in': true }
-  readonly left1in: { 'left_1in': true }
-  readonly left2in: { 'left_2in': true }
-  readonly left4in: { 'left_4in': true }
-  readonly left6in: { 'left_6in': true }
-  readonly left8in: { 'left_8in': true }
-  readonly left10in: { 'left_10in': true }
-  readonly left12in: { 'left_12in': true }
-  readonly left16in: { 'left_16in': true }
-  readonly left20in: { 'left_20in': true }
   readonly left0lh: { 'left_0lh': true }
   readonly left0p25lh: { 'left_0\.25lh': true }
   readonly left0p5lh: { 'left_0\.5lh': true }
@@ -25959,36 +23459,6 @@ export interface CsstsAtoms {
   readonly left80lvw: { 'left_80lvw': true }
   readonly left90lvw: { 'left_90lvw': true }
   readonly left100lvw: { 'left_100lvw': true }
-  readonly left0mm: { 'left_0mm': true }
-  readonly left1mm: { 'left_1mm': true }
-  readonly left2mm: { 'left_2mm': true }
-  readonly left4mm: { 'left_4mm': true }
-  readonly left6mm: { 'left_6mm': true }
-  readonly left8mm: { 'left_8mm': true }
-  readonly left10mm: { 'left_10mm': true }
-  readonly left12mm: { 'left_12mm': true }
-  readonly left16mm: { 'left_16mm': true }
-  readonly left20mm: { 'left_20mm': true }
-  readonly left0pc: { 'left_0pc': true }
-  readonly left1pc: { 'left_1pc': true }
-  readonly left2pc: { 'left_2pc': true }
-  readonly left4pc: { 'left_4pc': true }
-  readonly left6pc: { 'left_6pc': true }
-  readonly left8pc: { 'left_8pc': true }
-  readonly left10pc: { 'left_10pc': true }
-  readonly left12pc: { 'left_12pc': true }
-  readonly left16pc: { 'left_16pc': true }
-  readonly left20pc: { 'left_20pc': true }
-  readonly left0pt: { 'left_0pt': true }
-  readonly left1pt: { 'left_1pt': true }
-  readonly left2pt: { 'left_2pt': true }
-  readonly left4pt: { 'left_4pt': true }
-  readonly left6pt: { 'left_6pt': true }
-  readonly left8pt: { 'left_8pt': true }
-  readonly left10pt: { 'left_10pt': true }
-  readonly left12pt: { 'left_12pt': true }
-  readonly left16pt: { 'left_16pt': true }
-  readonly left20pt: { 'left_20pt': true }
   readonly leftN384px: { 'left_-384px': true }
   readonly leftN320px: { 'left_-320px': true }
   readonly leftN256px: { 'left_-256px': true }
@@ -26208,16 +23678,6 @@ export interface CsstsAtoms {
 
   // ==================== letter-spacing ====================
   readonly letterSpacingNormal: { 'letter-spacing_normal': true }
-  readonly letterSpacing0Q: { 'letter-spacing_0Q': true }
-  readonly letterSpacing1Q: { 'letter-spacing_1Q': true }
-  readonly letterSpacing2Q: { 'letter-spacing_2Q': true }
-  readonly letterSpacing4Q: { 'letter-spacing_4Q': true }
-  readonly letterSpacing6Q: { 'letter-spacing_6Q': true }
-  readonly letterSpacing8Q: { 'letter-spacing_8Q': true }
-  readonly letterSpacing10Q: { 'letter-spacing_10Q': true }
-  readonly letterSpacing12Q: { 'letter-spacing_12Q': true }
-  readonly letterSpacing16Q: { 'letter-spacing_16Q': true }
-  readonly letterSpacing20Q: { 'letter-spacing_20Q': true }
   readonly letterSpacing0cap: { 'letter-spacing_0cap': true }
   readonly letterSpacing0p25cap: { 'letter-spacing_0\.25cap': true }
   readonly letterSpacing0p5cap: { 'letter-spacing_0\.5cap': true }
@@ -26246,16 +23706,6 @@ export interface CsstsAtoms {
   readonly letterSpacing5ch: { 'letter-spacing_5ch': true }
   readonly letterSpacing6ch: { 'letter-spacing_6ch': true }
   readonly letterSpacing8ch: { 'letter-spacing_8ch': true }
-  readonly letterSpacing0cm: { 'letter-spacing_0cm': true }
-  readonly letterSpacing1cm: { 'letter-spacing_1cm': true }
-  readonly letterSpacing2cm: { 'letter-spacing_2cm': true }
-  readonly letterSpacing4cm: { 'letter-spacing_4cm': true }
-  readonly letterSpacing6cm: { 'letter-spacing_6cm': true }
-  readonly letterSpacing8cm: { 'letter-spacing_8cm': true }
-  readonly letterSpacing10cm: { 'letter-spacing_10cm': true }
-  readonly letterSpacing12cm: { 'letter-spacing_12cm': true }
-  readonly letterSpacing16cm: { 'letter-spacing_16cm': true }
-  readonly letterSpacing20cm: { 'letter-spacing_20cm': true }
   readonly letterSpacing0dvh: { 'letter-spacing_0dvh': true }
   readonly letterSpacing10dvh: { 'letter-spacing_10dvh': true }
   readonly letterSpacing20dvh: { 'letter-spacing_20dvh': true }
@@ -26328,16 +23778,6 @@ export interface CsstsAtoms {
   readonly letterSpacing5ic: { 'letter-spacing_5ic': true }
   readonly letterSpacing6ic: { 'letter-spacing_6ic': true }
   readonly letterSpacing8ic: { 'letter-spacing_8ic': true }
-  readonly letterSpacing0in: { 'letter-spacing_0in': true }
-  readonly letterSpacing1in: { 'letter-spacing_1in': true }
-  readonly letterSpacing2in: { 'letter-spacing_2in': true }
-  readonly letterSpacing4in: { 'letter-spacing_4in': true }
-  readonly letterSpacing6in: { 'letter-spacing_6in': true }
-  readonly letterSpacing8in: { 'letter-spacing_8in': true }
-  readonly letterSpacing10in: { 'letter-spacing_10in': true }
-  readonly letterSpacing12in: { 'letter-spacing_12in': true }
-  readonly letterSpacing16in: { 'letter-spacing_16in': true }
-  readonly letterSpacing20in: { 'letter-spacing_20in': true }
   readonly letterSpacing0lh: { 'letter-spacing_0lh': true }
   readonly letterSpacing0p25lh: { 'letter-spacing_0\.25lh': true }
   readonly letterSpacing0p5lh: { 'letter-spacing_0\.5lh': true }
@@ -26382,36 +23822,6 @@ export interface CsstsAtoms {
   readonly letterSpacing80lvw: { 'letter-spacing_80lvw': true }
   readonly letterSpacing90lvw: { 'letter-spacing_90lvw': true }
   readonly letterSpacing100lvw: { 'letter-spacing_100lvw': true }
-  readonly letterSpacing0mm: { 'letter-spacing_0mm': true }
-  readonly letterSpacing1mm: { 'letter-spacing_1mm': true }
-  readonly letterSpacing2mm: { 'letter-spacing_2mm': true }
-  readonly letterSpacing4mm: { 'letter-spacing_4mm': true }
-  readonly letterSpacing6mm: { 'letter-spacing_6mm': true }
-  readonly letterSpacing8mm: { 'letter-spacing_8mm': true }
-  readonly letterSpacing10mm: { 'letter-spacing_10mm': true }
-  readonly letterSpacing12mm: { 'letter-spacing_12mm': true }
-  readonly letterSpacing16mm: { 'letter-spacing_16mm': true }
-  readonly letterSpacing20mm: { 'letter-spacing_20mm': true }
-  readonly letterSpacing0pc: { 'letter-spacing_0pc': true }
-  readonly letterSpacing1pc: { 'letter-spacing_1pc': true }
-  readonly letterSpacing2pc: { 'letter-spacing_2pc': true }
-  readonly letterSpacing4pc: { 'letter-spacing_4pc': true }
-  readonly letterSpacing6pc: { 'letter-spacing_6pc': true }
-  readonly letterSpacing8pc: { 'letter-spacing_8pc': true }
-  readonly letterSpacing10pc: { 'letter-spacing_10pc': true }
-  readonly letterSpacing12pc: { 'letter-spacing_12pc': true }
-  readonly letterSpacing16pc: { 'letter-spacing_16pc': true }
-  readonly letterSpacing20pc: { 'letter-spacing_20pc': true }
-  readonly letterSpacing0pt: { 'letter-spacing_0pt': true }
-  readonly letterSpacing1pt: { 'letter-spacing_1pt': true }
-  readonly letterSpacing2pt: { 'letter-spacing_2pt': true }
-  readonly letterSpacing4pt: { 'letter-spacing_4pt': true }
-  readonly letterSpacing6pt: { 'letter-spacing_6pt': true }
-  readonly letterSpacing8pt: { 'letter-spacing_8pt': true }
-  readonly letterSpacing10pt: { 'letter-spacing_10pt': true }
-  readonly letterSpacing12pt: { 'letter-spacing_12pt': true }
-  readonly letterSpacing16pt: { 'letter-spacing_16pt': true }
-  readonly letterSpacing20pt: { 'letter-spacing_20pt': true }
   readonly letterSpacingN384px: { 'letter-spacing_-384px': true }
   readonly letterSpacingN320px: { 'letter-spacing_-320px': true }
   readonly letterSpacingN256px: { 'letter-spacing_-256px': true }
@@ -26631,16 +24041,6 @@ export interface CsstsAtoms {
 
   // ==================== line-height ====================
   readonly lineHeightNormal: { 'line-height_normal': true }
-  readonly lineHeight0Q: { 'line-height_0Q': true }
-  readonly lineHeight1Q: { 'line-height_1Q': true }
-  readonly lineHeight2Q: { 'line-height_2Q': true }
-  readonly lineHeight4Q: { 'line-height_4Q': true }
-  readonly lineHeight6Q: { 'line-height_6Q': true }
-  readonly lineHeight8Q: { 'line-height_8Q': true }
-  readonly lineHeight10Q: { 'line-height_10Q': true }
-  readonly lineHeight12Q: { 'line-height_12Q': true }
-  readonly lineHeight16Q: { 'line-height_16Q': true }
-  readonly lineHeight20Q: { 'line-height_20Q': true }
   readonly lineHeight0cap: { 'line-height_0cap': true }
   readonly lineHeight0p25cap: { 'line-height_0\.25cap': true }
   readonly lineHeight0p5cap: { 'line-height_0\.5cap': true }
@@ -26669,16 +24069,6 @@ export interface CsstsAtoms {
   readonly lineHeight5ch: { 'line-height_5ch': true }
   readonly lineHeight6ch: { 'line-height_6ch': true }
   readonly lineHeight8ch: { 'line-height_8ch': true }
-  readonly lineHeight0cm: { 'line-height_0cm': true }
-  readonly lineHeight1cm: { 'line-height_1cm': true }
-  readonly lineHeight2cm: { 'line-height_2cm': true }
-  readonly lineHeight4cm: { 'line-height_4cm': true }
-  readonly lineHeight6cm: { 'line-height_6cm': true }
-  readonly lineHeight8cm: { 'line-height_8cm': true }
-  readonly lineHeight10cm: { 'line-height_10cm': true }
-  readonly lineHeight12cm: { 'line-height_12cm': true }
-  readonly lineHeight16cm: { 'line-height_16cm': true }
-  readonly lineHeight20cm: { 'line-height_20cm': true }
   readonly lineHeight0dvh: { 'line-height_0dvh': true }
   readonly lineHeight10dvh: { 'line-height_10dvh': true }
   readonly lineHeight20dvh: { 'line-height_20dvh': true }
@@ -26751,16 +24141,6 @@ export interface CsstsAtoms {
   readonly lineHeight5ic: { 'line-height_5ic': true }
   readonly lineHeight6ic: { 'line-height_6ic': true }
   readonly lineHeight8ic: { 'line-height_8ic': true }
-  readonly lineHeight0in: { 'line-height_0in': true }
-  readonly lineHeight1in: { 'line-height_1in': true }
-  readonly lineHeight2in: { 'line-height_2in': true }
-  readonly lineHeight4in: { 'line-height_4in': true }
-  readonly lineHeight6in: { 'line-height_6in': true }
-  readonly lineHeight8in: { 'line-height_8in': true }
-  readonly lineHeight10in: { 'line-height_10in': true }
-  readonly lineHeight12in: { 'line-height_12in': true }
-  readonly lineHeight16in: { 'line-height_16in': true }
-  readonly lineHeight20in: { 'line-height_20in': true }
   readonly lineHeight0lh: { 'line-height_0lh': true }
   readonly lineHeight0p25lh: { 'line-height_0\.25lh': true }
   readonly lineHeight0p5lh: { 'line-height_0\.5lh': true }
@@ -26805,36 +24185,6 @@ export interface CsstsAtoms {
   readonly lineHeight80lvw: { 'line-height_80lvw': true }
   readonly lineHeight90lvw: { 'line-height_90lvw': true }
   readonly lineHeight100lvw: { 'line-height_100lvw': true }
-  readonly lineHeight0mm: { 'line-height_0mm': true }
-  readonly lineHeight1mm: { 'line-height_1mm': true }
-  readonly lineHeight2mm: { 'line-height_2mm': true }
-  readonly lineHeight4mm: { 'line-height_4mm': true }
-  readonly lineHeight6mm: { 'line-height_6mm': true }
-  readonly lineHeight8mm: { 'line-height_8mm': true }
-  readonly lineHeight10mm: { 'line-height_10mm': true }
-  readonly lineHeight12mm: { 'line-height_12mm': true }
-  readonly lineHeight16mm: { 'line-height_16mm': true }
-  readonly lineHeight20mm: { 'line-height_20mm': true }
-  readonly lineHeight0pc: { 'line-height_0pc': true }
-  readonly lineHeight1pc: { 'line-height_1pc': true }
-  readonly lineHeight2pc: { 'line-height_2pc': true }
-  readonly lineHeight4pc: { 'line-height_4pc': true }
-  readonly lineHeight6pc: { 'line-height_6pc': true }
-  readonly lineHeight8pc: { 'line-height_8pc': true }
-  readonly lineHeight10pc: { 'line-height_10pc': true }
-  readonly lineHeight12pc: { 'line-height_12pc': true }
-  readonly lineHeight16pc: { 'line-height_16pc': true }
-  readonly lineHeight20pc: { 'line-height_20pc': true }
-  readonly lineHeight0pt: { 'line-height_0pt': true }
-  readonly lineHeight1pt: { 'line-height_1pt': true }
-  readonly lineHeight2pt: { 'line-height_2pt': true }
-  readonly lineHeight4pt: { 'line-height_4pt': true }
-  readonly lineHeight6pt: { 'line-height_6pt': true }
-  readonly lineHeight8pt: { 'line-height_8pt': true }
-  readonly lineHeight10pt: { 'line-height_10pt': true }
-  readonly lineHeight12pt: { 'line-height_12pt': true }
-  readonly lineHeight16pt: { 'line-height_16pt': true }
-  readonly lineHeight20pt: { 'line-height_20pt': true }
   readonly lineHeightN384px: { 'line-height_-384px': true }
   readonly lineHeightN320px: { 'line-height_-320px': true }
   readonly lineHeightN256px: { 'line-height_-256px': true }
@@ -27073,16 +24423,6 @@ export interface CsstsAtoms {
 
   // ==================== margin ====================
   readonly marginAuto: { 'margin_auto': true }
-  readonly margin0Q: { 'margin_0Q': true }
-  readonly margin1Q: { 'margin_1Q': true }
-  readonly margin2Q: { 'margin_2Q': true }
-  readonly margin4Q: { 'margin_4Q': true }
-  readonly margin6Q: { 'margin_6Q': true }
-  readonly margin8Q: { 'margin_8Q': true }
-  readonly margin10Q: { 'margin_10Q': true }
-  readonly margin12Q: { 'margin_12Q': true }
-  readonly margin16Q: { 'margin_16Q': true }
-  readonly margin20Q: { 'margin_20Q': true }
   readonly margin0cap: { 'margin_0cap': true }
   readonly margin0p25cap: { 'margin_0\.25cap': true }
   readonly margin0p5cap: { 'margin_0\.5cap': true }
@@ -27111,16 +24451,6 @@ export interface CsstsAtoms {
   readonly margin5ch: { 'margin_5ch': true }
   readonly margin6ch: { 'margin_6ch': true }
   readonly margin8ch: { 'margin_8ch': true }
-  readonly margin0cm: { 'margin_0cm': true }
-  readonly margin1cm: { 'margin_1cm': true }
-  readonly margin2cm: { 'margin_2cm': true }
-  readonly margin4cm: { 'margin_4cm': true }
-  readonly margin6cm: { 'margin_6cm': true }
-  readonly margin8cm: { 'margin_8cm': true }
-  readonly margin10cm: { 'margin_10cm': true }
-  readonly margin12cm: { 'margin_12cm': true }
-  readonly margin16cm: { 'margin_16cm': true }
-  readonly margin20cm: { 'margin_20cm': true }
   readonly margin0dvh: { 'margin_0dvh': true }
   readonly margin10dvh: { 'margin_10dvh': true }
   readonly margin20dvh: { 'margin_20dvh': true }
@@ -27193,16 +24523,6 @@ export interface CsstsAtoms {
   readonly margin5ic: { 'margin_5ic': true }
   readonly margin6ic: { 'margin_6ic': true }
   readonly margin8ic: { 'margin_8ic': true }
-  readonly margin0in: { 'margin_0in': true }
-  readonly margin1in: { 'margin_1in': true }
-  readonly margin2in: { 'margin_2in': true }
-  readonly margin4in: { 'margin_4in': true }
-  readonly margin6in: { 'margin_6in': true }
-  readonly margin8in: { 'margin_8in': true }
-  readonly margin10in: { 'margin_10in': true }
-  readonly margin12in: { 'margin_12in': true }
-  readonly margin16in: { 'margin_16in': true }
-  readonly margin20in: { 'margin_20in': true }
   readonly margin0lh: { 'margin_0lh': true }
   readonly margin0p25lh: { 'margin_0\.25lh': true }
   readonly margin0p5lh: { 'margin_0\.5lh': true }
@@ -27247,36 +24567,6 @@ export interface CsstsAtoms {
   readonly margin80lvw: { 'margin_80lvw': true }
   readonly margin90lvw: { 'margin_90lvw': true }
   readonly margin100lvw: { 'margin_100lvw': true }
-  readonly margin0mm: { 'margin_0mm': true }
-  readonly margin1mm: { 'margin_1mm': true }
-  readonly margin2mm: { 'margin_2mm': true }
-  readonly margin4mm: { 'margin_4mm': true }
-  readonly margin6mm: { 'margin_6mm': true }
-  readonly margin8mm: { 'margin_8mm': true }
-  readonly margin10mm: { 'margin_10mm': true }
-  readonly margin12mm: { 'margin_12mm': true }
-  readonly margin16mm: { 'margin_16mm': true }
-  readonly margin20mm: { 'margin_20mm': true }
-  readonly margin0pc: { 'margin_0pc': true }
-  readonly margin1pc: { 'margin_1pc': true }
-  readonly margin2pc: { 'margin_2pc': true }
-  readonly margin4pc: { 'margin_4pc': true }
-  readonly margin6pc: { 'margin_6pc': true }
-  readonly margin8pc: { 'margin_8pc': true }
-  readonly margin10pc: { 'margin_10pc': true }
-  readonly margin12pc: { 'margin_12pc': true }
-  readonly margin16pc: { 'margin_16pc': true }
-  readonly margin20pc: { 'margin_20pc': true }
-  readonly margin0pt: { 'margin_0pt': true }
-  readonly margin1pt: { 'margin_1pt': true }
-  readonly margin2pt: { 'margin_2pt': true }
-  readonly margin4pt: { 'margin_4pt': true }
-  readonly margin6pt: { 'margin_6pt': true }
-  readonly margin8pt: { 'margin_8pt': true }
-  readonly margin10pt: { 'margin_10pt': true }
-  readonly margin12pt: { 'margin_12pt': true }
-  readonly margin16pt: { 'margin_16pt': true }
-  readonly margin20pt: { 'margin_20pt': true }
   readonly marginN384px: { 'margin_-384px': true }
   readonly marginN320px: { 'margin_-320px': true }
   readonly marginN256px: { 'margin_-256px': true }
@@ -27496,16 +24786,6 @@ export interface CsstsAtoms {
 
   // ==================== margin-bottom ====================
   readonly marginBottomAuto: { 'margin-bottom_auto': true }
-  readonly marginBottom0Q: { 'margin-bottom_0Q': true }
-  readonly marginBottom1Q: { 'margin-bottom_1Q': true }
-  readonly marginBottom2Q: { 'margin-bottom_2Q': true }
-  readonly marginBottom4Q: { 'margin-bottom_4Q': true }
-  readonly marginBottom6Q: { 'margin-bottom_6Q': true }
-  readonly marginBottom8Q: { 'margin-bottom_8Q': true }
-  readonly marginBottom10Q: { 'margin-bottom_10Q': true }
-  readonly marginBottom12Q: { 'margin-bottom_12Q': true }
-  readonly marginBottom16Q: { 'margin-bottom_16Q': true }
-  readonly marginBottom20Q: { 'margin-bottom_20Q': true }
   readonly marginBottom0cap: { 'margin-bottom_0cap': true }
   readonly marginBottom0p25cap: { 'margin-bottom_0\.25cap': true }
   readonly marginBottom0p5cap: { 'margin-bottom_0\.5cap': true }
@@ -27534,16 +24814,6 @@ export interface CsstsAtoms {
   readonly marginBottom5ch: { 'margin-bottom_5ch': true }
   readonly marginBottom6ch: { 'margin-bottom_6ch': true }
   readonly marginBottom8ch: { 'margin-bottom_8ch': true }
-  readonly marginBottom0cm: { 'margin-bottom_0cm': true }
-  readonly marginBottom1cm: { 'margin-bottom_1cm': true }
-  readonly marginBottom2cm: { 'margin-bottom_2cm': true }
-  readonly marginBottom4cm: { 'margin-bottom_4cm': true }
-  readonly marginBottom6cm: { 'margin-bottom_6cm': true }
-  readonly marginBottom8cm: { 'margin-bottom_8cm': true }
-  readonly marginBottom10cm: { 'margin-bottom_10cm': true }
-  readonly marginBottom12cm: { 'margin-bottom_12cm': true }
-  readonly marginBottom16cm: { 'margin-bottom_16cm': true }
-  readonly marginBottom20cm: { 'margin-bottom_20cm': true }
   readonly marginBottom0dvh: { 'margin-bottom_0dvh': true }
   readonly marginBottom10dvh: { 'margin-bottom_10dvh': true }
   readonly marginBottom20dvh: { 'margin-bottom_20dvh': true }
@@ -27616,16 +24886,6 @@ export interface CsstsAtoms {
   readonly marginBottom5ic: { 'margin-bottom_5ic': true }
   readonly marginBottom6ic: { 'margin-bottom_6ic': true }
   readonly marginBottom8ic: { 'margin-bottom_8ic': true }
-  readonly marginBottom0in: { 'margin-bottom_0in': true }
-  readonly marginBottom1in: { 'margin-bottom_1in': true }
-  readonly marginBottom2in: { 'margin-bottom_2in': true }
-  readonly marginBottom4in: { 'margin-bottom_4in': true }
-  readonly marginBottom6in: { 'margin-bottom_6in': true }
-  readonly marginBottom8in: { 'margin-bottom_8in': true }
-  readonly marginBottom10in: { 'margin-bottom_10in': true }
-  readonly marginBottom12in: { 'margin-bottom_12in': true }
-  readonly marginBottom16in: { 'margin-bottom_16in': true }
-  readonly marginBottom20in: { 'margin-bottom_20in': true }
   readonly marginBottom0lh: { 'margin-bottom_0lh': true }
   readonly marginBottom0p25lh: { 'margin-bottom_0\.25lh': true }
   readonly marginBottom0p5lh: { 'margin-bottom_0\.5lh': true }
@@ -27670,36 +24930,6 @@ export interface CsstsAtoms {
   readonly marginBottom80lvw: { 'margin-bottom_80lvw': true }
   readonly marginBottom90lvw: { 'margin-bottom_90lvw': true }
   readonly marginBottom100lvw: { 'margin-bottom_100lvw': true }
-  readonly marginBottom0mm: { 'margin-bottom_0mm': true }
-  readonly marginBottom1mm: { 'margin-bottom_1mm': true }
-  readonly marginBottom2mm: { 'margin-bottom_2mm': true }
-  readonly marginBottom4mm: { 'margin-bottom_4mm': true }
-  readonly marginBottom6mm: { 'margin-bottom_6mm': true }
-  readonly marginBottom8mm: { 'margin-bottom_8mm': true }
-  readonly marginBottom10mm: { 'margin-bottom_10mm': true }
-  readonly marginBottom12mm: { 'margin-bottom_12mm': true }
-  readonly marginBottom16mm: { 'margin-bottom_16mm': true }
-  readonly marginBottom20mm: { 'margin-bottom_20mm': true }
-  readonly marginBottom0pc: { 'margin-bottom_0pc': true }
-  readonly marginBottom1pc: { 'margin-bottom_1pc': true }
-  readonly marginBottom2pc: { 'margin-bottom_2pc': true }
-  readonly marginBottom4pc: { 'margin-bottom_4pc': true }
-  readonly marginBottom6pc: { 'margin-bottom_6pc': true }
-  readonly marginBottom8pc: { 'margin-bottom_8pc': true }
-  readonly marginBottom10pc: { 'margin-bottom_10pc': true }
-  readonly marginBottom12pc: { 'margin-bottom_12pc': true }
-  readonly marginBottom16pc: { 'margin-bottom_16pc': true }
-  readonly marginBottom20pc: { 'margin-bottom_20pc': true }
-  readonly marginBottom0pt: { 'margin-bottom_0pt': true }
-  readonly marginBottom1pt: { 'margin-bottom_1pt': true }
-  readonly marginBottom2pt: { 'margin-bottom_2pt': true }
-  readonly marginBottom4pt: { 'margin-bottom_4pt': true }
-  readonly marginBottom6pt: { 'margin-bottom_6pt': true }
-  readonly marginBottom8pt: { 'margin-bottom_8pt': true }
-  readonly marginBottom10pt: { 'margin-bottom_10pt': true }
-  readonly marginBottom12pt: { 'margin-bottom_12pt': true }
-  readonly marginBottom16pt: { 'margin-bottom_16pt': true }
-  readonly marginBottom20pt: { 'margin-bottom_20pt': true }
   readonly marginBottomN384px: { 'margin-bottom_-384px': true }
   readonly marginBottomN320px: { 'margin-bottom_-320px': true }
   readonly marginBottomN256px: { 'margin-bottom_-256px': true }
@@ -27919,16 +25149,6 @@ export interface CsstsAtoms {
 
   // ==================== margin-left ====================
   readonly marginLeftAuto: { 'margin-left_auto': true }
-  readonly marginLeft0Q: { 'margin-left_0Q': true }
-  readonly marginLeft1Q: { 'margin-left_1Q': true }
-  readonly marginLeft2Q: { 'margin-left_2Q': true }
-  readonly marginLeft4Q: { 'margin-left_4Q': true }
-  readonly marginLeft6Q: { 'margin-left_6Q': true }
-  readonly marginLeft8Q: { 'margin-left_8Q': true }
-  readonly marginLeft10Q: { 'margin-left_10Q': true }
-  readonly marginLeft12Q: { 'margin-left_12Q': true }
-  readonly marginLeft16Q: { 'margin-left_16Q': true }
-  readonly marginLeft20Q: { 'margin-left_20Q': true }
   readonly marginLeft0cap: { 'margin-left_0cap': true }
   readonly marginLeft0p25cap: { 'margin-left_0\.25cap': true }
   readonly marginLeft0p5cap: { 'margin-left_0\.5cap': true }
@@ -27957,16 +25177,6 @@ export interface CsstsAtoms {
   readonly marginLeft5ch: { 'margin-left_5ch': true }
   readonly marginLeft6ch: { 'margin-left_6ch': true }
   readonly marginLeft8ch: { 'margin-left_8ch': true }
-  readonly marginLeft0cm: { 'margin-left_0cm': true }
-  readonly marginLeft1cm: { 'margin-left_1cm': true }
-  readonly marginLeft2cm: { 'margin-left_2cm': true }
-  readonly marginLeft4cm: { 'margin-left_4cm': true }
-  readonly marginLeft6cm: { 'margin-left_6cm': true }
-  readonly marginLeft8cm: { 'margin-left_8cm': true }
-  readonly marginLeft10cm: { 'margin-left_10cm': true }
-  readonly marginLeft12cm: { 'margin-left_12cm': true }
-  readonly marginLeft16cm: { 'margin-left_16cm': true }
-  readonly marginLeft20cm: { 'margin-left_20cm': true }
   readonly marginLeft0dvh: { 'margin-left_0dvh': true }
   readonly marginLeft10dvh: { 'margin-left_10dvh': true }
   readonly marginLeft20dvh: { 'margin-left_20dvh': true }
@@ -28039,16 +25249,6 @@ export interface CsstsAtoms {
   readonly marginLeft5ic: { 'margin-left_5ic': true }
   readonly marginLeft6ic: { 'margin-left_6ic': true }
   readonly marginLeft8ic: { 'margin-left_8ic': true }
-  readonly marginLeft0in: { 'margin-left_0in': true }
-  readonly marginLeft1in: { 'margin-left_1in': true }
-  readonly marginLeft2in: { 'margin-left_2in': true }
-  readonly marginLeft4in: { 'margin-left_4in': true }
-  readonly marginLeft6in: { 'margin-left_6in': true }
-  readonly marginLeft8in: { 'margin-left_8in': true }
-  readonly marginLeft10in: { 'margin-left_10in': true }
-  readonly marginLeft12in: { 'margin-left_12in': true }
-  readonly marginLeft16in: { 'margin-left_16in': true }
-  readonly marginLeft20in: { 'margin-left_20in': true }
   readonly marginLeft0lh: { 'margin-left_0lh': true }
   readonly marginLeft0p25lh: { 'margin-left_0\.25lh': true }
   readonly marginLeft0p5lh: { 'margin-left_0\.5lh': true }
@@ -28093,36 +25293,6 @@ export interface CsstsAtoms {
   readonly marginLeft80lvw: { 'margin-left_80lvw': true }
   readonly marginLeft90lvw: { 'margin-left_90lvw': true }
   readonly marginLeft100lvw: { 'margin-left_100lvw': true }
-  readonly marginLeft0mm: { 'margin-left_0mm': true }
-  readonly marginLeft1mm: { 'margin-left_1mm': true }
-  readonly marginLeft2mm: { 'margin-left_2mm': true }
-  readonly marginLeft4mm: { 'margin-left_4mm': true }
-  readonly marginLeft6mm: { 'margin-left_6mm': true }
-  readonly marginLeft8mm: { 'margin-left_8mm': true }
-  readonly marginLeft10mm: { 'margin-left_10mm': true }
-  readonly marginLeft12mm: { 'margin-left_12mm': true }
-  readonly marginLeft16mm: { 'margin-left_16mm': true }
-  readonly marginLeft20mm: { 'margin-left_20mm': true }
-  readonly marginLeft0pc: { 'margin-left_0pc': true }
-  readonly marginLeft1pc: { 'margin-left_1pc': true }
-  readonly marginLeft2pc: { 'margin-left_2pc': true }
-  readonly marginLeft4pc: { 'margin-left_4pc': true }
-  readonly marginLeft6pc: { 'margin-left_6pc': true }
-  readonly marginLeft8pc: { 'margin-left_8pc': true }
-  readonly marginLeft10pc: { 'margin-left_10pc': true }
-  readonly marginLeft12pc: { 'margin-left_12pc': true }
-  readonly marginLeft16pc: { 'margin-left_16pc': true }
-  readonly marginLeft20pc: { 'margin-left_20pc': true }
-  readonly marginLeft0pt: { 'margin-left_0pt': true }
-  readonly marginLeft1pt: { 'margin-left_1pt': true }
-  readonly marginLeft2pt: { 'margin-left_2pt': true }
-  readonly marginLeft4pt: { 'margin-left_4pt': true }
-  readonly marginLeft6pt: { 'margin-left_6pt': true }
-  readonly marginLeft8pt: { 'margin-left_8pt': true }
-  readonly marginLeft10pt: { 'margin-left_10pt': true }
-  readonly marginLeft12pt: { 'margin-left_12pt': true }
-  readonly marginLeft16pt: { 'margin-left_16pt': true }
-  readonly marginLeft20pt: { 'margin-left_20pt': true }
   readonly marginLeftN384px: { 'margin-left_-384px': true }
   readonly marginLeftN320px: { 'margin-left_-320px': true }
   readonly marginLeftN256px: { 'margin-left_-256px': true }
@@ -28342,16 +25512,6 @@ export interface CsstsAtoms {
 
   // ==================== margin-right ====================
   readonly marginRightAuto: { 'margin-right_auto': true }
-  readonly marginRight0Q: { 'margin-right_0Q': true }
-  readonly marginRight1Q: { 'margin-right_1Q': true }
-  readonly marginRight2Q: { 'margin-right_2Q': true }
-  readonly marginRight4Q: { 'margin-right_4Q': true }
-  readonly marginRight6Q: { 'margin-right_6Q': true }
-  readonly marginRight8Q: { 'margin-right_8Q': true }
-  readonly marginRight10Q: { 'margin-right_10Q': true }
-  readonly marginRight12Q: { 'margin-right_12Q': true }
-  readonly marginRight16Q: { 'margin-right_16Q': true }
-  readonly marginRight20Q: { 'margin-right_20Q': true }
   readonly marginRight0cap: { 'margin-right_0cap': true }
   readonly marginRight0p25cap: { 'margin-right_0\.25cap': true }
   readonly marginRight0p5cap: { 'margin-right_0\.5cap': true }
@@ -28380,16 +25540,6 @@ export interface CsstsAtoms {
   readonly marginRight5ch: { 'margin-right_5ch': true }
   readonly marginRight6ch: { 'margin-right_6ch': true }
   readonly marginRight8ch: { 'margin-right_8ch': true }
-  readonly marginRight0cm: { 'margin-right_0cm': true }
-  readonly marginRight1cm: { 'margin-right_1cm': true }
-  readonly marginRight2cm: { 'margin-right_2cm': true }
-  readonly marginRight4cm: { 'margin-right_4cm': true }
-  readonly marginRight6cm: { 'margin-right_6cm': true }
-  readonly marginRight8cm: { 'margin-right_8cm': true }
-  readonly marginRight10cm: { 'margin-right_10cm': true }
-  readonly marginRight12cm: { 'margin-right_12cm': true }
-  readonly marginRight16cm: { 'margin-right_16cm': true }
-  readonly marginRight20cm: { 'margin-right_20cm': true }
   readonly marginRight0dvh: { 'margin-right_0dvh': true }
   readonly marginRight10dvh: { 'margin-right_10dvh': true }
   readonly marginRight20dvh: { 'margin-right_20dvh': true }
@@ -28462,16 +25612,6 @@ export interface CsstsAtoms {
   readonly marginRight5ic: { 'margin-right_5ic': true }
   readonly marginRight6ic: { 'margin-right_6ic': true }
   readonly marginRight8ic: { 'margin-right_8ic': true }
-  readonly marginRight0in: { 'margin-right_0in': true }
-  readonly marginRight1in: { 'margin-right_1in': true }
-  readonly marginRight2in: { 'margin-right_2in': true }
-  readonly marginRight4in: { 'margin-right_4in': true }
-  readonly marginRight6in: { 'margin-right_6in': true }
-  readonly marginRight8in: { 'margin-right_8in': true }
-  readonly marginRight10in: { 'margin-right_10in': true }
-  readonly marginRight12in: { 'margin-right_12in': true }
-  readonly marginRight16in: { 'margin-right_16in': true }
-  readonly marginRight20in: { 'margin-right_20in': true }
   readonly marginRight0lh: { 'margin-right_0lh': true }
   readonly marginRight0p25lh: { 'margin-right_0\.25lh': true }
   readonly marginRight0p5lh: { 'margin-right_0\.5lh': true }
@@ -28516,36 +25656,6 @@ export interface CsstsAtoms {
   readonly marginRight80lvw: { 'margin-right_80lvw': true }
   readonly marginRight90lvw: { 'margin-right_90lvw': true }
   readonly marginRight100lvw: { 'margin-right_100lvw': true }
-  readonly marginRight0mm: { 'margin-right_0mm': true }
-  readonly marginRight1mm: { 'margin-right_1mm': true }
-  readonly marginRight2mm: { 'margin-right_2mm': true }
-  readonly marginRight4mm: { 'margin-right_4mm': true }
-  readonly marginRight6mm: { 'margin-right_6mm': true }
-  readonly marginRight8mm: { 'margin-right_8mm': true }
-  readonly marginRight10mm: { 'margin-right_10mm': true }
-  readonly marginRight12mm: { 'margin-right_12mm': true }
-  readonly marginRight16mm: { 'margin-right_16mm': true }
-  readonly marginRight20mm: { 'margin-right_20mm': true }
-  readonly marginRight0pc: { 'margin-right_0pc': true }
-  readonly marginRight1pc: { 'margin-right_1pc': true }
-  readonly marginRight2pc: { 'margin-right_2pc': true }
-  readonly marginRight4pc: { 'margin-right_4pc': true }
-  readonly marginRight6pc: { 'margin-right_6pc': true }
-  readonly marginRight8pc: { 'margin-right_8pc': true }
-  readonly marginRight10pc: { 'margin-right_10pc': true }
-  readonly marginRight12pc: { 'margin-right_12pc': true }
-  readonly marginRight16pc: { 'margin-right_16pc': true }
-  readonly marginRight20pc: { 'margin-right_20pc': true }
-  readonly marginRight0pt: { 'margin-right_0pt': true }
-  readonly marginRight1pt: { 'margin-right_1pt': true }
-  readonly marginRight2pt: { 'margin-right_2pt': true }
-  readonly marginRight4pt: { 'margin-right_4pt': true }
-  readonly marginRight6pt: { 'margin-right_6pt': true }
-  readonly marginRight8pt: { 'margin-right_8pt': true }
-  readonly marginRight10pt: { 'margin-right_10pt': true }
-  readonly marginRight12pt: { 'margin-right_12pt': true }
-  readonly marginRight16pt: { 'margin-right_16pt': true }
-  readonly marginRight20pt: { 'margin-right_20pt': true }
   readonly marginRightN384px: { 'margin-right_-384px': true }
   readonly marginRightN320px: { 'margin-right_-320px': true }
   readonly marginRightN256px: { 'margin-right_-256px': true }
@@ -28765,16 +25875,6 @@ export interface CsstsAtoms {
 
   // ==================== margin-top ====================
   readonly marginTopAuto: { 'margin-top_auto': true }
-  readonly marginTop0Q: { 'margin-top_0Q': true }
-  readonly marginTop1Q: { 'margin-top_1Q': true }
-  readonly marginTop2Q: { 'margin-top_2Q': true }
-  readonly marginTop4Q: { 'margin-top_4Q': true }
-  readonly marginTop6Q: { 'margin-top_6Q': true }
-  readonly marginTop8Q: { 'margin-top_8Q': true }
-  readonly marginTop10Q: { 'margin-top_10Q': true }
-  readonly marginTop12Q: { 'margin-top_12Q': true }
-  readonly marginTop16Q: { 'margin-top_16Q': true }
-  readonly marginTop20Q: { 'margin-top_20Q': true }
   readonly marginTop0cap: { 'margin-top_0cap': true }
   readonly marginTop0p25cap: { 'margin-top_0\.25cap': true }
   readonly marginTop0p5cap: { 'margin-top_0\.5cap': true }
@@ -28803,16 +25903,6 @@ export interface CsstsAtoms {
   readonly marginTop5ch: { 'margin-top_5ch': true }
   readonly marginTop6ch: { 'margin-top_6ch': true }
   readonly marginTop8ch: { 'margin-top_8ch': true }
-  readonly marginTop0cm: { 'margin-top_0cm': true }
-  readonly marginTop1cm: { 'margin-top_1cm': true }
-  readonly marginTop2cm: { 'margin-top_2cm': true }
-  readonly marginTop4cm: { 'margin-top_4cm': true }
-  readonly marginTop6cm: { 'margin-top_6cm': true }
-  readonly marginTop8cm: { 'margin-top_8cm': true }
-  readonly marginTop10cm: { 'margin-top_10cm': true }
-  readonly marginTop12cm: { 'margin-top_12cm': true }
-  readonly marginTop16cm: { 'margin-top_16cm': true }
-  readonly marginTop20cm: { 'margin-top_20cm': true }
   readonly marginTop0dvh: { 'margin-top_0dvh': true }
   readonly marginTop10dvh: { 'margin-top_10dvh': true }
   readonly marginTop20dvh: { 'margin-top_20dvh': true }
@@ -28885,16 +25975,6 @@ export interface CsstsAtoms {
   readonly marginTop5ic: { 'margin-top_5ic': true }
   readonly marginTop6ic: { 'margin-top_6ic': true }
   readonly marginTop8ic: { 'margin-top_8ic': true }
-  readonly marginTop0in: { 'margin-top_0in': true }
-  readonly marginTop1in: { 'margin-top_1in': true }
-  readonly marginTop2in: { 'margin-top_2in': true }
-  readonly marginTop4in: { 'margin-top_4in': true }
-  readonly marginTop6in: { 'margin-top_6in': true }
-  readonly marginTop8in: { 'margin-top_8in': true }
-  readonly marginTop10in: { 'margin-top_10in': true }
-  readonly marginTop12in: { 'margin-top_12in': true }
-  readonly marginTop16in: { 'margin-top_16in': true }
-  readonly marginTop20in: { 'margin-top_20in': true }
   readonly marginTop0lh: { 'margin-top_0lh': true }
   readonly marginTop0p25lh: { 'margin-top_0\.25lh': true }
   readonly marginTop0p5lh: { 'margin-top_0\.5lh': true }
@@ -28939,36 +26019,6 @@ export interface CsstsAtoms {
   readonly marginTop80lvw: { 'margin-top_80lvw': true }
   readonly marginTop90lvw: { 'margin-top_90lvw': true }
   readonly marginTop100lvw: { 'margin-top_100lvw': true }
-  readonly marginTop0mm: { 'margin-top_0mm': true }
-  readonly marginTop1mm: { 'margin-top_1mm': true }
-  readonly marginTop2mm: { 'margin-top_2mm': true }
-  readonly marginTop4mm: { 'margin-top_4mm': true }
-  readonly marginTop6mm: { 'margin-top_6mm': true }
-  readonly marginTop8mm: { 'margin-top_8mm': true }
-  readonly marginTop10mm: { 'margin-top_10mm': true }
-  readonly marginTop12mm: { 'margin-top_12mm': true }
-  readonly marginTop16mm: { 'margin-top_16mm': true }
-  readonly marginTop20mm: { 'margin-top_20mm': true }
-  readonly marginTop0pc: { 'margin-top_0pc': true }
-  readonly marginTop1pc: { 'margin-top_1pc': true }
-  readonly marginTop2pc: { 'margin-top_2pc': true }
-  readonly marginTop4pc: { 'margin-top_4pc': true }
-  readonly marginTop6pc: { 'margin-top_6pc': true }
-  readonly marginTop8pc: { 'margin-top_8pc': true }
-  readonly marginTop10pc: { 'margin-top_10pc': true }
-  readonly marginTop12pc: { 'margin-top_12pc': true }
-  readonly marginTop16pc: { 'margin-top_16pc': true }
-  readonly marginTop20pc: { 'margin-top_20pc': true }
-  readonly marginTop0pt: { 'margin-top_0pt': true }
-  readonly marginTop1pt: { 'margin-top_1pt': true }
-  readonly marginTop2pt: { 'margin-top_2pt': true }
-  readonly marginTop4pt: { 'margin-top_4pt': true }
-  readonly marginTop6pt: { 'margin-top_6pt': true }
-  readonly marginTop8pt: { 'margin-top_8pt': true }
-  readonly marginTop10pt: { 'margin-top_10pt': true }
-  readonly marginTop12pt: { 'margin-top_12pt': true }
-  readonly marginTop16pt: { 'margin-top_16pt': true }
-  readonly marginTop20pt: { 'margin-top_20pt': true }
   readonly marginTopN384px: { 'margin-top_-384px': true }
   readonly marginTopN320px: { 'margin-top_-320px': true }
   readonly marginTopN256px: { 'margin-top_-256px': true }
@@ -29207,16 +26257,6 @@ export interface CsstsAtoms {
   readonly maxHeightMinIntrinsic: { 'max-height_min-intrinsic': true }
   readonly maxHeightNone: { 'max-height_none': true }
   readonly maxHeightStretch: { 'max-height_stretch': true }
-  readonly maxHeight0Q: { 'max-height_0Q': true }
-  readonly maxHeight1Q: { 'max-height_1Q': true }
-  readonly maxHeight2Q: { 'max-height_2Q': true }
-  readonly maxHeight4Q: { 'max-height_4Q': true }
-  readonly maxHeight6Q: { 'max-height_6Q': true }
-  readonly maxHeight8Q: { 'max-height_8Q': true }
-  readonly maxHeight10Q: { 'max-height_10Q': true }
-  readonly maxHeight12Q: { 'max-height_12Q': true }
-  readonly maxHeight16Q: { 'max-height_16Q': true }
-  readonly maxHeight20Q: { 'max-height_20Q': true }
   readonly maxHeight0cap: { 'max-height_0cap': true }
   readonly maxHeight0p25cap: { 'max-height_0\.25cap': true }
   readonly maxHeight0p5cap: { 'max-height_0\.5cap': true }
@@ -29245,16 +26285,6 @@ export interface CsstsAtoms {
   readonly maxHeight5ch: { 'max-height_5ch': true }
   readonly maxHeight6ch: { 'max-height_6ch': true }
   readonly maxHeight8ch: { 'max-height_8ch': true }
-  readonly maxHeight0cm: { 'max-height_0cm': true }
-  readonly maxHeight1cm: { 'max-height_1cm': true }
-  readonly maxHeight2cm: { 'max-height_2cm': true }
-  readonly maxHeight4cm: { 'max-height_4cm': true }
-  readonly maxHeight6cm: { 'max-height_6cm': true }
-  readonly maxHeight8cm: { 'max-height_8cm': true }
-  readonly maxHeight10cm: { 'max-height_10cm': true }
-  readonly maxHeight12cm: { 'max-height_12cm': true }
-  readonly maxHeight16cm: { 'max-height_16cm': true }
-  readonly maxHeight20cm: { 'max-height_20cm': true }
   readonly maxHeight0dvh: { 'max-height_0dvh': true }
   readonly maxHeight10dvh: { 'max-height_10dvh': true }
   readonly maxHeight20dvh: { 'max-height_20dvh': true }
@@ -29327,16 +26357,6 @@ export interface CsstsAtoms {
   readonly maxHeight5ic: { 'max-height_5ic': true }
   readonly maxHeight6ic: { 'max-height_6ic': true }
   readonly maxHeight8ic: { 'max-height_8ic': true }
-  readonly maxHeight0in: { 'max-height_0in': true }
-  readonly maxHeight1in: { 'max-height_1in': true }
-  readonly maxHeight2in: { 'max-height_2in': true }
-  readonly maxHeight4in: { 'max-height_4in': true }
-  readonly maxHeight6in: { 'max-height_6in': true }
-  readonly maxHeight8in: { 'max-height_8in': true }
-  readonly maxHeight10in: { 'max-height_10in': true }
-  readonly maxHeight12in: { 'max-height_12in': true }
-  readonly maxHeight16in: { 'max-height_16in': true }
-  readonly maxHeight20in: { 'max-height_20in': true }
   readonly maxHeight0lh: { 'max-height_0lh': true }
   readonly maxHeight0p25lh: { 'max-height_0\.25lh': true }
   readonly maxHeight0p5lh: { 'max-height_0\.5lh': true }
@@ -29381,36 +26401,6 @@ export interface CsstsAtoms {
   readonly maxHeight80lvw: { 'max-height_80lvw': true }
   readonly maxHeight90lvw: { 'max-height_90lvw': true }
   readonly maxHeight100lvw: { 'max-height_100lvw': true }
-  readonly maxHeight0mm: { 'max-height_0mm': true }
-  readonly maxHeight1mm: { 'max-height_1mm': true }
-  readonly maxHeight2mm: { 'max-height_2mm': true }
-  readonly maxHeight4mm: { 'max-height_4mm': true }
-  readonly maxHeight6mm: { 'max-height_6mm': true }
-  readonly maxHeight8mm: { 'max-height_8mm': true }
-  readonly maxHeight10mm: { 'max-height_10mm': true }
-  readonly maxHeight12mm: { 'max-height_12mm': true }
-  readonly maxHeight16mm: { 'max-height_16mm': true }
-  readonly maxHeight20mm: { 'max-height_20mm': true }
-  readonly maxHeight0pc: { 'max-height_0pc': true }
-  readonly maxHeight1pc: { 'max-height_1pc': true }
-  readonly maxHeight2pc: { 'max-height_2pc': true }
-  readonly maxHeight4pc: { 'max-height_4pc': true }
-  readonly maxHeight6pc: { 'max-height_6pc': true }
-  readonly maxHeight8pc: { 'max-height_8pc': true }
-  readonly maxHeight10pc: { 'max-height_10pc': true }
-  readonly maxHeight12pc: { 'max-height_12pc': true }
-  readonly maxHeight16pc: { 'max-height_16pc': true }
-  readonly maxHeight20pc: { 'max-height_20pc': true }
-  readonly maxHeight0pt: { 'max-height_0pt': true }
-  readonly maxHeight1pt: { 'max-height_1pt': true }
-  readonly maxHeight2pt: { 'max-height_2pt': true }
-  readonly maxHeight4pt: { 'max-height_4pt': true }
-  readonly maxHeight6pt: { 'max-height_6pt': true }
-  readonly maxHeight8pt: { 'max-height_8pt': true }
-  readonly maxHeight10pt: { 'max-height_10pt': true }
-  readonly maxHeight12pt: { 'max-height_12pt': true }
-  readonly maxHeight16pt: { 'max-height_16pt': true }
-  readonly maxHeight20pt: { 'max-height_20pt': true }
   readonly maxHeightN384px: { 'max-height_-384px': true }
   readonly maxHeightN320px: { 'max-height_-320px': true }
   readonly maxHeightN256px: { 'max-height_-256px': true }
@@ -29644,16 +26634,6 @@ export interface CsstsAtoms {
   readonly maxWidthMinIntrinsic: { 'max-width_min-intrinsic': true }
   readonly maxWidthNone: { 'max-width_none': true }
   readonly maxWidthStretch: { 'max-width_stretch': true }
-  readonly maxWidth0Q: { 'max-width_0Q': true }
-  readonly maxWidth1Q: { 'max-width_1Q': true }
-  readonly maxWidth2Q: { 'max-width_2Q': true }
-  readonly maxWidth4Q: { 'max-width_4Q': true }
-  readonly maxWidth6Q: { 'max-width_6Q': true }
-  readonly maxWidth8Q: { 'max-width_8Q': true }
-  readonly maxWidth10Q: { 'max-width_10Q': true }
-  readonly maxWidth12Q: { 'max-width_12Q': true }
-  readonly maxWidth16Q: { 'max-width_16Q': true }
-  readonly maxWidth20Q: { 'max-width_20Q': true }
   readonly maxWidth0cap: { 'max-width_0cap': true }
   readonly maxWidth0p25cap: { 'max-width_0\.25cap': true }
   readonly maxWidth0p5cap: { 'max-width_0\.5cap': true }
@@ -29682,16 +26662,6 @@ export interface CsstsAtoms {
   readonly maxWidth5ch: { 'max-width_5ch': true }
   readonly maxWidth6ch: { 'max-width_6ch': true }
   readonly maxWidth8ch: { 'max-width_8ch': true }
-  readonly maxWidth0cm: { 'max-width_0cm': true }
-  readonly maxWidth1cm: { 'max-width_1cm': true }
-  readonly maxWidth2cm: { 'max-width_2cm': true }
-  readonly maxWidth4cm: { 'max-width_4cm': true }
-  readonly maxWidth6cm: { 'max-width_6cm': true }
-  readonly maxWidth8cm: { 'max-width_8cm': true }
-  readonly maxWidth10cm: { 'max-width_10cm': true }
-  readonly maxWidth12cm: { 'max-width_12cm': true }
-  readonly maxWidth16cm: { 'max-width_16cm': true }
-  readonly maxWidth20cm: { 'max-width_20cm': true }
   readonly maxWidth0dvh: { 'max-width_0dvh': true }
   readonly maxWidth10dvh: { 'max-width_10dvh': true }
   readonly maxWidth20dvh: { 'max-width_20dvh': true }
@@ -29764,16 +26734,6 @@ export interface CsstsAtoms {
   readonly maxWidth5ic: { 'max-width_5ic': true }
   readonly maxWidth6ic: { 'max-width_6ic': true }
   readonly maxWidth8ic: { 'max-width_8ic': true }
-  readonly maxWidth0in: { 'max-width_0in': true }
-  readonly maxWidth1in: { 'max-width_1in': true }
-  readonly maxWidth2in: { 'max-width_2in': true }
-  readonly maxWidth4in: { 'max-width_4in': true }
-  readonly maxWidth6in: { 'max-width_6in': true }
-  readonly maxWidth8in: { 'max-width_8in': true }
-  readonly maxWidth10in: { 'max-width_10in': true }
-  readonly maxWidth12in: { 'max-width_12in': true }
-  readonly maxWidth16in: { 'max-width_16in': true }
-  readonly maxWidth20in: { 'max-width_20in': true }
   readonly maxWidth0lh: { 'max-width_0lh': true }
   readonly maxWidth0p25lh: { 'max-width_0\.25lh': true }
   readonly maxWidth0p5lh: { 'max-width_0\.5lh': true }
@@ -29818,36 +26778,6 @@ export interface CsstsAtoms {
   readonly maxWidth80lvw: { 'max-width_80lvw': true }
   readonly maxWidth90lvw: { 'max-width_90lvw': true }
   readonly maxWidth100lvw: { 'max-width_100lvw': true }
-  readonly maxWidth0mm: { 'max-width_0mm': true }
-  readonly maxWidth1mm: { 'max-width_1mm': true }
-  readonly maxWidth2mm: { 'max-width_2mm': true }
-  readonly maxWidth4mm: { 'max-width_4mm': true }
-  readonly maxWidth6mm: { 'max-width_6mm': true }
-  readonly maxWidth8mm: { 'max-width_8mm': true }
-  readonly maxWidth10mm: { 'max-width_10mm': true }
-  readonly maxWidth12mm: { 'max-width_12mm': true }
-  readonly maxWidth16mm: { 'max-width_16mm': true }
-  readonly maxWidth20mm: { 'max-width_20mm': true }
-  readonly maxWidth0pc: { 'max-width_0pc': true }
-  readonly maxWidth1pc: { 'max-width_1pc': true }
-  readonly maxWidth2pc: { 'max-width_2pc': true }
-  readonly maxWidth4pc: { 'max-width_4pc': true }
-  readonly maxWidth6pc: { 'max-width_6pc': true }
-  readonly maxWidth8pc: { 'max-width_8pc': true }
-  readonly maxWidth10pc: { 'max-width_10pc': true }
-  readonly maxWidth12pc: { 'max-width_12pc': true }
-  readonly maxWidth16pc: { 'max-width_16pc': true }
-  readonly maxWidth20pc: { 'max-width_20pc': true }
-  readonly maxWidth0pt: { 'max-width_0pt': true }
-  readonly maxWidth1pt: { 'max-width_1pt': true }
-  readonly maxWidth2pt: { 'max-width_2pt': true }
-  readonly maxWidth4pt: { 'max-width_4pt': true }
-  readonly maxWidth6pt: { 'max-width_6pt': true }
-  readonly maxWidth8pt: { 'max-width_8pt': true }
-  readonly maxWidth10pt: { 'max-width_10pt': true }
-  readonly maxWidth12pt: { 'max-width_12pt': true }
-  readonly maxWidth16pt: { 'max-width_16pt': true }
-  readonly maxWidth20pt: { 'max-width_20pt': true }
   readonly maxWidthN384px: { 'max-width_-384px': true }
   readonly maxWidthN320px: { 'max-width_-320px': true }
   readonly maxWidthN256px: { 'max-width_-256px': true }
@@ -30081,16 +27011,6 @@ export interface CsstsAtoms {
   readonly minHeightMinContent: { 'min-height_min-content': true }
   readonly minHeightMinIntrinsic: { 'min-height_min-intrinsic': true }
   readonly minHeightStretch: { 'min-height_stretch': true }
-  readonly minHeight0Q: { 'min-height_0Q': true }
-  readonly minHeight1Q: { 'min-height_1Q': true }
-  readonly minHeight2Q: { 'min-height_2Q': true }
-  readonly minHeight4Q: { 'min-height_4Q': true }
-  readonly minHeight6Q: { 'min-height_6Q': true }
-  readonly minHeight8Q: { 'min-height_8Q': true }
-  readonly minHeight10Q: { 'min-height_10Q': true }
-  readonly minHeight12Q: { 'min-height_12Q': true }
-  readonly minHeight16Q: { 'min-height_16Q': true }
-  readonly minHeight20Q: { 'min-height_20Q': true }
   readonly minHeight0cap: { 'min-height_0cap': true }
   readonly minHeight0p25cap: { 'min-height_0\.25cap': true }
   readonly minHeight0p5cap: { 'min-height_0\.5cap': true }
@@ -30119,16 +27039,6 @@ export interface CsstsAtoms {
   readonly minHeight5ch: { 'min-height_5ch': true }
   readonly minHeight6ch: { 'min-height_6ch': true }
   readonly minHeight8ch: { 'min-height_8ch': true }
-  readonly minHeight0cm: { 'min-height_0cm': true }
-  readonly minHeight1cm: { 'min-height_1cm': true }
-  readonly minHeight2cm: { 'min-height_2cm': true }
-  readonly minHeight4cm: { 'min-height_4cm': true }
-  readonly minHeight6cm: { 'min-height_6cm': true }
-  readonly minHeight8cm: { 'min-height_8cm': true }
-  readonly minHeight10cm: { 'min-height_10cm': true }
-  readonly minHeight12cm: { 'min-height_12cm': true }
-  readonly minHeight16cm: { 'min-height_16cm': true }
-  readonly minHeight20cm: { 'min-height_20cm': true }
   readonly minHeight0dvh: { 'min-height_0dvh': true }
   readonly minHeight10dvh: { 'min-height_10dvh': true }
   readonly minHeight20dvh: { 'min-height_20dvh': true }
@@ -30201,16 +27111,6 @@ export interface CsstsAtoms {
   readonly minHeight5ic: { 'min-height_5ic': true }
   readonly minHeight6ic: { 'min-height_6ic': true }
   readonly minHeight8ic: { 'min-height_8ic': true }
-  readonly minHeight0in: { 'min-height_0in': true }
-  readonly minHeight1in: { 'min-height_1in': true }
-  readonly minHeight2in: { 'min-height_2in': true }
-  readonly minHeight4in: { 'min-height_4in': true }
-  readonly minHeight6in: { 'min-height_6in': true }
-  readonly minHeight8in: { 'min-height_8in': true }
-  readonly minHeight10in: { 'min-height_10in': true }
-  readonly minHeight12in: { 'min-height_12in': true }
-  readonly minHeight16in: { 'min-height_16in': true }
-  readonly minHeight20in: { 'min-height_20in': true }
   readonly minHeight0lh: { 'min-height_0lh': true }
   readonly minHeight0p25lh: { 'min-height_0\.25lh': true }
   readonly minHeight0p5lh: { 'min-height_0\.5lh': true }
@@ -30255,36 +27155,6 @@ export interface CsstsAtoms {
   readonly minHeight80lvw: { 'min-height_80lvw': true }
   readonly minHeight90lvw: { 'min-height_90lvw': true }
   readonly minHeight100lvw: { 'min-height_100lvw': true }
-  readonly minHeight0mm: { 'min-height_0mm': true }
-  readonly minHeight1mm: { 'min-height_1mm': true }
-  readonly minHeight2mm: { 'min-height_2mm': true }
-  readonly minHeight4mm: { 'min-height_4mm': true }
-  readonly minHeight6mm: { 'min-height_6mm': true }
-  readonly minHeight8mm: { 'min-height_8mm': true }
-  readonly minHeight10mm: { 'min-height_10mm': true }
-  readonly minHeight12mm: { 'min-height_12mm': true }
-  readonly minHeight16mm: { 'min-height_16mm': true }
-  readonly minHeight20mm: { 'min-height_20mm': true }
-  readonly minHeight0pc: { 'min-height_0pc': true }
-  readonly minHeight1pc: { 'min-height_1pc': true }
-  readonly minHeight2pc: { 'min-height_2pc': true }
-  readonly minHeight4pc: { 'min-height_4pc': true }
-  readonly minHeight6pc: { 'min-height_6pc': true }
-  readonly minHeight8pc: { 'min-height_8pc': true }
-  readonly minHeight10pc: { 'min-height_10pc': true }
-  readonly minHeight12pc: { 'min-height_12pc': true }
-  readonly minHeight16pc: { 'min-height_16pc': true }
-  readonly minHeight20pc: { 'min-height_20pc': true }
-  readonly minHeight0pt: { 'min-height_0pt': true }
-  readonly minHeight1pt: { 'min-height_1pt': true }
-  readonly minHeight2pt: { 'min-height_2pt': true }
-  readonly minHeight4pt: { 'min-height_4pt': true }
-  readonly minHeight6pt: { 'min-height_6pt': true }
-  readonly minHeight8pt: { 'min-height_8pt': true }
-  readonly minHeight10pt: { 'min-height_10pt': true }
-  readonly minHeight12pt: { 'min-height_12pt': true }
-  readonly minHeight16pt: { 'min-height_16pt': true }
-  readonly minHeight20pt: { 'min-height_20pt': true }
   readonly minHeightN384px: { 'min-height_-384px': true }
   readonly minHeightN320px: { 'min-height_-320px': true }
   readonly minHeightN256px: { 'min-height_-256px': true }
@@ -30518,16 +27388,6 @@ export interface CsstsAtoms {
   readonly minWidthMinContent: { 'min-width_min-content': true }
   readonly minWidthMinIntrinsic: { 'min-width_min-intrinsic': true }
   readonly minWidthStretch: { 'min-width_stretch': true }
-  readonly minWidth0Q: { 'min-width_0Q': true }
-  readonly minWidth1Q: { 'min-width_1Q': true }
-  readonly minWidth2Q: { 'min-width_2Q': true }
-  readonly minWidth4Q: { 'min-width_4Q': true }
-  readonly minWidth6Q: { 'min-width_6Q': true }
-  readonly minWidth8Q: { 'min-width_8Q': true }
-  readonly minWidth10Q: { 'min-width_10Q': true }
-  readonly minWidth12Q: { 'min-width_12Q': true }
-  readonly minWidth16Q: { 'min-width_16Q': true }
-  readonly minWidth20Q: { 'min-width_20Q': true }
   readonly minWidth0cap: { 'min-width_0cap': true }
   readonly minWidth0p25cap: { 'min-width_0\.25cap': true }
   readonly minWidth0p5cap: { 'min-width_0\.5cap': true }
@@ -30556,16 +27416,6 @@ export interface CsstsAtoms {
   readonly minWidth5ch: { 'min-width_5ch': true }
   readonly minWidth6ch: { 'min-width_6ch': true }
   readonly minWidth8ch: { 'min-width_8ch': true }
-  readonly minWidth0cm: { 'min-width_0cm': true }
-  readonly minWidth1cm: { 'min-width_1cm': true }
-  readonly minWidth2cm: { 'min-width_2cm': true }
-  readonly minWidth4cm: { 'min-width_4cm': true }
-  readonly minWidth6cm: { 'min-width_6cm': true }
-  readonly minWidth8cm: { 'min-width_8cm': true }
-  readonly minWidth10cm: { 'min-width_10cm': true }
-  readonly minWidth12cm: { 'min-width_12cm': true }
-  readonly minWidth16cm: { 'min-width_16cm': true }
-  readonly minWidth20cm: { 'min-width_20cm': true }
   readonly minWidth0dvh: { 'min-width_0dvh': true }
   readonly minWidth10dvh: { 'min-width_10dvh': true }
   readonly minWidth20dvh: { 'min-width_20dvh': true }
@@ -30638,16 +27488,6 @@ export interface CsstsAtoms {
   readonly minWidth5ic: { 'min-width_5ic': true }
   readonly minWidth6ic: { 'min-width_6ic': true }
   readonly minWidth8ic: { 'min-width_8ic': true }
-  readonly minWidth0in: { 'min-width_0in': true }
-  readonly minWidth1in: { 'min-width_1in': true }
-  readonly minWidth2in: { 'min-width_2in': true }
-  readonly minWidth4in: { 'min-width_4in': true }
-  readonly minWidth6in: { 'min-width_6in': true }
-  readonly minWidth8in: { 'min-width_8in': true }
-  readonly minWidth10in: { 'min-width_10in': true }
-  readonly minWidth12in: { 'min-width_12in': true }
-  readonly minWidth16in: { 'min-width_16in': true }
-  readonly minWidth20in: { 'min-width_20in': true }
   readonly minWidth0lh: { 'min-width_0lh': true }
   readonly minWidth0p25lh: { 'min-width_0\.25lh': true }
   readonly minWidth0p5lh: { 'min-width_0\.5lh': true }
@@ -30692,36 +27532,6 @@ export interface CsstsAtoms {
   readonly minWidth80lvw: { 'min-width_80lvw': true }
   readonly minWidth90lvw: { 'min-width_90lvw': true }
   readonly minWidth100lvw: { 'min-width_100lvw': true }
-  readonly minWidth0mm: { 'min-width_0mm': true }
-  readonly minWidth1mm: { 'min-width_1mm': true }
-  readonly minWidth2mm: { 'min-width_2mm': true }
-  readonly minWidth4mm: { 'min-width_4mm': true }
-  readonly minWidth6mm: { 'min-width_6mm': true }
-  readonly minWidth8mm: { 'min-width_8mm': true }
-  readonly minWidth10mm: { 'min-width_10mm': true }
-  readonly minWidth12mm: { 'min-width_12mm': true }
-  readonly minWidth16mm: { 'min-width_16mm': true }
-  readonly minWidth20mm: { 'min-width_20mm': true }
-  readonly minWidth0pc: { 'min-width_0pc': true }
-  readonly minWidth1pc: { 'min-width_1pc': true }
-  readonly minWidth2pc: { 'min-width_2pc': true }
-  readonly minWidth4pc: { 'min-width_4pc': true }
-  readonly minWidth6pc: { 'min-width_6pc': true }
-  readonly minWidth8pc: { 'min-width_8pc': true }
-  readonly minWidth10pc: { 'min-width_10pc': true }
-  readonly minWidth12pc: { 'min-width_12pc': true }
-  readonly minWidth16pc: { 'min-width_16pc': true }
-  readonly minWidth20pc: { 'min-width_20pc': true }
-  readonly minWidth0pt: { 'min-width_0pt': true }
-  readonly minWidth1pt: { 'min-width_1pt': true }
-  readonly minWidth2pt: { 'min-width_2pt': true }
-  readonly minWidth4pt: { 'min-width_4pt': true }
-  readonly minWidth6pt: { 'min-width_6pt': true }
-  readonly minWidth8pt: { 'min-width_8pt': true }
-  readonly minWidth10pt: { 'min-width_10pt': true }
-  readonly minWidth12pt: { 'min-width_12pt': true }
-  readonly minWidth16pt: { 'min-width_16pt': true }
-  readonly minWidth20pt: { 'min-width_20pt': true }
   readonly minWidthN384px: { 'min-width_-384px': true }
   readonly minWidthN320px: { 'min-width_-320px': true }
   readonly minWidthN256px: { 'min-width_-256px': true }
@@ -30971,16 +27781,6 @@ export interface CsstsAtoms {
   readonly objectPositionLeft: { 'object-position_left': true }
   readonly objectPositionRight: { 'object-position_right': true }
   readonly objectPositionTop: { 'object-position_top': true }
-  readonly objectPosition0Q: { 'object-position_0Q': true }
-  readonly objectPosition1Q: { 'object-position_1Q': true }
-  readonly objectPosition2Q: { 'object-position_2Q': true }
-  readonly objectPosition4Q: { 'object-position_4Q': true }
-  readonly objectPosition6Q: { 'object-position_6Q': true }
-  readonly objectPosition8Q: { 'object-position_8Q': true }
-  readonly objectPosition10Q: { 'object-position_10Q': true }
-  readonly objectPosition12Q: { 'object-position_12Q': true }
-  readonly objectPosition16Q: { 'object-position_16Q': true }
-  readonly objectPosition20Q: { 'object-position_20Q': true }
   readonly objectPosition0cap: { 'object-position_0cap': true }
   readonly objectPosition0p25cap: { 'object-position_0\.25cap': true }
   readonly objectPosition0p5cap: { 'object-position_0\.5cap': true }
@@ -31009,16 +27809,6 @@ export interface CsstsAtoms {
   readonly objectPosition5ch: { 'object-position_5ch': true }
   readonly objectPosition6ch: { 'object-position_6ch': true }
   readonly objectPosition8ch: { 'object-position_8ch': true }
-  readonly objectPosition0cm: { 'object-position_0cm': true }
-  readonly objectPosition1cm: { 'object-position_1cm': true }
-  readonly objectPosition2cm: { 'object-position_2cm': true }
-  readonly objectPosition4cm: { 'object-position_4cm': true }
-  readonly objectPosition6cm: { 'object-position_6cm': true }
-  readonly objectPosition8cm: { 'object-position_8cm': true }
-  readonly objectPosition10cm: { 'object-position_10cm': true }
-  readonly objectPosition12cm: { 'object-position_12cm': true }
-  readonly objectPosition16cm: { 'object-position_16cm': true }
-  readonly objectPosition20cm: { 'object-position_20cm': true }
   readonly objectPosition0dvh: { 'object-position_0dvh': true }
   readonly objectPosition10dvh: { 'object-position_10dvh': true }
   readonly objectPosition20dvh: { 'object-position_20dvh': true }
@@ -31091,16 +27881,6 @@ export interface CsstsAtoms {
   readonly objectPosition5ic: { 'object-position_5ic': true }
   readonly objectPosition6ic: { 'object-position_6ic': true }
   readonly objectPosition8ic: { 'object-position_8ic': true }
-  readonly objectPosition0in: { 'object-position_0in': true }
-  readonly objectPosition1in: { 'object-position_1in': true }
-  readonly objectPosition2in: { 'object-position_2in': true }
-  readonly objectPosition4in: { 'object-position_4in': true }
-  readonly objectPosition6in: { 'object-position_6in': true }
-  readonly objectPosition8in: { 'object-position_8in': true }
-  readonly objectPosition10in: { 'object-position_10in': true }
-  readonly objectPosition12in: { 'object-position_12in': true }
-  readonly objectPosition16in: { 'object-position_16in': true }
-  readonly objectPosition20in: { 'object-position_20in': true }
   readonly objectPosition0lh: { 'object-position_0lh': true }
   readonly objectPosition0p25lh: { 'object-position_0\.25lh': true }
   readonly objectPosition0p5lh: { 'object-position_0\.5lh': true }
@@ -31145,36 +27925,6 @@ export interface CsstsAtoms {
   readonly objectPosition80lvw: { 'object-position_80lvw': true }
   readonly objectPosition90lvw: { 'object-position_90lvw': true }
   readonly objectPosition100lvw: { 'object-position_100lvw': true }
-  readonly objectPosition0mm: { 'object-position_0mm': true }
-  readonly objectPosition1mm: { 'object-position_1mm': true }
-  readonly objectPosition2mm: { 'object-position_2mm': true }
-  readonly objectPosition4mm: { 'object-position_4mm': true }
-  readonly objectPosition6mm: { 'object-position_6mm': true }
-  readonly objectPosition8mm: { 'object-position_8mm': true }
-  readonly objectPosition10mm: { 'object-position_10mm': true }
-  readonly objectPosition12mm: { 'object-position_12mm': true }
-  readonly objectPosition16mm: { 'object-position_16mm': true }
-  readonly objectPosition20mm: { 'object-position_20mm': true }
-  readonly objectPosition0pc: { 'object-position_0pc': true }
-  readonly objectPosition1pc: { 'object-position_1pc': true }
-  readonly objectPosition2pc: { 'object-position_2pc': true }
-  readonly objectPosition4pc: { 'object-position_4pc': true }
-  readonly objectPosition6pc: { 'object-position_6pc': true }
-  readonly objectPosition8pc: { 'object-position_8pc': true }
-  readonly objectPosition10pc: { 'object-position_10pc': true }
-  readonly objectPosition12pc: { 'object-position_12pc': true }
-  readonly objectPosition16pc: { 'object-position_16pc': true }
-  readonly objectPosition20pc: { 'object-position_20pc': true }
-  readonly objectPosition0pt: { 'object-position_0pt': true }
-  readonly objectPosition1pt: { 'object-position_1pt': true }
-  readonly objectPosition2pt: { 'object-position_2pt': true }
-  readonly objectPosition4pt: { 'object-position_4pt': true }
-  readonly objectPosition6pt: { 'object-position_6pt': true }
-  readonly objectPosition8pt: { 'object-position_8pt': true }
-  readonly objectPosition10pt: { 'object-position_10pt': true }
-  readonly objectPosition12pt: { 'object-position_12pt': true }
-  readonly objectPosition16pt: { 'object-position_16pt': true }
-  readonly objectPosition20pt: { 'object-position_20pt': true }
   readonly objectPositionN384px: { 'object-position_-384px': true }
   readonly objectPositionN320px: { 'object-position_-320px': true }
   readonly objectPositionN256px: { 'object-position_-256px': true }
@@ -31770,16 +28520,6 @@ export interface CsstsAtoms {
   readonly outlineColor100Pct: { 'outline-color_100\%': true }
 
   // ==================== outline-offset ====================
-  readonly outlineOffset0Q: { 'outline-offset_0Q': true }
-  readonly outlineOffset1Q: { 'outline-offset_1Q': true }
-  readonly outlineOffset2Q: { 'outline-offset_2Q': true }
-  readonly outlineOffset4Q: { 'outline-offset_4Q': true }
-  readonly outlineOffset6Q: { 'outline-offset_6Q': true }
-  readonly outlineOffset8Q: { 'outline-offset_8Q': true }
-  readonly outlineOffset10Q: { 'outline-offset_10Q': true }
-  readonly outlineOffset12Q: { 'outline-offset_12Q': true }
-  readonly outlineOffset16Q: { 'outline-offset_16Q': true }
-  readonly outlineOffset20Q: { 'outline-offset_20Q': true }
   readonly outlineOffset0cap: { 'outline-offset_0cap': true }
   readonly outlineOffset0p25cap: { 'outline-offset_0\.25cap': true }
   readonly outlineOffset0p5cap: { 'outline-offset_0\.5cap': true }
@@ -31808,16 +28548,6 @@ export interface CsstsAtoms {
   readonly outlineOffset5ch: { 'outline-offset_5ch': true }
   readonly outlineOffset6ch: { 'outline-offset_6ch': true }
   readonly outlineOffset8ch: { 'outline-offset_8ch': true }
-  readonly outlineOffset0cm: { 'outline-offset_0cm': true }
-  readonly outlineOffset1cm: { 'outline-offset_1cm': true }
-  readonly outlineOffset2cm: { 'outline-offset_2cm': true }
-  readonly outlineOffset4cm: { 'outline-offset_4cm': true }
-  readonly outlineOffset6cm: { 'outline-offset_6cm': true }
-  readonly outlineOffset8cm: { 'outline-offset_8cm': true }
-  readonly outlineOffset10cm: { 'outline-offset_10cm': true }
-  readonly outlineOffset12cm: { 'outline-offset_12cm': true }
-  readonly outlineOffset16cm: { 'outline-offset_16cm': true }
-  readonly outlineOffset20cm: { 'outline-offset_20cm': true }
   readonly outlineOffset0dvh: { 'outline-offset_0dvh': true }
   readonly outlineOffset10dvh: { 'outline-offset_10dvh': true }
   readonly outlineOffset20dvh: { 'outline-offset_20dvh': true }
@@ -31890,16 +28620,6 @@ export interface CsstsAtoms {
   readonly outlineOffset5ic: { 'outline-offset_5ic': true }
   readonly outlineOffset6ic: { 'outline-offset_6ic': true }
   readonly outlineOffset8ic: { 'outline-offset_8ic': true }
-  readonly outlineOffset0in: { 'outline-offset_0in': true }
-  readonly outlineOffset1in: { 'outline-offset_1in': true }
-  readonly outlineOffset2in: { 'outline-offset_2in': true }
-  readonly outlineOffset4in: { 'outline-offset_4in': true }
-  readonly outlineOffset6in: { 'outline-offset_6in': true }
-  readonly outlineOffset8in: { 'outline-offset_8in': true }
-  readonly outlineOffset10in: { 'outline-offset_10in': true }
-  readonly outlineOffset12in: { 'outline-offset_12in': true }
-  readonly outlineOffset16in: { 'outline-offset_16in': true }
-  readonly outlineOffset20in: { 'outline-offset_20in': true }
   readonly outlineOffset0lh: { 'outline-offset_0lh': true }
   readonly outlineOffset0p25lh: { 'outline-offset_0\.25lh': true }
   readonly outlineOffset0p5lh: { 'outline-offset_0\.5lh': true }
@@ -31944,36 +28664,6 @@ export interface CsstsAtoms {
   readonly outlineOffset80lvw: { 'outline-offset_80lvw': true }
   readonly outlineOffset90lvw: { 'outline-offset_90lvw': true }
   readonly outlineOffset100lvw: { 'outline-offset_100lvw': true }
-  readonly outlineOffset0mm: { 'outline-offset_0mm': true }
-  readonly outlineOffset1mm: { 'outline-offset_1mm': true }
-  readonly outlineOffset2mm: { 'outline-offset_2mm': true }
-  readonly outlineOffset4mm: { 'outline-offset_4mm': true }
-  readonly outlineOffset6mm: { 'outline-offset_6mm': true }
-  readonly outlineOffset8mm: { 'outline-offset_8mm': true }
-  readonly outlineOffset10mm: { 'outline-offset_10mm': true }
-  readonly outlineOffset12mm: { 'outline-offset_12mm': true }
-  readonly outlineOffset16mm: { 'outline-offset_16mm': true }
-  readonly outlineOffset20mm: { 'outline-offset_20mm': true }
-  readonly outlineOffset0pc: { 'outline-offset_0pc': true }
-  readonly outlineOffset1pc: { 'outline-offset_1pc': true }
-  readonly outlineOffset2pc: { 'outline-offset_2pc': true }
-  readonly outlineOffset4pc: { 'outline-offset_4pc': true }
-  readonly outlineOffset6pc: { 'outline-offset_6pc': true }
-  readonly outlineOffset8pc: { 'outline-offset_8pc': true }
-  readonly outlineOffset10pc: { 'outline-offset_10pc': true }
-  readonly outlineOffset12pc: { 'outline-offset_12pc': true }
-  readonly outlineOffset16pc: { 'outline-offset_16pc': true }
-  readonly outlineOffset20pc: { 'outline-offset_20pc': true }
-  readonly outlineOffset0pt: { 'outline-offset_0pt': true }
-  readonly outlineOffset1pt: { 'outline-offset_1pt': true }
-  readonly outlineOffset2pt: { 'outline-offset_2pt': true }
-  readonly outlineOffset4pt: { 'outline-offset_4pt': true }
-  readonly outlineOffset6pt: { 'outline-offset_6pt': true }
-  readonly outlineOffset8pt: { 'outline-offset_8pt': true }
-  readonly outlineOffset10pt: { 'outline-offset_10pt': true }
-  readonly outlineOffset12pt: { 'outline-offset_12pt': true }
-  readonly outlineOffset16pt: { 'outline-offset_16pt': true }
-  readonly outlineOffset20pt: { 'outline-offset_20pt': true }
   readonly outlineOffsetN384px: { 'outline-offset_-384px': true }
   readonly outlineOffsetN320px: { 'outline-offset_-320px': true }
   readonly outlineOffsetN256px: { 'outline-offset_-256px': true }
@@ -32183,16 +28873,6 @@ export interface CsstsAtoms {
   readonly outlineWidthMedium: { 'outline-width_medium': true }
   readonly outlineWidthThick: { 'outline-width_thick': true }
   readonly outlineWidthThin: { 'outline-width_thin': true }
-  readonly outlineWidth0Q: { 'outline-width_0Q': true }
-  readonly outlineWidth1Q: { 'outline-width_1Q': true }
-  readonly outlineWidth2Q: { 'outline-width_2Q': true }
-  readonly outlineWidth4Q: { 'outline-width_4Q': true }
-  readonly outlineWidth6Q: { 'outline-width_6Q': true }
-  readonly outlineWidth8Q: { 'outline-width_8Q': true }
-  readonly outlineWidth10Q: { 'outline-width_10Q': true }
-  readonly outlineWidth12Q: { 'outline-width_12Q': true }
-  readonly outlineWidth16Q: { 'outline-width_16Q': true }
-  readonly outlineWidth20Q: { 'outline-width_20Q': true }
   readonly outlineWidth0cap: { 'outline-width_0cap': true }
   readonly outlineWidth0p25cap: { 'outline-width_0\.25cap': true }
   readonly outlineWidth0p5cap: { 'outline-width_0\.5cap': true }
@@ -32221,16 +28901,6 @@ export interface CsstsAtoms {
   readonly outlineWidth5ch: { 'outline-width_5ch': true }
   readonly outlineWidth6ch: { 'outline-width_6ch': true }
   readonly outlineWidth8ch: { 'outline-width_8ch': true }
-  readonly outlineWidth0cm: { 'outline-width_0cm': true }
-  readonly outlineWidth1cm: { 'outline-width_1cm': true }
-  readonly outlineWidth2cm: { 'outline-width_2cm': true }
-  readonly outlineWidth4cm: { 'outline-width_4cm': true }
-  readonly outlineWidth6cm: { 'outline-width_6cm': true }
-  readonly outlineWidth8cm: { 'outline-width_8cm': true }
-  readonly outlineWidth10cm: { 'outline-width_10cm': true }
-  readonly outlineWidth12cm: { 'outline-width_12cm': true }
-  readonly outlineWidth16cm: { 'outline-width_16cm': true }
-  readonly outlineWidth20cm: { 'outline-width_20cm': true }
   readonly outlineWidth0dvh: { 'outline-width_0dvh': true }
   readonly outlineWidth10dvh: { 'outline-width_10dvh': true }
   readonly outlineWidth20dvh: { 'outline-width_20dvh': true }
@@ -32303,16 +28973,6 @@ export interface CsstsAtoms {
   readonly outlineWidth5ic: { 'outline-width_5ic': true }
   readonly outlineWidth6ic: { 'outline-width_6ic': true }
   readonly outlineWidth8ic: { 'outline-width_8ic': true }
-  readonly outlineWidth0in: { 'outline-width_0in': true }
-  readonly outlineWidth1in: { 'outline-width_1in': true }
-  readonly outlineWidth2in: { 'outline-width_2in': true }
-  readonly outlineWidth4in: { 'outline-width_4in': true }
-  readonly outlineWidth6in: { 'outline-width_6in': true }
-  readonly outlineWidth8in: { 'outline-width_8in': true }
-  readonly outlineWidth10in: { 'outline-width_10in': true }
-  readonly outlineWidth12in: { 'outline-width_12in': true }
-  readonly outlineWidth16in: { 'outline-width_16in': true }
-  readonly outlineWidth20in: { 'outline-width_20in': true }
   readonly outlineWidth0lh: { 'outline-width_0lh': true }
   readonly outlineWidth0p25lh: { 'outline-width_0\.25lh': true }
   readonly outlineWidth0p5lh: { 'outline-width_0\.5lh': true }
@@ -32357,36 +29017,6 @@ export interface CsstsAtoms {
   readonly outlineWidth80lvw: { 'outline-width_80lvw': true }
   readonly outlineWidth90lvw: { 'outline-width_90lvw': true }
   readonly outlineWidth100lvw: { 'outline-width_100lvw': true }
-  readonly outlineWidth0mm: { 'outline-width_0mm': true }
-  readonly outlineWidth1mm: { 'outline-width_1mm': true }
-  readonly outlineWidth2mm: { 'outline-width_2mm': true }
-  readonly outlineWidth4mm: { 'outline-width_4mm': true }
-  readonly outlineWidth6mm: { 'outline-width_6mm': true }
-  readonly outlineWidth8mm: { 'outline-width_8mm': true }
-  readonly outlineWidth10mm: { 'outline-width_10mm': true }
-  readonly outlineWidth12mm: { 'outline-width_12mm': true }
-  readonly outlineWidth16mm: { 'outline-width_16mm': true }
-  readonly outlineWidth20mm: { 'outline-width_20mm': true }
-  readonly outlineWidth0pc: { 'outline-width_0pc': true }
-  readonly outlineWidth1pc: { 'outline-width_1pc': true }
-  readonly outlineWidth2pc: { 'outline-width_2pc': true }
-  readonly outlineWidth4pc: { 'outline-width_4pc': true }
-  readonly outlineWidth6pc: { 'outline-width_6pc': true }
-  readonly outlineWidth8pc: { 'outline-width_8pc': true }
-  readonly outlineWidth10pc: { 'outline-width_10pc': true }
-  readonly outlineWidth12pc: { 'outline-width_12pc': true }
-  readonly outlineWidth16pc: { 'outline-width_16pc': true }
-  readonly outlineWidth20pc: { 'outline-width_20pc': true }
-  readonly outlineWidth0pt: { 'outline-width_0pt': true }
-  readonly outlineWidth1pt: { 'outline-width_1pt': true }
-  readonly outlineWidth2pt: { 'outline-width_2pt': true }
-  readonly outlineWidth4pt: { 'outline-width_4pt': true }
-  readonly outlineWidth6pt: { 'outline-width_6pt': true }
-  readonly outlineWidth8pt: { 'outline-width_8pt': true }
-  readonly outlineWidth10pt: { 'outline-width_10pt': true }
-  readonly outlineWidth12pt: { 'outline-width_12pt': true }
-  readonly outlineWidth16pt: { 'outline-width_16pt': true }
-  readonly outlineWidth20pt: { 'outline-width_20pt': true }
   readonly outlineWidthN384px: { 'outline-width_-384px': true }
   readonly outlineWidthN320px: { 'outline-width_-320px': true }
   readonly outlineWidthN256px: { 'outline-width_-256px': true }
@@ -32616,16 +29246,6 @@ export interface CsstsAtoms {
   readonly overflowYVisible: { 'overflow-y_visible': true }
 
   // ==================== padding ====================
-  readonly padding0Q: { 'padding_0Q': true }
-  readonly padding1Q: { 'padding_1Q': true }
-  readonly padding2Q: { 'padding_2Q': true }
-  readonly padding4Q: { 'padding_4Q': true }
-  readonly padding6Q: { 'padding_6Q': true }
-  readonly padding8Q: { 'padding_8Q': true }
-  readonly padding10Q: { 'padding_10Q': true }
-  readonly padding12Q: { 'padding_12Q': true }
-  readonly padding16Q: { 'padding_16Q': true }
-  readonly padding20Q: { 'padding_20Q': true }
   readonly padding0cap: { 'padding_0cap': true }
   readonly padding0p25cap: { 'padding_0\.25cap': true }
   readonly padding0p5cap: { 'padding_0\.5cap': true }
@@ -32654,16 +29274,6 @@ export interface CsstsAtoms {
   readonly padding5ch: { 'padding_5ch': true }
   readonly padding6ch: { 'padding_6ch': true }
   readonly padding8ch: { 'padding_8ch': true }
-  readonly padding0cm: { 'padding_0cm': true }
-  readonly padding1cm: { 'padding_1cm': true }
-  readonly padding2cm: { 'padding_2cm': true }
-  readonly padding4cm: { 'padding_4cm': true }
-  readonly padding6cm: { 'padding_6cm': true }
-  readonly padding8cm: { 'padding_8cm': true }
-  readonly padding10cm: { 'padding_10cm': true }
-  readonly padding12cm: { 'padding_12cm': true }
-  readonly padding16cm: { 'padding_16cm': true }
-  readonly padding20cm: { 'padding_20cm': true }
   readonly padding0dvh: { 'padding_0dvh': true }
   readonly padding10dvh: { 'padding_10dvh': true }
   readonly padding20dvh: { 'padding_20dvh': true }
@@ -32736,16 +29346,6 @@ export interface CsstsAtoms {
   readonly padding5ic: { 'padding_5ic': true }
   readonly padding6ic: { 'padding_6ic': true }
   readonly padding8ic: { 'padding_8ic': true }
-  readonly padding0in: { 'padding_0in': true }
-  readonly padding1in: { 'padding_1in': true }
-  readonly padding2in: { 'padding_2in': true }
-  readonly padding4in: { 'padding_4in': true }
-  readonly padding6in: { 'padding_6in': true }
-  readonly padding8in: { 'padding_8in': true }
-  readonly padding10in: { 'padding_10in': true }
-  readonly padding12in: { 'padding_12in': true }
-  readonly padding16in: { 'padding_16in': true }
-  readonly padding20in: { 'padding_20in': true }
   readonly padding0lh: { 'padding_0lh': true }
   readonly padding0p25lh: { 'padding_0\.25lh': true }
   readonly padding0p5lh: { 'padding_0\.5lh': true }
@@ -32790,36 +29390,6 @@ export interface CsstsAtoms {
   readonly padding80lvw: { 'padding_80lvw': true }
   readonly padding90lvw: { 'padding_90lvw': true }
   readonly padding100lvw: { 'padding_100lvw': true }
-  readonly padding0mm: { 'padding_0mm': true }
-  readonly padding1mm: { 'padding_1mm': true }
-  readonly padding2mm: { 'padding_2mm': true }
-  readonly padding4mm: { 'padding_4mm': true }
-  readonly padding6mm: { 'padding_6mm': true }
-  readonly padding8mm: { 'padding_8mm': true }
-  readonly padding10mm: { 'padding_10mm': true }
-  readonly padding12mm: { 'padding_12mm': true }
-  readonly padding16mm: { 'padding_16mm': true }
-  readonly padding20mm: { 'padding_20mm': true }
-  readonly padding0pc: { 'padding_0pc': true }
-  readonly padding1pc: { 'padding_1pc': true }
-  readonly padding2pc: { 'padding_2pc': true }
-  readonly padding4pc: { 'padding_4pc': true }
-  readonly padding6pc: { 'padding_6pc': true }
-  readonly padding8pc: { 'padding_8pc': true }
-  readonly padding10pc: { 'padding_10pc': true }
-  readonly padding12pc: { 'padding_12pc': true }
-  readonly padding16pc: { 'padding_16pc': true }
-  readonly padding20pc: { 'padding_20pc': true }
-  readonly padding0pt: { 'padding_0pt': true }
-  readonly padding1pt: { 'padding_1pt': true }
-  readonly padding2pt: { 'padding_2pt': true }
-  readonly padding4pt: { 'padding_4pt': true }
-  readonly padding6pt: { 'padding_6pt': true }
-  readonly padding8pt: { 'padding_8pt': true }
-  readonly padding10pt: { 'padding_10pt': true }
-  readonly padding12pt: { 'padding_12pt': true }
-  readonly padding16pt: { 'padding_16pt': true }
-  readonly padding20pt: { 'padding_20pt': true }
   readonly paddingN384px: { 'padding_-384px': true }
   readonly paddingN320px: { 'padding_-320px': true }
   readonly paddingN256px: { 'padding_-256px': true }
@@ -33038,16 +29608,6 @@ export interface CsstsAtoms {
   readonly padding100Pct: { 'padding_100\%': true }
 
   // ==================== padding-bottom ====================
-  readonly paddingBottom0Q: { 'padding-bottom_0Q': true }
-  readonly paddingBottom1Q: { 'padding-bottom_1Q': true }
-  readonly paddingBottom2Q: { 'padding-bottom_2Q': true }
-  readonly paddingBottom4Q: { 'padding-bottom_4Q': true }
-  readonly paddingBottom6Q: { 'padding-bottom_6Q': true }
-  readonly paddingBottom8Q: { 'padding-bottom_8Q': true }
-  readonly paddingBottom10Q: { 'padding-bottom_10Q': true }
-  readonly paddingBottom12Q: { 'padding-bottom_12Q': true }
-  readonly paddingBottom16Q: { 'padding-bottom_16Q': true }
-  readonly paddingBottom20Q: { 'padding-bottom_20Q': true }
   readonly paddingBottom0cap: { 'padding-bottom_0cap': true }
   readonly paddingBottom0p25cap: { 'padding-bottom_0\.25cap': true }
   readonly paddingBottom0p5cap: { 'padding-bottom_0\.5cap': true }
@@ -33076,16 +29636,6 @@ export interface CsstsAtoms {
   readonly paddingBottom5ch: { 'padding-bottom_5ch': true }
   readonly paddingBottom6ch: { 'padding-bottom_6ch': true }
   readonly paddingBottom8ch: { 'padding-bottom_8ch': true }
-  readonly paddingBottom0cm: { 'padding-bottom_0cm': true }
-  readonly paddingBottom1cm: { 'padding-bottom_1cm': true }
-  readonly paddingBottom2cm: { 'padding-bottom_2cm': true }
-  readonly paddingBottom4cm: { 'padding-bottom_4cm': true }
-  readonly paddingBottom6cm: { 'padding-bottom_6cm': true }
-  readonly paddingBottom8cm: { 'padding-bottom_8cm': true }
-  readonly paddingBottom10cm: { 'padding-bottom_10cm': true }
-  readonly paddingBottom12cm: { 'padding-bottom_12cm': true }
-  readonly paddingBottom16cm: { 'padding-bottom_16cm': true }
-  readonly paddingBottom20cm: { 'padding-bottom_20cm': true }
   readonly paddingBottom0dvh: { 'padding-bottom_0dvh': true }
   readonly paddingBottom10dvh: { 'padding-bottom_10dvh': true }
   readonly paddingBottom20dvh: { 'padding-bottom_20dvh': true }
@@ -33158,16 +29708,6 @@ export interface CsstsAtoms {
   readonly paddingBottom5ic: { 'padding-bottom_5ic': true }
   readonly paddingBottom6ic: { 'padding-bottom_6ic': true }
   readonly paddingBottom8ic: { 'padding-bottom_8ic': true }
-  readonly paddingBottom0in: { 'padding-bottom_0in': true }
-  readonly paddingBottom1in: { 'padding-bottom_1in': true }
-  readonly paddingBottom2in: { 'padding-bottom_2in': true }
-  readonly paddingBottom4in: { 'padding-bottom_4in': true }
-  readonly paddingBottom6in: { 'padding-bottom_6in': true }
-  readonly paddingBottom8in: { 'padding-bottom_8in': true }
-  readonly paddingBottom10in: { 'padding-bottom_10in': true }
-  readonly paddingBottom12in: { 'padding-bottom_12in': true }
-  readonly paddingBottom16in: { 'padding-bottom_16in': true }
-  readonly paddingBottom20in: { 'padding-bottom_20in': true }
   readonly paddingBottom0lh: { 'padding-bottom_0lh': true }
   readonly paddingBottom0p25lh: { 'padding-bottom_0\.25lh': true }
   readonly paddingBottom0p5lh: { 'padding-bottom_0\.5lh': true }
@@ -33212,36 +29752,6 @@ export interface CsstsAtoms {
   readonly paddingBottom80lvw: { 'padding-bottom_80lvw': true }
   readonly paddingBottom90lvw: { 'padding-bottom_90lvw': true }
   readonly paddingBottom100lvw: { 'padding-bottom_100lvw': true }
-  readonly paddingBottom0mm: { 'padding-bottom_0mm': true }
-  readonly paddingBottom1mm: { 'padding-bottom_1mm': true }
-  readonly paddingBottom2mm: { 'padding-bottom_2mm': true }
-  readonly paddingBottom4mm: { 'padding-bottom_4mm': true }
-  readonly paddingBottom6mm: { 'padding-bottom_6mm': true }
-  readonly paddingBottom8mm: { 'padding-bottom_8mm': true }
-  readonly paddingBottom10mm: { 'padding-bottom_10mm': true }
-  readonly paddingBottom12mm: { 'padding-bottom_12mm': true }
-  readonly paddingBottom16mm: { 'padding-bottom_16mm': true }
-  readonly paddingBottom20mm: { 'padding-bottom_20mm': true }
-  readonly paddingBottom0pc: { 'padding-bottom_0pc': true }
-  readonly paddingBottom1pc: { 'padding-bottom_1pc': true }
-  readonly paddingBottom2pc: { 'padding-bottom_2pc': true }
-  readonly paddingBottom4pc: { 'padding-bottom_4pc': true }
-  readonly paddingBottom6pc: { 'padding-bottom_6pc': true }
-  readonly paddingBottom8pc: { 'padding-bottom_8pc': true }
-  readonly paddingBottom10pc: { 'padding-bottom_10pc': true }
-  readonly paddingBottom12pc: { 'padding-bottom_12pc': true }
-  readonly paddingBottom16pc: { 'padding-bottom_16pc': true }
-  readonly paddingBottom20pc: { 'padding-bottom_20pc': true }
-  readonly paddingBottom0pt: { 'padding-bottom_0pt': true }
-  readonly paddingBottom1pt: { 'padding-bottom_1pt': true }
-  readonly paddingBottom2pt: { 'padding-bottom_2pt': true }
-  readonly paddingBottom4pt: { 'padding-bottom_4pt': true }
-  readonly paddingBottom6pt: { 'padding-bottom_6pt': true }
-  readonly paddingBottom8pt: { 'padding-bottom_8pt': true }
-  readonly paddingBottom10pt: { 'padding-bottom_10pt': true }
-  readonly paddingBottom12pt: { 'padding-bottom_12pt': true }
-  readonly paddingBottom16pt: { 'padding-bottom_16pt': true }
-  readonly paddingBottom20pt: { 'padding-bottom_20pt': true }
   readonly paddingBottomN384px: { 'padding-bottom_-384px': true }
   readonly paddingBottomN320px: { 'padding-bottom_-320px': true }
   readonly paddingBottomN256px: { 'padding-bottom_-256px': true }
@@ -33460,16 +29970,6 @@ export interface CsstsAtoms {
   readonly paddingBottom100Pct: { 'padding-bottom_100\%': true }
 
   // ==================== padding-left ====================
-  readonly paddingLeft0Q: { 'padding-left_0Q': true }
-  readonly paddingLeft1Q: { 'padding-left_1Q': true }
-  readonly paddingLeft2Q: { 'padding-left_2Q': true }
-  readonly paddingLeft4Q: { 'padding-left_4Q': true }
-  readonly paddingLeft6Q: { 'padding-left_6Q': true }
-  readonly paddingLeft8Q: { 'padding-left_8Q': true }
-  readonly paddingLeft10Q: { 'padding-left_10Q': true }
-  readonly paddingLeft12Q: { 'padding-left_12Q': true }
-  readonly paddingLeft16Q: { 'padding-left_16Q': true }
-  readonly paddingLeft20Q: { 'padding-left_20Q': true }
   readonly paddingLeft0cap: { 'padding-left_0cap': true }
   readonly paddingLeft0p25cap: { 'padding-left_0\.25cap': true }
   readonly paddingLeft0p5cap: { 'padding-left_0\.5cap': true }
@@ -33498,16 +29998,6 @@ export interface CsstsAtoms {
   readonly paddingLeft5ch: { 'padding-left_5ch': true }
   readonly paddingLeft6ch: { 'padding-left_6ch': true }
   readonly paddingLeft8ch: { 'padding-left_8ch': true }
-  readonly paddingLeft0cm: { 'padding-left_0cm': true }
-  readonly paddingLeft1cm: { 'padding-left_1cm': true }
-  readonly paddingLeft2cm: { 'padding-left_2cm': true }
-  readonly paddingLeft4cm: { 'padding-left_4cm': true }
-  readonly paddingLeft6cm: { 'padding-left_6cm': true }
-  readonly paddingLeft8cm: { 'padding-left_8cm': true }
-  readonly paddingLeft10cm: { 'padding-left_10cm': true }
-  readonly paddingLeft12cm: { 'padding-left_12cm': true }
-  readonly paddingLeft16cm: { 'padding-left_16cm': true }
-  readonly paddingLeft20cm: { 'padding-left_20cm': true }
   readonly paddingLeft0dvh: { 'padding-left_0dvh': true }
   readonly paddingLeft10dvh: { 'padding-left_10dvh': true }
   readonly paddingLeft20dvh: { 'padding-left_20dvh': true }
@@ -33580,16 +30070,6 @@ export interface CsstsAtoms {
   readonly paddingLeft5ic: { 'padding-left_5ic': true }
   readonly paddingLeft6ic: { 'padding-left_6ic': true }
   readonly paddingLeft8ic: { 'padding-left_8ic': true }
-  readonly paddingLeft0in: { 'padding-left_0in': true }
-  readonly paddingLeft1in: { 'padding-left_1in': true }
-  readonly paddingLeft2in: { 'padding-left_2in': true }
-  readonly paddingLeft4in: { 'padding-left_4in': true }
-  readonly paddingLeft6in: { 'padding-left_6in': true }
-  readonly paddingLeft8in: { 'padding-left_8in': true }
-  readonly paddingLeft10in: { 'padding-left_10in': true }
-  readonly paddingLeft12in: { 'padding-left_12in': true }
-  readonly paddingLeft16in: { 'padding-left_16in': true }
-  readonly paddingLeft20in: { 'padding-left_20in': true }
   readonly paddingLeft0lh: { 'padding-left_0lh': true }
   readonly paddingLeft0p25lh: { 'padding-left_0\.25lh': true }
   readonly paddingLeft0p5lh: { 'padding-left_0\.5lh': true }
@@ -33634,36 +30114,6 @@ export interface CsstsAtoms {
   readonly paddingLeft80lvw: { 'padding-left_80lvw': true }
   readonly paddingLeft90lvw: { 'padding-left_90lvw': true }
   readonly paddingLeft100lvw: { 'padding-left_100lvw': true }
-  readonly paddingLeft0mm: { 'padding-left_0mm': true }
-  readonly paddingLeft1mm: { 'padding-left_1mm': true }
-  readonly paddingLeft2mm: { 'padding-left_2mm': true }
-  readonly paddingLeft4mm: { 'padding-left_4mm': true }
-  readonly paddingLeft6mm: { 'padding-left_6mm': true }
-  readonly paddingLeft8mm: { 'padding-left_8mm': true }
-  readonly paddingLeft10mm: { 'padding-left_10mm': true }
-  readonly paddingLeft12mm: { 'padding-left_12mm': true }
-  readonly paddingLeft16mm: { 'padding-left_16mm': true }
-  readonly paddingLeft20mm: { 'padding-left_20mm': true }
-  readonly paddingLeft0pc: { 'padding-left_0pc': true }
-  readonly paddingLeft1pc: { 'padding-left_1pc': true }
-  readonly paddingLeft2pc: { 'padding-left_2pc': true }
-  readonly paddingLeft4pc: { 'padding-left_4pc': true }
-  readonly paddingLeft6pc: { 'padding-left_6pc': true }
-  readonly paddingLeft8pc: { 'padding-left_8pc': true }
-  readonly paddingLeft10pc: { 'padding-left_10pc': true }
-  readonly paddingLeft12pc: { 'padding-left_12pc': true }
-  readonly paddingLeft16pc: { 'padding-left_16pc': true }
-  readonly paddingLeft20pc: { 'padding-left_20pc': true }
-  readonly paddingLeft0pt: { 'padding-left_0pt': true }
-  readonly paddingLeft1pt: { 'padding-left_1pt': true }
-  readonly paddingLeft2pt: { 'padding-left_2pt': true }
-  readonly paddingLeft4pt: { 'padding-left_4pt': true }
-  readonly paddingLeft6pt: { 'padding-left_6pt': true }
-  readonly paddingLeft8pt: { 'padding-left_8pt': true }
-  readonly paddingLeft10pt: { 'padding-left_10pt': true }
-  readonly paddingLeft12pt: { 'padding-left_12pt': true }
-  readonly paddingLeft16pt: { 'padding-left_16pt': true }
-  readonly paddingLeft20pt: { 'padding-left_20pt': true }
   readonly paddingLeftN384px: { 'padding-left_-384px': true }
   readonly paddingLeftN320px: { 'padding-left_-320px': true }
   readonly paddingLeftN256px: { 'padding-left_-256px': true }
@@ -33882,16 +30332,6 @@ export interface CsstsAtoms {
   readonly paddingLeft100Pct: { 'padding-left_100\%': true }
 
   // ==================== padding-right ====================
-  readonly paddingRight0Q: { 'padding-right_0Q': true }
-  readonly paddingRight1Q: { 'padding-right_1Q': true }
-  readonly paddingRight2Q: { 'padding-right_2Q': true }
-  readonly paddingRight4Q: { 'padding-right_4Q': true }
-  readonly paddingRight6Q: { 'padding-right_6Q': true }
-  readonly paddingRight8Q: { 'padding-right_8Q': true }
-  readonly paddingRight10Q: { 'padding-right_10Q': true }
-  readonly paddingRight12Q: { 'padding-right_12Q': true }
-  readonly paddingRight16Q: { 'padding-right_16Q': true }
-  readonly paddingRight20Q: { 'padding-right_20Q': true }
   readonly paddingRight0cap: { 'padding-right_0cap': true }
   readonly paddingRight0p25cap: { 'padding-right_0\.25cap': true }
   readonly paddingRight0p5cap: { 'padding-right_0\.5cap': true }
@@ -33920,16 +30360,6 @@ export interface CsstsAtoms {
   readonly paddingRight5ch: { 'padding-right_5ch': true }
   readonly paddingRight6ch: { 'padding-right_6ch': true }
   readonly paddingRight8ch: { 'padding-right_8ch': true }
-  readonly paddingRight0cm: { 'padding-right_0cm': true }
-  readonly paddingRight1cm: { 'padding-right_1cm': true }
-  readonly paddingRight2cm: { 'padding-right_2cm': true }
-  readonly paddingRight4cm: { 'padding-right_4cm': true }
-  readonly paddingRight6cm: { 'padding-right_6cm': true }
-  readonly paddingRight8cm: { 'padding-right_8cm': true }
-  readonly paddingRight10cm: { 'padding-right_10cm': true }
-  readonly paddingRight12cm: { 'padding-right_12cm': true }
-  readonly paddingRight16cm: { 'padding-right_16cm': true }
-  readonly paddingRight20cm: { 'padding-right_20cm': true }
   readonly paddingRight0dvh: { 'padding-right_0dvh': true }
   readonly paddingRight10dvh: { 'padding-right_10dvh': true }
   readonly paddingRight20dvh: { 'padding-right_20dvh': true }
@@ -34002,16 +30432,6 @@ export interface CsstsAtoms {
   readonly paddingRight5ic: { 'padding-right_5ic': true }
   readonly paddingRight6ic: { 'padding-right_6ic': true }
   readonly paddingRight8ic: { 'padding-right_8ic': true }
-  readonly paddingRight0in: { 'padding-right_0in': true }
-  readonly paddingRight1in: { 'padding-right_1in': true }
-  readonly paddingRight2in: { 'padding-right_2in': true }
-  readonly paddingRight4in: { 'padding-right_4in': true }
-  readonly paddingRight6in: { 'padding-right_6in': true }
-  readonly paddingRight8in: { 'padding-right_8in': true }
-  readonly paddingRight10in: { 'padding-right_10in': true }
-  readonly paddingRight12in: { 'padding-right_12in': true }
-  readonly paddingRight16in: { 'padding-right_16in': true }
-  readonly paddingRight20in: { 'padding-right_20in': true }
   readonly paddingRight0lh: { 'padding-right_0lh': true }
   readonly paddingRight0p25lh: { 'padding-right_0\.25lh': true }
   readonly paddingRight0p5lh: { 'padding-right_0\.5lh': true }
@@ -34056,36 +30476,6 @@ export interface CsstsAtoms {
   readonly paddingRight80lvw: { 'padding-right_80lvw': true }
   readonly paddingRight90lvw: { 'padding-right_90lvw': true }
   readonly paddingRight100lvw: { 'padding-right_100lvw': true }
-  readonly paddingRight0mm: { 'padding-right_0mm': true }
-  readonly paddingRight1mm: { 'padding-right_1mm': true }
-  readonly paddingRight2mm: { 'padding-right_2mm': true }
-  readonly paddingRight4mm: { 'padding-right_4mm': true }
-  readonly paddingRight6mm: { 'padding-right_6mm': true }
-  readonly paddingRight8mm: { 'padding-right_8mm': true }
-  readonly paddingRight10mm: { 'padding-right_10mm': true }
-  readonly paddingRight12mm: { 'padding-right_12mm': true }
-  readonly paddingRight16mm: { 'padding-right_16mm': true }
-  readonly paddingRight20mm: { 'padding-right_20mm': true }
-  readonly paddingRight0pc: { 'padding-right_0pc': true }
-  readonly paddingRight1pc: { 'padding-right_1pc': true }
-  readonly paddingRight2pc: { 'padding-right_2pc': true }
-  readonly paddingRight4pc: { 'padding-right_4pc': true }
-  readonly paddingRight6pc: { 'padding-right_6pc': true }
-  readonly paddingRight8pc: { 'padding-right_8pc': true }
-  readonly paddingRight10pc: { 'padding-right_10pc': true }
-  readonly paddingRight12pc: { 'padding-right_12pc': true }
-  readonly paddingRight16pc: { 'padding-right_16pc': true }
-  readonly paddingRight20pc: { 'padding-right_20pc': true }
-  readonly paddingRight0pt: { 'padding-right_0pt': true }
-  readonly paddingRight1pt: { 'padding-right_1pt': true }
-  readonly paddingRight2pt: { 'padding-right_2pt': true }
-  readonly paddingRight4pt: { 'padding-right_4pt': true }
-  readonly paddingRight6pt: { 'padding-right_6pt': true }
-  readonly paddingRight8pt: { 'padding-right_8pt': true }
-  readonly paddingRight10pt: { 'padding-right_10pt': true }
-  readonly paddingRight12pt: { 'padding-right_12pt': true }
-  readonly paddingRight16pt: { 'padding-right_16pt': true }
-  readonly paddingRight20pt: { 'padding-right_20pt': true }
   readonly paddingRightN384px: { 'padding-right_-384px': true }
   readonly paddingRightN320px: { 'padding-right_-320px': true }
   readonly paddingRightN256px: { 'padding-right_-256px': true }
@@ -34304,16 +30694,6 @@ export interface CsstsAtoms {
   readonly paddingRight100Pct: { 'padding-right_100\%': true }
 
   // ==================== padding-top ====================
-  readonly paddingTop0Q: { 'padding-top_0Q': true }
-  readonly paddingTop1Q: { 'padding-top_1Q': true }
-  readonly paddingTop2Q: { 'padding-top_2Q': true }
-  readonly paddingTop4Q: { 'padding-top_4Q': true }
-  readonly paddingTop6Q: { 'padding-top_6Q': true }
-  readonly paddingTop8Q: { 'padding-top_8Q': true }
-  readonly paddingTop10Q: { 'padding-top_10Q': true }
-  readonly paddingTop12Q: { 'padding-top_12Q': true }
-  readonly paddingTop16Q: { 'padding-top_16Q': true }
-  readonly paddingTop20Q: { 'padding-top_20Q': true }
   readonly paddingTop0cap: { 'padding-top_0cap': true }
   readonly paddingTop0p25cap: { 'padding-top_0\.25cap': true }
   readonly paddingTop0p5cap: { 'padding-top_0\.5cap': true }
@@ -34342,16 +30722,6 @@ export interface CsstsAtoms {
   readonly paddingTop5ch: { 'padding-top_5ch': true }
   readonly paddingTop6ch: { 'padding-top_6ch': true }
   readonly paddingTop8ch: { 'padding-top_8ch': true }
-  readonly paddingTop0cm: { 'padding-top_0cm': true }
-  readonly paddingTop1cm: { 'padding-top_1cm': true }
-  readonly paddingTop2cm: { 'padding-top_2cm': true }
-  readonly paddingTop4cm: { 'padding-top_4cm': true }
-  readonly paddingTop6cm: { 'padding-top_6cm': true }
-  readonly paddingTop8cm: { 'padding-top_8cm': true }
-  readonly paddingTop10cm: { 'padding-top_10cm': true }
-  readonly paddingTop12cm: { 'padding-top_12cm': true }
-  readonly paddingTop16cm: { 'padding-top_16cm': true }
-  readonly paddingTop20cm: { 'padding-top_20cm': true }
   readonly paddingTop0dvh: { 'padding-top_0dvh': true }
   readonly paddingTop10dvh: { 'padding-top_10dvh': true }
   readonly paddingTop20dvh: { 'padding-top_20dvh': true }
@@ -34424,16 +30794,6 @@ export interface CsstsAtoms {
   readonly paddingTop5ic: { 'padding-top_5ic': true }
   readonly paddingTop6ic: { 'padding-top_6ic': true }
   readonly paddingTop8ic: { 'padding-top_8ic': true }
-  readonly paddingTop0in: { 'padding-top_0in': true }
-  readonly paddingTop1in: { 'padding-top_1in': true }
-  readonly paddingTop2in: { 'padding-top_2in': true }
-  readonly paddingTop4in: { 'padding-top_4in': true }
-  readonly paddingTop6in: { 'padding-top_6in': true }
-  readonly paddingTop8in: { 'padding-top_8in': true }
-  readonly paddingTop10in: { 'padding-top_10in': true }
-  readonly paddingTop12in: { 'padding-top_12in': true }
-  readonly paddingTop16in: { 'padding-top_16in': true }
-  readonly paddingTop20in: { 'padding-top_20in': true }
   readonly paddingTop0lh: { 'padding-top_0lh': true }
   readonly paddingTop0p25lh: { 'padding-top_0\.25lh': true }
   readonly paddingTop0p5lh: { 'padding-top_0\.5lh': true }
@@ -34478,36 +30838,6 @@ export interface CsstsAtoms {
   readonly paddingTop80lvw: { 'padding-top_80lvw': true }
   readonly paddingTop90lvw: { 'padding-top_90lvw': true }
   readonly paddingTop100lvw: { 'padding-top_100lvw': true }
-  readonly paddingTop0mm: { 'padding-top_0mm': true }
-  readonly paddingTop1mm: { 'padding-top_1mm': true }
-  readonly paddingTop2mm: { 'padding-top_2mm': true }
-  readonly paddingTop4mm: { 'padding-top_4mm': true }
-  readonly paddingTop6mm: { 'padding-top_6mm': true }
-  readonly paddingTop8mm: { 'padding-top_8mm': true }
-  readonly paddingTop10mm: { 'padding-top_10mm': true }
-  readonly paddingTop12mm: { 'padding-top_12mm': true }
-  readonly paddingTop16mm: { 'padding-top_16mm': true }
-  readonly paddingTop20mm: { 'padding-top_20mm': true }
-  readonly paddingTop0pc: { 'padding-top_0pc': true }
-  readonly paddingTop1pc: { 'padding-top_1pc': true }
-  readonly paddingTop2pc: { 'padding-top_2pc': true }
-  readonly paddingTop4pc: { 'padding-top_4pc': true }
-  readonly paddingTop6pc: { 'padding-top_6pc': true }
-  readonly paddingTop8pc: { 'padding-top_8pc': true }
-  readonly paddingTop10pc: { 'padding-top_10pc': true }
-  readonly paddingTop12pc: { 'padding-top_12pc': true }
-  readonly paddingTop16pc: { 'padding-top_16pc': true }
-  readonly paddingTop20pc: { 'padding-top_20pc': true }
-  readonly paddingTop0pt: { 'padding-top_0pt': true }
-  readonly paddingTop1pt: { 'padding-top_1pt': true }
-  readonly paddingTop2pt: { 'padding-top_2pt': true }
-  readonly paddingTop4pt: { 'padding-top_4pt': true }
-  readonly paddingTop6pt: { 'padding-top_6pt': true }
-  readonly paddingTop8pt: { 'padding-top_8pt': true }
-  readonly paddingTop10pt: { 'padding-top_10pt': true }
-  readonly paddingTop12pt: { 'padding-top_12pt': true }
-  readonly paddingTop16pt: { 'padding-top_16pt': true }
-  readonly paddingTop20pt: { 'padding-top_20pt': true }
   readonly paddingTopN384px: { 'padding-top_-384px': true }
   readonly paddingTopN320px: { 'padding-top_-320px': true }
   readonly paddingTopN256px: { 'padding-top_-256px': true }
@@ -34756,16 +31086,6 @@ export interface CsstsAtoms {
 
   // ==================== right ====================
   readonly rightAuto: { 'right_auto': true }
-  readonly right0Q: { 'right_0Q': true }
-  readonly right1Q: { 'right_1Q': true }
-  readonly right2Q: { 'right_2Q': true }
-  readonly right4Q: { 'right_4Q': true }
-  readonly right6Q: { 'right_6Q': true }
-  readonly right8Q: { 'right_8Q': true }
-  readonly right10Q: { 'right_10Q': true }
-  readonly right12Q: { 'right_12Q': true }
-  readonly right16Q: { 'right_16Q': true }
-  readonly right20Q: { 'right_20Q': true }
   readonly right0cap: { 'right_0cap': true }
   readonly right0p25cap: { 'right_0\.25cap': true }
   readonly right0p5cap: { 'right_0\.5cap': true }
@@ -34794,16 +31114,6 @@ export interface CsstsAtoms {
   readonly right5ch: { 'right_5ch': true }
   readonly right6ch: { 'right_6ch': true }
   readonly right8ch: { 'right_8ch': true }
-  readonly right0cm: { 'right_0cm': true }
-  readonly right1cm: { 'right_1cm': true }
-  readonly right2cm: { 'right_2cm': true }
-  readonly right4cm: { 'right_4cm': true }
-  readonly right6cm: { 'right_6cm': true }
-  readonly right8cm: { 'right_8cm': true }
-  readonly right10cm: { 'right_10cm': true }
-  readonly right12cm: { 'right_12cm': true }
-  readonly right16cm: { 'right_16cm': true }
-  readonly right20cm: { 'right_20cm': true }
   readonly right0dvh: { 'right_0dvh': true }
   readonly right10dvh: { 'right_10dvh': true }
   readonly right20dvh: { 'right_20dvh': true }
@@ -34876,16 +31186,6 @@ export interface CsstsAtoms {
   readonly right5ic: { 'right_5ic': true }
   readonly right6ic: { 'right_6ic': true }
   readonly right8ic: { 'right_8ic': true }
-  readonly right0in: { 'right_0in': true }
-  readonly right1in: { 'right_1in': true }
-  readonly right2in: { 'right_2in': true }
-  readonly right4in: { 'right_4in': true }
-  readonly right6in: { 'right_6in': true }
-  readonly right8in: { 'right_8in': true }
-  readonly right10in: { 'right_10in': true }
-  readonly right12in: { 'right_12in': true }
-  readonly right16in: { 'right_16in': true }
-  readonly right20in: { 'right_20in': true }
   readonly right0lh: { 'right_0lh': true }
   readonly right0p25lh: { 'right_0\.25lh': true }
   readonly right0p5lh: { 'right_0\.5lh': true }
@@ -34930,36 +31230,6 @@ export interface CsstsAtoms {
   readonly right80lvw: { 'right_80lvw': true }
   readonly right90lvw: { 'right_90lvw': true }
   readonly right100lvw: { 'right_100lvw': true }
-  readonly right0mm: { 'right_0mm': true }
-  readonly right1mm: { 'right_1mm': true }
-  readonly right2mm: { 'right_2mm': true }
-  readonly right4mm: { 'right_4mm': true }
-  readonly right6mm: { 'right_6mm': true }
-  readonly right8mm: { 'right_8mm': true }
-  readonly right10mm: { 'right_10mm': true }
-  readonly right12mm: { 'right_12mm': true }
-  readonly right16mm: { 'right_16mm': true }
-  readonly right20mm: { 'right_20mm': true }
-  readonly right0pc: { 'right_0pc': true }
-  readonly right1pc: { 'right_1pc': true }
-  readonly right2pc: { 'right_2pc': true }
-  readonly right4pc: { 'right_4pc': true }
-  readonly right6pc: { 'right_6pc': true }
-  readonly right8pc: { 'right_8pc': true }
-  readonly right10pc: { 'right_10pc': true }
-  readonly right12pc: { 'right_12pc': true }
-  readonly right16pc: { 'right_16pc': true }
-  readonly right20pc: { 'right_20pc': true }
-  readonly right0pt: { 'right_0pt': true }
-  readonly right1pt: { 'right_1pt': true }
-  readonly right2pt: { 'right_2pt': true }
-  readonly right4pt: { 'right_4pt': true }
-  readonly right6pt: { 'right_6pt': true }
-  readonly right8pt: { 'right_8pt': true }
-  readonly right10pt: { 'right_10pt': true }
-  readonly right12pt: { 'right_12pt': true }
-  readonly right16pt: { 'right_16pt': true }
-  readonly right20pt: { 'right_20pt': true }
   readonly rightN384px: { 'right_-384px': true }
   readonly rightN320px: { 'right_-320px': true }
   readonly rightN256px: { 'right_-256px': true }
@@ -35265,16 +31535,6 @@ export interface CsstsAtoms {
 
   // ==================== row-gap ====================
   readonly rowGapNormal: { 'row-gap_normal': true }
-  readonly rowGap0Q: { 'row-gap_0Q': true }
-  readonly rowGap1Q: { 'row-gap_1Q': true }
-  readonly rowGap2Q: { 'row-gap_2Q': true }
-  readonly rowGap4Q: { 'row-gap_4Q': true }
-  readonly rowGap6Q: { 'row-gap_6Q': true }
-  readonly rowGap8Q: { 'row-gap_8Q': true }
-  readonly rowGap10Q: { 'row-gap_10Q': true }
-  readonly rowGap12Q: { 'row-gap_12Q': true }
-  readonly rowGap16Q: { 'row-gap_16Q': true }
-  readonly rowGap20Q: { 'row-gap_20Q': true }
   readonly rowGap0cap: { 'row-gap_0cap': true }
   readonly rowGap0p25cap: { 'row-gap_0\.25cap': true }
   readonly rowGap0p5cap: { 'row-gap_0\.5cap': true }
@@ -35303,16 +31563,6 @@ export interface CsstsAtoms {
   readonly rowGap5ch: { 'row-gap_5ch': true }
   readonly rowGap6ch: { 'row-gap_6ch': true }
   readonly rowGap8ch: { 'row-gap_8ch': true }
-  readonly rowGap0cm: { 'row-gap_0cm': true }
-  readonly rowGap1cm: { 'row-gap_1cm': true }
-  readonly rowGap2cm: { 'row-gap_2cm': true }
-  readonly rowGap4cm: { 'row-gap_4cm': true }
-  readonly rowGap6cm: { 'row-gap_6cm': true }
-  readonly rowGap8cm: { 'row-gap_8cm': true }
-  readonly rowGap10cm: { 'row-gap_10cm': true }
-  readonly rowGap12cm: { 'row-gap_12cm': true }
-  readonly rowGap16cm: { 'row-gap_16cm': true }
-  readonly rowGap20cm: { 'row-gap_20cm': true }
   readonly rowGap0dvh: { 'row-gap_0dvh': true }
   readonly rowGap10dvh: { 'row-gap_10dvh': true }
   readonly rowGap20dvh: { 'row-gap_20dvh': true }
@@ -35385,16 +31635,6 @@ export interface CsstsAtoms {
   readonly rowGap5ic: { 'row-gap_5ic': true }
   readonly rowGap6ic: { 'row-gap_6ic': true }
   readonly rowGap8ic: { 'row-gap_8ic': true }
-  readonly rowGap0in: { 'row-gap_0in': true }
-  readonly rowGap1in: { 'row-gap_1in': true }
-  readonly rowGap2in: { 'row-gap_2in': true }
-  readonly rowGap4in: { 'row-gap_4in': true }
-  readonly rowGap6in: { 'row-gap_6in': true }
-  readonly rowGap8in: { 'row-gap_8in': true }
-  readonly rowGap10in: { 'row-gap_10in': true }
-  readonly rowGap12in: { 'row-gap_12in': true }
-  readonly rowGap16in: { 'row-gap_16in': true }
-  readonly rowGap20in: { 'row-gap_20in': true }
   readonly rowGap0lh: { 'row-gap_0lh': true }
   readonly rowGap0p25lh: { 'row-gap_0\.25lh': true }
   readonly rowGap0p5lh: { 'row-gap_0\.5lh': true }
@@ -35439,36 +31679,6 @@ export interface CsstsAtoms {
   readonly rowGap80lvw: { 'row-gap_80lvw': true }
   readonly rowGap90lvw: { 'row-gap_90lvw': true }
   readonly rowGap100lvw: { 'row-gap_100lvw': true }
-  readonly rowGap0mm: { 'row-gap_0mm': true }
-  readonly rowGap1mm: { 'row-gap_1mm': true }
-  readonly rowGap2mm: { 'row-gap_2mm': true }
-  readonly rowGap4mm: { 'row-gap_4mm': true }
-  readonly rowGap6mm: { 'row-gap_6mm': true }
-  readonly rowGap8mm: { 'row-gap_8mm': true }
-  readonly rowGap10mm: { 'row-gap_10mm': true }
-  readonly rowGap12mm: { 'row-gap_12mm': true }
-  readonly rowGap16mm: { 'row-gap_16mm': true }
-  readonly rowGap20mm: { 'row-gap_20mm': true }
-  readonly rowGap0pc: { 'row-gap_0pc': true }
-  readonly rowGap1pc: { 'row-gap_1pc': true }
-  readonly rowGap2pc: { 'row-gap_2pc': true }
-  readonly rowGap4pc: { 'row-gap_4pc': true }
-  readonly rowGap6pc: { 'row-gap_6pc': true }
-  readonly rowGap8pc: { 'row-gap_8pc': true }
-  readonly rowGap10pc: { 'row-gap_10pc': true }
-  readonly rowGap12pc: { 'row-gap_12pc': true }
-  readonly rowGap16pc: { 'row-gap_16pc': true }
-  readonly rowGap20pc: { 'row-gap_20pc': true }
-  readonly rowGap0pt: { 'row-gap_0pt': true }
-  readonly rowGap1pt: { 'row-gap_1pt': true }
-  readonly rowGap2pt: { 'row-gap_2pt': true }
-  readonly rowGap4pt: { 'row-gap_4pt': true }
-  readonly rowGap6pt: { 'row-gap_6pt': true }
-  readonly rowGap8pt: { 'row-gap_8pt': true }
-  readonly rowGap10pt: { 'row-gap_10pt': true }
-  readonly rowGap12pt: { 'row-gap_12pt': true }
-  readonly rowGap16pt: { 'row-gap_16pt': true }
-  readonly rowGap20pt: { 'row-gap_20pt': true }
   readonly rowGapN384px: { 'row-gap_-384px': true }
   readonly rowGapN320px: { 'row-gap_-320px': true }
   readonly rowGapN256px: { 'row-gap_-256px': true }
@@ -35721,16 +31931,6 @@ export interface CsstsAtoms {
   readonly scrollBehaviorSmooth: { 'scroll-behavior_smooth': true }
 
   // ==================== scroll-margin ====================
-  readonly scrollMargin0Q: { 'scroll-margin_0Q': true }
-  readonly scrollMargin1Q: { 'scroll-margin_1Q': true }
-  readonly scrollMargin2Q: { 'scroll-margin_2Q': true }
-  readonly scrollMargin4Q: { 'scroll-margin_4Q': true }
-  readonly scrollMargin6Q: { 'scroll-margin_6Q': true }
-  readonly scrollMargin8Q: { 'scroll-margin_8Q': true }
-  readonly scrollMargin10Q: { 'scroll-margin_10Q': true }
-  readonly scrollMargin12Q: { 'scroll-margin_12Q': true }
-  readonly scrollMargin16Q: { 'scroll-margin_16Q': true }
-  readonly scrollMargin20Q: { 'scroll-margin_20Q': true }
   readonly scrollMargin0cap: { 'scroll-margin_0cap': true }
   readonly scrollMargin0p25cap: { 'scroll-margin_0\.25cap': true }
   readonly scrollMargin0p5cap: { 'scroll-margin_0\.5cap': true }
@@ -35759,16 +31959,6 @@ export interface CsstsAtoms {
   readonly scrollMargin5ch: { 'scroll-margin_5ch': true }
   readonly scrollMargin6ch: { 'scroll-margin_6ch': true }
   readonly scrollMargin8ch: { 'scroll-margin_8ch': true }
-  readonly scrollMargin0cm: { 'scroll-margin_0cm': true }
-  readonly scrollMargin1cm: { 'scroll-margin_1cm': true }
-  readonly scrollMargin2cm: { 'scroll-margin_2cm': true }
-  readonly scrollMargin4cm: { 'scroll-margin_4cm': true }
-  readonly scrollMargin6cm: { 'scroll-margin_6cm': true }
-  readonly scrollMargin8cm: { 'scroll-margin_8cm': true }
-  readonly scrollMargin10cm: { 'scroll-margin_10cm': true }
-  readonly scrollMargin12cm: { 'scroll-margin_12cm': true }
-  readonly scrollMargin16cm: { 'scroll-margin_16cm': true }
-  readonly scrollMargin20cm: { 'scroll-margin_20cm': true }
   readonly scrollMargin0dvh: { 'scroll-margin_0dvh': true }
   readonly scrollMargin10dvh: { 'scroll-margin_10dvh': true }
   readonly scrollMargin20dvh: { 'scroll-margin_20dvh': true }
@@ -35841,16 +32031,6 @@ export interface CsstsAtoms {
   readonly scrollMargin5ic: { 'scroll-margin_5ic': true }
   readonly scrollMargin6ic: { 'scroll-margin_6ic': true }
   readonly scrollMargin8ic: { 'scroll-margin_8ic': true }
-  readonly scrollMargin0in: { 'scroll-margin_0in': true }
-  readonly scrollMargin1in: { 'scroll-margin_1in': true }
-  readonly scrollMargin2in: { 'scroll-margin_2in': true }
-  readonly scrollMargin4in: { 'scroll-margin_4in': true }
-  readonly scrollMargin6in: { 'scroll-margin_6in': true }
-  readonly scrollMargin8in: { 'scroll-margin_8in': true }
-  readonly scrollMargin10in: { 'scroll-margin_10in': true }
-  readonly scrollMargin12in: { 'scroll-margin_12in': true }
-  readonly scrollMargin16in: { 'scroll-margin_16in': true }
-  readonly scrollMargin20in: { 'scroll-margin_20in': true }
   readonly scrollMargin0lh: { 'scroll-margin_0lh': true }
   readonly scrollMargin0p25lh: { 'scroll-margin_0\.25lh': true }
   readonly scrollMargin0p5lh: { 'scroll-margin_0\.5lh': true }
@@ -35895,36 +32075,6 @@ export interface CsstsAtoms {
   readonly scrollMargin80lvw: { 'scroll-margin_80lvw': true }
   readonly scrollMargin90lvw: { 'scroll-margin_90lvw': true }
   readonly scrollMargin100lvw: { 'scroll-margin_100lvw': true }
-  readonly scrollMargin0mm: { 'scroll-margin_0mm': true }
-  readonly scrollMargin1mm: { 'scroll-margin_1mm': true }
-  readonly scrollMargin2mm: { 'scroll-margin_2mm': true }
-  readonly scrollMargin4mm: { 'scroll-margin_4mm': true }
-  readonly scrollMargin6mm: { 'scroll-margin_6mm': true }
-  readonly scrollMargin8mm: { 'scroll-margin_8mm': true }
-  readonly scrollMargin10mm: { 'scroll-margin_10mm': true }
-  readonly scrollMargin12mm: { 'scroll-margin_12mm': true }
-  readonly scrollMargin16mm: { 'scroll-margin_16mm': true }
-  readonly scrollMargin20mm: { 'scroll-margin_20mm': true }
-  readonly scrollMargin0pc: { 'scroll-margin_0pc': true }
-  readonly scrollMargin1pc: { 'scroll-margin_1pc': true }
-  readonly scrollMargin2pc: { 'scroll-margin_2pc': true }
-  readonly scrollMargin4pc: { 'scroll-margin_4pc': true }
-  readonly scrollMargin6pc: { 'scroll-margin_6pc': true }
-  readonly scrollMargin8pc: { 'scroll-margin_8pc': true }
-  readonly scrollMargin10pc: { 'scroll-margin_10pc': true }
-  readonly scrollMargin12pc: { 'scroll-margin_12pc': true }
-  readonly scrollMargin16pc: { 'scroll-margin_16pc': true }
-  readonly scrollMargin20pc: { 'scroll-margin_20pc': true }
-  readonly scrollMargin0pt: { 'scroll-margin_0pt': true }
-  readonly scrollMargin1pt: { 'scroll-margin_1pt': true }
-  readonly scrollMargin2pt: { 'scroll-margin_2pt': true }
-  readonly scrollMargin4pt: { 'scroll-margin_4pt': true }
-  readonly scrollMargin6pt: { 'scroll-margin_6pt': true }
-  readonly scrollMargin8pt: { 'scroll-margin_8pt': true }
-  readonly scrollMargin10pt: { 'scroll-margin_10pt': true }
-  readonly scrollMargin12pt: { 'scroll-margin_12pt': true }
-  readonly scrollMargin16pt: { 'scroll-margin_16pt': true }
-  readonly scrollMargin20pt: { 'scroll-margin_20pt': true }
   readonly scrollMarginN384px: { 'scroll-margin_-384px': true }
   readonly scrollMarginN320px: { 'scroll-margin_-320px': true }
   readonly scrollMarginN256px: { 'scroll-margin_-256px': true }
@@ -36128,16 +32278,6 @@ export interface CsstsAtoms {
   readonly scrollMargin100vw: { 'scroll-margin_100vw': true }
 
   // ==================== scroll-margin-block ====================
-  readonly scrollMarginBlock0Q: { 'scroll-margin-block_0Q': true }
-  readonly scrollMarginBlock1Q: { 'scroll-margin-block_1Q': true }
-  readonly scrollMarginBlock2Q: { 'scroll-margin-block_2Q': true }
-  readonly scrollMarginBlock4Q: { 'scroll-margin-block_4Q': true }
-  readonly scrollMarginBlock6Q: { 'scroll-margin-block_6Q': true }
-  readonly scrollMarginBlock8Q: { 'scroll-margin-block_8Q': true }
-  readonly scrollMarginBlock10Q: { 'scroll-margin-block_10Q': true }
-  readonly scrollMarginBlock12Q: { 'scroll-margin-block_12Q': true }
-  readonly scrollMarginBlock16Q: { 'scroll-margin-block_16Q': true }
-  readonly scrollMarginBlock20Q: { 'scroll-margin-block_20Q': true }
   readonly scrollMarginBlock0cap: { 'scroll-margin-block_0cap': true }
   readonly scrollMarginBlock0p25cap: { 'scroll-margin-block_0\.25cap': true }
   readonly scrollMarginBlock0p5cap: { 'scroll-margin-block_0\.5cap': true }
@@ -36166,16 +32306,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlock5ch: { 'scroll-margin-block_5ch': true }
   readonly scrollMarginBlock6ch: { 'scroll-margin-block_6ch': true }
   readonly scrollMarginBlock8ch: { 'scroll-margin-block_8ch': true }
-  readonly scrollMarginBlock0cm: { 'scroll-margin-block_0cm': true }
-  readonly scrollMarginBlock1cm: { 'scroll-margin-block_1cm': true }
-  readonly scrollMarginBlock2cm: { 'scroll-margin-block_2cm': true }
-  readonly scrollMarginBlock4cm: { 'scroll-margin-block_4cm': true }
-  readonly scrollMarginBlock6cm: { 'scroll-margin-block_6cm': true }
-  readonly scrollMarginBlock8cm: { 'scroll-margin-block_8cm': true }
-  readonly scrollMarginBlock10cm: { 'scroll-margin-block_10cm': true }
-  readonly scrollMarginBlock12cm: { 'scroll-margin-block_12cm': true }
-  readonly scrollMarginBlock16cm: { 'scroll-margin-block_16cm': true }
-  readonly scrollMarginBlock20cm: { 'scroll-margin-block_20cm': true }
   readonly scrollMarginBlock0dvh: { 'scroll-margin-block_0dvh': true }
   readonly scrollMarginBlock10dvh: { 'scroll-margin-block_10dvh': true }
   readonly scrollMarginBlock20dvh: { 'scroll-margin-block_20dvh': true }
@@ -36248,16 +32378,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlock5ic: { 'scroll-margin-block_5ic': true }
   readonly scrollMarginBlock6ic: { 'scroll-margin-block_6ic': true }
   readonly scrollMarginBlock8ic: { 'scroll-margin-block_8ic': true }
-  readonly scrollMarginBlock0in: { 'scroll-margin-block_0in': true }
-  readonly scrollMarginBlock1in: { 'scroll-margin-block_1in': true }
-  readonly scrollMarginBlock2in: { 'scroll-margin-block_2in': true }
-  readonly scrollMarginBlock4in: { 'scroll-margin-block_4in': true }
-  readonly scrollMarginBlock6in: { 'scroll-margin-block_6in': true }
-  readonly scrollMarginBlock8in: { 'scroll-margin-block_8in': true }
-  readonly scrollMarginBlock10in: { 'scroll-margin-block_10in': true }
-  readonly scrollMarginBlock12in: { 'scroll-margin-block_12in': true }
-  readonly scrollMarginBlock16in: { 'scroll-margin-block_16in': true }
-  readonly scrollMarginBlock20in: { 'scroll-margin-block_20in': true }
   readonly scrollMarginBlock0lh: { 'scroll-margin-block_0lh': true }
   readonly scrollMarginBlock0p25lh: { 'scroll-margin-block_0\.25lh': true }
   readonly scrollMarginBlock0p5lh: { 'scroll-margin-block_0\.5lh': true }
@@ -36302,36 +32422,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlock80lvw: { 'scroll-margin-block_80lvw': true }
   readonly scrollMarginBlock90lvw: { 'scroll-margin-block_90lvw': true }
   readonly scrollMarginBlock100lvw: { 'scroll-margin-block_100lvw': true }
-  readonly scrollMarginBlock0mm: { 'scroll-margin-block_0mm': true }
-  readonly scrollMarginBlock1mm: { 'scroll-margin-block_1mm': true }
-  readonly scrollMarginBlock2mm: { 'scroll-margin-block_2mm': true }
-  readonly scrollMarginBlock4mm: { 'scroll-margin-block_4mm': true }
-  readonly scrollMarginBlock6mm: { 'scroll-margin-block_6mm': true }
-  readonly scrollMarginBlock8mm: { 'scroll-margin-block_8mm': true }
-  readonly scrollMarginBlock10mm: { 'scroll-margin-block_10mm': true }
-  readonly scrollMarginBlock12mm: { 'scroll-margin-block_12mm': true }
-  readonly scrollMarginBlock16mm: { 'scroll-margin-block_16mm': true }
-  readonly scrollMarginBlock20mm: { 'scroll-margin-block_20mm': true }
-  readonly scrollMarginBlock0pc: { 'scroll-margin-block_0pc': true }
-  readonly scrollMarginBlock1pc: { 'scroll-margin-block_1pc': true }
-  readonly scrollMarginBlock2pc: { 'scroll-margin-block_2pc': true }
-  readonly scrollMarginBlock4pc: { 'scroll-margin-block_4pc': true }
-  readonly scrollMarginBlock6pc: { 'scroll-margin-block_6pc': true }
-  readonly scrollMarginBlock8pc: { 'scroll-margin-block_8pc': true }
-  readonly scrollMarginBlock10pc: { 'scroll-margin-block_10pc': true }
-  readonly scrollMarginBlock12pc: { 'scroll-margin-block_12pc': true }
-  readonly scrollMarginBlock16pc: { 'scroll-margin-block_16pc': true }
-  readonly scrollMarginBlock20pc: { 'scroll-margin-block_20pc': true }
-  readonly scrollMarginBlock0pt: { 'scroll-margin-block_0pt': true }
-  readonly scrollMarginBlock1pt: { 'scroll-margin-block_1pt': true }
-  readonly scrollMarginBlock2pt: { 'scroll-margin-block_2pt': true }
-  readonly scrollMarginBlock4pt: { 'scroll-margin-block_4pt': true }
-  readonly scrollMarginBlock6pt: { 'scroll-margin-block_6pt': true }
-  readonly scrollMarginBlock8pt: { 'scroll-margin-block_8pt': true }
-  readonly scrollMarginBlock10pt: { 'scroll-margin-block_10pt': true }
-  readonly scrollMarginBlock12pt: { 'scroll-margin-block_12pt': true }
-  readonly scrollMarginBlock16pt: { 'scroll-margin-block_16pt': true }
-  readonly scrollMarginBlock20pt: { 'scroll-margin-block_20pt': true }
   readonly scrollMarginBlockN384px: { 'scroll-margin-block_-384px': true }
   readonly scrollMarginBlockN320px: { 'scroll-margin-block_-320px': true }
   readonly scrollMarginBlockN256px: { 'scroll-margin-block_-256px': true }
@@ -36535,16 +32625,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlock100vw: { 'scroll-margin-block_100vw': true }
 
   // ==================== scroll-margin-block-end ====================
-  readonly scrollMarginBlockEnd0Q: { 'scroll-margin-block-end_0Q': true }
-  readonly scrollMarginBlockEnd1Q: { 'scroll-margin-block-end_1Q': true }
-  readonly scrollMarginBlockEnd2Q: { 'scroll-margin-block-end_2Q': true }
-  readonly scrollMarginBlockEnd4Q: { 'scroll-margin-block-end_4Q': true }
-  readonly scrollMarginBlockEnd6Q: { 'scroll-margin-block-end_6Q': true }
-  readonly scrollMarginBlockEnd8Q: { 'scroll-margin-block-end_8Q': true }
-  readonly scrollMarginBlockEnd10Q: { 'scroll-margin-block-end_10Q': true }
-  readonly scrollMarginBlockEnd12Q: { 'scroll-margin-block-end_12Q': true }
-  readonly scrollMarginBlockEnd16Q: { 'scroll-margin-block-end_16Q': true }
-  readonly scrollMarginBlockEnd20Q: { 'scroll-margin-block-end_20Q': true }
   readonly scrollMarginBlockEnd0cap: { 'scroll-margin-block-end_0cap': true }
   readonly scrollMarginBlockEnd0p25cap: { 'scroll-margin-block-end_0\.25cap': true }
   readonly scrollMarginBlockEnd0p5cap: { 'scroll-margin-block-end_0\.5cap': true }
@@ -36573,16 +32653,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockEnd5ch: { 'scroll-margin-block-end_5ch': true }
   readonly scrollMarginBlockEnd6ch: { 'scroll-margin-block-end_6ch': true }
   readonly scrollMarginBlockEnd8ch: { 'scroll-margin-block-end_8ch': true }
-  readonly scrollMarginBlockEnd0cm: { 'scroll-margin-block-end_0cm': true }
-  readonly scrollMarginBlockEnd1cm: { 'scroll-margin-block-end_1cm': true }
-  readonly scrollMarginBlockEnd2cm: { 'scroll-margin-block-end_2cm': true }
-  readonly scrollMarginBlockEnd4cm: { 'scroll-margin-block-end_4cm': true }
-  readonly scrollMarginBlockEnd6cm: { 'scroll-margin-block-end_6cm': true }
-  readonly scrollMarginBlockEnd8cm: { 'scroll-margin-block-end_8cm': true }
-  readonly scrollMarginBlockEnd10cm: { 'scroll-margin-block-end_10cm': true }
-  readonly scrollMarginBlockEnd12cm: { 'scroll-margin-block-end_12cm': true }
-  readonly scrollMarginBlockEnd16cm: { 'scroll-margin-block-end_16cm': true }
-  readonly scrollMarginBlockEnd20cm: { 'scroll-margin-block-end_20cm': true }
   readonly scrollMarginBlockEnd0dvh: { 'scroll-margin-block-end_0dvh': true }
   readonly scrollMarginBlockEnd10dvh: { 'scroll-margin-block-end_10dvh': true }
   readonly scrollMarginBlockEnd20dvh: { 'scroll-margin-block-end_20dvh': true }
@@ -36655,16 +32725,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockEnd5ic: { 'scroll-margin-block-end_5ic': true }
   readonly scrollMarginBlockEnd6ic: { 'scroll-margin-block-end_6ic': true }
   readonly scrollMarginBlockEnd8ic: { 'scroll-margin-block-end_8ic': true }
-  readonly scrollMarginBlockEnd0in: { 'scroll-margin-block-end_0in': true }
-  readonly scrollMarginBlockEnd1in: { 'scroll-margin-block-end_1in': true }
-  readonly scrollMarginBlockEnd2in: { 'scroll-margin-block-end_2in': true }
-  readonly scrollMarginBlockEnd4in: { 'scroll-margin-block-end_4in': true }
-  readonly scrollMarginBlockEnd6in: { 'scroll-margin-block-end_6in': true }
-  readonly scrollMarginBlockEnd8in: { 'scroll-margin-block-end_8in': true }
-  readonly scrollMarginBlockEnd10in: { 'scroll-margin-block-end_10in': true }
-  readonly scrollMarginBlockEnd12in: { 'scroll-margin-block-end_12in': true }
-  readonly scrollMarginBlockEnd16in: { 'scroll-margin-block-end_16in': true }
-  readonly scrollMarginBlockEnd20in: { 'scroll-margin-block-end_20in': true }
   readonly scrollMarginBlockEnd0lh: { 'scroll-margin-block-end_0lh': true }
   readonly scrollMarginBlockEnd0p25lh: { 'scroll-margin-block-end_0\.25lh': true }
   readonly scrollMarginBlockEnd0p5lh: { 'scroll-margin-block-end_0\.5lh': true }
@@ -36709,36 +32769,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockEnd80lvw: { 'scroll-margin-block-end_80lvw': true }
   readonly scrollMarginBlockEnd90lvw: { 'scroll-margin-block-end_90lvw': true }
   readonly scrollMarginBlockEnd100lvw: { 'scroll-margin-block-end_100lvw': true }
-  readonly scrollMarginBlockEnd0mm: { 'scroll-margin-block-end_0mm': true }
-  readonly scrollMarginBlockEnd1mm: { 'scroll-margin-block-end_1mm': true }
-  readonly scrollMarginBlockEnd2mm: { 'scroll-margin-block-end_2mm': true }
-  readonly scrollMarginBlockEnd4mm: { 'scroll-margin-block-end_4mm': true }
-  readonly scrollMarginBlockEnd6mm: { 'scroll-margin-block-end_6mm': true }
-  readonly scrollMarginBlockEnd8mm: { 'scroll-margin-block-end_8mm': true }
-  readonly scrollMarginBlockEnd10mm: { 'scroll-margin-block-end_10mm': true }
-  readonly scrollMarginBlockEnd12mm: { 'scroll-margin-block-end_12mm': true }
-  readonly scrollMarginBlockEnd16mm: { 'scroll-margin-block-end_16mm': true }
-  readonly scrollMarginBlockEnd20mm: { 'scroll-margin-block-end_20mm': true }
-  readonly scrollMarginBlockEnd0pc: { 'scroll-margin-block-end_0pc': true }
-  readonly scrollMarginBlockEnd1pc: { 'scroll-margin-block-end_1pc': true }
-  readonly scrollMarginBlockEnd2pc: { 'scroll-margin-block-end_2pc': true }
-  readonly scrollMarginBlockEnd4pc: { 'scroll-margin-block-end_4pc': true }
-  readonly scrollMarginBlockEnd6pc: { 'scroll-margin-block-end_6pc': true }
-  readonly scrollMarginBlockEnd8pc: { 'scroll-margin-block-end_8pc': true }
-  readonly scrollMarginBlockEnd10pc: { 'scroll-margin-block-end_10pc': true }
-  readonly scrollMarginBlockEnd12pc: { 'scroll-margin-block-end_12pc': true }
-  readonly scrollMarginBlockEnd16pc: { 'scroll-margin-block-end_16pc': true }
-  readonly scrollMarginBlockEnd20pc: { 'scroll-margin-block-end_20pc': true }
-  readonly scrollMarginBlockEnd0pt: { 'scroll-margin-block-end_0pt': true }
-  readonly scrollMarginBlockEnd1pt: { 'scroll-margin-block-end_1pt': true }
-  readonly scrollMarginBlockEnd2pt: { 'scroll-margin-block-end_2pt': true }
-  readonly scrollMarginBlockEnd4pt: { 'scroll-margin-block-end_4pt': true }
-  readonly scrollMarginBlockEnd6pt: { 'scroll-margin-block-end_6pt': true }
-  readonly scrollMarginBlockEnd8pt: { 'scroll-margin-block-end_8pt': true }
-  readonly scrollMarginBlockEnd10pt: { 'scroll-margin-block-end_10pt': true }
-  readonly scrollMarginBlockEnd12pt: { 'scroll-margin-block-end_12pt': true }
-  readonly scrollMarginBlockEnd16pt: { 'scroll-margin-block-end_16pt': true }
-  readonly scrollMarginBlockEnd20pt: { 'scroll-margin-block-end_20pt': true }
   readonly scrollMarginBlockEndN384px: { 'scroll-margin-block-end_-384px': true }
   readonly scrollMarginBlockEndN320px: { 'scroll-margin-block-end_-320px': true }
   readonly scrollMarginBlockEndN256px: { 'scroll-margin-block-end_-256px': true }
@@ -36942,16 +32972,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockEnd100vw: { 'scroll-margin-block-end_100vw': true }
 
   // ==================== scroll-margin-block-start ====================
-  readonly scrollMarginBlockStart0Q: { 'scroll-margin-block-start_0Q': true }
-  readonly scrollMarginBlockStart1Q: { 'scroll-margin-block-start_1Q': true }
-  readonly scrollMarginBlockStart2Q: { 'scroll-margin-block-start_2Q': true }
-  readonly scrollMarginBlockStart4Q: { 'scroll-margin-block-start_4Q': true }
-  readonly scrollMarginBlockStart6Q: { 'scroll-margin-block-start_6Q': true }
-  readonly scrollMarginBlockStart8Q: { 'scroll-margin-block-start_8Q': true }
-  readonly scrollMarginBlockStart10Q: { 'scroll-margin-block-start_10Q': true }
-  readonly scrollMarginBlockStart12Q: { 'scroll-margin-block-start_12Q': true }
-  readonly scrollMarginBlockStart16Q: { 'scroll-margin-block-start_16Q': true }
-  readonly scrollMarginBlockStart20Q: { 'scroll-margin-block-start_20Q': true }
   readonly scrollMarginBlockStart0cap: { 'scroll-margin-block-start_0cap': true }
   readonly scrollMarginBlockStart0p25cap: { 'scroll-margin-block-start_0\.25cap': true }
   readonly scrollMarginBlockStart0p5cap: { 'scroll-margin-block-start_0\.5cap': true }
@@ -36980,16 +33000,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockStart5ch: { 'scroll-margin-block-start_5ch': true }
   readonly scrollMarginBlockStart6ch: { 'scroll-margin-block-start_6ch': true }
   readonly scrollMarginBlockStart8ch: { 'scroll-margin-block-start_8ch': true }
-  readonly scrollMarginBlockStart0cm: { 'scroll-margin-block-start_0cm': true }
-  readonly scrollMarginBlockStart1cm: { 'scroll-margin-block-start_1cm': true }
-  readonly scrollMarginBlockStart2cm: { 'scroll-margin-block-start_2cm': true }
-  readonly scrollMarginBlockStart4cm: { 'scroll-margin-block-start_4cm': true }
-  readonly scrollMarginBlockStart6cm: { 'scroll-margin-block-start_6cm': true }
-  readonly scrollMarginBlockStart8cm: { 'scroll-margin-block-start_8cm': true }
-  readonly scrollMarginBlockStart10cm: { 'scroll-margin-block-start_10cm': true }
-  readonly scrollMarginBlockStart12cm: { 'scroll-margin-block-start_12cm': true }
-  readonly scrollMarginBlockStart16cm: { 'scroll-margin-block-start_16cm': true }
-  readonly scrollMarginBlockStart20cm: { 'scroll-margin-block-start_20cm': true }
   readonly scrollMarginBlockStart0dvh: { 'scroll-margin-block-start_0dvh': true }
   readonly scrollMarginBlockStart10dvh: { 'scroll-margin-block-start_10dvh': true }
   readonly scrollMarginBlockStart20dvh: { 'scroll-margin-block-start_20dvh': true }
@@ -37062,16 +33072,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockStart5ic: { 'scroll-margin-block-start_5ic': true }
   readonly scrollMarginBlockStart6ic: { 'scroll-margin-block-start_6ic': true }
   readonly scrollMarginBlockStart8ic: { 'scroll-margin-block-start_8ic': true }
-  readonly scrollMarginBlockStart0in: { 'scroll-margin-block-start_0in': true }
-  readonly scrollMarginBlockStart1in: { 'scroll-margin-block-start_1in': true }
-  readonly scrollMarginBlockStart2in: { 'scroll-margin-block-start_2in': true }
-  readonly scrollMarginBlockStart4in: { 'scroll-margin-block-start_4in': true }
-  readonly scrollMarginBlockStart6in: { 'scroll-margin-block-start_6in': true }
-  readonly scrollMarginBlockStart8in: { 'scroll-margin-block-start_8in': true }
-  readonly scrollMarginBlockStart10in: { 'scroll-margin-block-start_10in': true }
-  readonly scrollMarginBlockStart12in: { 'scroll-margin-block-start_12in': true }
-  readonly scrollMarginBlockStart16in: { 'scroll-margin-block-start_16in': true }
-  readonly scrollMarginBlockStart20in: { 'scroll-margin-block-start_20in': true }
   readonly scrollMarginBlockStart0lh: { 'scroll-margin-block-start_0lh': true }
   readonly scrollMarginBlockStart0p25lh: { 'scroll-margin-block-start_0\.25lh': true }
   readonly scrollMarginBlockStart0p5lh: { 'scroll-margin-block-start_0\.5lh': true }
@@ -37116,36 +33116,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockStart80lvw: { 'scroll-margin-block-start_80lvw': true }
   readonly scrollMarginBlockStart90lvw: { 'scroll-margin-block-start_90lvw': true }
   readonly scrollMarginBlockStart100lvw: { 'scroll-margin-block-start_100lvw': true }
-  readonly scrollMarginBlockStart0mm: { 'scroll-margin-block-start_0mm': true }
-  readonly scrollMarginBlockStart1mm: { 'scroll-margin-block-start_1mm': true }
-  readonly scrollMarginBlockStart2mm: { 'scroll-margin-block-start_2mm': true }
-  readonly scrollMarginBlockStart4mm: { 'scroll-margin-block-start_4mm': true }
-  readonly scrollMarginBlockStart6mm: { 'scroll-margin-block-start_6mm': true }
-  readonly scrollMarginBlockStart8mm: { 'scroll-margin-block-start_8mm': true }
-  readonly scrollMarginBlockStart10mm: { 'scroll-margin-block-start_10mm': true }
-  readonly scrollMarginBlockStart12mm: { 'scroll-margin-block-start_12mm': true }
-  readonly scrollMarginBlockStart16mm: { 'scroll-margin-block-start_16mm': true }
-  readonly scrollMarginBlockStart20mm: { 'scroll-margin-block-start_20mm': true }
-  readonly scrollMarginBlockStart0pc: { 'scroll-margin-block-start_0pc': true }
-  readonly scrollMarginBlockStart1pc: { 'scroll-margin-block-start_1pc': true }
-  readonly scrollMarginBlockStart2pc: { 'scroll-margin-block-start_2pc': true }
-  readonly scrollMarginBlockStart4pc: { 'scroll-margin-block-start_4pc': true }
-  readonly scrollMarginBlockStart6pc: { 'scroll-margin-block-start_6pc': true }
-  readonly scrollMarginBlockStart8pc: { 'scroll-margin-block-start_8pc': true }
-  readonly scrollMarginBlockStart10pc: { 'scroll-margin-block-start_10pc': true }
-  readonly scrollMarginBlockStart12pc: { 'scroll-margin-block-start_12pc': true }
-  readonly scrollMarginBlockStart16pc: { 'scroll-margin-block-start_16pc': true }
-  readonly scrollMarginBlockStart20pc: { 'scroll-margin-block-start_20pc': true }
-  readonly scrollMarginBlockStart0pt: { 'scroll-margin-block-start_0pt': true }
-  readonly scrollMarginBlockStart1pt: { 'scroll-margin-block-start_1pt': true }
-  readonly scrollMarginBlockStart2pt: { 'scroll-margin-block-start_2pt': true }
-  readonly scrollMarginBlockStart4pt: { 'scroll-margin-block-start_4pt': true }
-  readonly scrollMarginBlockStart6pt: { 'scroll-margin-block-start_6pt': true }
-  readonly scrollMarginBlockStart8pt: { 'scroll-margin-block-start_8pt': true }
-  readonly scrollMarginBlockStart10pt: { 'scroll-margin-block-start_10pt': true }
-  readonly scrollMarginBlockStart12pt: { 'scroll-margin-block-start_12pt': true }
-  readonly scrollMarginBlockStart16pt: { 'scroll-margin-block-start_16pt': true }
-  readonly scrollMarginBlockStart20pt: { 'scroll-margin-block-start_20pt': true }
   readonly scrollMarginBlockStartN384px: { 'scroll-margin-block-start_-384px': true }
   readonly scrollMarginBlockStartN320px: { 'scroll-margin-block-start_-320px': true }
   readonly scrollMarginBlockStartN256px: { 'scroll-margin-block-start_-256px': true }
@@ -37349,16 +33319,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockStart100vw: { 'scroll-margin-block-start_100vw': true }
 
   // ==================== scroll-margin-bottom ====================
-  readonly scrollMarginBottom0Q: { 'scroll-margin-bottom_0Q': true }
-  readonly scrollMarginBottom1Q: { 'scroll-margin-bottom_1Q': true }
-  readonly scrollMarginBottom2Q: { 'scroll-margin-bottom_2Q': true }
-  readonly scrollMarginBottom4Q: { 'scroll-margin-bottom_4Q': true }
-  readonly scrollMarginBottom6Q: { 'scroll-margin-bottom_6Q': true }
-  readonly scrollMarginBottom8Q: { 'scroll-margin-bottom_8Q': true }
-  readonly scrollMarginBottom10Q: { 'scroll-margin-bottom_10Q': true }
-  readonly scrollMarginBottom12Q: { 'scroll-margin-bottom_12Q': true }
-  readonly scrollMarginBottom16Q: { 'scroll-margin-bottom_16Q': true }
-  readonly scrollMarginBottom20Q: { 'scroll-margin-bottom_20Q': true }
   readonly scrollMarginBottom0cap: { 'scroll-margin-bottom_0cap': true }
   readonly scrollMarginBottom0p25cap: { 'scroll-margin-bottom_0\.25cap': true }
   readonly scrollMarginBottom0p5cap: { 'scroll-margin-bottom_0\.5cap': true }
@@ -37387,16 +33347,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBottom5ch: { 'scroll-margin-bottom_5ch': true }
   readonly scrollMarginBottom6ch: { 'scroll-margin-bottom_6ch': true }
   readonly scrollMarginBottom8ch: { 'scroll-margin-bottom_8ch': true }
-  readonly scrollMarginBottom0cm: { 'scroll-margin-bottom_0cm': true }
-  readonly scrollMarginBottom1cm: { 'scroll-margin-bottom_1cm': true }
-  readonly scrollMarginBottom2cm: { 'scroll-margin-bottom_2cm': true }
-  readonly scrollMarginBottom4cm: { 'scroll-margin-bottom_4cm': true }
-  readonly scrollMarginBottom6cm: { 'scroll-margin-bottom_6cm': true }
-  readonly scrollMarginBottom8cm: { 'scroll-margin-bottom_8cm': true }
-  readonly scrollMarginBottom10cm: { 'scroll-margin-bottom_10cm': true }
-  readonly scrollMarginBottom12cm: { 'scroll-margin-bottom_12cm': true }
-  readonly scrollMarginBottom16cm: { 'scroll-margin-bottom_16cm': true }
-  readonly scrollMarginBottom20cm: { 'scroll-margin-bottom_20cm': true }
   readonly scrollMarginBottom0dvh: { 'scroll-margin-bottom_0dvh': true }
   readonly scrollMarginBottom10dvh: { 'scroll-margin-bottom_10dvh': true }
   readonly scrollMarginBottom20dvh: { 'scroll-margin-bottom_20dvh': true }
@@ -37469,16 +33419,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBottom5ic: { 'scroll-margin-bottom_5ic': true }
   readonly scrollMarginBottom6ic: { 'scroll-margin-bottom_6ic': true }
   readonly scrollMarginBottom8ic: { 'scroll-margin-bottom_8ic': true }
-  readonly scrollMarginBottom0in: { 'scroll-margin-bottom_0in': true }
-  readonly scrollMarginBottom1in: { 'scroll-margin-bottom_1in': true }
-  readonly scrollMarginBottom2in: { 'scroll-margin-bottom_2in': true }
-  readonly scrollMarginBottom4in: { 'scroll-margin-bottom_4in': true }
-  readonly scrollMarginBottom6in: { 'scroll-margin-bottom_6in': true }
-  readonly scrollMarginBottom8in: { 'scroll-margin-bottom_8in': true }
-  readonly scrollMarginBottom10in: { 'scroll-margin-bottom_10in': true }
-  readonly scrollMarginBottom12in: { 'scroll-margin-bottom_12in': true }
-  readonly scrollMarginBottom16in: { 'scroll-margin-bottom_16in': true }
-  readonly scrollMarginBottom20in: { 'scroll-margin-bottom_20in': true }
   readonly scrollMarginBottom0lh: { 'scroll-margin-bottom_0lh': true }
   readonly scrollMarginBottom0p25lh: { 'scroll-margin-bottom_0\.25lh': true }
   readonly scrollMarginBottom0p5lh: { 'scroll-margin-bottom_0\.5lh': true }
@@ -37523,36 +33463,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBottom80lvw: { 'scroll-margin-bottom_80lvw': true }
   readonly scrollMarginBottom90lvw: { 'scroll-margin-bottom_90lvw': true }
   readonly scrollMarginBottom100lvw: { 'scroll-margin-bottom_100lvw': true }
-  readonly scrollMarginBottom0mm: { 'scroll-margin-bottom_0mm': true }
-  readonly scrollMarginBottom1mm: { 'scroll-margin-bottom_1mm': true }
-  readonly scrollMarginBottom2mm: { 'scroll-margin-bottom_2mm': true }
-  readonly scrollMarginBottom4mm: { 'scroll-margin-bottom_4mm': true }
-  readonly scrollMarginBottom6mm: { 'scroll-margin-bottom_6mm': true }
-  readonly scrollMarginBottom8mm: { 'scroll-margin-bottom_8mm': true }
-  readonly scrollMarginBottom10mm: { 'scroll-margin-bottom_10mm': true }
-  readonly scrollMarginBottom12mm: { 'scroll-margin-bottom_12mm': true }
-  readonly scrollMarginBottom16mm: { 'scroll-margin-bottom_16mm': true }
-  readonly scrollMarginBottom20mm: { 'scroll-margin-bottom_20mm': true }
-  readonly scrollMarginBottom0pc: { 'scroll-margin-bottom_0pc': true }
-  readonly scrollMarginBottom1pc: { 'scroll-margin-bottom_1pc': true }
-  readonly scrollMarginBottom2pc: { 'scroll-margin-bottom_2pc': true }
-  readonly scrollMarginBottom4pc: { 'scroll-margin-bottom_4pc': true }
-  readonly scrollMarginBottom6pc: { 'scroll-margin-bottom_6pc': true }
-  readonly scrollMarginBottom8pc: { 'scroll-margin-bottom_8pc': true }
-  readonly scrollMarginBottom10pc: { 'scroll-margin-bottom_10pc': true }
-  readonly scrollMarginBottom12pc: { 'scroll-margin-bottom_12pc': true }
-  readonly scrollMarginBottom16pc: { 'scroll-margin-bottom_16pc': true }
-  readonly scrollMarginBottom20pc: { 'scroll-margin-bottom_20pc': true }
-  readonly scrollMarginBottom0pt: { 'scroll-margin-bottom_0pt': true }
-  readonly scrollMarginBottom1pt: { 'scroll-margin-bottom_1pt': true }
-  readonly scrollMarginBottom2pt: { 'scroll-margin-bottom_2pt': true }
-  readonly scrollMarginBottom4pt: { 'scroll-margin-bottom_4pt': true }
-  readonly scrollMarginBottom6pt: { 'scroll-margin-bottom_6pt': true }
-  readonly scrollMarginBottom8pt: { 'scroll-margin-bottom_8pt': true }
-  readonly scrollMarginBottom10pt: { 'scroll-margin-bottom_10pt': true }
-  readonly scrollMarginBottom12pt: { 'scroll-margin-bottom_12pt': true }
-  readonly scrollMarginBottom16pt: { 'scroll-margin-bottom_16pt': true }
-  readonly scrollMarginBottom20pt: { 'scroll-margin-bottom_20pt': true }
   readonly scrollMarginBottomN384px: { 'scroll-margin-bottom_-384px': true }
   readonly scrollMarginBottomN320px: { 'scroll-margin-bottom_-320px': true }
   readonly scrollMarginBottomN256px: { 'scroll-margin-bottom_-256px': true }
@@ -37756,16 +33666,6 @@ export interface CsstsAtoms {
   readonly scrollMarginBottom100vw: { 'scroll-margin-bottom_100vw': true }
 
   // ==================== scroll-margin-inline ====================
-  readonly scrollMarginInline0Q: { 'scroll-margin-inline_0Q': true }
-  readonly scrollMarginInline1Q: { 'scroll-margin-inline_1Q': true }
-  readonly scrollMarginInline2Q: { 'scroll-margin-inline_2Q': true }
-  readonly scrollMarginInline4Q: { 'scroll-margin-inline_4Q': true }
-  readonly scrollMarginInline6Q: { 'scroll-margin-inline_6Q': true }
-  readonly scrollMarginInline8Q: { 'scroll-margin-inline_8Q': true }
-  readonly scrollMarginInline10Q: { 'scroll-margin-inline_10Q': true }
-  readonly scrollMarginInline12Q: { 'scroll-margin-inline_12Q': true }
-  readonly scrollMarginInline16Q: { 'scroll-margin-inline_16Q': true }
-  readonly scrollMarginInline20Q: { 'scroll-margin-inline_20Q': true }
   readonly scrollMarginInline0cap: { 'scroll-margin-inline_0cap': true }
   readonly scrollMarginInline0p25cap: { 'scroll-margin-inline_0\.25cap': true }
   readonly scrollMarginInline0p5cap: { 'scroll-margin-inline_0\.5cap': true }
@@ -37794,16 +33694,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInline5ch: { 'scroll-margin-inline_5ch': true }
   readonly scrollMarginInline6ch: { 'scroll-margin-inline_6ch': true }
   readonly scrollMarginInline8ch: { 'scroll-margin-inline_8ch': true }
-  readonly scrollMarginInline0cm: { 'scroll-margin-inline_0cm': true }
-  readonly scrollMarginInline1cm: { 'scroll-margin-inline_1cm': true }
-  readonly scrollMarginInline2cm: { 'scroll-margin-inline_2cm': true }
-  readonly scrollMarginInline4cm: { 'scroll-margin-inline_4cm': true }
-  readonly scrollMarginInline6cm: { 'scroll-margin-inline_6cm': true }
-  readonly scrollMarginInline8cm: { 'scroll-margin-inline_8cm': true }
-  readonly scrollMarginInline10cm: { 'scroll-margin-inline_10cm': true }
-  readonly scrollMarginInline12cm: { 'scroll-margin-inline_12cm': true }
-  readonly scrollMarginInline16cm: { 'scroll-margin-inline_16cm': true }
-  readonly scrollMarginInline20cm: { 'scroll-margin-inline_20cm': true }
   readonly scrollMarginInline0dvh: { 'scroll-margin-inline_0dvh': true }
   readonly scrollMarginInline10dvh: { 'scroll-margin-inline_10dvh': true }
   readonly scrollMarginInline20dvh: { 'scroll-margin-inline_20dvh': true }
@@ -37876,16 +33766,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInline5ic: { 'scroll-margin-inline_5ic': true }
   readonly scrollMarginInline6ic: { 'scroll-margin-inline_6ic': true }
   readonly scrollMarginInline8ic: { 'scroll-margin-inline_8ic': true }
-  readonly scrollMarginInline0in: { 'scroll-margin-inline_0in': true }
-  readonly scrollMarginInline1in: { 'scroll-margin-inline_1in': true }
-  readonly scrollMarginInline2in: { 'scroll-margin-inline_2in': true }
-  readonly scrollMarginInline4in: { 'scroll-margin-inline_4in': true }
-  readonly scrollMarginInline6in: { 'scroll-margin-inline_6in': true }
-  readonly scrollMarginInline8in: { 'scroll-margin-inline_8in': true }
-  readonly scrollMarginInline10in: { 'scroll-margin-inline_10in': true }
-  readonly scrollMarginInline12in: { 'scroll-margin-inline_12in': true }
-  readonly scrollMarginInline16in: { 'scroll-margin-inline_16in': true }
-  readonly scrollMarginInline20in: { 'scroll-margin-inline_20in': true }
   readonly scrollMarginInline0lh: { 'scroll-margin-inline_0lh': true }
   readonly scrollMarginInline0p25lh: { 'scroll-margin-inline_0\.25lh': true }
   readonly scrollMarginInline0p5lh: { 'scroll-margin-inline_0\.5lh': true }
@@ -37930,36 +33810,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInline80lvw: { 'scroll-margin-inline_80lvw': true }
   readonly scrollMarginInline90lvw: { 'scroll-margin-inline_90lvw': true }
   readonly scrollMarginInline100lvw: { 'scroll-margin-inline_100lvw': true }
-  readonly scrollMarginInline0mm: { 'scroll-margin-inline_0mm': true }
-  readonly scrollMarginInline1mm: { 'scroll-margin-inline_1mm': true }
-  readonly scrollMarginInline2mm: { 'scroll-margin-inline_2mm': true }
-  readonly scrollMarginInline4mm: { 'scroll-margin-inline_4mm': true }
-  readonly scrollMarginInline6mm: { 'scroll-margin-inline_6mm': true }
-  readonly scrollMarginInline8mm: { 'scroll-margin-inline_8mm': true }
-  readonly scrollMarginInline10mm: { 'scroll-margin-inline_10mm': true }
-  readonly scrollMarginInline12mm: { 'scroll-margin-inline_12mm': true }
-  readonly scrollMarginInline16mm: { 'scroll-margin-inline_16mm': true }
-  readonly scrollMarginInline20mm: { 'scroll-margin-inline_20mm': true }
-  readonly scrollMarginInline0pc: { 'scroll-margin-inline_0pc': true }
-  readonly scrollMarginInline1pc: { 'scroll-margin-inline_1pc': true }
-  readonly scrollMarginInline2pc: { 'scroll-margin-inline_2pc': true }
-  readonly scrollMarginInline4pc: { 'scroll-margin-inline_4pc': true }
-  readonly scrollMarginInline6pc: { 'scroll-margin-inline_6pc': true }
-  readonly scrollMarginInline8pc: { 'scroll-margin-inline_8pc': true }
-  readonly scrollMarginInline10pc: { 'scroll-margin-inline_10pc': true }
-  readonly scrollMarginInline12pc: { 'scroll-margin-inline_12pc': true }
-  readonly scrollMarginInline16pc: { 'scroll-margin-inline_16pc': true }
-  readonly scrollMarginInline20pc: { 'scroll-margin-inline_20pc': true }
-  readonly scrollMarginInline0pt: { 'scroll-margin-inline_0pt': true }
-  readonly scrollMarginInline1pt: { 'scroll-margin-inline_1pt': true }
-  readonly scrollMarginInline2pt: { 'scroll-margin-inline_2pt': true }
-  readonly scrollMarginInline4pt: { 'scroll-margin-inline_4pt': true }
-  readonly scrollMarginInline6pt: { 'scroll-margin-inline_6pt': true }
-  readonly scrollMarginInline8pt: { 'scroll-margin-inline_8pt': true }
-  readonly scrollMarginInline10pt: { 'scroll-margin-inline_10pt': true }
-  readonly scrollMarginInline12pt: { 'scroll-margin-inline_12pt': true }
-  readonly scrollMarginInline16pt: { 'scroll-margin-inline_16pt': true }
-  readonly scrollMarginInline20pt: { 'scroll-margin-inline_20pt': true }
   readonly scrollMarginInlineN384px: { 'scroll-margin-inline_-384px': true }
   readonly scrollMarginInlineN320px: { 'scroll-margin-inline_-320px': true }
   readonly scrollMarginInlineN256px: { 'scroll-margin-inline_-256px': true }
@@ -38163,16 +34013,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInline100vw: { 'scroll-margin-inline_100vw': true }
 
   // ==================== scroll-margin-inline-end ====================
-  readonly scrollMarginInlineEnd0Q: { 'scroll-margin-inline-end_0Q': true }
-  readonly scrollMarginInlineEnd1Q: { 'scroll-margin-inline-end_1Q': true }
-  readonly scrollMarginInlineEnd2Q: { 'scroll-margin-inline-end_2Q': true }
-  readonly scrollMarginInlineEnd4Q: { 'scroll-margin-inline-end_4Q': true }
-  readonly scrollMarginInlineEnd6Q: { 'scroll-margin-inline-end_6Q': true }
-  readonly scrollMarginInlineEnd8Q: { 'scroll-margin-inline-end_8Q': true }
-  readonly scrollMarginInlineEnd10Q: { 'scroll-margin-inline-end_10Q': true }
-  readonly scrollMarginInlineEnd12Q: { 'scroll-margin-inline-end_12Q': true }
-  readonly scrollMarginInlineEnd16Q: { 'scroll-margin-inline-end_16Q': true }
-  readonly scrollMarginInlineEnd20Q: { 'scroll-margin-inline-end_20Q': true }
   readonly scrollMarginInlineEnd0cap: { 'scroll-margin-inline-end_0cap': true }
   readonly scrollMarginInlineEnd0p25cap: { 'scroll-margin-inline-end_0\.25cap': true }
   readonly scrollMarginInlineEnd0p5cap: { 'scroll-margin-inline-end_0\.5cap': true }
@@ -38201,16 +34041,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineEnd5ch: { 'scroll-margin-inline-end_5ch': true }
   readonly scrollMarginInlineEnd6ch: { 'scroll-margin-inline-end_6ch': true }
   readonly scrollMarginInlineEnd8ch: { 'scroll-margin-inline-end_8ch': true }
-  readonly scrollMarginInlineEnd0cm: { 'scroll-margin-inline-end_0cm': true }
-  readonly scrollMarginInlineEnd1cm: { 'scroll-margin-inline-end_1cm': true }
-  readonly scrollMarginInlineEnd2cm: { 'scroll-margin-inline-end_2cm': true }
-  readonly scrollMarginInlineEnd4cm: { 'scroll-margin-inline-end_4cm': true }
-  readonly scrollMarginInlineEnd6cm: { 'scroll-margin-inline-end_6cm': true }
-  readonly scrollMarginInlineEnd8cm: { 'scroll-margin-inline-end_8cm': true }
-  readonly scrollMarginInlineEnd10cm: { 'scroll-margin-inline-end_10cm': true }
-  readonly scrollMarginInlineEnd12cm: { 'scroll-margin-inline-end_12cm': true }
-  readonly scrollMarginInlineEnd16cm: { 'scroll-margin-inline-end_16cm': true }
-  readonly scrollMarginInlineEnd20cm: { 'scroll-margin-inline-end_20cm': true }
   readonly scrollMarginInlineEnd0dvh: { 'scroll-margin-inline-end_0dvh': true }
   readonly scrollMarginInlineEnd10dvh: { 'scroll-margin-inline-end_10dvh': true }
   readonly scrollMarginInlineEnd20dvh: { 'scroll-margin-inline-end_20dvh': true }
@@ -38283,16 +34113,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineEnd5ic: { 'scroll-margin-inline-end_5ic': true }
   readonly scrollMarginInlineEnd6ic: { 'scroll-margin-inline-end_6ic': true }
   readonly scrollMarginInlineEnd8ic: { 'scroll-margin-inline-end_8ic': true }
-  readonly scrollMarginInlineEnd0in: { 'scroll-margin-inline-end_0in': true }
-  readonly scrollMarginInlineEnd1in: { 'scroll-margin-inline-end_1in': true }
-  readonly scrollMarginInlineEnd2in: { 'scroll-margin-inline-end_2in': true }
-  readonly scrollMarginInlineEnd4in: { 'scroll-margin-inline-end_4in': true }
-  readonly scrollMarginInlineEnd6in: { 'scroll-margin-inline-end_6in': true }
-  readonly scrollMarginInlineEnd8in: { 'scroll-margin-inline-end_8in': true }
-  readonly scrollMarginInlineEnd10in: { 'scroll-margin-inline-end_10in': true }
-  readonly scrollMarginInlineEnd12in: { 'scroll-margin-inline-end_12in': true }
-  readonly scrollMarginInlineEnd16in: { 'scroll-margin-inline-end_16in': true }
-  readonly scrollMarginInlineEnd20in: { 'scroll-margin-inline-end_20in': true }
   readonly scrollMarginInlineEnd0lh: { 'scroll-margin-inline-end_0lh': true }
   readonly scrollMarginInlineEnd0p25lh: { 'scroll-margin-inline-end_0\.25lh': true }
   readonly scrollMarginInlineEnd0p5lh: { 'scroll-margin-inline-end_0\.5lh': true }
@@ -38337,36 +34157,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineEnd80lvw: { 'scroll-margin-inline-end_80lvw': true }
   readonly scrollMarginInlineEnd90lvw: { 'scroll-margin-inline-end_90lvw': true }
   readonly scrollMarginInlineEnd100lvw: { 'scroll-margin-inline-end_100lvw': true }
-  readonly scrollMarginInlineEnd0mm: { 'scroll-margin-inline-end_0mm': true }
-  readonly scrollMarginInlineEnd1mm: { 'scroll-margin-inline-end_1mm': true }
-  readonly scrollMarginInlineEnd2mm: { 'scroll-margin-inline-end_2mm': true }
-  readonly scrollMarginInlineEnd4mm: { 'scroll-margin-inline-end_4mm': true }
-  readonly scrollMarginInlineEnd6mm: { 'scroll-margin-inline-end_6mm': true }
-  readonly scrollMarginInlineEnd8mm: { 'scroll-margin-inline-end_8mm': true }
-  readonly scrollMarginInlineEnd10mm: { 'scroll-margin-inline-end_10mm': true }
-  readonly scrollMarginInlineEnd12mm: { 'scroll-margin-inline-end_12mm': true }
-  readonly scrollMarginInlineEnd16mm: { 'scroll-margin-inline-end_16mm': true }
-  readonly scrollMarginInlineEnd20mm: { 'scroll-margin-inline-end_20mm': true }
-  readonly scrollMarginInlineEnd0pc: { 'scroll-margin-inline-end_0pc': true }
-  readonly scrollMarginInlineEnd1pc: { 'scroll-margin-inline-end_1pc': true }
-  readonly scrollMarginInlineEnd2pc: { 'scroll-margin-inline-end_2pc': true }
-  readonly scrollMarginInlineEnd4pc: { 'scroll-margin-inline-end_4pc': true }
-  readonly scrollMarginInlineEnd6pc: { 'scroll-margin-inline-end_6pc': true }
-  readonly scrollMarginInlineEnd8pc: { 'scroll-margin-inline-end_8pc': true }
-  readonly scrollMarginInlineEnd10pc: { 'scroll-margin-inline-end_10pc': true }
-  readonly scrollMarginInlineEnd12pc: { 'scroll-margin-inline-end_12pc': true }
-  readonly scrollMarginInlineEnd16pc: { 'scroll-margin-inline-end_16pc': true }
-  readonly scrollMarginInlineEnd20pc: { 'scroll-margin-inline-end_20pc': true }
-  readonly scrollMarginInlineEnd0pt: { 'scroll-margin-inline-end_0pt': true }
-  readonly scrollMarginInlineEnd1pt: { 'scroll-margin-inline-end_1pt': true }
-  readonly scrollMarginInlineEnd2pt: { 'scroll-margin-inline-end_2pt': true }
-  readonly scrollMarginInlineEnd4pt: { 'scroll-margin-inline-end_4pt': true }
-  readonly scrollMarginInlineEnd6pt: { 'scroll-margin-inline-end_6pt': true }
-  readonly scrollMarginInlineEnd8pt: { 'scroll-margin-inline-end_8pt': true }
-  readonly scrollMarginInlineEnd10pt: { 'scroll-margin-inline-end_10pt': true }
-  readonly scrollMarginInlineEnd12pt: { 'scroll-margin-inline-end_12pt': true }
-  readonly scrollMarginInlineEnd16pt: { 'scroll-margin-inline-end_16pt': true }
-  readonly scrollMarginInlineEnd20pt: { 'scroll-margin-inline-end_20pt': true }
   readonly scrollMarginInlineEndN384px: { 'scroll-margin-inline-end_-384px': true }
   readonly scrollMarginInlineEndN320px: { 'scroll-margin-inline-end_-320px': true }
   readonly scrollMarginInlineEndN256px: { 'scroll-margin-inline-end_-256px': true }
@@ -38570,16 +34360,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineEnd100vw: { 'scroll-margin-inline-end_100vw': true }
 
   // ==================== scroll-margin-inline-start ====================
-  readonly scrollMarginInlineStart0Q: { 'scroll-margin-inline-start_0Q': true }
-  readonly scrollMarginInlineStart1Q: { 'scroll-margin-inline-start_1Q': true }
-  readonly scrollMarginInlineStart2Q: { 'scroll-margin-inline-start_2Q': true }
-  readonly scrollMarginInlineStart4Q: { 'scroll-margin-inline-start_4Q': true }
-  readonly scrollMarginInlineStart6Q: { 'scroll-margin-inline-start_6Q': true }
-  readonly scrollMarginInlineStart8Q: { 'scroll-margin-inline-start_8Q': true }
-  readonly scrollMarginInlineStart10Q: { 'scroll-margin-inline-start_10Q': true }
-  readonly scrollMarginInlineStart12Q: { 'scroll-margin-inline-start_12Q': true }
-  readonly scrollMarginInlineStart16Q: { 'scroll-margin-inline-start_16Q': true }
-  readonly scrollMarginInlineStart20Q: { 'scroll-margin-inline-start_20Q': true }
   readonly scrollMarginInlineStart0cap: { 'scroll-margin-inline-start_0cap': true }
   readonly scrollMarginInlineStart0p25cap: { 'scroll-margin-inline-start_0\.25cap': true }
   readonly scrollMarginInlineStart0p5cap: { 'scroll-margin-inline-start_0\.5cap': true }
@@ -38608,16 +34388,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineStart5ch: { 'scroll-margin-inline-start_5ch': true }
   readonly scrollMarginInlineStart6ch: { 'scroll-margin-inline-start_6ch': true }
   readonly scrollMarginInlineStart8ch: { 'scroll-margin-inline-start_8ch': true }
-  readonly scrollMarginInlineStart0cm: { 'scroll-margin-inline-start_0cm': true }
-  readonly scrollMarginInlineStart1cm: { 'scroll-margin-inline-start_1cm': true }
-  readonly scrollMarginInlineStart2cm: { 'scroll-margin-inline-start_2cm': true }
-  readonly scrollMarginInlineStart4cm: { 'scroll-margin-inline-start_4cm': true }
-  readonly scrollMarginInlineStart6cm: { 'scroll-margin-inline-start_6cm': true }
-  readonly scrollMarginInlineStart8cm: { 'scroll-margin-inline-start_8cm': true }
-  readonly scrollMarginInlineStart10cm: { 'scroll-margin-inline-start_10cm': true }
-  readonly scrollMarginInlineStart12cm: { 'scroll-margin-inline-start_12cm': true }
-  readonly scrollMarginInlineStart16cm: { 'scroll-margin-inline-start_16cm': true }
-  readonly scrollMarginInlineStart20cm: { 'scroll-margin-inline-start_20cm': true }
   readonly scrollMarginInlineStart0dvh: { 'scroll-margin-inline-start_0dvh': true }
   readonly scrollMarginInlineStart10dvh: { 'scroll-margin-inline-start_10dvh': true }
   readonly scrollMarginInlineStart20dvh: { 'scroll-margin-inline-start_20dvh': true }
@@ -38690,16 +34460,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineStart5ic: { 'scroll-margin-inline-start_5ic': true }
   readonly scrollMarginInlineStart6ic: { 'scroll-margin-inline-start_6ic': true }
   readonly scrollMarginInlineStart8ic: { 'scroll-margin-inline-start_8ic': true }
-  readonly scrollMarginInlineStart0in: { 'scroll-margin-inline-start_0in': true }
-  readonly scrollMarginInlineStart1in: { 'scroll-margin-inline-start_1in': true }
-  readonly scrollMarginInlineStart2in: { 'scroll-margin-inline-start_2in': true }
-  readonly scrollMarginInlineStart4in: { 'scroll-margin-inline-start_4in': true }
-  readonly scrollMarginInlineStart6in: { 'scroll-margin-inline-start_6in': true }
-  readonly scrollMarginInlineStart8in: { 'scroll-margin-inline-start_8in': true }
-  readonly scrollMarginInlineStart10in: { 'scroll-margin-inline-start_10in': true }
-  readonly scrollMarginInlineStart12in: { 'scroll-margin-inline-start_12in': true }
-  readonly scrollMarginInlineStart16in: { 'scroll-margin-inline-start_16in': true }
-  readonly scrollMarginInlineStart20in: { 'scroll-margin-inline-start_20in': true }
   readonly scrollMarginInlineStart0lh: { 'scroll-margin-inline-start_0lh': true }
   readonly scrollMarginInlineStart0p25lh: { 'scroll-margin-inline-start_0\.25lh': true }
   readonly scrollMarginInlineStart0p5lh: { 'scroll-margin-inline-start_0\.5lh': true }
@@ -38744,36 +34504,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineStart80lvw: { 'scroll-margin-inline-start_80lvw': true }
   readonly scrollMarginInlineStart90lvw: { 'scroll-margin-inline-start_90lvw': true }
   readonly scrollMarginInlineStart100lvw: { 'scroll-margin-inline-start_100lvw': true }
-  readonly scrollMarginInlineStart0mm: { 'scroll-margin-inline-start_0mm': true }
-  readonly scrollMarginInlineStart1mm: { 'scroll-margin-inline-start_1mm': true }
-  readonly scrollMarginInlineStart2mm: { 'scroll-margin-inline-start_2mm': true }
-  readonly scrollMarginInlineStart4mm: { 'scroll-margin-inline-start_4mm': true }
-  readonly scrollMarginInlineStart6mm: { 'scroll-margin-inline-start_6mm': true }
-  readonly scrollMarginInlineStart8mm: { 'scroll-margin-inline-start_8mm': true }
-  readonly scrollMarginInlineStart10mm: { 'scroll-margin-inline-start_10mm': true }
-  readonly scrollMarginInlineStart12mm: { 'scroll-margin-inline-start_12mm': true }
-  readonly scrollMarginInlineStart16mm: { 'scroll-margin-inline-start_16mm': true }
-  readonly scrollMarginInlineStart20mm: { 'scroll-margin-inline-start_20mm': true }
-  readonly scrollMarginInlineStart0pc: { 'scroll-margin-inline-start_0pc': true }
-  readonly scrollMarginInlineStart1pc: { 'scroll-margin-inline-start_1pc': true }
-  readonly scrollMarginInlineStart2pc: { 'scroll-margin-inline-start_2pc': true }
-  readonly scrollMarginInlineStart4pc: { 'scroll-margin-inline-start_4pc': true }
-  readonly scrollMarginInlineStart6pc: { 'scroll-margin-inline-start_6pc': true }
-  readonly scrollMarginInlineStart8pc: { 'scroll-margin-inline-start_8pc': true }
-  readonly scrollMarginInlineStart10pc: { 'scroll-margin-inline-start_10pc': true }
-  readonly scrollMarginInlineStart12pc: { 'scroll-margin-inline-start_12pc': true }
-  readonly scrollMarginInlineStart16pc: { 'scroll-margin-inline-start_16pc': true }
-  readonly scrollMarginInlineStart20pc: { 'scroll-margin-inline-start_20pc': true }
-  readonly scrollMarginInlineStart0pt: { 'scroll-margin-inline-start_0pt': true }
-  readonly scrollMarginInlineStart1pt: { 'scroll-margin-inline-start_1pt': true }
-  readonly scrollMarginInlineStart2pt: { 'scroll-margin-inline-start_2pt': true }
-  readonly scrollMarginInlineStart4pt: { 'scroll-margin-inline-start_4pt': true }
-  readonly scrollMarginInlineStart6pt: { 'scroll-margin-inline-start_6pt': true }
-  readonly scrollMarginInlineStart8pt: { 'scroll-margin-inline-start_8pt': true }
-  readonly scrollMarginInlineStart10pt: { 'scroll-margin-inline-start_10pt': true }
-  readonly scrollMarginInlineStart12pt: { 'scroll-margin-inline-start_12pt': true }
-  readonly scrollMarginInlineStart16pt: { 'scroll-margin-inline-start_16pt': true }
-  readonly scrollMarginInlineStart20pt: { 'scroll-margin-inline-start_20pt': true }
   readonly scrollMarginInlineStartN384px: { 'scroll-margin-inline-start_-384px': true }
   readonly scrollMarginInlineStartN320px: { 'scroll-margin-inline-start_-320px': true }
   readonly scrollMarginInlineStartN256px: { 'scroll-margin-inline-start_-256px': true }
@@ -38977,16 +34707,6 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineStart100vw: { 'scroll-margin-inline-start_100vw': true }
 
   // ==================== scroll-margin-left ====================
-  readonly scrollMarginLeft0Q: { 'scroll-margin-left_0Q': true }
-  readonly scrollMarginLeft1Q: { 'scroll-margin-left_1Q': true }
-  readonly scrollMarginLeft2Q: { 'scroll-margin-left_2Q': true }
-  readonly scrollMarginLeft4Q: { 'scroll-margin-left_4Q': true }
-  readonly scrollMarginLeft6Q: { 'scroll-margin-left_6Q': true }
-  readonly scrollMarginLeft8Q: { 'scroll-margin-left_8Q': true }
-  readonly scrollMarginLeft10Q: { 'scroll-margin-left_10Q': true }
-  readonly scrollMarginLeft12Q: { 'scroll-margin-left_12Q': true }
-  readonly scrollMarginLeft16Q: { 'scroll-margin-left_16Q': true }
-  readonly scrollMarginLeft20Q: { 'scroll-margin-left_20Q': true }
   readonly scrollMarginLeft0cap: { 'scroll-margin-left_0cap': true }
   readonly scrollMarginLeft0p25cap: { 'scroll-margin-left_0\.25cap': true }
   readonly scrollMarginLeft0p5cap: { 'scroll-margin-left_0\.5cap': true }
@@ -39015,16 +34735,6 @@ export interface CsstsAtoms {
   readonly scrollMarginLeft5ch: { 'scroll-margin-left_5ch': true }
   readonly scrollMarginLeft6ch: { 'scroll-margin-left_6ch': true }
   readonly scrollMarginLeft8ch: { 'scroll-margin-left_8ch': true }
-  readonly scrollMarginLeft0cm: { 'scroll-margin-left_0cm': true }
-  readonly scrollMarginLeft1cm: { 'scroll-margin-left_1cm': true }
-  readonly scrollMarginLeft2cm: { 'scroll-margin-left_2cm': true }
-  readonly scrollMarginLeft4cm: { 'scroll-margin-left_4cm': true }
-  readonly scrollMarginLeft6cm: { 'scroll-margin-left_6cm': true }
-  readonly scrollMarginLeft8cm: { 'scroll-margin-left_8cm': true }
-  readonly scrollMarginLeft10cm: { 'scroll-margin-left_10cm': true }
-  readonly scrollMarginLeft12cm: { 'scroll-margin-left_12cm': true }
-  readonly scrollMarginLeft16cm: { 'scroll-margin-left_16cm': true }
-  readonly scrollMarginLeft20cm: { 'scroll-margin-left_20cm': true }
   readonly scrollMarginLeft0dvh: { 'scroll-margin-left_0dvh': true }
   readonly scrollMarginLeft10dvh: { 'scroll-margin-left_10dvh': true }
   readonly scrollMarginLeft20dvh: { 'scroll-margin-left_20dvh': true }
@@ -39097,16 +34807,6 @@ export interface CsstsAtoms {
   readonly scrollMarginLeft5ic: { 'scroll-margin-left_5ic': true }
   readonly scrollMarginLeft6ic: { 'scroll-margin-left_6ic': true }
   readonly scrollMarginLeft8ic: { 'scroll-margin-left_8ic': true }
-  readonly scrollMarginLeft0in: { 'scroll-margin-left_0in': true }
-  readonly scrollMarginLeft1in: { 'scroll-margin-left_1in': true }
-  readonly scrollMarginLeft2in: { 'scroll-margin-left_2in': true }
-  readonly scrollMarginLeft4in: { 'scroll-margin-left_4in': true }
-  readonly scrollMarginLeft6in: { 'scroll-margin-left_6in': true }
-  readonly scrollMarginLeft8in: { 'scroll-margin-left_8in': true }
-  readonly scrollMarginLeft10in: { 'scroll-margin-left_10in': true }
-  readonly scrollMarginLeft12in: { 'scroll-margin-left_12in': true }
-  readonly scrollMarginLeft16in: { 'scroll-margin-left_16in': true }
-  readonly scrollMarginLeft20in: { 'scroll-margin-left_20in': true }
   readonly scrollMarginLeft0lh: { 'scroll-margin-left_0lh': true }
   readonly scrollMarginLeft0p25lh: { 'scroll-margin-left_0\.25lh': true }
   readonly scrollMarginLeft0p5lh: { 'scroll-margin-left_0\.5lh': true }
@@ -39151,36 +34851,6 @@ export interface CsstsAtoms {
   readonly scrollMarginLeft80lvw: { 'scroll-margin-left_80lvw': true }
   readonly scrollMarginLeft90lvw: { 'scroll-margin-left_90lvw': true }
   readonly scrollMarginLeft100lvw: { 'scroll-margin-left_100lvw': true }
-  readonly scrollMarginLeft0mm: { 'scroll-margin-left_0mm': true }
-  readonly scrollMarginLeft1mm: { 'scroll-margin-left_1mm': true }
-  readonly scrollMarginLeft2mm: { 'scroll-margin-left_2mm': true }
-  readonly scrollMarginLeft4mm: { 'scroll-margin-left_4mm': true }
-  readonly scrollMarginLeft6mm: { 'scroll-margin-left_6mm': true }
-  readonly scrollMarginLeft8mm: { 'scroll-margin-left_8mm': true }
-  readonly scrollMarginLeft10mm: { 'scroll-margin-left_10mm': true }
-  readonly scrollMarginLeft12mm: { 'scroll-margin-left_12mm': true }
-  readonly scrollMarginLeft16mm: { 'scroll-margin-left_16mm': true }
-  readonly scrollMarginLeft20mm: { 'scroll-margin-left_20mm': true }
-  readonly scrollMarginLeft0pc: { 'scroll-margin-left_0pc': true }
-  readonly scrollMarginLeft1pc: { 'scroll-margin-left_1pc': true }
-  readonly scrollMarginLeft2pc: { 'scroll-margin-left_2pc': true }
-  readonly scrollMarginLeft4pc: { 'scroll-margin-left_4pc': true }
-  readonly scrollMarginLeft6pc: { 'scroll-margin-left_6pc': true }
-  readonly scrollMarginLeft8pc: { 'scroll-margin-left_8pc': true }
-  readonly scrollMarginLeft10pc: { 'scroll-margin-left_10pc': true }
-  readonly scrollMarginLeft12pc: { 'scroll-margin-left_12pc': true }
-  readonly scrollMarginLeft16pc: { 'scroll-margin-left_16pc': true }
-  readonly scrollMarginLeft20pc: { 'scroll-margin-left_20pc': true }
-  readonly scrollMarginLeft0pt: { 'scroll-margin-left_0pt': true }
-  readonly scrollMarginLeft1pt: { 'scroll-margin-left_1pt': true }
-  readonly scrollMarginLeft2pt: { 'scroll-margin-left_2pt': true }
-  readonly scrollMarginLeft4pt: { 'scroll-margin-left_4pt': true }
-  readonly scrollMarginLeft6pt: { 'scroll-margin-left_6pt': true }
-  readonly scrollMarginLeft8pt: { 'scroll-margin-left_8pt': true }
-  readonly scrollMarginLeft10pt: { 'scroll-margin-left_10pt': true }
-  readonly scrollMarginLeft12pt: { 'scroll-margin-left_12pt': true }
-  readonly scrollMarginLeft16pt: { 'scroll-margin-left_16pt': true }
-  readonly scrollMarginLeft20pt: { 'scroll-margin-left_20pt': true }
   readonly scrollMarginLeftN384px: { 'scroll-margin-left_-384px': true }
   readonly scrollMarginLeftN320px: { 'scroll-margin-left_-320px': true }
   readonly scrollMarginLeftN256px: { 'scroll-margin-left_-256px': true }
@@ -39384,16 +35054,6 @@ export interface CsstsAtoms {
   readonly scrollMarginLeft100vw: { 'scroll-margin-left_100vw': true }
 
   // ==================== scroll-margin-right ====================
-  readonly scrollMarginRight0Q: { 'scroll-margin-right_0Q': true }
-  readonly scrollMarginRight1Q: { 'scroll-margin-right_1Q': true }
-  readonly scrollMarginRight2Q: { 'scroll-margin-right_2Q': true }
-  readonly scrollMarginRight4Q: { 'scroll-margin-right_4Q': true }
-  readonly scrollMarginRight6Q: { 'scroll-margin-right_6Q': true }
-  readonly scrollMarginRight8Q: { 'scroll-margin-right_8Q': true }
-  readonly scrollMarginRight10Q: { 'scroll-margin-right_10Q': true }
-  readonly scrollMarginRight12Q: { 'scroll-margin-right_12Q': true }
-  readonly scrollMarginRight16Q: { 'scroll-margin-right_16Q': true }
-  readonly scrollMarginRight20Q: { 'scroll-margin-right_20Q': true }
   readonly scrollMarginRight0cap: { 'scroll-margin-right_0cap': true }
   readonly scrollMarginRight0p25cap: { 'scroll-margin-right_0\.25cap': true }
   readonly scrollMarginRight0p5cap: { 'scroll-margin-right_0\.5cap': true }
@@ -39422,16 +35082,6 @@ export interface CsstsAtoms {
   readonly scrollMarginRight5ch: { 'scroll-margin-right_5ch': true }
   readonly scrollMarginRight6ch: { 'scroll-margin-right_6ch': true }
   readonly scrollMarginRight8ch: { 'scroll-margin-right_8ch': true }
-  readonly scrollMarginRight0cm: { 'scroll-margin-right_0cm': true }
-  readonly scrollMarginRight1cm: { 'scroll-margin-right_1cm': true }
-  readonly scrollMarginRight2cm: { 'scroll-margin-right_2cm': true }
-  readonly scrollMarginRight4cm: { 'scroll-margin-right_4cm': true }
-  readonly scrollMarginRight6cm: { 'scroll-margin-right_6cm': true }
-  readonly scrollMarginRight8cm: { 'scroll-margin-right_8cm': true }
-  readonly scrollMarginRight10cm: { 'scroll-margin-right_10cm': true }
-  readonly scrollMarginRight12cm: { 'scroll-margin-right_12cm': true }
-  readonly scrollMarginRight16cm: { 'scroll-margin-right_16cm': true }
-  readonly scrollMarginRight20cm: { 'scroll-margin-right_20cm': true }
   readonly scrollMarginRight0dvh: { 'scroll-margin-right_0dvh': true }
   readonly scrollMarginRight10dvh: { 'scroll-margin-right_10dvh': true }
   readonly scrollMarginRight20dvh: { 'scroll-margin-right_20dvh': true }
@@ -39504,16 +35154,6 @@ export interface CsstsAtoms {
   readonly scrollMarginRight5ic: { 'scroll-margin-right_5ic': true }
   readonly scrollMarginRight6ic: { 'scroll-margin-right_6ic': true }
   readonly scrollMarginRight8ic: { 'scroll-margin-right_8ic': true }
-  readonly scrollMarginRight0in: { 'scroll-margin-right_0in': true }
-  readonly scrollMarginRight1in: { 'scroll-margin-right_1in': true }
-  readonly scrollMarginRight2in: { 'scroll-margin-right_2in': true }
-  readonly scrollMarginRight4in: { 'scroll-margin-right_4in': true }
-  readonly scrollMarginRight6in: { 'scroll-margin-right_6in': true }
-  readonly scrollMarginRight8in: { 'scroll-margin-right_8in': true }
-  readonly scrollMarginRight10in: { 'scroll-margin-right_10in': true }
-  readonly scrollMarginRight12in: { 'scroll-margin-right_12in': true }
-  readonly scrollMarginRight16in: { 'scroll-margin-right_16in': true }
-  readonly scrollMarginRight20in: { 'scroll-margin-right_20in': true }
   readonly scrollMarginRight0lh: { 'scroll-margin-right_0lh': true }
   readonly scrollMarginRight0p25lh: { 'scroll-margin-right_0\.25lh': true }
   readonly scrollMarginRight0p5lh: { 'scroll-margin-right_0\.5lh': true }
@@ -39558,36 +35198,6 @@ export interface CsstsAtoms {
   readonly scrollMarginRight80lvw: { 'scroll-margin-right_80lvw': true }
   readonly scrollMarginRight90lvw: { 'scroll-margin-right_90lvw': true }
   readonly scrollMarginRight100lvw: { 'scroll-margin-right_100lvw': true }
-  readonly scrollMarginRight0mm: { 'scroll-margin-right_0mm': true }
-  readonly scrollMarginRight1mm: { 'scroll-margin-right_1mm': true }
-  readonly scrollMarginRight2mm: { 'scroll-margin-right_2mm': true }
-  readonly scrollMarginRight4mm: { 'scroll-margin-right_4mm': true }
-  readonly scrollMarginRight6mm: { 'scroll-margin-right_6mm': true }
-  readonly scrollMarginRight8mm: { 'scroll-margin-right_8mm': true }
-  readonly scrollMarginRight10mm: { 'scroll-margin-right_10mm': true }
-  readonly scrollMarginRight12mm: { 'scroll-margin-right_12mm': true }
-  readonly scrollMarginRight16mm: { 'scroll-margin-right_16mm': true }
-  readonly scrollMarginRight20mm: { 'scroll-margin-right_20mm': true }
-  readonly scrollMarginRight0pc: { 'scroll-margin-right_0pc': true }
-  readonly scrollMarginRight1pc: { 'scroll-margin-right_1pc': true }
-  readonly scrollMarginRight2pc: { 'scroll-margin-right_2pc': true }
-  readonly scrollMarginRight4pc: { 'scroll-margin-right_4pc': true }
-  readonly scrollMarginRight6pc: { 'scroll-margin-right_6pc': true }
-  readonly scrollMarginRight8pc: { 'scroll-margin-right_8pc': true }
-  readonly scrollMarginRight10pc: { 'scroll-margin-right_10pc': true }
-  readonly scrollMarginRight12pc: { 'scroll-margin-right_12pc': true }
-  readonly scrollMarginRight16pc: { 'scroll-margin-right_16pc': true }
-  readonly scrollMarginRight20pc: { 'scroll-margin-right_20pc': true }
-  readonly scrollMarginRight0pt: { 'scroll-margin-right_0pt': true }
-  readonly scrollMarginRight1pt: { 'scroll-margin-right_1pt': true }
-  readonly scrollMarginRight2pt: { 'scroll-margin-right_2pt': true }
-  readonly scrollMarginRight4pt: { 'scroll-margin-right_4pt': true }
-  readonly scrollMarginRight6pt: { 'scroll-margin-right_6pt': true }
-  readonly scrollMarginRight8pt: { 'scroll-margin-right_8pt': true }
-  readonly scrollMarginRight10pt: { 'scroll-margin-right_10pt': true }
-  readonly scrollMarginRight12pt: { 'scroll-margin-right_12pt': true }
-  readonly scrollMarginRight16pt: { 'scroll-margin-right_16pt': true }
-  readonly scrollMarginRight20pt: { 'scroll-margin-right_20pt': true }
   readonly scrollMarginRightN384px: { 'scroll-margin-right_-384px': true }
   readonly scrollMarginRightN320px: { 'scroll-margin-right_-320px': true }
   readonly scrollMarginRightN256px: { 'scroll-margin-right_-256px': true }
@@ -39791,16 +35401,6 @@ export interface CsstsAtoms {
   readonly scrollMarginRight100vw: { 'scroll-margin-right_100vw': true }
 
   // ==================== scroll-margin-top ====================
-  readonly scrollMarginTop0Q: { 'scroll-margin-top_0Q': true }
-  readonly scrollMarginTop1Q: { 'scroll-margin-top_1Q': true }
-  readonly scrollMarginTop2Q: { 'scroll-margin-top_2Q': true }
-  readonly scrollMarginTop4Q: { 'scroll-margin-top_4Q': true }
-  readonly scrollMarginTop6Q: { 'scroll-margin-top_6Q': true }
-  readonly scrollMarginTop8Q: { 'scroll-margin-top_8Q': true }
-  readonly scrollMarginTop10Q: { 'scroll-margin-top_10Q': true }
-  readonly scrollMarginTop12Q: { 'scroll-margin-top_12Q': true }
-  readonly scrollMarginTop16Q: { 'scroll-margin-top_16Q': true }
-  readonly scrollMarginTop20Q: { 'scroll-margin-top_20Q': true }
   readonly scrollMarginTop0cap: { 'scroll-margin-top_0cap': true }
   readonly scrollMarginTop0p25cap: { 'scroll-margin-top_0\.25cap': true }
   readonly scrollMarginTop0p5cap: { 'scroll-margin-top_0\.5cap': true }
@@ -39829,16 +35429,6 @@ export interface CsstsAtoms {
   readonly scrollMarginTop5ch: { 'scroll-margin-top_5ch': true }
   readonly scrollMarginTop6ch: { 'scroll-margin-top_6ch': true }
   readonly scrollMarginTop8ch: { 'scroll-margin-top_8ch': true }
-  readonly scrollMarginTop0cm: { 'scroll-margin-top_0cm': true }
-  readonly scrollMarginTop1cm: { 'scroll-margin-top_1cm': true }
-  readonly scrollMarginTop2cm: { 'scroll-margin-top_2cm': true }
-  readonly scrollMarginTop4cm: { 'scroll-margin-top_4cm': true }
-  readonly scrollMarginTop6cm: { 'scroll-margin-top_6cm': true }
-  readonly scrollMarginTop8cm: { 'scroll-margin-top_8cm': true }
-  readonly scrollMarginTop10cm: { 'scroll-margin-top_10cm': true }
-  readonly scrollMarginTop12cm: { 'scroll-margin-top_12cm': true }
-  readonly scrollMarginTop16cm: { 'scroll-margin-top_16cm': true }
-  readonly scrollMarginTop20cm: { 'scroll-margin-top_20cm': true }
   readonly scrollMarginTop0dvh: { 'scroll-margin-top_0dvh': true }
   readonly scrollMarginTop10dvh: { 'scroll-margin-top_10dvh': true }
   readonly scrollMarginTop20dvh: { 'scroll-margin-top_20dvh': true }
@@ -39911,16 +35501,6 @@ export interface CsstsAtoms {
   readonly scrollMarginTop5ic: { 'scroll-margin-top_5ic': true }
   readonly scrollMarginTop6ic: { 'scroll-margin-top_6ic': true }
   readonly scrollMarginTop8ic: { 'scroll-margin-top_8ic': true }
-  readonly scrollMarginTop0in: { 'scroll-margin-top_0in': true }
-  readonly scrollMarginTop1in: { 'scroll-margin-top_1in': true }
-  readonly scrollMarginTop2in: { 'scroll-margin-top_2in': true }
-  readonly scrollMarginTop4in: { 'scroll-margin-top_4in': true }
-  readonly scrollMarginTop6in: { 'scroll-margin-top_6in': true }
-  readonly scrollMarginTop8in: { 'scroll-margin-top_8in': true }
-  readonly scrollMarginTop10in: { 'scroll-margin-top_10in': true }
-  readonly scrollMarginTop12in: { 'scroll-margin-top_12in': true }
-  readonly scrollMarginTop16in: { 'scroll-margin-top_16in': true }
-  readonly scrollMarginTop20in: { 'scroll-margin-top_20in': true }
   readonly scrollMarginTop0lh: { 'scroll-margin-top_0lh': true }
   readonly scrollMarginTop0p25lh: { 'scroll-margin-top_0\.25lh': true }
   readonly scrollMarginTop0p5lh: { 'scroll-margin-top_0\.5lh': true }
@@ -39965,36 +35545,6 @@ export interface CsstsAtoms {
   readonly scrollMarginTop80lvw: { 'scroll-margin-top_80lvw': true }
   readonly scrollMarginTop90lvw: { 'scroll-margin-top_90lvw': true }
   readonly scrollMarginTop100lvw: { 'scroll-margin-top_100lvw': true }
-  readonly scrollMarginTop0mm: { 'scroll-margin-top_0mm': true }
-  readonly scrollMarginTop1mm: { 'scroll-margin-top_1mm': true }
-  readonly scrollMarginTop2mm: { 'scroll-margin-top_2mm': true }
-  readonly scrollMarginTop4mm: { 'scroll-margin-top_4mm': true }
-  readonly scrollMarginTop6mm: { 'scroll-margin-top_6mm': true }
-  readonly scrollMarginTop8mm: { 'scroll-margin-top_8mm': true }
-  readonly scrollMarginTop10mm: { 'scroll-margin-top_10mm': true }
-  readonly scrollMarginTop12mm: { 'scroll-margin-top_12mm': true }
-  readonly scrollMarginTop16mm: { 'scroll-margin-top_16mm': true }
-  readonly scrollMarginTop20mm: { 'scroll-margin-top_20mm': true }
-  readonly scrollMarginTop0pc: { 'scroll-margin-top_0pc': true }
-  readonly scrollMarginTop1pc: { 'scroll-margin-top_1pc': true }
-  readonly scrollMarginTop2pc: { 'scroll-margin-top_2pc': true }
-  readonly scrollMarginTop4pc: { 'scroll-margin-top_4pc': true }
-  readonly scrollMarginTop6pc: { 'scroll-margin-top_6pc': true }
-  readonly scrollMarginTop8pc: { 'scroll-margin-top_8pc': true }
-  readonly scrollMarginTop10pc: { 'scroll-margin-top_10pc': true }
-  readonly scrollMarginTop12pc: { 'scroll-margin-top_12pc': true }
-  readonly scrollMarginTop16pc: { 'scroll-margin-top_16pc': true }
-  readonly scrollMarginTop20pc: { 'scroll-margin-top_20pc': true }
-  readonly scrollMarginTop0pt: { 'scroll-margin-top_0pt': true }
-  readonly scrollMarginTop1pt: { 'scroll-margin-top_1pt': true }
-  readonly scrollMarginTop2pt: { 'scroll-margin-top_2pt': true }
-  readonly scrollMarginTop4pt: { 'scroll-margin-top_4pt': true }
-  readonly scrollMarginTop6pt: { 'scroll-margin-top_6pt': true }
-  readonly scrollMarginTop8pt: { 'scroll-margin-top_8pt': true }
-  readonly scrollMarginTop10pt: { 'scroll-margin-top_10pt': true }
-  readonly scrollMarginTop12pt: { 'scroll-margin-top_12pt': true }
-  readonly scrollMarginTop16pt: { 'scroll-margin-top_16pt': true }
-  readonly scrollMarginTop20pt: { 'scroll-margin-top_20pt': true }
   readonly scrollMarginTopN384px: { 'scroll-margin-top_-384px': true }
   readonly scrollMarginTopN320px: { 'scroll-margin-top_-320px': true }
   readonly scrollMarginTopN256px: { 'scroll-margin-top_-256px': true }
@@ -40199,16 +35749,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding ====================
   readonly scrollPaddingAuto: { 'scroll-padding_auto': true }
-  readonly scrollPadding0Q: { 'scroll-padding_0Q': true }
-  readonly scrollPadding1Q: { 'scroll-padding_1Q': true }
-  readonly scrollPadding2Q: { 'scroll-padding_2Q': true }
-  readonly scrollPadding4Q: { 'scroll-padding_4Q': true }
-  readonly scrollPadding6Q: { 'scroll-padding_6Q': true }
-  readonly scrollPadding8Q: { 'scroll-padding_8Q': true }
-  readonly scrollPadding10Q: { 'scroll-padding_10Q': true }
-  readonly scrollPadding12Q: { 'scroll-padding_12Q': true }
-  readonly scrollPadding16Q: { 'scroll-padding_16Q': true }
-  readonly scrollPadding20Q: { 'scroll-padding_20Q': true }
   readonly scrollPadding0cap: { 'scroll-padding_0cap': true }
   readonly scrollPadding0p25cap: { 'scroll-padding_0\.25cap': true }
   readonly scrollPadding0p5cap: { 'scroll-padding_0\.5cap': true }
@@ -40237,16 +35777,6 @@ export interface CsstsAtoms {
   readonly scrollPadding5ch: { 'scroll-padding_5ch': true }
   readonly scrollPadding6ch: { 'scroll-padding_6ch': true }
   readonly scrollPadding8ch: { 'scroll-padding_8ch': true }
-  readonly scrollPadding0cm: { 'scroll-padding_0cm': true }
-  readonly scrollPadding1cm: { 'scroll-padding_1cm': true }
-  readonly scrollPadding2cm: { 'scroll-padding_2cm': true }
-  readonly scrollPadding4cm: { 'scroll-padding_4cm': true }
-  readonly scrollPadding6cm: { 'scroll-padding_6cm': true }
-  readonly scrollPadding8cm: { 'scroll-padding_8cm': true }
-  readonly scrollPadding10cm: { 'scroll-padding_10cm': true }
-  readonly scrollPadding12cm: { 'scroll-padding_12cm': true }
-  readonly scrollPadding16cm: { 'scroll-padding_16cm': true }
-  readonly scrollPadding20cm: { 'scroll-padding_20cm': true }
   readonly scrollPadding0dvh: { 'scroll-padding_0dvh': true }
   readonly scrollPadding10dvh: { 'scroll-padding_10dvh': true }
   readonly scrollPadding20dvh: { 'scroll-padding_20dvh': true }
@@ -40319,16 +35849,6 @@ export interface CsstsAtoms {
   readonly scrollPadding5ic: { 'scroll-padding_5ic': true }
   readonly scrollPadding6ic: { 'scroll-padding_6ic': true }
   readonly scrollPadding8ic: { 'scroll-padding_8ic': true }
-  readonly scrollPadding0in: { 'scroll-padding_0in': true }
-  readonly scrollPadding1in: { 'scroll-padding_1in': true }
-  readonly scrollPadding2in: { 'scroll-padding_2in': true }
-  readonly scrollPadding4in: { 'scroll-padding_4in': true }
-  readonly scrollPadding6in: { 'scroll-padding_6in': true }
-  readonly scrollPadding8in: { 'scroll-padding_8in': true }
-  readonly scrollPadding10in: { 'scroll-padding_10in': true }
-  readonly scrollPadding12in: { 'scroll-padding_12in': true }
-  readonly scrollPadding16in: { 'scroll-padding_16in': true }
-  readonly scrollPadding20in: { 'scroll-padding_20in': true }
   readonly scrollPadding0lh: { 'scroll-padding_0lh': true }
   readonly scrollPadding0p25lh: { 'scroll-padding_0\.25lh': true }
   readonly scrollPadding0p5lh: { 'scroll-padding_0\.5lh': true }
@@ -40373,36 +35893,6 @@ export interface CsstsAtoms {
   readonly scrollPadding80lvw: { 'scroll-padding_80lvw': true }
   readonly scrollPadding90lvw: { 'scroll-padding_90lvw': true }
   readonly scrollPadding100lvw: { 'scroll-padding_100lvw': true }
-  readonly scrollPadding0mm: { 'scroll-padding_0mm': true }
-  readonly scrollPadding1mm: { 'scroll-padding_1mm': true }
-  readonly scrollPadding2mm: { 'scroll-padding_2mm': true }
-  readonly scrollPadding4mm: { 'scroll-padding_4mm': true }
-  readonly scrollPadding6mm: { 'scroll-padding_6mm': true }
-  readonly scrollPadding8mm: { 'scroll-padding_8mm': true }
-  readonly scrollPadding10mm: { 'scroll-padding_10mm': true }
-  readonly scrollPadding12mm: { 'scroll-padding_12mm': true }
-  readonly scrollPadding16mm: { 'scroll-padding_16mm': true }
-  readonly scrollPadding20mm: { 'scroll-padding_20mm': true }
-  readonly scrollPadding0pc: { 'scroll-padding_0pc': true }
-  readonly scrollPadding1pc: { 'scroll-padding_1pc': true }
-  readonly scrollPadding2pc: { 'scroll-padding_2pc': true }
-  readonly scrollPadding4pc: { 'scroll-padding_4pc': true }
-  readonly scrollPadding6pc: { 'scroll-padding_6pc': true }
-  readonly scrollPadding8pc: { 'scroll-padding_8pc': true }
-  readonly scrollPadding10pc: { 'scroll-padding_10pc': true }
-  readonly scrollPadding12pc: { 'scroll-padding_12pc': true }
-  readonly scrollPadding16pc: { 'scroll-padding_16pc': true }
-  readonly scrollPadding20pc: { 'scroll-padding_20pc': true }
-  readonly scrollPadding0pt: { 'scroll-padding_0pt': true }
-  readonly scrollPadding1pt: { 'scroll-padding_1pt': true }
-  readonly scrollPadding2pt: { 'scroll-padding_2pt': true }
-  readonly scrollPadding4pt: { 'scroll-padding_4pt': true }
-  readonly scrollPadding6pt: { 'scroll-padding_6pt': true }
-  readonly scrollPadding8pt: { 'scroll-padding_8pt': true }
-  readonly scrollPadding10pt: { 'scroll-padding_10pt': true }
-  readonly scrollPadding12pt: { 'scroll-padding_12pt': true }
-  readonly scrollPadding16pt: { 'scroll-padding_16pt': true }
-  readonly scrollPadding20pt: { 'scroll-padding_20pt': true }
   readonly scrollPaddingN384px: { 'scroll-padding_-384px': true }
   readonly scrollPaddingN320px: { 'scroll-padding_-320px': true }
   readonly scrollPaddingN256px: { 'scroll-padding_-256px': true }
@@ -40622,16 +36112,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-block ====================
   readonly scrollPaddingBlockAuto: { 'scroll-padding-block_auto': true }
-  readonly scrollPaddingBlock0Q: { 'scroll-padding-block_0Q': true }
-  readonly scrollPaddingBlock1Q: { 'scroll-padding-block_1Q': true }
-  readonly scrollPaddingBlock2Q: { 'scroll-padding-block_2Q': true }
-  readonly scrollPaddingBlock4Q: { 'scroll-padding-block_4Q': true }
-  readonly scrollPaddingBlock6Q: { 'scroll-padding-block_6Q': true }
-  readonly scrollPaddingBlock8Q: { 'scroll-padding-block_8Q': true }
-  readonly scrollPaddingBlock10Q: { 'scroll-padding-block_10Q': true }
-  readonly scrollPaddingBlock12Q: { 'scroll-padding-block_12Q': true }
-  readonly scrollPaddingBlock16Q: { 'scroll-padding-block_16Q': true }
-  readonly scrollPaddingBlock20Q: { 'scroll-padding-block_20Q': true }
   readonly scrollPaddingBlock0cap: { 'scroll-padding-block_0cap': true }
   readonly scrollPaddingBlock0p25cap: { 'scroll-padding-block_0\.25cap': true }
   readonly scrollPaddingBlock0p5cap: { 'scroll-padding-block_0\.5cap': true }
@@ -40660,16 +36140,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlock5ch: { 'scroll-padding-block_5ch': true }
   readonly scrollPaddingBlock6ch: { 'scroll-padding-block_6ch': true }
   readonly scrollPaddingBlock8ch: { 'scroll-padding-block_8ch': true }
-  readonly scrollPaddingBlock0cm: { 'scroll-padding-block_0cm': true }
-  readonly scrollPaddingBlock1cm: { 'scroll-padding-block_1cm': true }
-  readonly scrollPaddingBlock2cm: { 'scroll-padding-block_2cm': true }
-  readonly scrollPaddingBlock4cm: { 'scroll-padding-block_4cm': true }
-  readonly scrollPaddingBlock6cm: { 'scroll-padding-block_6cm': true }
-  readonly scrollPaddingBlock8cm: { 'scroll-padding-block_8cm': true }
-  readonly scrollPaddingBlock10cm: { 'scroll-padding-block_10cm': true }
-  readonly scrollPaddingBlock12cm: { 'scroll-padding-block_12cm': true }
-  readonly scrollPaddingBlock16cm: { 'scroll-padding-block_16cm': true }
-  readonly scrollPaddingBlock20cm: { 'scroll-padding-block_20cm': true }
   readonly scrollPaddingBlock0dvh: { 'scroll-padding-block_0dvh': true }
   readonly scrollPaddingBlock10dvh: { 'scroll-padding-block_10dvh': true }
   readonly scrollPaddingBlock20dvh: { 'scroll-padding-block_20dvh': true }
@@ -40742,16 +36212,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlock5ic: { 'scroll-padding-block_5ic': true }
   readonly scrollPaddingBlock6ic: { 'scroll-padding-block_6ic': true }
   readonly scrollPaddingBlock8ic: { 'scroll-padding-block_8ic': true }
-  readonly scrollPaddingBlock0in: { 'scroll-padding-block_0in': true }
-  readonly scrollPaddingBlock1in: { 'scroll-padding-block_1in': true }
-  readonly scrollPaddingBlock2in: { 'scroll-padding-block_2in': true }
-  readonly scrollPaddingBlock4in: { 'scroll-padding-block_4in': true }
-  readonly scrollPaddingBlock6in: { 'scroll-padding-block_6in': true }
-  readonly scrollPaddingBlock8in: { 'scroll-padding-block_8in': true }
-  readonly scrollPaddingBlock10in: { 'scroll-padding-block_10in': true }
-  readonly scrollPaddingBlock12in: { 'scroll-padding-block_12in': true }
-  readonly scrollPaddingBlock16in: { 'scroll-padding-block_16in': true }
-  readonly scrollPaddingBlock20in: { 'scroll-padding-block_20in': true }
   readonly scrollPaddingBlock0lh: { 'scroll-padding-block_0lh': true }
   readonly scrollPaddingBlock0p25lh: { 'scroll-padding-block_0\.25lh': true }
   readonly scrollPaddingBlock0p5lh: { 'scroll-padding-block_0\.5lh': true }
@@ -40796,36 +36256,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlock80lvw: { 'scroll-padding-block_80lvw': true }
   readonly scrollPaddingBlock90lvw: { 'scroll-padding-block_90lvw': true }
   readonly scrollPaddingBlock100lvw: { 'scroll-padding-block_100lvw': true }
-  readonly scrollPaddingBlock0mm: { 'scroll-padding-block_0mm': true }
-  readonly scrollPaddingBlock1mm: { 'scroll-padding-block_1mm': true }
-  readonly scrollPaddingBlock2mm: { 'scroll-padding-block_2mm': true }
-  readonly scrollPaddingBlock4mm: { 'scroll-padding-block_4mm': true }
-  readonly scrollPaddingBlock6mm: { 'scroll-padding-block_6mm': true }
-  readonly scrollPaddingBlock8mm: { 'scroll-padding-block_8mm': true }
-  readonly scrollPaddingBlock10mm: { 'scroll-padding-block_10mm': true }
-  readonly scrollPaddingBlock12mm: { 'scroll-padding-block_12mm': true }
-  readonly scrollPaddingBlock16mm: { 'scroll-padding-block_16mm': true }
-  readonly scrollPaddingBlock20mm: { 'scroll-padding-block_20mm': true }
-  readonly scrollPaddingBlock0pc: { 'scroll-padding-block_0pc': true }
-  readonly scrollPaddingBlock1pc: { 'scroll-padding-block_1pc': true }
-  readonly scrollPaddingBlock2pc: { 'scroll-padding-block_2pc': true }
-  readonly scrollPaddingBlock4pc: { 'scroll-padding-block_4pc': true }
-  readonly scrollPaddingBlock6pc: { 'scroll-padding-block_6pc': true }
-  readonly scrollPaddingBlock8pc: { 'scroll-padding-block_8pc': true }
-  readonly scrollPaddingBlock10pc: { 'scroll-padding-block_10pc': true }
-  readonly scrollPaddingBlock12pc: { 'scroll-padding-block_12pc': true }
-  readonly scrollPaddingBlock16pc: { 'scroll-padding-block_16pc': true }
-  readonly scrollPaddingBlock20pc: { 'scroll-padding-block_20pc': true }
-  readonly scrollPaddingBlock0pt: { 'scroll-padding-block_0pt': true }
-  readonly scrollPaddingBlock1pt: { 'scroll-padding-block_1pt': true }
-  readonly scrollPaddingBlock2pt: { 'scroll-padding-block_2pt': true }
-  readonly scrollPaddingBlock4pt: { 'scroll-padding-block_4pt': true }
-  readonly scrollPaddingBlock6pt: { 'scroll-padding-block_6pt': true }
-  readonly scrollPaddingBlock8pt: { 'scroll-padding-block_8pt': true }
-  readonly scrollPaddingBlock10pt: { 'scroll-padding-block_10pt': true }
-  readonly scrollPaddingBlock12pt: { 'scroll-padding-block_12pt': true }
-  readonly scrollPaddingBlock16pt: { 'scroll-padding-block_16pt': true }
-  readonly scrollPaddingBlock20pt: { 'scroll-padding-block_20pt': true }
   readonly scrollPaddingBlockN384px: { 'scroll-padding-block_-384px': true }
   readonly scrollPaddingBlockN320px: { 'scroll-padding-block_-320px': true }
   readonly scrollPaddingBlockN256px: { 'scroll-padding-block_-256px': true }
@@ -41045,16 +36475,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-block-end ====================
   readonly scrollPaddingBlockEndAuto: { 'scroll-padding-block-end_auto': true }
-  readonly scrollPaddingBlockEnd0Q: { 'scroll-padding-block-end_0Q': true }
-  readonly scrollPaddingBlockEnd1Q: { 'scroll-padding-block-end_1Q': true }
-  readonly scrollPaddingBlockEnd2Q: { 'scroll-padding-block-end_2Q': true }
-  readonly scrollPaddingBlockEnd4Q: { 'scroll-padding-block-end_4Q': true }
-  readonly scrollPaddingBlockEnd6Q: { 'scroll-padding-block-end_6Q': true }
-  readonly scrollPaddingBlockEnd8Q: { 'scroll-padding-block-end_8Q': true }
-  readonly scrollPaddingBlockEnd10Q: { 'scroll-padding-block-end_10Q': true }
-  readonly scrollPaddingBlockEnd12Q: { 'scroll-padding-block-end_12Q': true }
-  readonly scrollPaddingBlockEnd16Q: { 'scroll-padding-block-end_16Q': true }
-  readonly scrollPaddingBlockEnd20Q: { 'scroll-padding-block-end_20Q': true }
   readonly scrollPaddingBlockEnd0cap: { 'scroll-padding-block-end_0cap': true }
   readonly scrollPaddingBlockEnd0p25cap: { 'scroll-padding-block-end_0\.25cap': true }
   readonly scrollPaddingBlockEnd0p5cap: { 'scroll-padding-block-end_0\.5cap': true }
@@ -41083,16 +36503,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockEnd5ch: { 'scroll-padding-block-end_5ch': true }
   readonly scrollPaddingBlockEnd6ch: { 'scroll-padding-block-end_6ch': true }
   readonly scrollPaddingBlockEnd8ch: { 'scroll-padding-block-end_8ch': true }
-  readonly scrollPaddingBlockEnd0cm: { 'scroll-padding-block-end_0cm': true }
-  readonly scrollPaddingBlockEnd1cm: { 'scroll-padding-block-end_1cm': true }
-  readonly scrollPaddingBlockEnd2cm: { 'scroll-padding-block-end_2cm': true }
-  readonly scrollPaddingBlockEnd4cm: { 'scroll-padding-block-end_4cm': true }
-  readonly scrollPaddingBlockEnd6cm: { 'scroll-padding-block-end_6cm': true }
-  readonly scrollPaddingBlockEnd8cm: { 'scroll-padding-block-end_8cm': true }
-  readonly scrollPaddingBlockEnd10cm: { 'scroll-padding-block-end_10cm': true }
-  readonly scrollPaddingBlockEnd12cm: { 'scroll-padding-block-end_12cm': true }
-  readonly scrollPaddingBlockEnd16cm: { 'scroll-padding-block-end_16cm': true }
-  readonly scrollPaddingBlockEnd20cm: { 'scroll-padding-block-end_20cm': true }
   readonly scrollPaddingBlockEnd0dvh: { 'scroll-padding-block-end_0dvh': true }
   readonly scrollPaddingBlockEnd10dvh: { 'scroll-padding-block-end_10dvh': true }
   readonly scrollPaddingBlockEnd20dvh: { 'scroll-padding-block-end_20dvh': true }
@@ -41165,16 +36575,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockEnd5ic: { 'scroll-padding-block-end_5ic': true }
   readonly scrollPaddingBlockEnd6ic: { 'scroll-padding-block-end_6ic': true }
   readonly scrollPaddingBlockEnd8ic: { 'scroll-padding-block-end_8ic': true }
-  readonly scrollPaddingBlockEnd0in: { 'scroll-padding-block-end_0in': true }
-  readonly scrollPaddingBlockEnd1in: { 'scroll-padding-block-end_1in': true }
-  readonly scrollPaddingBlockEnd2in: { 'scroll-padding-block-end_2in': true }
-  readonly scrollPaddingBlockEnd4in: { 'scroll-padding-block-end_4in': true }
-  readonly scrollPaddingBlockEnd6in: { 'scroll-padding-block-end_6in': true }
-  readonly scrollPaddingBlockEnd8in: { 'scroll-padding-block-end_8in': true }
-  readonly scrollPaddingBlockEnd10in: { 'scroll-padding-block-end_10in': true }
-  readonly scrollPaddingBlockEnd12in: { 'scroll-padding-block-end_12in': true }
-  readonly scrollPaddingBlockEnd16in: { 'scroll-padding-block-end_16in': true }
-  readonly scrollPaddingBlockEnd20in: { 'scroll-padding-block-end_20in': true }
   readonly scrollPaddingBlockEnd0lh: { 'scroll-padding-block-end_0lh': true }
   readonly scrollPaddingBlockEnd0p25lh: { 'scroll-padding-block-end_0\.25lh': true }
   readonly scrollPaddingBlockEnd0p5lh: { 'scroll-padding-block-end_0\.5lh': true }
@@ -41219,36 +36619,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockEnd80lvw: { 'scroll-padding-block-end_80lvw': true }
   readonly scrollPaddingBlockEnd90lvw: { 'scroll-padding-block-end_90lvw': true }
   readonly scrollPaddingBlockEnd100lvw: { 'scroll-padding-block-end_100lvw': true }
-  readonly scrollPaddingBlockEnd0mm: { 'scroll-padding-block-end_0mm': true }
-  readonly scrollPaddingBlockEnd1mm: { 'scroll-padding-block-end_1mm': true }
-  readonly scrollPaddingBlockEnd2mm: { 'scroll-padding-block-end_2mm': true }
-  readonly scrollPaddingBlockEnd4mm: { 'scroll-padding-block-end_4mm': true }
-  readonly scrollPaddingBlockEnd6mm: { 'scroll-padding-block-end_6mm': true }
-  readonly scrollPaddingBlockEnd8mm: { 'scroll-padding-block-end_8mm': true }
-  readonly scrollPaddingBlockEnd10mm: { 'scroll-padding-block-end_10mm': true }
-  readonly scrollPaddingBlockEnd12mm: { 'scroll-padding-block-end_12mm': true }
-  readonly scrollPaddingBlockEnd16mm: { 'scroll-padding-block-end_16mm': true }
-  readonly scrollPaddingBlockEnd20mm: { 'scroll-padding-block-end_20mm': true }
-  readonly scrollPaddingBlockEnd0pc: { 'scroll-padding-block-end_0pc': true }
-  readonly scrollPaddingBlockEnd1pc: { 'scroll-padding-block-end_1pc': true }
-  readonly scrollPaddingBlockEnd2pc: { 'scroll-padding-block-end_2pc': true }
-  readonly scrollPaddingBlockEnd4pc: { 'scroll-padding-block-end_4pc': true }
-  readonly scrollPaddingBlockEnd6pc: { 'scroll-padding-block-end_6pc': true }
-  readonly scrollPaddingBlockEnd8pc: { 'scroll-padding-block-end_8pc': true }
-  readonly scrollPaddingBlockEnd10pc: { 'scroll-padding-block-end_10pc': true }
-  readonly scrollPaddingBlockEnd12pc: { 'scroll-padding-block-end_12pc': true }
-  readonly scrollPaddingBlockEnd16pc: { 'scroll-padding-block-end_16pc': true }
-  readonly scrollPaddingBlockEnd20pc: { 'scroll-padding-block-end_20pc': true }
-  readonly scrollPaddingBlockEnd0pt: { 'scroll-padding-block-end_0pt': true }
-  readonly scrollPaddingBlockEnd1pt: { 'scroll-padding-block-end_1pt': true }
-  readonly scrollPaddingBlockEnd2pt: { 'scroll-padding-block-end_2pt': true }
-  readonly scrollPaddingBlockEnd4pt: { 'scroll-padding-block-end_4pt': true }
-  readonly scrollPaddingBlockEnd6pt: { 'scroll-padding-block-end_6pt': true }
-  readonly scrollPaddingBlockEnd8pt: { 'scroll-padding-block-end_8pt': true }
-  readonly scrollPaddingBlockEnd10pt: { 'scroll-padding-block-end_10pt': true }
-  readonly scrollPaddingBlockEnd12pt: { 'scroll-padding-block-end_12pt': true }
-  readonly scrollPaddingBlockEnd16pt: { 'scroll-padding-block-end_16pt': true }
-  readonly scrollPaddingBlockEnd20pt: { 'scroll-padding-block-end_20pt': true }
   readonly scrollPaddingBlockEndN384px: { 'scroll-padding-block-end_-384px': true }
   readonly scrollPaddingBlockEndN320px: { 'scroll-padding-block-end_-320px': true }
   readonly scrollPaddingBlockEndN256px: { 'scroll-padding-block-end_-256px': true }
@@ -41468,16 +36838,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-block-start ====================
   readonly scrollPaddingBlockStartAuto: { 'scroll-padding-block-start_auto': true }
-  readonly scrollPaddingBlockStart0Q: { 'scroll-padding-block-start_0Q': true }
-  readonly scrollPaddingBlockStart1Q: { 'scroll-padding-block-start_1Q': true }
-  readonly scrollPaddingBlockStart2Q: { 'scroll-padding-block-start_2Q': true }
-  readonly scrollPaddingBlockStart4Q: { 'scroll-padding-block-start_4Q': true }
-  readonly scrollPaddingBlockStart6Q: { 'scroll-padding-block-start_6Q': true }
-  readonly scrollPaddingBlockStart8Q: { 'scroll-padding-block-start_8Q': true }
-  readonly scrollPaddingBlockStart10Q: { 'scroll-padding-block-start_10Q': true }
-  readonly scrollPaddingBlockStart12Q: { 'scroll-padding-block-start_12Q': true }
-  readonly scrollPaddingBlockStart16Q: { 'scroll-padding-block-start_16Q': true }
-  readonly scrollPaddingBlockStart20Q: { 'scroll-padding-block-start_20Q': true }
   readonly scrollPaddingBlockStart0cap: { 'scroll-padding-block-start_0cap': true }
   readonly scrollPaddingBlockStart0p25cap: { 'scroll-padding-block-start_0\.25cap': true }
   readonly scrollPaddingBlockStart0p5cap: { 'scroll-padding-block-start_0\.5cap': true }
@@ -41506,16 +36866,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockStart5ch: { 'scroll-padding-block-start_5ch': true }
   readonly scrollPaddingBlockStart6ch: { 'scroll-padding-block-start_6ch': true }
   readonly scrollPaddingBlockStart8ch: { 'scroll-padding-block-start_8ch': true }
-  readonly scrollPaddingBlockStart0cm: { 'scroll-padding-block-start_0cm': true }
-  readonly scrollPaddingBlockStart1cm: { 'scroll-padding-block-start_1cm': true }
-  readonly scrollPaddingBlockStart2cm: { 'scroll-padding-block-start_2cm': true }
-  readonly scrollPaddingBlockStart4cm: { 'scroll-padding-block-start_4cm': true }
-  readonly scrollPaddingBlockStart6cm: { 'scroll-padding-block-start_6cm': true }
-  readonly scrollPaddingBlockStart8cm: { 'scroll-padding-block-start_8cm': true }
-  readonly scrollPaddingBlockStart10cm: { 'scroll-padding-block-start_10cm': true }
-  readonly scrollPaddingBlockStart12cm: { 'scroll-padding-block-start_12cm': true }
-  readonly scrollPaddingBlockStart16cm: { 'scroll-padding-block-start_16cm': true }
-  readonly scrollPaddingBlockStart20cm: { 'scroll-padding-block-start_20cm': true }
   readonly scrollPaddingBlockStart0dvh: { 'scroll-padding-block-start_0dvh': true }
   readonly scrollPaddingBlockStart10dvh: { 'scroll-padding-block-start_10dvh': true }
   readonly scrollPaddingBlockStart20dvh: { 'scroll-padding-block-start_20dvh': true }
@@ -41588,16 +36938,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockStart5ic: { 'scroll-padding-block-start_5ic': true }
   readonly scrollPaddingBlockStart6ic: { 'scroll-padding-block-start_6ic': true }
   readonly scrollPaddingBlockStart8ic: { 'scroll-padding-block-start_8ic': true }
-  readonly scrollPaddingBlockStart0in: { 'scroll-padding-block-start_0in': true }
-  readonly scrollPaddingBlockStart1in: { 'scroll-padding-block-start_1in': true }
-  readonly scrollPaddingBlockStart2in: { 'scroll-padding-block-start_2in': true }
-  readonly scrollPaddingBlockStart4in: { 'scroll-padding-block-start_4in': true }
-  readonly scrollPaddingBlockStart6in: { 'scroll-padding-block-start_6in': true }
-  readonly scrollPaddingBlockStart8in: { 'scroll-padding-block-start_8in': true }
-  readonly scrollPaddingBlockStart10in: { 'scroll-padding-block-start_10in': true }
-  readonly scrollPaddingBlockStart12in: { 'scroll-padding-block-start_12in': true }
-  readonly scrollPaddingBlockStart16in: { 'scroll-padding-block-start_16in': true }
-  readonly scrollPaddingBlockStart20in: { 'scroll-padding-block-start_20in': true }
   readonly scrollPaddingBlockStart0lh: { 'scroll-padding-block-start_0lh': true }
   readonly scrollPaddingBlockStart0p25lh: { 'scroll-padding-block-start_0\.25lh': true }
   readonly scrollPaddingBlockStart0p5lh: { 'scroll-padding-block-start_0\.5lh': true }
@@ -41642,36 +36982,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockStart80lvw: { 'scroll-padding-block-start_80lvw': true }
   readonly scrollPaddingBlockStart90lvw: { 'scroll-padding-block-start_90lvw': true }
   readonly scrollPaddingBlockStart100lvw: { 'scroll-padding-block-start_100lvw': true }
-  readonly scrollPaddingBlockStart0mm: { 'scroll-padding-block-start_0mm': true }
-  readonly scrollPaddingBlockStart1mm: { 'scroll-padding-block-start_1mm': true }
-  readonly scrollPaddingBlockStart2mm: { 'scroll-padding-block-start_2mm': true }
-  readonly scrollPaddingBlockStart4mm: { 'scroll-padding-block-start_4mm': true }
-  readonly scrollPaddingBlockStart6mm: { 'scroll-padding-block-start_6mm': true }
-  readonly scrollPaddingBlockStart8mm: { 'scroll-padding-block-start_8mm': true }
-  readonly scrollPaddingBlockStart10mm: { 'scroll-padding-block-start_10mm': true }
-  readonly scrollPaddingBlockStart12mm: { 'scroll-padding-block-start_12mm': true }
-  readonly scrollPaddingBlockStart16mm: { 'scroll-padding-block-start_16mm': true }
-  readonly scrollPaddingBlockStart20mm: { 'scroll-padding-block-start_20mm': true }
-  readonly scrollPaddingBlockStart0pc: { 'scroll-padding-block-start_0pc': true }
-  readonly scrollPaddingBlockStart1pc: { 'scroll-padding-block-start_1pc': true }
-  readonly scrollPaddingBlockStart2pc: { 'scroll-padding-block-start_2pc': true }
-  readonly scrollPaddingBlockStart4pc: { 'scroll-padding-block-start_4pc': true }
-  readonly scrollPaddingBlockStart6pc: { 'scroll-padding-block-start_6pc': true }
-  readonly scrollPaddingBlockStart8pc: { 'scroll-padding-block-start_8pc': true }
-  readonly scrollPaddingBlockStart10pc: { 'scroll-padding-block-start_10pc': true }
-  readonly scrollPaddingBlockStart12pc: { 'scroll-padding-block-start_12pc': true }
-  readonly scrollPaddingBlockStart16pc: { 'scroll-padding-block-start_16pc': true }
-  readonly scrollPaddingBlockStart20pc: { 'scroll-padding-block-start_20pc': true }
-  readonly scrollPaddingBlockStart0pt: { 'scroll-padding-block-start_0pt': true }
-  readonly scrollPaddingBlockStart1pt: { 'scroll-padding-block-start_1pt': true }
-  readonly scrollPaddingBlockStart2pt: { 'scroll-padding-block-start_2pt': true }
-  readonly scrollPaddingBlockStart4pt: { 'scroll-padding-block-start_4pt': true }
-  readonly scrollPaddingBlockStart6pt: { 'scroll-padding-block-start_6pt': true }
-  readonly scrollPaddingBlockStart8pt: { 'scroll-padding-block-start_8pt': true }
-  readonly scrollPaddingBlockStart10pt: { 'scroll-padding-block-start_10pt': true }
-  readonly scrollPaddingBlockStart12pt: { 'scroll-padding-block-start_12pt': true }
-  readonly scrollPaddingBlockStart16pt: { 'scroll-padding-block-start_16pt': true }
-  readonly scrollPaddingBlockStart20pt: { 'scroll-padding-block-start_20pt': true }
   readonly scrollPaddingBlockStartN384px: { 'scroll-padding-block-start_-384px': true }
   readonly scrollPaddingBlockStartN320px: { 'scroll-padding-block-start_-320px': true }
   readonly scrollPaddingBlockStartN256px: { 'scroll-padding-block-start_-256px': true }
@@ -41891,16 +37201,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-bottom ====================
   readonly scrollPaddingBottomAuto: { 'scroll-padding-bottom_auto': true }
-  readonly scrollPaddingBottom0Q: { 'scroll-padding-bottom_0Q': true }
-  readonly scrollPaddingBottom1Q: { 'scroll-padding-bottom_1Q': true }
-  readonly scrollPaddingBottom2Q: { 'scroll-padding-bottom_2Q': true }
-  readonly scrollPaddingBottom4Q: { 'scroll-padding-bottom_4Q': true }
-  readonly scrollPaddingBottom6Q: { 'scroll-padding-bottom_6Q': true }
-  readonly scrollPaddingBottom8Q: { 'scroll-padding-bottom_8Q': true }
-  readonly scrollPaddingBottom10Q: { 'scroll-padding-bottom_10Q': true }
-  readonly scrollPaddingBottom12Q: { 'scroll-padding-bottom_12Q': true }
-  readonly scrollPaddingBottom16Q: { 'scroll-padding-bottom_16Q': true }
-  readonly scrollPaddingBottom20Q: { 'scroll-padding-bottom_20Q': true }
   readonly scrollPaddingBottom0cap: { 'scroll-padding-bottom_0cap': true }
   readonly scrollPaddingBottom0p25cap: { 'scroll-padding-bottom_0\.25cap': true }
   readonly scrollPaddingBottom0p5cap: { 'scroll-padding-bottom_0\.5cap': true }
@@ -41929,16 +37229,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBottom5ch: { 'scroll-padding-bottom_5ch': true }
   readonly scrollPaddingBottom6ch: { 'scroll-padding-bottom_6ch': true }
   readonly scrollPaddingBottom8ch: { 'scroll-padding-bottom_8ch': true }
-  readonly scrollPaddingBottom0cm: { 'scroll-padding-bottom_0cm': true }
-  readonly scrollPaddingBottom1cm: { 'scroll-padding-bottom_1cm': true }
-  readonly scrollPaddingBottom2cm: { 'scroll-padding-bottom_2cm': true }
-  readonly scrollPaddingBottom4cm: { 'scroll-padding-bottom_4cm': true }
-  readonly scrollPaddingBottom6cm: { 'scroll-padding-bottom_6cm': true }
-  readonly scrollPaddingBottom8cm: { 'scroll-padding-bottom_8cm': true }
-  readonly scrollPaddingBottom10cm: { 'scroll-padding-bottom_10cm': true }
-  readonly scrollPaddingBottom12cm: { 'scroll-padding-bottom_12cm': true }
-  readonly scrollPaddingBottom16cm: { 'scroll-padding-bottom_16cm': true }
-  readonly scrollPaddingBottom20cm: { 'scroll-padding-bottom_20cm': true }
   readonly scrollPaddingBottom0dvh: { 'scroll-padding-bottom_0dvh': true }
   readonly scrollPaddingBottom10dvh: { 'scroll-padding-bottom_10dvh': true }
   readonly scrollPaddingBottom20dvh: { 'scroll-padding-bottom_20dvh': true }
@@ -42011,16 +37301,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBottom5ic: { 'scroll-padding-bottom_5ic': true }
   readonly scrollPaddingBottom6ic: { 'scroll-padding-bottom_6ic': true }
   readonly scrollPaddingBottom8ic: { 'scroll-padding-bottom_8ic': true }
-  readonly scrollPaddingBottom0in: { 'scroll-padding-bottom_0in': true }
-  readonly scrollPaddingBottom1in: { 'scroll-padding-bottom_1in': true }
-  readonly scrollPaddingBottom2in: { 'scroll-padding-bottom_2in': true }
-  readonly scrollPaddingBottom4in: { 'scroll-padding-bottom_4in': true }
-  readonly scrollPaddingBottom6in: { 'scroll-padding-bottom_6in': true }
-  readonly scrollPaddingBottom8in: { 'scroll-padding-bottom_8in': true }
-  readonly scrollPaddingBottom10in: { 'scroll-padding-bottom_10in': true }
-  readonly scrollPaddingBottom12in: { 'scroll-padding-bottom_12in': true }
-  readonly scrollPaddingBottom16in: { 'scroll-padding-bottom_16in': true }
-  readonly scrollPaddingBottom20in: { 'scroll-padding-bottom_20in': true }
   readonly scrollPaddingBottom0lh: { 'scroll-padding-bottom_0lh': true }
   readonly scrollPaddingBottom0p25lh: { 'scroll-padding-bottom_0\.25lh': true }
   readonly scrollPaddingBottom0p5lh: { 'scroll-padding-bottom_0\.5lh': true }
@@ -42065,36 +37345,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingBottom80lvw: { 'scroll-padding-bottom_80lvw': true }
   readonly scrollPaddingBottom90lvw: { 'scroll-padding-bottom_90lvw': true }
   readonly scrollPaddingBottom100lvw: { 'scroll-padding-bottom_100lvw': true }
-  readonly scrollPaddingBottom0mm: { 'scroll-padding-bottom_0mm': true }
-  readonly scrollPaddingBottom1mm: { 'scroll-padding-bottom_1mm': true }
-  readonly scrollPaddingBottom2mm: { 'scroll-padding-bottom_2mm': true }
-  readonly scrollPaddingBottom4mm: { 'scroll-padding-bottom_4mm': true }
-  readonly scrollPaddingBottom6mm: { 'scroll-padding-bottom_6mm': true }
-  readonly scrollPaddingBottom8mm: { 'scroll-padding-bottom_8mm': true }
-  readonly scrollPaddingBottom10mm: { 'scroll-padding-bottom_10mm': true }
-  readonly scrollPaddingBottom12mm: { 'scroll-padding-bottom_12mm': true }
-  readonly scrollPaddingBottom16mm: { 'scroll-padding-bottom_16mm': true }
-  readonly scrollPaddingBottom20mm: { 'scroll-padding-bottom_20mm': true }
-  readonly scrollPaddingBottom0pc: { 'scroll-padding-bottom_0pc': true }
-  readonly scrollPaddingBottom1pc: { 'scroll-padding-bottom_1pc': true }
-  readonly scrollPaddingBottom2pc: { 'scroll-padding-bottom_2pc': true }
-  readonly scrollPaddingBottom4pc: { 'scroll-padding-bottom_4pc': true }
-  readonly scrollPaddingBottom6pc: { 'scroll-padding-bottom_6pc': true }
-  readonly scrollPaddingBottom8pc: { 'scroll-padding-bottom_8pc': true }
-  readonly scrollPaddingBottom10pc: { 'scroll-padding-bottom_10pc': true }
-  readonly scrollPaddingBottom12pc: { 'scroll-padding-bottom_12pc': true }
-  readonly scrollPaddingBottom16pc: { 'scroll-padding-bottom_16pc': true }
-  readonly scrollPaddingBottom20pc: { 'scroll-padding-bottom_20pc': true }
-  readonly scrollPaddingBottom0pt: { 'scroll-padding-bottom_0pt': true }
-  readonly scrollPaddingBottom1pt: { 'scroll-padding-bottom_1pt': true }
-  readonly scrollPaddingBottom2pt: { 'scroll-padding-bottom_2pt': true }
-  readonly scrollPaddingBottom4pt: { 'scroll-padding-bottom_4pt': true }
-  readonly scrollPaddingBottom6pt: { 'scroll-padding-bottom_6pt': true }
-  readonly scrollPaddingBottom8pt: { 'scroll-padding-bottom_8pt': true }
-  readonly scrollPaddingBottom10pt: { 'scroll-padding-bottom_10pt': true }
-  readonly scrollPaddingBottom12pt: { 'scroll-padding-bottom_12pt': true }
-  readonly scrollPaddingBottom16pt: { 'scroll-padding-bottom_16pt': true }
-  readonly scrollPaddingBottom20pt: { 'scroll-padding-bottom_20pt': true }
   readonly scrollPaddingBottomN384px: { 'scroll-padding-bottom_-384px': true }
   readonly scrollPaddingBottomN320px: { 'scroll-padding-bottom_-320px': true }
   readonly scrollPaddingBottomN256px: { 'scroll-padding-bottom_-256px': true }
@@ -42314,16 +37564,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-inline ====================
   readonly scrollPaddingInlineAuto: { 'scroll-padding-inline_auto': true }
-  readonly scrollPaddingInline0Q: { 'scroll-padding-inline_0Q': true }
-  readonly scrollPaddingInline1Q: { 'scroll-padding-inline_1Q': true }
-  readonly scrollPaddingInline2Q: { 'scroll-padding-inline_2Q': true }
-  readonly scrollPaddingInline4Q: { 'scroll-padding-inline_4Q': true }
-  readonly scrollPaddingInline6Q: { 'scroll-padding-inline_6Q': true }
-  readonly scrollPaddingInline8Q: { 'scroll-padding-inline_8Q': true }
-  readonly scrollPaddingInline10Q: { 'scroll-padding-inline_10Q': true }
-  readonly scrollPaddingInline12Q: { 'scroll-padding-inline_12Q': true }
-  readonly scrollPaddingInline16Q: { 'scroll-padding-inline_16Q': true }
-  readonly scrollPaddingInline20Q: { 'scroll-padding-inline_20Q': true }
   readonly scrollPaddingInline0cap: { 'scroll-padding-inline_0cap': true }
   readonly scrollPaddingInline0p25cap: { 'scroll-padding-inline_0\.25cap': true }
   readonly scrollPaddingInline0p5cap: { 'scroll-padding-inline_0\.5cap': true }
@@ -42352,16 +37592,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInline5ch: { 'scroll-padding-inline_5ch': true }
   readonly scrollPaddingInline6ch: { 'scroll-padding-inline_6ch': true }
   readonly scrollPaddingInline8ch: { 'scroll-padding-inline_8ch': true }
-  readonly scrollPaddingInline0cm: { 'scroll-padding-inline_0cm': true }
-  readonly scrollPaddingInline1cm: { 'scroll-padding-inline_1cm': true }
-  readonly scrollPaddingInline2cm: { 'scroll-padding-inline_2cm': true }
-  readonly scrollPaddingInline4cm: { 'scroll-padding-inline_4cm': true }
-  readonly scrollPaddingInline6cm: { 'scroll-padding-inline_6cm': true }
-  readonly scrollPaddingInline8cm: { 'scroll-padding-inline_8cm': true }
-  readonly scrollPaddingInline10cm: { 'scroll-padding-inline_10cm': true }
-  readonly scrollPaddingInline12cm: { 'scroll-padding-inline_12cm': true }
-  readonly scrollPaddingInline16cm: { 'scroll-padding-inline_16cm': true }
-  readonly scrollPaddingInline20cm: { 'scroll-padding-inline_20cm': true }
   readonly scrollPaddingInline0dvh: { 'scroll-padding-inline_0dvh': true }
   readonly scrollPaddingInline10dvh: { 'scroll-padding-inline_10dvh': true }
   readonly scrollPaddingInline20dvh: { 'scroll-padding-inline_20dvh': true }
@@ -42434,16 +37664,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInline5ic: { 'scroll-padding-inline_5ic': true }
   readonly scrollPaddingInline6ic: { 'scroll-padding-inline_6ic': true }
   readonly scrollPaddingInline8ic: { 'scroll-padding-inline_8ic': true }
-  readonly scrollPaddingInline0in: { 'scroll-padding-inline_0in': true }
-  readonly scrollPaddingInline1in: { 'scroll-padding-inline_1in': true }
-  readonly scrollPaddingInline2in: { 'scroll-padding-inline_2in': true }
-  readonly scrollPaddingInline4in: { 'scroll-padding-inline_4in': true }
-  readonly scrollPaddingInline6in: { 'scroll-padding-inline_6in': true }
-  readonly scrollPaddingInline8in: { 'scroll-padding-inline_8in': true }
-  readonly scrollPaddingInline10in: { 'scroll-padding-inline_10in': true }
-  readonly scrollPaddingInline12in: { 'scroll-padding-inline_12in': true }
-  readonly scrollPaddingInline16in: { 'scroll-padding-inline_16in': true }
-  readonly scrollPaddingInline20in: { 'scroll-padding-inline_20in': true }
   readonly scrollPaddingInline0lh: { 'scroll-padding-inline_0lh': true }
   readonly scrollPaddingInline0p25lh: { 'scroll-padding-inline_0\.25lh': true }
   readonly scrollPaddingInline0p5lh: { 'scroll-padding-inline_0\.5lh': true }
@@ -42488,36 +37708,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInline80lvw: { 'scroll-padding-inline_80lvw': true }
   readonly scrollPaddingInline90lvw: { 'scroll-padding-inline_90lvw': true }
   readonly scrollPaddingInline100lvw: { 'scroll-padding-inline_100lvw': true }
-  readonly scrollPaddingInline0mm: { 'scroll-padding-inline_0mm': true }
-  readonly scrollPaddingInline1mm: { 'scroll-padding-inline_1mm': true }
-  readonly scrollPaddingInline2mm: { 'scroll-padding-inline_2mm': true }
-  readonly scrollPaddingInline4mm: { 'scroll-padding-inline_4mm': true }
-  readonly scrollPaddingInline6mm: { 'scroll-padding-inline_6mm': true }
-  readonly scrollPaddingInline8mm: { 'scroll-padding-inline_8mm': true }
-  readonly scrollPaddingInline10mm: { 'scroll-padding-inline_10mm': true }
-  readonly scrollPaddingInline12mm: { 'scroll-padding-inline_12mm': true }
-  readonly scrollPaddingInline16mm: { 'scroll-padding-inline_16mm': true }
-  readonly scrollPaddingInline20mm: { 'scroll-padding-inline_20mm': true }
-  readonly scrollPaddingInline0pc: { 'scroll-padding-inline_0pc': true }
-  readonly scrollPaddingInline1pc: { 'scroll-padding-inline_1pc': true }
-  readonly scrollPaddingInline2pc: { 'scroll-padding-inline_2pc': true }
-  readonly scrollPaddingInline4pc: { 'scroll-padding-inline_4pc': true }
-  readonly scrollPaddingInline6pc: { 'scroll-padding-inline_6pc': true }
-  readonly scrollPaddingInline8pc: { 'scroll-padding-inline_8pc': true }
-  readonly scrollPaddingInline10pc: { 'scroll-padding-inline_10pc': true }
-  readonly scrollPaddingInline12pc: { 'scroll-padding-inline_12pc': true }
-  readonly scrollPaddingInline16pc: { 'scroll-padding-inline_16pc': true }
-  readonly scrollPaddingInline20pc: { 'scroll-padding-inline_20pc': true }
-  readonly scrollPaddingInline0pt: { 'scroll-padding-inline_0pt': true }
-  readonly scrollPaddingInline1pt: { 'scroll-padding-inline_1pt': true }
-  readonly scrollPaddingInline2pt: { 'scroll-padding-inline_2pt': true }
-  readonly scrollPaddingInline4pt: { 'scroll-padding-inline_4pt': true }
-  readonly scrollPaddingInline6pt: { 'scroll-padding-inline_6pt': true }
-  readonly scrollPaddingInline8pt: { 'scroll-padding-inline_8pt': true }
-  readonly scrollPaddingInline10pt: { 'scroll-padding-inline_10pt': true }
-  readonly scrollPaddingInline12pt: { 'scroll-padding-inline_12pt': true }
-  readonly scrollPaddingInline16pt: { 'scroll-padding-inline_16pt': true }
-  readonly scrollPaddingInline20pt: { 'scroll-padding-inline_20pt': true }
   readonly scrollPaddingInlineN384px: { 'scroll-padding-inline_-384px': true }
   readonly scrollPaddingInlineN320px: { 'scroll-padding-inline_-320px': true }
   readonly scrollPaddingInlineN256px: { 'scroll-padding-inline_-256px': true }
@@ -42737,16 +37927,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-inline-end ====================
   readonly scrollPaddingInlineEndAuto: { 'scroll-padding-inline-end_auto': true }
-  readonly scrollPaddingInlineEnd0Q: { 'scroll-padding-inline-end_0Q': true }
-  readonly scrollPaddingInlineEnd1Q: { 'scroll-padding-inline-end_1Q': true }
-  readonly scrollPaddingInlineEnd2Q: { 'scroll-padding-inline-end_2Q': true }
-  readonly scrollPaddingInlineEnd4Q: { 'scroll-padding-inline-end_4Q': true }
-  readonly scrollPaddingInlineEnd6Q: { 'scroll-padding-inline-end_6Q': true }
-  readonly scrollPaddingInlineEnd8Q: { 'scroll-padding-inline-end_8Q': true }
-  readonly scrollPaddingInlineEnd10Q: { 'scroll-padding-inline-end_10Q': true }
-  readonly scrollPaddingInlineEnd12Q: { 'scroll-padding-inline-end_12Q': true }
-  readonly scrollPaddingInlineEnd16Q: { 'scroll-padding-inline-end_16Q': true }
-  readonly scrollPaddingInlineEnd20Q: { 'scroll-padding-inline-end_20Q': true }
   readonly scrollPaddingInlineEnd0cap: { 'scroll-padding-inline-end_0cap': true }
   readonly scrollPaddingInlineEnd0p25cap: { 'scroll-padding-inline-end_0\.25cap': true }
   readonly scrollPaddingInlineEnd0p5cap: { 'scroll-padding-inline-end_0\.5cap': true }
@@ -42775,16 +37955,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineEnd5ch: { 'scroll-padding-inline-end_5ch': true }
   readonly scrollPaddingInlineEnd6ch: { 'scroll-padding-inline-end_6ch': true }
   readonly scrollPaddingInlineEnd8ch: { 'scroll-padding-inline-end_8ch': true }
-  readonly scrollPaddingInlineEnd0cm: { 'scroll-padding-inline-end_0cm': true }
-  readonly scrollPaddingInlineEnd1cm: { 'scroll-padding-inline-end_1cm': true }
-  readonly scrollPaddingInlineEnd2cm: { 'scroll-padding-inline-end_2cm': true }
-  readonly scrollPaddingInlineEnd4cm: { 'scroll-padding-inline-end_4cm': true }
-  readonly scrollPaddingInlineEnd6cm: { 'scroll-padding-inline-end_6cm': true }
-  readonly scrollPaddingInlineEnd8cm: { 'scroll-padding-inline-end_8cm': true }
-  readonly scrollPaddingInlineEnd10cm: { 'scroll-padding-inline-end_10cm': true }
-  readonly scrollPaddingInlineEnd12cm: { 'scroll-padding-inline-end_12cm': true }
-  readonly scrollPaddingInlineEnd16cm: { 'scroll-padding-inline-end_16cm': true }
-  readonly scrollPaddingInlineEnd20cm: { 'scroll-padding-inline-end_20cm': true }
   readonly scrollPaddingInlineEnd0dvh: { 'scroll-padding-inline-end_0dvh': true }
   readonly scrollPaddingInlineEnd10dvh: { 'scroll-padding-inline-end_10dvh': true }
   readonly scrollPaddingInlineEnd20dvh: { 'scroll-padding-inline-end_20dvh': true }
@@ -42857,16 +38027,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineEnd5ic: { 'scroll-padding-inline-end_5ic': true }
   readonly scrollPaddingInlineEnd6ic: { 'scroll-padding-inline-end_6ic': true }
   readonly scrollPaddingInlineEnd8ic: { 'scroll-padding-inline-end_8ic': true }
-  readonly scrollPaddingInlineEnd0in: { 'scroll-padding-inline-end_0in': true }
-  readonly scrollPaddingInlineEnd1in: { 'scroll-padding-inline-end_1in': true }
-  readonly scrollPaddingInlineEnd2in: { 'scroll-padding-inline-end_2in': true }
-  readonly scrollPaddingInlineEnd4in: { 'scroll-padding-inline-end_4in': true }
-  readonly scrollPaddingInlineEnd6in: { 'scroll-padding-inline-end_6in': true }
-  readonly scrollPaddingInlineEnd8in: { 'scroll-padding-inline-end_8in': true }
-  readonly scrollPaddingInlineEnd10in: { 'scroll-padding-inline-end_10in': true }
-  readonly scrollPaddingInlineEnd12in: { 'scroll-padding-inline-end_12in': true }
-  readonly scrollPaddingInlineEnd16in: { 'scroll-padding-inline-end_16in': true }
-  readonly scrollPaddingInlineEnd20in: { 'scroll-padding-inline-end_20in': true }
   readonly scrollPaddingInlineEnd0lh: { 'scroll-padding-inline-end_0lh': true }
   readonly scrollPaddingInlineEnd0p25lh: { 'scroll-padding-inline-end_0\.25lh': true }
   readonly scrollPaddingInlineEnd0p5lh: { 'scroll-padding-inline-end_0\.5lh': true }
@@ -42911,36 +38071,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineEnd80lvw: { 'scroll-padding-inline-end_80lvw': true }
   readonly scrollPaddingInlineEnd90lvw: { 'scroll-padding-inline-end_90lvw': true }
   readonly scrollPaddingInlineEnd100lvw: { 'scroll-padding-inline-end_100lvw': true }
-  readonly scrollPaddingInlineEnd0mm: { 'scroll-padding-inline-end_0mm': true }
-  readonly scrollPaddingInlineEnd1mm: { 'scroll-padding-inline-end_1mm': true }
-  readonly scrollPaddingInlineEnd2mm: { 'scroll-padding-inline-end_2mm': true }
-  readonly scrollPaddingInlineEnd4mm: { 'scroll-padding-inline-end_4mm': true }
-  readonly scrollPaddingInlineEnd6mm: { 'scroll-padding-inline-end_6mm': true }
-  readonly scrollPaddingInlineEnd8mm: { 'scroll-padding-inline-end_8mm': true }
-  readonly scrollPaddingInlineEnd10mm: { 'scroll-padding-inline-end_10mm': true }
-  readonly scrollPaddingInlineEnd12mm: { 'scroll-padding-inline-end_12mm': true }
-  readonly scrollPaddingInlineEnd16mm: { 'scroll-padding-inline-end_16mm': true }
-  readonly scrollPaddingInlineEnd20mm: { 'scroll-padding-inline-end_20mm': true }
-  readonly scrollPaddingInlineEnd0pc: { 'scroll-padding-inline-end_0pc': true }
-  readonly scrollPaddingInlineEnd1pc: { 'scroll-padding-inline-end_1pc': true }
-  readonly scrollPaddingInlineEnd2pc: { 'scroll-padding-inline-end_2pc': true }
-  readonly scrollPaddingInlineEnd4pc: { 'scroll-padding-inline-end_4pc': true }
-  readonly scrollPaddingInlineEnd6pc: { 'scroll-padding-inline-end_6pc': true }
-  readonly scrollPaddingInlineEnd8pc: { 'scroll-padding-inline-end_8pc': true }
-  readonly scrollPaddingInlineEnd10pc: { 'scroll-padding-inline-end_10pc': true }
-  readonly scrollPaddingInlineEnd12pc: { 'scroll-padding-inline-end_12pc': true }
-  readonly scrollPaddingInlineEnd16pc: { 'scroll-padding-inline-end_16pc': true }
-  readonly scrollPaddingInlineEnd20pc: { 'scroll-padding-inline-end_20pc': true }
-  readonly scrollPaddingInlineEnd0pt: { 'scroll-padding-inline-end_0pt': true }
-  readonly scrollPaddingInlineEnd1pt: { 'scroll-padding-inline-end_1pt': true }
-  readonly scrollPaddingInlineEnd2pt: { 'scroll-padding-inline-end_2pt': true }
-  readonly scrollPaddingInlineEnd4pt: { 'scroll-padding-inline-end_4pt': true }
-  readonly scrollPaddingInlineEnd6pt: { 'scroll-padding-inline-end_6pt': true }
-  readonly scrollPaddingInlineEnd8pt: { 'scroll-padding-inline-end_8pt': true }
-  readonly scrollPaddingInlineEnd10pt: { 'scroll-padding-inline-end_10pt': true }
-  readonly scrollPaddingInlineEnd12pt: { 'scroll-padding-inline-end_12pt': true }
-  readonly scrollPaddingInlineEnd16pt: { 'scroll-padding-inline-end_16pt': true }
-  readonly scrollPaddingInlineEnd20pt: { 'scroll-padding-inline-end_20pt': true }
   readonly scrollPaddingInlineEndN384px: { 'scroll-padding-inline-end_-384px': true }
   readonly scrollPaddingInlineEndN320px: { 'scroll-padding-inline-end_-320px': true }
   readonly scrollPaddingInlineEndN256px: { 'scroll-padding-inline-end_-256px': true }
@@ -43160,16 +38290,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-inline-start ====================
   readonly scrollPaddingInlineStartAuto: { 'scroll-padding-inline-start_auto': true }
-  readonly scrollPaddingInlineStart0Q: { 'scroll-padding-inline-start_0Q': true }
-  readonly scrollPaddingInlineStart1Q: { 'scroll-padding-inline-start_1Q': true }
-  readonly scrollPaddingInlineStart2Q: { 'scroll-padding-inline-start_2Q': true }
-  readonly scrollPaddingInlineStart4Q: { 'scroll-padding-inline-start_4Q': true }
-  readonly scrollPaddingInlineStart6Q: { 'scroll-padding-inline-start_6Q': true }
-  readonly scrollPaddingInlineStart8Q: { 'scroll-padding-inline-start_8Q': true }
-  readonly scrollPaddingInlineStart10Q: { 'scroll-padding-inline-start_10Q': true }
-  readonly scrollPaddingInlineStart12Q: { 'scroll-padding-inline-start_12Q': true }
-  readonly scrollPaddingInlineStart16Q: { 'scroll-padding-inline-start_16Q': true }
-  readonly scrollPaddingInlineStart20Q: { 'scroll-padding-inline-start_20Q': true }
   readonly scrollPaddingInlineStart0cap: { 'scroll-padding-inline-start_0cap': true }
   readonly scrollPaddingInlineStart0p25cap: { 'scroll-padding-inline-start_0\.25cap': true }
   readonly scrollPaddingInlineStart0p5cap: { 'scroll-padding-inline-start_0\.5cap': true }
@@ -43198,16 +38318,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineStart5ch: { 'scroll-padding-inline-start_5ch': true }
   readonly scrollPaddingInlineStart6ch: { 'scroll-padding-inline-start_6ch': true }
   readonly scrollPaddingInlineStart8ch: { 'scroll-padding-inline-start_8ch': true }
-  readonly scrollPaddingInlineStart0cm: { 'scroll-padding-inline-start_0cm': true }
-  readonly scrollPaddingInlineStart1cm: { 'scroll-padding-inline-start_1cm': true }
-  readonly scrollPaddingInlineStart2cm: { 'scroll-padding-inline-start_2cm': true }
-  readonly scrollPaddingInlineStart4cm: { 'scroll-padding-inline-start_4cm': true }
-  readonly scrollPaddingInlineStart6cm: { 'scroll-padding-inline-start_6cm': true }
-  readonly scrollPaddingInlineStart8cm: { 'scroll-padding-inline-start_8cm': true }
-  readonly scrollPaddingInlineStart10cm: { 'scroll-padding-inline-start_10cm': true }
-  readonly scrollPaddingInlineStart12cm: { 'scroll-padding-inline-start_12cm': true }
-  readonly scrollPaddingInlineStart16cm: { 'scroll-padding-inline-start_16cm': true }
-  readonly scrollPaddingInlineStart20cm: { 'scroll-padding-inline-start_20cm': true }
   readonly scrollPaddingInlineStart0dvh: { 'scroll-padding-inline-start_0dvh': true }
   readonly scrollPaddingInlineStart10dvh: { 'scroll-padding-inline-start_10dvh': true }
   readonly scrollPaddingInlineStart20dvh: { 'scroll-padding-inline-start_20dvh': true }
@@ -43280,16 +38390,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineStart5ic: { 'scroll-padding-inline-start_5ic': true }
   readonly scrollPaddingInlineStart6ic: { 'scroll-padding-inline-start_6ic': true }
   readonly scrollPaddingInlineStart8ic: { 'scroll-padding-inline-start_8ic': true }
-  readonly scrollPaddingInlineStart0in: { 'scroll-padding-inline-start_0in': true }
-  readonly scrollPaddingInlineStart1in: { 'scroll-padding-inline-start_1in': true }
-  readonly scrollPaddingInlineStart2in: { 'scroll-padding-inline-start_2in': true }
-  readonly scrollPaddingInlineStart4in: { 'scroll-padding-inline-start_4in': true }
-  readonly scrollPaddingInlineStart6in: { 'scroll-padding-inline-start_6in': true }
-  readonly scrollPaddingInlineStart8in: { 'scroll-padding-inline-start_8in': true }
-  readonly scrollPaddingInlineStart10in: { 'scroll-padding-inline-start_10in': true }
-  readonly scrollPaddingInlineStart12in: { 'scroll-padding-inline-start_12in': true }
-  readonly scrollPaddingInlineStart16in: { 'scroll-padding-inline-start_16in': true }
-  readonly scrollPaddingInlineStart20in: { 'scroll-padding-inline-start_20in': true }
   readonly scrollPaddingInlineStart0lh: { 'scroll-padding-inline-start_0lh': true }
   readonly scrollPaddingInlineStart0p25lh: { 'scroll-padding-inline-start_0\.25lh': true }
   readonly scrollPaddingInlineStart0p5lh: { 'scroll-padding-inline-start_0\.5lh': true }
@@ -43334,36 +38434,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineStart80lvw: { 'scroll-padding-inline-start_80lvw': true }
   readonly scrollPaddingInlineStart90lvw: { 'scroll-padding-inline-start_90lvw': true }
   readonly scrollPaddingInlineStart100lvw: { 'scroll-padding-inline-start_100lvw': true }
-  readonly scrollPaddingInlineStart0mm: { 'scroll-padding-inline-start_0mm': true }
-  readonly scrollPaddingInlineStart1mm: { 'scroll-padding-inline-start_1mm': true }
-  readonly scrollPaddingInlineStart2mm: { 'scroll-padding-inline-start_2mm': true }
-  readonly scrollPaddingInlineStart4mm: { 'scroll-padding-inline-start_4mm': true }
-  readonly scrollPaddingInlineStart6mm: { 'scroll-padding-inline-start_6mm': true }
-  readonly scrollPaddingInlineStart8mm: { 'scroll-padding-inline-start_8mm': true }
-  readonly scrollPaddingInlineStart10mm: { 'scroll-padding-inline-start_10mm': true }
-  readonly scrollPaddingInlineStart12mm: { 'scroll-padding-inline-start_12mm': true }
-  readonly scrollPaddingInlineStart16mm: { 'scroll-padding-inline-start_16mm': true }
-  readonly scrollPaddingInlineStart20mm: { 'scroll-padding-inline-start_20mm': true }
-  readonly scrollPaddingInlineStart0pc: { 'scroll-padding-inline-start_0pc': true }
-  readonly scrollPaddingInlineStart1pc: { 'scroll-padding-inline-start_1pc': true }
-  readonly scrollPaddingInlineStart2pc: { 'scroll-padding-inline-start_2pc': true }
-  readonly scrollPaddingInlineStart4pc: { 'scroll-padding-inline-start_4pc': true }
-  readonly scrollPaddingInlineStart6pc: { 'scroll-padding-inline-start_6pc': true }
-  readonly scrollPaddingInlineStart8pc: { 'scroll-padding-inline-start_8pc': true }
-  readonly scrollPaddingInlineStart10pc: { 'scroll-padding-inline-start_10pc': true }
-  readonly scrollPaddingInlineStart12pc: { 'scroll-padding-inline-start_12pc': true }
-  readonly scrollPaddingInlineStart16pc: { 'scroll-padding-inline-start_16pc': true }
-  readonly scrollPaddingInlineStart20pc: { 'scroll-padding-inline-start_20pc': true }
-  readonly scrollPaddingInlineStart0pt: { 'scroll-padding-inline-start_0pt': true }
-  readonly scrollPaddingInlineStart1pt: { 'scroll-padding-inline-start_1pt': true }
-  readonly scrollPaddingInlineStart2pt: { 'scroll-padding-inline-start_2pt': true }
-  readonly scrollPaddingInlineStart4pt: { 'scroll-padding-inline-start_4pt': true }
-  readonly scrollPaddingInlineStart6pt: { 'scroll-padding-inline-start_6pt': true }
-  readonly scrollPaddingInlineStart8pt: { 'scroll-padding-inline-start_8pt': true }
-  readonly scrollPaddingInlineStart10pt: { 'scroll-padding-inline-start_10pt': true }
-  readonly scrollPaddingInlineStart12pt: { 'scroll-padding-inline-start_12pt': true }
-  readonly scrollPaddingInlineStart16pt: { 'scroll-padding-inline-start_16pt': true }
-  readonly scrollPaddingInlineStart20pt: { 'scroll-padding-inline-start_20pt': true }
   readonly scrollPaddingInlineStartN384px: { 'scroll-padding-inline-start_-384px': true }
   readonly scrollPaddingInlineStartN320px: { 'scroll-padding-inline-start_-320px': true }
   readonly scrollPaddingInlineStartN256px: { 'scroll-padding-inline-start_-256px': true }
@@ -43583,16 +38653,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-left ====================
   readonly scrollPaddingLeftAuto: { 'scroll-padding-left_auto': true }
-  readonly scrollPaddingLeft0Q: { 'scroll-padding-left_0Q': true }
-  readonly scrollPaddingLeft1Q: { 'scroll-padding-left_1Q': true }
-  readonly scrollPaddingLeft2Q: { 'scroll-padding-left_2Q': true }
-  readonly scrollPaddingLeft4Q: { 'scroll-padding-left_4Q': true }
-  readonly scrollPaddingLeft6Q: { 'scroll-padding-left_6Q': true }
-  readonly scrollPaddingLeft8Q: { 'scroll-padding-left_8Q': true }
-  readonly scrollPaddingLeft10Q: { 'scroll-padding-left_10Q': true }
-  readonly scrollPaddingLeft12Q: { 'scroll-padding-left_12Q': true }
-  readonly scrollPaddingLeft16Q: { 'scroll-padding-left_16Q': true }
-  readonly scrollPaddingLeft20Q: { 'scroll-padding-left_20Q': true }
   readonly scrollPaddingLeft0cap: { 'scroll-padding-left_0cap': true }
   readonly scrollPaddingLeft0p25cap: { 'scroll-padding-left_0\.25cap': true }
   readonly scrollPaddingLeft0p5cap: { 'scroll-padding-left_0\.5cap': true }
@@ -43621,16 +38681,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingLeft5ch: { 'scroll-padding-left_5ch': true }
   readonly scrollPaddingLeft6ch: { 'scroll-padding-left_6ch': true }
   readonly scrollPaddingLeft8ch: { 'scroll-padding-left_8ch': true }
-  readonly scrollPaddingLeft0cm: { 'scroll-padding-left_0cm': true }
-  readonly scrollPaddingLeft1cm: { 'scroll-padding-left_1cm': true }
-  readonly scrollPaddingLeft2cm: { 'scroll-padding-left_2cm': true }
-  readonly scrollPaddingLeft4cm: { 'scroll-padding-left_4cm': true }
-  readonly scrollPaddingLeft6cm: { 'scroll-padding-left_6cm': true }
-  readonly scrollPaddingLeft8cm: { 'scroll-padding-left_8cm': true }
-  readonly scrollPaddingLeft10cm: { 'scroll-padding-left_10cm': true }
-  readonly scrollPaddingLeft12cm: { 'scroll-padding-left_12cm': true }
-  readonly scrollPaddingLeft16cm: { 'scroll-padding-left_16cm': true }
-  readonly scrollPaddingLeft20cm: { 'scroll-padding-left_20cm': true }
   readonly scrollPaddingLeft0dvh: { 'scroll-padding-left_0dvh': true }
   readonly scrollPaddingLeft10dvh: { 'scroll-padding-left_10dvh': true }
   readonly scrollPaddingLeft20dvh: { 'scroll-padding-left_20dvh': true }
@@ -43703,16 +38753,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingLeft5ic: { 'scroll-padding-left_5ic': true }
   readonly scrollPaddingLeft6ic: { 'scroll-padding-left_6ic': true }
   readonly scrollPaddingLeft8ic: { 'scroll-padding-left_8ic': true }
-  readonly scrollPaddingLeft0in: { 'scroll-padding-left_0in': true }
-  readonly scrollPaddingLeft1in: { 'scroll-padding-left_1in': true }
-  readonly scrollPaddingLeft2in: { 'scroll-padding-left_2in': true }
-  readonly scrollPaddingLeft4in: { 'scroll-padding-left_4in': true }
-  readonly scrollPaddingLeft6in: { 'scroll-padding-left_6in': true }
-  readonly scrollPaddingLeft8in: { 'scroll-padding-left_8in': true }
-  readonly scrollPaddingLeft10in: { 'scroll-padding-left_10in': true }
-  readonly scrollPaddingLeft12in: { 'scroll-padding-left_12in': true }
-  readonly scrollPaddingLeft16in: { 'scroll-padding-left_16in': true }
-  readonly scrollPaddingLeft20in: { 'scroll-padding-left_20in': true }
   readonly scrollPaddingLeft0lh: { 'scroll-padding-left_0lh': true }
   readonly scrollPaddingLeft0p25lh: { 'scroll-padding-left_0\.25lh': true }
   readonly scrollPaddingLeft0p5lh: { 'scroll-padding-left_0\.5lh': true }
@@ -43757,36 +38797,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingLeft80lvw: { 'scroll-padding-left_80lvw': true }
   readonly scrollPaddingLeft90lvw: { 'scroll-padding-left_90lvw': true }
   readonly scrollPaddingLeft100lvw: { 'scroll-padding-left_100lvw': true }
-  readonly scrollPaddingLeft0mm: { 'scroll-padding-left_0mm': true }
-  readonly scrollPaddingLeft1mm: { 'scroll-padding-left_1mm': true }
-  readonly scrollPaddingLeft2mm: { 'scroll-padding-left_2mm': true }
-  readonly scrollPaddingLeft4mm: { 'scroll-padding-left_4mm': true }
-  readonly scrollPaddingLeft6mm: { 'scroll-padding-left_6mm': true }
-  readonly scrollPaddingLeft8mm: { 'scroll-padding-left_8mm': true }
-  readonly scrollPaddingLeft10mm: { 'scroll-padding-left_10mm': true }
-  readonly scrollPaddingLeft12mm: { 'scroll-padding-left_12mm': true }
-  readonly scrollPaddingLeft16mm: { 'scroll-padding-left_16mm': true }
-  readonly scrollPaddingLeft20mm: { 'scroll-padding-left_20mm': true }
-  readonly scrollPaddingLeft0pc: { 'scroll-padding-left_0pc': true }
-  readonly scrollPaddingLeft1pc: { 'scroll-padding-left_1pc': true }
-  readonly scrollPaddingLeft2pc: { 'scroll-padding-left_2pc': true }
-  readonly scrollPaddingLeft4pc: { 'scroll-padding-left_4pc': true }
-  readonly scrollPaddingLeft6pc: { 'scroll-padding-left_6pc': true }
-  readonly scrollPaddingLeft8pc: { 'scroll-padding-left_8pc': true }
-  readonly scrollPaddingLeft10pc: { 'scroll-padding-left_10pc': true }
-  readonly scrollPaddingLeft12pc: { 'scroll-padding-left_12pc': true }
-  readonly scrollPaddingLeft16pc: { 'scroll-padding-left_16pc': true }
-  readonly scrollPaddingLeft20pc: { 'scroll-padding-left_20pc': true }
-  readonly scrollPaddingLeft0pt: { 'scroll-padding-left_0pt': true }
-  readonly scrollPaddingLeft1pt: { 'scroll-padding-left_1pt': true }
-  readonly scrollPaddingLeft2pt: { 'scroll-padding-left_2pt': true }
-  readonly scrollPaddingLeft4pt: { 'scroll-padding-left_4pt': true }
-  readonly scrollPaddingLeft6pt: { 'scroll-padding-left_6pt': true }
-  readonly scrollPaddingLeft8pt: { 'scroll-padding-left_8pt': true }
-  readonly scrollPaddingLeft10pt: { 'scroll-padding-left_10pt': true }
-  readonly scrollPaddingLeft12pt: { 'scroll-padding-left_12pt': true }
-  readonly scrollPaddingLeft16pt: { 'scroll-padding-left_16pt': true }
-  readonly scrollPaddingLeft20pt: { 'scroll-padding-left_20pt': true }
   readonly scrollPaddingLeftN384px: { 'scroll-padding-left_-384px': true }
   readonly scrollPaddingLeftN320px: { 'scroll-padding-left_-320px': true }
   readonly scrollPaddingLeftN256px: { 'scroll-padding-left_-256px': true }
@@ -44006,16 +39016,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-right ====================
   readonly scrollPaddingRightAuto: { 'scroll-padding-right_auto': true }
-  readonly scrollPaddingRight0Q: { 'scroll-padding-right_0Q': true }
-  readonly scrollPaddingRight1Q: { 'scroll-padding-right_1Q': true }
-  readonly scrollPaddingRight2Q: { 'scroll-padding-right_2Q': true }
-  readonly scrollPaddingRight4Q: { 'scroll-padding-right_4Q': true }
-  readonly scrollPaddingRight6Q: { 'scroll-padding-right_6Q': true }
-  readonly scrollPaddingRight8Q: { 'scroll-padding-right_8Q': true }
-  readonly scrollPaddingRight10Q: { 'scroll-padding-right_10Q': true }
-  readonly scrollPaddingRight12Q: { 'scroll-padding-right_12Q': true }
-  readonly scrollPaddingRight16Q: { 'scroll-padding-right_16Q': true }
-  readonly scrollPaddingRight20Q: { 'scroll-padding-right_20Q': true }
   readonly scrollPaddingRight0cap: { 'scroll-padding-right_0cap': true }
   readonly scrollPaddingRight0p25cap: { 'scroll-padding-right_0\.25cap': true }
   readonly scrollPaddingRight0p5cap: { 'scroll-padding-right_0\.5cap': true }
@@ -44044,16 +39044,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingRight5ch: { 'scroll-padding-right_5ch': true }
   readonly scrollPaddingRight6ch: { 'scroll-padding-right_6ch': true }
   readonly scrollPaddingRight8ch: { 'scroll-padding-right_8ch': true }
-  readonly scrollPaddingRight0cm: { 'scroll-padding-right_0cm': true }
-  readonly scrollPaddingRight1cm: { 'scroll-padding-right_1cm': true }
-  readonly scrollPaddingRight2cm: { 'scroll-padding-right_2cm': true }
-  readonly scrollPaddingRight4cm: { 'scroll-padding-right_4cm': true }
-  readonly scrollPaddingRight6cm: { 'scroll-padding-right_6cm': true }
-  readonly scrollPaddingRight8cm: { 'scroll-padding-right_8cm': true }
-  readonly scrollPaddingRight10cm: { 'scroll-padding-right_10cm': true }
-  readonly scrollPaddingRight12cm: { 'scroll-padding-right_12cm': true }
-  readonly scrollPaddingRight16cm: { 'scroll-padding-right_16cm': true }
-  readonly scrollPaddingRight20cm: { 'scroll-padding-right_20cm': true }
   readonly scrollPaddingRight0dvh: { 'scroll-padding-right_0dvh': true }
   readonly scrollPaddingRight10dvh: { 'scroll-padding-right_10dvh': true }
   readonly scrollPaddingRight20dvh: { 'scroll-padding-right_20dvh': true }
@@ -44126,16 +39116,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingRight5ic: { 'scroll-padding-right_5ic': true }
   readonly scrollPaddingRight6ic: { 'scroll-padding-right_6ic': true }
   readonly scrollPaddingRight8ic: { 'scroll-padding-right_8ic': true }
-  readonly scrollPaddingRight0in: { 'scroll-padding-right_0in': true }
-  readonly scrollPaddingRight1in: { 'scroll-padding-right_1in': true }
-  readonly scrollPaddingRight2in: { 'scroll-padding-right_2in': true }
-  readonly scrollPaddingRight4in: { 'scroll-padding-right_4in': true }
-  readonly scrollPaddingRight6in: { 'scroll-padding-right_6in': true }
-  readonly scrollPaddingRight8in: { 'scroll-padding-right_8in': true }
-  readonly scrollPaddingRight10in: { 'scroll-padding-right_10in': true }
-  readonly scrollPaddingRight12in: { 'scroll-padding-right_12in': true }
-  readonly scrollPaddingRight16in: { 'scroll-padding-right_16in': true }
-  readonly scrollPaddingRight20in: { 'scroll-padding-right_20in': true }
   readonly scrollPaddingRight0lh: { 'scroll-padding-right_0lh': true }
   readonly scrollPaddingRight0p25lh: { 'scroll-padding-right_0\.25lh': true }
   readonly scrollPaddingRight0p5lh: { 'scroll-padding-right_0\.5lh': true }
@@ -44180,36 +39160,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingRight80lvw: { 'scroll-padding-right_80lvw': true }
   readonly scrollPaddingRight90lvw: { 'scroll-padding-right_90lvw': true }
   readonly scrollPaddingRight100lvw: { 'scroll-padding-right_100lvw': true }
-  readonly scrollPaddingRight0mm: { 'scroll-padding-right_0mm': true }
-  readonly scrollPaddingRight1mm: { 'scroll-padding-right_1mm': true }
-  readonly scrollPaddingRight2mm: { 'scroll-padding-right_2mm': true }
-  readonly scrollPaddingRight4mm: { 'scroll-padding-right_4mm': true }
-  readonly scrollPaddingRight6mm: { 'scroll-padding-right_6mm': true }
-  readonly scrollPaddingRight8mm: { 'scroll-padding-right_8mm': true }
-  readonly scrollPaddingRight10mm: { 'scroll-padding-right_10mm': true }
-  readonly scrollPaddingRight12mm: { 'scroll-padding-right_12mm': true }
-  readonly scrollPaddingRight16mm: { 'scroll-padding-right_16mm': true }
-  readonly scrollPaddingRight20mm: { 'scroll-padding-right_20mm': true }
-  readonly scrollPaddingRight0pc: { 'scroll-padding-right_0pc': true }
-  readonly scrollPaddingRight1pc: { 'scroll-padding-right_1pc': true }
-  readonly scrollPaddingRight2pc: { 'scroll-padding-right_2pc': true }
-  readonly scrollPaddingRight4pc: { 'scroll-padding-right_4pc': true }
-  readonly scrollPaddingRight6pc: { 'scroll-padding-right_6pc': true }
-  readonly scrollPaddingRight8pc: { 'scroll-padding-right_8pc': true }
-  readonly scrollPaddingRight10pc: { 'scroll-padding-right_10pc': true }
-  readonly scrollPaddingRight12pc: { 'scroll-padding-right_12pc': true }
-  readonly scrollPaddingRight16pc: { 'scroll-padding-right_16pc': true }
-  readonly scrollPaddingRight20pc: { 'scroll-padding-right_20pc': true }
-  readonly scrollPaddingRight0pt: { 'scroll-padding-right_0pt': true }
-  readonly scrollPaddingRight1pt: { 'scroll-padding-right_1pt': true }
-  readonly scrollPaddingRight2pt: { 'scroll-padding-right_2pt': true }
-  readonly scrollPaddingRight4pt: { 'scroll-padding-right_4pt': true }
-  readonly scrollPaddingRight6pt: { 'scroll-padding-right_6pt': true }
-  readonly scrollPaddingRight8pt: { 'scroll-padding-right_8pt': true }
-  readonly scrollPaddingRight10pt: { 'scroll-padding-right_10pt': true }
-  readonly scrollPaddingRight12pt: { 'scroll-padding-right_12pt': true }
-  readonly scrollPaddingRight16pt: { 'scroll-padding-right_16pt': true }
-  readonly scrollPaddingRight20pt: { 'scroll-padding-right_20pt': true }
   readonly scrollPaddingRightN384px: { 'scroll-padding-right_-384px': true }
   readonly scrollPaddingRightN320px: { 'scroll-padding-right_-320px': true }
   readonly scrollPaddingRightN256px: { 'scroll-padding-right_-256px': true }
@@ -44429,16 +39379,6 @@ export interface CsstsAtoms {
 
   // ==================== scroll-padding-top ====================
   readonly scrollPaddingTopAuto: { 'scroll-padding-top_auto': true }
-  readonly scrollPaddingTop0Q: { 'scroll-padding-top_0Q': true }
-  readonly scrollPaddingTop1Q: { 'scroll-padding-top_1Q': true }
-  readonly scrollPaddingTop2Q: { 'scroll-padding-top_2Q': true }
-  readonly scrollPaddingTop4Q: { 'scroll-padding-top_4Q': true }
-  readonly scrollPaddingTop6Q: { 'scroll-padding-top_6Q': true }
-  readonly scrollPaddingTop8Q: { 'scroll-padding-top_8Q': true }
-  readonly scrollPaddingTop10Q: { 'scroll-padding-top_10Q': true }
-  readonly scrollPaddingTop12Q: { 'scroll-padding-top_12Q': true }
-  readonly scrollPaddingTop16Q: { 'scroll-padding-top_16Q': true }
-  readonly scrollPaddingTop20Q: { 'scroll-padding-top_20Q': true }
   readonly scrollPaddingTop0cap: { 'scroll-padding-top_0cap': true }
   readonly scrollPaddingTop0p25cap: { 'scroll-padding-top_0\.25cap': true }
   readonly scrollPaddingTop0p5cap: { 'scroll-padding-top_0\.5cap': true }
@@ -44467,16 +39407,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingTop5ch: { 'scroll-padding-top_5ch': true }
   readonly scrollPaddingTop6ch: { 'scroll-padding-top_6ch': true }
   readonly scrollPaddingTop8ch: { 'scroll-padding-top_8ch': true }
-  readonly scrollPaddingTop0cm: { 'scroll-padding-top_0cm': true }
-  readonly scrollPaddingTop1cm: { 'scroll-padding-top_1cm': true }
-  readonly scrollPaddingTop2cm: { 'scroll-padding-top_2cm': true }
-  readonly scrollPaddingTop4cm: { 'scroll-padding-top_4cm': true }
-  readonly scrollPaddingTop6cm: { 'scroll-padding-top_6cm': true }
-  readonly scrollPaddingTop8cm: { 'scroll-padding-top_8cm': true }
-  readonly scrollPaddingTop10cm: { 'scroll-padding-top_10cm': true }
-  readonly scrollPaddingTop12cm: { 'scroll-padding-top_12cm': true }
-  readonly scrollPaddingTop16cm: { 'scroll-padding-top_16cm': true }
-  readonly scrollPaddingTop20cm: { 'scroll-padding-top_20cm': true }
   readonly scrollPaddingTop0dvh: { 'scroll-padding-top_0dvh': true }
   readonly scrollPaddingTop10dvh: { 'scroll-padding-top_10dvh': true }
   readonly scrollPaddingTop20dvh: { 'scroll-padding-top_20dvh': true }
@@ -44549,16 +39479,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingTop5ic: { 'scroll-padding-top_5ic': true }
   readonly scrollPaddingTop6ic: { 'scroll-padding-top_6ic': true }
   readonly scrollPaddingTop8ic: { 'scroll-padding-top_8ic': true }
-  readonly scrollPaddingTop0in: { 'scroll-padding-top_0in': true }
-  readonly scrollPaddingTop1in: { 'scroll-padding-top_1in': true }
-  readonly scrollPaddingTop2in: { 'scroll-padding-top_2in': true }
-  readonly scrollPaddingTop4in: { 'scroll-padding-top_4in': true }
-  readonly scrollPaddingTop6in: { 'scroll-padding-top_6in': true }
-  readonly scrollPaddingTop8in: { 'scroll-padding-top_8in': true }
-  readonly scrollPaddingTop10in: { 'scroll-padding-top_10in': true }
-  readonly scrollPaddingTop12in: { 'scroll-padding-top_12in': true }
-  readonly scrollPaddingTop16in: { 'scroll-padding-top_16in': true }
-  readonly scrollPaddingTop20in: { 'scroll-padding-top_20in': true }
   readonly scrollPaddingTop0lh: { 'scroll-padding-top_0lh': true }
   readonly scrollPaddingTop0p25lh: { 'scroll-padding-top_0\.25lh': true }
   readonly scrollPaddingTop0p5lh: { 'scroll-padding-top_0\.5lh': true }
@@ -44603,36 +39523,6 @@ export interface CsstsAtoms {
   readonly scrollPaddingTop80lvw: { 'scroll-padding-top_80lvw': true }
   readonly scrollPaddingTop90lvw: { 'scroll-padding-top_90lvw': true }
   readonly scrollPaddingTop100lvw: { 'scroll-padding-top_100lvw': true }
-  readonly scrollPaddingTop0mm: { 'scroll-padding-top_0mm': true }
-  readonly scrollPaddingTop1mm: { 'scroll-padding-top_1mm': true }
-  readonly scrollPaddingTop2mm: { 'scroll-padding-top_2mm': true }
-  readonly scrollPaddingTop4mm: { 'scroll-padding-top_4mm': true }
-  readonly scrollPaddingTop6mm: { 'scroll-padding-top_6mm': true }
-  readonly scrollPaddingTop8mm: { 'scroll-padding-top_8mm': true }
-  readonly scrollPaddingTop10mm: { 'scroll-padding-top_10mm': true }
-  readonly scrollPaddingTop12mm: { 'scroll-padding-top_12mm': true }
-  readonly scrollPaddingTop16mm: { 'scroll-padding-top_16mm': true }
-  readonly scrollPaddingTop20mm: { 'scroll-padding-top_20mm': true }
-  readonly scrollPaddingTop0pc: { 'scroll-padding-top_0pc': true }
-  readonly scrollPaddingTop1pc: { 'scroll-padding-top_1pc': true }
-  readonly scrollPaddingTop2pc: { 'scroll-padding-top_2pc': true }
-  readonly scrollPaddingTop4pc: { 'scroll-padding-top_4pc': true }
-  readonly scrollPaddingTop6pc: { 'scroll-padding-top_6pc': true }
-  readonly scrollPaddingTop8pc: { 'scroll-padding-top_8pc': true }
-  readonly scrollPaddingTop10pc: { 'scroll-padding-top_10pc': true }
-  readonly scrollPaddingTop12pc: { 'scroll-padding-top_12pc': true }
-  readonly scrollPaddingTop16pc: { 'scroll-padding-top_16pc': true }
-  readonly scrollPaddingTop20pc: { 'scroll-padding-top_20pc': true }
-  readonly scrollPaddingTop0pt: { 'scroll-padding-top_0pt': true }
-  readonly scrollPaddingTop1pt: { 'scroll-padding-top_1pt': true }
-  readonly scrollPaddingTop2pt: { 'scroll-padding-top_2pt': true }
-  readonly scrollPaddingTop4pt: { 'scroll-padding-top_4pt': true }
-  readonly scrollPaddingTop6pt: { 'scroll-padding-top_6pt': true }
-  readonly scrollPaddingTop8pt: { 'scroll-padding-top_8pt': true }
-  readonly scrollPaddingTop10pt: { 'scroll-padding-top_10pt': true }
-  readonly scrollPaddingTop12pt: { 'scroll-padding-top_12pt': true }
-  readonly scrollPaddingTop16pt: { 'scroll-padding-top_16pt': true }
-  readonly scrollPaddingTop20pt: { 'scroll-padding-top_20pt': true }
   readonly scrollPaddingTopN384px: { 'scroll-padding-top_-384px': true }
   readonly scrollPaddingTopN320px: { 'scroll-padding-top_-320px': true }
   readonly scrollPaddingTopN256px: { 'scroll-padding-top_-256px': true }
@@ -44883,16 +39773,6 @@ export interface CsstsAtoms {
   readonly tabSize20: { 'tab-size_20': true }
   readonly tabSize50: { 'tab-size_50': true }
   readonly tabSize100: { 'tab-size_100': true }
-  readonly tabSize0Q: { 'tab-size_0Q': true }
-  readonly tabSize1Q: { 'tab-size_1Q': true }
-  readonly tabSize2Q: { 'tab-size_2Q': true }
-  readonly tabSize4Q: { 'tab-size_4Q': true }
-  readonly tabSize6Q: { 'tab-size_6Q': true }
-  readonly tabSize8Q: { 'tab-size_8Q': true }
-  readonly tabSize10Q: { 'tab-size_10Q': true }
-  readonly tabSize12Q: { 'tab-size_12Q': true }
-  readonly tabSize16Q: { 'tab-size_16Q': true }
-  readonly tabSize20Q: { 'tab-size_20Q': true }
   readonly tabSize0cap: { 'tab-size_0cap': true }
   readonly tabSize0p25cap: { 'tab-size_0\.25cap': true }
   readonly tabSize0p5cap: { 'tab-size_0\.5cap': true }
@@ -44921,16 +39801,6 @@ export interface CsstsAtoms {
   readonly tabSize5ch: { 'tab-size_5ch': true }
   readonly tabSize6ch: { 'tab-size_6ch': true }
   readonly tabSize8ch: { 'tab-size_8ch': true }
-  readonly tabSize0cm: { 'tab-size_0cm': true }
-  readonly tabSize1cm: { 'tab-size_1cm': true }
-  readonly tabSize2cm: { 'tab-size_2cm': true }
-  readonly tabSize4cm: { 'tab-size_4cm': true }
-  readonly tabSize6cm: { 'tab-size_6cm': true }
-  readonly tabSize8cm: { 'tab-size_8cm': true }
-  readonly tabSize10cm: { 'tab-size_10cm': true }
-  readonly tabSize12cm: { 'tab-size_12cm': true }
-  readonly tabSize16cm: { 'tab-size_16cm': true }
-  readonly tabSize20cm: { 'tab-size_20cm': true }
   readonly tabSize0dvh: { 'tab-size_0dvh': true }
   readonly tabSize10dvh: { 'tab-size_10dvh': true }
   readonly tabSize20dvh: { 'tab-size_20dvh': true }
@@ -45003,16 +39873,6 @@ export interface CsstsAtoms {
   readonly tabSize5ic: { 'tab-size_5ic': true }
   readonly tabSize6ic: { 'tab-size_6ic': true }
   readonly tabSize8ic: { 'tab-size_8ic': true }
-  readonly tabSize0in: { 'tab-size_0in': true }
-  readonly tabSize1in: { 'tab-size_1in': true }
-  readonly tabSize2in: { 'tab-size_2in': true }
-  readonly tabSize4in: { 'tab-size_4in': true }
-  readonly tabSize6in: { 'tab-size_6in': true }
-  readonly tabSize8in: { 'tab-size_8in': true }
-  readonly tabSize10in: { 'tab-size_10in': true }
-  readonly tabSize12in: { 'tab-size_12in': true }
-  readonly tabSize16in: { 'tab-size_16in': true }
-  readonly tabSize20in: { 'tab-size_20in': true }
   readonly tabSize0lh: { 'tab-size_0lh': true }
   readonly tabSize0p25lh: { 'tab-size_0\.25lh': true }
   readonly tabSize0p5lh: { 'tab-size_0\.5lh': true }
@@ -45057,36 +39917,6 @@ export interface CsstsAtoms {
   readonly tabSize80lvw: { 'tab-size_80lvw': true }
   readonly tabSize90lvw: { 'tab-size_90lvw': true }
   readonly tabSize100lvw: { 'tab-size_100lvw': true }
-  readonly tabSize0mm: { 'tab-size_0mm': true }
-  readonly tabSize1mm: { 'tab-size_1mm': true }
-  readonly tabSize2mm: { 'tab-size_2mm': true }
-  readonly tabSize4mm: { 'tab-size_4mm': true }
-  readonly tabSize6mm: { 'tab-size_6mm': true }
-  readonly tabSize8mm: { 'tab-size_8mm': true }
-  readonly tabSize10mm: { 'tab-size_10mm': true }
-  readonly tabSize12mm: { 'tab-size_12mm': true }
-  readonly tabSize16mm: { 'tab-size_16mm': true }
-  readonly tabSize20mm: { 'tab-size_20mm': true }
-  readonly tabSize0pc: { 'tab-size_0pc': true }
-  readonly tabSize1pc: { 'tab-size_1pc': true }
-  readonly tabSize2pc: { 'tab-size_2pc': true }
-  readonly tabSize4pc: { 'tab-size_4pc': true }
-  readonly tabSize6pc: { 'tab-size_6pc': true }
-  readonly tabSize8pc: { 'tab-size_8pc': true }
-  readonly tabSize10pc: { 'tab-size_10pc': true }
-  readonly tabSize12pc: { 'tab-size_12pc': true }
-  readonly tabSize16pc: { 'tab-size_16pc': true }
-  readonly tabSize20pc: { 'tab-size_20pc': true }
-  readonly tabSize0pt: { 'tab-size_0pt': true }
-  readonly tabSize1pt: { 'tab-size_1pt': true }
-  readonly tabSize2pt: { 'tab-size_2pt': true }
-  readonly tabSize4pt: { 'tab-size_4pt': true }
-  readonly tabSize6pt: { 'tab-size_6pt': true }
-  readonly tabSize8pt: { 'tab-size_8pt': true }
-  readonly tabSize10pt: { 'tab-size_10pt': true }
-  readonly tabSize12pt: { 'tab-size_12pt': true }
-  readonly tabSize16pt: { 'tab-size_16pt': true }
-  readonly tabSize20pt: { 'tab-size_20pt': true }
   readonly tabSizeN384px: { 'tab-size_-384px': true }
   readonly tabSizeN320px: { 'tab-size_-320px': true }
   readonly tabSizeN256px: { 'tab-size_-256px': true }
@@ -45321,16 +40151,6 @@ export interface CsstsAtoms {
 
   // ==================== top ====================
   readonly topAuto: { 'top_auto': true }
-  readonly top0Q: { 'top_0Q': true }
-  readonly top1Q: { 'top_1Q': true }
-  readonly top2Q: { 'top_2Q': true }
-  readonly top4Q: { 'top_4Q': true }
-  readonly top6Q: { 'top_6Q': true }
-  readonly top8Q: { 'top_8Q': true }
-  readonly top10Q: { 'top_10Q': true }
-  readonly top12Q: { 'top_12Q': true }
-  readonly top16Q: { 'top_16Q': true }
-  readonly top20Q: { 'top_20Q': true }
   readonly top0cap: { 'top_0cap': true }
   readonly top0p25cap: { 'top_0\.25cap': true }
   readonly top0p5cap: { 'top_0\.5cap': true }
@@ -45359,16 +40179,6 @@ export interface CsstsAtoms {
   readonly top5ch: { 'top_5ch': true }
   readonly top6ch: { 'top_6ch': true }
   readonly top8ch: { 'top_8ch': true }
-  readonly top0cm: { 'top_0cm': true }
-  readonly top1cm: { 'top_1cm': true }
-  readonly top2cm: { 'top_2cm': true }
-  readonly top4cm: { 'top_4cm': true }
-  readonly top6cm: { 'top_6cm': true }
-  readonly top8cm: { 'top_8cm': true }
-  readonly top10cm: { 'top_10cm': true }
-  readonly top12cm: { 'top_12cm': true }
-  readonly top16cm: { 'top_16cm': true }
-  readonly top20cm: { 'top_20cm': true }
   readonly top0dvh: { 'top_0dvh': true }
   readonly top10dvh: { 'top_10dvh': true }
   readonly top20dvh: { 'top_20dvh': true }
@@ -45441,16 +40251,6 @@ export interface CsstsAtoms {
   readonly top5ic: { 'top_5ic': true }
   readonly top6ic: { 'top_6ic': true }
   readonly top8ic: { 'top_8ic': true }
-  readonly top0in: { 'top_0in': true }
-  readonly top1in: { 'top_1in': true }
-  readonly top2in: { 'top_2in': true }
-  readonly top4in: { 'top_4in': true }
-  readonly top6in: { 'top_6in': true }
-  readonly top8in: { 'top_8in': true }
-  readonly top10in: { 'top_10in': true }
-  readonly top12in: { 'top_12in': true }
-  readonly top16in: { 'top_16in': true }
-  readonly top20in: { 'top_20in': true }
   readonly top0lh: { 'top_0lh': true }
   readonly top0p25lh: { 'top_0\.25lh': true }
   readonly top0p5lh: { 'top_0\.5lh': true }
@@ -45495,36 +40295,6 @@ export interface CsstsAtoms {
   readonly top80lvw: { 'top_80lvw': true }
   readonly top90lvw: { 'top_90lvw': true }
   readonly top100lvw: { 'top_100lvw': true }
-  readonly top0mm: { 'top_0mm': true }
-  readonly top1mm: { 'top_1mm': true }
-  readonly top2mm: { 'top_2mm': true }
-  readonly top4mm: { 'top_4mm': true }
-  readonly top6mm: { 'top_6mm': true }
-  readonly top8mm: { 'top_8mm': true }
-  readonly top10mm: { 'top_10mm': true }
-  readonly top12mm: { 'top_12mm': true }
-  readonly top16mm: { 'top_16mm': true }
-  readonly top20mm: { 'top_20mm': true }
-  readonly top0pc: { 'top_0pc': true }
-  readonly top1pc: { 'top_1pc': true }
-  readonly top2pc: { 'top_2pc': true }
-  readonly top4pc: { 'top_4pc': true }
-  readonly top6pc: { 'top_6pc': true }
-  readonly top8pc: { 'top_8pc': true }
-  readonly top10pc: { 'top_10pc': true }
-  readonly top12pc: { 'top_12pc': true }
-  readonly top16pc: { 'top_16pc': true }
-  readonly top20pc: { 'top_20pc': true }
-  readonly top0pt: { 'top_0pt': true }
-  readonly top1pt: { 'top_1pt': true }
-  readonly top2pt: { 'top_2pt': true }
-  readonly top4pt: { 'top_4pt': true }
-  readonly top6pt: { 'top_6pt': true }
-  readonly top8pt: { 'top_8pt': true }
-  readonly top10pt: { 'top_10pt': true }
-  readonly top12pt: { 'top_12pt': true }
-  readonly top16pt: { 'top_16pt': true }
-  readonly top20pt: { 'top_20pt': true }
   readonly topN384px: { 'top_-384px': true }
   readonly topN320px: { 'top_-320px': true }
   readonly topN256px: { 'top_-256px': true }
@@ -45824,16 +40594,6 @@ export interface CsstsAtoms {
   readonly transform270turn: { 'transform_270turn': true }
   readonly transform315turn: { 'transform_315turn': true }
   readonly transform360turn: { 'transform_360turn': true }
-  readonly transform0Q: { 'transform_0Q': true }
-  readonly transform1Q: { 'transform_1Q': true }
-  readonly transform2Q: { 'transform_2Q': true }
-  readonly transform4Q: { 'transform_4Q': true }
-  readonly transform6Q: { 'transform_6Q': true }
-  readonly transform8Q: { 'transform_8Q': true }
-  readonly transform10Q: { 'transform_10Q': true }
-  readonly transform12Q: { 'transform_12Q': true }
-  readonly transform16Q: { 'transform_16Q': true }
-  readonly transform20Q: { 'transform_20Q': true }
   readonly transform0cap: { 'transform_0cap': true }
   readonly transform0p25cap: { 'transform_0\.25cap': true }
   readonly transform0p5cap: { 'transform_0\.5cap': true }
@@ -45862,16 +40622,6 @@ export interface CsstsAtoms {
   readonly transform5ch: { 'transform_5ch': true }
   readonly transform6ch: { 'transform_6ch': true }
   readonly transform8ch: { 'transform_8ch': true }
-  readonly transform0cm: { 'transform_0cm': true }
-  readonly transform1cm: { 'transform_1cm': true }
-  readonly transform2cm: { 'transform_2cm': true }
-  readonly transform4cm: { 'transform_4cm': true }
-  readonly transform6cm: { 'transform_6cm': true }
-  readonly transform8cm: { 'transform_8cm': true }
-  readonly transform10cm: { 'transform_10cm': true }
-  readonly transform12cm: { 'transform_12cm': true }
-  readonly transform16cm: { 'transform_16cm': true }
-  readonly transform20cm: { 'transform_20cm': true }
   readonly transform0dvh: { 'transform_0dvh': true }
   readonly transform10dvh: { 'transform_10dvh': true }
   readonly transform20dvh: { 'transform_20dvh': true }
@@ -45944,16 +40694,6 @@ export interface CsstsAtoms {
   readonly transform5ic: { 'transform_5ic': true }
   readonly transform6ic: { 'transform_6ic': true }
   readonly transform8ic: { 'transform_8ic': true }
-  readonly transform0in: { 'transform_0in': true }
-  readonly transform1in: { 'transform_1in': true }
-  readonly transform2in: { 'transform_2in': true }
-  readonly transform4in: { 'transform_4in': true }
-  readonly transform6in: { 'transform_6in': true }
-  readonly transform8in: { 'transform_8in': true }
-  readonly transform10in: { 'transform_10in': true }
-  readonly transform12in: { 'transform_12in': true }
-  readonly transform16in: { 'transform_16in': true }
-  readonly transform20in: { 'transform_20in': true }
   readonly transform0lh: { 'transform_0lh': true }
   readonly transform0p25lh: { 'transform_0\.25lh': true }
   readonly transform0p5lh: { 'transform_0\.5lh': true }
@@ -45998,36 +40738,6 @@ export interface CsstsAtoms {
   readonly transform80lvw: { 'transform_80lvw': true }
   readonly transform90lvw: { 'transform_90lvw': true }
   readonly transform100lvw: { 'transform_100lvw': true }
-  readonly transform0mm: { 'transform_0mm': true }
-  readonly transform1mm: { 'transform_1mm': true }
-  readonly transform2mm: { 'transform_2mm': true }
-  readonly transform4mm: { 'transform_4mm': true }
-  readonly transform6mm: { 'transform_6mm': true }
-  readonly transform8mm: { 'transform_8mm': true }
-  readonly transform10mm: { 'transform_10mm': true }
-  readonly transform12mm: { 'transform_12mm': true }
-  readonly transform16mm: { 'transform_16mm': true }
-  readonly transform20mm: { 'transform_20mm': true }
-  readonly transform0pc: { 'transform_0pc': true }
-  readonly transform1pc: { 'transform_1pc': true }
-  readonly transform2pc: { 'transform_2pc': true }
-  readonly transform4pc: { 'transform_4pc': true }
-  readonly transform6pc: { 'transform_6pc': true }
-  readonly transform8pc: { 'transform_8pc': true }
-  readonly transform10pc: { 'transform_10pc': true }
-  readonly transform12pc: { 'transform_12pc': true }
-  readonly transform16pc: { 'transform_16pc': true }
-  readonly transform20pc: { 'transform_20pc': true }
-  readonly transform0pt: { 'transform_0pt': true }
-  readonly transform1pt: { 'transform_1pt': true }
-  readonly transform2pt: { 'transform_2pt': true }
-  readonly transform4pt: { 'transform_4pt': true }
-  readonly transform6pt: { 'transform_6pt': true }
-  readonly transform8pt: { 'transform_8pt': true }
-  readonly transform10pt: { 'transform_10pt': true }
-  readonly transform12pt: { 'transform_12pt': true }
-  readonly transform16pt: { 'transform_16pt': true }
-  readonly transform20pt: { 'transform_20pt': true }
   readonly transformN384px: { 'transform_-384px': true }
   readonly transformN320px: { 'transform_-320px': true }
   readonly transformN256px: { 'transform_-256px': true }
@@ -46263,16 +40973,6 @@ export interface CsstsAtoms {
   readonly transformOriginLeft: { 'transform-origin_left': true }
   readonly transformOriginRight: { 'transform-origin_right': true }
   readonly transformOriginTop: { 'transform-origin_top': true }
-  readonly transformOrigin0Q: { 'transform-origin_0Q': true }
-  readonly transformOrigin1Q: { 'transform-origin_1Q': true }
-  readonly transformOrigin2Q: { 'transform-origin_2Q': true }
-  readonly transformOrigin4Q: { 'transform-origin_4Q': true }
-  readonly transformOrigin6Q: { 'transform-origin_6Q': true }
-  readonly transformOrigin8Q: { 'transform-origin_8Q': true }
-  readonly transformOrigin10Q: { 'transform-origin_10Q': true }
-  readonly transformOrigin12Q: { 'transform-origin_12Q': true }
-  readonly transformOrigin16Q: { 'transform-origin_16Q': true }
-  readonly transformOrigin20Q: { 'transform-origin_20Q': true }
   readonly transformOrigin0cap: { 'transform-origin_0cap': true }
   readonly transformOrigin0p25cap: { 'transform-origin_0\.25cap': true }
   readonly transformOrigin0p5cap: { 'transform-origin_0\.5cap': true }
@@ -46301,16 +41001,6 @@ export interface CsstsAtoms {
   readonly transformOrigin5ch: { 'transform-origin_5ch': true }
   readonly transformOrigin6ch: { 'transform-origin_6ch': true }
   readonly transformOrigin8ch: { 'transform-origin_8ch': true }
-  readonly transformOrigin0cm: { 'transform-origin_0cm': true }
-  readonly transformOrigin1cm: { 'transform-origin_1cm': true }
-  readonly transformOrigin2cm: { 'transform-origin_2cm': true }
-  readonly transformOrigin4cm: { 'transform-origin_4cm': true }
-  readonly transformOrigin6cm: { 'transform-origin_6cm': true }
-  readonly transformOrigin8cm: { 'transform-origin_8cm': true }
-  readonly transformOrigin10cm: { 'transform-origin_10cm': true }
-  readonly transformOrigin12cm: { 'transform-origin_12cm': true }
-  readonly transformOrigin16cm: { 'transform-origin_16cm': true }
-  readonly transformOrigin20cm: { 'transform-origin_20cm': true }
   readonly transformOrigin0dvh: { 'transform-origin_0dvh': true }
   readonly transformOrigin10dvh: { 'transform-origin_10dvh': true }
   readonly transformOrigin20dvh: { 'transform-origin_20dvh': true }
@@ -46383,16 +41073,6 @@ export interface CsstsAtoms {
   readonly transformOrigin5ic: { 'transform-origin_5ic': true }
   readonly transformOrigin6ic: { 'transform-origin_6ic': true }
   readonly transformOrigin8ic: { 'transform-origin_8ic': true }
-  readonly transformOrigin0in: { 'transform-origin_0in': true }
-  readonly transformOrigin1in: { 'transform-origin_1in': true }
-  readonly transformOrigin2in: { 'transform-origin_2in': true }
-  readonly transformOrigin4in: { 'transform-origin_4in': true }
-  readonly transformOrigin6in: { 'transform-origin_6in': true }
-  readonly transformOrigin8in: { 'transform-origin_8in': true }
-  readonly transformOrigin10in: { 'transform-origin_10in': true }
-  readonly transformOrigin12in: { 'transform-origin_12in': true }
-  readonly transformOrigin16in: { 'transform-origin_16in': true }
-  readonly transformOrigin20in: { 'transform-origin_20in': true }
   readonly transformOrigin0lh: { 'transform-origin_0lh': true }
   readonly transformOrigin0p25lh: { 'transform-origin_0\.25lh': true }
   readonly transformOrigin0p5lh: { 'transform-origin_0\.5lh': true }
@@ -46437,36 +41117,6 @@ export interface CsstsAtoms {
   readonly transformOrigin80lvw: { 'transform-origin_80lvw': true }
   readonly transformOrigin90lvw: { 'transform-origin_90lvw': true }
   readonly transformOrigin100lvw: { 'transform-origin_100lvw': true }
-  readonly transformOrigin0mm: { 'transform-origin_0mm': true }
-  readonly transformOrigin1mm: { 'transform-origin_1mm': true }
-  readonly transformOrigin2mm: { 'transform-origin_2mm': true }
-  readonly transformOrigin4mm: { 'transform-origin_4mm': true }
-  readonly transformOrigin6mm: { 'transform-origin_6mm': true }
-  readonly transformOrigin8mm: { 'transform-origin_8mm': true }
-  readonly transformOrigin10mm: { 'transform-origin_10mm': true }
-  readonly transformOrigin12mm: { 'transform-origin_12mm': true }
-  readonly transformOrigin16mm: { 'transform-origin_16mm': true }
-  readonly transformOrigin20mm: { 'transform-origin_20mm': true }
-  readonly transformOrigin0pc: { 'transform-origin_0pc': true }
-  readonly transformOrigin1pc: { 'transform-origin_1pc': true }
-  readonly transformOrigin2pc: { 'transform-origin_2pc': true }
-  readonly transformOrigin4pc: { 'transform-origin_4pc': true }
-  readonly transformOrigin6pc: { 'transform-origin_6pc': true }
-  readonly transformOrigin8pc: { 'transform-origin_8pc': true }
-  readonly transformOrigin10pc: { 'transform-origin_10pc': true }
-  readonly transformOrigin12pc: { 'transform-origin_12pc': true }
-  readonly transformOrigin16pc: { 'transform-origin_16pc': true }
-  readonly transformOrigin20pc: { 'transform-origin_20pc': true }
-  readonly transformOrigin0pt: { 'transform-origin_0pt': true }
-  readonly transformOrigin1pt: { 'transform-origin_1pt': true }
-  readonly transformOrigin2pt: { 'transform-origin_2pt': true }
-  readonly transformOrigin4pt: { 'transform-origin_4pt': true }
-  readonly transformOrigin6pt: { 'transform-origin_6pt': true }
-  readonly transformOrigin8pt: { 'transform-origin_8pt': true }
-  readonly transformOrigin10pt: { 'transform-origin_10pt': true }
-  readonly transformOrigin12pt: { 'transform-origin_12pt': true }
-  readonly transformOrigin16pt: { 'transform-origin_16pt': true }
-  readonly transformOrigin20pt: { 'transform-origin_20pt': true }
   readonly transformOriginN384px: { 'transform-origin_-384px': true }
   readonly transformOriginN320px: { 'transform-origin_-320px': true }
   readonly transformOriginN256px: { 'transform-origin_-256px': true }
@@ -46794,16 +41444,6 @@ export interface CsstsAtoms {
 
   // ==================== translate ====================
   readonly translateNone: { 'translate_none': true }
-  readonly translate0Q: { 'translate_0Q': true }
-  readonly translate1Q: { 'translate_1Q': true }
-  readonly translate2Q: { 'translate_2Q': true }
-  readonly translate4Q: { 'translate_4Q': true }
-  readonly translate6Q: { 'translate_6Q': true }
-  readonly translate8Q: { 'translate_8Q': true }
-  readonly translate10Q: { 'translate_10Q': true }
-  readonly translate12Q: { 'translate_12Q': true }
-  readonly translate16Q: { 'translate_16Q': true }
-  readonly translate20Q: { 'translate_20Q': true }
   readonly translate0cap: { 'translate_0cap': true }
   readonly translate0p25cap: { 'translate_0\.25cap': true }
   readonly translate0p5cap: { 'translate_0\.5cap': true }
@@ -46832,16 +41472,6 @@ export interface CsstsAtoms {
   readonly translate5ch: { 'translate_5ch': true }
   readonly translate6ch: { 'translate_6ch': true }
   readonly translate8ch: { 'translate_8ch': true }
-  readonly translate0cm: { 'translate_0cm': true }
-  readonly translate1cm: { 'translate_1cm': true }
-  readonly translate2cm: { 'translate_2cm': true }
-  readonly translate4cm: { 'translate_4cm': true }
-  readonly translate6cm: { 'translate_6cm': true }
-  readonly translate8cm: { 'translate_8cm': true }
-  readonly translate10cm: { 'translate_10cm': true }
-  readonly translate12cm: { 'translate_12cm': true }
-  readonly translate16cm: { 'translate_16cm': true }
-  readonly translate20cm: { 'translate_20cm': true }
   readonly translate0dvh: { 'translate_0dvh': true }
   readonly translate10dvh: { 'translate_10dvh': true }
   readonly translate20dvh: { 'translate_20dvh': true }
@@ -46914,16 +41544,6 @@ export interface CsstsAtoms {
   readonly translate5ic: { 'translate_5ic': true }
   readonly translate6ic: { 'translate_6ic': true }
   readonly translate8ic: { 'translate_8ic': true }
-  readonly translate0in: { 'translate_0in': true }
-  readonly translate1in: { 'translate_1in': true }
-  readonly translate2in: { 'translate_2in': true }
-  readonly translate4in: { 'translate_4in': true }
-  readonly translate6in: { 'translate_6in': true }
-  readonly translate8in: { 'translate_8in': true }
-  readonly translate10in: { 'translate_10in': true }
-  readonly translate12in: { 'translate_12in': true }
-  readonly translate16in: { 'translate_16in': true }
-  readonly translate20in: { 'translate_20in': true }
   readonly translate0lh: { 'translate_0lh': true }
   readonly translate0p25lh: { 'translate_0\.25lh': true }
   readonly translate0p5lh: { 'translate_0\.5lh': true }
@@ -46968,36 +41588,6 @@ export interface CsstsAtoms {
   readonly translate80lvw: { 'translate_80lvw': true }
   readonly translate90lvw: { 'translate_90lvw': true }
   readonly translate100lvw: { 'translate_100lvw': true }
-  readonly translate0mm: { 'translate_0mm': true }
-  readonly translate1mm: { 'translate_1mm': true }
-  readonly translate2mm: { 'translate_2mm': true }
-  readonly translate4mm: { 'translate_4mm': true }
-  readonly translate6mm: { 'translate_6mm': true }
-  readonly translate8mm: { 'translate_8mm': true }
-  readonly translate10mm: { 'translate_10mm': true }
-  readonly translate12mm: { 'translate_12mm': true }
-  readonly translate16mm: { 'translate_16mm': true }
-  readonly translate20mm: { 'translate_20mm': true }
-  readonly translate0pc: { 'translate_0pc': true }
-  readonly translate1pc: { 'translate_1pc': true }
-  readonly translate2pc: { 'translate_2pc': true }
-  readonly translate4pc: { 'translate_4pc': true }
-  readonly translate6pc: { 'translate_6pc': true }
-  readonly translate8pc: { 'translate_8pc': true }
-  readonly translate10pc: { 'translate_10pc': true }
-  readonly translate12pc: { 'translate_12pc': true }
-  readonly translate16pc: { 'translate_16pc': true }
-  readonly translate20pc: { 'translate_20pc': true }
-  readonly translate0pt: { 'translate_0pt': true }
-  readonly translate1pt: { 'translate_1pt': true }
-  readonly translate2pt: { 'translate_2pt': true }
-  readonly translate4pt: { 'translate_4pt': true }
-  readonly translate6pt: { 'translate_6pt': true }
-  readonly translate8pt: { 'translate_8pt': true }
-  readonly translate10pt: { 'translate_10pt': true }
-  readonly translate12pt: { 'translate_12pt': true }
-  readonly translate16pt: { 'translate_16pt': true }
-  readonly translate20pt: { 'translate_20pt': true }
   readonly translateN384px: { 'translate_-384px': true }
   readonly translateN320px: { 'translate_-320px': true }
   readonly translateN256px: { 'translate_-256px': true }
@@ -47265,16 +41855,6 @@ export interface CsstsAtoms {
   readonly widthMinContent: { 'width_min-content': true }
   readonly widthMinIntrinsic: { 'width_min-intrinsic': true }
   readonly widthStretch: { 'width_stretch': true }
-  readonly width0Q: { 'width_0Q': true }
-  readonly width1Q: { 'width_1Q': true }
-  readonly width2Q: { 'width_2Q': true }
-  readonly width4Q: { 'width_4Q': true }
-  readonly width6Q: { 'width_6Q': true }
-  readonly width8Q: { 'width_8Q': true }
-  readonly width10Q: { 'width_10Q': true }
-  readonly width12Q: { 'width_12Q': true }
-  readonly width16Q: { 'width_16Q': true }
-  readonly width20Q: { 'width_20Q': true }
   readonly width0cap: { 'width_0cap': true }
   readonly width0p25cap: { 'width_0\.25cap': true }
   readonly width0p5cap: { 'width_0\.5cap': true }
@@ -47303,16 +41883,6 @@ export interface CsstsAtoms {
   readonly width5ch: { 'width_5ch': true }
   readonly width6ch: { 'width_6ch': true }
   readonly width8ch: { 'width_8ch': true }
-  readonly width0cm: { 'width_0cm': true }
-  readonly width1cm: { 'width_1cm': true }
-  readonly width2cm: { 'width_2cm': true }
-  readonly width4cm: { 'width_4cm': true }
-  readonly width6cm: { 'width_6cm': true }
-  readonly width8cm: { 'width_8cm': true }
-  readonly width10cm: { 'width_10cm': true }
-  readonly width12cm: { 'width_12cm': true }
-  readonly width16cm: { 'width_16cm': true }
-  readonly width20cm: { 'width_20cm': true }
   readonly width0dvh: { 'width_0dvh': true }
   readonly width10dvh: { 'width_10dvh': true }
   readonly width20dvh: { 'width_20dvh': true }
@@ -47385,16 +41955,6 @@ export interface CsstsAtoms {
   readonly width5ic: { 'width_5ic': true }
   readonly width6ic: { 'width_6ic': true }
   readonly width8ic: { 'width_8ic': true }
-  readonly width0in: { 'width_0in': true }
-  readonly width1in: { 'width_1in': true }
-  readonly width2in: { 'width_2in': true }
-  readonly width4in: { 'width_4in': true }
-  readonly width6in: { 'width_6in': true }
-  readonly width8in: { 'width_8in': true }
-  readonly width10in: { 'width_10in': true }
-  readonly width12in: { 'width_12in': true }
-  readonly width16in: { 'width_16in': true }
-  readonly width20in: { 'width_20in': true }
   readonly width0lh: { 'width_0lh': true }
   readonly width0p25lh: { 'width_0\.25lh': true }
   readonly width0p5lh: { 'width_0\.5lh': true }
@@ -47439,36 +41999,6 @@ export interface CsstsAtoms {
   readonly width80lvw: { 'width_80lvw': true }
   readonly width90lvw: { 'width_90lvw': true }
   readonly width100lvw: { 'width_100lvw': true }
-  readonly width0mm: { 'width_0mm': true }
-  readonly width1mm: { 'width_1mm': true }
-  readonly width2mm: { 'width_2mm': true }
-  readonly width4mm: { 'width_4mm': true }
-  readonly width6mm: { 'width_6mm': true }
-  readonly width8mm: { 'width_8mm': true }
-  readonly width10mm: { 'width_10mm': true }
-  readonly width12mm: { 'width_12mm': true }
-  readonly width16mm: { 'width_16mm': true }
-  readonly width20mm: { 'width_20mm': true }
-  readonly width0pc: { 'width_0pc': true }
-  readonly width1pc: { 'width_1pc': true }
-  readonly width2pc: { 'width_2pc': true }
-  readonly width4pc: { 'width_4pc': true }
-  readonly width6pc: { 'width_6pc': true }
-  readonly width8pc: { 'width_8pc': true }
-  readonly width10pc: { 'width_10pc': true }
-  readonly width12pc: { 'width_12pc': true }
-  readonly width16pc: { 'width_16pc': true }
-  readonly width20pc: { 'width_20pc': true }
-  readonly width0pt: { 'width_0pt': true }
-  readonly width1pt: { 'width_1pt': true }
-  readonly width2pt: { 'width_2pt': true }
-  readonly width4pt: { 'width_4pt': true }
-  readonly width6pt: { 'width_6pt': true }
-  readonly width8pt: { 'width_8pt': true }
-  readonly width10pt: { 'width_10pt': true }
-  readonly width12pt: { 'width_12pt': true }
-  readonly width16pt: { 'width_16pt': true }
-  readonly width20pt: { 'width_20pt': true }
   readonly widthN384px: { 'width_-384px': true }
   readonly widthN320px: { 'width_-320px': true }
   readonly widthN256px: { 'width_-256px': true }

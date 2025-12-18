@@ -25,6 +25,9 @@ import {
     type NumberTypeConfigItem,
     type UnitCategoryConfigItem,
     type UnitConfigItem,
+    type NumberTypeExcludeItem,
+    type UnitCategoryExcludeItem,
+    type UnitExcludeItem,
 } from './config/value-config';
 import {
     PseudoClassStylesConfig,
@@ -45,6 +48,9 @@ export type {
     NumberTypeConfigItem,
     UnitCategoryConfigItem,
     UnitConfigItem,
+    NumberTypeExcludeItem,
+    UnitCategoryExcludeItem,
+    UnitExcludeItem,
 };
 
 export {
@@ -102,8 +108,16 @@ export class CsstsConfig {
     /**
      * 排除的数值类型列表（黑名单）
      * 仅当 includeNumberTypes 为空时生效
+     * 支持混合数组格式，可以排除整个数值类型、特定单位或特定分类下的单位
+     * 
+     * @example
+     * excludeNumberTypes: [
+     *   'angle',                           // 排除整个 angle 数值类型
+     *   { time: ['ms', 's'] },             // 排除 time 类型下的 ms 和 s 单位
+     *   { length: { pixel: ['px'] } }      // 排除 length 类型中 pixel 分类下的 px
+     * ]
      */
-    excludeNumberTypes: NumberTypeName[];
+    excludeNumberTypes: NumberTypeExcludeItem<NumberTypeName>[];
 
     // ==================== 单位分类配置 ====================
 
@@ -114,7 +128,7 @@ export class CsstsConfig {
      * 
      * @example
      * includeUnitCategories: [
-     *   'px',
+     *   'pixel',
      *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
      * ]
      */
@@ -123,8 +137,15 @@ export class CsstsConfig {
     /**
      * 排除的单位分类列表（黑名单）
      * 仅当 includeUnitCategories 为空时生效
+     * 支持混合数组格式，可以排除整个分类或特定单位
+     * 
+     * @example
+     * excludeUnitCategories: [
+     *   'resolution',               // 排除整个 resolution 分类
+     *   { pixel: ['px'] }           // 排除 pixel 分类下的 px 单位
+     * ]
      */
-    excludeUnitCategories: UnitCategoryName[];
+    excludeUnitCategories: UnitCategoryExcludeItem<UnitCategoryName>[];
 
     // ==================== 单位配置 ====================
 
@@ -137,7 +158,7 @@ export class CsstsConfig {
      * includeUnits: [
      *   'px',
      *   'em',
-     *   { px: { step: 4, max: 500 } }
+     *   { px: { step: 4, max: 500 } }  // px is the unit name, not category
      * ]
      */
     includeUnits?: UnitConfigItem<UnitType>[];
@@ -145,8 +166,16 @@ export class CsstsConfig {
     /**
      * 排除的单位列表（黑名单）
      * 仅当 includeUnits 为空时生效
+     * 支持混合数组格式（为了保持一致性）
+     * 
+     * @example
+     * excludeUnits: [
+     *   'px',
+     *   'em',
+     *   { dpi: {} }
+     * ]
      */
-    excludeUnits: UnitType[];
+    excludeUnits: UnitExcludeItem<UnitType>[];
 
     // ==================== 关键字/颜色配置 ====================
 
@@ -156,7 +185,11 @@ export class CsstsConfig {
      */
     includeKeywords?: KeywordValue[];
 
-    /** 排除的关键字列表（黑名单） */
+    /**
+     * 排除的关键字列表（黑名单）
+     * 仅当 includeKeywords 为空时生效
+     * 只需要名字列表，不支持配置
+     */
     excludeKeywords: KeywordValue[];
 
     /**
@@ -165,7 +198,11 @@ export class CsstsConfig {
      */
     includeColors?: AllColorValue[];
 
-    /** 排除的颜色列表（黑名单） */
+    /**
+     * 排除的颜色列表（黑名单）
+     * 仅当 includeColors 为空时生效
+     * 只需要名字列表，不支持配置
+     */
     excludeColors: AllColorValue[];
 
     // ==================== 其他配置 ====================
@@ -187,7 +224,11 @@ export class CsstsConfig {
      */
     includePseudoClasses?: PseudoClassName[];
 
-    /** 排除的伪类列表（黑名单） */
+    /**
+     * 排除的伪类列表（黑名单）
+     * 仅当 includePseudoClasses 为空时生效
+     * 只需要名字列表，不支持配置
+     */
     excludePseudoClasses: PseudoClassName[];
 
     /**
@@ -196,7 +237,11 @@ export class CsstsConfig {
      */
     includePseudoElements?: PseudoElementName[];
 
-    /** 排除的伪元素列表（黑名单） */
+    /**
+     * 排除的伪元素列表（黑名单）
+     * 仅当 includePseudoElements 为空时生效
+     * 只需要名字列表，不支持配置
+     */
     excludePseudoElements: PseudoElementName[];
 
     /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
@@ -221,9 +266,9 @@ export class CsstsConfig {
      * });
      *
      * @example
-     * // 只使用 px 和百分比单位
+     * // 只使用 pixel 和百分比单位
      * const config = new CsstsConfig({
-     *   includeUnitCategories: ['px', 'percentage'],
+     *   includeUnitCategories: ['pixel', 'percentage'],
      * });
      *
      * @example
