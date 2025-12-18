@@ -96,7 +96,7 @@ export {
   OTHER_PROPERTIES,
   CORE_PROPERTIES_STATS,
   EXPECTED_ATOMS_COUNT,
-} from './config/core-properties.js'
+} from './custom/core-properties.ts'
 
 export type {
   UnitType,
