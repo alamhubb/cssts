@@ -34,11 +34,6 @@ export {
   // 主配置类
   CsstsConfig,
   type CsstsConfigOptions,
-  // 配置工具函数
-  shouldInclude,
-  getEffectiveList,
-  normalizeUnitsConfig,
-  normalizeUnitCategoriesConfig,
   // 单位配置类型
   type UnitValueConfig,
   type UnitCategoryConfig,
@@ -54,7 +49,23 @@ export {
   PseudoElementStylesConfig,
   type PseudoStyleValue,
   type CustomPropertyValue,
+  // 系统级别默认配置
+  SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES,
 } from './cssts-config.js'
+
+// ==================== 配置工具函数 ====================
+export {
+  // 配置工具函数
+  shouldInclude,
+  getEffectiveList,
+  normalizeUnitsConfig,
+  normalizeUnitCategoriesConfig,
+} from './utils/config-utils.js'
+
+// ==================== 配置工厂函数 ====================
+export {
+  createCsstsConfig,
+} from './factory/config-factory.js'
 
 // ==================== 生成器 ====================
 export {

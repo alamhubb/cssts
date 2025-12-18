@@ -10,11 +10,13 @@ import {
   CsstsConfig,
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
-  normalizeUnitCategoriesConfig,
-  shouldInclude,
   type UnitCategoryConfig,
   type ProgressiveRange,
 } from '../cssts-config.js';
+import {
+  normalizeUnitCategoriesConfig,
+  shouldInclude,
+} from '../utils/config-utils.js';
 import {
   cssPropertyNameMap,
   type CssPropertyCamelName,
