@@ -471,7 +471,7 @@ export class CsstsConfig {
         this.excludeProperties = options.excludeProperties ?? [];
 
         // ==================== 数值类型配置 ====================
-        this.numberTypes = options.numberTypes ?? DEFAULT_NUMBER_TYPES;
+        this.numberTypes = options.numberTypes;
         this.excludeNumberTypes = options.excludeNumberTypes ?? [];
 
         // ==================== 单位分类配置 ====================

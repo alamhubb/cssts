@@ -327,21 +327,10 @@ function generatePropertyConfigFile(
   const lines: string[] = ['/**', ' * CSS 属性配置（自动生成）', ' */', ''];
 
   // 导入
-  lines.push(`import { type AllColorValue } from './colors';`);
-  lines.push(`import type { NumberTypeName, UnitCategoryName } from './units';`);
-  lines.push(`import {`);
-  keywordProperties.forEach(p => lines.push(`  ${toConstName(p.name)}_KEYWORDS,`));
-  lines.push(`} from './keywords';`);
-  lines.push(`import type {`);
-  keywordProperties.forEach(p => lines.push(`  ${toPascalCase(p.name)}Keyword,`));
-  lines.push(`} from './keywords';`, '');
+  lines.push(`import type { NumberTypeName } from './units';`, '');
 
-  // 数值类型常量
-  lines.push('// ==================== 数值类型常量 ====================', '');
-  for (const prop of numericProperties) {
-    lines.push(`export const ${toConstName(prop.name)}_NUMBER_TYPES = [${prop.numberTypes.map(t => `'${t}'`).join(', ')}] as const;`);
-  }
-  lines.push('');
+  // 注：不再导入关键字常量和类型，因为属性配置类中不再使用它们
+  // 关键字现在由全局配置控制
 
   // 属性单位类型
   lines.push('// ==================== 属性单位类型 ====================', '');
@@ -361,12 +350,8 @@ function generatePropertyConfigFile(
     const numberTypes = propNumberTypesMap.get(propName) || [];
 
     lines.push(`export class ${pascalName}Config {`);
-    if (keywords.length > 0) {
-      lines.push(`  keywords: ${pascalName}Keyword[] = [...${toConstName(propName)}_KEYWORDS];`);
-    }
-    if (numberTypes.length > 0) {
-      lines.push(`  numberTypes: NumberTypeName[] = [...${toConstName(propName)}_NUMBER_TYPES];`);
-    }
+    lines.push(`  keywords: string[] | null = null;`);
+    lines.push(`  numberTypes: NumberTypeName[] | null = null;`);
     lines.push(`}`, '');
   }
 

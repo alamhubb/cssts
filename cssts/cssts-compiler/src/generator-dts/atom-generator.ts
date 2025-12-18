@@ -288,11 +288,23 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
   const atoms: AtomDefinition[] = [];
   const seenNames = new Set<string>();
 
-  const allPropNames = Object.keys(cssPropertyNameMap) as CssPropertyCamelName[];
+  // 确定要遍历的属性列表
+  let propertiesToProcess: CssPropertyCamelName[];
+  
+  if (Array.isArray(config.properties) && config.properties.length > 0) {
+    // 如果配置了 properties（白名单），则只遍历配置的属性
+    propertiesToProcess = config.properties;
+  } else {
+    // 否则遍历所有属性，然后用 excludeProperties 过滤
+    const allPropNames = Object.keys(cssPropertyNameMap) as CssPropertyCamelName[];
+    propertiesToProcess = allPropNames.filter(
+      prop => !config.excludeProperties.includes(prop)
+    );
+  }
 
   // 调试统计
   const stats = {
-    totalProps: allPropNames.length,
+    totalProps: Object.keys(cssPropertyNameMap).length,
     propsWithConfig: 0,
     keywordAtoms: 0,
     numberAtoms: 0,
@@ -303,10 +315,7 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
   // 获取属性配置映射
   const allPropsConfig = new CssPropertyConfigMap();
 
-  for (const camelName of allPropNames) {
-    // 使用 shouldInclude 处理属性过滤（白名单优先）
-    const includePropertiesList = Array.isArray(config.properties) ? config.properties : [];
-    if (!shouldInclude(camelName, includePropertiesList.length > 0 ? includePropertiesList : undefined, config.excludeProperties)) continue;
+  for (const camelName of propertiesToProcess) {
 
     const kebabName = cssPropertyNameMap[camelName];
     const propConfig = (allPropsConfig as any)[camelName];
@@ -316,7 +325,8 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     stats.propStats[camelName] = { keywords: 0, numbers: 0 };
 
     // 1. 生成关键词原子类
-    if ('keywords' in propConfig && Array.isArray(propConfig.keywords)) {
+    // 只有当属性配置中有 keywords 时才生成（不是 null）
+    if (propConfig.keywords !== null && Array.isArray(propConfig.keywords)) {
       for (const keyword of propConfig.keywords) {
         // 使用 shouldInclude 处理关键字和颜色过滤
         if (!shouldInclude(keyword, config.keywords && config.keywords.length > 0 ? config.keywords : undefined, config.excludeKeywords)) continue;
@@ -338,14 +348,26 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     }
 
     // 2. 生成数值原子类
-    if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
+    // 只有当属性配置中有 numberTypes 时才生成（不是 null）
+    if (propConfig.numberTypes !== null && Array.isArray(propConfig.numberTypes)) {
       const supportedUnits = new Set<string>();
-      const includeNumberTypesList = extractStringsFromArray(config.numberTypes);
+      
+      // 确定要使用的 numberTypes 列表
+      // 优先级：全局配置 > 属性配置
+      let numberTypesToProcess: string[];
+      if (config.numberTypes && config.numberTypes.length > 0) {
+        // 全局配置了，只使用全局配置的
+        numberTypesToProcess = extractStringsFromArray(config.numberTypes);
+      } else {
+        // 全局没配置，使用属性本身的
+        numberTypesToProcess = propConfig.numberTypes as string[];
+      }
+      
       const excludeNumberTypesList = extractStringsFromNumberTypeExcludeArray(config.excludeNumberTypes);
       
-      for (const nt of propConfig.numberTypes as string[]) {
-        // 使用 shouldInclude 处理数值类型过滤
-        if (!shouldInclude(nt, includeNumberTypesList.length > 0 ? includeNumberTypesList : undefined, excludeNumberTypesList)) continue;
+      for (const nt of numberTypesToProcess) {
+        // 使用 shouldInclude 处理排除过滤
+        if (!shouldInclude(nt, undefined, excludeNumberTypesList)) continue;
         
         const typeUnits = NUMBER_TYPE_UNITS[nt as keyof typeof NUMBER_TYPE_UNITS];
         if (typeUnits) {

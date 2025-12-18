@@ -2,1019 +2,7 @@
  * CSS 属性配置（自动生成）
  */
 
-import { type AllColorValue } from './colors';
-import type { NumberTypeName, UnitCategoryName } from './units';
-import {
-  ACCENT_COLOR_KEYWORDS,
-  ALIGN_CONTENT_KEYWORDS,
-  ALIGN_ITEMS_KEYWORDS,
-  ALIGN_SELF_KEYWORDS,
-  ALIGN_TRACKS_KEYWORDS,
-  ALIGNMENT_BASELINE_KEYWORDS,
-  ALL_KEYWORDS,
-  ANCHOR_NAME_KEYWORDS,
-  ANCHOR_SCOPE_KEYWORDS,
-  ANIMATION_KEYWORDS,
-  ANIMATION_COMPOSITION_KEYWORDS,
-  ANIMATION_DIRECTION_KEYWORDS,
-  ANIMATION_FILL_MODE_KEYWORDS,
-  ANIMATION_ITERATION_COUNT_KEYWORDS,
-  ANIMATION_NAME_KEYWORDS,
-  ANIMATION_PLAY_STATE_KEYWORDS,
-  ANIMATION_RANGE_END_KEYWORDS,
-  ANIMATION_RANGE_START_KEYWORDS,
-  ANIMATION_TIMELINE_KEYWORDS,
-  ANIMATION_TIMING_FUNCTION_KEYWORDS,
-  APPEARANCE_KEYWORDS,
-  ASPECT_RATIO_KEYWORDS,
-  AZIMUTH_KEYWORDS,
-  BACKDROP_FILTER_KEYWORDS,
-  BACKFACE_VISIBILITY_KEYWORDS,
-  BACKGROUND_KEYWORDS,
-  BACKGROUND_ATTACHMENT_KEYWORDS,
-  BACKGROUND_BLEND_MODE_KEYWORDS,
-  BACKGROUND_CLIP_KEYWORDS,
-  BACKGROUND_COLOR_KEYWORDS,
-  BACKGROUND_IMAGE_KEYWORDS,
-  BACKGROUND_ORIGIN_KEYWORDS,
-  BACKGROUND_POSITION_KEYWORDS,
-  BACKGROUND_POSITION_X_KEYWORDS,
-  BACKGROUND_POSITION_Y_KEYWORDS,
-  BACKGROUND_REPEAT_KEYWORDS,
-  BACKGROUND_SIZE_KEYWORDS,
-  BASELINE_SHIFT_KEYWORDS,
-  BORDER_KEYWORDS,
-  BORDER_BLOCK_KEYWORDS,
-  BORDER_BLOCK_END_KEYWORDS,
-  BORDER_BLOCK_START_KEYWORDS,
-  BORDER_BOTTOM_KEYWORDS,
-  BORDER_BOTTOM_STYLE_KEYWORDS,
-  BORDER_BOTTOM_WIDTH_KEYWORDS,
-  BORDER_COLLAPSE_KEYWORDS,
-  BORDER_COLOR_KEYWORDS,
-  BORDER_IMAGE_REPEAT_KEYWORDS,
-  BORDER_IMAGE_SLICE_KEYWORDS,
-  BORDER_IMAGE_SOURCE_KEYWORDS,
-  BORDER_IMAGE_WIDTH_KEYWORDS,
-  BORDER_INLINE_KEYWORDS,
-  BORDER_INLINE_END_KEYWORDS,
-  BORDER_INLINE_START_KEYWORDS,
-  BORDER_LEFT_KEYWORDS,
-  BORDER_LEFT_COLOR_KEYWORDS,
-  BORDER_LEFT_STYLE_KEYWORDS,
-  BORDER_LEFT_WIDTH_KEYWORDS,
-  BORDER_RIGHT_KEYWORDS,
-  BORDER_RIGHT_COLOR_KEYWORDS,
-  BORDER_RIGHT_STYLE_KEYWORDS,
-  BORDER_RIGHT_WIDTH_KEYWORDS,
-  BORDER_STYLE_KEYWORDS,
-  BORDER_TOP_KEYWORDS,
-  BORDER_TOP_COLOR_KEYWORDS,
-  BORDER_TOP_STYLE_KEYWORDS,
-  BORDER_TOP_WIDTH_KEYWORDS,
-  BORDER_WIDTH_KEYWORDS,
-  BOTTOM_KEYWORDS,
-  BOX_ALIGN_KEYWORDS,
-  BOX_DECORATION_BREAK_KEYWORDS,
-  BOX_DIRECTION_KEYWORDS,
-  BOX_LINES_KEYWORDS,
-  BOX_ORIENT_KEYWORDS,
-  BOX_PACK_KEYWORDS,
-  BOX_SHADOW_KEYWORDS,
-  BOX_SIZING_KEYWORDS,
-  BREAK_AFTER_KEYWORDS,
-  BREAK_BEFORE_KEYWORDS,
-  BREAK_INSIDE_KEYWORDS,
-  CAPTION_SIDE_KEYWORDS,
-  CARET_COLOR_KEYWORDS,
-  CARET_SHAPE_KEYWORDS,
-  CLEAR_KEYWORDS,
-  CLIP_KEYWORDS,
-  CLIP_PATH_KEYWORDS,
-  CLIP_RULE_KEYWORDS,
-  COLOR_KEYWORDS,
-  COLOR_INTERPOLATION_FILTERS_KEYWORDS,
-  COLOR_SCHEME_KEYWORDS,
-  COLUMN_COUNT_KEYWORDS,
-  COLUMN_FILL_KEYWORDS,
-  COLUMN_GAP_KEYWORDS,
-  COLUMN_RULE_COLOR_KEYWORDS,
-  COLUMN_SPAN_KEYWORDS,
-  COLUMN_WIDTH_KEYWORDS,
-  CONTAIN_KEYWORDS,
-  CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_HEIGHT_KEYWORDS,
-  CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_SIZE_KEYWORDS,
-  CONTAIN_INTRINSIC_WIDTH_KEYWORDS,
-  CONTAINER_NAME_KEYWORDS,
-  CONTAINER_TYPE_KEYWORDS,
-  CONTENT_KEYWORDS,
-  CONTENT_VISIBILITY_KEYWORDS,
-  COUNTER_INCREMENT_KEYWORDS,
-  COUNTER_RESET_KEYWORDS,
-  COUNTER_SET_KEYWORDS,
-  CUE_AFTER_KEYWORDS,
-  CUE_BEFORE_KEYWORDS,
-  CURSOR_KEYWORDS,
-  D_KEYWORDS,
-  DIRECTION_KEYWORDS,
-  DISPLAY_KEYWORDS,
-  DOMINANT_BASELINE_KEYWORDS,
-  EMPTY_CELLS_KEYWORDS,
-  FIELD_SIZING_KEYWORDS,
-  FILL_KEYWORDS,
-  FILL_RULE_KEYWORDS,
-  FILTER_KEYWORDS,
-  FLEX_KEYWORDS,
-  FLEX_BASIS_KEYWORDS,
-  FLEX_DIRECTION_KEYWORDS,
-  FLEX_WRAP_KEYWORDS,
-  FLOAT_KEYWORDS,
-  FONT_KEYWORDS,
-  FONT_FAMILY_KEYWORDS,
-  FONT_FEATURE_SETTINGS_KEYWORDS,
-  FONT_KERNING_KEYWORDS,
-  FONT_LANGUAGE_OVERRIDE_KEYWORDS,
-  FONT_OPTICAL_SIZING_KEYWORDS,
-  FONT_PALETTE_KEYWORDS,
-  FONT_SIZE_KEYWORDS,
-  FONT_SIZE_ADJUST_KEYWORDS,
-  FONT_SMOOTH_KEYWORDS,
-  FONT_STRETCH_KEYWORDS,
-  FONT_STYLE_KEYWORDS,
-  FONT_SYNTHESIS_KEYWORDS,
-  FONT_SYNTHESIS_POSITION_KEYWORDS,
-  FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS,
-  FONT_SYNTHESIS_STYLE_KEYWORDS,
-  FONT_SYNTHESIS_WEIGHT_KEYWORDS,
-  FONT_VARIANT_KEYWORDS,
-  FONT_VARIANT_ALTERNATES_KEYWORDS,
-  FONT_VARIANT_CAPS_KEYWORDS,
-  FONT_VARIANT_EAST_ASIAN_KEYWORDS,
-  FONT_VARIANT_EMOJI_KEYWORDS,
-  FONT_VARIANT_LIGATURES_KEYWORDS,
-  FONT_VARIANT_NUMERIC_KEYWORDS,
-  FONT_VARIANT_POSITION_KEYWORDS,
-  FONT_VARIATION_SETTINGS_KEYWORDS,
-  FONT_WEIGHT_KEYWORDS,
-  FORCED_COLOR_ADJUST_KEYWORDS,
-  GRID_KEYWORDS,
-  GRID_AREA_KEYWORDS,
-  GRID_AUTO_COLUMNS_KEYWORDS,
-  GRID_AUTO_FLOW_KEYWORDS,
-  GRID_AUTO_ROWS_KEYWORDS,
-  GRID_COLUMN_KEYWORDS,
-  GRID_COLUMN_END_KEYWORDS,
-  GRID_COLUMN_START_KEYWORDS,
-  GRID_ROW_KEYWORDS,
-  GRID_ROW_END_KEYWORDS,
-  GRID_ROW_START_KEYWORDS,
-  GRID_TEMPLATE_KEYWORDS,
-  GRID_TEMPLATE_AREAS_KEYWORDS,
-  GRID_TEMPLATE_COLUMNS_KEYWORDS,
-  GRID_TEMPLATE_ROWS_KEYWORDS,
-  HANGING_PUNCTUATION_KEYWORDS,
-  HEIGHT_KEYWORDS,
-  HYPHENATE_CHARACTER_KEYWORDS,
-  HYPHENATE_LIMIT_CHARS_KEYWORDS,
-  HYPHENS_KEYWORDS,
-  IMAGE_ORIENTATION_KEYWORDS,
-  IMAGE_RENDERING_KEYWORDS,
-  IMAGE_RESOLUTION_KEYWORDS,
-  IME_MODE_KEYWORDS,
-  INITIAL_LETTER_KEYWORDS,
-  INITIAL_LETTER_ALIGN_KEYWORDS,
-  INPUT_SECURITY_KEYWORDS,
-  INTERPOLATE_SIZE_KEYWORDS,
-  ISOLATION_KEYWORDS,
-  JUSTIFY_CONTENT_KEYWORDS,
-  JUSTIFY_ITEMS_KEYWORDS,
-  JUSTIFY_SELF_KEYWORDS,
-  JUSTIFY_TRACKS_KEYWORDS,
-  KERNING_KEYWORDS,
-  LEFT_KEYWORDS,
-  LETTER_SPACING_KEYWORDS,
-  LINE_BREAK_KEYWORDS,
-  LINE_CLAMP_KEYWORDS,
-  LINE_HEIGHT_KEYWORDS,
-  LIST_STYLE_IMAGE_KEYWORDS,
-  LIST_STYLE_POSITION_KEYWORDS,
-  LIST_STYLE_TYPE_KEYWORDS,
-  MARGIN_KEYWORDS,
-  MARGIN_BOTTOM_KEYWORDS,
-  MARGIN_LEFT_KEYWORDS,
-  MARGIN_RIGHT_KEYWORDS,
-  MARGIN_TOP_KEYWORDS,
-  MARGIN_TRIM_KEYWORDS,
-  MARKER_KEYWORDS,
-  MARKER_END_KEYWORDS,
-  MARKER_MID_KEYWORDS,
-  MARKER_START_KEYWORDS,
-  MASK_KEYWORDS,
-  MASK_BORDER_MODE_KEYWORDS,
-  MASK_BORDER_REPEAT_KEYWORDS,
-  MASK_BORDER_SLICE_KEYWORDS,
-  MASK_BORDER_SOURCE_KEYWORDS,
-  MASK_BORDER_WIDTH_KEYWORDS,
-  MASK_CLIP_KEYWORDS,
-  MASK_COMPOSITE_KEYWORDS,
-  MASK_IMAGE_KEYWORDS,
-  MASK_MODE_KEYWORDS,
-  MASK_ORIGIN_KEYWORDS,
-  MASK_POSITION_KEYWORDS,
-  MASK_REPEAT_KEYWORDS,
-  MASK_SIZE_KEYWORDS,
-  MASK_TYPE_KEYWORDS,
-  MASONRY_AUTO_FLOW_KEYWORDS,
-  MATH_DEPTH_KEYWORDS,
-  MATH_SHIFT_KEYWORDS,
-  MATH_STYLE_KEYWORDS,
-  MAX_HEIGHT_KEYWORDS,
-  MAX_LINES_KEYWORDS,
-  MAX_WIDTH_KEYWORDS,
-  MIN_HEIGHT_KEYWORDS,
-  MIN_WIDTH_KEYWORDS,
-  MIX_BLEND_MODE_KEYWORDS,
-  OBJECT_FIT_KEYWORDS,
-  OBJECT_POSITION_KEYWORDS,
-  OFFSET_ANCHOR_KEYWORDS,
-  OFFSET_PATH_KEYWORDS,
-  OFFSET_POSITION_KEYWORDS,
-  OFFSET_ROTATE_KEYWORDS,
-  OUTLINE_COLOR_KEYWORDS,
-  OUTLINE_STYLE_KEYWORDS,
-  OUTLINE_WIDTH_KEYWORDS,
-  OVERFLOW_KEYWORDS,
-  OVERFLOW_ANCHOR_KEYWORDS,
-  OVERFLOW_BLOCK_KEYWORDS,
-  OVERFLOW_CLIP_BOX_KEYWORDS,
-  OVERFLOW_CLIP_MARGIN_KEYWORDS,
-  OVERFLOW_INLINE_KEYWORDS,
-  OVERFLOW_WRAP_KEYWORDS,
-  OVERFLOW_X_KEYWORDS,
-  OVERFLOW_Y_KEYWORDS,
-  OVERLAY_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_X_KEYWORDS,
-  OVERSCROLL_BEHAVIOR_Y_KEYWORDS,
-  PAGE_KEYWORDS,
-  PAGE_BREAK_AFTER_KEYWORDS,
-  PAGE_BREAK_BEFORE_KEYWORDS,
-  PAGE_BREAK_INSIDE_KEYWORDS,
-  PAINT_ORDER_KEYWORDS,
-  PAUSE_AFTER_KEYWORDS,
-  PAUSE_BEFORE_KEYWORDS,
-  PERSPECTIVE_KEYWORDS,
-  PERSPECTIVE_ORIGIN_KEYWORDS,
-  POINTER_EVENTS_KEYWORDS,
-  POSITION_KEYWORDS,
-  POSITION_ANCHOR_KEYWORDS,
-  POSITION_AREA_KEYWORDS,
-  POSITION_TRY_FALLBACKS_KEYWORDS,
-  POSITION_TRY_ORDER_KEYWORDS,
-  POSITION_VISIBILITY_KEYWORDS,
-  PRINT_COLOR_ADJUST_KEYWORDS,
-  QUOTES_KEYWORDS,
-  RESIZE_KEYWORDS,
-  REST_AFTER_KEYWORDS,
-  REST_BEFORE_KEYWORDS,
-  RIGHT_KEYWORDS,
-  ROTATE_KEYWORDS,
-  ROW_GAP_KEYWORDS,
-  RUBY_ALIGN_KEYWORDS,
-  RUBY_MERGE_KEYWORDS,
-  RUBY_POSITION_KEYWORDS,
-  SCALE_KEYWORDS,
-  SCROLL_BEHAVIOR_KEYWORDS,
-  SCROLL_PADDING_KEYWORDS,
-  SCROLL_PADDING_BLOCK_KEYWORDS,
-  SCROLL_PADDING_BLOCK_END_KEYWORDS,
-  SCROLL_PADDING_BLOCK_START_KEYWORDS,
-  SCROLL_PADDING_BOTTOM_KEYWORDS,
-  SCROLL_PADDING_INLINE_KEYWORDS,
-  SCROLL_PADDING_INLINE_END_KEYWORDS,
-  SCROLL_PADDING_INLINE_START_KEYWORDS,
-  SCROLL_PADDING_LEFT_KEYWORDS,
-  SCROLL_PADDING_RIGHT_KEYWORDS,
-  SCROLL_PADDING_TOP_KEYWORDS,
-  SCROLL_SNAP_ALIGN_KEYWORDS,
-  SCROLL_SNAP_COORDINATE_KEYWORDS,
-  SCROLL_SNAP_DESTINATION_KEYWORDS,
-  SCROLL_SNAP_POINTS_X_KEYWORDS,
-  SCROLL_SNAP_POINTS_Y_KEYWORDS,
-  SCROLL_SNAP_STOP_KEYWORDS,
-  SCROLL_SNAP_TYPE_KEYWORDS,
-  SCROLL_SNAP_TYPE_X_KEYWORDS,
-  SCROLL_SNAP_TYPE_Y_KEYWORDS,
-  SCROLL_TIMELINE_AXIS_KEYWORDS,
-  SCROLL_TIMELINE_NAME_KEYWORDS,
-  SCROLLBAR_COLOR_KEYWORDS,
-  SCROLLBAR_GUTTER_KEYWORDS,
-  SCROLLBAR_WIDTH_KEYWORDS,
-  SHAPE_OUTSIDE_KEYWORDS,
-  SHAPE_RENDERING_KEYWORDS,
-  SPEAK_KEYWORDS,
-  SPEAK_AS_KEYWORDS,
-  STROKE_KEYWORDS,
-  STROKE_DASHARRAY_KEYWORDS,
-  STROKE_LINECAP_KEYWORDS,
-  STROKE_LINEJOIN_KEYWORDS,
-  TABLE_LAYOUT_KEYWORDS,
-  TEXT_ALIGN_KEYWORDS,
-  TEXT_ALIGN_LAST_KEYWORDS,
-  TEXT_ANCHOR_KEYWORDS,
-  TEXT_COMBINE_UPRIGHT_KEYWORDS,
-  TEXT_DECORATION_COLOR_KEYWORDS,
-  TEXT_DECORATION_LINE_KEYWORDS,
-  TEXT_DECORATION_SKIP_KEYWORDS,
-  TEXT_DECORATION_SKIP_INK_KEYWORDS,
-  TEXT_DECORATION_STYLE_KEYWORDS,
-  TEXT_DECORATION_THICKNESS_KEYWORDS,
-  TEXT_EMPHASIS_COLOR_KEYWORDS,
-  TEXT_EMPHASIS_POSITION_KEYWORDS,
-  TEXT_EMPHASIS_STYLE_KEYWORDS,
-  TEXT_INDENT_KEYWORDS,
-  TEXT_JUSTIFY_KEYWORDS,
-  TEXT_ORIENTATION_KEYWORDS,
-  TEXT_OVERFLOW_KEYWORDS,
-  TEXT_RENDERING_KEYWORDS,
-  TEXT_SHADOW_KEYWORDS,
-  TEXT_SIZE_ADJUST_KEYWORDS,
-  TEXT_SPACING_TRIM_KEYWORDS,
-  TEXT_TRANSFORM_KEYWORDS,
-  TEXT_UNDERLINE_OFFSET_KEYWORDS,
-  TEXT_UNDERLINE_POSITION_KEYWORDS,
-  TEXT_WRAP_MODE_KEYWORDS,
-  TEXT_WRAP_STYLE_KEYWORDS,
-  TIMELINE_SCOPE_KEYWORDS,
-  TOP_KEYWORDS,
-  TOUCH_ACTION_KEYWORDS,
-  TRANSFORM_KEYWORDS,
-  TRANSFORM_BOX_KEYWORDS,
-  TRANSFORM_ORIGIN_KEYWORDS,
-  TRANSFORM_STYLE_KEYWORDS,
-  TRANSITION_KEYWORDS,
-  TRANSITION_BEHAVIOR_KEYWORDS,
-  TRANSITION_PROPERTY_KEYWORDS,
-  TRANSITION_TIMING_FUNCTION_KEYWORDS,
-  TRANSLATE_KEYWORDS,
-  UNICODE_BIDI_KEYWORDS,
-  USER_SELECT_KEYWORDS,
-  VECTOR_EFFECT_KEYWORDS,
-  VERTICAL_ALIGN_KEYWORDS,
-  VIEW_TIMELINE_AXIS_KEYWORDS,
-  VIEW_TIMELINE_INSET_KEYWORDS,
-  VIEW_TIMELINE_NAME_KEYWORDS,
-  VIEW_TRANSITION_NAME_KEYWORDS,
-  VISIBILITY_KEYWORDS,
-  VOICE_BALANCE_KEYWORDS,
-  VOICE_DURATION_KEYWORDS,
-  VOICE_FAMILY_KEYWORDS,
-  VOICE_PITCH_KEYWORDS,
-  VOICE_RANGE_KEYWORDS,
-  VOICE_RATE_KEYWORDS,
-  VOICE_STRESS_KEYWORDS,
-  VOICE_VOLUME_KEYWORDS,
-  WHITE_SPACE_KEYWORDS,
-  WHITE_SPACE_COLLAPSE_KEYWORDS,
-  WHITE_SPACE_TRIM_KEYWORDS,
-  WIDTH_KEYWORDS,
-  WILL_CHANGE_KEYWORDS,
-  WORD_BREAK_KEYWORDS,
-  WORD_SPACING_KEYWORDS,
-  WORD_WRAP_KEYWORDS,
-  WRITING_MODE_KEYWORDS,
-  Z_INDEX_KEYWORDS,
-  ZOOM_KEYWORDS,
-} from './keywords';
-import type {
-  AccentColorKeyword,
-  AlignContentKeyword,
-  AlignItemsKeyword,
-  AlignSelfKeyword,
-  AlignTracksKeyword,
-  AlignmentBaselineKeyword,
-  AllKeyword,
-  AnchorNameKeyword,
-  AnchorScopeKeyword,
-  AnimationKeyword,
-  AnimationCompositionKeyword,
-  AnimationDirectionKeyword,
-  AnimationFillModeKeyword,
-  AnimationIterationCountKeyword,
-  AnimationNameKeyword,
-  AnimationPlayStateKeyword,
-  AnimationRangeEndKeyword,
-  AnimationRangeStartKeyword,
-  AnimationTimelineKeyword,
-  AnimationTimingFunctionKeyword,
-  AppearanceKeyword,
-  AspectRatioKeyword,
-  AzimuthKeyword,
-  BackdropFilterKeyword,
-  BackfaceVisibilityKeyword,
-  BackgroundKeyword,
-  BackgroundAttachmentKeyword,
-  BackgroundBlendModeKeyword,
-  BackgroundClipKeyword,
-  BackgroundColorKeyword,
-  BackgroundImageKeyword,
-  BackgroundOriginKeyword,
-  BackgroundPositionKeyword,
-  BackgroundPositionXKeyword,
-  BackgroundPositionYKeyword,
-  BackgroundRepeatKeyword,
-  BackgroundSizeKeyword,
-  BaselineShiftKeyword,
-  BorderKeyword,
-  BorderBlockKeyword,
-  BorderBlockEndKeyword,
-  BorderBlockStartKeyword,
-  BorderBottomKeyword,
-  BorderBottomStyleKeyword,
-  BorderBottomWidthKeyword,
-  BorderCollapseKeyword,
-  BorderColorKeyword,
-  BorderImageRepeatKeyword,
-  BorderImageSliceKeyword,
-  BorderImageSourceKeyword,
-  BorderImageWidthKeyword,
-  BorderInlineKeyword,
-  BorderInlineEndKeyword,
-  BorderInlineStartKeyword,
-  BorderLeftKeyword,
-  BorderLeftColorKeyword,
-  BorderLeftStyleKeyword,
-  BorderLeftWidthKeyword,
-  BorderRightKeyword,
-  BorderRightColorKeyword,
-  BorderRightStyleKeyword,
-  BorderRightWidthKeyword,
-  BorderStyleKeyword,
-  BorderTopKeyword,
-  BorderTopColorKeyword,
-  BorderTopStyleKeyword,
-  BorderTopWidthKeyword,
-  BorderWidthKeyword,
-  BottomKeyword,
-  BoxAlignKeyword,
-  BoxDecorationBreakKeyword,
-  BoxDirectionKeyword,
-  BoxLinesKeyword,
-  BoxOrientKeyword,
-  BoxPackKeyword,
-  BoxShadowKeyword,
-  BoxSizingKeyword,
-  BreakAfterKeyword,
-  BreakBeforeKeyword,
-  BreakInsideKeyword,
-  CaptionSideKeyword,
-  CaretColorKeyword,
-  CaretShapeKeyword,
-  ClearKeyword,
-  ClipKeyword,
-  ClipPathKeyword,
-  ClipRuleKeyword,
-  ColorKeyword,
-  ColorInterpolationFiltersKeyword,
-  ColorSchemeKeyword,
-  ColumnCountKeyword,
-  ColumnFillKeyword,
-  ColumnGapKeyword,
-  ColumnRuleColorKeyword,
-  ColumnSpanKeyword,
-  ColumnWidthKeyword,
-  ContainKeyword,
-  ContainIntrinsicBlockSizeKeyword,
-  ContainIntrinsicHeightKeyword,
-  ContainIntrinsicInlineSizeKeyword,
-  ContainIntrinsicSizeKeyword,
-  ContainIntrinsicWidthKeyword,
-  ContainerNameKeyword,
-  ContainerTypeKeyword,
-  ContentKeyword,
-  ContentVisibilityKeyword,
-  CounterIncrementKeyword,
-  CounterResetKeyword,
-  CounterSetKeyword,
-  CueAfterKeyword,
-  CueBeforeKeyword,
-  CursorKeyword,
-  DKeyword,
-  DirectionKeyword,
-  DisplayKeyword,
-  DominantBaselineKeyword,
-  EmptyCellsKeyword,
-  FieldSizingKeyword,
-  FillKeyword,
-  FillRuleKeyword,
-  FilterKeyword,
-  FlexKeyword,
-  FlexBasisKeyword,
-  FlexDirectionKeyword,
-  FlexWrapKeyword,
-  FloatKeyword,
-  FontKeyword,
-  FontFamilyKeyword,
-  FontFeatureSettingsKeyword,
-  FontKerningKeyword,
-  FontLanguageOverrideKeyword,
-  FontOpticalSizingKeyword,
-  FontPaletteKeyword,
-  FontSizeKeyword,
-  FontSizeAdjustKeyword,
-  FontSmoothKeyword,
-  FontStretchKeyword,
-  FontStyleKeyword,
-  FontSynthesisKeyword,
-  FontSynthesisPositionKeyword,
-  FontSynthesisSmallCapsKeyword,
-  FontSynthesisStyleKeyword,
-  FontSynthesisWeightKeyword,
-  FontVariantKeyword,
-  FontVariantAlternatesKeyword,
-  FontVariantCapsKeyword,
-  FontVariantEastAsianKeyword,
-  FontVariantEmojiKeyword,
-  FontVariantLigaturesKeyword,
-  FontVariantNumericKeyword,
-  FontVariantPositionKeyword,
-  FontVariationSettingsKeyword,
-  FontWeightKeyword,
-  ForcedColorAdjustKeyword,
-  GridKeyword,
-  GridAreaKeyword,
-  GridAutoColumnsKeyword,
-  GridAutoFlowKeyword,
-  GridAutoRowsKeyword,
-  GridColumnKeyword,
-  GridColumnEndKeyword,
-  GridColumnStartKeyword,
-  GridRowKeyword,
-  GridRowEndKeyword,
-  GridRowStartKeyword,
-  GridTemplateKeyword,
-  GridTemplateAreasKeyword,
-  GridTemplateColumnsKeyword,
-  GridTemplateRowsKeyword,
-  HangingPunctuationKeyword,
-  HeightKeyword,
-  HyphenateCharacterKeyword,
-  HyphenateLimitCharsKeyword,
-  HyphensKeyword,
-  ImageOrientationKeyword,
-  ImageRenderingKeyword,
-  ImageResolutionKeyword,
-  ImeModeKeyword,
-  InitialLetterKeyword,
-  InitialLetterAlignKeyword,
-  InputSecurityKeyword,
-  InterpolateSizeKeyword,
-  IsolationKeyword,
-  JustifyContentKeyword,
-  JustifyItemsKeyword,
-  JustifySelfKeyword,
-  JustifyTracksKeyword,
-  KerningKeyword,
-  LeftKeyword,
-  LetterSpacingKeyword,
-  LineBreakKeyword,
-  LineClampKeyword,
-  LineHeightKeyword,
-  ListStyleImageKeyword,
-  ListStylePositionKeyword,
-  ListStyleTypeKeyword,
-  MarginKeyword,
-  MarginBottomKeyword,
-  MarginLeftKeyword,
-  MarginRightKeyword,
-  MarginTopKeyword,
-  MarginTrimKeyword,
-  MarkerKeyword,
-  MarkerEndKeyword,
-  MarkerMidKeyword,
-  MarkerStartKeyword,
-  MaskKeyword,
-  MaskBorderModeKeyword,
-  MaskBorderRepeatKeyword,
-  MaskBorderSliceKeyword,
-  MaskBorderSourceKeyword,
-  MaskBorderWidthKeyword,
-  MaskClipKeyword,
-  MaskCompositeKeyword,
-  MaskImageKeyword,
-  MaskModeKeyword,
-  MaskOriginKeyword,
-  MaskPositionKeyword,
-  MaskRepeatKeyword,
-  MaskSizeKeyword,
-  MaskTypeKeyword,
-  MasonryAutoFlowKeyword,
-  MathDepthKeyword,
-  MathShiftKeyword,
-  MathStyleKeyword,
-  MaxHeightKeyword,
-  MaxLinesKeyword,
-  MaxWidthKeyword,
-  MinHeightKeyword,
-  MinWidthKeyword,
-  MixBlendModeKeyword,
-  ObjectFitKeyword,
-  ObjectPositionKeyword,
-  OffsetAnchorKeyword,
-  OffsetPathKeyword,
-  OffsetPositionKeyword,
-  OffsetRotateKeyword,
-  OutlineColorKeyword,
-  OutlineStyleKeyword,
-  OutlineWidthKeyword,
-  OverflowKeyword,
-  OverflowAnchorKeyword,
-  OverflowBlockKeyword,
-  OverflowClipBoxKeyword,
-  OverflowClipMarginKeyword,
-  OverflowInlineKeyword,
-  OverflowWrapKeyword,
-  OverflowXKeyword,
-  OverflowYKeyword,
-  OverlayKeyword,
-  OverscrollBehaviorKeyword,
-  OverscrollBehaviorBlockKeyword,
-  OverscrollBehaviorInlineKeyword,
-  OverscrollBehaviorXKeyword,
-  OverscrollBehaviorYKeyword,
-  PageKeyword,
-  PageBreakAfterKeyword,
-  PageBreakBeforeKeyword,
-  PageBreakInsideKeyword,
-  PaintOrderKeyword,
-  PauseAfterKeyword,
-  PauseBeforeKeyword,
-  PerspectiveKeyword,
-  PerspectiveOriginKeyword,
-  PointerEventsKeyword,
-  PositionKeyword,
-  PositionAnchorKeyword,
-  PositionAreaKeyword,
-  PositionTryFallbacksKeyword,
-  PositionTryOrderKeyword,
-  PositionVisibilityKeyword,
-  PrintColorAdjustKeyword,
-  QuotesKeyword,
-  ResizeKeyword,
-  RestAfterKeyword,
-  RestBeforeKeyword,
-  RightKeyword,
-  RotateKeyword,
-  RowGapKeyword,
-  RubyAlignKeyword,
-  RubyMergeKeyword,
-  RubyPositionKeyword,
-  ScaleKeyword,
-  ScrollBehaviorKeyword,
-  ScrollPaddingKeyword,
-  ScrollPaddingBlockKeyword,
-  ScrollPaddingBlockEndKeyword,
-  ScrollPaddingBlockStartKeyword,
-  ScrollPaddingBottomKeyword,
-  ScrollPaddingInlineKeyword,
-  ScrollPaddingInlineEndKeyword,
-  ScrollPaddingInlineStartKeyword,
-  ScrollPaddingLeftKeyword,
-  ScrollPaddingRightKeyword,
-  ScrollPaddingTopKeyword,
-  ScrollSnapAlignKeyword,
-  ScrollSnapCoordinateKeyword,
-  ScrollSnapDestinationKeyword,
-  ScrollSnapPointsXKeyword,
-  ScrollSnapPointsYKeyword,
-  ScrollSnapStopKeyword,
-  ScrollSnapTypeKeyword,
-  ScrollSnapTypeXKeyword,
-  ScrollSnapTypeYKeyword,
-  ScrollTimelineAxisKeyword,
-  ScrollTimelineNameKeyword,
-  ScrollbarColorKeyword,
-  ScrollbarGutterKeyword,
-  ScrollbarWidthKeyword,
-  ShapeOutsideKeyword,
-  ShapeRenderingKeyword,
-  SpeakKeyword,
-  SpeakAsKeyword,
-  StrokeKeyword,
-  StrokeDasharrayKeyword,
-  StrokeLinecapKeyword,
-  StrokeLinejoinKeyword,
-  TableLayoutKeyword,
-  TextAlignKeyword,
-  TextAlignLastKeyword,
-  TextAnchorKeyword,
-  TextCombineUprightKeyword,
-  TextDecorationColorKeyword,
-  TextDecorationLineKeyword,
-  TextDecorationSkipKeyword,
-  TextDecorationSkipInkKeyword,
-  TextDecorationStyleKeyword,
-  TextDecorationThicknessKeyword,
-  TextEmphasisColorKeyword,
-  TextEmphasisPositionKeyword,
-  TextEmphasisStyleKeyword,
-  TextIndentKeyword,
-  TextJustifyKeyword,
-  TextOrientationKeyword,
-  TextOverflowKeyword,
-  TextRenderingKeyword,
-  TextShadowKeyword,
-  TextSizeAdjustKeyword,
-  TextSpacingTrimKeyword,
-  TextTransformKeyword,
-  TextUnderlineOffsetKeyword,
-  TextUnderlinePositionKeyword,
-  TextWrapModeKeyword,
-  TextWrapStyleKeyword,
-  TimelineScopeKeyword,
-  TopKeyword,
-  TouchActionKeyword,
-  TransformKeyword,
-  TransformBoxKeyword,
-  TransformOriginKeyword,
-  TransformStyleKeyword,
-  TransitionKeyword,
-  TransitionBehaviorKeyword,
-  TransitionPropertyKeyword,
-  TransitionTimingFunctionKeyword,
-  TranslateKeyword,
-  UnicodeBidiKeyword,
-  UserSelectKeyword,
-  VectorEffectKeyword,
-  VerticalAlignKeyword,
-  ViewTimelineAxisKeyword,
-  ViewTimelineInsetKeyword,
-  ViewTimelineNameKeyword,
-  ViewTransitionNameKeyword,
-  VisibilityKeyword,
-  VoiceBalanceKeyword,
-  VoiceDurationKeyword,
-  VoiceFamilyKeyword,
-  VoicePitchKeyword,
-  VoiceRangeKeyword,
-  VoiceRateKeyword,
-  VoiceStressKeyword,
-  VoiceVolumeKeyword,
-  WhiteSpaceKeyword,
-  WhiteSpaceCollapseKeyword,
-  WhiteSpaceTrimKeyword,
-  WidthKeyword,
-  WillChangeKeyword,
-  WordBreakKeyword,
-  WordSpacingKeyword,
-  WordWrapKeyword,
-  WritingModeKeyword,
-  ZIndexKeyword,
-  ZoomKeyword,
-} from './keywords';
-
-// ==================== 数值类型常量 ====================
-
-export const ACCENT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const ANIMATION_NUMBER_TYPES = ['integer', 'number'] as const;
-export const ANIMATION_DELAY_NUMBER_TYPES = ['time'] as const;
-export const ANIMATION_DURATION_NUMBER_TYPES = ['time'] as const;
-export const ANIMATION_ITERATION_COUNT_NUMBER_TYPES = ['number'] as const;
-export const ANIMATION_RANGE_END_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const ANIMATION_RANGE_START_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const ANIMATION_TIMING_FUNCTION_NUMBER_TYPES = ['integer', 'number'] as const;
-export const ASPECT_RATIO_NUMBER_TYPES = ['number'] as const;
-export const AZIMUTH_NUMBER_TYPES = ['angle'] as const;
-export const BACKDROP_FILTER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BACKGROUND_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const BACKGROUND_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BACKGROUND_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const BACKGROUND_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BACKGROUND_POSITION_X_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BACKGROUND_POSITION_Y_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BACKGROUND_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BASELINE_SHIFT_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const BORDER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BORDER_BLOCK_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_BLOCK_END_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_BLOCK_START_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_BOTTOM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_BOTTOM_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const BORDER_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_END_END_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_END_START_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_IMAGE_OUTSET_NUMBER_TYPES = ['length', 'number'] as const;
-export const BORDER_IMAGE_SLICE_NUMBER_TYPES = ['number', 'percentage'] as const;
-export const BORDER_IMAGE_SOURCE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const BORDER_IMAGE_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const BORDER_INLINE_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_INLINE_END_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_INLINE_START_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_LEFT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BORDER_LEFT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_LEFT_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const BORDER_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_RIGHT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BORDER_RIGHT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_RIGHT_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const BORDER_SPACING_NUMBER_TYPES = ['length'] as const;
-export const BORDER_START_END_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_START_START_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_TOP_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const BORDER_TOP_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BORDER_TOP_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const BORDER_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const BOX_FLEX_NUMBER_TYPES = ['number'] as const;
-export const BOX_FLEX_GROUP_NUMBER_TYPES = ['integer'] as const;
-export const BOX_ORDINAL_GROUP_NUMBER_TYPES = ['integer'] as const;
-export const BOX_SHADOW_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const CARET_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const CLIP_NUMBER_TYPES = ['length'] as const;
-export const CLIP_PATH_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const COLUMN_COUNT_NUMBER_TYPES = ['integer'] as const;
-export const COLUMN_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const COLUMN_RULE_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const COLUMN_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES = ['length'] as const;
-export const CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES = ['length'] as const;
-export const CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES = ['length'] as const;
-export const CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES = ['length'] as const;
-export const CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const CONTENT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const COUNTER_INCREMENT_NUMBER_TYPES = ['integer'] as const;
-export const COUNTER_RESET_NUMBER_TYPES = ['integer'] as const;
-export const COUNTER_SET_NUMBER_TYPES = ['integer'] as const;
-export const CURSOR_NUMBER_TYPES = ['number'] as const;
-export const CX_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const CY_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const FILL_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const FILL_OPACITY_NUMBER_TYPES = ['number'] as const;
-export const FILTER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const FLEX_GROW_NUMBER_TYPES = ['number'] as const;
-export const FLEX_SHRINK_NUMBER_TYPES = ['number'] as const;
-export const FONT_FEATURE_SETTINGS_NUMBER_TYPES = ['integer'] as const;
-export const FONT_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const FONT_SIZE_ADJUST_NUMBER_TYPES = ['number'] as const;
-export const FONT_SMOOTH_NUMBER_TYPES = ['length'] as const;
-export const FONT_STRETCH_NUMBER_TYPES = ['percentage'] as const;
-export const FONT_STYLE_NUMBER_TYPES = ['angle'] as const;
-export const FONT_VARIATION_SETTINGS_NUMBER_TYPES = ['number'] as const;
-export const FONT_WEIGHT_NUMBER_TYPES = ['number'] as const;
-export const GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES = ['angle'] as const;
-export const GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES = ['angle'] as const;
-export const GRID_AREA_NUMBER_TYPES = ['integer'] as const;
-export const GRID_AUTO_COLUMNS_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
-export const GRID_AUTO_ROWS_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
-export const GRID_COLUMN_NUMBER_TYPES = ['integer'] as const;
-export const GRID_COLUMN_END_NUMBER_TYPES = ['integer'] as const;
-export const GRID_COLUMN_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const GRID_COLUMN_START_NUMBER_TYPES = ['integer'] as const;
-export const GRID_ROW_NUMBER_TYPES = ['integer'] as const;
-export const GRID_ROW_END_NUMBER_TYPES = ['integer'] as const;
-export const GRID_ROW_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const GRID_ROW_START_NUMBER_TYPES = ['integer'] as const;
-export const GRID_TEMPLATE_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
-export const GRID_TEMPLATE_COLUMNS_NUMBER_TYPES = ['flex', 'integer', 'length', 'percentage'] as const;
-export const GRID_TEMPLATE_ROWS_NUMBER_TYPES = ['flex', 'integer', 'length', 'percentage'] as const;
-export const HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const HYPHENATE_LIMIT_CHARS_NUMBER_TYPES = ['integer'] as const;
-export const IMAGE_ORIENTATION_NUMBER_TYPES = ['angle'] as const;
-export const IMAGE_RESOLUTION_NUMBER_TYPES = ['resolution'] as const;
-export const INITIAL_LETTER_NUMBER_TYPES = ['integer', 'number'] as const;
-export const KERNING_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const LETTER_SPACING_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const LINE_CLAMP_NUMBER_TYPES = ['integer'] as const;
-export const LINE_HEIGHT_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const LINE_HEIGHT_STEP_NUMBER_TYPES = ['length'] as const;
-export const LIST_STYLE_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const MARGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MARGIN_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MARGIN_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MARGIN_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MARGIN_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MASK_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const MASK_BORDER_OUTSET_NUMBER_TYPES = ['length', 'number'] as const;
-export const MASK_BORDER_SLICE_NUMBER_TYPES = ['number', 'percentage'] as const;
-export const MASK_BORDER_SOURCE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const MASK_BORDER_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const MASK_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const MASK_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MASK_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MATH_DEPTH_NUMBER_TYPES = ['integer'] as const;
-export const MAX_HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MAX_LINES_NUMBER_TYPES = ['integer'] as const;
-export const MAX_WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MIN_HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const MIN_WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const OBJECT_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const OFFSET_ANCHOR_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const OFFSET_DISTANCE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const OFFSET_PATH_NUMBER_TYPES = ['angle', 'length', 'percentage'] as const;
-export const OFFSET_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const OFFSET_ROTATE_NUMBER_TYPES = ['angle'] as const;
-export const OPACITY_NUMBER_TYPES = ['number', 'percentage'] as const;
-export const ORDER_NUMBER_TYPES = ['integer'] as const;
-export const ORPHANS_NUMBER_TYPES = ['integer'] as const;
-export const OUTLINE_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const OUTLINE_OFFSET_NUMBER_TYPES = ['length'] as const;
-export const OUTLINE_WIDTH_NUMBER_TYPES = ['length'] as const;
-export const OVERFLOW_CLIP_MARGIN_NUMBER_TYPES = ['length'] as const;
-export const PADDING_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const PADDING_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const PADDING_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const PADDING_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const PADDING_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const PAUSE_AFTER_NUMBER_TYPES = ['time'] as const;
-export const PAUSE_BEFORE_NUMBER_TYPES = ['time'] as const;
-export const PERSPECTIVE_NUMBER_TYPES = ['length'] as const;
-export const PERSPECTIVE_ORIGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const R_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const REST_AFTER_NUMBER_TYPES = ['time'] as const;
-export const REST_BEFORE_NUMBER_TYPES = ['time'] as const;
-export const RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const ROTATE_NUMBER_TYPES = ['angle', 'number'] as const;
-export const ROW_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const RX_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const RY_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCALE_NUMBER_TYPES = ['number', 'percentage'] as const;
-export const SCROLL_MARGIN_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_BLOCK_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_BOTTOM_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_INLINE_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_INLINE_END_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_INLINE_START_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_LEFT_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_RIGHT_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_MARGIN_TOP_NUMBER_TYPES = ['length'] as const;
-export const SCROLL_PADDING_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_BLOCK_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_BLOCK_END_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_BLOCK_START_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_INLINE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_INLINE_END_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_INLINE_START_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_PADDING_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_SNAP_COORDINATE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_SNAP_DESTINATION_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_SNAP_POINTS_X_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLL_SNAP_POINTS_Y_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SCROLLBAR_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES = ['number', 'percentage'] as const;
-export const SHAPE_MARGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const SHAPE_OUTSIDE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
-export const STROKE_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const STROKE_DASHARRAY_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const STROKE_DASHOFFSET_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const STROKE_MITERLIMIT_NUMBER_TYPES = ['number'] as const;
-export const STROKE_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
-export const TAB_SIZE_NUMBER_TYPES = ['integer', 'length'] as const;
-export const TEXT_COMBINE_UPRIGHT_NUMBER_TYPES = ['integer'] as const;
-export const TEXT_DECORATION_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const TEXT_DECORATION_THICKNESS_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TEXT_EMPHASIS_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
-export const TEXT_INDENT_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TEXT_SHADOW_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const TEXT_SIZE_ADJUST_NUMBER_TYPES = ['percentage'] as const;
-export const TEXT_UNDERLINE_OFFSET_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TRANSFORM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
-export const TRANSFORM_ORIGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TRANSITION_NUMBER_TYPES = ['integer', 'number', 'time'] as const;
-export const TRANSITION_DELAY_NUMBER_TYPES = ['time'] as const;
-export const TRANSITION_DURATION_NUMBER_TYPES = ['time'] as const;
-export const TRANSITION_TIMING_FUNCTION_NUMBER_TYPES = ['integer', 'number'] as const;
-export const TRANSLATE_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const VERTICAL_ALIGN_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const VIEW_TIMELINE_INSET_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const VOICE_BALANCE_NUMBER_TYPES = ['number'] as const;
-export const VOICE_DURATION_NUMBER_TYPES = ['time'] as const;
-export const VOICE_FAMILY_NUMBER_TYPES = ['integer'] as const;
-export const VOICE_PITCH_NUMBER_TYPES = ['frequency', 'percentage'] as const;
-export const VOICE_RANGE_NUMBER_TYPES = ['frequency', 'percentage'] as const;
-export const VOICE_RATE_NUMBER_TYPES = ['percentage'] as const;
-export const WIDOWS_NUMBER_TYPES = ['integer'] as const;
-export const WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const WORD_SPACING_NUMBER_TYPES = ['length'] as const;
-export const X_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const Y_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const Z_INDEX_NUMBER_TYPES = ['integer'] as const;
-export const ZOOM_NUMBER_TYPES = ['number', 'percentage'] as const;
+import type { NumberTypeName } from './units';
 
 // ==================== 属性单位类型 ====================
 
@@ -1494,2186 +482,2608 @@ export type ZoomUnitCategory = 'percentage' | 'unitless';
 // ==================== 属性配置类 ====================
 
 export class AccentColorConfig {
-  keywords: AccentColorKeyword[] = [...ACCENT_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ACCENT_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignContentConfig {
-  keywords: AlignContentKeyword[] = [...ALIGN_CONTENT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignItemsConfig {
-  keywords: AlignItemsKeyword[] = [...ALIGN_ITEMS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignSelfConfig {
-  keywords: AlignSelfKeyword[] = [...ALIGN_SELF_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignTracksConfig {
-  keywords: AlignTracksKeyword[] = [...ALIGN_TRACKS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignmentBaselineConfig {
-  keywords: AlignmentBaselineKeyword[] = [...ALIGNMENT_BASELINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AllConfig {
-  keywords: AllKeyword[] = [...ALL_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnchorNameConfig {
-  keywords: AnchorNameKeyword[] = [...ANCHOR_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnchorScopeConfig {
-  keywords: AnchorScopeKeyword[] = [...ANCHOR_SCOPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationConfig {
-  keywords: AnimationKeyword[] = [...ANIMATION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ANIMATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationCompositionConfig {
-  keywords: AnimationCompositionKeyword[] = [...ANIMATION_COMPOSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDelayConfig {
-  numberTypes: NumberTypeName[] = [...ANIMATION_DELAY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDirectionConfig {
-  keywords: AnimationDirectionKeyword[] = [...ANIMATION_DIRECTION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDurationConfig {
-  numberTypes: NumberTypeName[] = [...ANIMATION_DURATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationFillModeConfig {
-  keywords: AnimationFillModeKeyword[] = [...ANIMATION_FILL_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationIterationCountConfig {
-  keywords: AnimationIterationCountKeyword[] = [...ANIMATION_ITERATION_COUNT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ANIMATION_ITERATION_COUNT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationNameConfig {
-  keywords: AnimationNameKeyword[] = [...ANIMATION_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationPlayStateConfig {
-  keywords: AnimationPlayStateKeyword[] = [...ANIMATION_PLAY_STATE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationRangeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationRangeEndConfig {
-  keywords: AnimationRangeEndKeyword[] = [...ANIMATION_RANGE_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ANIMATION_RANGE_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationRangeStartConfig {
-  keywords: AnimationRangeStartKeyword[] = [...ANIMATION_RANGE_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ANIMATION_RANGE_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationTimelineConfig {
-  keywords: AnimationTimelineKeyword[] = [...ANIMATION_TIMELINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationTimingFunctionConfig {
-  keywords: AnimationTimingFunctionKeyword[] = [...ANIMATION_TIMING_FUNCTION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ANIMATION_TIMING_FUNCTION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AppearanceConfig {
-  keywords: AppearanceKeyword[] = [...APPEARANCE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AspectRatioConfig {
-  keywords: AspectRatioKeyword[] = [...ASPECT_RATIO_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ASPECT_RATIO_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AzimuthConfig {
-  keywords: AzimuthKeyword[] = [...AZIMUTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...AZIMUTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackdropFilterConfig {
-  keywords: BackdropFilterKeyword[] = [...BACKDROP_FILTER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKDROP_FILTER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackfaceVisibilityConfig {
-  keywords: BackfaceVisibilityKeyword[] = [...BACKFACE_VISIBILITY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundConfig {
-  keywords: BackgroundKeyword[] = [...BACKGROUND_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundAttachmentConfig {
-  keywords: BackgroundAttachmentKeyword[] = [...BACKGROUND_ATTACHMENT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundBlendModeConfig {
-  keywords: BackgroundBlendModeKeyword[] = [...BACKGROUND_BLEND_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundClipConfig {
-  keywords: BackgroundClipKeyword[] = [...BACKGROUND_CLIP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundColorConfig {
-  keywords: BackgroundColorKeyword[] = [...BACKGROUND_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundImageConfig {
-  keywords: BackgroundImageKeyword[] = [...BACKGROUND_IMAGE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_IMAGE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundOriginConfig {
-  keywords: BackgroundOriginKeyword[] = [...BACKGROUND_ORIGIN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionConfig {
-  keywords: BackgroundPositionKeyword[] = [...BACKGROUND_POSITION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionXConfig {
-  keywords: BackgroundPositionXKeyword[] = [...BACKGROUND_POSITION_X_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_X_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionYConfig {
-  keywords: BackgroundPositionYKeyword[] = [...BACKGROUND_POSITION_Y_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_Y_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundRepeatConfig {
-  keywords: BackgroundRepeatKeyword[] = [...BACKGROUND_REPEAT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundSizeConfig {
-  keywords: BackgroundSizeKeyword[] = [...BACKGROUND_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BACKGROUND_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BaselineShiftConfig {
-  keywords: BaselineShiftKeyword[] = [...BASELINE_SHIFT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BASELINE_SHIFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BehaviorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BlockSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderConfig {
-  keywords: BorderKeyword[] = [...BORDER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockConfig {
-  keywords: BorderBlockKeyword[] = [...BORDER_BLOCK_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_BLOCK_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockEndConfig {
-  keywords: BorderBlockEndKeyword[] = [...BORDER_BLOCK_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_BLOCK_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockEndColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockEndStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockEndWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockStartConfig {
-  keywords: BorderBlockStartKeyword[] = [...BORDER_BLOCK_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_BLOCK_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockStartColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockStartStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockStartWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomConfig {
-  keywords: BorderBottomKeyword[] = [...BORDER_BOTTOM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomLeftRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomRightRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomStyleConfig {
-  keywords: BorderBottomStyleKeyword[] = [...BORDER_BOTTOM_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomWidthConfig {
-  keywords: BorderBottomWidthKeyword[] = [...BORDER_BOTTOM_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderCollapseConfig {
-  keywords: BorderCollapseKeyword[] = [...BORDER_COLLAPSE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderColorConfig {
-  keywords: BorderColorKeyword[] = [...BORDER_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderEndEndRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_END_END_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderEndStartRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_END_START_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageOutsetConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_IMAGE_OUTSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageRepeatConfig {
-  keywords: BorderImageRepeatKeyword[] = [...BORDER_IMAGE_REPEAT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageSliceConfig {
-  keywords: BorderImageSliceKeyword[] = [...BORDER_IMAGE_SLICE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_IMAGE_SLICE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageSourceConfig {
-  keywords: BorderImageSourceKeyword[] = [...BORDER_IMAGE_SOURCE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_IMAGE_SOURCE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageWidthConfig {
-  keywords: BorderImageWidthKeyword[] = [...BORDER_IMAGE_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_IMAGE_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineConfig {
-  keywords: BorderInlineKeyword[] = [...BORDER_INLINE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_INLINE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineEndConfig {
-  keywords: BorderInlineEndKeyword[] = [...BORDER_INLINE_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_INLINE_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineEndColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineEndStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineEndWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineStartConfig {
-  keywords: BorderInlineStartKeyword[] = [...BORDER_INLINE_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_INLINE_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineStartColorConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineStartStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineStartWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftConfig {
-  keywords: BorderLeftKeyword[] = [...BORDER_LEFT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftColorConfig {
-  keywords: BorderLeftColorKeyword[] = [...BORDER_LEFT_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_LEFT_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftStyleConfig {
-  keywords: BorderLeftStyleKeyword[] = [...BORDER_LEFT_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftWidthConfig {
-  keywords: BorderLeftWidthKeyword[] = [...BORDER_LEFT_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_LEFT_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightConfig {
-  keywords: BorderRightKeyword[] = [...BORDER_RIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightColorConfig {
-  keywords: BorderRightColorKeyword[] = [...BORDER_RIGHT_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_RIGHT_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightStyleConfig {
-  keywords: BorderRightStyleKeyword[] = [...BORDER_RIGHT_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightWidthConfig {
-  keywords: BorderRightWidthKeyword[] = [...BORDER_RIGHT_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_RIGHT_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderSpacingConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_SPACING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStartEndRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_START_END_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStartStartRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_START_START_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStyleConfig {
-  keywords: BorderStyleKeyword[] = [...BORDER_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopConfig {
-  keywords: BorderTopKeyword[] = [...BORDER_TOP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopColorConfig {
-  keywords: BorderTopColorKeyword[] = [...BORDER_TOP_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_TOP_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopLeftRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopRightRadiusConfig {
-  numberTypes: NumberTypeName[] = [...BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopStyleConfig {
-  keywords: BorderTopStyleKeyword[] = [...BORDER_TOP_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopWidthConfig {
-  keywords: BorderTopWidthKeyword[] = [...BORDER_TOP_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_TOP_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderWidthConfig {
-  keywords: BorderWidthKeyword[] = [...BORDER_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BORDER_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BottomConfig {
-  keywords: BottomKeyword[] = [...BOTTOM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxAlignConfig {
-  keywords: BoxAlignKeyword[] = [...BOX_ALIGN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxDecorationBreakConfig {
-  keywords: BoxDecorationBreakKeyword[] = [...BOX_DECORATION_BREAK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxDirectionConfig {
-  keywords: BoxDirectionKeyword[] = [...BOX_DIRECTION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxFlexConfig {
-  numberTypes: NumberTypeName[] = [...BOX_FLEX_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxFlexGroupConfig {
-  numberTypes: NumberTypeName[] = [...BOX_FLEX_GROUP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxLinesConfig {
-  keywords: BoxLinesKeyword[] = [...BOX_LINES_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxOrdinalGroupConfig {
-  numberTypes: NumberTypeName[] = [...BOX_ORDINAL_GROUP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxOrientConfig {
-  keywords: BoxOrientKeyword[] = [...BOX_ORIENT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxPackConfig {
-  keywords: BoxPackKeyword[] = [...BOX_PACK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxShadowConfig {
-  keywords: BoxShadowKeyword[] = [...BOX_SHADOW_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...BOX_SHADOW_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxSizingConfig {
-  keywords: BoxSizingKeyword[] = [...BOX_SIZING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakAfterConfig {
-  keywords: BreakAfterKeyword[] = [...BREAK_AFTER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakBeforeConfig {
-  keywords: BreakBeforeKeyword[] = [...BREAK_BEFORE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakInsideConfig {
-  keywords: BreakInsideKeyword[] = [...BREAK_INSIDE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaptionSideConfig {
-  keywords: CaptionSideKeyword[] = [...CAPTION_SIDE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaretConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaretColorConfig {
-  keywords: CaretColorKeyword[] = [...CARET_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CARET_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaretShapeConfig {
-  keywords: CaretShapeKeyword[] = [...CARET_SHAPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClearConfig {
-  keywords: ClearKeyword[] = [...CLEAR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipConfig {
-  keywords: ClipKeyword[] = [...CLIP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CLIP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipPathConfig {
-  keywords: ClipPathKeyword[] = [...CLIP_PATH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CLIP_PATH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipRuleConfig {
-  keywords: ClipRuleKeyword[] = [...CLIP_RULE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorConfig {
-  keywords: ColorKeyword[] = [...COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorInterpolationFiltersConfig {
-  keywords: ColorInterpolationFiltersKeyword[] = [...COLOR_INTERPOLATION_FILTERS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorSchemeConfig {
-  keywords: ColorSchemeKeyword[] = [...COLOR_SCHEME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnCountConfig {
-  keywords: ColumnCountKeyword[] = [...COLUMN_COUNT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COLUMN_COUNT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnFillConfig {
-  keywords: ColumnFillKeyword[] = [...COLUMN_FILL_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnGapConfig {
-  keywords: ColumnGapKeyword[] = [...COLUMN_GAP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COLUMN_GAP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnRuleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnRuleColorConfig {
-  keywords: ColumnRuleColorKeyword[] = [...COLUMN_RULE_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COLUMN_RULE_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnRuleStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnRuleWidthConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnSpanConfig {
-  keywords: ColumnSpanKeyword[] = [...COLUMN_SPAN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnWidthConfig {
-  keywords: ColumnWidthKeyword[] = [...COLUMN_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COLUMN_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnsConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainConfig {
-  keywords: ContainKeyword[] = [...CONTAIN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicBlockSizeConfig {
-  keywords: ContainIntrinsicBlockSizeKeyword[] = [...CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicHeightConfig {
-  keywords: ContainIntrinsicHeightKeyword[] = [...CONTAIN_INTRINSIC_HEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicInlineSizeConfig {
-  keywords: ContainIntrinsicInlineSizeKeyword[] = [...CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicSizeConfig {
-  keywords: ContainIntrinsicSizeKeyword[] = [...CONTAIN_INTRINSIC_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicWidthConfig {
-  keywords: ContainIntrinsicWidthKeyword[] = [...CONTAIN_INTRINSIC_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainerConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainerNameConfig {
-  keywords: ContainerNameKeyword[] = [...CONTAINER_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainerTypeConfig {
-  keywords: ContainerTypeKeyword[] = [...CONTAINER_TYPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContentConfig {
-  keywords: ContentKeyword[] = [...CONTENT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CONTENT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContentVisibilityConfig {
-  keywords: ContentVisibilityKeyword[] = [...CONTENT_VISIBILITY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterIncrementConfig {
-  keywords: CounterIncrementKeyword[] = [...COUNTER_INCREMENT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COUNTER_INCREMENT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterResetConfig {
-  keywords: CounterResetKeyword[] = [...COUNTER_RESET_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COUNTER_RESET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterSetConfig {
-  keywords: CounterSetKeyword[] = [...COUNTER_SET_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...COUNTER_SET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CueConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CueAfterConfig {
-  keywords: CueAfterKeyword[] = [...CUE_AFTER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CueBeforeConfig {
-  keywords: CueBeforeKeyword[] = [...CUE_BEFORE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CursorConfig {
-  keywords: CursorKeyword[] = [...CURSOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...CURSOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CxConfig {
-  numberTypes: NumberTypeName[] = [...CX_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CyConfig {
-  numberTypes: NumberTypeName[] = [...CY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DConfig {
-  keywords: DKeyword[] = [...D_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DirectionConfig {
-  keywords: DirectionKeyword[] = [...DIRECTION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DisplayConfig {
-  keywords: DisplayKeyword[] = [...DISPLAY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DominantBaselineConfig {
-  keywords: DominantBaselineKeyword[] = [...DOMINANT_BASELINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class EmptyCellsConfig {
-  keywords: EmptyCellsKeyword[] = [...EMPTY_CELLS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FieldSizingConfig {
-  keywords: FieldSizingKeyword[] = [...FIELD_SIZING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillConfig {
-  keywords: FillKeyword[] = [...FILL_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FILL_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillOpacityConfig {
-  numberTypes: NumberTypeName[] = [...FILL_OPACITY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillRuleConfig {
-  keywords: FillRuleKeyword[] = [...FILL_RULE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FilterConfig {
-  keywords: FilterKeyword[] = [...FILTER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FILTER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexConfig {
-  keywords: FlexKeyword[] = [...FLEX_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexBasisConfig {
-  keywords: FlexBasisKeyword[] = [...FLEX_BASIS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexDirectionConfig {
-  keywords: FlexDirectionKeyword[] = [...FLEX_DIRECTION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexFlowConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexGrowConfig {
-  numberTypes: NumberTypeName[] = [...FLEX_GROW_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexShrinkConfig {
-  numberTypes: NumberTypeName[] = [...FLEX_SHRINK_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexWrapConfig {
-  keywords: FlexWrapKeyword[] = [...FLEX_WRAP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FloatConfig {
-  keywords: FloatKeyword[] = [...FLOAT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontConfig {
-  keywords: FontKeyword[] = [...FONT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontFamilyConfig {
-  keywords: FontFamilyKeyword[] = [...FONT_FAMILY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontFeatureSettingsConfig {
-  keywords: FontFeatureSettingsKeyword[] = [...FONT_FEATURE_SETTINGS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_FEATURE_SETTINGS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontKerningConfig {
-  keywords: FontKerningKeyword[] = [...FONT_KERNING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontLanguageOverrideConfig {
-  keywords: FontLanguageOverrideKeyword[] = [...FONT_LANGUAGE_OVERRIDE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontOpticalSizingConfig {
-  keywords: FontOpticalSizingKeyword[] = [...FONT_OPTICAL_SIZING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontPaletteConfig {
-  keywords: FontPaletteKeyword[] = [...FONT_PALETTE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSizeConfig {
-  keywords: FontSizeKeyword[] = [...FONT_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSizeAdjustConfig {
-  keywords: FontSizeAdjustKeyword[] = [...FONT_SIZE_ADJUST_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_SIZE_ADJUST_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSmoothConfig {
-  keywords: FontSmoothKeyword[] = [...FONT_SMOOTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_SMOOTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontStretchConfig {
-  keywords: FontStretchKeyword[] = [...FONT_STRETCH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_STRETCH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontStyleConfig {
-  keywords: FontStyleKeyword[] = [...FONT_STYLE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_STYLE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisConfig {
-  keywords: FontSynthesisKeyword[] = [...FONT_SYNTHESIS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisPositionConfig {
-  keywords: FontSynthesisPositionKeyword[] = [...FONT_SYNTHESIS_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisSmallCapsConfig {
-  keywords: FontSynthesisSmallCapsKeyword[] = [...FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisStyleConfig {
-  keywords: FontSynthesisStyleKeyword[] = [...FONT_SYNTHESIS_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisWeightConfig {
-  keywords: FontSynthesisWeightKeyword[] = [...FONT_SYNTHESIS_WEIGHT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantConfig {
-  keywords: FontVariantKeyword[] = [...FONT_VARIANT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantAlternatesConfig {
-  keywords: FontVariantAlternatesKeyword[] = [...FONT_VARIANT_ALTERNATES_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantCapsConfig {
-  keywords: FontVariantCapsKeyword[] = [...FONT_VARIANT_CAPS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantEastAsianConfig {
-  keywords: FontVariantEastAsianKeyword[] = [...FONT_VARIANT_EAST_ASIAN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantEmojiConfig {
-  keywords: FontVariantEmojiKeyword[] = [...FONT_VARIANT_EMOJI_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantLigaturesConfig {
-  keywords: FontVariantLigaturesKeyword[] = [...FONT_VARIANT_LIGATURES_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantNumericConfig {
-  keywords: FontVariantNumericKeyword[] = [...FONT_VARIANT_NUMERIC_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantPositionConfig {
-  keywords: FontVariantPositionKeyword[] = [...FONT_VARIANT_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariationSettingsConfig {
-  keywords: FontVariationSettingsKeyword[] = [...FONT_VARIATION_SETTINGS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_VARIATION_SETTINGS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontWeightConfig {
-  keywords: FontWeightKeyword[] = [...FONT_WEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...FONT_WEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ForcedColorAdjustConfig {
-  keywords: ForcedColorAdjustKeyword[] = [...FORCED_COLOR_ADJUST_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GapConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GlyphOrientationHorizontalConfig {
-  numberTypes: NumberTypeName[] = [...GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GlyphOrientationVerticalConfig {
-  numberTypes: NumberTypeName[] = [...GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridConfig {
-  keywords: GridKeyword[] = [...GRID_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAreaConfig {
-  keywords: GridAreaKeyword[] = [...GRID_AREA_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_AREA_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoColumnsConfig {
-  keywords: GridAutoColumnsKeyword[] = [...GRID_AUTO_COLUMNS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_AUTO_COLUMNS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoFlowConfig {
-  keywords: GridAutoFlowKeyword[] = [...GRID_AUTO_FLOW_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoRowsConfig {
-  keywords: GridAutoRowsKeyword[] = [...GRID_AUTO_ROWS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_AUTO_ROWS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnConfig {
-  keywords: GridColumnKeyword[] = [...GRID_COLUMN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_COLUMN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnEndConfig {
-  keywords: GridColumnEndKeyword[] = [...GRID_COLUMN_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_COLUMN_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnGapConfig {
-  numberTypes: NumberTypeName[] = [...GRID_COLUMN_GAP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnStartConfig {
-  keywords: GridColumnStartKeyword[] = [...GRID_COLUMN_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_COLUMN_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridGapConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowConfig {
-  keywords: GridRowKeyword[] = [...GRID_ROW_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_ROW_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowEndConfig {
-  keywords: GridRowEndKeyword[] = [...GRID_ROW_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_ROW_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowGapConfig {
-  numberTypes: NumberTypeName[] = [...GRID_ROW_GAP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowStartConfig {
-  keywords: GridRowStartKeyword[] = [...GRID_ROW_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_ROW_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateConfig {
-  keywords: GridTemplateKeyword[] = [...GRID_TEMPLATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateAreasConfig {
-  keywords: GridTemplateAreasKeyword[] = [...GRID_TEMPLATE_AREAS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateColumnsConfig {
-  keywords: GridTemplateColumnsKeyword[] = [...GRID_TEMPLATE_COLUMNS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_COLUMNS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateRowsConfig {
-  keywords: GridTemplateRowsKeyword[] = [...GRID_TEMPLATE_ROWS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_ROWS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HangingPunctuationConfig {
-  keywords: HangingPunctuationKeyword[] = [...HANGING_PUNCTUATION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HeightConfig {
-  keywords: HeightKeyword[] = [...HEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...HEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphenateCharacterConfig {
-  keywords: HyphenateCharacterKeyword[] = [...HYPHENATE_CHARACTER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphenateLimitCharsConfig {
-  keywords: HyphenateLimitCharsKeyword[] = [...HYPHENATE_LIMIT_CHARS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...HYPHENATE_LIMIT_CHARS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphensConfig {
-  keywords: HyphensKeyword[] = [...HYPHENS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageOrientationConfig {
-  keywords: ImageOrientationKeyword[] = [...IMAGE_ORIENTATION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...IMAGE_ORIENTATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageRenderingConfig {
-  keywords: ImageRenderingKeyword[] = [...IMAGE_RENDERING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageResolutionConfig {
-  keywords: ImageResolutionKeyword[] = [...IMAGE_RESOLUTION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...IMAGE_RESOLUTION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImeModeConfig {
-  keywords: ImeModeKeyword[] = [...IME_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InitialLetterConfig {
-  keywords: InitialLetterKeyword[] = [...INITIAL_LETTER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...INITIAL_LETTER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InitialLetterAlignConfig {
-  keywords: InitialLetterAlignKeyword[] = [...INITIAL_LETTER_ALIGN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InlineSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InputSecurityConfig {
-  keywords: InputSecurityKeyword[] = [...INPUT_SECURITY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetBlockConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetBlockEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetBlockStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetInlineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetInlineEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InsetInlineStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InterpolateSizeConfig {
-  keywords: InterpolateSizeKeyword[] = [...INTERPOLATE_SIZE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class IsolationConfig {
-  keywords: IsolationKeyword[] = [...ISOLATION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyContentConfig {
-  keywords: JustifyContentKeyword[] = [...JUSTIFY_CONTENT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyItemsConfig {
-  keywords: JustifyItemsKeyword[] = [...JUSTIFY_ITEMS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifySelfConfig {
-  keywords: JustifySelfKeyword[] = [...JUSTIFY_SELF_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyTracksConfig {
-  keywords: JustifyTracksKeyword[] = [...JUSTIFY_TRACKS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class KerningConfig {
-  keywords: KerningKeyword[] = [...KERNING_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...KERNING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LeftConfig {
-  keywords: LeftKeyword[] = [...LEFT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LetterSpacingConfig {
-  keywords: LetterSpacingKeyword[] = [...LETTER_SPACING_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...LETTER_SPACING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineBreakConfig {
-  keywords: LineBreakKeyword[] = [...LINE_BREAK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineClampConfig {
-  keywords: LineClampKeyword[] = [...LINE_CLAMP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...LINE_CLAMP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineHeightConfig {
-  keywords: LineHeightKeyword[] = [...LINE_HEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...LINE_HEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineHeightStepConfig {
-  numberTypes: NumberTypeName[] = [...LINE_HEIGHT_STEP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStyleConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStyleImageConfig {
-  keywords: ListStyleImageKeyword[] = [...LIST_STYLE_IMAGE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...LIST_STYLE_IMAGE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStylePositionConfig {
-  keywords: ListStylePositionKeyword[] = [...LIST_STYLE_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStyleTypeConfig {
-  keywords: ListStyleTypeKeyword[] = [...LIST_STYLE_TYPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginConfig {
-  keywords: MarginKeyword[] = [...MARGIN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MARGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginBlockConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginBlockEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginBlockStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginBottomConfig {
-  keywords: MarginBottomKeyword[] = [...MARGIN_BOTTOM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MARGIN_BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginInlineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginInlineEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginInlineStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginLeftConfig {
-  keywords: MarginLeftKeyword[] = [...MARGIN_LEFT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MARGIN_LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginRightConfig {
-  keywords: MarginRightKeyword[] = [...MARGIN_RIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MARGIN_RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginTopConfig {
-  keywords: MarginTopKeyword[] = [...MARGIN_TOP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MARGIN_TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginTrimConfig {
-  keywords: MarginTrimKeyword[] = [...MARGIN_TRIM_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerConfig {
-  keywords: MarkerKeyword[] = [...MARKER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerEndConfig {
-  keywords: MarkerEndKeyword[] = [...MARKER_END_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerMidConfig {
-  keywords: MarkerMidKeyword[] = [...MARKER_MID_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerStartConfig {
-  keywords: MarkerStartKeyword[] = [...MARKER_START_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskConfig {
-  keywords: MaskKeyword[] = [...MASK_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderModeConfig {
-  keywords: MaskBorderModeKeyword[] = [...MASK_BORDER_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderOutsetConfig {
-  numberTypes: NumberTypeName[] = [...MASK_BORDER_OUTSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderRepeatConfig {
-  keywords: MaskBorderRepeatKeyword[] = [...MASK_BORDER_REPEAT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderSliceConfig {
-  keywords: MaskBorderSliceKeyword[] = [...MASK_BORDER_SLICE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_BORDER_SLICE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderSourceConfig {
-  keywords: MaskBorderSourceKeyword[] = [...MASK_BORDER_SOURCE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_BORDER_SOURCE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderWidthConfig {
-  keywords: MaskBorderWidthKeyword[] = [...MASK_BORDER_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_BORDER_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskClipConfig {
-  keywords: MaskClipKeyword[] = [...MASK_CLIP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskCompositeConfig {
-  keywords: MaskCompositeKeyword[] = [...MASK_COMPOSITE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskImageConfig {
-  keywords: MaskImageKeyword[] = [...MASK_IMAGE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_IMAGE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskModeConfig {
-  keywords: MaskModeKeyword[] = [...MASK_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskOriginConfig {
-  keywords: MaskOriginKeyword[] = [...MASK_ORIGIN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskPositionConfig {
-  keywords: MaskPositionKeyword[] = [...MASK_POSITION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_POSITION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskRepeatConfig {
-  keywords: MaskRepeatKeyword[] = [...MASK_REPEAT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskSizeConfig {
-  keywords: MaskSizeKeyword[] = [...MASK_SIZE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MASK_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskTypeConfig {
-  keywords: MaskTypeKeyword[] = [...MASK_TYPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MasonryAutoFlowConfig {
-  keywords: MasonryAutoFlowKeyword[] = [...MASONRY_AUTO_FLOW_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathDepthConfig {
-  keywords: MathDepthKeyword[] = [...MATH_DEPTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MATH_DEPTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathShiftConfig {
-  keywords: MathShiftKeyword[] = [...MATH_SHIFT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathStyleConfig {
-  keywords: MathStyleKeyword[] = [...MATH_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxBlockSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxHeightConfig {
-  keywords: MaxHeightKeyword[] = [...MAX_HEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MAX_HEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxInlineSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxLinesConfig {
-  keywords: MaxLinesKeyword[] = [...MAX_LINES_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MAX_LINES_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxWidthConfig {
-  keywords: MaxWidthKeyword[] = [...MAX_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MAX_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MinBlockSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MinHeightConfig {
-  keywords: MinHeightKeyword[] = [...MIN_HEIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MIN_HEIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MinInlineSizeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MinWidthConfig {
-  keywords: MinWidthKeyword[] = [...MIN_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...MIN_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MixBlendModeConfig {
-  keywords: MixBlendModeKeyword[] = [...MIX_BLEND_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ObjectFitConfig {
-  keywords: ObjectFitKeyword[] = [...OBJECT_FIT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ObjectPositionConfig {
-  keywords: ObjectPositionKeyword[] = [...OBJECT_POSITION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OBJECT_POSITION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetAnchorConfig {
-  keywords: OffsetAnchorKeyword[] = [...OFFSET_ANCHOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OFFSET_ANCHOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetDistanceConfig {
-  numberTypes: NumberTypeName[] = [...OFFSET_DISTANCE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetPathConfig {
-  keywords: OffsetPathKeyword[] = [...OFFSET_PATH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OFFSET_PATH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetPositionConfig {
-  keywords: OffsetPositionKeyword[] = [...OFFSET_POSITION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OFFSET_POSITION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetRotateConfig {
-  keywords: OffsetRotateKeyword[] = [...OFFSET_ROTATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OFFSET_ROTATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OpacityConfig {
-  numberTypes: NumberTypeName[] = [...OPACITY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OrderConfig {
-  numberTypes: NumberTypeName[] = [...ORDER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OrphansConfig {
-  numberTypes: NumberTypeName[] = [...ORPHANS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineColorConfig {
-  keywords: OutlineColorKeyword[] = [...OUTLINE_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OUTLINE_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineOffsetConfig {
-  numberTypes: NumberTypeName[] = [...OUTLINE_OFFSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineStyleConfig {
-  keywords: OutlineStyleKeyword[] = [...OUTLINE_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineWidthConfig {
-  keywords: OutlineWidthKeyword[] = [...OUTLINE_WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OUTLINE_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowConfig {
-  keywords: OverflowKeyword[] = [...OVERFLOW_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowAnchorConfig {
-  keywords: OverflowAnchorKeyword[] = [...OVERFLOW_ANCHOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowBlockConfig {
-  keywords: OverflowBlockKeyword[] = [...OVERFLOW_BLOCK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowClipBoxConfig {
-  keywords: OverflowClipBoxKeyword[] = [...OVERFLOW_CLIP_BOX_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowClipMarginConfig {
-  keywords: OverflowClipMarginKeyword[] = [...OVERFLOW_CLIP_MARGIN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...OVERFLOW_CLIP_MARGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowInlineConfig {
-  keywords: OverflowInlineKeyword[] = [...OVERFLOW_INLINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowWrapConfig {
-  keywords: OverflowWrapKeyword[] = [...OVERFLOW_WRAP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowXConfig {
-  keywords: OverflowXKeyword[] = [...OVERFLOW_X_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowYConfig {
-  keywords: OverflowYKeyword[] = [...OVERFLOW_Y_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverlayConfig {
-  keywords: OverlayKeyword[] = [...OVERLAY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorConfig {
-  keywords: OverscrollBehaviorKeyword[] = [...OVERSCROLL_BEHAVIOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorBlockConfig {
-  keywords: OverscrollBehaviorBlockKeyword[] = [...OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorInlineConfig {
-  keywords: OverscrollBehaviorInlineKeyword[] = [...OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorXConfig {
-  keywords: OverscrollBehaviorXKeyword[] = [...OVERSCROLL_BEHAVIOR_X_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorYConfig {
-  keywords: OverscrollBehaviorYKeyword[] = [...OVERSCROLL_BEHAVIOR_Y_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingConfig {
-  numberTypes: NumberTypeName[] = [...PADDING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingBlockConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingBlockEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingBlockStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingBottomConfig {
-  numberTypes: NumberTypeName[] = [...PADDING_BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingInlineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingInlineEndConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingInlineStartConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingLeftConfig {
-  numberTypes: NumberTypeName[] = [...PADDING_LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingRightConfig {
-  numberTypes: NumberTypeName[] = [...PADDING_RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingTopConfig {
-  numberTypes: NumberTypeName[] = [...PADDING_TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageConfig {
-  keywords: PageKeyword[] = [...PAGE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakAfterConfig {
-  keywords: PageBreakAfterKeyword[] = [...PAGE_BREAK_AFTER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakBeforeConfig {
-  keywords: PageBreakBeforeKeyword[] = [...PAGE_BREAK_BEFORE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakInsideConfig {
-  keywords: PageBreakInsideKeyword[] = [...PAGE_BREAK_INSIDE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaintOrderConfig {
-  keywords: PaintOrderKeyword[] = [...PAINT_ORDER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PauseConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PauseAfterConfig {
-  keywords: PauseAfterKeyword[] = [...PAUSE_AFTER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...PAUSE_AFTER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PauseBeforeConfig {
-  keywords: PauseBeforeKeyword[] = [...PAUSE_BEFORE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...PAUSE_BEFORE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PerspectiveConfig {
-  keywords: PerspectiveKeyword[] = [...PERSPECTIVE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...PERSPECTIVE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PerspectiveOriginConfig {
-  keywords: PerspectiveOriginKeyword[] = [...PERSPECTIVE_ORIGIN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...PERSPECTIVE_ORIGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PlaceContentConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PlaceItemsConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PlaceSelfConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PointerEventsConfig {
-  keywords: PointerEventsKeyword[] = [...POINTER_EVENTS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionConfig {
-  keywords: PositionKeyword[] = [...POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionAnchorConfig {
-  keywords: PositionAnchorKeyword[] = [...POSITION_ANCHOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionAreaConfig {
-  keywords: PositionAreaKeyword[] = [...POSITION_AREA_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionTryConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionTryFallbacksConfig {
-  keywords: PositionTryFallbacksKeyword[] = [...POSITION_TRY_FALLBACKS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionTryOrderConfig {
-  keywords: PositionTryOrderKeyword[] = [...POSITION_TRY_ORDER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionVisibilityConfig {
-  keywords: PositionVisibilityKeyword[] = [...POSITION_VISIBILITY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PrintColorAdjustConfig {
-  keywords: PrintColorAdjustKeyword[] = [...PRINT_COLOR_ADJUST_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class QuotesConfig {
-  keywords: QuotesKeyword[] = [...QUOTES_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RConfig {
-  numberTypes: NumberTypeName[] = [...R_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ResizeConfig {
-  keywords: ResizeKeyword[] = [...RESIZE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RestConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RestAfterConfig {
-  keywords: RestAfterKeyword[] = [...REST_AFTER_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...REST_AFTER_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RestBeforeConfig {
-  keywords: RestBeforeKeyword[] = [...REST_BEFORE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...REST_BEFORE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RightConfig {
-  keywords: RightKeyword[] = [...RIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RotateConfig {
-  keywords: RotateKeyword[] = [...ROTATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ROTATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RowGapConfig {
-  keywords: RowGapKeyword[] = [...ROW_GAP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ROW_GAP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyAlignConfig {
-  keywords: RubyAlignKeyword[] = [...RUBY_ALIGN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyMergeConfig {
-  keywords: RubyMergeKeyword[] = [...RUBY_MERGE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyPositionConfig {
-  keywords: RubyPositionKeyword[] = [...RUBY_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RxConfig {
-  numberTypes: NumberTypeName[] = [...RX_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RyConfig {
-  numberTypes: NumberTypeName[] = [...RY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScaleConfig {
-  keywords: ScaleKeyword[] = [...SCALE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCALE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollBehaviorConfig {
-  keywords: ScrollBehaviorKeyword[] = [...SCROLL_BEHAVIOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockEndConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockStartConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBottomConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineEndConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineStartConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginLeftConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginRightConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginTopConfig {
-  numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingConfig {
-  keywords: ScrollPaddingKeyword[] = [...SCROLL_PADDING_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockConfig {
-  keywords: ScrollPaddingBlockKeyword[] = [...SCROLL_PADDING_BLOCK_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockEndConfig {
-  keywords: ScrollPaddingBlockEndKeyword[] = [...SCROLL_PADDING_BLOCK_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockStartConfig {
-  keywords: ScrollPaddingBlockStartKeyword[] = [...SCROLL_PADDING_BLOCK_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBottomConfig {
-  keywords: ScrollPaddingBottomKeyword[] = [...SCROLL_PADDING_BOTTOM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BOTTOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineConfig {
-  keywords: ScrollPaddingInlineKeyword[] = [...SCROLL_PADDING_INLINE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineEndConfig {
-  keywords: ScrollPaddingInlineEndKeyword[] = [...SCROLL_PADDING_INLINE_END_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_END_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineStartConfig {
-  keywords: ScrollPaddingInlineStartKeyword[] = [...SCROLL_PADDING_INLINE_START_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_START_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingLeftConfig {
-  keywords: ScrollPaddingLeftKeyword[] = [...SCROLL_PADDING_LEFT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_LEFT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingRightConfig {
-  keywords: ScrollPaddingRightKeyword[] = [...SCROLL_PADDING_RIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_RIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingTopConfig {
-  keywords: ScrollPaddingTopKeyword[] = [...SCROLL_PADDING_TOP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_PADDING_TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapAlignConfig {
-  keywords: ScrollSnapAlignKeyword[] = [...SCROLL_SNAP_ALIGN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapCoordinateConfig {
-  keywords: ScrollSnapCoordinateKeyword[] = [...SCROLL_SNAP_COORDINATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_SNAP_COORDINATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapDestinationConfig {
-  keywords: ScrollSnapDestinationKeyword[] = [...SCROLL_SNAP_DESTINATION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_SNAP_DESTINATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapPointsXConfig {
-  keywords: ScrollSnapPointsXKeyword[] = [...SCROLL_SNAP_POINTS_X_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_SNAP_POINTS_X_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapPointsYConfig {
-  keywords: ScrollSnapPointsYKeyword[] = [...SCROLL_SNAP_POINTS_Y_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLL_SNAP_POINTS_Y_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapStopConfig {
-  keywords: ScrollSnapStopKeyword[] = [...SCROLL_SNAP_STOP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeConfig {
-  keywords: ScrollSnapTypeKeyword[] = [...SCROLL_SNAP_TYPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeXConfig {
-  keywords: ScrollSnapTypeXKeyword[] = [...SCROLL_SNAP_TYPE_X_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeYConfig {
-  keywords: ScrollSnapTypeYKeyword[] = [...SCROLL_SNAP_TYPE_Y_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollTimelineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollTimelineAxisConfig {
-  keywords: ScrollTimelineAxisKeyword[] = [...SCROLL_TIMELINE_AXIS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollTimelineNameConfig {
-  keywords: ScrollTimelineNameKeyword[] = [...SCROLL_TIMELINE_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarColorConfig {
-  keywords: ScrollbarColorKeyword[] = [...SCROLLBAR_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SCROLLBAR_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarGutterConfig {
-  keywords: ScrollbarGutterKeyword[] = [...SCROLLBAR_GUTTER_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarWidthConfig {
-  keywords: ScrollbarWidthKeyword[] = [...SCROLLBAR_WIDTH_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeImageThresholdConfig {
-  numberTypes: NumberTypeName[] = [...SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeMarginConfig {
-  numberTypes: NumberTypeName[] = [...SHAPE_MARGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeOutsideConfig {
-  keywords: ShapeOutsideKeyword[] = [...SHAPE_OUTSIDE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...SHAPE_OUTSIDE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeRenderingConfig {
-  keywords: ShapeRenderingKeyword[] = [...SHAPE_RENDERING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class SpeakConfig {
-  keywords: SpeakKeyword[] = [...SPEAK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class SpeakAsConfig {
-  keywords: SpeakAsKeyword[] = [...SPEAK_AS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class SrcConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeConfig {
-  keywords: StrokeKeyword[] = [...STROKE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...STROKE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeDasharrayConfig {
-  keywords: StrokeDasharrayKeyword[] = [...STROKE_DASHARRAY_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...STROKE_DASHARRAY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeDashoffsetConfig {
-  numberTypes: NumberTypeName[] = [...STROKE_DASHOFFSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeLinecapConfig {
-  keywords: StrokeLinecapKeyword[] = [...STROKE_LINECAP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeLinejoinConfig {
-  keywords: StrokeLinejoinKeyword[] = [...STROKE_LINEJOIN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeMiterlimitConfig {
-  numberTypes: NumberTypeName[] = [...STROKE_MITERLIMIT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeOpacityConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeWidthConfig {
-  numberTypes: NumberTypeName[] = [...STROKE_WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TabSizeConfig {
-  numberTypes: NumberTypeName[] = [...TAB_SIZE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TableLayoutConfig {
-  keywords: TableLayoutKeyword[] = [...TABLE_LAYOUT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAlignConfig {
-  keywords: TextAlignKeyword[] = [...TEXT_ALIGN_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAlignLastConfig {
-  keywords: TextAlignLastKeyword[] = [...TEXT_ALIGN_LAST_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAnchorConfig {
-  keywords: TextAnchorKeyword[] = [...TEXT_ANCHOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextCombineUprightConfig {
-  keywords: TextCombineUprightKeyword[] = [...TEXT_COMBINE_UPRIGHT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_COMBINE_UPRIGHT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationColorConfig {
-  keywords: TextDecorationColorKeyword[] = [...TEXT_DECORATION_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_DECORATION_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationLineConfig {
-  keywords: TextDecorationLineKeyword[] = [...TEXT_DECORATION_LINE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationSkipConfig {
-  keywords: TextDecorationSkipKeyword[] = [...TEXT_DECORATION_SKIP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationSkipInkConfig {
-  keywords: TextDecorationSkipInkKeyword[] = [...TEXT_DECORATION_SKIP_INK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationStyleConfig {
-  keywords: TextDecorationStyleKeyword[] = [...TEXT_DECORATION_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationThicknessConfig {
-  keywords: TextDecorationThicknessKeyword[] = [...TEXT_DECORATION_THICKNESS_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_DECORATION_THICKNESS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisColorConfig {
-  keywords: TextEmphasisColorKeyword[] = [...TEXT_EMPHASIS_COLOR_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisPositionConfig {
-  keywords: TextEmphasisPositionKeyword[] = [...TEXT_EMPHASIS_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisStyleConfig {
-  keywords: TextEmphasisStyleKeyword[] = [...TEXT_EMPHASIS_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextIndentConfig {
-  keywords: TextIndentKeyword[] = [...TEXT_INDENT_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_INDENT_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextJustifyConfig {
-  keywords: TextJustifyKeyword[] = [...TEXT_JUSTIFY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextOrientationConfig {
-  keywords: TextOrientationKeyword[] = [...TEXT_ORIENTATION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextOverflowConfig {
-  keywords: TextOverflowKeyword[] = [...TEXT_OVERFLOW_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextRenderingConfig {
-  keywords: TextRenderingKeyword[] = [...TEXT_RENDERING_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextShadowConfig {
-  keywords: TextShadowKeyword[] = [...TEXT_SHADOW_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_SHADOW_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextSizeAdjustConfig {
-  keywords: TextSizeAdjustKeyword[] = [...TEXT_SIZE_ADJUST_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_SIZE_ADJUST_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextSpacingTrimConfig {
-  keywords: TextSpacingTrimKeyword[] = [...TEXT_SPACING_TRIM_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextTransformConfig {
-  keywords: TextTransformKeyword[] = [...TEXT_TRANSFORM_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextUnderlineOffsetConfig {
-  keywords: TextUnderlineOffsetKeyword[] = [...TEXT_UNDERLINE_OFFSET_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TEXT_UNDERLINE_OFFSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextUnderlinePositionConfig {
-  keywords: TextUnderlinePositionKeyword[] = [...TEXT_UNDERLINE_POSITION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextWrapConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextWrapModeConfig {
-  keywords: TextWrapModeKeyword[] = [...TEXT_WRAP_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextWrapStyleConfig {
-  keywords: TextWrapStyleKeyword[] = [...TEXT_WRAP_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TimelineScopeConfig {
-  keywords: TimelineScopeKeyword[] = [...TIMELINE_SCOPE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TopConfig {
-  keywords: TopKeyword[] = [...TOP_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TOP_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TouchActionConfig {
-  keywords: TouchActionKeyword[] = [...TOUCH_ACTION_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformConfig {
-  keywords: TransformKeyword[] = [...TRANSFORM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TRANSFORM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformBoxConfig {
-  keywords: TransformBoxKeyword[] = [...TRANSFORM_BOX_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformOriginConfig {
-  keywords: TransformOriginKeyword[] = [...TRANSFORM_ORIGIN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TRANSFORM_ORIGIN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformStyleConfig {
-  keywords: TransformStyleKeyword[] = [...TRANSFORM_STYLE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionConfig {
-  keywords: TransitionKeyword[] = [...TRANSITION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TRANSITION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionBehaviorConfig {
-  keywords: TransitionBehaviorKeyword[] = [...TRANSITION_BEHAVIOR_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionDelayConfig {
-  numberTypes: NumberTypeName[] = [...TRANSITION_DELAY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionDurationConfig {
-  numberTypes: NumberTypeName[] = [...TRANSITION_DURATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionPropertyConfig {
-  keywords: TransitionPropertyKeyword[] = [...TRANSITION_PROPERTY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionTimingFunctionConfig {
-  keywords: TransitionTimingFunctionKeyword[] = [...TRANSITION_TIMING_FUNCTION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TRANSITION_TIMING_FUNCTION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TranslateConfig {
-  keywords: TranslateKeyword[] = [...TRANSLATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...TRANSLATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class UnicodeBidiConfig {
-  keywords: UnicodeBidiKeyword[] = [...UNICODE_BIDI_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class UnicodeRangeConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class UserSelectConfig {
-  keywords: UserSelectKeyword[] = [...USER_SELECT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VectorEffectConfig {
-  keywords: VectorEffectKeyword[] = [...VECTOR_EFFECT_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VerticalAlignConfig {
-  keywords: VerticalAlignKeyword[] = [...VERTICAL_ALIGN_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VERTICAL_ALIGN_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineConfig {
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineAxisConfig {
-  keywords: ViewTimelineAxisKeyword[] = [...VIEW_TIMELINE_AXIS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineInsetConfig {
-  keywords: ViewTimelineInsetKeyword[] = [...VIEW_TIMELINE_INSET_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VIEW_TIMELINE_INSET_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineNameConfig {
-  keywords: ViewTimelineNameKeyword[] = [...VIEW_TIMELINE_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTransitionNameConfig {
-  keywords: ViewTransitionNameKeyword[] = [...VIEW_TRANSITION_NAME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VisibilityConfig {
-  keywords: VisibilityKeyword[] = [...VISIBILITY_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceBalanceConfig {
-  keywords: VoiceBalanceKeyword[] = [...VOICE_BALANCE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_BALANCE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceDurationConfig {
-  keywords: VoiceDurationKeyword[] = [...VOICE_DURATION_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_DURATION_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceFamilyConfig {
-  keywords: VoiceFamilyKeyword[] = [...VOICE_FAMILY_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_FAMILY_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoicePitchConfig {
-  keywords: VoicePitchKeyword[] = [...VOICE_PITCH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_PITCH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceRangeConfig {
-  keywords: VoiceRangeKeyword[] = [...VOICE_RANGE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_RANGE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceRateConfig {
-  keywords: VoiceRateKeyword[] = [...VOICE_RATE_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...VOICE_RATE_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceStressConfig {
-  keywords: VoiceStressKeyword[] = [...VOICE_STRESS_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceVolumeConfig {
-  keywords: VoiceVolumeKeyword[] = [...VOICE_VOLUME_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceConfig {
-  keywords: WhiteSpaceKeyword[] = [...WHITE_SPACE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceCollapseConfig {
-  keywords: WhiteSpaceCollapseKeyword[] = [...WHITE_SPACE_COLLAPSE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceTrimConfig {
-  keywords: WhiteSpaceTrimKeyword[] = [...WHITE_SPACE_TRIM_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WidowsConfig {
-  numberTypes: NumberTypeName[] = [...WIDOWS_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WidthConfig {
-  keywords: WidthKeyword[] = [...WIDTH_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...WIDTH_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WillChangeConfig {
-  keywords: WillChangeKeyword[] = [...WILL_CHANGE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordBreakConfig {
-  keywords: WordBreakKeyword[] = [...WORD_BREAK_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordSpacingConfig {
-  keywords: WordSpacingKeyword[] = [...WORD_SPACING_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...WORD_SPACING_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordWrapConfig {
-  keywords: WordWrapKeyword[] = [...WORD_WRAP_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WritingModeConfig {
-  keywords: WritingModeKeyword[] = [...WRITING_MODE_KEYWORDS];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class XConfig {
-  numberTypes: NumberTypeName[] = [...X_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class YConfig {
-  numberTypes: NumberTypeName[] = [...Y_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ZIndexConfig {
-  keywords: ZIndexKeyword[] = [...Z_INDEX_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...Z_INDEX_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ZoomConfig {
-  keywords: ZoomKeyword[] = [...ZOOM_KEYWORDS];
-  numberTypes: NumberTypeName[] = [...ZOOM_NUMBER_TYPES];
+  keywords: string[] | null = null;
+  numberTypes: NumberTypeName[] | null = null;
 }
 
 // ==================== 属性名映射 ====================
