@@ -149,6 +149,19 @@ export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
     {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
 ];
 
+/** 默认数值类型列表 - 包含所有常用数值类型 */
+export const DEFAULT_NUMBER_TYPES: NumberTypeName[] = [
+    'length',
+    'angle',
+    'time',
+    'frequency',
+    'percentage',
+    'number',
+    'integer',
+    'resolution',
+    'flex',
+];
+
 /**
  * 默认单位分类配置（Tailwind 风格）
  *
@@ -453,7 +466,7 @@ export class CsstsConfig {
         this.excludeProperties = options.excludeProperties ?? [];
 
         // ==================== 数值类型配置 ====================
-        this.numberTypes = options.numberTypes;
+        this.numberTypes = options.numberTypes ?? DEFAULT_NUMBER_TYPES;
         this.excludeNumberTypes = options.excludeNumberTypes ?? [];
 
         // ==================== 单位分类配置 ====================
@@ -465,9 +478,9 @@ export class CsstsConfig {
         this.excludeUnits = options.excludeUnits ?? [];
 
         // ==================== 关键字/颜色配置 ====================
-        this.keywords = options.keywords;
+        this.keywords = options.keywords ?? [];
         this.excludeKeywords = options.excludeKeywords ?? [];
-        this.colors = options.colors;
+        this.colors = options.colors ?? [];
         this.excludeColors = options.excludeColors ?? [];
 
         // ==================== 伪类/伪元素配置 ====================

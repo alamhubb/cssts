@@ -23,6 +23,7 @@ import {
 } from '../utils/config-utils.js';
 import {
   cssPropertyNameMap,
+  CssPropertyConfigMap,
   type CssPropertyCamelName,
 } from '../config/property-config.js';
 import { NUMBER_TYPE_UNITS, CATEGORY_BY_UNIT } from '../config/units.js';
@@ -220,8 +221,8 @@ function generateValuesForUnit(
   const categoryConfig = category ? DEFAULT_UNIT_CATEGORY_CONFIGS[category] : undefined;
   const defaultConfig = categoryConfig || { presets: [0, 1, 2, 3, 4, 5, 10, 20, 50, 100] };
   
-  // 3. 获取用户自定义的分类配置（从 includeUnitCategories 中提取）
-  const categoryConfigs = extractUnitCategoryConfigsFromArray(config.includeUnitCategories);
+  // 3. 获取用户自定义的分类配置（从 unitCategories 中提取）
+  const categoryConfigs = extractUnitCategoryConfigsFromArray(config.unitCategories);
   const userConfig = category ? (categoryConfigs[category]?.[unit] || {}) : {};
 
   // 4. 合并配置
@@ -299,12 +300,16 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     propStats: {} as Record<string, { keywords: number; numbers: number }>,
   };
 
+  // 获取属性配置映射
+  const allPropsConfig = new CssPropertyConfigMap();
+
   for (const camelName of allPropNames) {
     // 使用 shouldInclude 处理属性过滤（白名单优先）
-    if (!shouldInclude(camelName, config.includeProperties, config.excludeProperties)) continue;
+    const includePropertiesList = Array.isArray(config.properties) ? config.properties : [];
+    if (!shouldInclude(camelName, includePropertiesList.length > 0 ? includePropertiesList : undefined, config.excludeProperties)) continue;
 
     const kebabName = cssPropertyNameMap[camelName];
-    const propConfig = config.properties[camelName];
+    const propConfig = (allPropsConfig as any)[camelName];
 
     if (!propConfig) continue;
     stats.propsWithConfig++;
@@ -314,8 +319,8 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     if ('keywords' in propConfig && Array.isArray(propConfig.keywords)) {
       for (const keyword of propConfig.keywords) {
         // 使用 shouldInclude 处理关键字和颜色过滤
-        if (!shouldInclude(keyword, config.includeKeywords, config.excludeKeywords)) continue;
-        if (!shouldInclude(keyword, config.includeColors, config.excludeColors)) continue;
+        if (!shouldInclude(keyword, config.keywords && config.keywords.length > 0 ? config.keywords : undefined, config.excludeKeywords)) continue;
+        if (!shouldInclude(keyword, config.colors && config.colors.length > 0 ? config.colors : undefined, config.excludeColors)) continue;
 
         const name = generateAtomName(kebabName, keyword);
         if (seenNames.has(name)) continue;
@@ -335,7 +340,7 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     // 2. 生成数值原子类
     if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
       const supportedUnits = new Set<string>();
-      const includeNumberTypesList = extractStringsFromArray(config.includeNumberTypes);
+      const includeNumberTypesList = extractStringsFromArray(config.numberTypes);
       const excludeNumberTypesList = extractStringsFromNumberTypeExcludeArray(config.excludeNumberTypes);
       
       for (const nt of propConfig.numberTypes as string[]) {
@@ -350,9 +355,9 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
         }
       }
 
-      const includeUnitsList = extractStringsFromArray(config.includeUnits);
+      const includeUnitsList = extractStringsFromArray(config.units);
       const excludeUnitsList = extractStringsFromUnitExcludeArray(config.excludeUnits);
-      const includeUnitCategoriesList = extractStringsFromArray(config.includeUnitCategories);
+      const includeUnitCategoriesList = extractStringsFromArray(config.unitCategories);
       const excludeUnitCategoriesList = extractStringsFromUnitCategoryExcludeArray(config.excludeUnitCategories);
       
       for (const unit of supportedUnits) {
