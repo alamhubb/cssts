@@ -1,0 +1,30 @@
+{
+  "numberTypes": {
+    "length": ["pixel", "fontRelative", "physical", "percentage"],
+    "angle": ["angle"],
+    "time": ["time"],
+    "frequency": ["frequency"],
+    "percentage": ["percentage"],
+    "number": ["unitless"],
+    "integer": ["unitless"],
+    "resolution": ["resolution"],
+    "flex": ["flex"],
+    "dimension": ["pixel", "fontRelative", "physical", "angle", "time", "frequency", "resolution", "flex", "percentage"],
+    "zero": ["unitless"],
+    "ratio": ["unitless"],
+    "decibel": ["unitless"],
+    "semitones": ["unitless"]
+  },
+  "categories": {
+    "percentage": ["%", "vw", "vh", "vmin", "vmax", "svw", "svh", "lvw", "lvh", "dvw", "dvh", "vi", "vb"],
+    "pixel": ["px"],
+    "fontRelative": ["em", "rem", "ch", "ex", "cap", "ic", "lh", "rlh"],
+    "physical": ["cm", "mm", "in", "pt", "pc", "Q"],
+    "angle": ["deg", "grad", "rad", "turn"],
+    "time": ["s", "ms"],
+    "frequency": ["Hz", "kHz"],
+    "resolution": ["dpi", "dpcm", "dppx", "x"],
+    "flex": ["fr"],
+    "unitless": [""]
+  }
+}
