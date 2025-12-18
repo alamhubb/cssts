@@ -1,55 +1,55 @@
-/**
- * CSS 单位分类定义（手动维护）
+﻿/**
+ * CSS 鍗曚綅鍒嗙被瀹氫箟锛堟墜鍔ㄧ淮鎶わ級
  * 
- * 将 CSS 单位按照数值范围和步长特性分组，
- * 便于生成合适的数值序列。
+ * 灏?CSS 鍗曚綅鎸夌収鏁板€艰寖鍥村拰姝ラ暱鐗规€у垎缁勶紝
+ * 渚夸簬鐢熸垚鍚堥€傜殑鏁板€煎簭鍒椼€?
  */
 
-// ==================== 每个分类的单位数据 ====================
+// ==================== 姣忎釜鍒嗙被鐨勫崟浣嶆暟鎹?====================
 
-/** 百分比类单位 (0-100, 步长 1) */
+/** 鐧惧垎姣旂被鍗曚綅 (0-100, 姝ラ暱 1) */
 export const PERCENTAGE_UNITS = ['%', 'vw', 'vh', 'vmin', 'vmax', 'svw', 'svh', 'lvw', 'lvh', 'dvw', 'dvh', 'vi', 'vb'] as const;
 export type PercentageUnit = typeof PERCENTAGE_UNITS[number];
 
-/** px 单位 */
+/** px 鍗曚綅 */
 export const PX_UNITS = ['px'] as const;
 export type PxUnit = typeof PX_UNITS[number];
 
-/** 相对字体类单位 (0-10, 步长 0.1-0.25) */
+/** 鐩稿瀛椾綋绫诲崟浣?(0-10, 姝ラ暱 0.1-0.25) */
 export const FONT_RELATIVE_UNITS = ['em', 'rem', 'ch', 'ex', 'cap', 'ic', 'lh', 'rlh'] as const;
 export type FontRelativeUnit = typeof FONT_RELATIVE_UNITS[number];
 
-/** 物理长度类单位 (0-50, 步长 0.5-1) */
+/** 鐗╃悊闀垮害绫诲崟浣?(0-50, 姝ラ暱 0.5-1) */
 export const PHYSICAL_UNITS = ['cm', 'mm', 'in', 'pt', 'pc', 'Q'] as const;
 export type PhysicalUnit = typeof PHYSICAL_UNITS[number];
 
-/** 角度类单位 */
+/** 瑙掑害绫诲崟浣?*/
 export const ANGLE_UNITS = ['deg', 'grad', 'rad', 'turn'] as const;
 export type AngleUnit = typeof ANGLE_UNITS[number];
 
-/** 时间类单位 */
+/** 鏃堕棿绫诲崟浣?*/
 export const TIME_UNITS = ['s', 'ms'] as const;
 export type TimeUnit = typeof TIME_UNITS[number];
 
-/** 频率类单位 (20-20000, 步长 100) */
+/** 棰戠巼绫诲崟浣?(20-20000, 姝ラ暱 100) */
 export const FREQUENCY_UNITS = ['Hz', 'kHz'] as const;
 export type FrequencyUnit = typeof FREQUENCY_UNITS[number];
 
-/** 分辨率类单位 (72-300, 步长 1) */
+/** 鍒嗚鲸鐜囩被鍗曚綅 (72-300, 姝ラ暱 1) */
 export const RESOLUTION_UNITS = ['dpi', 'dpcm', 'dppx', 'x'] as const;
 export type ResolutionUnit = typeof RESOLUTION_UNITS[number];
 
-/** 弹性类单位 (0-12, 步长 1) */
+/** 寮规€х被鍗曚綅 (0-12, 姝ラ暱 1) */
 export const FLEX_UNITS = ['fr'] as const;
 export type FlexUnit = typeof FLEX_UNITS[number];
 
-/** 无单位数值 (0-100, 渐进步长) */
+/** 鏃犲崟浣嶆暟鍊?(0-100, 娓愯繘姝ラ暱) */
 export const UNITLESS_UNITS = ['unitless'] as const;
 export type UnitlessUnit = typeof UNITLESS_UNITS[number];
 
-// ==================== 类型定义 ====================
+// ==================== 绫诲瀷瀹氫箟 ====================
 
-/** 单位分类名称 */
+/** 鍗曚綅鍒嗙被鍚嶇О */
 export const UNIT_CATEGORY_NAMES = [
   'percentage',
   'px',
@@ -65,9 +65,9 @@ export const UNIT_CATEGORY_NAMES = [
 
 export type UnitCategoryName = typeof UNIT_CATEGORY_NAMES[number];
 
-// ==================== 分类到单位的映射类 ====================
+// ==================== 鍒嗙被鍒板崟浣嶇殑鏄犲皠绫?====================
 
-/** 分类到单位的映射类 */
+/** 鍒嗙被鍒板崟浣嶇殑鏄犲皠绫?*/
 class UnitsByCategoryMapping {
   readonly percentage: readonly PercentageUnit[] = PERCENTAGE_UNITS;
   readonly px: readonly PxUnit[] = PX_UNITS;
@@ -83,5 +83,5 @@ class UnitsByCategoryMapping {
 
 export const unitsByCategory = new UnitsByCategoryMapping();
 
-/** 类型：分类到单位的映射 */
+/** 绫诲瀷锛氬垎绫诲埌鍗曚綅鐨勬槧灏?*/
 export type UnitsByCategory = UnitsByCategoryMapping;

@@ -84,13 +84,6 @@ export {
 
 // 直接运行时执行生成
 async function main() {
-  // 调试：检查映射
-  const { CATEGORY_BY_UNIT, unitsByCategory } = await import('../../config/units.js');
-  const { DEFAULT_UNIT_CATEGORY_CONFIGS } = await import('../../cssts-config.js');
-  console.log('unitsByCategory keys:', Object.keys(unitsByCategory));
-  console.log('CATEGORY_BY_UNIT[px]:', CATEGORY_BY_UNIT['px']);
-  console.log('DEFAULT_UNIT_CATEGORY_CONFIGS keys:', Object.keys(DEFAULT_UNIT_CATEGORY_CONFIGS));
-  
   console.log('Generating .d.ts files...');
   const dtsFiles = await generateDtsAsync({ debug: true });
   for (const file of dtsFiles) {

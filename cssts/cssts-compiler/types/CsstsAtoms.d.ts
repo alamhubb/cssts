@@ -2,7 +2,7 @@
  * CsstsAtoms 接口 - 原子类类型定义
  *
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-18T09:18:35.946Z
+ * 生成时间: 2025-12-18T09:20:52.721Z
  */
 
 export interface CsstsAtoms {
@@ -719,16 +719,59 @@ export interface CsstsAtoms {
   readonly animationRangeEnd12pt: { 'animation-range-end_12pt': true }
   readonly animationRangeEnd16pt: { 'animation-range-end_16pt': true }
   readonly animationRangeEnd20pt: { 'animation-range-end_20pt': true }
+  readonly animationRangeEndN384px: { 'animation-range-end_-384px': true }
+  readonly animationRangeEndN320px: { 'animation-range-end_-320px': true }
+  readonly animationRangeEndN256px: { 'animation-range-end_-256px': true }
+  readonly animationRangeEndN224px: { 'animation-range-end_-224px': true }
+  readonly animationRangeEndN192px: { 'animation-range-end_-192px': true }
+  readonly animationRangeEndN160px: { 'animation-range-end_-160px': true }
+  readonly animationRangeEndN128px: { 'animation-range-end_-128px': true }
+  readonly animationRangeEndN96px: { 'animation-range-end_-96px': true }
+  readonly animationRangeEndN80px: { 'animation-range-end_-80px': true }
+  readonly animationRangeEndN64px: { 'animation-range-end_-64px': true }
+  readonly animationRangeEndN56px: { 'animation-range-end_-56px': true }
+  readonly animationRangeEndN48px: { 'animation-range-end_-48px': true }
+  readonly animationRangeEndN40px: { 'animation-range-end_-40px': true }
+  readonly animationRangeEndN32px: { 'animation-range-end_-32px': true }
+  readonly animationRangeEndN28px: { 'animation-range-end_-28px': true }
+  readonly animationRangeEndN24px: { 'animation-range-end_-24px': true }
+  readonly animationRangeEndN20px: { 'animation-range-end_-20px': true }
+  readonly animationRangeEndN16px: { 'animation-range-end_-16px': true }
+  readonly animationRangeEndN14px: { 'animation-range-end_-14px': true }
+  readonly animationRangeEndN12px: { 'animation-range-end_-12px': true }
+  readonly animationRangeEndN10px: { 'animation-range-end_-10px': true }
+  readonly animationRangeEndN8px: { 'animation-range-end_-8px': true }
+  readonly animationRangeEndN6px: { 'animation-range-end_-6px': true }
+  readonly animationRangeEndN4px: { 'animation-range-end_-4px': true }
+  readonly animationRangeEndN2px: { 'animation-range-end_-2px': true }
+  readonly animationRangeEndN1px: { 'animation-range-end_-1px': true }
   readonly animationRangeEnd0px: { 'animation-range-end_0px': true }
   readonly animationRangeEnd1px: { 'animation-range-end_1px': true }
   readonly animationRangeEnd2px: { 'animation-range-end_2px': true }
-  readonly animationRangeEnd3px: { 'animation-range-end_3px': true }
   readonly animationRangeEnd4px: { 'animation-range-end_4px': true }
-  readonly animationRangeEnd5px: { 'animation-range-end_5px': true }
+  readonly animationRangeEnd6px: { 'animation-range-end_6px': true }
+  readonly animationRangeEnd8px: { 'animation-range-end_8px': true }
   readonly animationRangeEnd10px: { 'animation-range-end_10px': true }
+  readonly animationRangeEnd12px: { 'animation-range-end_12px': true }
+  readonly animationRangeEnd14px: { 'animation-range-end_14px': true }
+  readonly animationRangeEnd16px: { 'animation-range-end_16px': true }
   readonly animationRangeEnd20px: { 'animation-range-end_20px': true }
-  readonly animationRangeEnd50px: { 'animation-range-end_50px': true }
-  readonly animationRangeEnd100px: { 'animation-range-end_100px': true }
+  readonly animationRangeEnd24px: { 'animation-range-end_24px': true }
+  readonly animationRangeEnd28px: { 'animation-range-end_28px': true }
+  readonly animationRangeEnd32px: { 'animation-range-end_32px': true }
+  readonly animationRangeEnd40px: { 'animation-range-end_40px': true }
+  readonly animationRangeEnd48px: { 'animation-range-end_48px': true }
+  readonly animationRangeEnd56px: { 'animation-range-end_56px': true }
+  readonly animationRangeEnd64px: { 'animation-range-end_64px': true }
+  readonly animationRangeEnd80px: { 'animation-range-end_80px': true }
+  readonly animationRangeEnd96px: { 'animation-range-end_96px': true }
+  readonly animationRangeEnd128px: { 'animation-range-end_128px': true }
+  readonly animationRangeEnd160px: { 'animation-range-end_160px': true }
+  readonly animationRangeEnd192px: { 'animation-range-end_192px': true }
+  readonly animationRangeEnd224px: { 'animation-range-end_224px': true }
+  readonly animationRangeEnd256px: { 'animation-range-end_256px': true }
+  readonly animationRangeEnd320px: { 'animation-range-end_320px': true }
+  readonly animationRangeEnd384px: { 'animation-range-end_384px': true }
   readonly animationRangeEnd0rem: { 'animation-range-end_0rem': true }
   readonly animationRangeEnd0p25rem: { 'animation-range-end_0\.25rem': true }
   readonly animationRangeEnd0p5rem: { 'animation-range-end_0\.5rem': true }
@@ -1105,16 +1148,59 @@ export interface CsstsAtoms {
   readonly animationRangeStart12pt: { 'animation-range-start_12pt': true }
   readonly animationRangeStart16pt: { 'animation-range-start_16pt': true }
   readonly animationRangeStart20pt: { 'animation-range-start_20pt': true }
+  readonly animationRangeStartN384px: { 'animation-range-start_-384px': true }
+  readonly animationRangeStartN320px: { 'animation-range-start_-320px': true }
+  readonly animationRangeStartN256px: { 'animation-range-start_-256px': true }
+  readonly animationRangeStartN224px: { 'animation-range-start_-224px': true }
+  readonly animationRangeStartN192px: { 'animation-range-start_-192px': true }
+  readonly animationRangeStartN160px: { 'animation-range-start_-160px': true }
+  readonly animationRangeStartN128px: { 'animation-range-start_-128px': true }
+  readonly animationRangeStartN96px: { 'animation-range-start_-96px': true }
+  readonly animationRangeStartN80px: { 'animation-range-start_-80px': true }
+  readonly animationRangeStartN64px: { 'animation-range-start_-64px': true }
+  readonly animationRangeStartN56px: { 'animation-range-start_-56px': true }
+  readonly animationRangeStartN48px: { 'animation-range-start_-48px': true }
+  readonly animationRangeStartN40px: { 'animation-range-start_-40px': true }
+  readonly animationRangeStartN32px: { 'animation-range-start_-32px': true }
+  readonly animationRangeStartN28px: { 'animation-range-start_-28px': true }
+  readonly animationRangeStartN24px: { 'animation-range-start_-24px': true }
+  readonly animationRangeStartN20px: { 'animation-range-start_-20px': true }
+  readonly animationRangeStartN16px: { 'animation-range-start_-16px': true }
+  readonly animationRangeStartN14px: { 'animation-range-start_-14px': true }
+  readonly animationRangeStartN12px: { 'animation-range-start_-12px': true }
+  readonly animationRangeStartN10px: { 'animation-range-start_-10px': true }
+  readonly animationRangeStartN8px: { 'animation-range-start_-8px': true }
+  readonly animationRangeStartN6px: { 'animation-range-start_-6px': true }
+  readonly animationRangeStartN4px: { 'animation-range-start_-4px': true }
+  readonly animationRangeStartN2px: { 'animation-range-start_-2px': true }
+  readonly animationRangeStartN1px: { 'animation-range-start_-1px': true }
   readonly animationRangeStart0px: { 'animation-range-start_0px': true }
   readonly animationRangeStart1px: { 'animation-range-start_1px': true }
   readonly animationRangeStart2px: { 'animation-range-start_2px': true }
-  readonly animationRangeStart3px: { 'animation-range-start_3px': true }
   readonly animationRangeStart4px: { 'animation-range-start_4px': true }
-  readonly animationRangeStart5px: { 'animation-range-start_5px': true }
+  readonly animationRangeStart6px: { 'animation-range-start_6px': true }
+  readonly animationRangeStart8px: { 'animation-range-start_8px': true }
   readonly animationRangeStart10px: { 'animation-range-start_10px': true }
+  readonly animationRangeStart12px: { 'animation-range-start_12px': true }
+  readonly animationRangeStart14px: { 'animation-range-start_14px': true }
+  readonly animationRangeStart16px: { 'animation-range-start_16px': true }
   readonly animationRangeStart20px: { 'animation-range-start_20px': true }
-  readonly animationRangeStart50px: { 'animation-range-start_50px': true }
-  readonly animationRangeStart100px: { 'animation-range-start_100px': true }
+  readonly animationRangeStart24px: { 'animation-range-start_24px': true }
+  readonly animationRangeStart28px: { 'animation-range-start_28px': true }
+  readonly animationRangeStart32px: { 'animation-range-start_32px': true }
+  readonly animationRangeStart40px: { 'animation-range-start_40px': true }
+  readonly animationRangeStart48px: { 'animation-range-start_48px': true }
+  readonly animationRangeStart56px: { 'animation-range-start_56px': true }
+  readonly animationRangeStart64px: { 'animation-range-start_64px': true }
+  readonly animationRangeStart80px: { 'animation-range-start_80px': true }
+  readonly animationRangeStart96px: { 'animation-range-start_96px': true }
+  readonly animationRangeStart128px: { 'animation-range-start_128px': true }
+  readonly animationRangeStart160px: { 'animation-range-start_160px': true }
+  readonly animationRangeStart192px: { 'animation-range-start_192px': true }
+  readonly animationRangeStart224px: { 'animation-range-start_224px': true }
+  readonly animationRangeStart256px: { 'animation-range-start_256px': true }
+  readonly animationRangeStart320px: { 'animation-range-start_320px': true }
+  readonly animationRangeStart384px: { 'animation-range-start_384px': true }
   readonly animationRangeStart0rem: { 'animation-range-start_0rem': true }
   readonly animationRangeStart0p25rem: { 'animation-range-start_0\.25rem': true }
   readonly animationRangeStart0p5rem: { 'animation-range-start_0\.5rem': true }
@@ -1859,16 +1945,59 @@ export interface CsstsAtoms {
   readonly backdropFilter12pt: { 'backdrop-filter_12pt': true }
   readonly backdropFilter16pt: { 'backdrop-filter_16pt': true }
   readonly backdropFilter20pt: { 'backdrop-filter_20pt': true }
+  readonly backdropFilterN384px: { 'backdrop-filter_-384px': true }
+  readonly backdropFilterN320px: { 'backdrop-filter_-320px': true }
+  readonly backdropFilterN256px: { 'backdrop-filter_-256px': true }
+  readonly backdropFilterN224px: { 'backdrop-filter_-224px': true }
+  readonly backdropFilterN192px: { 'backdrop-filter_-192px': true }
+  readonly backdropFilterN160px: { 'backdrop-filter_-160px': true }
+  readonly backdropFilterN128px: { 'backdrop-filter_-128px': true }
+  readonly backdropFilterN96px: { 'backdrop-filter_-96px': true }
+  readonly backdropFilterN80px: { 'backdrop-filter_-80px': true }
+  readonly backdropFilterN64px: { 'backdrop-filter_-64px': true }
+  readonly backdropFilterN56px: { 'backdrop-filter_-56px': true }
+  readonly backdropFilterN48px: { 'backdrop-filter_-48px': true }
+  readonly backdropFilterN40px: { 'backdrop-filter_-40px': true }
+  readonly backdropFilterN32px: { 'backdrop-filter_-32px': true }
+  readonly backdropFilterN28px: { 'backdrop-filter_-28px': true }
+  readonly backdropFilterN24px: { 'backdrop-filter_-24px': true }
+  readonly backdropFilterN20px: { 'backdrop-filter_-20px': true }
+  readonly backdropFilterN16px: { 'backdrop-filter_-16px': true }
+  readonly backdropFilterN14px: { 'backdrop-filter_-14px': true }
+  readonly backdropFilterN12px: { 'backdrop-filter_-12px': true }
+  readonly backdropFilterN10px: { 'backdrop-filter_-10px': true }
+  readonly backdropFilterN8px: { 'backdrop-filter_-8px': true }
+  readonly backdropFilterN6px: { 'backdrop-filter_-6px': true }
+  readonly backdropFilterN4px: { 'backdrop-filter_-4px': true }
+  readonly backdropFilterN2px: { 'backdrop-filter_-2px': true }
+  readonly backdropFilterN1px: { 'backdrop-filter_-1px': true }
   readonly backdropFilter0px: { 'backdrop-filter_0px': true }
   readonly backdropFilter1px: { 'backdrop-filter_1px': true }
   readonly backdropFilter2px: { 'backdrop-filter_2px': true }
-  readonly backdropFilter3px: { 'backdrop-filter_3px': true }
   readonly backdropFilter4px: { 'backdrop-filter_4px': true }
-  readonly backdropFilter5px: { 'backdrop-filter_5px': true }
+  readonly backdropFilter6px: { 'backdrop-filter_6px': true }
+  readonly backdropFilter8px: { 'backdrop-filter_8px': true }
   readonly backdropFilter10px: { 'backdrop-filter_10px': true }
+  readonly backdropFilter12px: { 'backdrop-filter_12px': true }
+  readonly backdropFilter14px: { 'backdrop-filter_14px': true }
+  readonly backdropFilter16px: { 'backdrop-filter_16px': true }
   readonly backdropFilter20px: { 'backdrop-filter_20px': true }
-  readonly backdropFilter50px: { 'backdrop-filter_50px': true }
-  readonly backdropFilter100px: { 'backdrop-filter_100px': true }
+  readonly backdropFilter24px: { 'backdrop-filter_24px': true }
+  readonly backdropFilter28px: { 'backdrop-filter_28px': true }
+  readonly backdropFilter32px: { 'backdrop-filter_32px': true }
+  readonly backdropFilter40px: { 'backdrop-filter_40px': true }
+  readonly backdropFilter48px: { 'backdrop-filter_48px': true }
+  readonly backdropFilter56px: { 'backdrop-filter_56px': true }
+  readonly backdropFilter64px: { 'backdrop-filter_64px': true }
+  readonly backdropFilter80px: { 'backdrop-filter_80px': true }
+  readonly backdropFilter96px: { 'backdrop-filter_96px': true }
+  readonly backdropFilter128px: { 'backdrop-filter_128px': true }
+  readonly backdropFilter160px: { 'backdrop-filter_160px': true }
+  readonly backdropFilter192px: { 'backdrop-filter_192px': true }
+  readonly backdropFilter224px: { 'backdrop-filter_224px': true }
+  readonly backdropFilter256px: { 'backdrop-filter_256px': true }
+  readonly backdropFilter320px: { 'backdrop-filter_320px': true }
+  readonly backdropFilter384px: { 'backdrop-filter_384px': true }
   readonly backdropFilter0rem: { 'backdrop-filter_0rem': true }
   readonly backdropFilter0p25rem: { 'backdrop-filter_0\.25rem': true }
   readonly backdropFilter0p5rem: { 'backdrop-filter_0\.5rem': true }
@@ -2591,16 +2720,59 @@ export interface CsstsAtoms {
   readonly background12pt: { 'background_12pt': true }
   readonly background16pt: { 'background_16pt': true }
   readonly background20pt: { 'background_20pt': true }
+  readonly backgroundN384px: { 'background_-384px': true }
+  readonly backgroundN320px: { 'background_-320px': true }
+  readonly backgroundN256px: { 'background_-256px': true }
+  readonly backgroundN224px: { 'background_-224px': true }
+  readonly backgroundN192px: { 'background_-192px': true }
+  readonly backgroundN160px: { 'background_-160px': true }
+  readonly backgroundN128px: { 'background_-128px': true }
+  readonly backgroundN96px: { 'background_-96px': true }
+  readonly backgroundN80px: { 'background_-80px': true }
+  readonly backgroundN64px: { 'background_-64px': true }
+  readonly backgroundN56px: { 'background_-56px': true }
+  readonly backgroundN48px: { 'background_-48px': true }
+  readonly backgroundN40px: { 'background_-40px': true }
+  readonly backgroundN32px: { 'background_-32px': true }
+  readonly backgroundN28px: { 'background_-28px': true }
+  readonly backgroundN24px: { 'background_-24px': true }
+  readonly backgroundN20px: { 'background_-20px': true }
+  readonly backgroundN16px: { 'background_-16px': true }
+  readonly backgroundN14px: { 'background_-14px': true }
+  readonly backgroundN12px: { 'background_-12px': true }
+  readonly backgroundN10px: { 'background_-10px': true }
+  readonly backgroundN8px: { 'background_-8px': true }
+  readonly backgroundN6px: { 'background_-6px': true }
+  readonly backgroundN4px: { 'background_-4px': true }
+  readonly backgroundN2px: { 'background_-2px': true }
+  readonly backgroundN1px: { 'background_-1px': true }
   readonly background0px: { 'background_0px': true }
   readonly background1px: { 'background_1px': true }
   readonly background2px: { 'background_2px': true }
-  readonly background3px: { 'background_3px': true }
   readonly background4px: { 'background_4px': true }
-  readonly background5px: { 'background_5px': true }
+  readonly background6px: { 'background_6px': true }
+  readonly background8px: { 'background_8px': true }
   readonly background10px: { 'background_10px': true }
+  readonly background12px: { 'background_12px': true }
+  readonly background14px: { 'background_14px': true }
+  readonly background16px: { 'background_16px': true }
   readonly background20px: { 'background_20px': true }
-  readonly background50px: { 'background_50px': true }
-  readonly background100px: { 'background_100px': true }
+  readonly background24px: { 'background_24px': true }
+  readonly background28px: { 'background_28px': true }
+  readonly background32px: { 'background_32px': true }
+  readonly background40px: { 'background_40px': true }
+  readonly background48px: { 'background_48px': true }
+  readonly background56px: { 'background_56px': true }
+  readonly background64px: { 'background_64px': true }
+  readonly background80px: { 'background_80px': true }
+  readonly background96px: { 'background_96px': true }
+  readonly background128px: { 'background_128px': true }
+  readonly background160px: { 'background_160px': true }
+  readonly background192px: { 'background_192px': true }
+  readonly background224px: { 'background_224px': true }
+  readonly background256px: { 'background_256px': true }
+  readonly background320px: { 'background_320px': true }
+  readonly background384px: { 'background_384px': true }
   readonly background0rem: { 'background_0rem': true }
   readonly background0p25rem: { 'background_0\.25rem': true }
   readonly background0p5rem: { 'background_0\.5rem': true }
@@ -3693,16 +3865,59 @@ export interface CsstsAtoms {
   readonly backgroundImage12pt: { 'background-image_12pt': true }
   readonly backgroundImage16pt: { 'background-image_16pt': true }
   readonly backgroundImage20pt: { 'background-image_20pt': true }
+  readonly backgroundImageN384px: { 'background-image_-384px': true }
+  readonly backgroundImageN320px: { 'background-image_-320px': true }
+  readonly backgroundImageN256px: { 'background-image_-256px': true }
+  readonly backgroundImageN224px: { 'background-image_-224px': true }
+  readonly backgroundImageN192px: { 'background-image_-192px': true }
+  readonly backgroundImageN160px: { 'background-image_-160px': true }
+  readonly backgroundImageN128px: { 'background-image_-128px': true }
+  readonly backgroundImageN96px: { 'background-image_-96px': true }
+  readonly backgroundImageN80px: { 'background-image_-80px': true }
+  readonly backgroundImageN64px: { 'background-image_-64px': true }
+  readonly backgroundImageN56px: { 'background-image_-56px': true }
+  readonly backgroundImageN48px: { 'background-image_-48px': true }
+  readonly backgroundImageN40px: { 'background-image_-40px': true }
+  readonly backgroundImageN32px: { 'background-image_-32px': true }
+  readonly backgroundImageN28px: { 'background-image_-28px': true }
+  readonly backgroundImageN24px: { 'background-image_-24px': true }
+  readonly backgroundImageN20px: { 'background-image_-20px': true }
+  readonly backgroundImageN16px: { 'background-image_-16px': true }
+  readonly backgroundImageN14px: { 'background-image_-14px': true }
+  readonly backgroundImageN12px: { 'background-image_-12px': true }
+  readonly backgroundImageN10px: { 'background-image_-10px': true }
+  readonly backgroundImageN8px: { 'background-image_-8px': true }
+  readonly backgroundImageN6px: { 'background-image_-6px': true }
+  readonly backgroundImageN4px: { 'background-image_-4px': true }
+  readonly backgroundImageN2px: { 'background-image_-2px': true }
+  readonly backgroundImageN1px: { 'background-image_-1px': true }
   readonly backgroundImage0px: { 'background-image_0px': true }
   readonly backgroundImage1px: { 'background-image_1px': true }
   readonly backgroundImage2px: { 'background-image_2px': true }
-  readonly backgroundImage3px: { 'background-image_3px': true }
   readonly backgroundImage4px: { 'background-image_4px': true }
-  readonly backgroundImage5px: { 'background-image_5px': true }
+  readonly backgroundImage6px: { 'background-image_6px': true }
+  readonly backgroundImage8px: { 'background-image_8px': true }
   readonly backgroundImage10px: { 'background-image_10px': true }
+  readonly backgroundImage12px: { 'background-image_12px': true }
+  readonly backgroundImage14px: { 'background-image_14px': true }
+  readonly backgroundImage16px: { 'background-image_16px': true }
   readonly backgroundImage20px: { 'background-image_20px': true }
-  readonly backgroundImage50px: { 'background-image_50px': true }
-  readonly backgroundImage100px: { 'background-image_100px': true }
+  readonly backgroundImage24px: { 'background-image_24px': true }
+  readonly backgroundImage28px: { 'background-image_28px': true }
+  readonly backgroundImage32px: { 'background-image_32px': true }
+  readonly backgroundImage40px: { 'background-image_40px': true }
+  readonly backgroundImage48px: { 'background-image_48px': true }
+  readonly backgroundImage56px: { 'background-image_56px': true }
+  readonly backgroundImage64px: { 'background-image_64px': true }
+  readonly backgroundImage80px: { 'background-image_80px': true }
+  readonly backgroundImage96px: { 'background-image_96px': true }
+  readonly backgroundImage128px: { 'background-image_128px': true }
+  readonly backgroundImage160px: { 'background-image_160px': true }
+  readonly backgroundImage192px: { 'background-image_192px': true }
+  readonly backgroundImage224px: { 'background-image_224px': true }
+  readonly backgroundImage256px: { 'background-image_256px': true }
+  readonly backgroundImage320px: { 'background-image_320px': true }
+  readonly backgroundImage384px: { 'background-image_384px': true }
   readonly backgroundImage0rem: { 'background-image_0rem': true }
   readonly backgroundImage0p25rem: { 'background-image_0\.25rem': true }
   readonly backgroundImage0p5rem: { 'background-image_0\.5rem': true }
@@ -4114,16 +4329,59 @@ export interface CsstsAtoms {
   readonly backgroundPosition12pt: { 'background-position_12pt': true }
   readonly backgroundPosition16pt: { 'background-position_16pt': true }
   readonly backgroundPosition20pt: { 'background-position_20pt': true }
+  readonly backgroundPositionN384px: { 'background-position_-384px': true }
+  readonly backgroundPositionN320px: { 'background-position_-320px': true }
+  readonly backgroundPositionN256px: { 'background-position_-256px': true }
+  readonly backgroundPositionN224px: { 'background-position_-224px': true }
+  readonly backgroundPositionN192px: { 'background-position_-192px': true }
+  readonly backgroundPositionN160px: { 'background-position_-160px': true }
+  readonly backgroundPositionN128px: { 'background-position_-128px': true }
+  readonly backgroundPositionN96px: { 'background-position_-96px': true }
+  readonly backgroundPositionN80px: { 'background-position_-80px': true }
+  readonly backgroundPositionN64px: { 'background-position_-64px': true }
+  readonly backgroundPositionN56px: { 'background-position_-56px': true }
+  readonly backgroundPositionN48px: { 'background-position_-48px': true }
+  readonly backgroundPositionN40px: { 'background-position_-40px': true }
+  readonly backgroundPositionN32px: { 'background-position_-32px': true }
+  readonly backgroundPositionN28px: { 'background-position_-28px': true }
+  readonly backgroundPositionN24px: { 'background-position_-24px': true }
+  readonly backgroundPositionN20px: { 'background-position_-20px': true }
+  readonly backgroundPositionN16px: { 'background-position_-16px': true }
+  readonly backgroundPositionN14px: { 'background-position_-14px': true }
+  readonly backgroundPositionN12px: { 'background-position_-12px': true }
+  readonly backgroundPositionN10px: { 'background-position_-10px': true }
+  readonly backgroundPositionN8px: { 'background-position_-8px': true }
+  readonly backgroundPositionN6px: { 'background-position_-6px': true }
+  readonly backgroundPositionN4px: { 'background-position_-4px': true }
+  readonly backgroundPositionN2px: { 'background-position_-2px': true }
+  readonly backgroundPositionN1px: { 'background-position_-1px': true }
   readonly backgroundPosition0px: { 'background-position_0px': true }
   readonly backgroundPosition1px: { 'background-position_1px': true }
   readonly backgroundPosition2px: { 'background-position_2px': true }
-  readonly backgroundPosition3px: { 'background-position_3px': true }
   readonly backgroundPosition4px: { 'background-position_4px': true }
-  readonly backgroundPosition5px: { 'background-position_5px': true }
+  readonly backgroundPosition6px: { 'background-position_6px': true }
+  readonly backgroundPosition8px: { 'background-position_8px': true }
   readonly backgroundPosition10px: { 'background-position_10px': true }
+  readonly backgroundPosition12px: { 'background-position_12px': true }
+  readonly backgroundPosition14px: { 'background-position_14px': true }
+  readonly backgroundPosition16px: { 'background-position_16px': true }
   readonly backgroundPosition20px: { 'background-position_20px': true }
-  readonly backgroundPosition50px: { 'background-position_50px': true }
-  readonly backgroundPosition100px: { 'background-position_100px': true }
+  readonly backgroundPosition24px: { 'background-position_24px': true }
+  readonly backgroundPosition28px: { 'background-position_28px': true }
+  readonly backgroundPosition32px: { 'background-position_32px': true }
+  readonly backgroundPosition40px: { 'background-position_40px': true }
+  readonly backgroundPosition48px: { 'background-position_48px': true }
+  readonly backgroundPosition56px: { 'background-position_56px': true }
+  readonly backgroundPosition64px: { 'background-position_64px': true }
+  readonly backgroundPosition80px: { 'background-position_80px': true }
+  readonly backgroundPosition96px: { 'background-position_96px': true }
+  readonly backgroundPosition128px: { 'background-position_128px': true }
+  readonly backgroundPosition160px: { 'background-position_160px': true }
+  readonly backgroundPosition192px: { 'background-position_192px': true }
+  readonly backgroundPosition224px: { 'background-position_224px': true }
+  readonly backgroundPosition256px: { 'background-position_256px': true }
+  readonly backgroundPosition320px: { 'background-position_320px': true }
+  readonly backgroundPosition384px: { 'background-position_384px': true }
   readonly backgroundPosition0rem: { 'background-position_0rem': true }
   readonly backgroundPosition0p25rem: { 'background-position_0\.25rem': true }
   readonly backgroundPosition0p5rem: { 'background-position_0\.5rem': true }
@@ -4498,16 +4756,59 @@ export interface CsstsAtoms {
   readonly backgroundPositionX12pt: { 'background-position-x_12pt': true }
   readonly backgroundPositionX16pt: { 'background-position-x_16pt': true }
   readonly backgroundPositionX20pt: { 'background-position-x_20pt': true }
+  readonly backgroundPositionXN384px: { 'background-position-x_-384px': true }
+  readonly backgroundPositionXN320px: { 'background-position-x_-320px': true }
+  readonly backgroundPositionXN256px: { 'background-position-x_-256px': true }
+  readonly backgroundPositionXN224px: { 'background-position-x_-224px': true }
+  readonly backgroundPositionXN192px: { 'background-position-x_-192px': true }
+  readonly backgroundPositionXN160px: { 'background-position-x_-160px': true }
+  readonly backgroundPositionXN128px: { 'background-position-x_-128px': true }
+  readonly backgroundPositionXN96px: { 'background-position-x_-96px': true }
+  readonly backgroundPositionXN80px: { 'background-position-x_-80px': true }
+  readonly backgroundPositionXN64px: { 'background-position-x_-64px': true }
+  readonly backgroundPositionXN56px: { 'background-position-x_-56px': true }
+  readonly backgroundPositionXN48px: { 'background-position-x_-48px': true }
+  readonly backgroundPositionXN40px: { 'background-position-x_-40px': true }
+  readonly backgroundPositionXN32px: { 'background-position-x_-32px': true }
+  readonly backgroundPositionXN28px: { 'background-position-x_-28px': true }
+  readonly backgroundPositionXN24px: { 'background-position-x_-24px': true }
+  readonly backgroundPositionXN20px: { 'background-position-x_-20px': true }
+  readonly backgroundPositionXN16px: { 'background-position-x_-16px': true }
+  readonly backgroundPositionXN14px: { 'background-position-x_-14px': true }
+  readonly backgroundPositionXN12px: { 'background-position-x_-12px': true }
+  readonly backgroundPositionXN10px: { 'background-position-x_-10px': true }
+  readonly backgroundPositionXN8px: { 'background-position-x_-8px': true }
+  readonly backgroundPositionXN6px: { 'background-position-x_-6px': true }
+  readonly backgroundPositionXN4px: { 'background-position-x_-4px': true }
+  readonly backgroundPositionXN2px: { 'background-position-x_-2px': true }
+  readonly backgroundPositionXN1px: { 'background-position-x_-1px': true }
   readonly backgroundPositionX0px: { 'background-position-x_0px': true }
   readonly backgroundPositionX1px: { 'background-position-x_1px': true }
   readonly backgroundPositionX2px: { 'background-position-x_2px': true }
-  readonly backgroundPositionX3px: { 'background-position-x_3px': true }
   readonly backgroundPositionX4px: { 'background-position-x_4px': true }
-  readonly backgroundPositionX5px: { 'background-position-x_5px': true }
+  readonly backgroundPositionX6px: { 'background-position-x_6px': true }
+  readonly backgroundPositionX8px: { 'background-position-x_8px': true }
   readonly backgroundPositionX10px: { 'background-position-x_10px': true }
+  readonly backgroundPositionX12px: { 'background-position-x_12px': true }
+  readonly backgroundPositionX14px: { 'background-position-x_14px': true }
+  readonly backgroundPositionX16px: { 'background-position-x_16px': true }
   readonly backgroundPositionX20px: { 'background-position-x_20px': true }
-  readonly backgroundPositionX50px: { 'background-position-x_50px': true }
-  readonly backgroundPositionX100px: { 'background-position-x_100px': true }
+  readonly backgroundPositionX24px: { 'background-position-x_24px': true }
+  readonly backgroundPositionX28px: { 'background-position-x_28px': true }
+  readonly backgroundPositionX32px: { 'background-position-x_32px': true }
+  readonly backgroundPositionX40px: { 'background-position-x_40px': true }
+  readonly backgroundPositionX48px: { 'background-position-x_48px': true }
+  readonly backgroundPositionX56px: { 'background-position-x_56px': true }
+  readonly backgroundPositionX64px: { 'background-position-x_64px': true }
+  readonly backgroundPositionX80px: { 'background-position-x_80px': true }
+  readonly backgroundPositionX96px: { 'background-position-x_96px': true }
+  readonly backgroundPositionX128px: { 'background-position-x_128px': true }
+  readonly backgroundPositionX160px: { 'background-position-x_160px': true }
+  readonly backgroundPositionX192px: { 'background-position-x_192px': true }
+  readonly backgroundPositionX224px: { 'background-position-x_224px': true }
+  readonly backgroundPositionX256px: { 'background-position-x_256px': true }
+  readonly backgroundPositionX320px: { 'background-position-x_320px': true }
+  readonly backgroundPositionX384px: { 'background-position-x_384px': true }
   readonly backgroundPositionX0rem: { 'background-position-x_0rem': true }
   readonly backgroundPositionX0p25rem: { 'background-position-x_0\.25rem': true }
   readonly backgroundPositionX0p5rem: { 'background-position-x_0\.5rem': true }
@@ -4882,16 +5183,59 @@ export interface CsstsAtoms {
   readonly backgroundPositionY12pt: { 'background-position-y_12pt': true }
   readonly backgroundPositionY16pt: { 'background-position-y_16pt': true }
   readonly backgroundPositionY20pt: { 'background-position-y_20pt': true }
+  readonly backgroundPositionYN384px: { 'background-position-y_-384px': true }
+  readonly backgroundPositionYN320px: { 'background-position-y_-320px': true }
+  readonly backgroundPositionYN256px: { 'background-position-y_-256px': true }
+  readonly backgroundPositionYN224px: { 'background-position-y_-224px': true }
+  readonly backgroundPositionYN192px: { 'background-position-y_-192px': true }
+  readonly backgroundPositionYN160px: { 'background-position-y_-160px': true }
+  readonly backgroundPositionYN128px: { 'background-position-y_-128px': true }
+  readonly backgroundPositionYN96px: { 'background-position-y_-96px': true }
+  readonly backgroundPositionYN80px: { 'background-position-y_-80px': true }
+  readonly backgroundPositionYN64px: { 'background-position-y_-64px': true }
+  readonly backgroundPositionYN56px: { 'background-position-y_-56px': true }
+  readonly backgroundPositionYN48px: { 'background-position-y_-48px': true }
+  readonly backgroundPositionYN40px: { 'background-position-y_-40px': true }
+  readonly backgroundPositionYN32px: { 'background-position-y_-32px': true }
+  readonly backgroundPositionYN28px: { 'background-position-y_-28px': true }
+  readonly backgroundPositionYN24px: { 'background-position-y_-24px': true }
+  readonly backgroundPositionYN20px: { 'background-position-y_-20px': true }
+  readonly backgroundPositionYN16px: { 'background-position-y_-16px': true }
+  readonly backgroundPositionYN14px: { 'background-position-y_-14px': true }
+  readonly backgroundPositionYN12px: { 'background-position-y_-12px': true }
+  readonly backgroundPositionYN10px: { 'background-position-y_-10px': true }
+  readonly backgroundPositionYN8px: { 'background-position-y_-8px': true }
+  readonly backgroundPositionYN6px: { 'background-position-y_-6px': true }
+  readonly backgroundPositionYN4px: { 'background-position-y_-4px': true }
+  readonly backgroundPositionYN2px: { 'background-position-y_-2px': true }
+  readonly backgroundPositionYN1px: { 'background-position-y_-1px': true }
   readonly backgroundPositionY0px: { 'background-position-y_0px': true }
   readonly backgroundPositionY1px: { 'background-position-y_1px': true }
   readonly backgroundPositionY2px: { 'background-position-y_2px': true }
-  readonly backgroundPositionY3px: { 'background-position-y_3px': true }
   readonly backgroundPositionY4px: { 'background-position-y_4px': true }
-  readonly backgroundPositionY5px: { 'background-position-y_5px': true }
+  readonly backgroundPositionY6px: { 'background-position-y_6px': true }
+  readonly backgroundPositionY8px: { 'background-position-y_8px': true }
   readonly backgroundPositionY10px: { 'background-position-y_10px': true }
+  readonly backgroundPositionY12px: { 'background-position-y_12px': true }
+  readonly backgroundPositionY14px: { 'background-position-y_14px': true }
+  readonly backgroundPositionY16px: { 'background-position-y_16px': true }
   readonly backgroundPositionY20px: { 'background-position-y_20px': true }
-  readonly backgroundPositionY50px: { 'background-position-y_50px': true }
-  readonly backgroundPositionY100px: { 'background-position-y_100px': true }
+  readonly backgroundPositionY24px: { 'background-position-y_24px': true }
+  readonly backgroundPositionY28px: { 'background-position-y_28px': true }
+  readonly backgroundPositionY32px: { 'background-position-y_32px': true }
+  readonly backgroundPositionY40px: { 'background-position-y_40px': true }
+  readonly backgroundPositionY48px: { 'background-position-y_48px': true }
+  readonly backgroundPositionY56px: { 'background-position-y_56px': true }
+  readonly backgroundPositionY64px: { 'background-position-y_64px': true }
+  readonly backgroundPositionY80px: { 'background-position-y_80px': true }
+  readonly backgroundPositionY96px: { 'background-position-y_96px': true }
+  readonly backgroundPositionY128px: { 'background-position-y_128px': true }
+  readonly backgroundPositionY160px: { 'background-position-y_160px': true }
+  readonly backgroundPositionY192px: { 'background-position-y_192px': true }
+  readonly backgroundPositionY224px: { 'background-position-y_224px': true }
+  readonly backgroundPositionY256px: { 'background-position-y_256px': true }
+  readonly backgroundPositionY320px: { 'background-position-y_320px': true }
+  readonly backgroundPositionY384px: { 'background-position-y_384px': true }
   readonly backgroundPositionY0rem: { 'background-position-y_0rem': true }
   readonly backgroundPositionY0p25rem: { 'background-position-y_0\.25rem': true }
   readonly backgroundPositionY0p5rem: { 'background-position-y_0\.5rem': true }
@@ -5272,16 +5616,59 @@ export interface CsstsAtoms {
   readonly backgroundSize12pt: { 'background-size_12pt': true }
   readonly backgroundSize16pt: { 'background-size_16pt': true }
   readonly backgroundSize20pt: { 'background-size_20pt': true }
+  readonly backgroundSizeN384px: { 'background-size_-384px': true }
+  readonly backgroundSizeN320px: { 'background-size_-320px': true }
+  readonly backgroundSizeN256px: { 'background-size_-256px': true }
+  readonly backgroundSizeN224px: { 'background-size_-224px': true }
+  readonly backgroundSizeN192px: { 'background-size_-192px': true }
+  readonly backgroundSizeN160px: { 'background-size_-160px': true }
+  readonly backgroundSizeN128px: { 'background-size_-128px': true }
+  readonly backgroundSizeN96px: { 'background-size_-96px': true }
+  readonly backgroundSizeN80px: { 'background-size_-80px': true }
+  readonly backgroundSizeN64px: { 'background-size_-64px': true }
+  readonly backgroundSizeN56px: { 'background-size_-56px': true }
+  readonly backgroundSizeN48px: { 'background-size_-48px': true }
+  readonly backgroundSizeN40px: { 'background-size_-40px': true }
+  readonly backgroundSizeN32px: { 'background-size_-32px': true }
+  readonly backgroundSizeN28px: { 'background-size_-28px': true }
+  readonly backgroundSizeN24px: { 'background-size_-24px': true }
+  readonly backgroundSizeN20px: { 'background-size_-20px': true }
+  readonly backgroundSizeN16px: { 'background-size_-16px': true }
+  readonly backgroundSizeN14px: { 'background-size_-14px': true }
+  readonly backgroundSizeN12px: { 'background-size_-12px': true }
+  readonly backgroundSizeN10px: { 'background-size_-10px': true }
+  readonly backgroundSizeN8px: { 'background-size_-8px': true }
+  readonly backgroundSizeN6px: { 'background-size_-6px': true }
+  readonly backgroundSizeN4px: { 'background-size_-4px': true }
+  readonly backgroundSizeN2px: { 'background-size_-2px': true }
+  readonly backgroundSizeN1px: { 'background-size_-1px': true }
   readonly backgroundSize0px: { 'background-size_0px': true }
   readonly backgroundSize1px: { 'background-size_1px': true }
   readonly backgroundSize2px: { 'background-size_2px': true }
-  readonly backgroundSize3px: { 'background-size_3px': true }
   readonly backgroundSize4px: { 'background-size_4px': true }
-  readonly backgroundSize5px: { 'background-size_5px': true }
+  readonly backgroundSize6px: { 'background-size_6px': true }
+  readonly backgroundSize8px: { 'background-size_8px': true }
   readonly backgroundSize10px: { 'background-size_10px': true }
+  readonly backgroundSize12px: { 'background-size_12px': true }
+  readonly backgroundSize14px: { 'background-size_14px': true }
+  readonly backgroundSize16px: { 'background-size_16px': true }
   readonly backgroundSize20px: { 'background-size_20px': true }
-  readonly backgroundSize50px: { 'background-size_50px': true }
-  readonly backgroundSize100px: { 'background-size_100px': true }
+  readonly backgroundSize24px: { 'background-size_24px': true }
+  readonly backgroundSize28px: { 'background-size_28px': true }
+  readonly backgroundSize32px: { 'background-size_32px': true }
+  readonly backgroundSize40px: { 'background-size_40px': true }
+  readonly backgroundSize48px: { 'background-size_48px': true }
+  readonly backgroundSize56px: { 'background-size_56px': true }
+  readonly backgroundSize64px: { 'background-size_64px': true }
+  readonly backgroundSize80px: { 'background-size_80px': true }
+  readonly backgroundSize96px: { 'background-size_96px': true }
+  readonly backgroundSize128px: { 'background-size_128px': true }
+  readonly backgroundSize160px: { 'background-size_160px': true }
+  readonly backgroundSize192px: { 'background-size_192px': true }
+  readonly backgroundSize224px: { 'background-size_224px': true }
+  readonly backgroundSize256px: { 'background-size_256px': true }
+  readonly backgroundSize320px: { 'background-size_320px': true }
+  readonly backgroundSize384px: { 'background-size_384px': true }
   readonly backgroundSize0rem: { 'background-size_0rem': true }
   readonly backgroundSize0p25rem: { 'background-size_0\.25rem': true }
   readonly backgroundSize0p5rem: { 'background-size_0\.5rem': true }
@@ -5967,16 +6354,59 @@ export interface CsstsAtoms {
   readonly border12pt: { 'border_12pt': true }
   readonly border16pt: { 'border_16pt': true }
   readonly border20pt: { 'border_20pt': true }
+  readonly borderN384px: { 'border_-384px': true }
+  readonly borderN320px: { 'border_-320px': true }
+  readonly borderN256px: { 'border_-256px': true }
+  readonly borderN224px: { 'border_-224px': true }
+  readonly borderN192px: { 'border_-192px': true }
+  readonly borderN160px: { 'border_-160px': true }
+  readonly borderN128px: { 'border_-128px': true }
+  readonly borderN96px: { 'border_-96px': true }
+  readonly borderN80px: { 'border_-80px': true }
+  readonly borderN64px: { 'border_-64px': true }
+  readonly borderN56px: { 'border_-56px': true }
+  readonly borderN48px: { 'border_-48px': true }
+  readonly borderN40px: { 'border_-40px': true }
+  readonly borderN32px: { 'border_-32px': true }
+  readonly borderN28px: { 'border_-28px': true }
+  readonly borderN24px: { 'border_-24px': true }
+  readonly borderN20px: { 'border_-20px': true }
+  readonly borderN16px: { 'border_-16px': true }
+  readonly borderN14px: { 'border_-14px': true }
+  readonly borderN12px: { 'border_-12px': true }
+  readonly borderN10px: { 'border_-10px': true }
+  readonly borderN8px: { 'border_-8px': true }
+  readonly borderN6px: { 'border_-6px': true }
+  readonly borderN4px: { 'border_-4px': true }
+  readonly borderN2px: { 'border_-2px': true }
+  readonly borderN1px: { 'border_-1px': true }
   readonly border0px: { 'border_0px': true }
   readonly border1px: { 'border_1px': true }
   readonly border2px: { 'border_2px': true }
-  readonly border3px: { 'border_3px': true }
   readonly border4px: { 'border_4px': true }
-  readonly border5px: { 'border_5px': true }
+  readonly border6px: { 'border_6px': true }
+  readonly border8px: { 'border_8px': true }
   readonly border10px: { 'border_10px': true }
+  readonly border12px: { 'border_12px': true }
+  readonly border14px: { 'border_14px': true }
+  readonly border16px: { 'border_16px': true }
   readonly border20px: { 'border_20px': true }
-  readonly border50px: { 'border_50px': true }
-  readonly border100px: { 'border_100px': true }
+  readonly border24px: { 'border_24px': true }
+  readonly border28px: { 'border_28px': true }
+  readonly border32px: { 'border_32px': true }
+  readonly border40px: { 'border_40px': true }
+  readonly border48px: { 'border_48px': true }
+  readonly border56px: { 'border_56px': true }
+  readonly border64px: { 'border_64px': true }
+  readonly border80px: { 'border_80px': true }
+  readonly border96px: { 'border_96px': true }
+  readonly border128px: { 'border_128px': true }
+  readonly border160px: { 'border_160px': true }
+  readonly border192px: { 'border_192px': true }
+  readonly border224px: { 'border_224px': true }
+  readonly border256px: { 'border_256px': true }
+  readonly border320px: { 'border_320px': true }
+  readonly border384px: { 'border_384px': true }
   readonly border0rem: { 'border_0rem': true }
   readonly border0p25rem: { 'border_0\.25rem': true }
   readonly border0p5rem: { 'border_0\.5rem': true }
@@ -7673,16 +8103,59 @@ export interface CsstsAtoms {
   readonly borderBottom12pt: { 'border-bottom_12pt': true }
   readonly borderBottom16pt: { 'border-bottom_16pt': true }
   readonly borderBottom20pt: { 'border-bottom_20pt': true }
+  readonly borderBottomN384px: { 'border-bottom_-384px': true }
+  readonly borderBottomN320px: { 'border-bottom_-320px': true }
+  readonly borderBottomN256px: { 'border-bottom_-256px': true }
+  readonly borderBottomN224px: { 'border-bottom_-224px': true }
+  readonly borderBottomN192px: { 'border-bottom_-192px': true }
+  readonly borderBottomN160px: { 'border-bottom_-160px': true }
+  readonly borderBottomN128px: { 'border-bottom_-128px': true }
+  readonly borderBottomN96px: { 'border-bottom_-96px': true }
+  readonly borderBottomN80px: { 'border-bottom_-80px': true }
+  readonly borderBottomN64px: { 'border-bottom_-64px': true }
+  readonly borderBottomN56px: { 'border-bottom_-56px': true }
+  readonly borderBottomN48px: { 'border-bottom_-48px': true }
+  readonly borderBottomN40px: { 'border-bottom_-40px': true }
+  readonly borderBottomN32px: { 'border-bottom_-32px': true }
+  readonly borderBottomN28px: { 'border-bottom_-28px': true }
+  readonly borderBottomN24px: { 'border-bottom_-24px': true }
+  readonly borderBottomN20px: { 'border-bottom_-20px': true }
+  readonly borderBottomN16px: { 'border-bottom_-16px': true }
+  readonly borderBottomN14px: { 'border-bottom_-14px': true }
+  readonly borderBottomN12px: { 'border-bottom_-12px': true }
+  readonly borderBottomN10px: { 'border-bottom_-10px': true }
+  readonly borderBottomN8px: { 'border-bottom_-8px': true }
+  readonly borderBottomN6px: { 'border-bottom_-6px': true }
+  readonly borderBottomN4px: { 'border-bottom_-4px': true }
+  readonly borderBottomN2px: { 'border-bottom_-2px': true }
+  readonly borderBottomN1px: { 'border-bottom_-1px': true }
   readonly borderBottom0px: { 'border-bottom_0px': true }
   readonly borderBottom1px: { 'border-bottom_1px': true }
   readonly borderBottom2px: { 'border-bottom_2px': true }
-  readonly borderBottom3px: { 'border-bottom_3px': true }
   readonly borderBottom4px: { 'border-bottom_4px': true }
-  readonly borderBottom5px: { 'border-bottom_5px': true }
+  readonly borderBottom6px: { 'border-bottom_6px': true }
+  readonly borderBottom8px: { 'border-bottom_8px': true }
   readonly borderBottom10px: { 'border-bottom_10px': true }
+  readonly borderBottom12px: { 'border-bottom_12px': true }
+  readonly borderBottom14px: { 'border-bottom_14px': true }
+  readonly borderBottom16px: { 'border-bottom_16px': true }
   readonly borderBottom20px: { 'border-bottom_20px': true }
-  readonly borderBottom50px: { 'border-bottom_50px': true }
-  readonly borderBottom100px: { 'border-bottom_100px': true }
+  readonly borderBottom24px: { 'border-bottom_24px': true }
+  readonly borderBottom28px: { 'border-bottom_28px': true }
+  readonly borderBottom32px: { 'border-bottom_32px': true }
+  readonly borderBottom40px: { 'border-bottom_40px': true }
+  readonly borderBottom48px: { 'border-bottom_48px': true }
+  readonly borderBottom56px: { 'border-bottom_56px': true }
+  readonly borderBottom64px: { 'border-bottom_64px': true }
+  readonly borderBottom80px: { 'border-bottom_80px': true }
+  readonly borderBottom96px: { 'border-bottom_96px': true }
+  readonly borderBottom128px: { 'border-bottom_128px': true }
+  readonly borderBottom160px: { 'border-bottom_160px': true }
+  readonly borderBottom192px: { 'border-bottom_192px': true }
+  readonly borderBottom224px: { 'border-bottom_224px': true }
+  readonly borderBottom256px: { 'border-bottom_256px': true }
+  readonly borderBottom320px: { 'border-bottom_320px': true }
+  readonly borderBottom384px: { 'border-bottom_384px': true }
   readonly borderBottom0rem: { 'border-bottom_0rem': true }
   readonly borderBottom0p25rem: { 'border-bottom_0\.25rem': true }
   readonly borderBottom0p5rem: { 'border-bottom_0\.5rem': true }
@@ -8064,16 +8537,59 @@ export interface CsstsAtoms {
   readonly borderBottomLeftRadius12pt: { 'border-bottom-left-radius_12pt': true }
   readonly borderBottomLeftRadius16pt: { 'border-bottom-left-radius_16pt': true }
   readonly borderBottomLeftRadius20pt: { 'border-bottom-left-radius_20pt': true }
+  readonly borderBottomLeftRadiusN384px: { 'border-bottom-left-radius_-384px': true }
+  readonly borderBottomLeftRadiusN320px: { 'border-bottom-left-radius_-320px': true }
+  readonly borderBottomLeftRadiusN256px: { 'border-bottom-left-radius_-256px': true }
+  readonly borderBottomLeftRadiusN224px: { 'border-bottom-left-radius_-224px': true }
+  readonly borderBottomLeftRadiusN192px: { 'border-bottom-left-radius_-192px': true }
+  readonly borderBottomLeftRadiusN160px: { 'border-bottom-left-radius_-160px': true }
+  readonly borderBottomLeftRadiusN128px: { 'border-bottom-left-radius_-128px': true }
+  readonly borderBottomLeftRadiusN96px: { 'border-bottom-left-radius_-96px': true }
+  readonly borderBottomLeftRadiusN80px: { 'border-bottom-left-radius_-80px': true }
+  readonly borderBottomLeftRadiusN64px: { 'border-bottom-left-radius_-64px': true }
+  readonly borderBottomLeftRadiusN56px: { 'border-bottom-left-radius_-56px': true }
+  readonly borderBottomLeftRadiusN48px: { 'border-bottom-left-radius_-48px': true }
+  readonly borderBottomLeftRadiusN40px: { 'border-bottom-left-radius_-40px': true }
+  readonly borderBottomLeftRadiusN32px: { 'border-bottom-left-radius_-32px': true }
+  readonly borderBottomLeftRadiusN28px: { 'border-bottom-left-radius_-28px': true }
+  readonly borderBottomLeftRadiusN24px: { 'border-bottom-left-radius_-24px': true }
+  readonly borderBottomLeftRadiusN20px: { 'border-bottom-left-radius_-20px': true }
+  readonly borderBottomLeftRadiusN16px: { 'border-bottom-left-radius_-16px': true }
+  readonly borderBottomLeftRadiusN14px: { 'border-bottom-left-radius_-14px': true }
+  readonly borderBottomLeftRadiusN12px: { 'border-bottom-left-radius_-12px': true }
+  readonly borderBottomLeftRadiusN10px: { 'border-bottom-left-radius_-10px': true }
+  readonly borderBottomLeftRadiusN8px: { 'border-bottom-left-radius_-8px': true }
+  readonly borderBottomLeftRadiusN6px: { 'border-bottom-left-radius_-6px': true }
+  readonly borderBottomLeftRadiusN4px: { 'border-bottom-left-radius_-4px': true }
+  readonly borderBottomLeftRadiusN2px: { 'border-bottom-left-radius_-2px': true }
+  readonly borderBottomLeftRadiusN1px: { 'border-bottom-left-radius_-1px': true }
   readonly borderBottomLeftRadius0px: { 'border-bottom-left-radius_0px': true }
   readonly borderBottomLeftRadius1px: { 'border-bottom-left-radius_1px': true }
   readonly borderBottomLeftRadius2px: { 'border-bottom-left-radius_2px': true }
-  readonly borderBottomLeftRadius3px: { 'border-bottom-left-radius_3px': true }
   readonly borderBottomLeftRadius4px: { 'border-bottom-left-radius_4px': true }
-  readonly borderBottomLeftRadius5px: { 'border-bottom-left-radius_5px': true }
+  readonly borderBottomLeftRadius6px: { 'border-bottom-left-radius_6px': true }
+  readonly borderBottomLeftRadius8px: { 'border-bottom-left-radius_8px': true }
   readonly borderBottomLeftRadius10px: { 'border-bottom-left-radius_10px': true }
+  readonly borderBottomLeftRadius12px: { 'border-bottom-left-radius_12px': true }
+  readonly borderBottomLeftRadius14px: { 'border-bottom-left-radius_14px': true }
+  readonly borderBottomLeftRadius16px: { 'border-bottom-left-radius_16px': true }
   readonly borderBottomLeftRadius20px: { 'border-bottom-left-radius_20px': true }
-  readonly borderBottomLeftRadius50px: { 'border-bottom-left-radius_50px': true }
-  readonly borderBottomLeftRadius100px: { 'border-bottom-left-radius_100px': true }
+  readonly borderBottomLeftRadius24px: { 'border-bottom-left-radius_24px': true }
+  readonly borderBottomLeftRadius28px: { 'border-bottom-left-radius_28px': true }
+  readonly borderBottomLeftRadius32px: { 'border-bottom-left-radius_32px': true }
+  readonly borderBottomLeftRadius40px: { 'border-bottom-left-radius_40px': true }
+  readonly borderBottomLeftRadius48px: { 'border-bottom-left-radius_48px': true }
+  readonly borderBottomLeftRadius56px: { 'border-bottom-left-radius_56px': true }
+  readonly borderBottomLeftRadius64px: { 'border-bottom-left-radius_64px': true }
+  readonly borderBottomLeftRadius80px: { 'border-bottom-left-radius_80px': true }
+  readonly borderBottomLeftRadius96px: { 'border-bottom-left-radius_96px': true }
+  readonly borderBottomLeftRadius128px: { 'border-bottom-left-radius_128px': true }
+  readonly borderBottomLeftRadius160px: { 'border-bottom-left-radius_160px': true }
+  readonly borderBottomLeftRadius192px: { 'border-bottom-left-radius_192px': true }
+  readonly borderBottomLeftRadius224px: { 'border-bottom-left-radius_224px': true }
+  readonly borderBottomLeftRadius256px: { 'border-bottom-left-radius_256px': true }
+  readonly borderBottomLeftRadius320px: { 'border-bottom-left-radius_320px': true }
+  readonly borderBottomLeftRadius384px: { 'border-bottom-left-radius_384px': true }
   readonly borderBottomLeftRadius0rem: { 'border-bottom-left-radius_0rem': true }
   readonly borderBottomLeftRadius0p25rem: { 'border-bottom-left-radius_0\.25rem': true }
   readonly borderBottomLeftRadius0p5rem: { 'border-bottom-left-radius_0\.5rem': true }
@@ -8443,16 +8959,59 @@ export interface CsstsAtoms {
   readonly borderBottomRightRadius12pt: { 'border-bottom-right-radius_12pt': true }
   readonly borderBottomRightRadius16pt: { 'border-bottom-right-radius_16pt': true }
   readonly borderBottomRightRadius20pt: { 'border-bottom-right-radius_20pt': true }
+  readonly borderBottomRightRadiusN384px: { 'border-bottom-right-radius_-384px': true }
+  readonly borderBottomRightRadiusN320px: { 'border-bottom-right-radius_-320px': true }
+  readonly borderBottomRightRadiusN256px: { 'border-bottom-right-radius_-256px': true }
+  readonly borderBottomRightRadiusN224px: { 'border-bottom-right-radius_-224px': true }
+  readonly borderBottomRightRadiusN192px: { 'border-bottom-right-radius_-192px': true }
+  readonly borderBottomRightRadiusN160px: { 'border-bottom-right-radius_-160px': true }
+  readonly borderBottomRightRadiusN128px: { 'border-bottom-right-radius_-128px': true }
+  readonly borderBottomRightRadiusN96px: { 'border-bottom-right-radius_-96px': true }
+  readonly borderBottomRightRadiusN80px: { 'border-bottom-right-radius_-80px': true }
+  readonly borderBottomRightRadiusN64px: { 'border-bottom-right-radius_-64px': true }
+  readonly borderBottomRightRadiusN56px: { 'border-bottom-right-radius_-56px': true }
+  readonly borderBottomRightRadiusN48px: { 'border-bottom-right-radius_-48px': true }
+  readonly borderBottomRightRadiusN40px: { 'border-bottom-right-radius_-40px': true }
+  readonly borderBottomRightRadiusN32px: { 'border-bottom-right-radius_-32px': true }
+  readonly borderBottomRightRadiusN28px: { 'border-bottom-right-radius_-28px': true }
+  readonly borderBottomRightRadiusN24px: { 'border-bottom-right-radius_-24px': true }
+  readonly borderBottomRightRadiusN20px: { 'border-bottom-right-radius_-20px': true }
+  readonly borderBottomRightRadiusN16px: { 'border-bottom-right-radius_-16px': true }
+  readonly borderBottomRightRadiusN14px: { 'border-bottom-right-radius_-14px': true }
+  readonly borderBottomRightRadiusN12px: { 'border-bottom-right-radius_-12px': true }
+  readonly borderBottomRightRadiusN10px: { 'border-bottom-right-radius_-10px': true }
+  readonly borderBottomRightRadiusN8px: { 'border-bottom-right-radius_-8px': true }
+  readonly borderBottomRightRadiusN6px: { 'border-bottom-right-radius_-6px': true }
+  readonly borderBottomRightRadiusN4px: { 'border-bottom-right-radius_-4px': true }
+  readonly borderBottomRightRadiusN2px: { 'border-bottom-right-radius_-2px': true }
+  readonly borderBottomRightRadiusN1px: { 'border-bottom-right-radius_-1px': true }
   readonly borderBottomRightRadius0px: { 'border-bottom-right-radius_0px': true }
   readonly borderBottomRightRadius1px: { 'border-bottom-right-radius_1px': true }
   readonly borderBottomRightRadius2px: { 'border-bottom-right-radius_2px': true }
-  readonly borderBottomRightRadius3px: { 'border-bottom-right-radius_3px': true }
   readonly borderBottomRightRadius4px: { 'border-bottom-right-radius_4px': true }
-  readonly borderBottomRightRadius5px: { 'border-bottom-right-radius_5px': true }
+  readonly borderBottomRightRadius6px: { 'border-bottom-right-radius_6px': true }
+  readonly borderBottomRightRadius8px: { 'border-bottom-right-radius_8px': true }
   readonly borderBottomRightRadius10px: { 'border-bottom-right-radius_10px': true }
+  readonly borderBottomRightRadius12px: { 'border-bottom-right-radius_12px': true }
+  readonly borderBottomRightRadius14px: { 'border-bottom-right-radius_14px': true }
+  readonly borderBottomRightRadius16px: { 'border-bottom-right-radius_16px': true }
   readonly borderBottomRightRadius20px: { 'border-bottom-right-radius_20px': true }
-  readonly borderBottomRightRadius50px: { 'border-bottom-right-radius_50px': true }
-  readonly borderBottomRightRadius100px: { 'border-bottom-right-radius_100px': true }
+  readonly borderBottomRightRadius24px: { 'border-bottom-right-radius_24px': true }
+  readonly borderBottomRightRadius28px: { 'border-bottom-right-radius_28px': true }
+  readonly borderBottomRightRadius32px: { 'border-bottom-right-radius_32px': true }
+  readonly borderBottomRightRadius40px: { 'border-bottom-right-radius_40px': true }
+  readonly borderBottomRightRadius48px: { 'border-bottom-right-radius_48px': true }
+  readonly borderBottomRightRadius56px: { 'border-bottom-right-radius_56px': true }
+  readonly borderBottomRightRadius64px: { 'border-bottom-right-radius_64px': true }
+  readonly borderBottomRightRadius80px: { 'border-bottom-right-radius_80px': true }
+  readonly borderBottomRightRadius96px: { 'border-bottom-right-radius_96px': true }
+  readonly borderBottomRightRadius128px: { 'border-bottom-right-radius_128px': true }
+  readonly borderBottomRightRadius160px: { 'border-bottom-right-radius_160px': true }
+  readonly borderBottomRightRadius192px: { 'border-bottom-right-radius_192px': true }
+  readonly borderBottomRightRadius224px: { 'border-bottom-right-radius_224px': true }
+  readonly borderBottomRightRadius256px: { 'border-bottom-right-radius_256px': true }
+  readonly borderBottomRightRadius320px: { 'border-bottom-right-radius_320px': true }
+  readonly borderBottomRightRadius384px: { 'border-bottom-right-radius_384px': true }
   readonly borderBottomRightRadius0rem: { 'border-bottom-right-radius_0rem': true }
   readonly borderBottomRightRadius0p25rem: { 'border-bottom-right-radius_0\.25rem': true }
   readonly borderBottomRightRadius0p5rem: { 'border-bottom-right-radius_0\.5rem': true }
@@ -8837,16 +9396,59 @@ export interface CsstsAtoms {
   readonly borderBottomWidth12pt: { 'border-bottom-width_12pt': true }
   readonly borderBottomWidth16pt: { 'border-bottom-width_16pt': true }
   readonly borderBottomWidth20pt: { 'border-bottom-width_20pt': true }
+  readonly borderBottomWidthN384px: { 'border-bottom-width_-384px': true }
+  readonly borderBottomWidthN320px: { 'border-bottom-width_-320px': true }
+  readonly borderBottomWidthN256px: { 'border-bottom-width_-256px': true }
+  readonly borderBottomWidthN224px: { 'border-bottom-width_-224px': true }
+  readonly borderBottomWidthN192px: { 'border-bottom-width_-192px': true }
+  readonly borderBottomWidthN160px: { 'border-bottom-width_-160px': true }
+  readonly borderBottomWidthN128px: { 'border-bottom-width_-128px': true }
+  readonly borderBottomWidthN96px: { 'border-bottom-width_-96px': true }
+  readonly borderBottomWidthN80px: { 'border-bottom-width_-80px': true }
+  readonly borderBottomWidthN64px: { 'border-bottom-width_-64px': true }
+  readonly borderBottomWidthN56px: { 'border-bottom-width_-56px': true }
+  readonly borderBottomWidthN48px: { 'border-bottom-width_-48px': true }
+  readonly borderBottomWidthN40px: { 'border-bottom-width_-40px': true }
+  readonly borderBottomWidthN32px: { 'border-bottom-width_-32px': true }
+  readonly borderBottomWidthN28px: { 'border-bottom-width_-28px': true }
+  readonly borderBottomWidthN24px: { 'border-bottom-width_-24px': true }
+  readonly borderBottomWidthN20px: { 'border-bottom-width_-20px': true }
+  readonly borderBottomWidthN16px: { 'border-bottom-width_-16px': true }
+  readonly borderBottomWidthN14px: { 'border-bottom-width_-14px': true }
+  readonly borderBottomWidthN12px: { 'border-bottom-width_-12px': true }
+  readonly borderBottomWidthN10px: { 'border-bottom-width_-10px': true }
+  readonly borderBottomWidthN8px: { 'border-bottom-width_-8px': true }
+  readonly borderBottomWidthN6px: { 'border-bottom-width_-6px': true }
+  readonly borderBottomWidthN4px: { 'border-bottom-width_-4px': true }
+  readonly borderBottomWidthN2px: { 'border-bottom-width_-2px': true }
+  readonly borderBottomWidthN1px: { 'border-bottom-width_-1px': true }
   readonly borderBottomWidth0px: { 'border-bottom-width_0px': true }
   readonly borderBottomWidth1px: { 'border-bottom-width_1px': true }
   readonly borderBottomWidth2px: { 'border-bottom-width_2px': true }
-  readonly borderBottomWidth3px: { 'border-bottom-width_3px': true }
   readonly borderBottomWidth4px: { 'border-bottom-width_4px': true }
-  readonly borderBottomWidth5px: { 'border-bottom-width_5px': true }
+  readonly borderBottomWidth6px: { 'border-bottom-width_6px': true }
+  readonly borderBottomWidth8px: { 'border-bottom-width_8px': true }
   readonly borderBottomWidth10px: { 'border-bottom-width_10px': true }
+  readonly borderBottomWidth12px: { 'border-bottom-width_12px': true }
+  readonly borderBottomWidth14px: { 'border-bottom-width_14px': true }
+  readonly borderBottomWidth16px: { 'border-bottom-width_16px': true }
   readonly borderBottomWidth20px: { 'border-bottom-width_20px': true }
-  readonly borderBottomWidth50px: { 'border-bottom-width_50px': true }
-  readonly borderBottomWidth100px: { 'border-bottom-width_100px': true }
+  readonly borderBottomWidth24px: { 'border-bottom-width_24px': true }
+  readonly borderBottomWidth28px: { 'border-bottom-width_28px': true }
+  readonly borderBottomWidth32px: { 'border-bottom-width_32px': true }
+  readonly borderBottomWidth40px: { 'border-bottom-width_40px': true }
+  readonly borderBottomWidth48px: { 'border-bottom-width_48px': true }
+  readonly borderBottomWidth56px: { 'border-bottom-width_56px': true }
+  readonly borderBottomWidth64px: { 'border-bottom-width_64px': true }
+  readonly borderBottomWidth80px: { 'border-bottom-width_80px': true }
+  readonly borderBottomWidth96px: { 'border-bottom-width_96px': true }
+  readonly borderBottomWidth128px: { 'border-bottom-width_128px': true }
+  readonly borderBottomWidth160px: { 'border-bottom-width_160px': true }
+  readonly borderBottomWidth192px: { 'border-bottom-width_192px': true }
+  readonly borderBottomWidth224px: { 'border-bottom-width_224px': true }
+  readonly borderBottomWidth256px: { 'border-bottom-width_256px': true }
+  readonly borderBottomWidth320px: { 'border-bottom-width_320px': true }
+  readonly borderBottomWidth384px: { 'border-bottom-width_384px': true }
   readonly borderBottomWidth0rem: { 'border-bottom-width_0rem': true }
   readonly borderBottomWidth0p25rem: { 'border-bottom-width_0\.25rem': true }
   readonly borderBottomWidth0p5rem: { 'border-bottom-width_0\.5rem': true }
@@ -9538,16 +10140,59 @@ export interface CsstsAtoms {
   readonly borderEndEndRadius12pt: { 'border-end-end-radius_12pt': true }
   readonly borderEndEndRadius16pt: { 'border-end-end-radius_16pt': true }
   readonly borderEndEndRadius20pt: { 'border-end-end-radius_20pt': true }
+  readonly borderEndEndRadiusN384px: { 'border-end-end-radius_-384px': true }
+  readonly borderEndEndRadiusN320px: { 'border-end-end-radius_-320px': true }
+  readonly borderEndEndRadiusN256px: { 'border-end-end-radius_-256px': true }
+  readonly borderEndEndRadiusN224px: { 'border-end-end-radius_-224px': true }
+  readonly borderEndEndRadiusN192px: { 'border-end-end-radius_-192px': true }
+  readonly borderEndEndRadiusN160px: { 'border-end-end-radius_-160px': true }
+  readonly borderEndEndRadiusN128px: { 'border-end-end-radius_-128px': true }
+  readonly borderEndEndRadiusN96px: { 'border-end-end-radius_-96px': true }
+  readonly borderEndEndRadiusN80px: { 'border-end-end-radius_-80px': true }
+  readonly borderEndEndRadiusN64px: { 'border-end-end-radius_-64px': true }
+  readonly borderEndEndRadiusN56px: { 'border-end-end-radius_-56px': true }
+  readonly borderEndEndRadiusN48px: { 'border-end-end-radius_-48px': true }
+  readonly borderEndEndRadiusN40px: { 'border-end-end-radius_-40px': true }
+  readonly borderEndEndRadiusN32px: { 'border-end-end-radius_-32px': true }
+  readonly borderEndEndRadiusN28px: { 'border-end-end-radius_-28px': true }
+  readonly borderEndEndRadiusN24px: { 'border-end-end-radius_-24px': true }
+  readonly borderEndEndRadiusN20px: { 'border-end-end-radius_-20px': true }
+  readonly borderEndEndRadiusN16px: { 'border-end-end-radius_-16px': true }
+  readonly borderEndEndRadiusN14px: { 'border-end-end-radius_-14px': true }
+  readonly borderEndEndRadiusN12px: { 'border-end-end-radius_-12px': true }
+  readonly borderEndEndRadiusN10px: { 'border-end-end-radius_-10px': true }
+  readonly borderEndEndRadiusN8px: { 'border-end-end-radius_-8px': true }
+  readonly borderEndEndRadiusN6px: { 'border-end-end-radius_-6px': true }
+  readonly borderEndEndRadiusN4px: { 'border-end-end-radius_-4px': true }
+  readonly borderEndEndRadiusN2px: { 'border-end-end-radius_-2px': true }
+  readonly borderEndEndRadiusN1px: { 'border-end-end-radius_-1px': true }
   readonly borderEndEndRadius0px: { 'border-end-end-radius_0px': true }
   readonly borderEndEndRadius1px: { 'border-end-end-radius_1px': true }
   readonly borderEndEndRadius2px: { 'border-end-end-radius_2px': true }
-  readonly borderEndEndRadius3px: { 'border-end-end-radius_3px': true }
   readonly borderEndEndRadius4px: { 'border-end-end-radius_4px': true }
-  readonly borderEndEndRadius5px: { 'border-end-end-radius_5px': true }
+  readonly borderEndEndRadius6px: { 'border-end-end-radius_6px': true }
+  readonly borderEndEndRadius8px: { 'border-end-end-radius_8px': true }
   readonly borderEndEndRadius10px: { 'border-end-end-radius_10px': true }
+  readonly borderEndEndRadius12px: { 'border-end-end-radius_12px': true }
+  readonly borderEndEndRadius14px: { 'border-end-end-radius_14px': true }
+  readonly borderEndEndRadius16px: { 'border-end-end-radius_16px': true }
   readonly borderEndEndRadius20px: { 'border-end-end-radius_20px': true }
-  readonly borderEndEndRadius50px: { 'border-end-end-radius_50px': true }
-  readonly borderEndEndRadius100px: { 'border-end-end-radius_100px': true }
+  readonly borderEndEndRadius24px: { 'border-end-end-radius_24px': true }
+  readonly borderEndEndRadius28px: { 'border-end-end-radius_28px': true }
+  readonly borderEndEndRadius32px: { 'border-end-end-radius_32px': true }
+  readonly borderEndEndRadius40px: { 'border-end-end-radius_40px': true }
+  readonly borderEndEndRadius48px: { 'border-end-end-radius_48px': true }
+  readonly borderEndEndRadius56px: { 'border-end-end-radius_56px': true }
+  readonly borderEndEndRadius64px: { 'border-end-end-radius_64px': true }
+  readonly borderEndEndRadius80px: { 'border-end-end-radius_80px': true }
+  readonly borderEndEndRadius96px: { 'border-end-end-radius_96px': true }
+  readonly borderEndEndRadius128px: { 'border-end-end-radius_128px': true }
+  readonly borderEndEndRadius160px: { 'border-end-end-radius_160px': true }
+  readonly borderEndEndRadius192px: { 'border-end-end-radius_192px': true }
+  readonly borderEndEndRadius224px: { 'border-end-end-radius_224px': true }
+  readonly borderEndEndRadius256px: { 'border-end-end-radius_256px': true }
+  readonly borderEndEndRadius320px: { 'border-end-end-radius_320px': true }
+  readonly borderEndEndRadius384px: { 'border-end-end-radius_384px': true }
   readonly borderEndEndRadius0rem: { 'border-end-end-radius_0rem': true }
   readonly borderEndEndRadius0p25rem: { 'border-end-end-radius_0\.25rem': true }
   readonly borderEndEndRadius0p5rem: { 'border-end-end-radius_0\.5rem': true }
@@ -9917,16 +10562,59 @@ export interface CsstsAtoms {
   readonly borderEndStartRadius12pt: { 'border-end-start-radius_12pt': true }
   readonly borderEndStartRadius16pt: { 'border-end-start-radius_16pt': true }
   readonly borderEndStartRadius20pt: { 'border-end-start-radius_20pt': true }
+  readonly borderEndStartRadiusN384px: { 'border-end-start-radius_-384px': true }
+  readonly borderEndStartRadiusN320px: { 'border-end-start-radius_-320px': true }
+  readonly borderEndStartRadiusN256px: { 'border-end-start-radius_-256px': true }
+  readonly borderEndStartRadiusN224px: { 'border-end-start-radius_-224px': true }
+  readonly borderEndStartRadiusN192px: { 'border-end-start-radius_-192px': true }
+  readonly borderEndStartRadiusN160px: { 'border-end-start-radius_-160px': true }
+  readonly borderEndStartRadiusN128px: { 'border-end-start-radius_-128px': true }
+  readonly borderEndStartRadiusN96px: { 'border-end-start-radius_-96px': true }
+  readonly borderEndStartRadiusN80px: { 'border-end-start-radius_-80px': true }
+  readonly borderEndStartRadiusN64px: { 'border-end-start-radius_-64px': true }
+  readonly borderEndStartRadiusN56px: { 'border-end-start-radius_-56px': true }
+  readonly borderEndStartRadiusN48px: { 'border-end-start-radius_-48px': true }
+  readonly borderEndStartRadiusN40px: { 'border-end-start-radius_-40px': true }
+  readonly borderEndStartRadiusN32px: { 'border-end-start-radius_-32px': true }
+  readonly borderEndStartRadiusN28px: { 'border-end-start-radius_-28px': true }
+  readonly borderEndStartRadiusN24px: { 'border-end-start-radius_-24px': true }
+  readonly borderEndStartRadiusN20px: { 'border-end-start-radius_-20px': true }
+  readonly borderEndStartRadiusN16px: { 'border-end-start-radius_-16px': true }
+  readonly borderEndStartRadiusN14px: { 'border-end-start-radius_-14px': true }
+  readonly borderEndStartRadiusN12px: { 'border-end-start-radius_-12px': true }
+  readonly borderEndStartRadiusN10px: { 'border-end-start-radius_-10px': true }
+  readonly borderEndStartRadiusN8px: { 'border-end-start-radius_-8px': true }
+  readonly borderEndStartRadiusN6px: { 'border-end-start-radius_-6px': true }
+  readonly borderEndStartRadiusN4px: { 'border-end-start-radius_-4px': true }
+  readonly borderEndStartRadiusN2px: { 'border-end-start-radius_-2px': true }
+  readonly borderEndStartRadiusN1px: { 'border-end-start-radius_-1px': true }
   readonly borderEndStartRadius0px: { 'border-end-start-radius_0px': true }
   readonly borderEndStartRadius1px: { 'border-end-start-radius_1px': true }
   readonly borderEndStartRadius2px: { 'border-end-start-radius_2px': true }
-  readonly borderEndStartRadius3px: { 'border-end-start-radius_3px': true }
   readonly borderEndStartRadius4px: { 'border-end-start-radius_4px': true }
-  readonly borderEndStartRadius5px: { 'border-end-start-radius_5px': true }
+  readonly borderEndStartRadius6px: { 'border-end-start-radius_6px': true }
+  readonly borderEndStartRadius8px: { 'border-end-start-radius_8px': true }
   readonly borderEndStartRadius10px: { 'border-end-start-radius_10px': true }
+  readonly borderEndStartRadius12px: { 'border-end-start-radius_12px': true }
+  readonly borderEndStartRadius14px: { 'border-end-start-radius_14px': true }
+  readonly borderEndStartRadius16px: { 'border-end-start-radius_16px': true }
   readonly borderEndStartRadius20px: { 'border-end-start-radius_20px': true }
-  readonly borderEndStartRadius50px: { 'border-end-start-radius_50px': true }
-  readonly borderEndStartRadius100px: { 'border-end-start-radius_100px': true }
+  readonly borderEndStartRadius24px: { 'border-end-start-radius_24px': true }
+  readonly borderEndStartRadius28px: { 'border-end-start-radius_28px': true }
+  readonly borderEndStartRadius32px: { 'border-end-start-radius_32px': true }
+  readonly borderEndStartRadius40px: { 'border-end-start-radius_40px': true }
+  readonly borderEndStartRadius48px: { 'border-end-start-radius_48px': true }
+  readonly borderEndStartRadius56px: { 'border-end-start-radius_56px': true }
+  readonly borderEndStartRadius64px: { 'border-end-start-radius_64px': true }
+  readonly borderEndStartRadius80px: { 'border-end-start-radius_80px': true }
+  readonly borderEndStartRadius96px: { 'border-end-start-radius_96px': true }
+  readonly borderEndStartRadius128px: { 'border-end-start-radius_128px': true }
+  readonly borderEndStartRadius160px: { 'border-end-start-radius_160px': true }
+  readonly borderEndStartRadius192px: { 'border-end-start-radius_192px': true }
+  readonly borderEndStartRadius224px: { 'border-end-start-radius_224px': true }
+  readonly borderEndStartRadius256px: { 'border-end-start-radius_256px': true }
+  readonly borderEndStartRadius320px: { 'border-end-start-radius_320px': true }
+  readonly borderEndStartRadius384px: { 'border-end-start-radius_384px': true }
   readonly borderEndStartRadius0rem: { 'border-end-start-radius_0rem': true }
   readonly borderEndStartRadius0p25rem: { 'border-end-start-radius_0\.25rem': true }
   readonly borderEndStartRadius0p5rem: { 'border-end-start-radius_0\.5rem': true }
@@ -11611,16 +12299,59 @@ export interface CsstsAtoms {
   readonly borderLeft12pt: { 'border-left_12pt': true }
   readonly borderLeft16pt: { 'border-left_16pt': true }
   readonly borderLeft20pt: { 'border-left_20pt': true }
+  readonly borderLeftN384px: { 'border-left_-384px': true }
+  readonly borderLeftN320px: { 'border-left_-320px': true }
+  readonly borderLeftN256px: { 'border-left_-256px': true }
+  readonly borderLeftN224px: { 'border-left_-224px': true }
+  readonly borderLeftN192px: { 'border-left_-192px': true }
+  readonly borderLeftN160px: { 'border-left_-160px': true }
+  readonly borderLeftN128px: { 'border-left_-128px': true }
+  readonly borderLeftN96px: { 'border-left_-96px': true }
+  readonly borderLeftN80px: { 'border-left_-80px': true }
+  readonly borderLeftN64px: { 'border-left_-64px': true }
+  readonly borderLeftN56px: { 'border-left_-56px': true }
+  readonly borderLeftN48px: { 'border-left_-48px': true }
+  readonly borderLeftN40px: { 'border-left_-40px': true }
+  readonly borderLeftN32px: { 'border-left_-32px': true }
+  readonly borderLeftN28px: { 'border-left_-28px': true }
+  readonly borderLeftN24px: { 'border-left_-24px': true }
+  readonly borderLeftN20px: { 'border-left_-20px': true }
+  readonly borderLeftN16px: { 'border-left_-16px': true }
+  readonly borderLeftN14px: { 'border-left_-14px': true }
+  readonly borderLeftN12px: { 'border-left_-12px': true }
+  readonly borderLeftN10px: { 'border-left_-10px': true }
+  readonly borderLeftN8px: { 'border-left_-8px': true }
+  readonly borderLeftN6px: { 'border-left_-6px': true }
+  readonly borderLeftN4px: { 'border-left_-4px': true }
+  readonly borderLeftN2px: { 'border-left_-2px': true }
+  readonly borderLeftN1px: { 'border-left_-1px': true }
   readonly borderLeft0px: { 'border-left_0px': true }
   readonly borderLeft1px: { 'border-left_1px': true }
   readonly borderLeft2px: { 'border-left_2px': true }
-  readonly borderLeft3px: { 'border-left_3px': true }
   readonly borderLeft4px: { 'border-left_4px': true }
-  readonly borderLeft5px: { 'border-left_5px': true }
+  readonly borderLeft6px: { 'border-left_6px': true }
+  readonly borderLeft8px: { 'border-left_8px': true }
   readonly borderLeft10px: { 'border-left_10px': true }
+  readonly borderLeft12px: { 'border-left_12px': true }
+  readonly borderLeft14px: { 'border-left_14px': true }
+  readonly borderLeft16px: { 'border-left_16px': true }
   readonly borderLeft20px: { 'border-left_20px': true }
-  readonly borderLeft50px: { 'border-left_50px': true }
-  readonly borderLeft100px: { 'border-left_100px': true }
+  readonly borderLeft24px: { 'border-left_24px': true }
+  readonly borderLeft28px: { 'border-left_28px': true }
+  readonly borderLeft32px: { 'border-left_32px': true }
+  readonly borderLeft40px: { 'border-left_40px': true }
+  readonly borderLeft48px: { 'border-left_48px': true }
+  readonly borderLeft56px: { 'border-left_56px': true }
+  readonly borderLeft64px: { 'border-left_64px': true }
+  readonly borderLeft80px: { 'border-left_80px': true }
+  readonly borderLeft96px: { 'border-left_96px': true }
+  readonly borderLeft128px: { 'border-left_128px': true }
+  readonly borderLeft160px: { 'border-left_160px': true }
+  readonly borderLeft192px: { 'border-left_192px': true }
+  readonly borderLeft224px: { 'border-left_224px': true }
+  readonly borderLeft256px: { 'border-left_256px': true }
+  readonly borderLeft320px: { 'border-left_320px': true }
+  readonly borderLeft384px: { 'border-left_384px': true }
   readonly borderLeft0rem: { 'border-left_0rem': true }
   readonly borderLeft0p25rem: { 'border-left_0\.25rem': true }
   readonly borderLeft0p5rem: { 'border-left_0\.5rem': true }
@@ -12350,16 +13081,59 @@ export interface CsstsAtoms {
   readonly borderLeftWidth12pt: { 'border-left-width_12pt': true }
   readonly borderLeftWidth16pt: { 'border-left-width_16pt': true }
   readonly borderLeftWidth20pt: { 'border-left-width_20pt': true }
+  readonly borderLeftWidthN384px: { 'border-left-width_-384px': true }
+  readonly borderLeftWidthN320px: { 'border-left-width_-320px': true }
+  readonly borderLeftWidthN256px: { 'border-left-width_-256px': true }
+  readonly borderLeftWidthN224px: { 'border-left-width_-224px': true }
+  readonly borderLeftWidthN192px: { 'border-left-width_-192px': true }
+  readonly borderLeftWidthN160px: { 'border-left-width_-160px': true }
+  readonly borderLeftWidthN128px: { 'border-left-width_-128px': true }
+  readonly borderLeftWidthN96px: { 'border-left-width_-96px': true }
+  readonly borderLeftWidthN80px: { 'border-left-width_-80px': true }
+  readonly borderLeftWidthN64px: { 'border-left-width_-64px': true }
+  readonly borderLeftWidthN56px: { 'border-left-width_-56px': true }
+  readonly borderLeftWidthN48px: { 'border-left-width_-48px': true }
+  readonly borderLeftWidthN40px: { 'border-left-width_-40px': true }
+  readonly borderLeftWidthN32px: { 'border-left-width_-32px': true }
+  readonly borderLeftWidthN28px: { 'border-left-width_-28px': true }
+  readonly borderLeftWidthN24px: { 'border-left-width_-24px': true }
+  readonly borderLeftWidthN20px: { 'border-left-width_-20px': true }
+  readonly borderLeftWidthN16px: { 'border-left-width_-16px': true }
+  readonly borderLeftWidthN14px: { 'border-left-width_-14px': true }
+  readonly borderLeftWidthN12px: { 'border-left-width_-12px': true }
+  readonly borderLeftWidthN10px: { 'border-left-width_-10px': true }
+  readonly borderLeftWidthN8px: { 'border-left-width_-8px': true }
+  readonly borderLeftWidthN6px: { 'border-left-width_-6px': true }
+  readonly borderLeftWidthN4px: { 'border-left-width_-4px': true }
+  readonly borderLeftWidthN2px: { 'border-left-width_-2px': true }
+  readonly borderLeftWidthN1px: { 'border-left-width_-1px': true }
   readonly borderLeftWidth0px: { 'border-left-width_0px': true }
   readonly borderLeftWidth1px: { 'border-left-width_1px': true }
   readonly borderLeftWidth2px: { 'border-left-width_2px': true }
-  readonly borderLeftWidth3px: { 'border-left-width_3px': true }
   readonly borderLeftWidth4px: { 'border-left-width_4px': true }
-  readonly borderLeftWidth5px: { 'border-left-width_5px': true }
+  readonly borderLeftWidth6px: { 'border-left-width_6px': true }
+  readonly borderLeftWidth8px: { 'border-left-width_8px': true }
   readonly borderLeftWidth10px: { 'border-left-width_10px': true }
+  readonly borderLeftWidth12px: { 'border-left-width_12px': true }
+  readonly borderLeftWidth14px: { 'border-left-width_14px': true }
+  readonly borderLeftWidth16px: { 'border-left-width_16px': true }
   readonly borderLeftWidth20px: { 'border-left-width_20px': true }
-  readonly borderLeftWidth50px: { 'border-left-width_50px': true }
-  readonly borderLeftWidth100px: { 'border-left-width_100px': true }
+  readonly borderLeftWidth24px: { 'border-left-width_24px': true }
+  readonly borderLeftWidth28px: { 'border-left-width_28px': true }
+  readonly borderLeftWidth32px: { 'border-left-width_32px': true }
+  readonly borderLeftWidth40px: { 'border-left-width_40px': true }
+  readonly borderLeftWidth48px: { 'border-left-width_48px': true }
+  readonly borderLeftWidth56px: { 'border-left-width_56px': true }
+  readonly borderLeftWidth64px: { 'border-left-width_64px': true }
+  readonly borderLeftWidth80px: { 'border-left-width_80px': true }
+  readonly borderLeftWidth96px: { 'border-left-width_96px': true }
+  readonly borderLeftWidth128px: { 'border-left-width_128px': true }
+  readonly borderLeftWidth160px: { 'border-left-width_160px': true }
+  readonly borderLeftWidth192px: { 'border-left-width_192px': true }
+  readonly borderLeftWidth224px: { 'border-left-width_224px': true }
+  readonly borderLeftWidth256px: { 'border-left-width_256px': true }
+  readonly borderLeftWidth320px: { 'border-left-width_320px': true }
+  readonly borderLeftWidth384px: { 'border-left-width_384px': true }
   readonly borderLeftWidth0rem: { 'border-left-width_0rem': true }
   readonly borderLeftWidth0p25rem: { 'border-left-width_0\.25rem': true }
   readonly borderLeftWidth0p5rem: { 'border-left-width_0\.5rem': true }
@@ -12714,16 +13488,59 @@ export interface CsstsAtoms {
   readonly borderRadius12pt: { 'border-radius_12pt': true }
   readonly borderRadius16pt: { 'border-radius_16pt': true }
   readonly borderRadius20pt: { 'border-radius_20pt': true }
+  readonly borderRadiusN384px: { 'border-radius_-384px': true }
+  readonly borderRadiusN320px: { 'border-radius_-320px': true }
+  readonly borderRadiusN256px: { 'border-radius_-256px': true }
+  readonly borderRadiusN224px: { 'border-radius_-224px': true }
+  readonly borderRadiusN192px: { 'border-radius_-192px': true }
+  readonly borderRadiusN160px: { 'border-radius_-160px': true }
+  readonly borderRadiusN128px: { 'border-radius_-128px': true }
+  readonly borderRadiusN96px: { 'border-radius_-96px': true }
+  readonly borderRadiusN80px: { 'border-radius_-80px': true }
+  readonly borderRadiusN64px: { 'border-radius_-64px': true }
+  readonly borderRadiusN56px: { 'border-radius_-56px': true }
+  readonly borderRadiusN48px: { 'border-radius_-48px': true }
+  readonly borderRadiusN40px: { 'border-radius_-40px': true }
+  readonly borderRadiusN32px: { 'border-radius_-32px': true }
+  readonly borderRadiusN28px: { 'border-radius_-28px': true }
+  readonly borderRadiusN24px: { 'border-radius_-24px': true }
+  readonly borderRadiusN20px: { 'border-radius_-20px': true }
+  readonly borderRadiusN16px: { 'border-radius_-16px': true }
+  readonly borderRadiusN14px: { 'border-radius_-14px': true }
+  readonly borderRadiusN12px: { 'border-radius_-12px': true }
+  readonly borderRadiusN10px: { 'border-radius_-10px': true }
+  readonly borderRadiusN8px: { 'border-radius_-8px': true }
+  readonly borderRadiusN6px: { 'border-radius_-6px': true }
+  readonly borderRadiusN4px: { 'border-radius_-4px': true }
+  readonly borderRadiusN2px: { 'border-radius_-2px': true }
+  readonly borderRadiusN1px: { 'border-radius_-1px': true }
   readonly borderRadius0px: { 'border-radius_0px': true }
   readonly borderRadius1px: { 'border-radius_1px': true }
   readonly borderRadius2px: { 'border-radius_2px': true }
-  readonly borderRadius3px: { 'border-radius_3px': true }
   readonly borderRadius4px: { 'border-radius_4px': true }
-  readonly borderRadius5px: { 'border-radius_5px': true }
+  readonly borderRadius6px: { 'border-radius_6px': true }
+  readonly borderRadius8px: { 'border-radius_8px': true }
   readonly borderRadius10px: { 'border-radius_10px': true }
+  readonly borderRadius12px: { 'border-radius_12px': true }
+  readonly borderRadius14px: { 'border-radius_14px': true }
+  readonly borderRadius16px: { 'border-radius_16px': true }
   readonly borderRadius20px: { 'border-radius_20px': true }
-  readonly borderRadius50px: { 'border-radius_50px': true }
-  readonly borderRadius100px: { 'border-radius_100px': true }
+  readonly borderRadius24px: { 'border-radius_24px': true }
+  readonly borderRadius28px: { 'border-radius_28px': true }
+  readonly borderRadius32px: { 'border-radius_32px': true }
+  readonly borderRadius40px: { 'border-radius_40px': true }
+  readonly borderRadius48px: { 'border-radius_48px': true }
+  readonly borderRadius56px: { 'border-radius_56px': true }
+  readonly borderRadius64px: { 'border-radius_64px': true }
+  readonly borderRadius80px: { 'border-radius_80px': true }
+  readonly borderRadius96px: { 'border-radius_96px': true }
+  readonly borderRadius128px: { 'border-radius_128px': true }
+  readonly borderRadius160px: { 'border-radius_160px': true }
+  readonly borderRadius192px: { 'border-radius_192px': true }
+  readonly borderRadius224px: { 'border-radius_224px': true }
+  readonly borderRadius256px: { 'border-radius_256px': true }
+  readonly borderRadius320px: { 'border-radius_320px': true }
+  readonly borderRadius384px: { 'border-radius_384px': true }
   readonly borderRadius0rem: { 'border-radius_0rem': true }
   readonly borderRadius0p25rem: { 'border-radius_0\.25rem': true }
   readonly borderRadius0p5rem: { 'border-radius_0\.5rem': true }
@@ -13409,16 +14226,59 @@ export interface CsstsAtoms {
   readonly borderRight12pt: { 'border-right_12pt': true }
   readonly borderRight16pt: { 'border-right_16pt': true }
   readonly borderRight20pt: { 'border-right_20pt': true }
+  readonly borderRightN384px: { 'border-right_-384px': true }
+  readonly borderRightN320px: { 'border-right_-320px': true }
+  readonly borderRightN256px: { 'border-right_-256px': true }
+  readonly borderRightN224px: { 'border-right_-224px': true }
+  readonly borderRightN192px: { 'border-right_-192px': true }
+  readonly borderRightN160px: { 'border-right_-160px': true }
+  readonly borderRightN128px: { 'border-right_-128px': true }
+  readonly borderRightN96px: { 'border-right_-96px': true }
+  readonly borderRightN80px: { 'border-right_-80px': true }
+  readonly borderRightN64px: { 'border-right_-64px': true }
+  readonly borderRightN56px: { 'border-right_-56px': true }
+  readonly borderRightN48px: { 'border-right_-48px': true }
+  readonly borderRightN40px: { 'border-right_-40px': true }
+  readonly borderRightN32px: { 'border-right_-32px': true }
+  readonly borderRightN28px: { 'border-right_-28px': true }
+  readonly borderRightN24px: { 'border-right_-24px': true }
+  readonly borderRightN20px: { 'border-right_-20px': true }
+  readonly borderRightN16px: { 'border-right_-16px': true }
+  readonly borderRightN14px: { 'border-right_-14px': true }
+  readonly borderRightN12px: { 'border-right_-12px': true }
+  readonly borderRightN10px: { 'border-right_-10px': true }
+  readonly borderRightN8px: { 'border-right_-8px': true }
+  readonly borderRightN6px: { 'border-right_-6px': true }
+  readonly borderRightN4px: { 'border-right_-4px': true }
+  readonly borderRightN2px: { 'border-right_-2px': true }
+  readonly borderRightN1px: { 'border-right_-1px': true }
   readonly borderRight0px: { 'border-right_0px': true }
   readonly borderRight1px: { 'border-right_1px': true }
   readonly borderRight2px: { 'border-right_2px': true }
-  readonly borderRight3px: { 'border-right_3px': true }
   readonly borderRight4px: { 'border-right_4px': true }
-  readonly borderRight5px: { 'border-right_5px': true }
+  readonly borderRight6px: { 'border-right_6px': true }
+  readonly borderRight8px: { 'border-right_8px': true }
   readonly borderRight10px: { 'border-right_10px': true }
+  readonly borderRight12px: { 'border-right_12px': true }
+  readonly borderRight14px: { 'border-right_14px': true }
+  readonly borderRight16px: { 'border-right_16px': true }
   readonly borderRight20px: { 'border-right_20px': true }
-  readonly borderRight50px: { 'border-right_50px': true }
-  readonly borderRight100px: { 'border-right_100px': true }
+  readonly borderRight24px: { 'border-right_24px': true }
+  readonly borderRight28px: { 'border-right_28px': true }
+  readonly borderRight32px: { 'border-right_32px': true }
+  readonly borderRight40px: { 'border-right_40px': true }
+  readonly borderRight48px: { 'border-right_48px': true }
+  readonly borderRight56px: { 'border-right_56px': true }
+  readonly borderRight64px: { 'border-right_64px': true }
+  readonly borderRight80px: { 'border-right_80px': true }
+  readonly borderRight96px: { 'border-right_96px': true }
+  readonly borderRight128px: { 'border-right_128px': true }
+  readonly borderRight160px: { 'border-right_160px': true }
+  readonly borderRight192px: { 'border-right_192px': true }
+  readonly borderRight224px: { 'border-right_224px': true }
+  readonly borderRight256px: { 'border-right_256px': true }
+  readonly borderRight320px: { 'border-right_320px': true }
+  readonly borderRight384px: { 'border-right_384px': true }
   readonly borderRight0rem: { 'border-right_0rem': true }
   readonly borderRight0p25rem: { 'border-right_0\.25rem': true }
   readonly borderRight0p5rem: { 'border-right_0\.5rem': true }
@@ -14148,16 +15008,59 @@ export interface CsstsAtoms {
   readonly borderRightWidth12pt: { 'border-right-width_12pt': true }
   readonly borderRightWidth16pt: { 'border-right-width_16pt': true }
   readonly borderRightWidth20pt: { 'border-right-width_20pt': true }
+  readonly borderRightWidthN384px: { 'border-right-width_-384px': true }
+  readonly borderRightWidthN320px: { 'border-right-width_-320px': true }
+  readonly borderRightWidthN256px: { 'border-right-width_-256px': true }
+  readonly borderRightWidthN224px: { 'border-right-width_-224px': true }
+  readonly borderRightWidthN192px: { 'border-right-width_-192px': true }
+  readonly borderRightWidthN160px: { 'border-right-width_-160px': true }
+  readonly borderRightWidthN128px: { 'border-right-width_-128px': true }
+  readonly borderRightWidthN96px: { 'border-right-width_-96px': true }
+  readonly borderRightWidthN80px: { 'border-right-width_-80px': true }
+  readonly borderRightWidthN64px: { 'border-right-width_-64px': true }
+  readonly borderRightWidthN56px: { 'border-right-width_-56px': true }
+  readonly borderRightWidthN48px: { 'border-right-width_-48px': true }
+  readonly borderRightWidthN40px: { 'border-right-width_-40px': true }
+  readonly borderRightWidthN32px: { 'border-right-width_-32px': true }
+  readonly borderRightWidthN28px: { 'border-right-width_-28px': true }
+  readonly borderRightWidthN24px: { 'border-right-width_-24px': true }
+  readonly borderRightWidthN20px: { 'border-right-width_-20px': true }
+  readonly borderRightWidthN16px: { 'border-right-width_-16px': true }
+  readonly borderRightWidthN14px: { 'border-right-width_-14px': true }
+  readonly borderRightWidthN12px: { 'border-right-width_-12px': true }
+  readonly borderRightWidthN10px: { 'border-right-width_-10px': true }
+  readonly borderRightWidthN8px: { 'border-right-width_-8px': true }
+  readonly borderRightWidthN6px: { 'border-right-width_-6px': true }
+  readonly borderRightWidthN4px: { 'border-right-width_-4px': true }
+  readonly borderRightWidthN2px: { 'border-right-width_-2px': true }
+  readonly borderRightWidthN1px: { 'border-right-width_-1px': true }
   readonly borderRightWidth0px: { 'border-right-width_0px': true }
   readonly borderRightWidth1px: { 'border-right-width_1px': true }
   readonly borderRightWidth2px: { 'border-right-width_2px': true }
-  readonly borderRightWidth3px: { 'border-right-width_3px': true }
   readonly borderRightWidth4px: { 'border-right-width_4px': true }
-  readonly borderRightWidth5px: { 'border-right-width_5px': true }
+  readonly borderRightWidth6px: { 'border-right-width_6px': true }
+  readonly borderRightWidth8px: { 'border-right-width_8px': true }
   readonly borderRightWidth10px: { 'border-right-width_10px': true }
+  readonly borderRightWidth12px: { 'border-right-width_12px': true }
+  readonly borderRightWidth14px: { 'border-right-width_14px': true }
+  readonly borderRightWidth16px: { 'border-right-width_16px': true }
   readonly borderRightWidth20px: { 'border-right-width_20px': true }
-  readonly borderRightWidth50px: { 'border-right-width_50px': true }
-  readonly borderRightWidth100px: { 'border-right-width_100px': true }
+  readonly borderRightWidth24px: { 'border-right-width_24px': true }
+  readonly borderRightWidth28px: { 'border-right-width_28px': true }
+  readonly borderRightWidth32px: { 'border-right-width_32px': true }
+  readonly borderRightWidth40px: { 'border-right-width_40px': true }
+  readonly borderRightWidth48px: { 'border-right-width_48px': true }
+  readonly borderRightWidth56px: { 'border-right-width_56px': true }
+  readonly borderRightWidth64px: { 'border-right-width_64px': true }
+  readonly borderRightWidth80px: { 'border-right-width_80px': true }
+  readonly borderRightWidth96px: { 'border-right-width_96px': true }
+  readonly borderRightWidth128px: { 'border-right-width_128px': true }
+  readonly borderRightWidth160px: { 'border-right-width_160px': true }
+  readonly borderRightWidth192px: { 'border-right-width_192px': true }
+  readonly borderRightWidth224px: { 'border-right-width_224px': true }
+  readonly borderRightWidth256px: { 'border-right-width_256px': true }
+  readonly borderRightWidth320px: { 'border-right-width_320px': true }
+  readonly borderRightWidth384px: { 'border-right-width_384px': true }
   readonly borderRightWidth0rem: { 'border-right-width_0rem': true }
   readonly borderRightWidth0p25rem: { 'border-right-width_0\.25rem': true }
   readonly borderRightWidth0p5rem: { 'border-right-width_0\.5rem': true }
@@ -14512,16 +15415,59 @@ export interface CsstsAtoms {
   readonly borderSpacing12pt: { 'border-spacing_12pt': true }
   readonly borderSpacing16pt: { 'border-spacing_16pt': true }
   readonly borderSpacing20pt: { 'border-spacing_20pt': true }
+  readonly borderSpacingN384px: { 'border-spacing_-384px': true }
+  readonly borderSpacingN320px: { 'border-spacing_-320px': true }
+  readonly borderSpacingN256px: { 'border-spacing_-256px': true }
+  readonly borderSpacingN224px: { 'border-spacing_-224px': true }
+  readonly borderSpacingN192px: { 'border-spacing_-192px': true }
+  readonly borderSpacingN160px: { 'border-spacing_-160px': true }
+  readonly borderSpacingN128px: { 'border-spacing_-128px': true }
+  readonly borderSpacingN96px: { 'border-spacing_-96px': true }
+  readonly borderSpacingN80px: { 'border-spacing_-80px': true }
+  readonly borderSpacingN64px: { 'border-spacing_-64px': true }
+  readonly borderSpacingN56px: { 'border-spacing_-56px': true }
+  readonly borderSpacingN48px: { 'border-spacing_-48px': true }
+  readonly borderSpacingN40px: { 'border-spacing_-40px': true }
+  readonly borderSpacingN32px: { 'border-spacing_-32px': true }
+  readonly borderSpacingN28px: { 'border-spacing_-28px': true }
+  readonly borderSpacingN24px: { 'border-spacing_-24px': true }
+  readonly borderSpacingN20px: { 'border-spacing_-20px': true }
+  readonly borderSpacingN16px: { 'border-spacing_-16px': true }
+  readonly borderSpacingN14px: { 'border-spacing_-14px': true }
+  readonly borderSpacingN12px: { 'border-spacing_-12px': true }
+  readonly borderSpacingN10px: { 'border-spacing_-10px': true }
+  readonly borderSpacingN8px: { 'border-spacing_-8px': true }
+  readonly borderSpacingN6px: { 'border-spacing_-6px': true }
+  readonly borderSpacingN4px: { 'border-spacing_-4px': true }
+  readonly borderSpacingN2px: { 'border-spacing_-2px': true }
+  readonly borderSpacingN1px: { 'border-spacing_-1px': true }
   readonly borderSpacing0px: { 'border-spacing_0px': true }
   readonly borderSpacing1px: { 'border-spacing_1px': true }
   readonly borderSpacing2px: { 'border-spacing_2px': true }
-  readonly borderSpacing3px: { 'border-spacing_3px': true }
   readonly borderSpacing4px: { 'border-spacing_4px': true }
-  readonly borderSpacing5px: { 'border-spacing_5px': true }
+  readonly borderSpacing6px: { 'border-spacing_6px': true }
+  readonly borderSpacing8px: { 'border-spacing_8px': true }
   readonly borderSpacing10px: { 'border-spacing_10px': true }
+  readonly borderSpacing12px: { 'border-spacing_12px': true }
+  readonly borderSpacing14px: { 'border-spacing_14px': true }
+  readonly borderSpacing16px: { 'border-spacing_16px': true }
   readonly borderSpacing20px: { 'border-spacing_20px': true }
-  readonly borderSpacing50px: { 'border-spacing_50px': true }
-  readonly borderSpacing100px: { 'border-spacing_100px': true }
+  readonly borderSpacing24px: { 'border-spacing_24px': true }
+  readonly borderSpacing28px: { 'border-spacing_28px': true }
+  readonly borderSpacing32px: { 'border-spacing_32px': true }
+  readonly borderSpacing40px: { 'border-spacing_40px': true }
+  readonly borderSpacing48px: { 'border-spacing_48px': true }
+  readonly borderSpacing56px: { 'border-spacing_56px': true }
+  readonly borderSpacing64px: { 'border-spacing_64px': true }
+  readonly borderSpacing80px: { 'border-spacing_80px': true }
+  readonly borderSpacing96px: { 'border-spacing_96px': true }
+  readonly borderSpacing128px: { 'border-spacing_128px': true }
+  readonly borderSpacing160px: { 'border-spacing_160px': true }
+  readonly borderSpacing192px: { 'border-spacing_192px': true }
+  readonly borderSpacing224px: { 'border-spacing_224px': true }
+  readonly borderSpacing256px: { 'border-spacing_256px': true }
+  readonly borderSpacing320px: { 'border-spacing_320px': true }
+  readonly borderSpacing384px: { 'border-spacing_384px': true }
   readonly borderSpacing0rem: { 'border-spacing_0rem': true }
   readonly borderSpacing0p25rem: { 'border-spacing_0\.25rem': true }
   readonly borderSpacing0p5rem: { 'border-spacing_0\.5rem': true }
@@ -14876,16 +15822,59 @@ export interface CsstsAtoms {
   readonly borderStartEndRadius12pt: { 'border-start-end-radius_12pt': true }
   readonly borderStartEndRadius16pt: { 'border-start-end-radius_16pt': true }
   readonly borderStartEndRadius20pt: { 'border-start-end-radius_20pt': true }
+  readonly borderStartEndRadiusN384px: { 'border-start-end-radius_-384px': true }
+  readonly borderStartEndRadiusN320px: { 'border-start-end-radius_-320px': true }
+  readonly borderStartEndRadiusN256px: { 'border-start-end-radius_-256px': true }
+  readonly borderStartEndRadiusN224px: { 'border-start-end-radius_-224px': true }
+  readonly borderStartEndRadiusN192px: { 'border-start-end-radius_-192px': true }
+  readonly borderStartEndRadiusN160px: { 'border-start-end-radius_-160px': true }
+  readonly borderStartEndRadiusN128px: { 'border-start-end-radius_-128px': true }
+  readonly borderStartEndRadiusN96px: { 'border-start-end-radius_-96px': true }
+  readonly borderStartEndRadiusN80px: { 'border-start-end-radius_-80px': true }
+  readonly borderStartEndRadiusN64px: { 'border-start-end-radius_-64px': true }
+  readonly borderStartEndRadiusN56px: { 'border-start-end-radius_-56px': true }
+  readonly borderStartEndRadiusN48px: { 'border-start-end-radius_-48px': true }
+  readonly borderStartEndRadiusN40px: { 'border-start-end-radius_-40px': true }
+  readonly borderStartEndRadiusN32px: { 'border-start-end-radius_-32px': true }
+  readonly borderStartEndRadiusN28px: { 'border-start-end-radius_-28px': true }
+  readonly borderStartEndRadiusN24px: { 'border-start-end-radius_-24px': true }
+  readonly borderStartEndRadiusN20px: { 'border-start-end-radius_-20px': true }
+  readonly borderStartEndRadiusN16px: { 'border-start-end-radius_-16px': true }
+  readonly borderStartEndRadiusN14px: { 'border-start-end-radius_-14px': true }
+  readonly borderStartEndRadiusN12px: { 'border-start-end-radius_-12px': true }
+  readonly borderStartEndRadiusN10px: { 'border-start-end-radius_-10px': true }
+  readonly borderStartEndRadiusN8px: { 'border-start-end-radius_-8px': true }
+  readonly borderStartEndRadiusN6px: { 'border-start-end-radius_-6px': true }
+  readonly borderStartEndRadiusN4px: { 'border-start-end-radius_-4px': true }
+  readonly borderStartEndRadiusN2px: { 'border-start-end-radius_-2px': true }
+  readonly borderStartEndRadiusN1px: { 'border-start-end-radius_-1px': true }
   readonly borderStartEndRadius0px: { 'border-start-end-radius_0px': true }
   readonly borderStartEndRadius1px: { 'border-start-end-radius_1px': true }
   readonly borderStartEndRadius2px: { 'border-start-end-radius_2px': true }
-  readonly borderStartEndRadius3px: { 'border-start-end-radius_3px': true }
   readonly borderStartEndRadius4px: { 'border-start-end-radius_4px': true }
-  readonly borderStartEndRadius5px: { 'border-start-end-radius_5px': true }
+  readonly borderStartEndRadius6px: { 'border-start-end-radius_6px': true }
+  readonly borderStartEndRadius8px: { 'border-start-end-radius_8px': true }
   readonly borderStartEndRadius10px: { 'border-start-end-radius_10px': true }
+  readonly borderStartEndRadius12px: { 'border-start-end-radius_12px': true }
+  readonly borderStartEndRadius14px: { 'border-start-end-radius_14px': true }
+  readonly borderStartEndRadius16px: { 'border-start-end-radius_16px': true }
   readonly borderStartEndRadius20px: { 'border-start-end-radius_20px': true }
-  readonly borderStartEndRadius50px: { 'border-start-end-radius_50px': true }
-  readonly borderStartEndRadius100px: { 'border-start-end-radius_100px': true }
+  readonly borderStartEndRadius24px: { 'border-start-end-radius_24px': true }
+  readonly borderStartEndRadius28px: { 'border-start-end-radius_28px': true }
+  readonly borderStartEndRadius32px: { 'border-start-end-radius_32px': true }
+  readonly borderStartEndRadius40px: { 'border-start-end-radius_40px': true }
+  readonly borderStartEndRadius48px: { 'border-start-end-radius_48px': true }
+  readonly borderStartEndRadius56px: { 'border-start-end-radius_56px': true }
+  readonly borderStartEndRadius64px: { 'border-start-end-radius_64px': true }
+  readonly borderStartEndRadius80px: { 'border-start-end-radius_80px': true }
+  readonly borderStartEndRadius96px: { 'border-start-end-radius_96px': true }
+  readonly borderStartEndRadius128px: { 'border-start-end-radius_128px': true }
+  readonly borderStartEndRadius160px: { 'border-start-end-radius_160px': true }
+  readonly borderStartEndRadius192px: { 'border-start-end-radius_192px': true }
+  readonly borderStartEndRadius224px: { 'border-start-end-radius_224px': true }
+  readonly borderStartEndRadius256px: { 'border-start-end-radius_256px': true }
+  readonly borderStartEndRadius320px: { 'border-start-end-radius_320px': true }
+  readonly borderStartEndRadius384px: { 'border-start-end-radius_384px': true }
   readonly borderStartEndRadius0rem: { 'border-start-end-radius_0rem': true }
   readonly borderStartEndRadius0p25rem: { 'border-start-end-radius_0\.25rem': true }
   readonly borderStartEndRadius0p5rem: { 'border-start-end-radius_0\.5rem': true }
@@ -15255,16 +16244,59 @@ export interface CsstsAtoms {
   readonly borderStartStartRadius12pt: { 'border-start-start-radius_12pt': true }
   readonly borderStartStartRadius16pt: { 'border-start-start-radius_16pt': true }
   readonly borderStartStartRadius20pt: { 'border-start-start-radius_20pt': true }
+  readonly borderStartStartRadiusN384px: { 'border-start-start-radius_-384px': true }
+  readonly borderStartStartRadiusN320px: { 'border-start-start-radius_-320px': true }
+  readonly borderStartStartRadiusN256px: { 'border-start-start-radius_-256px': true }
+  readonly borderStartStartRadiusN224px: { 'border-start-start-radius_-224px': true }
+  readonly borderStartStartRadiusN192px: { 'border-start-start-radius_-192px': true }
+  readonly borderStartStartRadiusN160px: { 'border-start-start-radius_-160px': true }
+  readonly borderStartStartRadiusN128px: { 'border-start-start-radius_-128px': true }
+  readonly borderStartStartRadiusN96px: { 'border-start-start-radius_-96px': true }
+  readonly borderStartStartRadiusN80px: { 'border-start-start-radius_-80px': true }
+  readonly borderStartStartRadiusN64px: { 'border-start-start-radius_-64px': true }
+  readonly borderStartStartRadiusN56px: { 'border-start-start-radius_-56px': true }
+  readonly borderStartStartRadiusN48px: { 'border-start-start-radius_-48px': true }
+  readonly borderStartStartRadiusN40px: { 'border-start-start-radius_-40px': true }
+  readonly borderStartStartRadiusN32px: { 'border-start-start-radius_-32px': true }
+  readonly borderStartStartRadiusN28px: { 'border-start-start-radius_-28px': true }
+  readonly borderStartStartRadiusN24px: { 'border-start-start-radius_-24px': true }
+  readonly borderStartStartRadiusN20px: { 'border-start-start-radius_-20px': true }
+  readonly borderStartStartRadiusN16px: { 'border-start-start-radius_-16px': true }
+  readonly borderStartStartRadiusN14px: { 'border-start-start-radius_-14px': true }
+  readonly borderStartStartRadiusN12px: { 'border-start-start-radius_-12px': true }
+  readonly borderStartStartRadiusN10px: { 'border-start-start-radius_-10px': true }
+  readonly borderStartStartRadiusN8px: { 'border-start-start-radius_-8px': true }
+  readonly borderStartStartRadiusN6px: { 'border-start-start-radius_-6px': true }
+  readonly borderStartStartRadiusN4px: { 'border-start-start-radius_-4px': true }
+  readonly borderStartStartRadiusN2px: { 'border-start-start-radius_-2px': true }
+  readonly borderStartStartRadiusN1px: { 'border-start-start-radius_-1px': true }
   readonly borderStartStartRadius0px: { 'border-start-start-radius_0px': true }
   readonly borderStartStartRadius1px: { 'border-start-start-radius_1px': true }
   readonly borderStartStartRadius2px: { 'border-start-start-radius_2px': true }
-  readonly borderStartStartRadius3px: { 'border-start-start-radius_3px': true }
   readonly borderStartStartRadius4px: { 'border-start-start-radius_4px': true }
-  readonly borderStartStartRadius5px: { 'border-start-start-radius_5px': true }
+  readonly borderStartStartRadius6px: { 'border-start-start-radius_6px': true }
+  readonly borderStartStartRadius8px: { 'border-start-start-radius_8px': true }
   readonly borderStartStartRadius10px: { 'border-start-start-radius_10px': true }
+  readonly borderStartStartRadius12px: { 'border-start-start-radius_12px': true }
+  readonly borderStartStartRadius14px: { 'border-start-start-radius_14px': true }
+  readonly borderStartStartRadius16px: { 'border-start-start-radius_16px': true }
   readonly borderStartStartRadius20px: { 'border-start-start-radius_20px': true }
-  readonly borderStartStartRadius50px: { 'border-start-start-radius_50px': true }
-  readonly borderStartStartRadius100px: { 'border-start-start-radius_100px': true }
+  readonly borderStartStartRadius24px: { 'border-start-start-radius_24px': true }
+  readonly borderStartStartRadius28px: { 'border-start-start-radius_28px': true }
+  readonly borderStartStartRadius32px: { 'border-start-start-radius_32px': true }
+  readonly borderStartStartRadius40px: { 'border-start-start-radius_40px': true }
+  readonly borderStartStartRadius48px: { 'border-start-start-radius_48px': true }
+  readonly borderStartStartRadius56px: { 'border-start-start-radius_56px': true }
+  readonly borderStartStartRadius64px: { 'border-start-start-radius_64px': true }
+  readonly borderStartStartRadius80px: { 'border-start-start-radius_80px': true }
+  readonly borderStartStartRadius96px: { 'border-start-start-radius_96px': true }
+  readonly borderStartStartRadius128px: { 'border-start-start-radius_128px': true }
+  readonly borderStartStartRadius160px: { 'border-start-start-radius_160px': true }
+  readonly borderStartStartRadius192px: { 'border-start-start-radius_192px': true }
+  readonly borderStartStartRadius224px: { 'border-start-start-radius_224px': true }
+  readonly borderStartStartRadius256px: { 'border-start-start-radius_256px': true }
+  readonly borderStartStartRadius320px: { 'border-start-start-radius_320px': true }
+  readonly borderStartStartRadius384px: { 'border-start-start-radius_384px': true }
   readonly borderStartStartRadius0rem: { 'border-start-start-radius_0rem': true }
   readonly borderStartStartRadius0p25rem: { 'border-start-start-radius_0\.25rem': true }
   readonly borderStartStartRadius0p5rem: { 'border-start-start-radius_0\.5rem': true }
@@ -15962,16 +16994,59 @@ export interface CsstsAtoms {
   readonly borderTop12pt: { 'border-top_12pt': true }
   readonly borderTop16pt: { 'border-top_16pt': true }
   readonly borderTop20pt: { 'border-top_20pt': true }
+  readonly borderTopN384px: { 'border-top_-384px': true }
+  readonly borderTopN320px: { 'border-top_-320px': true }
+  readonly borderTopN256px: { 'border-top_-256px': true }
+  readonly borderTopN224px: { 'border-top_-224px': true }
+  readonly borderTopN192px: { 'border-top_-192px': true }
+  readonly borderTopN160px: { 'border-top_-160px': true }
+  readonly borderTopN128px: { 'border-top_-128px': true }
+  readonly borderTopN96px: { 'border-top_-96px': true }
+  readonly borderTopN80px: { 'border-top_-80px': true }
+  readonly borderTopN64px: { 'border-top_-64px': true }
+  readonly borderTopN56px: { 'border-top_-56px': true }
+  readonly borderTopN48px: { 'border-top_-48px': true }
+  readonly borderTopN40px: { 'border-top_-40px': true }
+  readonly borderTopN32px: { 'border-top_-32px': true }
+  readonly borderTopN28px: { 'border-top_-28px': true }
+  readonly borderTopN24px: { 'border-top_-24px': true }
+  readonly borderTopN20px: { 'border-top_-20px': true }
+  readonly borderTopN16px: { 'border-top_-16px': true }
+  readonly borderTopN14px: { 'border-top_-14px': true }
+  readonly borderTopN12px: { 'border-top_-12px': true }
+  readonly borderTopN10px: { 'border-top_-10px': true }
+  readonly borderTopN8px: { 'border-top_-8px': true }
+  readonly borderTopN6px: { 'border-top_-6px': true }
+  readonly borderTopN4px: { 'border-top_-4px': true }
+  readonly borderTopN2px: { 'border-top_-2px': true }
+  readonly borderTopN1px: { 'border-top_-1px': true }
   readonly borderTop0px: { 'border-top_0px': true }
   readonly borderTop1px: { 'border-top_1px': true }
   readonly borderTop2px: { 'border-top_2px': true }
-  readonly borderTop3px: { 'border-top_3px': true }
   readonly borderTop4px: { 'border-top_4px': true }
-  readonly borderTop5px: { 'border-top_5px': true }
+  readonly borderTop6px: { 'border-top_6px': true }
+  readonly borderTop8px: { 'border-top_8px': true }
   readonly borderTop10px: { 'border-top_10px': true }
+  readonly borderTop12px: { 'border-top_12px': true }
+  readonly borderTop14px: { 'border-top_14px': true }
+  readonly borderTop16px: { 'border-top_16px': true }
   readonly borderTop20px: { 'border-top_20px': true }
-  readonly borderTop50px: { 'border-top_50px': true }
-  readonly borderTop100px: { 'border-top_100px': true }
+  readonly borderTop24px: { 'border-top_24px': true }
+  readonly borderTop28px: { 'border-top_28px': true }
+  readonly borderTop32px: { 'border-top_32px': true }
+  readonly borderTop40px: { 'border-top_40px': true }
+  readonly borderTop48px: { 'border-top_48px': true }
+  readonly borderTop56px: { 'border-top_56px': true }
+  readonly borderTop64px: { 'border-top_64px': true }
+  readonly borderTop80px: { 'border-top_80px': true }
+  readonly borderTop96px: { 'border-top_96px': true }
+  readonly borderTop128px: { 'border-top_128px': true }
+  readonly borderTop160px: { 'border-top_160px': true }
+  readonly borderTop192px: { 'border-top_192px': true }
+  readonly borderTop224px: { 'border-top_224px': true }
+  readonly borderTop256px: { 'border-top_256px': true }
+  readonly borderTop320px: { 'border-top_320px': true }
+  readonly borderTop384px: { 'border-top_384px': true }
   readonly borderTop0rem: { 'border-top_0rem': true }
   readonly borderTop0p25rem: { 'border-top_0\.25rem': true }
   readonly borderTop0p5rem: { 'border-top_0\.5rem': true }
@@ -16686,16 +17761,59 @@ export interface CsstsAtoms {
   readonly borderTopLeftRadius12pt: { 'border-top-left-radius_12pt': true }
   readonly borderTopLeftRadius16pt: { 'border-top-left-radius_16pt': true }
   readonly borderTopLeftRadius20pt: { 'border-top-left-radius_20pt': true }
+  readonly borderTopLeftRadiusN384px: { 'border-top-left-radius_-384px': true }
+  readonly borderTopLeftRadiusN320px: { 'border-top-left-radius_-320px': true }
+  readonly borderTopLeftRadiusN256px: { 'border-top-left-radius_-256px': true }
+  readonly borderTopLeftRadiusN224px: { 'border-top-left-radius_-224px': true }
+  readonly borderTopLeftRadiusN192px: { 'border-top-left-radius_-192px': true }
+  readonly borderTopLeftRadiusN160px: { 'border-top-left-radius_-160px': true }
+  readonly borderTopLeftRadiusN128px: { 'border-top-left-radius_-128px': true }
+  readonly borderTopLeftRadiusN96px: { 'border-top-left-radius_-96px': true }
+  readonly borderTopLeftRadiusN80px: { 'border-top-left-radius_-80px': true }
+  readonly borderTopLeftRadiusN64px: { 'border-top-left-radius_-64px': true }
+  readonly borderTopLeftRadiusN56px: { 'border-top-left-radius_-56px': true }
+  readonly borderTopLeftRadiusN48px: { 'border-top-left-radius_-48px': true }
+  readonly borderTopLeftRadiusN40px: { 'border-top-left-radius_-40px': true }
+  readonly borderTopLeftRadiusN32px: { 'border-top-left-radius_-32px': true }
+  readonly borderTopLeftRadiusN28px: { 'border-top-left-radius_-28px': true }
+  readonly borderTopLeftRadiusN24px: { 'border-top-left-radius_-24px': true }
+  readonly borderTopLeftRadiusN20px: { 'border-top-left-radius_-20px': true }
+  readonly borderTopLeftRadiusN16px: { 'border-top-left-radius_-16px': true }
+  readonly borderTopLeftRadiusN14px: { 'border-top-left-radius_-14px': true }
+  readonly borderTopLeftRadiusN12px: { 'border-top-left-radius_-12px': true }
+  readonly borderTopLeftRadiusN10px: { 'border-top-left-radius_-10px': true }
+  readonly borderTopLeftRadiusN8px: { 'border-top-left-radius_-8px': true }
+  readonly borderTopLeftRadiusN6px: { 'border-top-left-radius_-6px': true }
+  readonly borderTopLeftRadiusN4px: { 'border-top-left-radius_-4px': true }
+  readonly borderTopLeftRadiusN2px: { 'border-top-left-radius_-2px': true }
+  readonly borderTopLeftRadiusN1px: { 'border-top-left-radius_-1px': true }
   readonly borderTopLeftRadius0px: { 'border-top-left-radius_0px': true }
   readonly borderTopLeftRadius1px: { 'border-top-left-radius_1px': true }
   readonly borderTopLeftRadius2px: { 'border-top-left-radius_2px': true }
-  readonly borderTopLeftRadius3px: { 'border-top-left-radius_3px': true }
   readonly borderTopLeftRadius4px: { 'border-top-left-radius_4px': true }
-  readonly borderTopLeftRadius5px: { 'border-top-left-radius_5px': true }
+  readonly borderTopLeftRadius6px: { 'border-top-left-radius_6px': true }
+  readonly borderTopLeftRadius8px: { 'border-top-left-radius_8px': true }
   readonly borderTopLeftRadius10px: { 'border-top-left-radius_10px': true }
+  readonly borderTopLeftRadius12px: { 'border-top-left-radius_12px': true }
+  readonly borderTopLeftRadius14px: { 'border-top-left-radius_14px': true }
+  readonly borderTopLeftRadius16px: { 'border-top-left-radius_16px': true }
   readonly borderTopLeftRadius20px: { 'border-top-left-radius_20px': true }
-  readonly borderTopLeftRadius50px: { 'border-top-left-radius_50px': true }
-  readonly borderTopLeftRadius100px: { 'border-top-left-radius_100px': true }
+  readonly borderTopLeftRadius24px: { 'border-top-left-radius_24px': true }
+  readonly borderTopLeftRadius28px: { 'border-top-left-radius_28px': true }
+  readonly borderTopLeftRadius32px: { 'border-top-left-radius_32px': true }
+  readonly borderTopLeftRadius40px: { 'border-top-left-radius_40px': true }
+  readonly borderTopLeftRadius48px: { 'border-top-left-radius_48px': true }
+  readonly borderTopLeftRadius56px: { 'border-top-left-radius_56px': true }
+  readonly borderTopLeftRadius64px: { 'border-top-left-radius_64px': true }
+  readonly borderTopLeftRadius80px: { 'border-top-left-radius_80px': true }
+  readonly borderTopLeftRadius96px: { 'border-top-left-radius_96px': true }
+  readonly borderTopLeftRadius128px: { 'border-top-left-radius_128px': true }
+  readonly borderTopLeftRadius160px: { 'border-top-left-radius_160px': true }
+  readonly borderTopLeftRadius192px: { 'border-top-left-radius_192px': true }
+  readonly borderTopLeftRadius224px: { 'border-top-left-radius_224px': true }
+  readonly borderTopLeftRadius256px: { 'border-top-left-radius_256px': true }
+  readonly borderTopLeftRadius320px: { 'border-top-left-radius_320px': true }
+  readonly borderTopLeftRadius384px: { 'border-top-left-radius_384px': true }
   readonly borderTopLeftRadius0rem: { 'border-top-left-radius_0rem': true }
   readonly borderTopLeftRadius0p25rem: { 'border-top-left-radius_0\.25rem': true }
   readonly borderTopLeftRadius0p5rem: { 'border-top-left-radius_0\.5rem': true }
@@ -17065,16 +18183,59 @@ export interface CsstsAtoms {
   readonly borderTopRightRadius12pt: { 'border-top-right-radius_12pt': true }
   readonly borderTopRightRadius16pt: { 'border-top-right-radius_16pt': true }
   readonly borderTopRightRadius20pt: { 'border-top-right-radius_20pt': true }
+  readonly borderTopRightRadiusN384px: { 'border-top-right-radius_-384px': true }
+  readonly borderTopRightRadiusN320px: { 'border-top-right-radius_-320px': true }
+  readonly borderTopRightRadiusN256px: { 'border-top-right-radius_-256px': true }
+  readonly borderTopRightRadiusN224px: { 'border-top-right-radius_-224px': true }
+  readonly borderTopRightRadiusN192px: { 'border-top-right-radius_-192px': true }
+  readonly borderTopRightRadiusN160px: { 'border-top-right-radius_-160px': true }
+  readonly borderTopRightRadiusN128px: { 'border-top-right-radius_-128px': true }
+  readonly borderTopRightRadiusN96px: { 'border-top-right-radius_-96px': true }
+  readonly borderTopRightRadiusN80px: { 'border-top-right-radius_-80px': true }
+  readonly borderTopRightRadiusN64px: { 'border-top-right-radius_-64px': true }
+  readonly borderTopRightRadiusN56px: { 'border-top-right-radius_-56px': true }
+  readonly borderTopRightRadiusN48px: { 'border-top-right-radius_-48px': true }
+  readonly borderTopRightRadiusN40px: { 'border-top-right-radius_-40px': true }
+  readonly borderTopRightRadiusN32px: { 'border-top-right-radius_-32px': true }
+  readonly borderTopRightRadiusN28px: { 'border-top-right-radius_-28px': true }
+  readonly borderTopRightRadiusN24px: { 'border-top-right-radius_-24px': true }
+  readonly borderTopRightRadiusN20px: { 'border-top-right-radius_-20px': true }
+  readonly borderTopRightRadiusN16px: { 'border-top-right-radius_-16px': true }
+  readonly borderTopRightRadiusN14px: { 'border-top-right-radius_-14px': true }
+  readonly borderTopRightRadiusN12px: { 'border-top-right-radius_-12px': true }
+  readonly borderTopRightRadiusN10px: { 'border-top-right-radius_-10px': true }
+  readonly borderTopRightRadiusN8px: { 'border-top-right-radius_-8px': true }
+  readonly borderTopRightRadiusN6px: { 'border-top-right-radius_-6px': true }
+  readonly borderTopRightRadiusN4px: { 'border-top-right-radius_-4px': true }
+  readonly borderTopRightRadiusN2px: { 'border-top-right-radius_-2px': true }
+  readonly borderTopRightRadiusN1px: { 'border-top-right-radius_-1px': true }
   readonly borderTopRightRadius0px: { 'border-top-right-radius_0px': true }
   readonly borderTopRightRadius1px: { 'border-top-right-radius_1px': true }
   readonly borderTopRightRadius2px: { 'border-top-right-radius_2px': true }
-  readonly borderTopRightRadius3px: { 'border-top-right-radius_3px': true }
   readonly borderTopRightRadius4px: { 'border-top-right-radius_4px': true }
-  readonly borderTopRightRadius5px: { 'border-top-right-radius_5px': true }
+  readonly borderTopRightRadius6px: { 'border-top-right-radius_6px': true }
+  readonly borderTopRightRadius8px: { 'border-top-right-radius_8px': true }
   readonly borderTopRightRadius10px: { 'border-top-right-radius_10px': true }
+  readonly borderTopRightRadius12px: { 'border-top-right-radius_12px': true }
+  readonly borderTopRightRadius14px: { 'border-top-right-radius_14px': true }
+  readonly borderTopRightRadius16px: { 'border-top-right-radius_16px': true }
   readonly borderTopRightRadius20px: { 'border-top-right-radius_20px': true }
-  readonly borderTopRightRadius50px: { 'border-top-right-radius_50px': true }
-  readonly borderTopRightRadius100px: { 'border-top-right-radius_100px': true }
+  readonly borderTopRightRadius24px: { 'border-top-right-radius_24px': true }
+  readonly borderTopRightRadius28px: { 'border-top-right-radius_28px': true }
+  readonly borderTopRightRadius32px: { 'border-top-right-radius_32px': true }
+  readonly borderTopRightRadius40px: { 'border-top-right-radius_40px': true }
+  readonly borderTopRightRadius48px: { 'border-top-right-radius_48px': true }
+  readonly borderTopRightRadius56px: { 'border-top-right-radius_56px': true }
+  readonly borderTopRightRadius64px: { 'border-top-right-radius_64px': true }
+  readonly borderTopRightRadius80px: { 'border-top-right-radius_80px': true }
+  readonly borderTopRightRadius96px: { 'border-top-right-radius_96px': true }
+  readonly borderTopRightRadius128px: { 'border-top-right-radius_128px': true }
+  readonly borderTopRightRadius160px: { 'border-top-right-radius_160px': true }
+  readonly borderTopRightRadius192px: { 'border-top-right-radius_192px': true }
+  readonly borderTopRightRadius224px: { 'border-top-right-radius_224px': true }
+  readonly borderTopRightRadius256px: { 'border-top-right-radius_256px': true }
+  readonly borderTopRightRadius320px: { 'border-top-right-radius_320px': true }
+  readonly borderTopRightRadius384px: { 'border-top-right-radius_384px': true }
   readonly borderTopRightRadius0rem: { 'border-top-right-radius_0rem': true }
   readonly borderTopRightRadius0p25rem: { 'border-top-right-radius_0\.25rem': true }
   readonly borderTopRightRadius0p5rem: { 'border-top-right-radius_0\.5rem': true }
@@ -17459,16 +18620,59 @@ export interface CsstsAtoms {
   readonly borderTopWidth12pt: { 'border-top-width_12pt': true }
   readonly borderTopWidth16pt: { 'border-top-width_16pt': true }
   readonly borderTopWidth20pt: { 'border-top-width_20pt': true }
+  readonly borderTopWidthN384px: { 'border-top-width_-384px': true }
+  readonly borderTopWidthN320px: { 'border-top-width_-320px': true }
+  readonly borderTopWidthN256px: { 'border-top-width_-256px': true }
+  readonly borderTopWidthN224px: { 'border-top-width_-224px': true }
+  readonly borderTopWidthN192px: { 'border-top-width_-192px': true }
+  readonly borderTopWidthN160px: { 'border-top-width_-160px': true }
+  readonly borderTopWidthN128px: { 'border-top-width_-128px': true }
+  readonly borderTopWidthN96px: { 'border-top-width_-96px': true }
+  readonly borderTopWidthN80px: { 'border-top-width_-80px': true }
+  readonly borderTopWidthN64px: { 'border-top-width_-64px': true }
+  readonly borderTopWidthN56px: { 'border-top-width_-56px': true }
+  readonly borderTopWidthN48px: { 'border-top-width_-48px': true }
+  readonly borderTopWidthN40px: { 'border-top-width_-40px': true }
+  readonly borderTopWidthN32px: { 'border-top-width_-32px': true }
+  readonly borderTopWidthN28px: { 'border-top-width_-28px': true }
+  readonly borderTopWidthN24px: { 'border-top-width_-24px': true }
+  readonly borderTopWidthN20px: { 'border-top-width_-20px': true }
+  readonly borderTopWidthN16px: { 'border-top-width_-16px': true }
+  readonly borderTopWidthN14px: { 'border-top-width_-14px': true }
+  readonly borderTopWidthN12px: { 'border-top-width_-12px': true }
+  readonly borderTopWidthN10px: { 'border-top-width_-10px': true }
+  readonly borderTopWidthN8px: { 'border-top-width_-8px': true }
+  readonly borderTopWidthN6px: { 'border-top-width_-6px': true }
+  readonly borderTopWidthN4px: { 'border-top-width_-4px': true }
+  readonly borderTopWidthN2px: { 'border-top-width_-2px': true }
+  readonly borderTopWidthN1px: { 'border-top-width_-1px': true }
   readonly borderTopWidth0px: { 'border-top-width_0px': true }
   readonly borderTopWidth1px: { 'border-top-width_1px': true }
   readonly borderTopWidth2px: { 'border-top-width_2px': true }
-  readonly borderTopWidth3px: { 'border-top-width_3px': true }
   readonly borderTopWidth4px: { 'border-top-width_4px': true }
-  readonly borderTopWidth5px: { 'border-top-width_5px': true }
+  readonly borderTopWidth6px: { 'border-top-width_6px': true }
+  readonly borderTopWidth8px: { 'border-top-width_8px': true }
   readonly borderTopWidth10px: { 'border-top-width_10px': true }
+  readonly borderTopWidth12px: { 'border-top-width_12px': true }
+  readonly borderTopWidth14px: { 'border-top-width_14px': true }
+  readonly borderTopWidth16px: { 'border-top-width_16px': true }
   readonly borderTopWidth20px: { 'border-top-width_20px': true }
-  readonly borderTopWidth50px: { 'border-top-width_50px': true }
-  readonly borderTopWidth100px: { 'border-top-width_100px': true }
+  readonly borderTopWidth24px: { 'border-top-width_24px': true }
+  readonly borderTopWidth28px: { 'border-top-width_28px': true }
+  readonly borderTopWidth32px: { 'border-top-width_32px': true }
+  readonly borderTopWidth40px: { 'border-top-width_40px': true }
+  readonly borderTopWidth48px: { 'border-top-width_48px': true }
+  readonly borderTopWidth56px: { 'border-top-width_56px': true }
+  readonly borderTopWidth64px: { 'border-top-width_64px': true }
+  readonly borderTopWidth80px: { 'border-top-width_80px': true }
+  readonly borderTopWidth96px: { 'border-top-width_96px': true }
+  readonly borderTopWidth128px: { 'border-top-width_128px': true }
+  readonly borderTopWidth160px: { 'border-top-width_160px': true }
+  readonly borderTopWidth192px: { 'border-top-width_192px': true }
+  readonly borderTopWidth224px: { 'border-top-width_224px': true }
+  readonly borderTopWidth256px: { 'border-top-width_256px': true }
+  readonly borderTopWidth320px: { 'border-top-width_320px': true }
+  readonly borderTopWidth384px: { 'border-top-width_384px': true }
   readonly borderTopWidth0rem: { 'border-top-width_0rem': true }
   readonly borderTopWidth0p25rem: { 'border-top-width_0\.25rem': true }
   readonly borderTopWidth0p5rem: { 'border-top-width_0\.5rem': true }
@@ -17826,16 +19030,59 @@ export interface CsstsAtoms {
   readonly borderWidth12pt: { 'border-width_12pt': true }
   readonly borderWidth16pt: { 'border-width_16pt': true }
   readonly borderWidth20pt: { 'border-width_20pt': true }
+  readonly borderWidthN384px: { 'border-width_-384px': true }
+  readonly borderWidthN320px: { 'border-width_-320px': true }
+  readonly borderWidthN256px: { 'border-width_-256px': true }
+  readonly borderWidthN224px: { 'border-width_-224px': true }
+  readonly borderWidthN192px: { 'border-width_-192px': true }
+  readonly borderWidthN160px: { 'border-width_-160px': true }
+  readonly borderWidthN128px: { 'border-width_-128px': true }
+  readonly borderWidthN96px: { 'border-width_-96px': true }
+  readonly borderWidthN80px: { 'border-width_-80px': true }
+  readonly borderWidthN64px: { 'border-width_-64px': true }
+  readonly borderWidthN56px: { 'border-width_-56px': true }
+  readonly borderWidthN48px: { 'border-width_-48px': true }
+  readonly borderWidthN40px: { 'border-width_-40px': true }
+  readonly borderWidthN32px: { 'border-width_-32px': true }
+  readonly borderWidthN28px: { 'border-width_-28px': true }
+  readonly borderWidthN24px: { 'border-width_-24px': true }
+  readonly borderWidthN20px: { 'border-width_-20px': true }
+  readonly borderWidthN16px: { 'border-width_-16px': true }
+  readonly borderWidthN14px: { 'border-width_-14px': true }
+  readonly borderWidthN12px: { 'border-width_-12px': true }
+  readonly borderWidthN10px: { 'border-width_-10px': true }
+  readonly borderWidthN8px: { 'border-width_-8px': true }
+  readonly borderWidthN6px: { 'border-width_-6px': true }
+  readonly borderWidthN4px: { 'border-width_-4px': true }
+  readonly borderWidthN2px: { 'border-width_-2px': true }
+  readonly borderWidthN1px: { 'border-width_-1px': true }
   readonly borderWidth0px: { 'border-width_0px': true }
   readonly borderWidth1px: { 'border-width_1px': true }
   readonly borderWidth2px: { 'border-width_2px': true }
-  readonly borderWidth3px: { 'border-width_3px': true }
   readonly borderWidth4px: { 'border-width_4px': true }
-  readonly borderWidth5px: { 'border-width_5px': true }
+  readonly borderWidth6px: { 'border-width_6px': true }
+  readonly borderWidth8px: { 'border-width_8px': true }
   readonly borderWidth10px: { 'border-width_10px': true }
+  readonly borderWidth12px: { 'border-width_12px': true }
+  readonly borderWidth14px: { 'border-width_14px': true }
+  readonly borderWidth16px: { 'border-width_16px': true }
   readonly borderWidth20px: { 'border-width_20px': true }
-  readonly borderWidth50px: { 'border-width_50px': true }
-  readonly borderWidth100px: { 'border-width_100px': true }
+  readonly borderWidth24px: { 'border-width_24px': true }
+  readonly borderWidth28px: { 'border-width_28px': true }
+  readonly borderWidth32px: { 'border-width_32px': true }
+  readonly borderWidth40px: { 'border-width_40px': true }
+  readonly borderWidth48px: { 'border-width_48px': true }
+  readonly borderWidth56px: { 'border-width_56px': true }
+  readonly borderWidth64px: { 'border-width_64px': true }
+  readonly borderWidth80px: { 'border-width_80px': true }
+  readonly borderWidth96px: { 'border-width_96px': true }
+  readonly borderWidth128px: { 'border-width_128px': true }
+  readonly borderWidth160px: { 'border-width_160px': true }
+  readonly borderWidth192px: { 'border-width_192px': true }
+  readonly borderWidth224px: { 'border-width_224px': true }
+  readonly borderWidth256px: { 'border-width_256px': true }
+  readonly borderWidth320px: { 'border-width_320px': true }
+  readonly borderWidth384px: { 'border-width_384px': true }
   readonly borderWidth0rem: { 'border-width_0rem': true }
   readonly borderWidth0p25rem: { 'border-width_0\.25rem': true }
   readonly borderWidth0p5rem: { 'border-width_0\.5rem': true }
@@ -18191,16 +19438,59 @@ export interface CsstsAtoms {
   readonly bottom12pt: { 'bottom_12pt': true }
   readonly bottom16pt: { 'bottom_16pt': true }
   readonly bottom20pt: { 'bottom_20pt': true }
+  readonly bottomN384px: { 'bottom_-384px': true }
+  readonly bottomN320px: { 'bottom_-320px': true }
+  readonly bottomN256px: { 'bottom_-256px': true }
+  readonly bottomN224px: { 'bottom_-224px': true }
+  readonly bottomN192px: { 'bottom_-192px': true }
+  readonly bottomN160px: { 'bottom_-160px': true }
+  readonly bottomN128px: { 'bottom_-128px': true }
+  readonly bottomN96px: { 'bottom_-96px': true }
+  readonly bottomN80px: { 'bottom_-80px': true }
+  readonly bottomN64px: { 'bottom_-64px': true }
+  readonly bottomN56px: { 'bottom_-56px': true }
+  readonly bottomN48px: { 'bottom_-48px': true }
+  readonly bottomN40px: { 'bottom_-40px': true }
+  readonly bottomN32px: { 'bottom_-32px': true }
+  readonly bottomN28px: { 'bottom_-28px': true }
+  readonly bottomN24px: { 'bottom_-24px': true }
+  readonly bottomN20px: { 'bottom_-20px': true }
+  readonly bottomN16px: { 'bottom_-16px': true }
+  readonly bottomN14px: { 'bottom_-14px': true }
+  readonly bottomN12px: { 'bottom_-12px': true }
+  readonly bottomN10px: { 'bottom_-10px': true }
+  readonly bottomN8px: { 'bottom_-8px': true }
+  readonly bottomN6px: { 'bottom_-6px': true }
+  readonly bottomN4px: { 'bottom_-4px': true }
+  readonly bottomN2px: { 'bottom_-2px': true }
+  readonly bottomN1px: { 'bottom_-1px': true }
   readonly bottom0px: { 'bottom_0px': true }
   readonly bottom1px: { 'bottom_1px': true }
   readonly bottom2px: { 'bottom_2px': true }
-  readonly bottom3px: { 'bottom_3px': true }
   readonly bottom4px: { 'bottom_4px': true }
-  readonly bottom5px: { 'bottom_5px': true }
+  readonly bottom6px: { 'bottom_6px': true }
+  readonly bottom8px: { 'bottom_8px': true }
   readonly bottom10px: { 'bottom_10px': true }
+  readonly bottom12px: { 'bottom_12px': true }
+  readonly bottom14px: { 'bottom_14px': true }
+  readonly bottom16px: { 'bottom_16px': true }
   readonly bottom20px: { 'bottom_20px': true }
-  readonly bottom50px: { 'bottom_50px': true }
-  readonly bottom100px: { 'bottom_100px': true }
+  readonly bottom24px: { 'bottom_24px': true }
+  readonly bottom28px: { 'bottom_28px': true }
+  readonly bottom32px: { 'bottom_32px': true }
+  readonly bottom40px: { 'bottom_40px': true }
+  readonly bottom48px: { 'bottom_48px': true }
+  readonly bottom56px: { 'bottom_56px': true }
+  readonly bottom64px: { 'bottom_64px': true }
+  readonly bottom80px: { 'bottom_80px': true }
+  readonly bottom96px: { 'bottom_96px': true }
+  readonly bottom128px: { 'bottom_128px': true }
+  readonly bottom160px: { 'bottom_160px': true }
+  readonly bottom192px: { 'bottom_192px': true }
+  readonly bottom224px: { 'bottom_224px': true }
+  readonly bottom256px: { 'bottom_256px': true }
+  readonly bottom320px: { 'bottom_320px': true }
+  readonly bottom384px: { 'bottom_384px': true }
   readonly bottom0rem: { 'bottom_0rem': true }
   readonly bottom0p25rem: { 'bottom_0\.25rem': true }
   readonly bottom0p5rem: { 'bottom_0\.5rem': true }
@@ -18875,16 +20165,59 @@ export interface CsstsAtoms {
   readonly boxShadow12pt: { 'box-shadow_12pt': true }
   readonly boxShadow16pt: { 'box-shadow_16pt': true }
   readonly boxShadow20pt: { 'box-shadow_20pt': true }
+  readonly boxShadowN384px: { 'box-shadow_-384px': true }
+  readonly boxShadowN320px: { 'box-shadow_-320px': true }
+  readonly boxShadowN256px: { 'box-shadow_-256px': true }
+  readonly boxShadowN224px: { 'box-shadow_-224px': true }
+  readonly boxShadowN192px: { 'box-shadow_-192px': true }
+  readonly boxShadowN160px: { 'box-shadow_-160px': true }
+  readonly boxShadowN128px: { 'box-shadow_-128px': true }
+  readonly boxShadowN96px: { 'box-shadow_-96px': true }
+  readonly boxShadowN80px: { 'box-shadow_-80px': true }
+  readonly boxShadowN64px: { 'box-shadow_-64px': true }
+  readonly boxShadowN56px: { 'box-shadow_-56px': true }
+  readonly boxShadowN48px: { 'box-shadow_-48px': true }
+  readonly boxShadowN40px: { 'box-shadow_-40px': true }
+  readonly boxShadowN32px: { 'box-shadow_-32px': true }
+  readonly boxShadowN28px: { 'box-shadow_-28px': true }
+  readonly boxShadowN24px: { 'box-shadow_-24px': true }
+  readonly boxShadowN20px: { 'box-shadow_-20px': true }
+  readonly boxShadowN16px: { 'box-shadow_-16px': true }
+  readonly boxShadowN14px: { 'box-shadow_-14px': true }
+  readonly boxShadowN12px: { 'box-shadow_-12px': true }
+  readonly boxShadowN10px: { 'box-shadow_-10px': true }
+  readonly boxShadowN8px: { 'box-shadow_-8px': true }
+  readonly boxShadowN6px: { 'box-shadow_-6px': true }
+  readonly boxShadowN4px: { 'box-shadow_-4px': true }
+  readonly boxShadowN2px: { 'box-shadow_-2px': true }
+  readonly boxShadowN1px: { 'box-shadow_-1px': true }
   readonly boxShadow0px: { 'box-shadow_0px': true }
   readonly boxShadow1px: { 'box-shadow_1px': true }
   readonly boxShadow2px: { 'box-shadow_2px': true }
-  readonly boxShadow3px: { 'box-shadow_3px': true }
   readonly boxShadow4px: { 'box-shadow_4px': true }
-  readonly boxShadow5px: { 'box-shadow_5px': true }
+  readonly boxShadow6px: { 'box-shadow_6px': true }
+  readonly boxShadow8px: { 'box-shadow_8px': true }
   readonly boxShadow10px: { 'box-shadow_10px': true }
+  readonly boxShadow12px: { 'box-shadow_12px': true }
+  readonly boxShadow14px: { 'box-shadow_14px': true }
+  readonly boxShadow16px: { 'box-shadow_16px': true }
   readonly boxShadow20px: { 'box-shadow_20px': true }
-  readonly boxShadow50px: { 'box-shadow_50px': true }
-  readonly boxShadow100px: { 'box-shadow_100px': true }
+  readonly boxShadow24px: { 'box-shadow_24px': true }
+  readonly boxShadow28px: { 'box-shadow_28px': true }
+  readonly boxShadow32px: { 'box-shadow_32px': true }
+  readonly boxShadow40px: { 'box-shadow_40px': true }
+  readonly boxShadow48px: { 'box-shadow_48px': true }
+  readonly boxShadow56px: { 'box-shadow_56px': true }
+  readonly boxShadow64px: { 'box-shadow_64px': true }
+  readonly boxShadow80px: { 'box-shadow_80px': true }
+  readonly boxShadow96px: { 'box-shadow_96px': true }
+  readonly boxShadow128px: { 'box-shadow_128px': true }
+  readonly boxShadow160px: { 'box-shadow_160px': true }
+  readonly boxShadow192px: { 'box-shadow_192px': true }
+  readonly boxShadow224px: { 'box-shadow_224px': true }
+  readonly boxShadow256px: { 'box-shadow_256px': true }
+  readonly boxShadow320px: { 'box-shadow_320px': true }
+  readonly boxShadow384px: { 'box-shadow_384px': true }
   readonly boxShadow0rem: { 'box-shadow_0rem': true }
   readonly boxShadow0p25rem: { 'box-shadow_0\.25rem': true }
   readonly boxShadow0p5rem: { 'box-shadow_0\.5rem': true }
@@ -19632,16 +20965,59 @@ export interface CsstsAtoms {
   readonly clipPath12pt: { 'clip-path_12pt': true }
   readonly clipPath16pt: { 'clip-path_16pt': true }
   readonly clipPath20pt: { 'clip-path_20pt': true }
+  readonly clipPathN384px: { 'clip-path_-384px': true }
+  readonly clipPathN320px: { 'clip-path_-320px': true }
+  readonly clipPathN256px: { 'clip-path_-256px': true }
+  readonly clipPathN224px: { 'clip-path_-224px': true }
+  readonly clipPathN192px: { 'clip-path_-192px': true }
+  readonly clipPathN160px: { 'clip-path_-160px': true }
+  readonly clipPathN128px: { 'clip-path_-128px': true }
+  readonly clipPathN96px: { 'clip-path_-96px': true }
+  readonly clipPathN80px: { 'clip-path_-80px': true }
+  readonly clipPathN64px: { 'clip-path_-64px': true }
+  readonly clipPathN56px: { 'clip-path_-56px': true }
+  readonly clipPathN48px: { 'clip-path_-48px': true }
+  readonly clipPathN40px: { 'clip-path_-40px': true }
+  readonly clipPathN32px: { 'clip-path_-32px': true }
+  readonly clipPathN28px: { 'clip-path_-28px': true }
+  readonly clipPathN24px: { 'clip-path_-24px': true }
+  readonly clipPathN20px: { 'clip-path_-20px': true }
+  readonly clipPathN16px: { 'clip-path_-16px': true }
+  readonly clipPathN14px: { 'clip-path_-14px': true }
+  readonly clipPathN12px: { 'clip-path_-12px': true }
+  readonly clipPathN10px: { 'clip-path_-10px': true }
+  readonly clipPathN8px: { 'clip-path_-8px': true }
+  readonly clipPathN6px: { 'clip-path_-6px': true }
+  readonly clipPathN4px: { 'clip-path_-4px': true }
+  readonly clipPathN2px: { 'clip-path_-2px': true }
+  readonly clipPathN1px: { 'clip-path_-1px': true }
   readonly clipPath0px: { 'clip-path_0px': true }
   readonly clipPath1px: { 'clip-path_1px': true }
   readonly clipPath2px: { 'clip-path_2px': true }
-  readonly clipPath3px: { 'clip-path_3px': true }
   readonly clipPath4px: { 'clip-path_4px': true }
-  readonly clipPath5px: { 'clip-path_5px': true }
+  readonly clipPath6px: { 'clip-path_6px': true }
+  readonly clipPath8px: { 'clip-path_8px': true }
   readonly clipPath10px: { 'clip-path_10px': true }
+  readonly clipPath12px: { 'clip-path_12px': true }
+  readonly clipPath14px: { 'clip-path_14px': true }
+  readonly clipPath16px: { 'clip-path_16px': true }
   readonly clipPath20px: { 'clip-path_20px': true }
-  readonly clipPath50px: { 'clip-path_50px': true }
-  readonly clipPath100px: { 'clip-path_100px': true }
+  readonly clipPath24px: { 'clip-path_24px': true }
+  readonly clipPath28px: { 'clip-path_28px': true }
+  readonly clipPath32px: { 'clip-path_32px': true }
+  readonly clipPath40px: { 'clip-path_40px': true }
+  readonly clipPath48px: { 'clip-path_48px': true }
+  readonly clipPath56px: { 'clip-path_56px': true }
+  readonly clipPath64px: { 'clip-path_64px': true }
+  readonly clipPath80px: { 'clip-path_80px': true }
+  readonly clipPath96px: { 'clip-path_96px': true }
+  readonly clipPath128px: { 'clip-path_128px': true }
+  readonly clipPath160px: { 'clip-path_160px': true }
+  readonly clipPath192px: { 'clip-path_192px': true }
+  readonly clipPath224px: { 'clip-path_224px': true }
+  readonly clipPath256px: { 'clip-path_256px': true }
+  readonly clipPath320px: { 'clip-path_320px': true }
+  readonly clipPath384px: { 'clip-path_384px': true }
   readonly clipPath0rem: { 'clip-path_0rem': true }
   readonly clipPath0p25rem: { 'clip-path_0\.25rem': true }
   readonly clipPath0p5rem: { 'clip-path_0\.5rem': true }
@@ -20748,16 +22124,59 @@ export interface CsstsAtoms {
   readonly filter12pt: { 'filter_12pt': true }
   readonly filter16pt: { 'filter_16pt': true }
   readonly filter20pt: { 'filter_20pt': true }
+  readonly filterN384px: { 'filter_-384px': true }
+  readonly filterN320px: { 'filter_-320px': true }
+  readonly filterN256px: { 'filter_-256px': true }
+  readonly filterN224px: { 'filter_-224px': true }
+  readonly filterN192px: { 'filter_-192px': true }
+  readonly filterN160px: { 'filter_-160px': true }
+  readonly filterN128px: { 'filter_-128px': true }
+  readonly filterN96px: { 'filter_-96px': true }
+  readonly filterN80px: { 'filter_-80px': true }
+  readonly filterN64px: { 'filter_-64px': true }
+  readonly filterN56px: { 'filter_-56px': true }
+  readonly filterN48px: { 'filter_-48px': true }
+  readonly filterN40px: { 'filter_-40px': true }
+  readonly filterN32px: { 'filter_-32px': true }
+  readonly filterN28px: { 'filter_-28px': true }
+  readonly filterN24px: { 'filter_-24px': true }
+  readonly filterN20px: { 'filter_-20px': true }
+  readonly filterN16px: { 'filter_-16px': true }
+  readonly filterN14px: { 'filter_-14px': true }
+  readonly filterN12px: { 'filter_-12px': true }
+  readonly filterN10px: { 'filter_-10px': true }
+  readonly filterN8px: { 'filter_-8px': true }
+  readonly filterN6px: { 'filter_-6px': true }
+  readonly filterN4px: { 'filter_-4px': true }
+  readonly filterN2px: { 'filter_-2px': true }
+  readonly filterN1px: { 'filter_-1px': true }
   readonly filter0px: { 'filter_0px': true }
   readonly filter1px: { 'filter_1px': true }
   readonly filter2px: { 'filter_2px': true }
-  readonly filter3px: { 'filter_3px': true }
   readonly filter4px: { 'filter_4px': true }
-  readonly filter5px: { 'filter_5px': true }
+  readonly filter6px: { 'filter_6px': true }
+  readonly filter8px: { 'filter_8px': true }
   readonly filter10px: { 'filter_10px': true }
+  readonly filter12px: { 'filter_12px': true }
+  readonly filter14px: { 'filter_14px': true }
+  readonly filter16px: { 'filter_16px': true }
   readonly filter20px: { 'filter_20px': true }
-  readonly filter50px: { 'filter_50px': true }
-  readonly filter100px: { 'filter_100px': true }
+  readonly filter24px: { 'filter_24px': true }
+  readonly filter28px: { 'filter_28px': true }
+  readonly filter32px: { 'filter_32px': true }
+  readonly filter40px: { 'filter_40px': true }
+  readonly filter48px: { 'filter_48px': true }
+  readonly filter56px: { 'filter_56px': true }
+  readonly filter64px: { 'filter_64px': true }
+  readonly filter80px: { 'filter_80px': true }
+  readonly filter96px: { 'filter_96px': true }
+  readonly filter128px: { 'filter_128px': true }
+  readonly filter160px: { 'filter_160px': true }
+  readonly filter192px: { 'filter_192px': true }
+  readonly filter224px: { 'filter_224px': true }
+  readonly filter256px: { 'filter_256px': true }
+  readonly filter320px: { 'filter_320px': true }
+  readonly filter384px: { 'filter_384px': true }
   readonly filter0rem: { 'filter_0rem': true }
   readonly filter0p25rem: { 'filter_0\.25rem': true }
   readonly filter0p5rem: { 'filter_0\.5rem': true }
@@ -21249,16 +22668,59 @@ export interface CsstsAtoms {
   readonly fontSize12pt: { 'font-size_12pt': true }
   readonly fontSize16pt: { 'font-size_16pt': true }
   readonly fontSize20pt: { 'font-size_20pt': true }
+  readonly fontSizeN384px: { 'font-size_-384px': true }
+  readonly fontSizeN320px: { 'font-size_-320px': true }
+  readonly fontSizeN256px: { 'font-size_-256px': true }
+  readonly fontSizeN224px: { 'font-size_-224px': true }
+  readonly fontSizeN192px: { 'font-size_-192px': true }
+  readonly fontSizeN160px: { 'font-size_-160px': true }
+  readonly fontSizeN128px: { 'font-size_-128px': true }
+  readonly fontSizeN96px: { 'font-size_-96px': true }
+  readonly fontSizeN80px: { 'font-size_-80px': true }
+  readonly fontSizeN64px: { 'font-size_-64px': true }
+  readonly fontSizeN56px: { 'font-size_-56px': true }
+  readonly fontSizeN48px: { 'font-size_-48px': true }
+  readonly fontSizeN40px: { 'font-size_-40px': true }
+  readonly fontSizeN32px: { 'font-size_-32px': true }
+  readonly fontSizeN28px: { 'font-size_-28px': true }
+  readonly fontSizeN24px: { 'font-size_-24px': true }
+  readonly fontSizeN20px: { 'font-size_-20px': true }
+  readonly fontSizeN16px: { 'font-size_-16px': true }
+  readonly fontSizeN14px: { 'font-size_-14px': true }
+  readonly fontSizeN12px: { 'font-size_-12px': true }
+  readonly fontSizeN10px: { 'font-size_-10px': true }
+  readonly fontSizeN8px: { 'font-size_-8px': true }
+  readonly fontSizeN6px: { 'font-size_-6px': true }
+  readonly fontSizeN4px: { 'font-size_-4px': true }
+  readonly fontSizeN2px: { 'font-size_-2px': true }
+  readonly fontSizeN1px: { 'font-size_-1px': true }
   readonly fontSize0px: { 'font-size_0px': true }
   readonly fontSize1px: { 'font-size_1px': true }
   readonly fontSize2px: { 'font-size_2px': true }
-  readonly fontSize3px: { 'font-size_3px': true }
   readonly fontSize4px: { 'font-size_4px': true }
-  readonly fontSize5px: { 'font-size_5px': true }
+  readonly fontSize6px: { 'font-size_6px': true }
+  readonly fontSize8px: { 'font-size_8px': true }
   readonly fontSize10px: { 'font-size_10px': true }
+  readonly fontSize12px: { 'font-size_12px': true }
+  readonly fontSize14px: { 'font-size_14px': true }
+  readonly fontSize16px: { 'font-size_16px': true }
   readonly fontSize20px: { 'font-size_20px': true }
-  readonly fontSize50px: { 'font-size_50px': true }
-  readonly fontSize100px: { 'font-size_100px': true }
+  readonly fontSize24px: { 'font-size_24px': true }
+  readonly fontSize28px: { 'font-size_28px': true }
+  readonly fontSize32px: { 'font-size_32px': true }
+  readonly fontSize40px: { 'font-size_40px': true }
+  readonly fontSize48px: { 'font-size_48px': true }
+  readonly fontSize56px: { 'font-size_56px': true }
+  readonly fontSize64px: { 'font-size_64px': true }
+  readonly fontSize80px: { 'font-size_80px': true }
+  readonly fontSize96px: { 'font-size_96px': true }
+  readonly fontSize128px: { 'font-size_128px': true }
+  readonly fontSize160px: { 'font-size_160px': true }
+  readonly fontSize192px: { 'font-size_192px': true }
+  readonly fontSize224px: { 'font-size_224px': true }
+  readonly fontSize256px: { 'font-size_256px': true }
+  readonly fontSize320px: { 'font-size_320px': true }
+  readonly fontSize384px: { 'font-size_384px': true }
   readonly fontSize0rem: { 'font-size_0rem': true }
   readonly fontSize0p25rem: { 'font-size_0\.25rem': true }
   readonly fontSize0p5rem: { 'font-size_0\.5rem': true }
@@ -21748,16 +23210,59 @@ export interface CsstsAtoms {
   readonly gridAutoColumns12pt: { 'grid-auto-columns_12pt': true }
   readonly gridAutoColumns16pt: { 'grid-auto-columns_16pt': true }
   readonly gridAutoColumns20pt: { 'grid-auto-columns_20pt': true }
+  readonly gridAutoColumnsN384px: { 'grid-auto-columns_-384px': true }
+  readonly gridAutoColumnsN320px: { 'grid-auto-columns_-320px': true }
+  readonly gridAutoColumnsN256px: { 'grid-auto-columns_-256px': true }
+  readonly gridAutoColumnsN224px: { 'grid-auto-columns_-224px': true }
+  readonly gridAutoColumnsN192px: { 'grid-auto-columns_-192px': true }
+  readonly gridAutoColumnsN160px: { 'grid-auto-columns_-160px': true }
+  readonly gridAutoColumnsN128px: { 'grid-auto-columns_-128px': true }
+  readonly gridAutoColumnsN96px: { 'grid-auto-columns_-96px': true }
+  readonly gridAutoColumnsN80px: { 'grid-auto-columns_-80px': true }
+  readonly gridAutoColumnsN64px: { 'grid-auto-columns_-64px': true }
+  readonly gridAutoColumnsN56px: { 'grid-auto-columns_-56px': true }
+  readonly gridAutoColumnsN48px: { 'grid-auto-columns_-48px': true }
+  readonly gridAutoColumnsN40px: { 'grid-auto-columns_-40px': true }
+  readonly gridAutoColumnsN32px: { 'grid-auto-columns_-32px': true }
+  readonly gridAutoColumnsN28px: { 'grid-auto-columns_-28px': true }
+  readonly gridAutoColumnsN24px: { 'grid-auto-columns_-24px': true }
+  readonly gridAutoColumnsN20px: { 'grid-auto-columns_-20px': true }
+  readonly gridAutoColumnsN16px: { 'grid-auto-columns_-16px': true }
+  readonly gridAutoColumnsN14px: { 'grid-auto-columns_-14px': true }
+  readonly gridAutoColumnsN12px: { 'grid-auto-columns_-12px': true }
+  readonly gridAutoColumnsN10px: { 'grid-auto-columns_-10px': true }
+  readonly gridAutoColumnsN8px: { 'grid-auto-columns_-8px': true }
+  readonly gridAutoColumnsN6px: { 'grid-auto-columns_-6px': true }
+  readonly gridAutoColumnsN4px: { 'grid-auto-columns_-4px': true }
+  readonly gridAutoColumnsN2px: { 'grid-auto-columns_-2px': true }
+  readonly gridAutoColumnsN1px: { 'grid-auto-columns_-1px': true }
   readonly gridAutoColumns0px: { 'grid-auto-columns_0px': true }
   readonly gridAutoColumns1px: { 'grid-auto-columns_1px': true }
   readonly gridAutoColumns2px: { 'grid-auto-columns_2px': true }
-  readonly gridAutoColumns3px: { 'grid-auto-columns_3px': true }
   readonly gridAutoColumns4px: { 'grid-auto-columns_4px': true }
-  readonly gridAutoColumns5px: { 'grid-auto-columns_5px': true }
+  readonly gridAutoColumns6px: { 'grid-auto-columns_6px': true }
+  readonly gridAutoColumns8px: { 'grid-auto-columns_8px': true }
   readonly gridAutoColumns10px: { 'grid-auto-columns_10px': true }
+  readonly gridAutoColumns12px: { 'grid-auto-columns_12px': true }
+  readonly gridAutoColumns14px: { 'grid-auto-columns_14px': true }
+  readonly gridAutoColumns16px: { 'grid-auto-columns_16px': true }
   readonly gridAutoColumns20px: { 'grid-auto-columns_20px': true }
-  readonly gridAutoColumns50px: { 'grid-auto-columns_50px': true }
-  readonly gridAutoColumns100px: { 'grid-auto-columns_100px': true }
+  readonly gridAutoColumns24px: { 'grid-auto-columns_24px': true }
+  readonly gridAutoColumns28px: { 'grid-auto-columns_28px': true }
+  readonly gridAutoColumns32px: { 'grid-auto-columns_32px': true }
+  readonly gridAutoColumns40px: { 'grid-auto-columns_40px': true }
+  readonly gridAutoColumns48px: { 'grid-auto-columns_48px': true }
+  readonly gridAutoColumns56px: { 'grid-auto-columns_56px': true }
+  readonly gridAutoColumns64px: { 'grid-auto-columns_64px': true }
+  readonly gridAutoColumns80px: { 'grid-auto-columns_80px': true }
+  readonly gridAutoColumns96px: { 'grid-auto-columns_96px': true }
+  readonly gridAutoColumns128px: { 'grid-auto-columns_128px': true }
+  readonly gridAutoColumns160px: { 'grid-auto-columns_160px': true }
+  readonly gridAutoColumns192px: { 'grid-auto-columns_192px': true }
+  readonly gridAutoColumns224px: { 'grid-auto-columns_224px': true }
+  readonly gridAutoColumns256px: { 'grid-auto-columns_256px': true }
+  readonly gridAutoColumns320px: { 'grid-auto-columns_320px': true }
+  readonly gridAutoColumns384px: { 'grid-auto-columns_384px': true }
   readonly gridAutoColumns0rem: { 'grid-auto-columns_0rem': true }
   readonly gridAutoColumns0p25rem: { 'grid-auto-columns_0\.25rem': true }
   readonly gridAutoColumns0p5rem: { 'grid-auto-columns_0\.5rem': true }
@@ -22141,16 +23646,59 @@ export interface CsstsAtoms {
   readonly gridAutoRows12pt: { 'grid-auto-rows_12pt': true }
   readonly gridAutoRows16pt: { 'grid-auto-rows_16pt': true }
   readonly gridAutoRows20pt: { 'grid-auto-rows_20pt': true }
+  readonly gridAutoRowsN384px: { 'grid-auto-rows_-384px': true }
+  readonly gridAutoRowsN320px: { 'grid-auto-rows_-320px': true }
+  readonly gridAutoRowsN256px: { 'grid-auto-rows_-256px': true }
+  readonly gridAutoRowsN224px: { 'grid-auto-rows_-224px': true }
+  readonly gridAutoRowsN192px: { 'grid-auto-rows_-192px': true }
+  readonly gridAutoRowsN160px: { 'grid-auto-rows_-160px': true }
+  readonly gridAutoRowsN128px: { 'grid-auto-rows_-128px': true }
+  readonly gridAutoRowsN96px: { 'grid-auto-rows_-96px': true }
+  readonly gridAutoRowsN80px: { 'grid-auto-rows_-80px': true }
+  readonly gridAutoRowsN64px: { 'grid-auto-rows_-64px': true }
+  readonly gridAutoRowsN56px: { 'grid-auto-rows_-56px': true }
+  readonly gridAutoRowsN48px: { 'grid-auto-rows_-48px': true }
+  readonly gridAutoRowsN40px: { 'grid-auto-rows_-40px': true }
+  readonly gridAutoRowsN32px: { 'grid-auto-rows_-32px': true }
+  readonly gridAutoRowsN28px: { 'grid-auto-rows_-28px': true }
+  readonly gridAutoRowsN24px: { 'grid-auto-rows_-24px': true }
+  readonly gridAutoRowsN20px: { 'grid-auto-rows_-20px': true }
+  readonly gridAutoRowsN16px: { 'grid-auto-rows_-16px': true }
+  readonly gridAutoRowsN14px: { 'grid-auto-rows_-14px': true }
+  readonly gridAutoRowsN12px: { 'grid-auto-rows_-12px': true }
+  readonly gridAutoRowsN10px: { 'grid-auto-rows_-10px': true }
+  readonly gridAutoRowsN8px: { 'grid-auto-rows_-8px': true }
+  readonly gridAutoRowsN6px: { 'grid-auto-rows_-6px': true }
+  readonly gridAutoRowsN4px: { 'grid-auto-rows_-4px': true }
+  readonly gridAutoRowsN2px: { 'grid-auto-rows_-2px': true }
+  readonly gridAutoRowsN1px: { 'grid-auto-rows_-1px': true }
   readonly gridAutoRows0px: { 'grid-auto-rows_0px': true }
   readonly gridAutoRows1px: { 'grid-auto-rows_1px': true }
   readonly gridAutoRows2px: { 'grid-auto-rows_2px': true }
-  readonly gridAutoRows3px: { 'grid-auto-rows_3px': true }
   readonly gridAutoRows4px: { 'grid-auto-rows_4px': true }
-  readonly gridAutoRows5px: { 'grid-auto-rows_5px': true }
+  readonly gridAutoRows6px: { 'grid-auto-rows_6px': true }
+  readonly gridAutoRows8px: { 'grid-auto-rows_8px': true }
   readonly gridAutoRows10px: { 'grid-auto-rows_10px': true }
+  readonly gridAutoRows12px: { 'grid-auto-rows_12px': true }
+  readonly gridAutoRows14px: { 'grid-auto-rows_14px': true }
+  readonly gridAutoRows16px: { 'grid-auto-rows_16px': true }
   readonly gridAutoRows20px: { 'grid-auto-rows_20px': true }
-  readonly gridAutoRows50px: { 'grid-auto-rows_50px': true }
-  readonly gridAutoRows100px: { 'grid-auto-rows_100px': true }
+  readonly gridAutoRows24px: { 'grid-auto-rows_24px': true }
+  readonly gridAutoRows28px: { 'grid-auto-rows_28px': true }
+  readonly gridAutoRows32px: { 'grid-auto-rows_32px': true }
+  readonly gridAutoRows40px: { 'grid-auto-rows_40px': true }
+  readonly gridAutoRows48px: { 'grid-auto-rows_48px': true }
+  readonly gridAutoRows56px: { 'grid-auto-rows_56px': true }
+  readonly gridAutoRows64px: { 'grid-auto-rows_64px': true }
+  readonly gridAutoRows80px: { 'grid-auto-rows_80px': true }
+  readonly gridAutoRows96px: { 'grid-auto-rows_96px': true }
+  readonly gridAutoRows128px: { 'grid-auto-rows_128px': true }
+  readonly gridAutoRows160px: { 'grid-auto-rows_160px': true }
+  readonly gridAutoRows192px: { 'grid-auto-rows_192px': true }
+  readonly gridAutoRows224px: { 'grid-auto-rows_224px': true }
+  readonly gridAutoRows256px: { 'grid-auto-rows_256px': true }
+  readonly gridAutoRows320px: { 'grid-auto-rows_320px': true }
+  readonly gridAutoRows384px: { 'grid-auto-rows_384px': true }
   readonly gridAutoRows0rem: { 'grid-auto-rows_0rem': true }
   readonly gridAutoRows0p25rem: { 'grid-auto-rows_0\.25rem': true }
   readonly gridAutoRows0p5rem: { 'grid-auto-rows_0\.5rem': true }
@@ -22626,16 +24174,59 @@ export interface CsstsAtoms {
   readonly gridTemplate12pt: { 'grid-template_12pt': true }
   readonly gridTemplate16pt: { 'grid-template_16pt': true }
   readonly gridTemplate20pt: { 'grid-template_20pt': true }
+  readonly gridTemplateN384px: { 'grid-template_-384px': true }
+  readonly gridTemplateN320px: { 'grid-template_-320px': true }
+  readonly gridTemplateN256px: { 'grid-template_-256px': true }
+  readonly gridTemplateN224px: { 'grid-template_-224px': true }
+  readonly gridTemplateN192px: { 'grid-template_-192px': true }
+  readonly gridTemplateN160px: { 'grid-template_-160px': true }
+  readonly gridTemplateN128px: { 'grid-template_-128px': true }
+  readonly gridTemplateN96px: { 'grid-template_-96px': true }
+  readonly gridTemplateN80px: { 'grid-template_-80px': true }
+  readonly gridTemplateN64px: { 'grid-template_-64px': true }
+  readonly gridTemplateN56px: { 'grid-template_-56px': true }
+  readonly gridTemplateN48px: { 'grid-template_-48px': true }
+  readonly gridTemplateN40px: { 'grid-template_-40px': true }
+  readonly gridTemplateN32px: { 'grid-template_-32px': true }
+  readonly gridTemplateN28px: { 'grid-template_-28px': true }
+  readonly gridTemplateN24px: { 'grid-template_-24px': true }
+  readonly gridTemplateN20px: { 'grid-template_-20px': true }
+  readonly gridTemplateN16px: { 'grid-template_-16px': true }
+  readonly gridTemplateN14px: { 'grid-template_-14px': true }
+  readonly gridTemplateN12px: { 'grid-template_-12px': true }
+  readonly gridTemplateN10px: { 'grid-template_-10px': true }
+  readonly gridTemplateN8px: { 'grid-template_-8px': true }
+  readonly gridTemplateN6px: { 'grid-template_-6px': true }
+  readonly gridTemplateN4px: { 'grid-template_-4px': true }
+  readonly gridTemplateN2px: { 'grid-template_-2px': true }
+  readonly gridTemplateN1px: { 'grid-template_-1px': true }
   readonly gridTemplate0px: { 'grid-template_0px': true }
   readonly gridTemplate1px: { 'grid-template_1px': true }
   readonly gridTemplate2px: { 'grid-template_2px': true }
-  readonly gridTemplate3px: { 'grid-template_3px': true }
   readonly gridTemplate4px: { 'grid-template_4px': true }
-  readonly gridTemplate5px: { 'grid-template_5px': true }
+  readonly gridTemplate6px: { 'grid-template_6px': true }
+  readonly gridTemplate8px: { 'grid-template_8px': true }
   readonly gridTemplate10px: { 'grid-template_10px': true }
+  readonly gridTemplate12px: { 'grid-template_12px': true }
+  readonly gridTemplate14px: { 'grid-template_14px': true }
+  readonly gridTemplate16px: { 'grid-template_16px': true }
   readonly gridTemplate20px: { 'grid-template_20px': true }
-  readonly gridTemplate50px: { 'grid-template_50px': true }
-  readonly gridTemplate100px: { 'grid-template_100px': true }
+  readonly gridTemplate24px: { 'grid-template_24px': true }
+  readonly gridTemplate28px: { 'grid-template_28px': true }
+  readonly gridTemplate32px: { 'grid-template_32px': true }
+  readonly gridTemplate40px: { 'grid-template_40px': true }
+  readonly gridTemplate48px: { 'grid-template_48px': true }
+  readonly gridTemplate56px: { 'grid-template_56px': true }
+  readonly gridTemplate64px: { 'grid-template_64px': true }
+  readonly gridTemplate80px: { 'grid-template_80px': true }
+  readonly gridTemplate96px: { 'grid-template_96px': true }
+  readonly gridTemplate128px: { 'grid-template_128px': true }
+  readonly gridTemplate160px: { 'grid-template_160px': true }
+  readonly gridTemplate192px: { 'grid-template_192px': true }
+  readonly gridTemplate224px: { 'grid-template_224px': true }
+  readonly gridTemplate256px: { 'grid-template_256px': true }
+  readonly gridTemplate320px: { 'grid-template_320px': true }
+  readonly gridTemplate384px: { 'grid-template_384px': true }
   readonly gridTemplate0rem: { 'grid-template_0rem': true }
   readonly gridTemplate0p25rem: { 'grid-template_0\.25rem': true }
   readonly gridTemplate0p5rem: { 'grid-template_0\.5rem': true }
@@ -23033,16 +24624,59 @@ export interface CsstsAtoms {
   readonly gridTemplateColumns12pt: { 'grid-template-columns_12pt': true }
   readonly gridTemplateColumns16pt: { 'grid-template-columns_16pt': true }
   readonly gridTemplateColumns20pt: { 'grid-template-columns_20pt': true }
+  readonly gridTemplateColumnsN384px: { 'grid-template-columns_-384px': true }
+  readonly gridTemplateColumnsN320px: { 'grid-template-columns_-320px': true }
+  readonly gridTemplateColumnsN256px: { 'grid-template-columns_-256px': true }
+  readonly gridTemplateColumnsN224px: { 'grid-template-columns_-224px': true }
+  readonly gridTemplateColumnsN192px: { 'grid-template-columns_-192px': true }
+  readonly gridTemplateColumnsN160px: { 'grid-template-columns_-160px': true }
+  readonly gridTemplateColumnsN128px: { 'grid-template-columns_-128px': true }
+  readonly gridTemplateColumnsN96px: { 'grid-template-columns_-96px': true }
+  readonly gridTemplateColumnsN80px: { 'grid-template-columns_-80px': true }
+  readonly gridTemplateColumnsN64px: { 'grid-template-columns_-64px': true }
+  readonly gridTemplateColumnsN56px: { 'grid-template-columns_-56px': true }
+  readonly gridTemplateColumnsN48px: { 'grid-template-columns_-48px': true }
+  readonly gridTemplateColumnsN40px: { 'grid-template-columns_-40px': true }
+  readonly gridTemplateColumnsN32px: { 'grid-template-columns_-32px': true }
+  readonly gridTemplateColumnsN28px: { 'grid-template-columns_-28px': true }
+  readonly gridTemplateColumnsN24px: { 'grid-template-columns_-24px': true }
+  readonly gridTemplateColumnsN20px: { 'grid-template-columns_-20px': true }
+  readonly gridTemplateColumnsN16px: { 'grid-template-columns_-16px': true }
+  readonly gridTemplateColumnsN14px: { 'grid-template-columns_-14px': true }
+  readonly gridTemplateColumnsN12px: { 'grid-template-columns_-12px': true }
+  readonly gridTemplateColumnsN10px: { 'grid-template-columns_-10px': true }
+  readonly gridTemplateColumnsN8px: { 'grid-template-columns_-8px': true }
+  readonly gridTemplateColumnsN6px: { 'grid-template-columns_-6px': true }
+  readonly gridTemplateColumnsN4px: { 'grid-template-columns_-4px': true }
+  readonly gridTemplateColumnsN2px: { 'grid-template-columns_-2px': true }
+  readonly gridTemplateColumnsN1px: { 'grid-template-columns_-1px': true }
   readonly gridTemplateColumns0px: { 'grid-template-columns_0px': true }
   readonly gridTemplateColumns1px: { 'grid-template-columns_1px': true }
   readonly gridTemplateColumns2px: { 'grid-template-columns_2px': true }
-  readonly gridTemplateColumns3px: { 'grid-template-columns_3px': true }
   readonly gridTemplateColumns4px: { 'grid-template-columns_4px': true }
-  readonly gridTemplateColumns5px: { 'grid-template-columns_5px': true }
+  readonly gridTemplateColumns6px: { 'grid-template-columns_6px': true }
+  readonly gridTemplateColumns8px: { 'grid-template-columns_8px': true }
   readonly gridTemplateColumns10px: { 'grid-template-columns_10px': true }
+  readonly gridTemplateColumns12px: { 'grid-template-columns_12px': true }
+  readonly gridTemplateColumns14px: { 'grid-template-columns_14px': true }
+  readonly gridTemplateColumns16px: { 'grid-template-columns_16px': true }
   readonly gridTemplateColumns20px: { 'grid-template-columns_20px': true }
-  readonly gridTemplateColumns50px: { 'grid-template-columns_50px': true }
-  readonly gridTemplateColumns100px: { 'grid-template-columns_100px': true }
+  readonly gridTemplateColumns24px: { 'grid-template-columns_24px': true }
+  readonly gridTemplateColumns28px: { 'grid-template-columns_28px': true }
+  readonly gridTemplateColumns32px: { 'grid-template-columns_32px': true }
+  readonly gridTemplateColumns40px: { 'grid-template-columns_40px': true }
+  readonly gridTemplateColumns48px: { 'grid-template-columns_48px': true }
+  readonly gridTemplateColumns56px: { 'grid-template-columns_56px': true }
+  readonly gridTemplateColumns64px: { 'grid-template-columns_64px': true }
+  readonly gridTemplateColumns80px: { 'grid-template-columns_80px': true }
+  readonly gridTemplateColumns96px: { 'grid-template-columns_96px': true }
+  readonly gridTemplateColumns128px: { 'grid-template-columns_128px': true }
+  readonly gridTemplateColumns160px: { 'grid-template-columns_160px': true }
+  readonly gridTemplateColumns192px: { 'grid-template-columns_192px': true }
+  readonly gridTemplateColumns224px: { 'grid-template-columns_224px': true }
+  readonly gridTemplateColumns256px: { 'grid-template-columns_256px': true }
+  readonly gridTemplateColumns320px: { 'grid-template-columns_320px': true }
+  readonly gridTemplateColumns384px: { 'grid-template-columns_384px': true }
   readonly gridTemplateColumns0rem: { 'grid-template-columns_0rem': true }
   readonly gridTemplateColumns0p25rem: { 'grid-template-columns_0\.25rem': true }
   readonly gridTemplateColumns0p5rem: { 'grid-template-columns_0\.5rem': true }
@@ -23437,16 +25071,59 @@ export interface CsstsAtoms {
   readonly gridTemplateRows12pt: { 'grid-template-rows_12pt': true }
   readonly gridTemplateRows16pt: { 'grid-template-rows_16pt': true }
   readonly gridTemplateRows20pt: { 'grid-template-rows_20pt': true }
+  readonly gridTemplateRowsN384px: { 'grid-template-rows_-384px': true }
+  readonly gridTemplateRowsN320px: { 'grid-template-rows_-320px': true }
+  readonly gridTemplateRowsN256px: { 'grid-template-rows_-256px': true }
+  readonly gridTemplateRowsN224px: { 'grid-template-rows_-224px': true }
+  readonly gridTemplateRowsN192px: { 'grid-template-rows_-192px': true }
+  readonly gridTemplateRowsN160px: { 'grid-template-rows_-160px': true }
+  readonly gridTemplateRowsN128px: { 'grid-template-rows_-128px': true }
+  readonly gridTemplateRowsN96px: { 'grid-template-rows_-96px': true }
+  readonly gridTemplateRowsN80px: { 'grid-template-rows_-80px': true }
+  readonly gridTemplateRowsN64px: { 'grid-template-rows_-64px': true }
+  readonly gridTemplateRowsN56px: { 'grid-template-rows_-56px': true }
+  readonly gridTemplateRowsN48px: { 'grid-template-rows_-48px': true }
+  readonly gridTemplateRowsN40px: { 'grid-template-rows_-40px': true }
+  readonly gridTemplateRowsN32px: { 'grid-template-rows_-32px': true }
+  readonly gridTemplateRowsN28px: { 'grid-template-rows_-28px': true }
+  readonly gridTemplateRowsN24px: { 'grid-template-rows_-24px': true }
+  readonly gridTemplateRowsN20px: { 'grid-template-rows_-20px': true }
+  readonly gridTemplateRowsN16px: { 'grid-template-rows_-16px': true }
+  readonly gridTemplateRowsN14px: { 'grid-template-rows_-14px': true }
+  readonly gridTemplateRowsN12px: { 'grid-template-rows_-12px': true }
+  readonly gridTemplateRowsN10px: { 'grid-template-rows_-10px': true }
+  readonly gridTemplateRowsN8px: { 'grid-template-rows_-8px': true }
+  readonly gridTemplateRowsN6px: { 'grid-template-rows_-6px': true }
+  readonly gridTemplateRowsN4px: { 'grid-template-rows_-4px': true }
+  readonly gridTemplateRowsN2px: { 'grid-template-rows_-2px': true }
+  readonly gridTemplateRowsN1px: { 'grid-template-rows_-1px': true }
   readonly gridTemplateRows0px: { 'grid-template-rows_0px': true }
   readonly gridTemplateRows1px: { 'grid-template-rows_1px': true }
   readonly gridTemplateRows2px: { 'grid-template-rows_2px': true }
-  readonly gridTemplateRows3px: { 'grid-template-rows_3px': true }
   readonly gridTemplateRows4px: { 'grid-template-rows_4px': true }
-  readonly gridTemplateRows5px: { 'grid-template-rows_5px': true }
+  readonly gridTemplateRows6px: { 'grid-template-rows_6px': true }
+  readonly gridTemplateRows8px: { 'grid-template-rows_8px': true }
   readonly gridTemplateRows10px: { 'grid-template-rows_10px': true }
+  readonly gridTemplateRows12px: { 'grid-template-rows_12px': true }
+  readonly gridTemplateRows14px: { 'grid-template-rows_14px': true }
+  readonly gridTemplateRows16px: { 'grid-template-rows_16px': true }
   readonly gridTemplateRows20px: { 'grid-template-rows_20px': true }
-  readonly gridTemplateRows50px: { 'grid-template-rows_50px': true }
-  readonly gridTemplateRows100px: { 'grid-template-rows_100px': true }
+  readonly gridTemplateRows24px: { 'grid-template-rows_24px': true }
+  readonly gridTemplateRows28px: { 'grid-template-rows_28px': true }
+  readonly gridTemplateRows32px: { 'grid-template-rows_32px': true }
+  readonly gridTemplateRows40px: { 'grid-template-rows_40px': true }
+  readonly gridTemplateRows48px: { 'grid-template-rows_48px': true }
+  readonly gridTemplateRows56px: { 'grid-template-rows_56px': true }
+  readonly gridTemplateRows64px: { 'grid-template-rows_64px': true }
+  readonly gridTemplateRows80px: { 'grid-template-rows_80px': true }
+  readonly gridTemplateRows96px: { 'grid-template-rows_96px': true }
+  readonly gridTemplateRows128px: { 'grid-template-rows_128px': true }
+  readonly gridTemplateRows160px: { 'grid-template-rows_160px': true }
+  readonly gridTemplateRows192px: { 'grid-template-rows_192px': true }
+  readonly gridTemplateRows224px: { 'grid-template-rows_224px': true }
+  readonly gridTemplateRows256px: { 'grid-template-rows_256px': true }
+  readonly gridTemplateRows320px: { 'grid-template-rows_320px': true }
+  readonly gridTemplateRows384px: { 'grid-template-rows_384px': true }
   readonly gridTemplateRows0rem: { 'grid-template-rows_0rem': true }
   readonly gridTemplateRows0p25rem: { 'grid-template-rows_0\.25rem': true }
   readonly gridTemplateRows0p5rem: { 'grid-template-rows_0\.5rem': true }
@@ -23831,16 +25508,59 @@ export interface CsstsAtoms {
   readonly height12pt: { 'height_12pt': true }
   readonly height16pt: { 'height_16pt': true }
   readonly height20pt: { 'height_20pt': true }
+  readonly heightN384px: { 'height_-384px': true }
+  readonly heightN320px: { 'height_-320px': true }
+  readonly heightN256px: { 'height_-256px': true }
+  readonly heightN224px: { 'height_-224px': true }
+  readonly heightN192px: { 'height_-192px': true }
+  readonly heightN160px: { 'height_-160px': true }
+  readonly heightN128px: { 'height_-128px': true }
+  readonly heightN96px: { 'height_-96px': true }
+  readonly heightN80px: { 'height_-80px': true }
+  readonly heightN64px: { 'height_-64px': true }
+  readonly heightN56px: { 'height_-56px': true }
+  readonly heightN48px: { 'height_-48px': true }
+  readonly heightN40px: { 'height_-40px': true }
+  readonly heightN32px: { 'height_-32px': true }
+  readonly heightN28px: { 'height_-28px': true }
+  readonly heightN24px: { 'height_-24px': true }
+  readonly heightN20px: { 'height_-20px': true }
+  readonly heightN16px: { 'height_-16px': true }
+  readonly heightN14px: { 'height_-14px': true }
+  readonly heightN12px: { 'height_-12px': true }
+  readonly heightN10px: { 'height_-10px': true }
+  readonly heightN8px: { 'height_-8px': true }
+  readonly heightN6px: { 'height_-6px': true }
+  readonly heightN4px: { 'height_-4px': true }
+  readonly heightN2px: { 'height_-2px': true }
+  readonly heightN1px: { 'height_-1px': true }
   readonly height0px: { 'height_0px': true }
   readonly height1px: { 'height_1px': true }
   readonly height2px: { 'height_2px': true }
-  readonly height3px: { 'height_3px': true }
   readonly height4px: { 'height_4px': true }
-  readonly height5px: { 'height_5px': true }
+  readonly height6px: { 'height_6px': true }
+  readonly height8px: { 'height_8px': true }
   readonly height10px: { 'height_10px': true }
+  readonly height12px: { 'height_12px': true }
+  readonly height14px: { 'height_14px': true }
+  readonly height16px: { 'height_16px': true }
   readonly height20px: { 'height_20px': true }
-  readonly height50px: { 'height_50px': true }
-  readonly height100px: { 'height_100px': true }
+  readonly height24px: { 'height_24px': true }
+  readonly height28px: { 'height_28px': true }
+  readonly height32px: { 'height_32px': true }
+  readonly height40px: { 'height_40px': true }
+  readonly height48px: { 'height_48px': true }
+  readonly height56px: { 'height_56px': true }
+  readonly height64px: { 'height_64px': true }
+  readonly height80px: { 'height_80px': true }
+  readonly height96px: { 'height_96px': true }
+  readonly height128px: { 'height_128px': true }
+  readonly height160px: { 'height_160px': true }
+  readonly height192px: { 'height_192px': true }
+  readonly height224px: { 'height_224px': true }
+  readonly height256px: { 'height_256px': true }
+  readonly height320px: { 'height_320px': true }
+  readonly height384px: { 'height_384px': true }
   readonly height0rem: { 'height_0rem': true }
   readonly height0p25rem: { 'height_0\.25rem': true }
   readonly height0p5rem: { 'height_0\.5rem': true }
@@ -24269,16 +25989,59 @@ export interface CsstsAtoms {
   readonly left12pt: { 'left_12pt': true }
   readonly left16pt: { 'left_16pt': true }
   readonly left20pt: { 'left_20pt': true }
+  readonly leftN384px: { 'left_-384px': true }
+  readonly leftN320px: { 'left_-320px': true }
+  readonly leftN256px: { 'left_-256px': true }
+  readonly leftN224px: { 'left_-224px': true }
+  readonly leftN192px: { 'left_-192px': true }
+  readonly leftN160px: { 'left_-160px': true }
+  readonly leftN128px: { 'left_-128px': true }
+  readonly leftN96px: { 'left_-96px': true }
+  readonly leftN80px: { 'left_-80px': true }
+  readonly leftN64px: { 'left_-64px': true }
+  readonly leftN56px: { 'left_-56px': true }
+  readonly leftN48px: { 'left_-48px': true }
+  readonly leftN40px: { 'left_-40px': true }
+  readonly leftN32px: { 'left_-32px': true }
+  readonly leftN28px: { 'left_-28px': true }
+  readonly leftN24px: { 'left_-24px': true }
+  readonly leftN20px: { 'left_-20px': true }
+  readonly leftN16px: { 'left_-16px': true }
+  readonly leftN14px: { 'left_-14px': true }
+  readonly leftN12px: { 'left_-12px': true }
+  readonly leftN10px: { 'left_-10px': true }
+  readonly leftN8px: { 'left_-8px': true }
+  readonly leftN6px: { 'left_-6px': true }
+  readonly leftN4px: { 'left_-4px': true }
+  readonly leftN2px: { 'left_-2px': true }
+  readonly leftN1px: { 'left_-1px': true }
   readonly left0px: { 'left_0px': true }
   readonly left1px: { 'left_1px': true }
   readonly left2px: { 'left_2px': true }
-  readonly left3px: { 'left_3px': true }
   readonly left4px: { 'left_4px': true }
-  readonly left5px: { 'left_5px': true }
+  readonly left6px: { 'left_6px': true }
+  readonly left8px: { 'left_8px': true }
   readonly left10px: { 'left_10px': true }
+  readonly left12px: { 'left_12px': true }
+  readonly left14px: { 'left_14px': true }
+  readonly left16px: { 'left_16px': true }
   readonly left20px: { 'left_20px': true }
-  readonly left50px: { 'left_50px': true }
-  readonly left100px: { 'left_100px': true }
+  readonly left24px: { 'left_24px': true }
+  readonly left28px: { 'left_28px': true }
+  readonly left32px: { 'left_32px': true }
+  readonly left40px: { 'left_40px': true }
+  readonly left48px: { 'left_48px': true }
+  readonly left56px: { 'left_56px': true }
+  readonly left64px: { 'left_64px': true }
+  readonly left80px: { 'left_80px': true }
+  readonly left96px: { 'left_96px': true }
+  readonly left128px: { 'left_128px': true }
+  readonly left160px: { 'left_160px': true }
+  readonly left192px: { 'left_192px': true }
+  readonly left224px: { 'left_224px': true }
+  readonly left256px: { 'left_256px': true }
+  readonly left320px: { 'left_320px': true }
+  readonly left384px: { 'left_384px': true }
   readonly left0rem: { 'left_0rem': true }
   readonly left0p25rem: { 'left_0\.25rem': true }
   readonly left0p5rem: { 'left_0\.5rem': true }
@@ -24649,16 +26412,59 @@ export interface CsstsAtoms {
   readonly letterSpacing12pt: { 'letter-spacing_12pt': true }
   readonly letterSpacing16pt: { 'letter-spacing_16pt': true }
   readonly letterSpacing20pt: { 'letter-spacing_20pt': true }
+  readonly letterSpacingN384px: { 'letter-spacing_-384px': true }
+  readonly letterSpacingN320px: { 'letter-spacing_-320px': true }
+  readonly letterSpacingN256px: { 'letter-spacing_-256px': true }
+  readonly letterSpacingN224px: { 'letter-spacing_-224px': true }
+  readonly letterSpacingN192px: { 'letter-spacing_-192px': true }
+  readonly letterSpacingN160px: { 'letter-spacing_-160px': true }
+  readonly letterSpacingN128px: { 'letter-spacing_-128px': true }
+  readonly letterSpacingN96px: { 'letter-spacing_-96px': true }
+  readonly letterSpacingN80px: { 'letter-spacing_-80px': true }
+  readonly letterSpacingN64px: { 'letter-spacing_-64px': true }
+  readonly letterSpacingN56px: { 'letter-spacing_-56px': true }
+  readonly letterSpacingN48px: { 'letter-spacing_-48px': true }
+  readonly letterSpacingN40px: { 'letter-spacing_-40px': true }
+  readonly letterSpacingN32px: { 'letter-spacing_-32px': true }
+  readonly letterSpacingN28px: { 'letter-spacing_-28px': true }
+  readonly letterSpacingN24px: { 'letter-spacing_-24px': true }
+  readonly letterSpacingN20px: { 'letter-spacing_-20px': true }
+  readonly letterSpacingN16px: { 'letter-spacing_-16px': true }
+  readonly letterSpacingN14px: { 'letter-spacing_-14px': true }
+  readonly letterSpacingN12px: { 'letter-spacing_-12px': true }
+  readonly letterSpacingN10px: { 'letter-spacing_-10px': true }
+  readonly letterSpacingN8px: { 'letter-spacing_-8px': true }
+  readonly letterSpacingN6px: { 'letter-spacing_-6px': true }
+  readonly letterSpacingN4px: { 'letter-spacing_-4px': true }
+  readonly letterSpacingN2px: { 'letter-spacing_-2px': true }
+  readonly letterSpacingN1px: { 'letter-spacing_-1px': true }
   readonly letterSpacing0px: { 'letter-spacing_0px': true }
   readonly letterSpacing1px: { 'letter-spacing_1px': true }
   readonly letterSpacing2px: { 'letter-spacing_2px': true }
-  readonly letterSpacing3px: { 'letter-spacing_3px': true }
   readonly letterSpacing4px: { 'letter-spacing_4px': true }
-  readonly letterSpacing5px: { 'letter-spacing_5px': true }
+  readonly letterSpacing6px: { 'letter-spacing_6px': true }
+  readonly letterSpacing8px: { 'letter-spacing_8px': true }
   readonly letterSpacing10px: { 'letter-spacing_10px': true }
+  readonly letterSpacing12px: { 'letter-spacing_12px': true }
+  readonly letterSpacing14px: { 'letter-spacing_14px': true }
+  readonly letterSpacing16px: { 'letter-spacing_16px': true }
   readonly letterSpacing20px: { 'letter-spacing_20px': true }
-  readonly letterSpacing50px: { 'letter-spacing_50px': true }
-  readonly letterSpacing100px: { 'letter-spacing_100px': true }
+  readonly letterSpacing24px: { 'letter-spacing_24px': true }
+  readonly letterSpacing28px: { 'letter-spacing_28px': true }
+  readonly letterSpacing32px: { 'letter-spacing_32px': true }
+  readonly letterSpacing40px: { 'letter-spacing_40px': true }
+  readonly letterSpacing48px: { 'letter-spacing_48px': true }
+  readonly letterSpacing56px: { 'letter-spacing_56px': true }
+  readonly letterSpacing64px: { 'letter-spacing_64px': true }
+  readonly letterSpacing80px: { 'letter-spacing_80px': true }
+  readonly letterSpacing96px: { 'letter-spacing_96px': true }
+  readonly letterSpacing128px: { 'letter-spacing_128px': true }
+  readonly letterSpacing160px: { 'letter-spacing_160px': true }
+  readonly letterSpacing192px: { 'letter-spacing_192px': true }
+  readonly letterSpacing224px: { 'letter-spacing_224px': true }
+  readonly letterSpacing256px: { 'letter-spacing_256px': true }
+  readonly letterSpacing320px: { 'letter-spacing_320px': true }
+  readonly letterSpacing384px: { 'letter-spacing_384px': true }
   readonly letterSpacing0rem: { 'letter-spacing_0rem': true }
   readonly letterSpacing0p25rem: { 'letter-spacing_0\.25rem': true }
   readonly letterSpacing0p5rem: { 'letter-spacing_0\.5rem': true }
@@ -25029,16 +26835,59 @@ export interface CsstsAtoms {
   readonly lineHeight12pt: { 'line-height_12pt': true }
   readonly lineHeight16pt: { 'line-height_16pt': true }
   readonly lineHeight20pt: { 'line-height_20pt': true }
+  readonly lineHeightN384px: { 'line-height_-384px': true }
+  readonly lineHeightN320px: { 'line-height_-320px': true }
+  readonly lineHeightN256px: { 'line-height_-256px': true }
+  readonly lineHeightN224px: { 'line-height_-224px': true }
+  readonly lineHeightN192px: { 'line-height_-192px': true }
+  readonly lineHeightN160px: { 'line-height_-160px': true }
+  readonly lineHeightN128px: { 'line-height_-128px': true }
+  readonly lineHeightN96px: { 'line-height_-96px': true }
+  readonly lineHeightN80px: { 'line-height_-80px': true }
+  readonly lineHeightN64px: { 'line-height_-64px': true }
+  readonly lineHeightN56px: { 'line-height_-56px': true }
+  readonly lineHeightN48px: { 'line-height_-48px': true }
+  readonly lineHeightN40px: { 'line-height_-40px': true }
+  readonly lineHeightN32px: { 'line-height_-32px': true }
+  readonly lineHeightN28px: { 'line-height_-28px': true }
+  readonly lineHeightN24px: { 'line-height_-24px': true }
+  readonly lineHeightN20px: { 'line-height_-20px': true }
+  readonly lineHeightN16px: { 'line-height_-16px': true }
+  readonly lineHeightN14px: { 'line-height_-14px': true }
+  readonly lineHeightN12px: { 'line-height_-12px': true }
+  readonly lineHeightN10px: { 'line-height_-10px': true }
+  readonly lineHeightN8px: { 'line-height_-8px': true }
+  readonly lineHeightN6px: { 'line-height_-6px': true }
+  readonly lineHeightN4px: { 'line-height_-4px': true }
+  readonly lineHeightN2px: { 'line-height_-2px': true }
+  readonly lineHeightN1px: { 'line-height_-1px': true }
   readonly lineHeight0px: { 'line-height_0px': true }
   readonly lineHeight1px: { 'line-height_1px': true }
   readonly lineHeight2px: { 'line-height_2px': true }
-  readonly lineHeight3px: { 'line-height_3px': true }
   readonly lineHeight4px: { 'line-height_4px': true }
-  readonly lineHeight5px: { 'line-height_5px': true }
+  readonly lineHeight6px: { 'line-height_6px': true }
+  readonly lineHeight8px: { 'line-height_8px': true }
   readonly lineHeight10px: { 'line-height_10px': true }
+  readonly lineHeight12px: { 'line-height_12px': true }
+  readonly lineHeight14px: { 'line-height_14px': true }
+  readonly lineHeight16px: { 'line-height_16px': true }
   readonly lineHeight20px: { 'line-height_20px': true }
-  readonly lineHeight50px: { 'line-height_50px': true }
-  readonly lineHeight100px: { 'line-height_100px': true }
+  readonly lineHeight24px: { 'line-height_24px': true }
+  readonly lineHeight28px: { 'line-height_28px': true }
+  readonly lineHeight32px: { 'line-height_32px': true }
+  readonly lineHeight40px: { 'line-height_40px': true }
+  readonly lineHeight48px: { 'line-height_48px': true }
+  readonly lineHeight56px: { 'line-height_56px': true }
+  readonly lineHeight64px: { 'line-height_64px': true }
+  readonly lineHeight80px: { 'line-height_80px': true }
+  readonly lineHeight96px: { 'line-height_96px': true }
+  readonly lineHeight128px: { 'line-height_128px': true }
+  readonly lineHeight160px: { 'line-height_160px': true }
+  readonly lineHeight192px: { 'line-height_192px': true }
+  readonly lineHeight224px: { 'line-height_224px': true }
+  readonly lineHeight256px: { 'line-height_256px': true }
+  readonly lineHeight320px: { 'line-height_320px': true }
+  readonly lineHeight384px: { 'line-height_384px': true }
   readonly lineHeight0rem: { 'line-height_0rem': true }
   readonly lineHeight0p25rem: { 'line-height_0\.25rem': true }
   readonly lineHeight0p5rem: { 'line-height_0\.5rem': true }
@@ -25428,16 +27277,59 @@ export interface CsstsAtoms {
   readonly margin12pt: { 'margin_12pt': true }
   readonly margin16pt: { 'margin_16pt': true }
   readonly margin20pt: { 'margin_20pt': true }
+  readonly marginN384px: { 'margin_-384px': true }
+  readonly marginN320px: { 'margin_-320px': true }
+  readonly marginN256px: { 'margin_-256px': true }
+  readonly marginN224px: { 'margin_-224px': true }
+  readonly marginN192px: { 'margin_-192px': true }
+  readonly marginN160px: { 'margin_-160px': true }
+  readonly marginN128px: { 'margin_-128px': true }
+  readonly marginN96px: { 'margin_-96px': true }
+  readonly marginN80px: { 'margin_-80px': true }
+  readonly marginN64px: { 'margin_-64px': true }
+  readonly marginN56px: { 'margin_-56px': true }
+  readonly marginN48px: { 'margin_-48px': true }
+  readonly marginN40px: { 'margin_-40px': true }
+  readonly marginN32px: { 'margin_-32px': true }
+  readonly marginN28px: { 'margin_-28px': true }
+  readonly marginN24px: { 'margin_-24px': true }
+  readonly marginN20px: { 'margin_-20px': true }
+  readonly marginN16px: { 'margin_-16px': true }
+  readonly marginN14px: { 'margin_-14px': true }
+  readonly marginN12px: { 'margin_-12px': true }
+  readonly marginN10px: { 'margin_-10px': true }
+  readonly marginN8px: { 'margin_-8px': true }
+  readonly marginN6px: { 'margin_-6px': true }
+  readonly marginN4px: { 'margin_-4px': true }
+  readonly marginN2px: { 'margin_-2px': true }
+  readonly marginN1px: { 'margin_-1px': true }
   readonly margin0px: { 'margin_0px': true }
   readonly margin1px: { 'margin_1px': true }
   readonly margin2px: { 'margin_2px': true }
-  readonly margin3px: { 'margin_3px': true }
   readonly margin4px: { 'margin_4px': true }
-  readonly margin5px: { 'margin_5px': true }
+  readonly margin6px: { 'margin_6px': true }
+  readonly margin8px: { 'margin_8px': true }
   readonly margin10px: { 'margin_10px': true }
+  readonly margin12px: { 'margin_12px': true }
+  readonly margin14px: { 'margin_14px': true }
+  readonly margin16px: { 'margin_16px': true }
   readonly margin20px: { 'margin_20px': true }
-  readonly margin50px: { 'margin_50px': true }
-  readonly margin100px: { 'margin_100px': true }
+  readonly margin24px: { 'margin_24px': true }
+  readonly margin28px: { 'margin_28px': true }
+  readonly margin32px: { 'margin_32px': true }
+  readonly margin40px: { 'margin_40px': true }
+  readonly margin48px: { 'margin_48px': true }
+  readonly margin56px: { 'margin_56px': true }
+  readonly margin64px: { 'margin_64px': true }
+  readonly margin80px: { 'margin_80px': true }
+  readonly margin96px: { 'margin_96px': true }
+  readonly margin128px: { 'margin_128px': true }
+  readonly margin160px: { 'margin_160px': true }
+  readonly margin192px: { 'margin_192px': true }
+  readonly margin224px: { 'margin_224px': true }
+  readonly margin256px: { 'margin_256px': true }
+  readonly margin320px: { 'margin_320px': true }
+  readonly margin384px: { 'margin_384px': true }
   readonly margin0rem: { 'margin_0rem': true }
   readonly margin0p25rem: { 'margin_0\.25rem': true }
   readonly margin0p5rem: { 'margin_0\.5rem': true }
@@ -25808,16 +27700,59 @@ export interface CsstsAtoms {
   readonly marginBottom12pt: { 'margin-bottom_12pt': true }
   readonly marginBottom16pt: { 'margin-bottom_16pt': true }
   readonly marginBottom20pt: { 'margin-bottom_20pt': true }
+  readonly marginBottomN384px: { 'margin-bottom_-384px': true }
+  readonly marginBottomN320px: { 'margin-bottom_-320px': true }
+  readonly marginBottomN256px: { 'margin-bottom_-256px': true }
+  readonly marginBottomN224px: { 'margin-bottom_-224px': true }
+  readonly marginBottomN192px: { 'margin-bottom_-192px': true }
+  readonly marginBottomN160px: { 'margin-bottom_-160px': true }
+  readonly marginBottomN128px: { 'margin-bottom_-128px': true }
+  readonly marginBottomN96px: { 'margin-bottom_-96px': true }
+  readonly marginBottomN80px: { 'margin-bottom_-80px': true }
+  readonly marginBottomN64px: { 'margin-bottom_-64px': true }
+  readonly marginBottomN56px: { 'margin-bottom_-56px': true }
+  readonly marginBottomN48px: { 'margin-bottom_-48px': true }
+  readonly marginBottomN40px: { 'margin-bottom_-40px': true }
+  readonly marginBottomN32px: { 'margin-bottom_-32px': true }
+  readonly marginBottomN28px: { 'margin-bottom_-28px': true }
+  readonly marginBottomN24px: { 'margin-bottom_-24px': true }
+  readonly marginBottomN20px: { 'margin-bottom_-20px': true }
+  readonly marginBottomN16px: { 'margin-bottom_-16px': true }
+  readonly marginBottomN14px: { 'margin-bottom_-14px': true }
+  readonly marginBottomN12px: { 'margin-bottom_-12px': true }
+  readonly marginBottomN10px: { 'margin-bottom_-10px': true }
+  readonly marginBottomN8px: { 'margin-bottom_-8px': true }
+  readonly marginBottomN6px: { 'margin-bottom_-6px': true }
+  readonly marginBottomN4px: { 'margin-bottom_-4px': true }
+  readonly marginBottomN2px: { 'margin-bottom_-2px': true }
+  readonly marginBottomN1px: { 'margin-bottom_-1px': true }
   readonly marginBottom0px: { 'margin-bottom_0px': true }
   readonly marginBottom1px: { 'margin-bottom_1px': true }
   readonly marginBottom2px: { 'margin-bottom_2px': true }
-  readonly marginBottom3px: { 'margin-bottom_3px': true }
   readonly marginBottom4px: { 'margin-bottom_4px': true }
-  readonly marginBottom5px: { 'margin-bottom_5px': true }
+  readonly marginBottom6px: { 'margin-bottom_6px': true }
+  readonly marginBottom8px: { 'margin-bottom_8px': true }
   readonly marginBottom10px: { 'margin-bottom_10px': true }
+  readonly marginBottom12px: { 'margin-bottom_12px': true }
+  readonly marginBottom14px: { 'margin-bottom_14px': true }
+  readonly marginBottom16px: { 'margin-bottom_16px': true }
   readonly marginBottom20px: { 'margin-bottom_20px': true }
-  readonly marginBottom50px: { 'margin-bottom_50px': true }
-  readonly marginBottom100px: { 'margin-bottom_100px': true }
+  readonly marginBottom24px: { 'margin-bottom_24px': true }
+  readonly marginBottom28px: { 'margin-bottom_28px': true }
+  readonly marginBottom32px: { 'margin-bottom_32px': true }
+  readonly marginBottom40px: { 'margin-bottom_40px': true }
+  readonly marginBottom48px: { 'margin-bottom_48px': true }
+  readonly marginBottom56px: { 'margin-bottom_56px': true }
+  readonly marginBottom64px: { 'margin-bottom_64px': true }
+  readonly marginBottom80px: { 'margin-bottom_80px': true }
+  readonly marginBottom96px: { 'margin-bottom_96px': true }
+  readonly marginBottom128px: { 'margin-bottom_128px': true }
+  readonly marginBottom160px: { 'margin-bottom_160px': true }
+  readonly marginBottom192px: { 'margin-bottom_192px': true }
+  readonly marginBottom224px: { 'margin-bottom_224px': true }
+  readonly marginBottom256px: { 'margin-bottom_256px': true }
+  readonly marginBottom320px: { 'margin-bottom_320px': true }
+  readonly marginBottom384px: { 'margin-bottom_384px': true }
   readonly marginBottom0rem: { 'margin-bottom_0rem': true }
   readonly marginBottom0p25rem: { 'margin-bottom_0\.25rem': true }
   readonly marginBottom0p5rem: { 'margin-bottom_0\.5rem': true }
@@ -26188,16 +28123,59 @@ export interface CsstsAtoms {
   readonly marginLeft12pt: { 'margin-left_12pt': true }
   readonly marginLeft16pt: { 'margin-left_16pt': true }
   readonly marginLeft20pt: { 'margin-left_20pt': true }
+  readonly marginLeftN384px: { 'margin-left_-384px': true }
+  readonly marginLeftN320px: { 'margin-left_-320px': true }
+  readonly marginLeftN256px: { 'margin-left_-256px': true }
+  readonly marginLeftN224px: { 'margin-left_-224px': true }
+  readonly marginLeftN192px: { 'margin-left_-192px': true }
+  readonly marginLeftN160px: { 'margin-left_-160px': true }
+  readonly marginLeftN128px: { 'margin-left_-128px': true }
+  readonly marginLeftN96px: { 'margin-left_-96px': true }
+  readonly marginLeftN80px: { 'margin-left_-80px': true }
+  readonly marginLeftN64px: { 'margin-left_-64px': true }
+  readonly marginLeftN56px: { 'margin-left_-56px': true }
+  readonly marginLeftN48px: { 'margin-left_-48px': true }
+  readonly marginLeftN40px: { 'margin-left_-40px': true }
+  readonly marginLeftN32px: { 'margin-left_-32px': true }
+  readonly marginLeftN28px: { 'margin-left_-28px': true }
+  readonly marginLeftN24px: { 'margin-left_-24px': true }
+  readonly marginLeftN20px: { 'margin-left_-20px': true }
+  readonly marginLeftN16px: { 'margin-left_-16px': true }
+  readonly marginLeftN14px: { 'margin-left_-14px': true }
+  readonly marginLeftN12px: { 'margin-left_-12px': true }
+  readonly marginLeftN10px: { 'margin-left_-10px': true }
+  readonly marginLeftN8px: { 'margin-left_-8px': true }
+  readonly marginLeftN6px: { 'margin-left_-6px': true }
+  readonly marginLeftN4px: { 'margin-left_-4px': true }
+  readonly marginLeftN2px: { 'margin-left_-2px': true }
+  readonly marginLeftN1px: { 'margin-left_-1px': true }
   readonly marginLeft0px: { 'margin-left_0px': true }
   readonly marginLeft1px: { 'margin-left_1px': true }
   readonly marginLeft2px: { 'margin-left_2px': true }
-  readonly marginLeft3px: { 'margin-left_3px': true }
   readonly marginLeft4px: { 'margin-left_4px': true }
-  readonly marginLeft5px: { 'margin-left_5px': true }
+  readonly marginLeft6px: { 'margin-left_6px': true }
+  readonly marginLeft8px: { 'margin-left_8px': true }
   readonly marginLeft10px: { 'margin-left_10px': true }
+  readonly marginLeft12px: { 'margin-left_12px': true }
+  readonly marginLeft14px: { 'margin-left_14px': true }
+  readonly marginLeft16px: { 'margin-left_16px': true }
   readonly marginLeft20px: { 'margin-left_20px': true }
-  readonly marginLeft50px: { 'margin-left_50px': true }
-  readonly marginLeft100px: { 'margin-left_100px': true }
+  readonly marginLeft24px: { 'margin-left_24px': true }
+  readonly marginLeft28px: { 'margin-left_28px': true }
+  readonly marginLeft32px: { 'margin-left_32px': true }
+  readonly marginLeft40px: { 'margin-left_40px': true }
+  readonly marginLeft48px: { 'margin-left_48px': true }
+  readonly marginLeft56px: { 'margin-left_56px': true }
+  readonly marginLeft64px: { 'margin-left_64px': true }
+  readonly marginLeft80px: { 'margin-left_80px': true }
+  readonly marginLeft96px: { 'margin-left_96px': true }
+  readonly marginLeft128px: { 'margin-left_128px': true }
+  readonly marginLeft160px: { 'margin-left_160px': true }
+  readonly marginLeft192px: { 'margin-left_192px': true }
+  readonly marginLeft224px: { 'margin-left_224px': true }
+  readonly marginLeft256px: { 'margin-left_256px': true }
+  readonly marginLeft320px: { 'margin-left_320px': true }
+  readonly marginLeft384px: { 'margin-left_384px': true }
   readonly marginLeft0rem: { 'margin-left_0rem': true }
   readonly marginLeft0p25rem: { 'margin-left_0\.25rem': true }
   readonly marginLeft0p5rem: { 'margin-left_0\.5rem': true }
@@ -26568,16 +28546,59 @@ export interface CsstsAtoms {
   readonly marginRight12pt: { 'margin-right_12pt': true }
   readonly marginRight16pt: { 'margin-right_16pt': true }
   readonly marginRight20pt: { 'margin-right_20pt': true }
+  readonly marginRightN384px: { 'margin-right_-384px': true }
+  readonly marginRightN320px: { 'margin-right_-320px': true }
+  readonly marginRightN256px: { 'margin-right_-256px': true }
+  readonly marginRightN224px: { 'margin-right_-224px': true }
+  readonly marginRightN192px: { 'margin-right_-192px': true }
+  readonly marginRightN160px: { 'margin-right_-160px': true }
+  readonly marginRightN128px: { 'margin-right_-128px': true }
+  readonly marginRightN96px: { 'margin-right_-96px': true }
+  readonly marginRightN80px: { 'margin-right_-80px': true }
+  readonly marginRightN64px: { 'margin-right_-64px': true }
+  readonly marginRightN56px: { 'margin-right_-56px': true }
+  readonly marginRightN48px: { 'margin-right_-48px': true }
+  readonly marginRightN40px: { 'margin-right_-40px': true }
+  readonly marginRightN32px: { 'margin-right_-32px': true }
+  readonly marginRightN28px: { 'margin-right_-28px': true }
+  readonly marginRightN24px: { 'margin-right_-24px': true }
+  readonly marginRightN20px: { 'margin-right_-20px': true }
+  readonly marginRightN16px: { 'margin-right_-16px': true }
+  readonly marginRightN14px: { 'margin-right_-14px': true }
+  readonly marginRightN12px: { 'margin-right_-12px': true }
+  readonly marginRightN10px: { 'margin-right_-10px': true }
+  readonly marginRightN8px: { 'margin-right_-8px': true }
+  readonly marginRightN6px: { 'margin-right_-6px': true }
+  readonly marginRightN4px: { 'margin-right_-4px': true }
+  readonly marginRightN2px: { 'margin-right_-2px': true }
+  readonly marginRightN1px: { 'margin-right_-1px': true }
   readonly marginRight0px: { 'margin-right_0px': true }
   readonly marginRight1px: { 'margin-right_1px': true }
   readonly marginRight2px: { 'margin-right_2px': true }
-  readonly marginRight3px: { 'margin-right_3px': true }
   readonly marginRight4px: { 'margin-right_4px': true }
-  readonly marginRight5px: { 'margin-right_5px': true }
+  readonly marginRight6px: { 'margin-right_6px': true }
+  readonly marginRight8px: { 'margin-right_8px': true }
   readonly marginRight10px: { 'margin-right_10px': true }
+  readonly marginRight12px: { 'margin-right_12px': true }
+  readonly marginRight14px: { 'margin-right_14px': true }
+  readonly marginRight16px: { 'margin-right_16px': true }
   readonly marginRight20px: { 'margin-right_20px': true }
-  readonly marginRight50px: { 'margin-right_50px': true }
-  readonly marginRight100px: { 'margin-right_100px': true }
+  readonly marginRight24px: { 'margin-right_24px': true }
+  readonly marginRight28px: { 'margin-right_28px': true }
+  readonly marginRight32px: { 'margin-right_32px': true }
+  readonly marginRight40px: { 'margin-right_40px': true }
+  readonly marginRight48px: { 'margin-right_48px': true }
+  readonly marginRight56px: { 'margin-right_56px': true }
+  readonly marginRight64px: { 'margin-right_64px': true }
+  readonly marginRight80px: { 'margin-right_80px': true }
+  readonly marginRight96px: { 'margin-right_96px': true }
+  readonly marginRight128px: { 'margin-right_128px': true }
+  readonly marginRight160px: { 'margin-right_160px': true }
+  readonly marginRight192px: { 'margin-right_192px': true }
+  readonly marginRight224px: { 'margin-right_224px': true }
+  readonly marginRight256px: { 'margin-right_256px': true }
+  readonly marginRight320px: { 'margin-right_320px': true }
+  readonly marginRight384px: { 'margin-right_384px': true }
   readonly marginRight0rem: { 'margin-right_0rem': true }
   readonly marginRight0p25rem: { 'margin-right_0\.25rem': true }
   readonly marginRight0p5rem: { 'margin-right_0\.5rem': true }
@@ -26948,16 +28969,59 @@ export interface CsstsAtoms {
   readonly marginTop12pt: { 'margin-top_12pt': true }
   readonly marginTop16pt: { 'margin-top_16pt': true }
   readonly marginTop20pt: { 'margin-top_20pt': true }
+  readonly marginTopN384px: { 'margin-top_-384px': true }
+  readonly marginTopN320px: { 'margin-top_-320px': true }
+  readonly marginTopN256px: { 'margin-top_-256px': true }
+  readonly marginTopN224px: { 'margin-top_-224px': true }
+  readonly marginTopN192px: { 'margin-top_-192px': true }
+  readonly marginTopN160px: { 'margin-top_-160px': true }
+  readonly marginTopN128px: { 'margin-top_-128px': true }
+  readonly marginTopN96px: { 'margin-top_-96px': true }
+  readonly marginTopN80px: { 'margin-top_-80px': true }
+  readonly marginTopN64px: { 'margin-top_-64px': true }
+  readonly marginTopN56px: { 'margin-top_-56px': true }
+  readonly marginTopN48px: { 'margin-top_-48px': true }
+  readonly marginTopN40px: { 'margin-top_-40px': true }
+  readonly marginTopN32px: { 'margin-top_-32px': true }
+  readonly marginTopN28px: { 'margin-top_-28px': true }
+  readonly marginTopN24px: { 'margin-top_-24px': true }
+  readonly marginTopN20px: { 'margin-top_-20px': true }
+  readonly marginTopN16px: { 'margin-top_-16px': true }
+  readonly marginTopN14px: { 'margin-top_-14px': true }
+  readonly marginTopN12px: { 'margin-top_-12px': true }
+  readonly marginTopN10px: { 'margin-top_-10px': true }
+  readonly marginTopN8px: { 'margin-top_-8px': true }
+  readonly marginTopN6px: { 'margin-top_-6px': true }
+  readonly marginTopN4px: { 'margin-top_-4px': true }
+  readonly marginTopN2px: { 'margin-top_-2px': true }
+  readonly marginTopN1px: { 'margin-top_-1px': true }
   readonly marginTop0px: { 'margin-top_0px': true }
   readonly marginTop1px: { 'margin-top_1px': true }
   readonly marginTop2px: { 'margin-top_2px': true }
-  readonly marginTop3px: { 'margin-top_3px': true }
   readonly marginTop4px: { 'margin-top_4px': true }
-  readonly marginTop5px: { 'margin-top_5px': true }
+  readonly marginTop6px: { 'margin-top_6px': true }
+  readonly marginTop8px: { 'margin-top_8px': true }
   readonly marginTop10px: { 'margin-top_10px': true }
+  readonly marginTop12px: { 'margin-top_12px': true }
+  readonly marginTop14px: { 'margin-top_14px': true }
+  readonly marginTop16px: { 'margin-top_16px': true }
   readonly marginTop20px: { 'margin-top_20px': true }
-  readonly marginTop50px: { 'margin-top_50px': true }
-  readonly marginTop100px: { 'margin-top_100px': true }
+  readonly marginTop24px: { 'margin-top_24px': true }
+  readonly marginTop28px: { 'margin-top_28px': true }
+  readonly marginTop32px: { 'margin-top_32px': true }
+  readonly marginTop40px: { 'margin-top_40px': true }
+  readonly marginTop48px: { 'margin-top_48px': true }
+  readonly marginTop56px: { 'margin-top_56px': true }
+  readonly marginTop64px: { 'margin-top_64px': true }
+  readonly marginTop80px: { 'margin-top_80px': true }
+  readonly marginTop96px: { 'margin-top_96px': true }
+  readonly marginTop128px: { 'margin-top_128px': true }
+  readonly marginTop160px: { 'margin-top_160px': true }
+  readonly marginTop192px: { 'margin-top_192px': true }
+  readonly marginTop224px: { 'margin-top_224px': true }
+  readonly marginTop256px: { 'margin-top_256px': true }
+  readonly marginTop320px: { 'margin-top_320px': true }
+  readonly marginTop384px: { 'margin-top_384px': true }
   readonly marginTop0rem: { 'margin-top_0rem': true }
   readonly marginTop0p25rem: { 'margin-top_0\.25rem': true }
   readonly marginTop0p5rem: { 'margin-top_0\.5rem': true }
@@ -27347,16 +29411,59 @@ export interface CsstsAtoms {
   readonly maxHeight12pt: { 'max-height_12pt': true }
   readonly maxHeight16pt: { 'max-height_16pt': true }
   readonly maxHeight20pt: { 'max-height_20pt': true }
+  readonly maxHeightN384px: { 'max-height_-384px': true }
+  readonly maxHeightN320px: { 'max-height_-320px': true }
+  readonly maxHeightN256px: { 'max-height_-256px': true }
+  readonly maxHeightN224px: { 'max-height_-224px': true }
+  readonly maxHeightN192px: { 'max-height_-192px': true }
+  readonly maxHeightN160px: { 'max-height_-160px': true }
+  readonly maxHeightN128px: { 'max-height_-128px': true }
+  readonly maxHeightN96px: { 'max-height_-96px': true }
+  readonly maxHeightN80px: { 'max-height_-80px': true }
+  readonly maxHeightN64px: { 'max-height_-64px': true }
+  readonly maxHeightN56px: { 'max-height_-56px': true }
+  readonly maxHeightN48px: { 'max-height_-48px': true }
+  readonly maxHeightN40px: { 'max-height_-40px': true }
+  readonly maxHeightN32px: { 'max-height_-32px': true }
+  readonly maxHeightN28px: { 'max-height_-28px': true }
+  readonly maxHeightN24px: { 'max-height_-24px': true }
+  readonly maxHeightN20px: { 'max-height_-20px': true }
+  readonly maxHeightN16px: { 'max-height_-16px': true }
+  readonly maxHeightN14px: { 'max-height_-14px': true }
+  readonly maxHeightN12px: { 'max-height_-12px': true }
+  readonly maxHeightN10px: { 'max-height_-10px': true }
+  readonly maxHeightN8px: { 'max-height_-8px': true }
+  readonly maxHeightN6px: { 'max-height_-6px': true }
+  readonly maxHeightN4px: { 'max-height_-4px': true }
+  readonly maxHeightN2px: { 'max-height_-2px': true }
+  readonly maxHeightN1px: { 'max-height_-1px': true }
   readonly maxHeight0px: { 'max-height_0px': true }
   readonly maxHeight1px: { 'max-height_1px': true }
   readonly maxHeight2px: { 'max-height_2px': true }
-  readonly maxHeight3px: { 'max-height_3px': true }
   readonly maxHeight4px: { 'max-height_4px': true }
-  readonly maxHeight5px: { 'max-height_5px': true }
+  readonly maxHeight6px: { 'max-height_6px': true }
+  readonly maxHeight8px: { 'max-height_8px': true }
   readonly maxHeight10px: { 'max-height_10px': true }
+  readonly maxHeight12px: { 'max-height_12px': true }
+  readonly maxHeight14px: { 'max-height_14px': true }
+  readonly maxHeight16px: { 'max-height_16px': true }
   readonly maxHeight20px: { 'max-height_20px': true }
-  readonly maxHeight50px: { 'max-height_50px': true }
-  readonly maxHeight100px: { 'max-height_100px': true }
+  readonly maxHeight24px: { 'max-height_24px': true }
+  readonly maxHeight28px: { 'max-height_28px': true }
+  readonly maxHeight32px: { 'max-height_32px': true }
+  readonly maxHeight40px: { 'max-height_40px': true }
+  readonly maxHeight48px: { 'max-height_48px': true }
+  readonly maxHeight56px: { 'max-height_56px': true }
+  readonly maxHeight64px: { 'max-height_64px': true }
+  readonly maxHeight80px: { 'max-height_80px': true }
+  readonly maxHeight96px: { 'max-height_96px': true }
+  readonly maxHeight128px: { 'max-height_128px': true }
+  readonly maxHeight160px: { 'max-height_160px': true }
+  readonly maxHeight192px: { 'max-height_192px': true }
+  readonly maxHeight224px: { 'max-height_224px': true }
+  readonly maxHeight256px: { 'max-height_256px': true }
+  readonly maxHeight320px: { 'max-height_320px': true }
+  readonly maxHeight384px: { 'max-height_384px': true }
   readonly maxHeight0rem: { 'max-height_0rem': true }
   readonly maxHeight0p25rem: { 'max-height_0\.25rem': true }
   readonly maxHeight0p5rem: { 'max-height_0\.5rem': true }
@@ -27741,16 +29848,59 @@ export interface CsstsAtoms {
   readonly maxWidth12pt: { 'max-width_12pt': true }
   readonly maxWidth16pt: { 'max-width_16pt': true }
   readonly maxWidth20pt: { 'max-width_20pt': true }
+  readonly maxWidthN384px: { 'max-width_-384px': true }
+  readonly maxWidthN320px: { 'max-width_-320px': true }
+  readonly maxWidthN256px: { 'max-width_-256px': true }
+  readonly maxWidthN224px: { 'max-width_-224px': true }
+  readonly maxWidthN192px: { 'max-width_-192px': true }
+  readonly maxWidthN160px: { 'max-width_-160px': true }
+  readonly maxWidthN128px: { 'max-width_-128px': true }
+  readonly maxWidthN96px: { 'max-width_-96px': true }
+  readonly maxWidthN80px: { 'max-width_-80px': true }
+  readonly maxWidthN64px: { 'max-width_-64px': true }
+  readonly maxWidthN56px: { 'max-width_-56px': true }
+  readonly maxWidthN48px: { 'max-width_-48px': true }
+  readonly maxWidthN40px: { 'max-width_-40px': true }
+  readonly maxWidthN32px: { 'max-width_-32px': true }
+  readonly maxWidthN28px: { 'max-width_-28px': true }
+  readonly maxWidthN24px: { 'max-width_-24px': true }
+  readonly maxWidthN20px: { 'max-width_-20px': true }
+  readonly maxWidthN16px: { 'max-width_-16px': true }
+  readonly maxWidthN14px: { 'max-width_-14px': true }
+  readonly maxWidthN12px: { 'max-width_-12px': true }
+  readonly maxWidthN10px: { 'max-width_-10px': true }
+  readonly maxWidthN8px: { 'max-width_-8px': true }
+  readonly maxWidthN6px: { 'max-width_-6px': true }
+  readonly maxWidthN4px: { 'max-width_-4px': true }
+  readonly maxWidthN2px: { 'max-width_-2px': true }
+  readonly maxWidthN1px: { 'max-width_-1px': true }
   readonly maxWidth0px: { 'max-width_0px': true }
   readonly maxWidth1px: { 'max-width_1px': true }
   readonly maxWidth2px: { 'max-width_2px': true }
-  readonly maxWidth3px: { 'max-width_3px': true }
   readonly maxWidth4px: { 'max-width_4px': true }
-  readonly maxWidth5px: { 'max-width_5px': true }
+  readonly maxWidth6px: { 'max-width_6px': true }
+  readonly maxWidth8px: { 'max-width_8px': true }
   readonly maxWidth10px: { 'max-width_10px': true }
+  readonly maxWidth12px: { 'max-width_12px': true }
+  readonly maxWidth14px: { 'max-width_14px': true }
+  readonly maxWidth16px: { 'max-width_16px': true }
   readonly maxWidth20px: { 'max-width_20px': true }
-  readonly maxWidth50px: { 'max-width_50px': true }
-  readonly maxWidth100px: { 'max-width_100px': true }
+  readonly maxWidth24px: { 'max-width_24px': true }
+  readonly maxWidth28px: { 'max-width_28px': true }
+  readonly maxWidth32px: { 'max-width_32px': true }
+  readonly maxWidth40px: { 'max-width_40px': true }
+  readonly maxWidth48px: { 'max-width_48px': true }
+  readonly maxWidth56px: { 'max-width_56px': true }
+  readonly maxWidth64px: { 'max-width_64px': true }
+  readonly maxWidth80px: { 'max-width_80px': true }
+  readonly maxWidth96px: { 'max-width_96px': true }
+  readonly maxWidth128px: { 'max-width_128px': true }
+  readonly maxWidth160px: { 'max-width_160px': true }
+  readonly maxWidth192px: { 'max-width_192px': true }
+  readonly maxWidth224px: { 'max-width_224px': true }
+  readonly maxWidth256px: { 'max-width_256px': true }
+  readonly maxWidth320px: { 'max-width_320px': true }
+  readonly maxWidth384px: { 'max-width_384px': true }
   readonly maxWidth0rem: { 'max-width_0rem': true }
   readonly maxWidth0p25rem: { 'max-width_0\.25rem': true }
   readonly maxWidth0p5rem: { 'max-width_0\.5rem': true }
@@ -28135,16 +30285,59 @@ export interface CsstsAtoms {
   readonly minHeight12pt: { 'min-height_12pt': true }
   readonly minHeight16pt: { 'min-height_16pt': true }
   readonly minHeight20pt: { 'min-height_20pt': true }
+  readonly minHeightN384px: { 'min-height_-384px': true }
+  readonly minHeightN320px: { 'min-height_-320px': true }
+  readonly minHeightN256px: { 'min-height_-256px': true }
+  readonly minHeightN224px: { 'min-height_-224px': true }
+  readonly minHeightN192px: { 'min-height_-192px': true }
+  readonly minHeightN160px: { 'min-height_-160px': true }
+  readonly minHeightN128px: { 'min-height_-128px': true }
+  readonly minHeightN96px: { 'min-height_-96px': true }
+  readonly minHeightN80px: { 'min-height_-80px': true }
+  readonly minHeightN64px: { 'min-height_-64px': true }
+  readonly minHeightN56px: { 'min-height_-56px': true }
+  readonly minHeightN48px: { 'min-height_-48px': true }
+  readonly minHeightN40px: { 'min-height_-40px': true }
+  readonly minHeightN32px: { 'min-height_-32px': true }
+  readonly minHeightN28px: { 'min-height_-28px': true }
+  readonly minHeightN24px: { 'min-height_-24px': true }
+  readonly minHeightN20px: { 'min-height_-20px': true }
+  readonly minHeightN16px: { 'min-height_-16px': true }
+  readonly minHeightN14px: { 'min-height_-14px': true }
+  readonly minHeightN12px: { 'min-height_-12px': true }
+  readonly minHeightN10px: { 'min-height_-10px': true }
+  readonly minHeightN8px: { 'min-height_-8px': true }
+  readonly minHeightN6px: { 'min-height_-6px': true }
+  readonly minHeightN4px: { 'min-height_-4px': true }
+  readonly minHeightN2px: { 'min-height_-2px': true }
+  readonly minHeightN1px: { 'min-height_-1px': true }
   readonly minHeight0px: { 'min-height_0px': true }
   readonly minHeight1px: { 'min-height_1px': true }
   readonly minHeight2px: { 'min-height_2px': true }
-  readonly minHeight3px: { 'min-height_3px': true }
   readonly minHeight4px: { 'min-height_4px': true }
-  readonly minHeight5px: { 'min-height_5px': true }
+  readonly minHeight6px: { 'min-height_6px': true }
+  readonly minHeight8px: { 'min-height_8px': true }
   readonly minHeight10px: { 'min-height_10px': true }
+  readonly minHeight12px: { 'min-height_12px': true }
+  readonly minHeight14px: { 'min-height_14px': true }
+  readonly minHeight16px: { 'min-height_16px': true }
   readonly minHeight20px: { 'min-height_20px': true }
-  readonly minHeight50px: { 'min-height_50px': true }
-  readonly minHeight100px: { 'min-height_100px': true }
+  readonly minHeight24px: { 'min-height_24px': true }
+  readonly minHeight28px: { 'min-height_28px': true }
+  readonly minHeight32px: { 'min-height_32px': true }
+  readonly minHeight40px: { 'min-height_40px': true }
+  readonly minHeight48px: { 'min-height_48px': true }
+  readonly minHeight56px: { 'min-height_56px': true }
+  readonly minHeight64px: { 'min-height_64px': true }
+  readonly minHeight80px: { 'min-height_80px': true }
+  readonly minHeight96px: { 'min-height_96px': true }
+  readonly minHeight128px: { 'min-height_128px': true }
+  readonly minHeight160px: { 'min-height_160px': true }
+  readonly minHeight192px: { 'min-height_192px': true }
+  readonly minHeight224px: { 'min-height_224px': true }
+  readonly minHeight256px: { 'min-height_256px': true }
+  readonly minHeight320px: { 'min-height_320px': true }
+  readonly minHeight384px: { 'min-height_384px': true }
   readonly minHeight0rem: { 'min-height_0rem': true }
   readonly minHeight0p25rem: { 'min-height_0\.25rem': true }
   readonly minHeight0p5rem: { 'min-height_0\.5rem': true }
@@ -28529,16 +30722,59 @@ export interface CsstsAtoms {
   readonly minWidth12pt: { 'min-width_12pt': true }
   readonly minWidth16pt: { 'min-width_16pt': true }
   readonly minWidth20pt: { 'min-width_20pt': true }
+  readonly minWidthN384px: { 'min-width_-384px': true }
+  readonly minWidthN320px: { 'min-width_-320px': true }
+  readonly minWidthN256px: { 'min-width_-256px': true }
+  readonly minWidthN224px: { 'min-width_-224px': true }
+  readonly minWidthN192px: { 'min-width_-192px': true }
+  readonly minWidthN160px: { 'min-width_-160px': true }
+  readonly minWidthN128px: { 'min-width_-128px': true }
+  readonly minWidthN96px: { 'min-width_-96px': true }
+  readonly minWidthN80px: { 'min-width_-80px': true }
+  readonly minWidthN64px: { 'min-width_-64px': true }
+  readonly minWidthN56px: { 'min-width_-56px': true }
+  readonly minWidthN48px: { 'min-width_-48px': true }
+  readonly minWidthN40px: { 'min-width_-40px': true }
+  readonly minWidthN32px: { 'min-width_-32px': true }
+  readonly minWidthN28px: { 'min-width_-28px': true }
+  readonly minWidthN24px: { 'min-width_-24px': true }
+  readonly minWidthN20px: { 'min-width_-20px': true }
+  readonly minWidthN16px: { 'min-width_-16px': true }
+  readonly minWidthN14px: { 'min-width_-14px': true }
+  readonly minWidthN12px: { 'min-width_-12px': true }
+  readonly minWidthN10px: { 'min-width_-10px': true }
+  readonly minWidthN8px: { 'min-width_-8px': true }
+  readonly minWidthN6px: { 'min-width_-6px': true }
+  readonly minWidthN4px: { 'min-width_-4px': true }
+  readonly minWidthN2px: { 'min-width_-2px': true }
+  readonly minWidthN1px: { 'min-width_-1px': true }
   readonly minWidth0px: { 'min-width_0px': true }
   readonly minWidth1px: { 'min-width_1px': true }
   readonly minWidth2px: { 'min-width_2px': true }
-  readonly minWidth3px: { 'min-width_3px': true }
   readonly minWidth4px: { 'min-width_4px': true }
-  readonly minWidth5px: { 'min-width_5px': true }
+  readonly minWidth6px: { 'min-width_6px': true }
+  readonly minWidth8px: { 'min-width_8px': true }
   readonly minWidth10px: { 'min-width_10px': true }
+  readonly minWidth12px: { 'min-width_12px': true }
+  readonly minWidth14px: { 'min-width_14px': true }
+  readonly minWidth16px: { 'min-width_16px': true }
   readonly minWidth20px: { 'min-width_20px': true }
-  readonly minWidth50px: { 'min-width_50px': true }
-  readonly minWidth100px: { 'min-width_100px': true }
+  readonly minWidth24px: { 'min-width_24px': true }
+  readonly minWidth28px: { 'min-width_28px': true }
+  readonly minWidth32px: { 'min-width_32px': true }
+  readonly minWidth40px: { 'min-width_40px': true }
+  readonly minWidth48px: { 'min-width_48px': true }
+  readonly minWidth56px: { 'min-width_56px': true }
+  readonly minWidth64px: { 'min-width_64px': true }
+  readonly minWidth80px: { 'min-width_80px': true }
+  readonly minWidth96px: { 'min-width_96px': true }
+  readonly minWidth128px: { 'min-width_128px': true }
+  readonly minWidth160px: { 'min-width_160px': true }
+  readonly minWidth192px: { 'min-width_192px': true }
+  readonly minWidth224px: { 'min-width_224px': true }
+  readonly minWidth256px: { 'min-width_256px': true }
+  readonly minWidth320px: { 'min-width_320px': true }
+  readonly minWidth384px: { 'min-width_384px': true }
   readonly minWidth0rem: { 'min-width_0rem': true }
   readonly minWidth0p25rem: { 'min-width_0\.25rem': true }
   readonly minWidth0p5rem: { 'min-width_0\.5rem': true }
@@ -28939,16 +31175,59 @@ export interface CsstsAtoms {
   readonly objectPosition12pt: { 'object-position_12pt': true }
   readonly objectPosition16pt: { 'object-position_16pt': true }
   readonly objectPosition20pt: { 'object-position_20pt': true }
+  readonly objectPositionN384px: { 'object-position_-384px': true }
+  readonly objectPositionN320px: { 'object-position_-320px': true }
+  readonly objectPositionN256px: { 'object-position_-256px': true }
+  readonly objectPositionN224px: { 'object-position_-224px': true }
+  readonly objectPositionN192px: { 'object-position_-192px': true }
+  readonly objectPositionN160px: { 'object-position_-160px': true }
+  readonly objectPositionN128px: { 'object-position_-128px': true }
+  readonly objectPositionN96px: { 'object-position_-96px': true }
+  readonly objectPositionN80px: { 'object-position_-80px': true }
+  readonly objectPositionN64px: { 'object-position_-64px': true }
+  readonly objectPositionN56px: { 'object-position_-56px': true }
+  readonly objectPositionN48px: { 'object-position_-48px': true }
+  readonly objectPositionN40px: { 'object-position_-40px': true }
+  readonly objectPositionN32px: { 'object-position_-32px': true }
+  readonly objectPositionN28px: { 'object-position_-28px': true }
+  readonly objectPositionN24px: { 'object-position_-24px': true }
+  readonly objectPositionN20px: { 'object-position_-20px': true }
+  readonly objectPositionN16px: { 'object-position_-16px': true }
+  readonly objectPositionN14px: { 'object-position_-14px': true }
+  readonly objectPositionN12px: { 'object-position_-12px': true }
+  readonly objectPositionN10px: { 'object-position_-10px': true }
+  readonly objectPositionN8px: { 'object-position_-8px': true }
+  readonly objectPositionN6px: { 'object-position_-6px': true }
+  readonly objectPositionN4px: { 'object-position_-4px': true }
+  readonly objectPositionN2px: { 'object-position_-2px': true }
+  readonly objectPositionN1px: { 'object-position_-1px': true }
   readonly objectPosition0px: { 'object-position_0px': true }
   readonly objectPosition1px: { 'object-position_1px': true }
   readonly objectPosition2px: { 'object-position_2px': true }
-  readonly objectPosition3px: { 'object-position_3px': true }
   readonly objectPosition4px: { 'object-position_4px': true }
-  readonly objectPosition5px: { 'object-position_5px': true }
+  readonly objectPosition6px: { 'object-position_6px': true }
+  readonly objectPosition8px: { 'object-position_8px': true }
   readonly objectPosition10px: { 'object-position_10px': true }
+  readonly objectPosition12px: { 'object-position_12px': true }
+  readonly objectPosition14px: { 'object-position_14px': true }
+  readonly objectPosition16px: { 'object-position_16px': true }
   readonly objectPosition20px: { 'object-position_20px': true }
-  readonly objectPosition50px: { 'object-position_50px': true }
-  readonly objectPosition100px: { 'object-position_100px': true }
+  readonly objectPosition24px: { 'object-position_24px': true }
+  readonly objectPosition28px: { 'object-position_28px': true }
+  readonly objectPosition32px: { 'object-position_32px': true }
+  readonly objectPosition40px: { 'object-position_40px': true }
+  readonly objectPosition48px: { 'object-position_48px': true }
+  readonly objectPosition56px: { 'object-position_56px': true }
+  readonly objectPosition64px: { 'object-position_64px': true }
+  readonly objectPosition80px: { 'object-position_80px': true }
+  readonly objectPosition96px: { 'object-position_96px': true }
+  readonly objectPosition128px: { 'object-position_128px': true }
+  readonly objectPosition160px: { 'object-position_160px': true }
+  readonly objectPosition192px: { 'object-position_192px': true }
+  readonly objectPosition224px: { 'object-position_224px': true }
+  readonly objectPosition256px: { 'object-position_256px': true }
+  readonly objectPosition320px: { 'object-position_320px': true }
+  readonly objectPosition384px: { 'object-position_384px': true }
   readonly objectPosition0rem: { 'object-position_0rem': true }
   readonly objectPosition0p25rem: { 'object-position_0\.25rem': true }
   readonly objectPosition0p5rem: { 'object-position_0\.5rem': true }
@@ -29695,16 +31974,59 @@ export interface CsstsAtoms {
   readonly outlineOffset12pt: { 'outline-offset_12pt': true }
   readonly outlineOffset16pt: { 'outline-offset_16pt': true }
   readonly outlineOffset20pt: { 'outline-offset_20pt': true }
+  readonly outlineOffsetN384px: { 'outline-offset_-384px': true }
+  readonly outlineOffsetN320px: { 'outline-offset_-320px': true }
+  readonly outlineOffsetN256px: { 'outline-offset_-256px': true }
+  readonly outlineOffsetN224px: { 'outline-offset_-224px': true }
+  readonly outlineOffsetN192px: { 'outline-offset_-192px': true }
+  readonly outlineOffsetN160px: { 'outline-offset_-160px': true }
+  readonly outlineOffsetN128px: { 'outline-offset_-128px': true }
+  readonly outlineOffsetN96px: { 'outline-offset_-96px': true }
+  readonly outlineOffsetN80px: { 'outline-offset_-80px': true }
+  readonly outlineOffsetN64px: { 'outline-offset_-64px': true }
+  readonly outlineOffsetN56px: { 'outline-offset_-56px': true }
+  readonly outlineOffsetN48px: { 'outline-offset_-48px': true }
+  readonly outlineOffsetN40px: { 'outline-offset_-40px': true }
+  readonly outlineOffsetN32px: { 'outline-offset_-32px': true }
+  readonly outlineOffsetN28px: { 'outline-offset_-28px': true }
+  readonly outlineOffsetN24px: { 'outline-offset_-24px': true }
+  readonly outlineOffsetN20px: { 'outline-offset_-20px': true }
+  readonly outlineOffsetN16px: { 'outline-offset_-16px': true }
+  readonly outlineOffsetN14px: { 'outline-offset_-14px': true }
+  readonly outlineOffsetN12px: { 'outline-offset_-12px': true }
+  readonly outlineOffsetN10px: { 'outline-offset_-10px': true }
+  readonly outlineOffsetN8px: { 'outline-offset_-8px': true }
+  readonly outlineOffsetN6px: { 'outline-offset_-6px': true }
+  readonly outlineOffsetN4px: { 'outline-offset_-4px': true }
+  readonly outlineOffsetN2px: { 'outline-offset_-2px': true }
+  readonly outlineOffsetN1px: { 'outline-offset_-1px': true }
   readonly outlineOffset0px: { 'outline-offset_0px': true }
   readonly outlineOffset1px: { 'outline-offset_1px': true }
   readonly outlineOffset2px: { 'outline-offset_2px': true }
-  readonly outlineOffset3px: { 'outline-offset_3px': true }
   readonly outlineOffset4px: { 'outline-offset_4px': true }
-  readonly outlineOffset5px: { 'outline-offset_5px': true }
+  readonly outlineOffset6px: { 'outline-offset_6px': true }
+  readonly outlineOffset8px: { 'outline-offset_8px': true }
   readonly outlineOffset10px: { 'outline-offset_10px': true }
+  readonly outlineOffset12px: { 'outline-offset_12px': true }
+  readonly outlineOffset14px: { 'outline-offset_14px': true }
+  readonly outlineOffset16px: { 'outline-offset_16px': true }
   readonly outlineOffset20px: { 'outline-offset_20px': true }
-  readonly outlineOffset50px: { 'outline-offset_50px': true }
-  readonly outlineOffset100px: { 'outline-offset_100px': true }
+  readonly outlineOffset24px: { 'outline-offset_24px': true }
+  readonly outlineOffset28px: { 'outline-offset_28px': true }
+  readonly outlineOffset32px: { 'outline-offset_32px': true }
+  readonly outlineOffset40px: { 'outline-offset_40px': true }
+  readonly outlineOffset48px: { 'outline-offset_48px': true }
+  readonly outlineOffset56px: { 'outline-offset_56px': true }
+  readonly outlineOffset64px: { 'outline-offset_64px': true }
+  readonly outlineOffset80px: { 'outline-offset_80px': true }
+  readonly outlineOffset96px: { 'outline-offset_96px': true }
+  readonly outlineOffset128px: { 'outline-offset_128px': true }
+  readonly outlineOffset160px: { 'outline-offset_160px': true }
+  readonly outlineOffset192px: { 'outline-offset_192px': true }
+  readonly outlineOffset224px: { 'outline-offset_224px': true }
+  readonly outlineOffset256px: { 'outline-offset_256px': true }
+  readonly outlineOffset320px: { 'outline-offset_320px': true }
+  readonly outlineOffset384px: { 'outline-offset_384px': true }
   readonly outlineOffset0rem: { 'outline-offset_0rem': true }
   readonly outlineOffset0p25rem: { 'outline-offset_0\.25rem': true }
   readonly outlineOffset0p5rem: { 'outline-offset_0\.5rem': true }
@@ -30065,16 +32387,59 @@ export interface CsstsAtoms {
   readonly outlineWidth12pt: { 'outline-width_12pt': true }
   readonly outlineWidth16pt: { 'outline-width_16pt': true }
   readonly outlineWidth20pt: { 'outline-width_20pt': true }
+  readonly outlineWidthN384px: { 'outline-width_-384px': true }
+  readonly outlineWidthN320px: { 'outline-width_-320px': true }
+  readonly outlineWidthN256px: { 'outline-width_-256px': true }
+  readonly outlineWidthN224px: { 'outline-width_-224px': true }
+  readonly outlineWidthN192px: { 'outline-width_-192px': true }
+  readonly outlineWidthN160px: { 'outline-width_-160px': true }
+  readonly outlineWidthN128px: { 'outline-width_-128px': true }
+  readonly outlineWidthN96px: { 'outline-width_-96px': true }
+  readonly outlineWidthN80px: { 'outline-width_-80px': true }
+  readonly outlineWidthN64px: { 'outline-width_-64px': true }
+  readonly outlineWidthN56px: { 'outline-width_-56px': true }
+  readonly outlineWidthN48px: { 'outline-width_-48px': true }
+  readonly outlineWidthN40px: { 'outline-width_-40px': true }
+  readonly outlineWidthN32px: { 'outline-width_-32px': true }
+  readonly outlineWidthN28px: { 'outline-width_-28px': true }
+  readonly outlineWidthN24px: { 'outline-width_-24px': true }
+  readonly outlineWidthN20px: { 'outline-width_-20px': true }
+  readonly outlineWidthN16px: { 'outline-width_-16px': true }
+  readonly outlineWidthN14px: { 'outline-width_-14px': true }
+  readonly outlineWidthN12px: { 'outline-width_-12px': true }
+  readonly outlineWidthN10px: { 'outline-width_-10px': true }
+  readonly outlineWidthN8px: { 'outline-width_-8px': true }
+  readonly outlineWidthN6px: { 'outline-width_-6px': true }
+  readonly outlineWidthN4px: { 'outline-width_-4px': true }
+  readonly outlineWidthN2px: { 'outline-width_-2px': true }
+  readonly outlineWidthN1px: { 'outline-width_-1px': true }
   readonly outlineWidth0px: { 'outline-width_0px': true }
   readonly outlineWidth1px: { 'outline-width_1px': true }
   readonly outlineWidth2px: { 'outline-width_2px': true }
-  readonly outlineWidth3px: { 'outline-width_3px': true }
   readonly outlineWidth4px: { 'outline-width_4px': true }
-  readonly outlineWidth5px: { 'outline-width_5px': true }
+  readonly outlineWidth6px: { 'outline-width_6px': true }
+  readonly outlineWidth8px: { 'outline-width_8px': true }
   readonly outlineWidth10px: { 'outline-width_10px': true }
+  readonly outlineWidth12px: { 'outline-width_12px': true }
+  readonly outlineWidth14px: { 'outline-width_14px': true }
+  readonly outlineWidth16px: { 'outline-width_16px': true }
   readonly outlineWidth20px: { 'outline-width_20px': true }
-  readonly outlineWidth50px: { 'outline-width_50px': true }
-  readonly outlineWidth100px: { 'outline-width_100px': true }
+  readonly outlineWidth24px: { 'outline-width_24px': true }
+  readonly outlineWidth28px: { 'outline-width_28px': true }
+  readonly outlineWidth32px: { 'outline-width_32px': true }
+  readonly outlineWidth40px: { 'outline-width_40px': true }
+  readonly outlineWidth48px: { 'outline-width_48px': true }
+  readonly outlineWidth56px: { 'outline-width_56px': true }
+  readonly outlineWidth64px: { 'outline-width_64px': true }
+  readonly outlineWidth80px: { 'outline-width_80px': true }
+  readonly outlineWidth96px: { 'outline-width_96px': true }
+  readonly outlineWidth128px: { 'outline-width_128px': true }
+  readonly outlineWidth160px: { 'outline-width_160px': true }
+  readonly outlineWidth192px: { 'outline-width_192px': true }
+  readonly outlineWidth224px: { 'outline-width_224px': true }
+  readonly outlineWidth256px: { 'outline-width_256px': true }
+  readonly outlineWidth320px: { 'outline-width_320px': true }
+  readonly outlineWidth384px: { 'outline-width_384px': true }
   readonly outlineWidth0rem: { 'outline-width_0rem': true }
   readonly outlineWidth0p25rem: { 'outline-width_0\.25rem': true }
   readonly outlineWidth0p5rem: { 'outline-width_0\.5rem': true }
@@ -30455,16 +32820,59 @@ export interface CsstsAtoms {
   readonly padding12pt: { 'padding_12pt': true }
   readonly padding16pt: { 'padding_16pt': true }
   readonly padding20pt: { 'padding_20pt': true }
+  readonly paddingN384px: { 'padding_-384px': true }
+  readonly paddingN320px: { 'padding_-320px': true }
+  readonly paddingN256px: { 'padding_-256px': true }
+  readonly paddingN224px: { 'padding_-224px': true }
+  readonly paddingN192px: { 'padding_-192px': true }
+  readonly paddingN160px: { 'padding_-160px': true }
+  readonly paddingN128px: { 'padding_-128px': true }
+  readonly paddingN96px: { 'padding_-96px': true }
+  readonly paddingN80px: { 'padding_-80px': true }
+  readonly paddingN64px: { 'padding_-64px': true }
+  readonly paddingN56px: { 'padding_-56px': true }
+  readonly paddingN48px: { 'padding_-48px': true }
+  readonly paddingN40px: { 'padding_-40px': true }
+  readonly paddingN32px: { 'padding_-32px': true }
+  readonly paddingN28px: { 'padding_-28px': true }
+  readonly paddingN24px: { 'padding_-24px': true }
+  readonly paddingN20px: { 'padding_-20px': true }
+  readonly paddingN16px: { 'padding_-16px': true }
+  readonly paddingN14px: { 'padding_-14px': true }
+  readonly paddingN12px: { 'padding_-12px': true }
+  readonly paddingN10px: { 'padding_-10px': true }
+  readonly paddingN8px: { 'padding_-8px': true }
+  readonly paddingN6px: { 'padding_-6px': true }
+  readonly paddingN4px: { 'padding_-4px': true }
+  readonly paddingN2px: { 'padding_-2px': true }
+  readonly paddingN1px: { 'padding_-1px': true }
   readonly padding0px: { 'padding_0px': true }
   readonly padding1px: { 'padding_1px': true }
   readonly padding2px: { 'padding_2px': true }
-  readonly padding3px: { 'padding_3px': true }
   readonly padding4px: { 'padding_4px': true }
-  readonly padding5px: { 'padding_5px': true }
+  readonly padding6px: { 'padding_6px': true }
+  readonly padding8px: { 'padding_8px': true }
   readonly padding10px: { 'padding_10px': true }
+  readonly padding12px: { 'padding_12px': true }
+  readonly padding14px: { 'padding_14px': true }
+  readonly padding16px: { 'padding_16px': true }
   readonly padding20px: { 'padding_20px': true }
-  readonly padding50px: { 'padding_50px': true }
-  readonly padding100px: { 'padding_100px': true }
+  readonly padding24px: { 'padding_24px': true }
+  readonly padding28px: { 'padding_28px': true }
+  readonly padding32px: { 'padding_32px': true }
+  readonly padding40px: { 'padding_40px': true }
+  readonly padding48px: { 'padding_48px': true }
+  readonly padding56px: { 'padding_56px': true }
+  readonly padding64px: { 'padding_64px': true }
+  readonly padding80px: { 'padding_80px': true }
+  readonly padding96px: { 'padding_96px': true }
+  readonly padding128px: { 'padding_128px': true }
+  readonly padding160px: { 'padding_160px': true }
+  readonly padding192px: { 'padding_192px': true }
+  readonly padding224px: { 'padding_224px': true }
+  readonly padding256px: { 'padding_256px': true }
+  readonly padding320px: { 'padding_320px': true }
+  readonly padding384px: { 'padding_384px': true }
   readonly padding0rem: { 'padding_0rem': true }
   readonly padding0p25rem: { 'padding_0\.25rem': true }
   readonly padding0p5rem: { 'padding_0\.5rem': true }
@@ -30834,16 +33242,59 @@ export interface CsstsAtoms {
   readonly paddingBottom12pt: { 'padding-bottom_12pt': true }
   readonly paddingBottom16pt: { 'padding-bottom_16pt': true }
   readonly paddingBottom20pt: { 'padding-bottom_20pt': true }
+  readonly paddingBottomN384px: { 'padding-bottom_-384px': true }
+  readonly paddingBottomN320px: { 'padding-bottom_-320px': true }
+  readonly paddingBottomN256px: { 'padding-bottom_-256px': true }
+  readonly paddingBottomN224px: { 'padding-bottom_-224px': true }
+  readonly paddingBottomN192px: { 'padding-bottom_-192px': true }
+  readonly paddingBottomN160px: { 'padding-bottom_-160px': true }
+  readonly paddingBottomN128px: { 'padding-bottom_-128px': true }
+  readonly paddingBottomN96px: { 'padding-bottom_-96px': true }
+  readonly paddingBottomN80px: { 'padding-bottom_-80px': true }
+  readonly paddingBottomN64px: { 'padding-bottom_-64px': true }
+  readonly paddingBottomN56px: { 'padding-bottom_-56px': true }
+  readonly paddingBottomN48px: { 'padding-bottom_-48px': true }
+  readonly paddingBottomN40px: { 'padding-bottom_-40px': true }
+  readonly paddingBottomN32px: { 'padding-bottom_-32px': true }
+  readonly paddingBottomN28px: { 'padding-bottom_-28px': true }
+  readonly paddingBottomN24px: { 'padding-bottom_-24px': true }
+  readonly paddingBottomN20px: { 'padding-bottom_-20px': true }
+  readonly paddingBottomN16px: { 'padding-bottom_-16px': true }
+  readonly paddingBottomN14px: { 'padding-bottom_-14px': true }
+  readonly paddingBottomN12px: { 'padding-bottom_-12px': true }
+  readonly paddingBottomN10px: { 'padding-bottom_-10px': true }
+  readonly paddingBottomN8px: { 'padding-bottom_-8px': true }
+  readonly paddingBottomN6px: { 'padding-bottom_-6px': true }
+  readonly paddingBottomN4px: { 'padding-bottom_-4px': true }
+  readonly paddingBottomN2px: { 'padding-bottom_-2px': true }
+  readonly paddingBottomN1px: { 'padding-bottom_-1px': true }
   readonly paddingBottom0px: { 'padding-bottom_0px': true }
   readonly paddingBottom1px: { 'padding-bottom_1px': true }
   readonly paddingBottom2px: { 'padding-bottom_2px': true }
-  readonly paddingBottom3px: { 'padding-bottom_3px': true }
   readonly paddingBottom4px: { 'padding-bottom_4px': true }
-  readonly paddingBottom5px: { 'padding-bottom_5px': true }
+  readonly paddingBottom6px: { 'padding-bottom_6px': true }
+  readonly paddingBottom8px: { 'padding-bottom_8px': true }
   readonly paddingBottom10px: { 'padding-bottom_10px': true }
+  readonly paddingBottom12px: { 'padding-bottom_12px': true }
+  readonly paddingBottom14px: { 'padding-bottom_14px': true }
+  readonly paddingBottom16px: { 'padding-bottom_16px': true }
   readonly paddingBottom20px: { 'padding-bottom_20px': true }
-  readonly paddingBottom50px: { 'padding-bottom_50px': true }
-  readonly paddingBottom100px: { 'padding-bottom_100px': true }
+  readonly paddingBottom24px: { 'padding-bottom_24px': true }
+  readonly paddingBottom28px: { 'padding-bottom_28px': true }
+  readonly paddingBottom32px: { 'padding-bottom_32px': true }
+  readonly paddingBottom40px: { 'padding-bottom_40px': true }
+  readonly paddingBottom48px: { 'padding-bottom_48px': true }
+  readonly paddingBottom56px: { 'padding-bottom_56px': true }
+  readonly paddingBottom64px: { 'padding-bottom_64px': true }
+  readonly paddingBottom80px: { 'padding-bottom_80px': true }
+  readonly paddingBottom96px: { 'padding-bottom_96px': true }
+  readonly paddingBottom128px: { 'padding-bottom_128px': true }
+  readonly paddingBottom160px: { 'padding-bottom_160px': true }
+  readonly paddingBottom192px: { 'padding-bottom_192px': true }
+  readonly paddingBottom224px: { 'padding-bottom_224px': true }
+  readonly paddingBottom256px: { 'padding-bottom_256px': true }
+  readonly paddingBottom320px: { 'padding-bottom_320px': true }
+  readonly paddingBottom384px: { 'padding-bottom_384px': true }
   readonly paddingBottom0rem: { 'padding-bottom_0rem': true }
   readonly paddingBottom0p25rem: { 'padding-bottom_0\.25rem': true }
   readonly paddingBottom0p5rem: { 'padding-bottom_0\.5rem': true }
@@ -31213,16 +33664,59 @@ export interface CsstsAtoms {
   readonly paddingLeft12pt: { 'padding-left_12pt': true }
   readonly paddingLeft16pt: { 'padding-left_16pt': true }
   readonly paddingLeft20pt: { 'padding-left_20pt': true }
+  readonly paddingLeftN384px: { 'padding-left_-384px': true }
+  readonly paddingLeftN320px: { 'padding-left_-320px': true }
+  readonly paddingLeftN256px: { 'padding-left_-256px': true }
+  readonly paddingLeftN224px: { 'padding-left_-224px': true }
+  readonly paddingLeftN192px: { 'padding-left_-192px': true }
+  readonly paddingLeftN160px: { 'padding-left_-160px': true }
+  readonly paddingLeftN128px: { 'padding-left_-128px': true }
+  readonly paddingLeftN96px: { 'padding-left_-96px': true }
+  readonly paddingLeftN80px: { 'padding-left_-80px': true }
+  readonly paddingLeftN64px: { 'padding-left_-64px': true }
+  readonly paddingLeftN56px: { 'padding-left_-56px': true }
+  readonly paddingLeftN48px: { 'padding-left_-48px': true }
+  readonly paddingLeftN40px: { 'padding-left_-40px': true }
+  readonly paddingLeftN32px: { 'padding-left_-32px': true }
+  readonly paddingLeftN28px: { 'padding-left_-28px': true }
+  readonly paddingLeftN24px: { 'padding-left_-24px': true }
+  readonly paddingLeftN20px: { 'padding-left_-20px': true }
+  readonly paddingLeftN16px: { 'padding-left_-16px': true }
+  readonly paddingLeftN14px: { 'padding-left_-14px': true }
+  readonly paddingLeftN12px: { 'padding-left_-12px': true }
+  readonly paddingLeftN10px: { 'padding-left_-10px': true }
+  readonly paddingLeftN8px: { 'padding-left_-8px': true }
+  readonly paddingLeftN6px: { 'padding-left_-6px': true }
+  readonly paddingLeftN4px: { 'padding-left_-4px': true }
+  readonly paddingLeftN2px: { 'padding-left_-2px': true }
+  readonly paddingLeftN1px: { 'padding-left_-1px': true }
   readonly paddingLeft0px: { 'padding-left_0px': true }
   readonly paddingLeft1px: { 'padding-left_1px': true }
   readonly paddingLeft2px: { 'padding-left_2px': true }
-  readonly paddingLeft3px: { 'padding-left_3px': true }
   readonly paddingLeft4px: { 'padding-left_4px': true }
-  readonly paddingLeft5px: { 'padding-left_5px': true }
+  readonly paddingLeft6px: { 'padding-left_6px': true }
+  readonly paddingLeft8px: { 'padding-left_8px': true }
   readonly paddingLeft10px: { 'padding-left_10px': true }
+  readonly paddingLeft12px: { 'padding-left_12px': true }
+  readonly paddingLeft14px: { 'padding-left_14px': true }
+  readonly paddingLeft16px: { 'padding-left_16px': true }
   readonly paddingLeft20px: { 'padding-left_20px': true }
-  readonly paddingLeft50px: { 'padding-left_50px': true }
-  readonly paddingLeft100px: { 'padding-left_100px': true }
+  readonly paddingLeft24px: { 'padding-left_24px': true }
+  readonly paddingLeft28px: { 'padding-left_28px': true }
+  readonly paddingLeft32px: { 'padding-left_32px': true }
+  readonly paddingLeft40px: { 'padding-left_40px': true }
+  readonly paddingLeft48px: { 'padding-left_48px': true }
+  readonly paddingLeft56px: { 'padding-left_56px': true }
+  readonly paddingLeft64px: { 'padding-left_64px': true }
+  readonly paddingLeft80px: { 'padding-left_80px': true }
+  readonly paddingLeft96px: { 'padding-left_96px': true }
+  readonly paddingLeft128px: { 'padding-left_128px': true }
+  readonly paddingLeft160px: { 'padding-left_160px': true }
+  readonly paddingLeft192px: { 'padding-left_192px': true }
+  readonly paddingLeft224px: { 'padding-left_224px': true }
+  readonly paddingLeft256px: { 'padding-left_256px': true }
+  readonly paddingLeft320px: { 'padding-left_320px': true }
+  readonly paddingLeft384px: { 'padding-left_384px': true }
   readonly paddingLeft0rem: { 'padding-left_0rem': true }
   readonly paddingLeft0p25rem: { 'padding-left_0\.25rem': true }
   readonly paddingLeft0p5rem: { 'padding-left_0\.5rem': true }
@@ -31592,16 +34086,59 @@ export interface CsstsAtoms {
   readonly paddingRight12pt: { 'padding-right_12pt': true }
   readonly paddingRight16pt: { 'padding-right_16pt': true }
   readonly paddingRight20pt: { 'padding-right_20pt': true }
+  readonly paddingRightN384px: { 'padding-right_-384px': true }
+  readonly paddingRightN320px: { 'padding-right_-320px': true }
+  readonly paddingRightN256px: { 'padding-right_-256px': true }
+  readonly paddingRightN224px: { 'padding-right_-224px': true }
+  readonly paddingRightN192px: { 'padding-right_-192px': true }
+  readonly paddingRightN160px: { 'padding-right_-160px': true }
+  readonly paddingRightN128px: { 'padding-right_-128px': true }
+  readonly paddingRightN96px: { 'padding-right_-96px': true }
+  readonly paddingRightN80px: { 'padding-right_-80px': true }
+  readonly paddingRightN64px: { 'padding-right_-64px': true }
+  readonly paddingRightN56px: { 'padding-right_-56px': true }
+  readonly paddingRightN48px: { 'padding-right_-48px': true }
+  readonly paddingRightN40px: { 'padding-right_-40px': true }
+  readonly paddingRightN32px: { 'padding-right_-32px': true }
+  readonly paddingRightN28px: { 'padding-right_-28px': true }
+  readonly paddingRightN24px: { 'padding-right_-24px': true }
+  readonly paddingRightN20px: { 'padding-right_-20px': true }
+  readonly paddingRightN16px: { 'padding-right_-16px': true }
+  readonly paddingRightN14px: { 'padding-right_-14px': true }
+  readonly paddingRightN12px: { 'padding-right_-12px': true }
+  readonly paddingRightN10px: { 'padding-right_-10px': true }
+  readonly paddingRightN8px: { 'padding-right_-8px': true }
+  readonly paddingRightN6px: { 'padding-right_-6px': true }
+  readonly paddingRightN4px: { 'padding-right_-4px': true }
+  readonly paddingRightN2px: { 'padding-right_-2px': true }
+  readonly paddingRightN1px: { 'padding-right_-1px': true }
   readonly paddingRight0px: { 'padding-right_0px': true }
   readonly paddingRight1px: { 'padding-right_1px': true }
   readonly paddingRight2px: { 'padding-right_2px': true }
-  readonly paddingRight3px: { 'padding-right_3px': true }
   readonly paddingRight4px: { 'padding-right_4px': true }
-  readonly paddingRight5px: { 'padding-right_5px': true }
+  readonly paddingRight6px: { 'padding-right_6px': true }
+  readonly paddingRight8px: { 'padding-right_8px': true }
   readonly paddingRight10px: { 'padding-right_10px': true }
+  readonly paddingRight12px: { 'padding-right_12px': true }
+  readonly paddingRight14px: { 'padding-right_14px': true }
+  readonly paddingRight16px: { 'padding-right_16px': true }
   readonly paddingRight20px: { 'padding-right_20px': true }
-  readonly paddingRight50px: { 'padding-right_50px': true }
-  readonly paddingRight100px: { 'padding-right_100px': true }
+  readonly paddingRight24px: { 'padding-right_24px': true }
+  readonly paddingRight28px: { 'padding-right_28px': true }
+  readonly paddingRight32px: { 'padding-right_32px': true }
+  readonly paddingRight40px: { 'padding-right_40px': true }
+  readonly paddingRight48px: { 'padding-right_48px': true }
+  readonly paddingRight56px: { 'padding-right_56px': true }
+  readonly paddingRight64px: { 'padding-right_64px': true }
+  readonly paddingRight80px: { 'padding-right_80px': true }
+  readonly paddingRight96px: { 'padding-right_96px': true }
+  readonly paddingRight128px: { 'padding-right_128px': true }
+  readonly paddingRight160px: { 'padding-right_160px': true }
+  readonly paddingRight192px: { 'padding-right_192px': true }
+  readonly paddingRight224px: { 'padding-right_224px': true }
+  readonly paddingRight256px: { 'padding-right_256px': true }
+  readonly paddingRight320px: { 'padding-right_320px': true }
+  readonly paddingRight384px: { 'padding-right_384px': true }
   readonly paddingRight0rem: { 'padding-right_0rem': true }
   readonly paddingRight0p25rem: { 'padding-right_0\.25rem': true }
   readonly paddingRight0p5rem: { 'padding-right_0\.5rem': true }
@@ -31971,16 +34508,59 @@ export interface CsstsAtoms {
   readonly paddingTop12pt: { 'padding-top_12pt': true }
   readonly paddingTop16pt: { 'padding-top_16pt': true }
   readonly paddingTop20pt: { 'padding-top_20pt': true }
+  readonly paddingTopN384px: { 'padding-top_-384px': true }
+  readonly paddingTopN320px: { 'padding-top_-320px': true }
+  readonly paddingTopN256px: { 'padding-top_-256px': true }
+  readonly paddingTopN224px: { 'padding-top_-224px': true }
+  readonly paddingTopN192px: { 'padding-top_-192px': true }
+  readonly paddingTopN160px: { 'padding-top_-160px': true }
+  readonly paddingTopN128px: { 'padding-top_-128px': true }
+  readonly paddingTopN96px: { 'padding-top_-96px': true }
+  readonly paddingTopN80px: { 'padding-top_-80px': true }
+  readonly paddingTopN64px: { 'padding-top_-64px': true }
+  readonly paddingTopN56px: { 'padding-top_-56px': true }
+  readonly paddingTopN48px: { 'padding-top_-48px': true }
+  readonly paddingTopN40px: { 'padding-top_-40px': true }
+  readonly paddingTopN32px: { 'padding-top_-32px': true }
+  readonly paddingTopN28px: { 'padding-top_-28px': true }
+  readonly paddingTopN24px: { 'padding-top_-24px': true }
+  readonly paddingTopN20px: { 'padding-top_-20px': true }
+  readonly paddingTopN16px: { 'padding-top_-16px': true }
+  readonly paddingTopN14px: { 'padding-top_-14px': true }
+  readonly paddingTopN12px: { 'padding-top_-12px': true }
+  readonly paddingTopN10px: { 'padding-top_-10px': true }
+  readonly paddingTopN8px: { 'padding-top_-8px': true }
+  readonly paddingTopN6px: { 'padding-top_-6px': true }
+  readonly paddingTopN4px: { 'padding-top_-4px': true }
+  readonly paddingTopN2px: { 'padding-top_-2px': true }
+  readonly paddingTopN1px: { 'padding-top_-1px': true }
   readonly paddingTop0px: { 'padding-top_0px': true }
   readonly paddingTop1px: { 'padding-top_1px': true }
   readonly paddingTop2px: { 'padding-top_2px': true }
-  readonly paddingTop3px: { 'padding-top_3px': true }
   readonly paddingTop4px: { 'padding-top_4px': true }
-  readonly paddingTop5px: { 'padding-top_5px': true }
+  readonly paddingTop6px: { 'padding-top_6px': true }
+  readonly paddingTop8px: { 'padding-top_8px': true }
   readonly paddingTop10px: { 'padding-top_10px': true }
+  readonly paddingTop12px: { 'padding-top_12px': true }
+  readonly paddingTop14px: { 'padding-top_14px': true }
+  readonly paddingTop16px: { 'padding-top_16px': true }
   readonly paddingTop20px: { 'padding-top_20px': true }
-  readonly paddingTop50px: { 'padding-top_50px': true }
-  readonly paddingTop100px: { 'padding-top_100px': true }
+  readonly paddingTop24px: { 'padding-top_24px': true }
+  readonly paddingTop28px: { 'padding-top_28px': true }
+  readonly paddingTop32px: { 'padding-top_32px': true }
+  readonly paddingTop40px: { 'padding-top_40px': true }
+  readonly paddingTop48px: { 'padding-top_48px': true }
+  readonly paddingTop56px: { 'padding-top_56px': true }
+  readonly paddingTop64px: { 'padding-top_64px': true }
+  readonly paddingTop80px: { 'padding-top_80px': true }
+  readonly paddingTop96px: { 'padding-top_96px': true }
+  readonly paddingTop128px: { 'padding-top_128px': true }
+  readonly paddingTop160px: { 'padding-top_160px': true }
+  readonly paddingTop192px: { 'padding-top_192px': true }
+  readonly paddingTop224px: { 'padding-top_224px': true }
+  readonly paddingTop256px: { 'padding-top_256px': true }
+  readonly paddingTop320px: { 'padding-top_320px': true }
+  readonly paddingTop384px: { 'padding-top_384px': true }
   readonly paddingTop0rem: { 'padding-top_0rem': true }
   readonly paddingTop0p25rem: { 'padding-top_0\.25rem': true }
   readonly paddingTop0p5rem: { 'padding-top_0\.5rem': true }
@@ -32380,16 +34960,59 @@ export interface CsstsAtoms {
   readonly right12pt: { 'right_12pt': true }
   readonly right16pt: { 'right_16pt': true }
   readonly right20pt: { 'right_20pt': true }
+  readonly rightN384px: { 'right_-384px': true }
+  readonly rightN320px: { 'right_-320px': true }
+  readonly rightN256px: { 'right_-256px': true }
+  readonly rightN224px: { 'right_-224px': true }
+  readonly rightN192px: { 'right_-192px': true }
+  readonly rightN160px: { 'right_-160px': true }
+  readonly rightN128px: { 'right_-128px': true }
+  readonly rightN96px: { 'right_-96px': true }
+  readonly rightN80px: { 'right_-80px': true }
+  readonly rightN64px: { 'right_-64px': true }
+  readonly rightN56px: { 'right_-56px': true }
+  readonly rightN48px: { 'right_-48px': true }
+  readonly rightN40px: { 'right_-40px': true }
+  readonly rightN32px: { 'right_-32px': true }
+  readonly rightN28px: { 'right_-28px': true }
+  readonly rightN24px: { 'right_-24px': true }
+  readonly rightN20px: { 'right_-20px': true }
+  readonly rightN16px: { 'right_-16px': true }
+  readonly rightN14px: { 'right_-14px': true }
+  readonly rightN12px: { 'right_-12px': true }
+  readonly rightN10px: { 'right_-10px': true }
+  readonly rightN8px: { 'right_-8px': true }
+  readonly rightN6px: { 'right_-6px': true }
+  readonly rightN4px: { 'right_-4px': true }
+  readonly rightN2px: { 'right_-2px': true }
+  readonly rightN1px: { 'right_-1px': true }
   readonly right0px: { 'right_0px': true }
   readonly right1px: { 'right_1px': true }
   readonly right2px: { 'right_2px': true }
-  readonly right3px: { 'right_3px': true }
   readonly right4px: { 'right_4px': true }
-  readonly right5px: { 'right_5px': true }
+  readonly right6px: { 'right_6px': true }
+  readonly right8px: { 'right_8px': true }
   readonly right10px: { 'right_10px': true }
+  readonly right12px: { 'right_12px': true }
+  readonly right14px: { 'right_14px': true }
+  readonly right16px: { 'right_16px': true }
   readonly right20px: { 'right_20px': true }
-  readonly right50px: { 'right_50px': true }
-  readonly right100px: { 'right_100px': true }
+  readonly right24px: { 'right_24px': true }
+  readonly right28px: { 'right_28px': true }
+  readonly right32px: { 'right_32px': true }
+  readonly right40px: { 'right_40px': true }
+  readonly right48px: { 'right_48px': true }
+  readonly right56px: { 'right_56px': true }
+  readonly right64px: { 'right_64px': true }
+  readonly right80px: { 'right_80px': true }
+  readonly right96px: { 'right_96px': true }
+  readonly right128px: { 'right_128px': true }
+  readonly right160px: { 'right_160px': true }
+  readonly right192px: { 'right_192px': true }
+  readonly right224px: { 'right_224px': true }
+  readonly right256px: { 'right_256px': true }
+  readonly right320px: { 'right_320px': true }
+  readonly right384px: { 'right_384px': true }
   readonly right0rem: { 'right_0rem': true }
   readonly right0p25rem: { 'right_0\.25rem': true }
   readonly right0p5rem: { 'right_0\.5rem': true }
@@ -32846,16 +35469,59 @@ export interface CsstsAtoms {
   readonly rowGap12pt: { 'row-gap_12pt': true }
   readonly rowGap16pt: { 'row-gap_16pt': true }
   readonly rowGap20pt: { 'row-gap_20pt': true }
+  readonly rowGapN384px: { 'row-gap_-384px': true }
+  readonly rowGapN320px: { 'row-gap_-320px': true }
+  readonly rowGapN256px: { 'row-gap_-256px': true }
+  readonly rowGapN224px: { 'row-gap_-224px': true }
+  readonly rowGapN192px: { 'row-gap_-192px': true }
+  readonly rowGapN160px: { 'row-gap_-160px': true }
+  readonly rowGapN128px: { 'row-gap_-128px': true }
+  readonly rowGapN96px: { 'row-gap_-96px': true }
+  readonly rowGapN80px: { 'row-gap_-80px': true }
+  readonly rowGapN64px: { 'row-gap_-64px': true }
+  readonly rowGapN56px: { 'row-gap_-56px': true }
+  readonly rowGapN48px: { 'row-gap_-48px': true }
+  readonly rowGapN40px: { 'row-gap_-40px': true }
+  readonly rowGapN32px: { 'row-gap_-32px': true }
+  readonly rowGapN28px: { 'row-gap_-28px': true }
+  readonly rowGapN24px: { 'row-gap_-24px': true }
+  readonly rowGapN20px: { 'row-gap_-20px': true }
+  readonly rowGapN16px: { 'row-gap_-16px': true }
+  readonly rowGapN14px: { 'row-gap_-14px': true }
+  readonly rowGapN12px: { 'row-gap_-12px': true }
+  readonly rowGapN10px: { 'row-gap_-10px': true }
+  readonly rowGapN8px: { 'row-gap_-8px': true }
+  readonly rowGapN6px: { 'row-gap_-6px': true }
+  readonly rowGapN4px: { 'row-gap_-4px': true }
+  readonly rowGapN2px: { 'row-gap_-2px': true }
+  readonly rowGapN1px: { 'row-gap_-1px': true }
   readonly rowGap0px: { 'row-gap_0px': true }
   readonly rowGap1px: { 'row-gap_1px': true }
   readonly rowGap2px: { 'row-gap_2px': true }
-  readonly rowGap3px: { 'row-gap_3px': true }
   readonly rowGap4px: { 'row-gap_4px': true }
-  readonly rowGap5px: { 'row-gap_5px': true }
+  readonly rowGap6px: { 'row-gap_6px': true }
+  readonly rowGap8px: { 'row-gap_8px': true }
   readonly rowGap10px: { 'row-gap_10px': true }
+  readonly rowGap12px: { 'row-gap_12px': true }
+  readonly rowGap14px: { 'row-gap_14px': true }
+  readonly rowGap16px: { 'row-gap_16px': true }
   readonly rowGap20px: { 'row-gap_20px': true }
-  readonly rowGap50px: { 'row-gap_50px': true }
-  readonly rowGap100px: { 'row-gap_100px': true }
+  readonly rowGap24px: { 'row-gap_24px': true }
+  readonly rowGap28px: { 'row-gap_28px': true }
+  readonly rowGap32px: { 'row-gap_32px': true }
+  readonly rowGap40px: { 'row-gap_40px': true }
+  readonly rowGap48px: { 'row-gap_48px': true }
+  readonly rowGap56px: { 'row-gap_56px': true }
+  readonly rowGap64px: { 'row-gap_64px': true }
+  readonly rowGap80px: { 'row-gap_80px': true }
+  readonly rowGap96px: { 'row-gap_96px': true }
+  readonly rowGap128px: { 'row-gap_128px': true }
+  readonly rowGap160px: { 'row-gap_160px': true }
+  readonly rowGap192px: { 'row-gap_192px': true }
+  readonly rowGap224px: { 'row-gap_224px': true }
+  readonly rowGap256px: { 'row-gap_256px': true }
+  readonly rowGap320px: { 'row-gap_320px': true }
+  readonly rowGap384px: { 'row-gap_384px': true }
   readonly rowGap0rem: { 'row-gap_0rem': true }
   readonly rowGap0p25rem: { 'row-gap_0\.25rem': true }
   readonly rowGap0p5rem: { 'row-gap_0\.5rem': true }
@@ -33259,16 +35925,59 @@ export interface CsstsAtoms {
   readonly scrollMargin12pt: { 'scroll-margin_12pt': true }
   readonly scrollMargin16pt: { 'scroll-margin_16pt': true }
   readonly scrollMargin20pt: { 'scroll-margin_20pt': true }
+  readonly scrollMarginN384px: { 'scroll-margin_-384px': true }
+  readonly scrollMarginN320px: { 'scroll-margin_-320px': true }
+  readonly scrollMarginN256px: { 'scroll-margin_-256px': true }
+  readonly scrollMarginN224px: { 'scroll-margin_-224px': true }
+  readonly scrollMarginN192px: { 'scroll-margin_-192px': true }
+  readonly scrollMarginN160px: { 'scroll-margin_-160px': true }
+  readonly scrollMarginN128px: { 'scroll-margin_-128px': true }
+  readonly scrollMarginN96px: { 'scroll-margin_-96px': true }
+  readonly scrollMarginN80px: { 'scroll-margin_-80px': true }
+  readonly scrollMarginN64px: { 'scroll-margin_-64px': true }
+  readonly scrollMarginN56px: { 'scroll-margin_-56px': true }
+  readonly scrollMarginN48px: { 'scroll-margin_-48px': true }
+  readonly scrollMarginN40px: { 'scroll-margin_-40px': true }
+  readonly scrollMarginN32px: { 'scroll-margin_-32px': true }
+  readonly scrollMarginN28px: { 'scroll-margin_-28px': true }
+  readonly scrollMarginN24px: { 'scroll-margin_-24px': true }
+  readonly scrollMarginN20px: { 'scroll-margin_-20px': true }
+  readonly scrollMarginN16px: { 'scroll-margin_-16px': true }
+  readonly scrollMarginN14px: { 'scroll-margin_-14px': true }
+  readonly scrollMarginN12px: { 'scroll-margin_-12px': true }
+  readonly scrollMarginN10px: { 'scroll-margin_-10px': true }
+  readonly scrollMarginN8px: { 'scroll-margin_-8px': true }
+  readonly scrollMarginN6px: { 'scroll-margin_-6px': true }
+  readonly scrollMarginN4px: { 'scroll-margin_-4px': true }
+  readonly scrollMarginN2px: { 'scroll-margin_-2px': true }
+  readonly scrollMarginN1px: { 'scroll-margin_-1px': true }
   readonly scrollMargin0px: { 'scroll-margin_0px': true }
   readonly scrollMargin1px: { 'scroll-margin_1px': true }
   readonly scrollMargin2px: { 'scroll-margin_2px': true }
-  readonly scrollMargin3px: { 'scroll-margin_3px': true }
   readonly scrollMargin4px: { 'scroll-margin_4px': true }
-  readonly scrollMargin5px: { 'scroll-margin_5px': true }
+  readonly scrollMargin6px: { 'scroll-margin_6px': true }
+  readonly scrollMargin8px: { 'scroll-margin_8px': true }
   readonly scrollMargin10px: { 'scroll-margin_10px': true }
+  readonly scrollMargin12px: { 'scroll-margin_12px': true }
+  readonly scrollMargin14px: { 'scroll-margin_14px': true }
+  readonly scrollMargin16px: { 'scroll-margin_16px': true }
   readonly scrollMargin20px: { 'scroll-margin_20px': true }
-  readonly scrollMargin50px: { 'scroll-margin_50px': true }
-  readonly scrollMargin100px: { 'scroll-margin_100px': true }
+  readonly scrollMargin24px: { 'scroll-margin_24px': true }
+  readonly scrollMargin28px: { 'scroll-margin_28px': true }
+  readonly scrollMargin32px: { 'scroll-margin_32px': true }
+  readonly scrollMargin40px: { 'scroll-margin_40px': true }
+  readonly scrollMargin48px: { 'scroll-margin_48px': true }
+  readonly scrollMargin56px: { 'scroll-margin_56px': true }
+  readonly scrollMargin64px: { 'scroll-margin_64px': true }
+  readonly scrollMargin80px: { 'scroll-margin_80px': true }
+  readonly scrollMargin96px: { 'scroll-margin_96px': true }
+  readonly scrollMargin128px: { 'scroll-margin_128px': true }
+  readonly scrollMargin160px: { 'scroll-margin_160px': true }
+  readonly scrollMargin192px: { 'scroll-margin_192px': true }
+  readonly scrollMargin224px: { 'scroll-margin_224px': true }
+  readonly scrollMargin256px: { 'scroll-margin_256px': true }
+  readonly scrollMargin320px: { 'scroll-margin_320px': true }
+  readonly scrollMargin384px: { 'scroll-margin_384px': true }
   readonly scrollMargin0rem: { 'scroll-margin_0rem': true }
   readonly scrollMargin0p25rem: { 'scroll-margin_0\.25rem': true }
   readonly scrollMargin0p5rem: { 'scroll-margin_0\.5rem': true }
@@ -33623,16 +36332,59 @@ export interface CsstsAtoms {
   readonly scrollMarginBlock12pt: { 'scroll-margin-block_12pt': true }
   readonly scrollMarginBlock16pt: { 'scroll-margin-block_16pt': true }
   readonly scrollMarginBlock20pt: { 'scroll-margin-block_20pt': true }
+  readonly scrollMarginBlockN384px: { 'scroll-margin-block_-384px': true }
+  readonly scrollMarginBlockN320px: { 'scroll-margin-block_-320px': true }
+  readonly scrollMarginBlockN256px: { 'scroll-margin-block_-256px': true }
+  readonly scrollMarginBlockN224px: { 'scroll-margin-block_-224px': true }
+  readonly scrollMarginBlockN192px: { 'scroll-margin-block_-192px': true }
+  readonly scrollMarginBlockN160px: { 'scroll-margin-block_-160px': true }
+  readonly scrollMarginBlockN128px: { 'scroll-margin-block_-128px': true }
+  readonly scrollMarginBlockN96px: { 'scroll-margin-block_-96px': true }
+  readonly scrollMarginBlockN80px: { 'scroll-margin-block_-80px': true }
+  readonly scrollMarginBlockN64px: { 'scroll-margin-block_-64px': true }
+  readonly scrollMarginBlockN56px: { 'scroll-margin-block_-56px': true }
+  readonly scrollMarginBlockN48px: { 'scroll-margin-block_-48px': true }
+  readonly scrollMarginBlockN40px: { 'scroll-margin-block_-40px': true }
+  readonly scrollMarginBlockN32px: { 'scroll-margin-block_-32px': true }
+  readonly scrollMarginBlockN28px: { 'scroll-margin-block_-28px': true }
+  readonly scrollMarginBlockN24px: { 'scroll-margin-block_-24px': true }
+  readonly scrollMarginBlockN20px: { 'scroll-margin-block_-20px': true }
+  readonly scrollMarginBlockN16px: { 'scroll-margin-block_-16px': true }
+  readonly scrollMarginBlockN14px: { 'scroll-margin-block_-14px': true }
+  readonly scrollMarginBlockN12px: { 'scroll-margin-block_-12px': true }
+  readonly scrollMarginBlockN10px: { 'scroll-margin-block_-10px': true }
+  readonly scrollMarginBlockN8px: { 'scroll-margin-block_-8px': true }
+  readonly scrollMarginBlockN6px: { 'scroll-margin-block_-6px': true }
+  readonly scrollMarginBlockN4px: { 'scroll-margin-block_-4px': true }
+  readonly scrollMarginBlockN2px: { 'scroll-margin-block_-2px': true }
+  readonly scrollMarginBlockN1px: { 'scroll-margin-block_-1px': true }
   readonly scrollMarginBlock0px: { 'scroll-margin-block_0px': true }
   readonly scrollMarginBlock1px: { 'scroll-margin-block_1px': true }
   readonly scrollMarginBlock2px: { 'scroll-margin-block_2px': true }
-  readonly scrollMarginBlock3px: { 'scroll-margin-block_3px': true }
   readonly scrollMarginBlock4px: { 'scroll-margin-block_4px': true }
-  readonly scrollMarginBlock5px: { 'scroll-margin-block_5px': true }
+  readonly scrollMarginBlock6px: { 'scroll-margin-block_6px': true }
+  readonly scrollMarginBlock8px: { 'scroll-margin-block_8px': true }
   readonly scrollMarginBlock10px: { 'scroll-margin-block_10px': true }
+  readonly scrollMarginBlock12px: { 'scroll-margin-block_12px': true }
+  readonly scrollMarginBlock14px: { 'scroll-margin-block_14px': true }
+  readonly scrollMarginBlock16px: { 'scroll-margin-block_16px': true }
   readonly scrollMarginBlock20px: { 'scroll-margin-block_20px': true }
-  readonly scrollMarginBlock50px: { 'scroll-margin-block_50px': true }
-  readonly scrollMarginBlock100px: { 'scroll-margin-block_100px': true }
+  readonly scrollMarginBlock24px: { 'scroll-margin-block_24px': true }
+  readonly scrollMarginBlock28px: { 'scroll-margin-block_28px': true }
+  readonly scrollMarginBlock32px: { 'scroll-margin-block_32px': true }
+  readonly scrollMarginBlock40px: { 'scroll-margin-block_40px': true }
+  readonly scrollMarginBlock48px: { 'scroll-margin-block_48px': true }
+  readonly scrollMarginBlock56px: { 'scroll-margin-block_56px': true }
+  readonly scrollMarginBlock64px: { 'scroll-margin-block_64px': true }
+  readonly scrollMarginBlock80px: { 'scroll-margin-block_80px': true }
+  readonly scrollMarginBlock96px: { 'scroll-margin-block_96px': true }
+  readonly scrollMarginBlock128px: { 'scroll-margin-block_128px': true }
+  readonly scrollMarginBlock160px: { 'scroll-margin-block_160px': true }
+  readonly scrollMarginBlock192px: { 'scroll-margin-block_192px': true }
+  readonly scrollMarginBlock224px: { 'scroll-margin-block_224px': true }
+  readonly scrollMarginBlock256px: { 'scroll-margin-block_256px': true }
+  readonly scrollMarginBlock320px: { 'scroll-margin-block_320px': true }
+  readonly scrollMarginBlock384px: { 'scroll-margin-block_384px': true }
   readonly scrollMarginBlock0rem: { 'scroll-margin-block_0rem': true }
   readonly scrollMarginBlock0p25rem: { 'scroll-margin-block_0\.25rem': true }
   readonly scrollMarginBlock0p5rem: { 'scroll-margin-block_0\.5rem': true }
@@ -33987,16 +36739,59 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockEnd12pt: { 'scroll-margin-block-end_12pt': true }
   readonly scrollMarginBlockEnd16pt: { 'scroll-margin-block-end_16pt': true }
   readonly scrollMarginBlockEnd20pt: { 'scroll-margin-block-end_20pt': true }
+  readonly scrollMarginBlockEndN384px: { 'scroll-margin-block-end_-384px': true }
+  readonly scrollMarginBlockEndN320px: { 'scroll-margin-block-end_-320px': true }
+  readonly scrollMarginBlockEndN256px: { 'scroll-margin-block-end_-256px': true }
+  readonly scrollMarginBlockEndN224px: { 'scroll-margin-block-end_-224px': true }
+  readonly scrollMarginBlockEndN192px: { 'scroll-margin-block-end_-192px': true }
+  readonly scrollMarginBlockEndN160px: { 'scroll-margin-block-end_-160px': true }
+  readonly scrollMarginBlockEndN128px: { 'scroll-margin-block-end_-128px': true }
+  readonly scrollMarginBlockEndN96px: { 'scroll-margin-block-end_-96px': true }
+  readonly scrollMarginBlockEndN80px: { 'scroll-margin-block-end_-80px': true }
+  readonly scrollMarginBlockEndN64px: { 'scroll-margin-block-end_-64px': true }
+  readonly scrollMarginBlockEndN56px: { 'scroll-margin-block-end_-56px': true }
+  readonly scrollMarginBlockEndN48px: { 'scroll-margin-block-end_-48px': true }
+  readonly scrollMarginBlockEndN40px: { 'scroll-margin-block-end_-40px': true }
+  readonly scrollMarginBlockEndN32px: { 'scroll-margin-block-end_-32px': true }
+  readonly scrollMarginBlockEndN28px: { 'scroll-margin-block-end_-28px': true }
+  readonly scrollMarginBlockEndN24px: { 'scroll-margin-block-end_-24px': true }
+  readonly scrollMarginBlockEndN20px: { 'scroll-margin-block-end_-20px': true }
+  readonly scrollMarginBlockEndN16px: { 'scroll-margin-block-end_-16px': true }
+  readonly scrollMarginBlockEndN14px: { 'scroll-margin-block-end_-14px': true }
+  readonly scrollMarginBlockEndN12px: { 'scroll-margin-block-end_-12px': true }
+  readonly scrollMarginBlockEndN10px: { 'scroll-margin-block-end_-10px': true }
+  readonly scrollMarginBlockEndN8px: { 'scroll-margin-block-end_-8px': true }
+  readonly scrollMarginBlockEndN6px: { 'scroll-margin-block-end_-6px': true }
+  readonly scrollMarginBlockEndN4px: { 'scroll-margin-block-end_-4px': true }
+  readonly scrollMarginBlockEndN2px: { 'scroll-margin-block-end_-2px': true }
+  readonly scrollMarginBlockEndN1px: { 'scroll-margin-block-end_-1px': true }
   readonly scrollMarginBlockEnd0px: { 'scroll-margin-block-end_0px': true }
   readonly scrollMarginBlockEnd1px: { 'scroll-margin-block-end_1px': true }
   readonly scrollMarginBlockEnd2px: { 'scroll-margin-block-end_2px': true }
-  readonly scrollMarginBlockEnd3px: { 'scroll-margin-block-end_3px': true }
   readonly scrollMarginBlockEnd4px: { 'scroll-margin-block-end_4px': true }
-  readonly scrollMarginBlockEnd5px: { 'scroll-margin-block-end_5px': true }
+  readonly scrollMarginBlockEnd6px: { 'scroll-margin-block-end_6px': true }
+  readonly scrollMarginBlockEnd8px: { 'scroll-margin-block-end_8px': true }
   readonly scrollMarginBlockEnd10px: { 'scroll-margin-block-end_10px': true }
+  readonly scrollMarginBlockEnd12px: { 'scroll-margin-block-end_12px': true }
+  readonly scrollMarginBlockEnd14px: { 'scroll-margin-block-end_14px': true }
+  readonly scrollMarginBlockEnd16px: { 'scroll-margin-block-end_16px': true }
   readonly scrollMarginBlockEnd20px: { 'scroll-margin-block-end_20px': true }
-  readonly scrollMarginBlockEnd50px: { 'scroll-margin-block-end_50px': true }
-  readonly scrollMarginBlockEnd100px: { 'scroll-margin-block-end_100px': true }
+  readonly scrollMarginBlockEnd24px: { 'scroll-margin-block-end_24px': true }
+  readonly scrollMarginBlockEnd28px: { 'scroll-margin-block-end_28px': true }
+  readonly scrollMarginBlockEnd32px: { 'scroll-margin-block-end_32px': true }
+  readonly scrollMarginBlockEnd40px: { 'scroll-margin-block-end_40px': true }
+  readonly scrollMarginBlockEnd48px: { 'scroll-margin-block-end_48px': true }
+  readonly scrollMarginBlockEnd56px: { 'scroll-margin-block-end_56px': true }
+  readonly scrollMarginBlockEnd64px: { 'scroll-margin-block-end_64px': true }
+  readonly scrollMarginBlockEnd80px: { 'scroll-margin-block-end_80px': true }
+  readonly scrollMarginBlockEnd96px: { 'scroll-margin-block-end_96px': true }
+  readonly scrollMarginBlockEnd128px: { 'scroll-margin-block-end_128px': true }
+  readonly scrollMarginBlockEnd160px: { 'scroll-margin-block-end_160px': true }
+  readonly scrollMarginBlockEnd192px: { 'scroll-margin-block-end_192px': true }
+  readonly scrollMarginBlockEnd224px: { 'scroll-margin-block-end_224px': true }
+  readonly scrollMarginBlockEnd256px: { 'scroll-margin-block-end_256px': true }
+  readonly scrollMarginBlockEnd320px: { 'scroll-margin-block-end_320px': true }
+  readonly scrollMarginBlockEnd384px: { 'scroll-margin-block-end_384px': true }
   readonly scrollMarginBlockEnd0rem: { 'scroll-margin-block-end_0rem': true }
   readonly scrollMarginBlockEnd0p25rem: { 'scroll-margin-block-end_0\.25rem': true }
   readonly scrollMarginBlockEnd0p5rem: { 'scroll-margin-block-end_0\.5rem': true }
@@ -34351,16 +37146,59 @@ export interface CsstsAtoms {
   readonly scrollMarginBlockStart12pt: { 'scroll-margin-block-start_12pt': true }
   readonly scrollMarginBlockStart16pt: { 'scroll-margin-block-start_16pt': true }
   readonly scrollMarginBlockStart20pt: { 'scroll-margin-block-start_20pt': true }
+  readonly scrollMarginBlockStartN384px: { 'scroll-margin-block-start_-384px': true }
+  readonly scrollMarginBlockStartN320px: { 'scroll-margin-block-start_-320px': true }
+  readonly scrollMarginBlockStartN256px: { 'scroll-margin-block-start_-256px': true }
+  readonly scrollMarginBlockStartN224px: { 'scroll-margin-block-start_-224px': true }
+  readonly scrollMarginBlockStartN192px: { 'scroll-margin-block-start_-192px': true }
+  readonly scrollMarginBlockStartN160px: { 'scroll-margin-block-start_-160px': true }
+  readonly scrollMarginBlockStartN128px: { 'scroll-margin-block-start_-128px': true }
+  readonly scrollMarginBlockStartN96px: { 'scroll-margin-block-start_-96px': true }
+  readonly scrollMarginBlockStartN80px: { 'scroll-margin-block-start_-80px': true }
+  readonly scrollMarginBlockStartN64px: { 'scroll-margin-block-start_-64px': true }
+  readonly scrollMarginBlockStartN56px: { 'scroll-margin-block-start_-56px': true }
+  readonly scrollMarginBlockStartN48px: { 'scroll-margin-block-start_-48px': true }
+  readonly scrollMarginBlockStartN40px: { 'scroll-margin-block-start_-40px': true }
+  readonly scrollMarginBlockStartN32px: { 'scroll-margin-block-start_-32px': true }
+  readonly scrollMarginBlockStartN28px: { 'scroll-margin-block-start_-28px': true }
+  readonly scrollMarginBlockStartN24px: { 'scroll-margin-block-start_-24px': true }
+  readonly scrollMarginBlockStartN20px: { 'scroll-margin-block-start_-20px': true }
+  readonly scrollMarginBlockStartN16px: { 'scroll-margin-block-start_-16px': true }
+  readonly scrollMarginBlockStartN14px: { 'scroll-margin-block-start_-14px': true }
+  readonly scrollMarginBlockStartN12px: { 'scroll-margin-block-start_-12px': true }
+  readonly scrollMarginBlockStartN10px: { 'scroll-margin-block-start_-10px': true }
+  readonly scrollMarginBlockStartN8px: { 'scroll-margin-block-start_-8px': true }
+  readonly scrollMarginBlockStartN6px: { 'scroll-margin-block-start_-6px': true }
+  readonly scrollMarginBlockStartN4px: { 'scroll-margin-block-start_-4px': true }
+  readonly scrollMarginBlockStartN2px: { 'scroll-margin-block-start_-2px': true }
+  readonly scrollMarginBlockStartN1px: { 'scroll-margin-block-start_-1px': true }
   readonly scrollMarginBlockStart0px: { 'scroll-margin-block-start_0px': true }
   readonly scrollMarginBlockStart1px: { 'scroll-margin-block-start_1px': true }
   readonly scrollMarginBlockStart2px: { 'scroll-margin-block-start_2px': true }
-  readonly scrollMarginBlockStart3px: { 'scroll-margin-block-start_3px': true }
   readonly scrollMarginBlockStart4px: { 'scroll-margin-block-start_4px': true }
-  readonly scrollMarginBlockStart5px: { 'scroll-margin-block-start_5px': true }
+  readonly scrollMarginBlockStart6px: { 'scroll-margin-block-start_6px': true }
+  readonly scrollMarginBlockStart8px: { 'scroll-margin-block-start_8px': true }
   readonly scrollMarginBlockStart10px: { 'scroll-margin-block-start_10px': true }
+  readonly scrollMarginBlockStart12px: { 'scroll-margin-block-start_12px': true }
+  readonly scrollMarginBlockStart14px: { 'scroll-margin-block-start_14px': true }
+  readonly scrollMarginBlockStart16px: { 'scroll-margin-block-start_16px': true }
   readonly scrollMarginBlockStart20px: { 'scroll-margin-block-start_20px': true }
-  readonly scrollMarginBlockStart50px: { 'scroll-margin-block-start_50px': true }
-  readonly scrollMarginBlockStart100px: { 'scroll-margin-block-start_100px': true }
+  readonly scrollMarginBlockStart24px: { 'scroll-margin-block-start_24px': true }
+  readonly scrollMarginBlockStart28px: { 'scroll-margin-block-start_28px': true }
+  readonly scrollMarginBlockStart32px: { 'scroll-margin-block-start_32px': true }
+  readonly scrollMarginBlockStart40px: { 'scroll-margin-block-start_40px': true }
+  readonly scrollMarginBlockStart48px: { 'scroll-margin-block-start_48px': true }
+  readonly scrollMarginBlockStart56px: { 'scroll-margin-block-start_56px': true }
+  readonly scrollMarginBlockStart64px: { 'scroll-margin-block-start_64px': true }
+  readonly scrollMarginBlockStart80px: { 'scroll-margin-block-start_80px': true }
+  readonly scrollMarginBlockStart96px: { 'scroll-margin-block-start_96px': true }
+  readonly scrollMarginBlockStart128px: { 'scroll-margin-block-start_128px': true }
+  readonly scrollMarginBlockStart160px: { 'scroll-margin-block-start_160px': true }
+  readonly scrollMarginBlockStart192px: { 'scroll-margin-block-start_192px': true }
+  readonly scrollMarginBlockStart224px: { 'scroll-margin-block-start_224px': true }
+  readonly scrollMarginBlockStart256px: { 'scroll-margin-block-start_256px': true }
+  readonly scrollMarginBlockStart320px: { 'scroll-margin-block-start_320px': true }
+  readonly scrollMarginBlockStart384px: { 'scroll-margin-block-start_384px': true }
   readonly scrollMarginBlockStart0rem: { 'scroll-margin-block-start_0rem': true }
   readonly scrollMarginBlockStart0p25rem: { 'scroll-margin-block-start_0\.25rem': true }
   readonly scrollMarginBlockStart0p5rem: { 'scroll-margin-block-start_0\.5rem': true }
@@ -34715,16 +37553,59 @@ export interface CsstsAtoms {
   readonly scrollMarginBottom12pt: { 'scroll-margin-bottom_12pt': true }
   readonly scrollMarginBottom16pt: { 'scroll-margin-bottom_16pt': true }
   readonly scrollMarginBottom20pt: { 'scroll-margin-bottom_20pt': true }
+  readonly scrollMarginBottomN384px: { 'scroll-margin-bottom_-384px': true }
+  readonly scrollMarginBottomN320px: { 'scroll-margin-bottom_-320px': true }
+  readonly scrollMarginBottomN256px: { 'scroll-margin-bottom_-256px': true }
+  readonly scrollMarginBottomN224px: { 'scroll-margin-bottom_-224px': true }
+  readonly scrollMarginBottomN192px: { 'scroll-margin-bottom_-192px': true }
+  readonly scrollMarginBottomN160px: { 'scroll-margin-bottom_-160px': true }
+  readonly scrollMarginBottomN128px: { 'scroll-margin-bottom_-128px': true }
+  readonly scrollMarginBottomN96px: { 'scroll-margin-bottom_-96px': true }
+  readonly scrollMarginBottomN80px: { 'scroll-margin-bottom_-80px': true }
+  readonly scrollMarginBottomN64px: { 'scroll-margin-bottom_-64px': true }
+  readonly scrollMarginBottomN56px: { 'scroll-margin-bottom_-56px': true }
+  readonly scrollMarginBottomN48px: { 'scroll-margin-bottom_-48px': true }
+  readonly scrollMarginBottomN40px: { 'scroll-margin-bottom_-40px': true }
+  readonly scrollMarginBottomN32px: { 'scroll-margin-bottom_-32px': true }
+  readonly scrollMarginBottomN28px: { 'scroll-margin-bottom_-28px': true }
+  readonly scrollMarginBottomN24px: { 'scroll-margin-bottom_-24px': true }
+  readonly scrollMarginBottomN20px: { 'scroll-margin-bottom_-20px': true }
+  readonly scrollMarginBottomN16px: { 'scroll-margin-bottom_-16px': true }
+  readonly scrollMarginBottomN14px: { 'scroll-margin-bottom_-14px': true }
+  readonly scrollMarginBottomN12px: { 'scroll-margin-bottom_-12px': true }
+  readonly scrollMarginBottomN10px: { 'scroll-margin-bottom_-10px': true }
+  readonly scrollMarginBottomN8px: { 'scroll-margin-bottom_-8px': true }
+  readonly scrollMarginBottomN6px: { 'scroll-margin-bottom_-6px': true }
+  readonly scrollMarginBottomN4px: { 'scroll-margin-bottom_-4px': true }
+  readonly scrollMarginBottomN2px: { 'scroll-margin-bottom_-2px': true }
+  readonly scrollMarginBottomN1px: { 'scroll-margin-bottom_-1px': true }
   readonly scrollMarginBottom0px: { 'scroll-margin-bottom_0px': true }
   readonly scrollMarginBottom1px: { 'scroll-margin-bottom_1px': true }
   readonly scrollMarginBottom2px: { 'scroll-margin-bottom_2px': true }
-  readonly scrollMarginBottom3px: { 'scroll-margin-bottom_3px': true }
   readonly scrollMarginBottom4px: { 'scroll-margin-bottom_4px': true }
-  readonly scrollMarginBottom5px: { 'scroll-margin-bottom_5px': true }
+  readonly scrollMarginBottom6px: { 'scroll-margin-bottom_6px': true }
+  readonly scrollMarginBottom8px: { 'scroll-margin-bottom_8px': true }
   readonly scrollMarginBottom10px: { 'scroll-margin-bottom_10px': true }
+  readonly scrollMarginBottom12px: { 'scroll-margin-bottom_12px': true }
+  readonly scrollMarginBottom14px: { 'scroll-margin-bottom_14px': true }
+  readonly scrollMarginBottom16px: { 'scroll-margin-bottom_16px': true }
   readonly scrollMarginBottom20px: { 'scroll-margin-bottom_20px': true }
-  readonly scrollMarginBottom50px: { 'scroll-margin-bottom_50px': true }
-  readonly scrollMarginBottom100px: { 'scroll-margin-bottom_100px': true }
+  readonly scrollMarginBottom24px: { 'scroll-margin-bottom_24px': true }
+  readonly scrollMarginBottom28px: { 'scroll-margin-bottom_28px': true }
+  readonly scrollMarginBottom32px: { 'scroll-margin-bottom_32px': true }
+  readonly scrollMarginBottom40px: { 'scroll-margin-bottom_40px': true }
+  readonly scrollMarginBottom48px: { 'scroll-margin-bottom_48px': true }
+  readonly scrollMarginBottom56px: { 'scroll-margin-bottom_56px': true }
+  readonly scrollMarginBottom64px: { 'scroll-margin-bottom_64px': true }
+  readonly scrollMarginBottom80px: { 'scroll-margin-bottom_80px': true }
+  readonly scrollMarginBottom96px: { 'scroll-margin-bottom_96px': true }
+  readonly scrollMarginBottom128px: { 'scroll-margin-bottom_128px': true }
+  readonly scrollMarginBottom160px: { 'scroll-margin-bottom_160px': true }
+  readonly scrollMarginBottom192px: { 'scroll-margin-bottom_192px': true }
+  readonly scrollMarginBottom224px: { 'scroll-margin-bottom_224px': true }
+  readonly scrollMarginBottom256px: { 'scroll-margin-bottom_256px': true }
+  readonly scrollMarginBottom320px: { 'scroll-margin-bottom_320px': true }
+  readonly scrollMarginBottom384px: { 'scroll-margin-bottom_384px': true }
   readonly scrollMarginBottom0rem: { 'scroll-margin-bottom_0rem': true }
   readonly scrollMarginBottom0p25rem: { 'scroll-margin-bottom_0\.25rem': true }
   readonly scrollMarginBottom0p5rem: { 'scroll-margin-bottom_0\.5rem': true }
@@ -35079,16 +37960,59 @@ export interface CsstsAtoms {
   readonly scrollMarginInline12pt: { 'scroll-margin-inline_12pt': true }
   readonly scrollMarginInline16pt: { 'scroll-margin-inline_16pt': true }
   readonly scrollMarginInline20pt: { 'scroll-margin-inline_20pt': true }
+  readonly scrollMarginInlineN384px: { 'scroll-margin-inline_-384px': true }
+  readonly scrollMarginInlineN320px: { 'scroll-margin-inline_-320px': true }
+  readonly scrollMarginInlineN256px: { 'scroll-margin-inline_-256px': true }
+  readonly scrollMarginInlineN224px: { 'scroll-margin-inline_-224px': true }
+  readonly scrollMarginInlineN192px: { 'scroll-margin-inline_-192px': true }
+  readonly scrollMarginInlineN160px: { 'scroll-margin-inline_-160px': true }
+  readonly scrollMarginInlineN128px: { 'scroll-margin-inline_-128px': true }
+  readonly scrollMarginInlineN96px: { 'scroll-margin-inline_-96px': true }
+  readonly scrollMarginInlineN80px: { 'scroll-margin-inline_-80px': true }
+  readonly scrollMarginInlineN64px: { 'scroll-margin-inline_-64px': true }
+  readonly scrollMarginInlineN56px: { 'scroll-margin-inline_-56px': true }
+  readonly scrollMarginInlineN48px: { 'scroll-margin-inline_-48px': true }
+  readonly scrollMarginInlineN40px: { 'scroll-margin-inline_-40px': true }
+  readonly scrollMarginInlineN32px: { 'scroll-margin-inline_-32px': true }
+  readonly scrollMarginInlineN28px: { 'scroll-margin-inline_-28px': true }
+  readonly scrollMarginInlineN24px: { 'scroll-margin-inline_-24px': true }
+  readonly scrollMarginInlineN20px: { 'scroll-margin-inline_-20px': true }
+  readonly scrollMarginInlineN16px: { 'scroll-margin-inline_-16px': true }
+  readonly scrollMarginInlineN14px: { 'scroll-margin-inline_-14px': true }
+  readonly scrollMarginInlineN12px: { 'scroll-margin-inline_-12px': true }
+  readonly scrollMarginInlineN10px: { 'scroll-margin-inline_-10px': true }
+  readonly scrollMarginInlineN8px: { 'scroll-margin-inline_-8px': true }
+  readonly scrollMarginInlineN6px: { 'scroll-margin-inline_-6px': true }
+  readonly scrollMarginInlineN4px: { 'scroll-margin-inline_-4px': true }
+  readonly scrollMarginInlineN2px: { 'scroll-margin-inline_-2px': true }
+  readonly scrollMarginInlineN1px: { 'scroll-margin-inline_-1px': true }
   readonly scrollMarginInline0px: { 'scroll-margin-inline_0px': true }
   readonly scrollMarginInline1px: { 'scroll-margin-inline_1px': true }
   readonly scrollMarginInline2px: { 'scroll-margin-inline_2px': true }
-  readonly scrollMarginInline3px: { 'scroll-margin-inline_3px': true }
   readonly scrollMarginInline4px: { 'scroll-margin-inline_4px': true }
-  readonly scrollMarginInline5px: { 'scroll-margin-inline_5px': true }
+  readonly scrollMarginInline6px: { 'scroll-margin-inline_6px': true }
+  readonly scrollMarginInline8px: { 'scroll-margin-inline_8px': true }
   readonly scrollMarginInline10px: { 'scroll-margin-inline_10px': true }
+  readonly scrollMarginInline12px: { 'scroll-margin-inline_12px': true }
+  readonly scrollMarginInline14px: { 'scroll-margin-inline_14px': true }
+  readonly scrollMarginInline16px: { 'scroll-margin-inline_16px': true }
   readonly scrollMarginInline20px: { 'scroll-margin-inline_20px': true }
-  readonly scrollMarginInline50px: { 'scroll-margin-inline_50px': true }
-  readonly scrollMarginInline100px: { 'scroll-margin-inline_100px': true }
+  readonly scrollMarginInline24px: { 'scroll-margin-inline_24px': true }
+  readonly scrollMarginInline28px: { 'scroll-margin-inline_28px': true }
+  readonly scrollMarginInline32px: { 'scroll-margin-inline_32px': true }
+  readonly scrollMarginInline40px: { 'scroll-margin-inline_40px': true }
+  readonly scrollMarginInline48px: { 'scroll-margin-inline_48px': true }
+  readonly scrollMarginInline56px: { 'scroll-margin-inline_56px': true }
+  readonly scrollMarginInline64px: { 'scroll-margin-inline_64px': true }
+  readonly scrollMarginInline80px: { 'scroll-margin-inline_80px': true }
+  readonly scrollMarginInline96px: { 'scroll-margin-inline_96px': true }
+  readonly scrollMarginInline128px: { 'scroll-margin-inline_128px': true }
+  readonly scrollMarginInline160px: { 'scroll-margin-inline_160px': true }
+  readonly scrollMarginInline192px: { 'scroll-margin-inline_192px': true }
+  readonly scrollMarginInline224px: { 'scroll-margin-inline_224px': true }
+  readonly scrollMarginInline256px: { 'scroll-margin-inline_256px': true }
+  readonly scrollMarginInline320px: { 'scroll-margin-inline_320px': true }
+  readonly scrollMarginInline384px: { 'scroll-margin-inline_384px': true }
   readonly scrollMarginInline0rem: { 'scroll-margin-inline_0rem': true }
   readonly scrollMarginInline0p25rem: { 'scroll-margin-inline_0\.25rem': true }
   readonly scrollMarginInline0p5rem: { 'scroll-margin-inline_0\.5rem': true }
@@ -35443,16 +38367,59 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineEnd12pt: { 'scroll-margin-inline-end_12pt': true }
   readonly scrollMarginInlineEnd16pt: { 'scroll-margin-inline-end_16pt': true }
   readonly scrollMarginInlineEnd20pt: { 'scroll-margin-inline-end_20pt': true }
+  readonly scrollMarginInlineEndN384px: { 'scroll-margin-inline-end_-384px': true }
+  readonly scrollMarginInlineEndN320px: { 'scroll-margin-inline-end_-320px': true }
+  readonly scrollMarginInlineEndN256px: { 'scroll-margin-inline-end_-256px': true }
+  readonly scrollMarginInlineEndN224px: { 'scroll-margin-inline-end_-224px': true }
+  readonly scrollMarginInlineEndN192px: { 'scroll-margin-inline-end_-192px': true }
+  readonly scrollMarginInlineEndN160px: { 'scroll-margin-inline-end_-160px': true }
+  readonly scrollMarginInlineEndN128px: { 'scroll-margin-inline-end_-128px': true }
+  readonly scrollMarginInlineEndN96px: { 'scroll-margin-inline-end_-96px': true }
+  readonly scrollMarginInlineEndN80px: { 'scroll-margin-inline-end_-80px': true }
+  readonly scrollMarginInlineEndN64px: { 'scroll-margin-inline-end_-64px': true }
+  readonly scrollMarginInlineEndN56px: { 'scroll-margin-inline-end_-56px': true }
+  readonly scrollMarginInlineEndN48px: { 'scroll-margin-inline-end_-48px': true }
+  readonly scrollMarginInlineEndN40px: { 'scroll-margin-inline-end_-40px': true }
+  readonly scrollMarginInlineEndN32px: { 'scroll-margin-inline-end_-32px': true }
+  readonly scrollMarginInlineEndN28px: { 'scroll-margin-inline-end_-28px': true }
+  readonly scrollMarginInlineEndN24px: { 'scroll-margin-inline-end_-24px': true }
+  readonly scrollMarginInlineEndN20px: { 'scroll-margin-inline-end_-20px': true }
+  readonly scrollMarginInlineEndN16px: { 'scroll-margin-inline-end_-16px': true }
+  readonly scrollMarginInlineEndN14px: { 'scroll-margin-inline-end_-14px': true }
+  readonly scrollMarginInlineEndN12px: { 'scroll-margin-inline-end_-12px': true }
+  readonly scrollMarginInlineEndN10px: { 'scroll-margin-inline-end_-10px': true }
+  readonly scrollMarginInlineEndN8px: { 'scroll-margin-inline-end_-8px': true }
+  readonly scrollMarginInlineEndN6px: { 'scroll-margin-inline-end_-6px': true }
+  readonly scrollMarginInlineEndN4px: { 'scroll-margin-inline-end_-4px': true }
+  readonly scrollMarginInlineEndN2px: { 'scroll-margin-inline-end_-2px': true }
+  readonly scrollMarginInlineEndN1px: { 'scroll-margin-inline-end_-1px': true }
   readonly scrollMarginInlineEnd0px: { 'scroll-margin-inline-end_0px': true }
   readonly scrollMarginInlineEnd1px: { 'scroll-margin-inline-end_1px': true }
   readonly scrollMarginInlineEnd2px: { 'scroll-margin-inline-end_2px': true }
-  readonly scrollMarginInlineEnd3px: { 'scroll-margin-inline-end_3px': true }
   readonly scrollMarginInlineEnd4px: { 'scroll-margin-inline-end_4px': true }
-  readonly scrollMarginInlineEnd5px: { 'scroll-margin-inline-end_5px': true }
+  readonly scrollMarginInlineEnd6px: { 'scroll-margin-inline-end_6px': true }
+  readonly scrollMarginInlineEnd8px: { 'scroll-margin-inline-end_8px': true }
   readonly scrollMarginInlineEnd10px: { 'scroll-margin-inline-end_10px': true }
+  readonly scrollMarginInlineEnd12px: { 'scroll-margin-inline-end_12px': true }
+  readonly scrollMarginInlineEnd14px: { 'scroll-margin-inline-end_14px': true }
+  readonly scrollMarginInlineEnd16px: { 'scroll-margin-inline-end_16px': true }
   readonly scrollMarginInlineEnd20px: { 'scroll-margin-inline-end_20px': true }
-  readonly scrollMarginInlineEnd50px: { 'scroll-margin-inline-end_50px': true }
-  readonly scrollMarginInlineEnd100px: { 'scroll-margin-inline-end_100px': true }
+  readonly scrollMarginInlineEnd24px: { 'scroll-margin-inline-end_24px': true }
+  readonly scrollMarginInlineEnd28px: { 'scroll-margin-inline-end_28px': true }
+  readonly scrollMarginInlineEnd32px: { 'scroll-margin-inline-end_32px': true }
+  readonly scrollMarginInlineEnd40px: { 'scroll-margin-inline-end_40px': true }
+  readonly scrollMarginInlineEnd48px: { 'scroll-margin-inline-end_48px': true }
+  readonly scrollMarginInlineEnd56px: { 'scroll-margin-inline-end_56px': true }
+  readonly scrollMarginInlineEnd64px: { 'scroll-margin-inline-end_64px': true }
+  readonly scrollMarginInlineEnd80px: { 'scroll-margin-inline-end_80px': true }
+  readonly scrollMarginInlineEnd96px: { 'scroll-margin-inline-end_96px': true }
+  readonly scrollMarginInlineEnd128px: { 'scroll-margin-inline-end_128px': true }
+  readonly scrollMarginInlineEnd160px: { 'scroll-margin-inline-end_160px': true }
+  readonly scrollMarginInlineEnd192px: { 'scroll-margin-inline-end_192px': true }
+  readonly scrollMarginInlineEnd224px: { 'scroll-margin-inline-end_224px': true }
+  readonly scrollMarginInlineEnd256px: { 'scroll-margin-inline-end_256px': true }
+  readonly scrollMarginInlineEnd320px: { 'scroll-margin-inline-end_320px': true }
+  readonly scrollMarginInlineEnd384px: { 'scroll-margin-inline-end_384px': true }
   readonly scrollMarginInlineEnd0rem: { 'scroll-margin-inline-end_0rem': true }
   readonly scrollMarginInlineEnd0p25rem: { 'scroll-margin-inline-end_0\.25rem': true }
   readonly scrollMarginInlineEnd0p5rem: { 'scroll-margin-inline-end_0\.5rem': true }
@@ -35807,16 +38774,59 @@ export interface CsstsAtoms {
   readonly scrollMarginInlineStart12pt: { 'scroll-margin-inline-start_12pt': true }
   readonly scrollMarginInlineStart16pt: { 'scroll-margin-inline-start_16pt': true }
   readonly scrollMarginInlineStart20pt: { 'scroll-margin-inline-start_20pt': true }
+  readonly scrollMarginInlineStartN384px: { 'scroll-margin-inline-start_-384px': true }
+  readonly scrollMarginInlineStartN320px: { 'scroll-margin-inline-start_-320px': true }
+  readonly scrollMarginInlineStartN256px: { 'scroll-margin-inline-start_-256px': true }
+  readonly scrollMarginInlineStartN224px: { 'scroll-margin-inline-start_-224px': true }
+  readonly scrollMarginInlineStartN192px: { 'scroll-margin-inline-start_-192px': true }
+  readonly scrollMarginInlineStartN160px: { 'scroll-margin-inline-start_-160px': true }
+  readonly scrollMarginInlineStartN128px: { 'scroll-margin-inline-start_-128px': true }
+  readonly scrollMarginInlineStartN96px: { 'scroll-margin-inline-start_-96px': true }
+  readonly scrollMarginInlineStartN80px: { 'scroll-margin-inline-start_-80px': true }
+  readonly scrollMarginInlineStartN64px: { 'scroll-margin-inline-start_-64px': true }
+  readonly scrollMarginInlineStartN56px: { 'scroll-margin-inline-start_-56px': true }
+  readonly scrollMarginInlineStartN48px: { 'scroll-margin-inline-start_-48px': true }
+  readonly scrollMarginInlineStartN40px: { 'scroll-margin-inline-start_-40px': true }
+  readonly scrollMarginInlineStartN32px: { 'scroll-margin-inline-start_-32px': true }
+  readonly scrollMarginInlineStartN28px: { 'scroll-margin-inline-start_-28px': true }
+  readonly scrollMarginInlineStartN24px: { 'scroll-margin-inline-start_-24px': true }
+  readonly scrollMarginInlineStartN20px: { 'scroll-margin-inline-start_-20px': true }
+  readonly scrollMarginInlineStartN16px: { 'scroll-margin-inline-start_-16px': true }
+  readonly scrollMarginInlineStartN14px: { 'scroll-margin-inline-start_-14px': true }
+  readonly scrollMarginInlineStartN12px: { 'scroll-margin-inline-start_-12px': true }
+  readonly scrollMarginInlineStartN10px: { 'scroll-margin-inline-start_-10px': true }
+  readonly scrollMarginInlineStartN8px: { 'scroll-margin-inline-start_-8px': true }
+  readonly scrollMarginInlineStartN6px: { 'scroll-margin-inline-start_-6px': true }
+  readonly scrollMarginInlineStartN4px: { 'scroll-margin-inline-start_-4px': true }
+  readonly scrollMarginInlineStartN2px: { 'scroll-margin-inline-start_-2px': true }
+  readonly scrollMarginInlineStartN1px: { 'scroll-margin-inline-start_-1px': true }
   readonly scrollMarginInlineStart0px: { 'scroll-margin-inline-start_0px': true }
   readonly scrollMarginInlineStart1px: { 'scroll-margin-inline-start_1px': true }
   readonly scrollMarginInlineStart2px: { 'scroll-margin-inline-start_2px': true }
-  readonly scrollMarginInlineStart3px: { 'scroll-margin-inline-start_3px': true }
   readonly scrollMarginInlineStart4px: { 'scroll-margin-inline-start_4px': true }
-  readonly scrollMarginInlineStart5px: { 'scroll-margin-inline-start_5px': true }
+  readonly scrollMarginInlineStart6px: { 'scroll-margin-inline-start_6px': true }
+  readonly scrollMarginInlineStart8px: { 'scroll-margin-inline-start_8px': true }
   readonly scrollMarginInlineStart10px: { 'scroll-margin-inline-start_10px': true }
+  readonly scrollMarginInlineStart12px: { 'scroll-margin-inline-start_12px': true }
+  readonly scrollMarginInlineStart14px: { 'scroll-margin-inline-start_14px': true }
+  readonly scrollMarginInlineStart16px: { 'scroll-margin-inline-start_16px': true }
   readonly scrollMarginInlineStart20px: { 'scroll-margin-inline-start_20px': true }
-  readonly scrollMarginInlineStart50px: { 'scroll-margin-inline-start_50px': true }
-  readonly scrollMarginInlineStart100px: { 'scroll-margin-inline-start_100px': true }
+  readonly scrollMarginInlineStart24px: { 'scroll-margin-inline-start_24px': true }
+  readonly scrollMarginInlineStart28px: { 'scroll-margin-inline-start_28px': true }
+  readonly scrollMarginInlineStart32px: { 'scroll-margin-inline-start_32px': true }
+  readonly scrollMarginInlineStart40px: { 'scroll-margin-inline-start_40px': true }
+  readonly scrollMarginInlineStart48px: { 'scroll-margin-inline-start_48px': true }
+  readonly scrollMarginInlineStart56px: { 'scroll-margin-inline-start_56px': true }
+  readonly scrollMarginInlineStart64px: { 'scroll-margin-inline-start_64px': true }
+  readonly scrollMarginInlineStart80px: { 'scroll-margin-inline-start_80px': true }
+  readonly scrollMarginInlineStart96px: { 'scroll-margin-inline-start_96px': true }
+  readonly scrollMarginInlineStart128px: { 'scroll-margin-inline-start_128px': true }
+  readonly scrollMarginInlineStart160px: { 'scroll-margin-inline-start_160px': true }
+  readonly scrollMarginInlineStart192px: { 'scroll-margin-inline-start_192px': true }
+  readonly scrollMarginInlineStart224px: { 'scroll-margin-inline-start_224px': true }
+  readonly scrollMarginInlineStart256px: { 'scroll-margin-inline-start_256px': true }
+  readonly scrollMarginInlineStart320px: { 'scroll-margin-inline-start_320px': true }
+  readonly scrollMarginInlineStart384px: { 'scroll-margin-inline-start_384px': true }
   readonly scrollMarginInlineStart0rem: { 'scroll-margin-inline-start_0rem': true }
   readonly scrollMarginInlineStart0p25rem: { 'scroll-margin-inline-start_0\.25rem': true }
   readonly scrollMarginInlineStart0p5rem: { 'scroll-margin-inline-start_0\.5rem': true }
@@ -36171,16 +39181,59 @@ export interface CsstsAtoms {
   readonly scrollMarginLeft12pt: { 'scroll-margin-left_12pt': true }
   readonly scrollMarginLeft16pt: { 'scroll-margin-left_16pt': true }
   readonly scrollMarginLeft20pt: { 'scroll-margin-left_20pt': true }
+  readonly scrollMarginLeftN384px: { 'scroll-margin-left_-384px': true }
+  readonly scrollMarginLeftN320px: { 'scroll-margin-left_-320px': true }
+  readonly scrollMarginLeftN256px: { 'scroll-margin-left_-256px': true }
+  readonly scrollMarginLeftN224px: { 'scroll-margin-left_-224px': true }
+  readonly scrollMarginLeftN192px: { 'scroll-margin-left_-192px': true }
+  readonly scrollMarginLeftN160px: { 'scroll-margin-left_-160px': true }
+  readonly scrollMarginLeftN128px: { 'scroll-margin-left_-128px': true }
+  readonly scrollMarginLeftN96px: { 'scroll-margin-left_-96px': true }
+  readonly scrollMarginLeftN80px: { 'scroll-margin-left_-80px': true }
+  readonly scrollMarginLeftN64px: { 'scroll-margin-left_-64px': true }
+  readonly scrollMarginLeftN56px: { 'scroll-margin-left_-56px': true }
+  readonly scrollMarginLeftN48px: { 'scroll-margin-left_-48px': true }
+  readonly scrollMarginLeftN40px: { 'scroll-margin-left_-40px': true }
+  readonly scrollMarginLeftN32px: { 'scroll-margin-left_-32px': true }
+  readonly scrollMarginLeftN28px: { 'scroll-margin-left_-28px': true }
+  readonly scrollMarginLeftN24px: { 'scroll-margin-left_-24px': true }
+  readonly scrollMarginLeftN20px: { 'scroll-margin-left_-20px': true }
+  readonly scrollMarginLeftN16px: { 'scroll-margin-left_-16px': true }
+  readonly scrollMarginLeftN14px: { 'scroll-margin-left_-14px': true }
+  readonly scrollMarginLeftN12px: { 'scroll-margin-left_-12px': true }
+  readonly scrollMarginLeftN10px: { 'scroll-margin-left_-10px': true }
+  readonly scrollMarginLeftN8px: { 'scroll-margin-left_-8px': true }
+  readonly scrollMarginLeftN6px: { 'scroll-margin-left_-6px': true }
+  readonly scrollMarginLeftN4px: { 'scroll-margin-left_-4px': true }
+  readonly scrollMarginLeftN2px: { 'scroll-margin-left_-2px': true }
+  readonly scrollMarginLeftN1px: { 'scroll-margin-left_-1px': true }
   readonly scrollMarginLeft0px: { 'scroll-margin-left_0px': true }
   readonly scrollMarginLeft1px: { 'scroll-margin-left_1px': true }
   readonly scrollMarginLeft2px: { 'scroll-margin-left_2px': true }
-  readonly scrollMarginLeft3px: { 'scroll-margin-left_3px': true }
   readonly scrollMarginLeft4px: { 'scroll-margin-left_4px': true }
-  readonly scrollMarginLeft5px: { 'scroll-margin-left_5px': true }
+  readonly scrollMarginLeft6px: { 'scroll-margin-left_6px': true }
+  readonly scrollMarginLeft8px: { 'scroll-margin-left_8px': true }
   readonly scrollMarginLeft10px: { 'scroll-margin-left_10px': true }
+  readonly scrollMarginLeft12px: { 'scroll-margin-left_12px': true }
+  readonly scrollMarginLeft14px: { 'scroll-margin-left_14px': true }
+  readonly scrollMarginLeft16px: { 'scroll-margin-left_16px': true }
   readonly scrollMarginLeft20px: { 'scroll-margin-left_20px': true }
-  readonly scrollMarginLeft50px: { 'scroll-margin-left_50px': true }
-  readonly scrollMarginLeft100px: { 'scroll-margin-left_100px': true }
+  readonly scrollMarginLeft24px: { 'scroll-margin-left_24px': true }
+  readonly scrollMarginLeft28px: { 'scroll-margin-left_28px': true }
+  readonly scrollMarginLeft32px: { 'scroll-margin-left_32px': true }
+  readonly scrollMarginLeft40px: { 'scroll-margin-left_40px': true }
+  readonly scrollMarginLeft48px: { 'scroll-margin-left_48px': true }
+  readonly scrollMarginLeft56px: { 'scroll-margin-left_56px': true }
+  readonly scrollMarginLeft64px: { 'scroll-margin-left_64px': true }
+  readonly scrollMarginLeft80px: { 'scroll-margin-left_80px': true }
+  readonly scrollMarginLeft96px: { 'scroll-margin-left_96px': true }
+  readonly scrollMarginLeft128px: { 'scroll-margin-left_128px': true }
+  readonly scrollMarginLeft160px: { 'scroll-margin-left_160px': true }
+  readonly scrollMarginLeft192px: { 'scroll-margin-left_192px': true }
+  readonly scrollMarginLeft224px: { 'scroll-margin-left_224px': true }
+  readonly scrollMarginLeft256px: { 'scroll-margin-left_256px': true }
+  readonly scrollMarginLeft320px: { 'scroll-margin-left_320px': true }
+  readonly scrollMarginLeft384px: { 'scroll-margin-left_384px': true }
   readonly scrollMarginLeft0rem: { 'scroll-margin-left_0rem': true }
   readonly scrollMarginLeft0p25rem: { 'scroll-margin-left_0\.25rem': true }
   readonly scrollMarginLeft0p5rem: { 'scroll-margin-left_0\.5rem': true }
@@ -36535,16 +39588,59 @@ export interface CsstsAtoms {
   readonly scrollMarginRight12pt: { 'scroll-margin-right_12pt': true }
   readonly scrollMarginRight16pt: { 'scroll-margin-right_16pt': true }
   readonly scrollMarginRight20pt: { 'scroll-margin-right_20pt': true }
+  readonly scrollMarginRightN384px: { 'scroll-margin-right_-384px': true }
+  readonly scrollMarginRightN320px: { 'scroll-margin-right_-320px': true }
+  readonly scrollMarginRightN256px: { 'scroll-margin-right_-256px': true }
+  readonly scrollMarginRightN224px: { 'scroll-margin-right_-224px': true }
+  readonly scrollMarginRightN192px: { 'scroll-margin-right_-192px': true }
+  readonly scrollMarginRightN160px: { 'scroll-margin-right_-160px': true }
+  readonly scrollMarginRightN128px: { 'scroll-margin-right_-128px': true }
+  readonly scrollMarginRightN96px: { 'scroll-margin-right_-96px': true }
+  readonly scrollMarginRightN80px: { 'scroll-margin-right_-80px': true }
+  readonly scrollMarginRightN64px: { 'scroll-margin-right_-64px': true }
+  readonly scrollMarginRightN56px: { 'scroll-margin-right_-56px': true }
+  readonly scrollMarginRightN48px: { 'scroll-margin-right_-48px': true }
+  readonly scrollMarginRightN40px: { 'scroll-margin-right_-40px': true }
+  readonly scrollMarginRightN32px: { 'scroll-margin-right_-32px': true }
+  readonly scrollMarginRightN28px: { 'scroll-margin-right_-28px': true }
+  readonly scrollMarginRightN24px: { 'scroll-margin-right_-24px': true }
+  readonly scrollMarginRightN20px: { 'scroll-margin-right_-20px': true }
+  readonly scrollMarginRightN16px: { 'scroll-margin-right_-16px': true }
+  readonly scrollMarginRightN14px: { 'scroll-margin-right_-14px': true }
+  readonly scrollMarginRightN12px: { 'scroll-margin-right_-12px': true }
+  readonly scrollMarginRightN10px: { 'scroll-margin-right_-10px': true }
+  readonly scrollMarginRightN8px: { 'scroll-margin-right_-8px': true }
+  readonly scrollMarginRightN6px: { 'scroll-margin-right_-6px': true }
+  readonly scrollMarginRightN4px: { 'scroll-margin-right_-4px': true }
+  readonly scrollMarginRightN2px: { 'scroll-margin-right_-2px': true }
+  readonly scrollMarginRightN1px: { 'scroll-margin-right_-1px': true }
   readonly scrollMarginRight0px: { 'scroll-margin-right_0px': true }
   readonly scrollMarginRight1px: { 'scroll-margin-right_1px': true }
   readonly scrollMarginRight2px: { 'scroll-margin-right_2px': true }
-  readonly scrollMarginRight3px: { 'scroll-margin-right_3px': true }
   readonly scrollMarginRight4px: { 'scroll-margin-right_4px': true }
-  readonly scrollMarginRight5px: { 'scroll-margin-right_5px': true }
+  readonly scrollMarginRight6px: { 'scroll-margin-right_6px': true }
+  readonly scrollMarginRight8px: { 'scroll-margin-right_8px': true }
   readonly scrollMarginRight10px: { 'scroll-margin-right_10px': true }
+  readonly scrollMarginRight12px: { 'scroll-margin-right_12px': true }
+  readonly scrollMarginRight14px: { 'scroll-margin-right_14px': true }
+  readonly scrollMarginRight16px: { 'scroll-margin-right_16px': true }
   readonly scrollMarginRight20px: { 'scroll-margin-right_20px': true }
-  readonly scrollMarginRight50px: { 'scroll-margin-right_50px': true }
-  readonly scrollMarginRight100px: { 'scroll-margin-right_100px': true }
+  readonly scrollMarginRight24px: { 'scroll-margin-right_24px': true }
+  readonly scrollMarginRight28px: { 'scroll-margin-right_28px': true }
+  readonly scrollMarginRight32px: { 'scroll-margin-right_32px': true }
+  readonly scrollMarginRight40px: { 'scroll-margin-right_40px': true }
+  readonly scrollMarginRight48px: { 'scroll-margin-right_48px': true }
+  readonly scrollMarginRight56px: { 'scroll-margin-right_56px': true }
+  readonly scrollMarginRight64px: { 'scroll-margin-right_64px': true }
+  readonly scrollMarginRight80px: { 'scroll-margin-right_80px': true }
+  readonly scrollMarginRight96px: { 'scroll-margin-right_96px': true }
+  readonly scrollMarginRight128px: { 'scroll-margin-right_128px': true }
+  readonly scrollMarginRight160px: { 'scroll-margin-right_160px': true }
+  readonly scrollMarginRight192px: { 'scroll-margin-right_192px': true }
+  readonly scrollMarginRight224px: { 'scroll-margin-right_224px': true }
+  readonly scrollMarginRight256px: { 'scroll-margin-right_256px': true }
+  readonly scrollMarginRight320px: { 'scroll-margin-right_320px': true }
+  readonly scrollMarginRight384px: { 'scroll-margin-right_384px': true }
   readonly scrollMarginRight0rem: { 'scroll-margin-right_0rem': true }
   readonly scrollMarginRight0p25rem: { 'scroll-margin-right_0\.25rem': true }
   readonly scrollMarginRight0p5rem: { 'scroll-margin-right_0\.5rem': true }
@@ -36899,16 +39995,59 @@ export interface CsstsAtoms {
   readonly scrollMarginTop12pt: { 'scroll-margin-top_12pt': true }
   readonly scrollMarginTop16pt: { 'scroll-margin-top_16pt': true }
   readonly scrollMarginTop20pt: { 'scroll-margin-top_20pt': true }
+  readonly scrollMarginTopN384px: { 'scroll-margin-top_-384px': true }
+  readonly scrollMarginTopN320px: { 'scroll-margin-top_-320px': true }
+  readonly scrollMarginTopN256px: { 'scroll-margin-top_-256px': true }
+  readonly scrollMarginTopN224px: { 'scroll-margin-top_-224px': true }
+  readonly scrollMarginTopN192px: { 'scroll-margin-top_-192px': true }
+  readonly scrollMarginTopN160px: { 'scroll-margin-top_-160px': true }
+  readonly scrollMarginTopN128px: { 'scroll-margin-top_-128px': true }
+  readonly scrollMarginTopN96px: { 'scroll-margin-top_-96px': true }
+  readonly scrollMarginTopN80px: { 'scroll-margin-top_-80px': true }
+  readonly scrollMarginTopN64px: { 'scroll-margin-top_-64px': true }
+  readonly scrollMarginTopN56px: { 'scroll-margin-top_-56px': true }
+  readonly scrollMarginTopN48px: { 'scroll-margin-top_-48px': true }
+  readonly scrollMarginTopN40px: { 'scroll-margin-top_-40px': true }
+  readonly scrollMarginTopN32px: { 'scroll-margin-top_-32px': true }
+  readonly scrollMarginTopN28px: { 'scroll-margin-top_-28px': true }
+  readonly scrollMarginTopN24px: { 'scroll-margin-top_-24px': true }
+  readonly scrollMarginTopN20px: { 'scroll-margin-top_-20px': true }
+  readonly scrollMarginTopN16px: { 'scroll-margin-top_-16px': true }
+  readonly scrollMarginTopN14px: { 'scroll-margin-top_-14px': true }
+  readonly scrollMarginTopN12px: { 'scroll-margin-top_-12px': true }
+  readonly scrollMarginTopN10px: { 'scroll-margin-top_-10px': true }
+  readonly scrollMarginTopN8px: { 'scroll-margin-top_-8px': true }
+  readonly scrollMarginTopN6px: { 'scroll-margin-top_-6px': true }
+  readonly scrollMarginTopN4px: { 'scroll-margin-top_-4px': true }
+  readonly scrollMarginTopN2px: { 'scroll-margin-top_-2px': true }
+  readonly scrollMarginTopN1px: { 'scroll-margin-top_-1px': true }
   readonly scrollMarginTop0px: { 'scroll-margin-top_0px': true }
   readonly scrollMarginTop1px: { 'scroll-margin-top_1px': true }
   readonly scrollMarginTop2px: { 'scroll-margin-top_2px': true }
-  readonly scrollMarginTop3px: { 'scroll-margin-top_3px': true }
   readonly scrollMarginTop4px: { 'scroll-margin-top_4px': true }
-  readonly scrollMarginTop5px: { 'scroll-margin-top_5px': true }
+  readonly scrollMarginTop6px: { 'scroll-margin-top_6px': true }
+  readonly scrollMarginTop8px: { 'scroll-margin-top_8px': true }
   readonly scrollMarginTop10px: { 'scroll-margin-top_10px': true }
+  readonly scrollMarginTop12px: { 'scroll-margin-top_12px': true }
+  readonly scrollMarginTop14px: { 'scroll-margin-top_14px': true }
+  readonly scrollMarginTop16px: { 'scroll-margin-top_16px': true }
   readonly scrollMarginTop20px: { 'scroll-margin-top_20px': true }
-  readonly scrollMarginTop50px: { 'scroll-margin-top_50px': true }
-  readonly scrollMarginTop100px: { 'scroll-margin-top_100px': true }
+  readonly scrollMarginTop24px: { 'scroll-margin-top_24px': true }
+  readonly scrollMarginTop28px: { 'scroll-margin-top_28px': true }
+  readonly scrollMarginTop32px: { 'scroll-margin-top_32px': true }
+  readonly scrollMarginTop40px: { 'scroll-margin-top_40px': true }
+  readonly scrollMarginTop48px: { 'scroll-margin-top_48px': true }
+  readonly scrollMarginTop56px: { 'scroll-margin-top_56px': true }
+  readonly scrollMarginTop64px: { 'scroll-margin-top_64px': true }
+  readonly scrollMarginTop80px: { 'scroll-margin-top_80px': true }
+  readonly scrollMarginTop96px: { 'scroll-margin-top_96px': true }
+  readonly scrollMarginTop128px: { 'scroll-margin-top_128px': true }
+  readonly scrollMarginTop160px: { 'scroll-margin-top_160px': true }
+  readonly scrollMarginTop192px: { 'scroll-margin-top_192px': true }
+  readonly scrollMarginTop224px: { 'scroll-margin-top_224px': true }
+  readonly scrollMarginTop256px: { 'scroll-margin-top_256px': true }
+  readonly scrollMarginTop320px: { 'scroll-margin-top_320px': true }
+  readonly scrollMarginTop384px: { 'scroll-margin-top_384px': true }
   readonly scrollMarginTop0rem: { 'scroll-margin-top_0rem': true }
   readonly scrollMarginTop0p25rem: { 'scroll-margin-top_0\.25rem': true }
   readonly scrollMarginTop0p5rem: { 'scroll-margin-top_0\.5rem': true }
@@ -37264,16 +40403,59 @@ export interface CsstsAtoms {
   readonly scrollPadding12pt: { 'scroll-padding_12pt': true }
   readonly scrollPadding16pt: { 'scroll-padding_16pt': true }
   readonly scrollPadding20pt: { 'scroll-padding_20pt': true }
+  readonly scrollPaddingN384px: { 'scroll-padding_-384px': true }
+  readonly scrollPaddingN320px: { 'scroll-padding_-320px': true }
+  readonly scrollPaddingN256px: { 'scroll-padding_-256px': true }
+  readonly scrollPaddingN224px: { 'scroll-padding_-224px': true }
+  readonly scrollPaddingN192px: { 'scroll-padding_-192px': true }
+  readonly scrollPaddingN160px: { 'scroll-padding_-160px': true }
+  readonly scrollPaddingN128px: { 'scroll-padding_-128px': true }
+  readonly scrollPaddingN96px: { 'scroll-padding_-96px': true }
+  readonly scrollPaddingN80px: { 'scroll-padding_-80px': true }
+  readonly scrollPaddingN64px: { 'scroll-padding_-64px': true }
+  readonly scrollPaddingN56px: { 'scroll-padding_-56px': true }
+  readonly scrollPaddingN48px: { 'scroll-padding_-48px': true }
+  readonly scrollPaddingN40px: { 'scroll-padding_-40px': true }
+  readonly scrollPaddingN32px: { 'scroll-padding_-32px': true }
+  readonly scrollPaddingN28px: { 'scroll-padding_-28px': true }
+  readonly scrollPaddingN24px: { 'scroll-padding_-24px': true }
+  readonly scrollPaddingN20px: { 'scroll-padding_-20px': true }
+  readonly scrollPaddingN16px: { 'scroll-padding_-16px': true }
+  readonly scrollPaddingN14px: { 'scroll-padding_-14px': true }
+  readonly scrollPaddingN12px: { 'scroll-padding_-12px': true }
+  readonly scrollPaddingN10px: { 'scroll-padding_-10px': true }
+  readonly scrollPaddingN8px: { 'scroll-padding_-8px': true }
+  readonly scrollPaddingN6px: { 'scroll-padding_-6px': true }
+  readonly scrollPaddingN4px: { 'scroll-padding_-4px': true }
+  readonly scrollPaddingN2px: { 'scroll-padding_-2px': true }
+  readonly scrollPaddingN1px: { 'scroll-padding_-1px': true }
   readonly scrollPadding0px: { 'scroll-padding_0px': true }
   readonly scrollPadding1px: { 'scroll-padding_1px': true }
   readonly scrollPadding2px: { 'scroll-padding_2px': true }
-  readonly scrollPadding3px: { 'scroll-padding_3px': true }
   readonly scrollPadding4px: { 'scroll-padding_4px': true }
-  readonly scrollPadding5px: { 'scroll-padding_5px': true }
+  readonly scrollPadding6px: { 'scroll-padding_6px': true }
+  readonly scrollPadding8px: { 'scroll-padding_8px': true }
   readonly scrollPadding10px: { 'scroll-padding_10px': true }
+  readonly scrollPadding12px: { 'scroll-padding_12px': true }
+  readonly scrollPadding14px: { 'scroll-padding_14px': true }
+  readonly scrollPadding16px: { 'scroll-padding_16px': true }
   readonly scrollPadding20px: { 'scroll-padding_20px': true }
-  readonly scrollPadding50px: { 'scroll-padding_50px': true }
-  readonly scrollPadding100px: { 'scroll-padding_100px': true }
+  readonly scrollPadding24px: { 'scroll-padding_24px': true }
+  readonly scrollPadding28px: { 'scroll-padding_28px': true }
+  readonly scrollPadding32px: { 'scroll-padding_32px': true }
+  readonly scrollPadding40px: { 'scroll-padding_40px': true }
+  readonly scrollPadding48px: { 'scroll-padding_48px': true }
+  readonly scrollPadding56px: { 'scroll-padding_56px': true }
+  readonly scrollPadding64px: { 'scroll-padding_64px': true }
+  readonly scrollPadding80px: { 'scroll-padding_80px': true }
+  readonly scrollPadding96px: { 'scroll-padding_96px': true }
+  readonly scrollPadding128px: { 'scroll-padding_128px': true }
+  readonly scrollPadding160px: { 'scroll-padding_160px': true }
+  readonly scrollPadding192px: { 'scroll-padding_192px': true }
+  readonly scrollPadding224px: { 'scroll-padding_224px': true }
+  readonly scrollPadding256px: { 'scroll-padding_256px': true }
+  readonly scrollPadding320px: { 'scroll-padding_320px': true }
+  readonly scrollPadding384px: { 'scroll-padding_384px': true }
   readonly scrollPadding0rem: { 'scroll-padding_0rem': true }
   readonly scrollPadding0p25rem: { 'scroll-padding_0\.25rem': true }
   readonly scrollPadding0p5rem: { 'scroll-padding_0\.5rem': true }
@@ -37644,16 +40826,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlock12pt: { 'scroll-padding-block_12pt': true }
   readonly scrollPaddingBlock16pt: { 'scroll-padding-block_16pt': true }
   readonly scrollPaddingBlock20pt: { 'scroll-padding-block_20pt': true }
+  readonly scrollPaddingBlockN384px: { 'scroll-padding-block_-384px': true }
+  readonly scrollPaddingBlockN320px: { 'scroll-padding-block_-320px': true }
+  readonly scrollPaddingBlockN256px: { 'scroll-padding-block_-256px': true }
+  readonly scrollPaddingBlockN224px: { 'scroll-padding-block_-224px': true }
+  readonly scrollPaddingBlockN192px: { 'scroll-padding-block_-192px': true }
+  readonly scrollPaddingBlockN160px: { 'scroll-padding-block_-160px': true }
+  readonly scrollPaddingBlockN128px: { 'scroll-padding-block_-128px': true }
+  readonly scrollPaddingBlockN96px: { 'scroll-padding-block_-96px': true }
+  readonly scrollPaddingBlockN80px: { 'scroll-padding-block_-80px': true }
+  readonly scrollPaddingBlockN64px: { 'scroll-padding-block_-64px': true }
+  readonly scrollPaddingBlockN56px: { 'scroll-padding-block_-56px': true }
+  readonly scrollPaddingBlockN48px: { 'scroll-padding-block_-48px': true }
+  readonly scrollPaddingBlockN40px: { 'scroll-padding-block_-40px': true }
+  readonly scrollPaddingBlockN32px: { 'scroll-padding-block_-32px': true }
+  readonly scrollPaddingBlockN28px: { 'scroll-padding-block_-28px': true }
+  readonly scrollPaddingBlockN24px: { 'scroll-padding-block_-24px': true }
+  readonly scrollPaddingBlockN20px: { 'scroll-padding-block_-20px': true }
+  readonly scrollPaddingBlockN16px: { 'scroll-padding-block_-16px': true }
+  readonly scrollPaddingBlockN14px: { 'scroll-padding-block_-14px': true }
+  readonly scrollPaddingBlockN12px: { 'scroll-padding-block_-12px': true }
+  readonly scrollPaddingBlockN10px: { 'scroll-padding-block_-10px': true }
+  readonly scrollPaddingBlockN8px: { 'scroll-padding-block_-8px': true }
+  readonly scrollPaddingBlockN6px: { 'scroll-padding-block_-6px': true }
+  readonly scrollPaddingBlockN4px: { 'scroll-padding-block_-4px': true }
+  readonly scrollPaddingBlockN2px: { 'scroll-padding-block_-2px': true }
+  readonly scrollPaddingBlockN1px: { 'scroll-padding-block_-1px': true }
   readonly scrollPaddingBlock0px: { 'scroll-padding-block_0px': true }
   readonly scrollPaddingBlock1px: { 'scroll-padding-block_1px': true }
   readonly scrollPaddingBlock2px: { 'scroll-padding-block_2px': true }
-  readonly scrollPaddingBlock3px: { 'scroll-padding-block_3px': true }
   readonly scrollPaddingBlock4px: { 'scroll-padding-block_4px': true }
-  readonly scrollPaddingBlock5px: { 'scroll-padding-block_5px': true }
+  readonly scrollPaddingBlock6px: { 'scroll-padding-block_6px': true }
+  readonly scrollPaddingBlock8px: { 'scroll-padding-block_8px': true }
   readonly scrollPaddingBlock10px: { 'scroll-padding-block_10px': true }
+  readonly scrollPaddingBlock12px: { 'scroll-padding-block_12px': true }
+  readonly scrollPaddingBlock14px: { 'scroll-padding-block_14px': true }
+  readonly scrollPaddingBlock16px: { 'scroll-padding-block_16px': true }
   readonly scrollPaddingBlock20px: { 'scroll-padding-block_20px': true }
-  readonly scrollPaddingBlock50px: { 'scroll-padding-block_50px': true }
-  readonly scrollPaddingBlock100px: { 'scroll-padding-block_100px': true }
+  readonly scrollPaddingBlock24px: { 'scroll-padding-block_24px': true }
+  readonly scrollPaddingBlock28px: { 'scroll-padding-block_28px': true }
+  readonly scrollPaddingBlock32px: { 'scroll-padding-block_32px': true }
+  readonly scrollPaddingBlock40px: { 'scroll-padding-block_40px': true }
+  readonly scrollPaddingBlock48px: { 'scroll-padding-block_48px': true }
+  readonly scrollPaddingBlock56px: { 'scroll-padding-block_56px': true }
+  readonly scrollPaddingBlock64px: { 'scroll-padding-block_64px': true }
+  readonly scrollPaddingBlock80px: { 'scroll-padding-block_80px': true }
+  readonly scrollPaddingBlock96px: { 'scroll-padding-block_96px': true }
+  readonly scrollPaddingBlock128px: { 'scroll-padding-block_128px': true }
+  readonly scrollPaddingBlock160px: { 'scroll-padding-block_160px': true }
+  readonly scrollPaddingBlock192px: { 'scroll-padding-block_192px': true }
+  readonly scrollPaddingBlock224px: { 'scroll-padding-block_224px': true }
+  readonly scrollPaddingBlock256px: { 'scroll-padding-block_256px': true }
+  readonly scrollPaddingBlock320px: { 'scroll-padding-block_320px': true }
+  readonly scrollPaddingBlock384px: { 'scroll-padding-block_384px': true }
   readonly scrollPaddingBlock0rem: { 'scroll-padding-block_0rem': true }
   readonly scrollPaddingBlock0p25rem: { 'scroll-padding-block_0\.25rem': true }
   readonly scrollPaddingBlock0p5rem: { 'scroll-padding-block_0\.5rem': true }
@@ -38024,16 +41249,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockEnd12pt: { 'scroll-padding-block-end_12pt': true }
   readonly scrollPaddingBlockEnd16pt: { 'scroll-padding-block-end_16pt': true }
   readonly scrollPaddingBlockEnd20pt: { 'scroll-padding-block-end_20pt': true }
+  readonly scrollPaddingBlockEndN384px: { 'scroll-padding-block-end_-384px': true }
+  readonly scrollPaddingBlockEndN320px: { 'scroll-padding-block-end_-320px': true }
+  readonly scrollPaddingBlockEndN256px: { 'scroll-padding-block-end_-256px': true }
+  readonly scrollPaddingBlockEndN224px: { 'scroll-padding-block-end_-224px': true }
+  readonly scrollPaddingBlockEndN192px: { 'scroll-padding-block-end_-192px': true }
+  readonly scrollPaddingBlockEndN160px: { 'scroll-padding-block-end_-160px': true }
+  readonly scrollPaddingBlockEndN128px: { 'scroll-padding-block-end_-128px': true }
+  readonly scrollPaddingBlockEndN96px: { 'scroll-padding-block-end_-96px': true }
+  readonly scrollPaddingBlockEndN80px: { 'scroll-padding-block-end_-80px': true }
+  readonly scrollPaddingBlockEndN64px: { 'scroll-padding-block-end_-64px': true }
+  readonly scrollPaddingBlockEndN56px: { 'scroll-padding-block-end_-56px': true }
+  readonly scrollPaddingBlockEndN48px: { 'scroll-padding-block-end_-48px': true }
+  readonly scrollPaddingBlockEndN40px: { 'scroll-padding-block-end_-40px': true }
+  readonly scrollPaddingBlockEndN32px: { 'scroll-padding-block-end_-32px': true }
+  readonly scrollPaddingBlockEndN28px: { 'scroll-padding-block-end_-28px': true }
+  readonly scrollPaddingBlockEndN24px: { 'scroll-padding-block-end_-24px': true }
+  readonly scrollPaddingBlockEndN20px: { 'scroll-padding-block-end_-20px': true }
+  readonly scrollPaddingBlockEndN16px: { 'scroll-padding-block-end_-16px': true }
+  readonly scrollPaddingBlockEndN14px: { 'scroll-padding-block-end_-14px': true }
+  readonly scrollPaddingBlockEndN12px: { 'scroll-padding-block-end_-12px': true }
+  readonly scrollPaddingBlockEndN10px: { 'scroll-padding-block-end_-10px': true }
+  readonly scrollPaddingBlockEndN8px: { 'scroll-padding-block-end_-8px': true }
+  readonly scrollPaddingBlockEndN6px: { 'scroll-padding-block-end_-6px': true }
+  readonly scrollPaddingBlockEndN4px: { 'scroll-padding-block-end_-4px': true }
+  readonly scrollPaddingBlockEndN2px: { 'scroll-padding-block-end_-2px': true }
+  readonly scrollPaddingBlockEndN1px: { 'scroll-padding-block-end_-1px': true }
   readonly scrollPaddingBlockEnd0px: { 'scroll-padding-block-end_0px': true }
   readonly scrollPaddingBlockEnd1px: { 'scroll-padding-block-end_1px': true }
   readonly scrollPaddingBlockEnd2px: { 'scroll-padding-block-end_2px': true }
-  readonly scrollPaddingBlockEnd3px: { 'scroll-padding-block-end_3px': true }
   readonly scrollPaddingBlockEnd4px: { 'scroll-padding-block-end_4px': true }
-  readonly scrollPaddingBlockEnd5px: { 'scroll-padding-block-end_5px': true }
+  readonly scrollPaddingBlockEnd6px: { 'scroll-padding-block-end_6px': true }
+  readonly scrollPaddingBlockEnd8px: { 'scroll-padding-block-end_8px': true }
   readonly scrollPaddingBlockEnd10px: { 'scroll-padding-block-end_10px': true }
+  readonly scrollPaddingBlockEnd12px: { 'scroll-padding-block-end_12px': true }
+  readonly scrollPaddingBlockEnd14px: { 'scroll-padding-block-end_14px': true }
+  readonly scrollPaddingBlockEnd16px: { 'scroll-padding-block-end_16px': true }
   readonly scrollPaddingBlockEnd20px: { 'scroll-padding-block-end_20px': true }
-  readonly scrollPaddingBlockEnd50px: { 'scroll-padding-block-end_50px': true }
-  readonly scrollPaddingBlockEnd100px: { 'scroll-padding-block-end_100px': true }
+  readonly scrollPaddingBlockEnd24px: { 'scroll-padding-block-end_24px': true }
+  readonly scrollPaddingBlockEnd28px: { 'scroll-padding-block-end_28px': true }
+  readonly scrollPaddingBlockEnd32px: { 'scroll-padding-block-end_32px': true }
+  readonly scrollPaddingBlockEnd40px: { 'scroll-padding-block-end_40px': true }
+  readonly scrollPaddingBlockEnd48px: { 'scroll-padding-block-end_48px': true }
+  readonly scrollPaddingBlockEnd56px: { 'scroll-padding-block-end_56px': true }
+  readonly scrollPaddingBlockEnd64px: { 'scroll-padding-block-end_64px': true }
+  readonly scrollPaddingBlockEnd80px: { 'scroll-padding-block-end_80px': true }
+  readonly scrollPaddingBlockEnd96px: { 'scroll-padding-block-end_96px': true }
+  readonly scrollPaddingBlockEnd128px: { 'scroll-padding-block-end_128px': true }
+  readonly scrollPaddingBlockEnd160px: { 'scroll-padding-block-end_160px': true }
+  readonly scrollPaddingBlockEnd192px: { 'scroll-padding-block-end_192px': true }
+  readonly scrollPaddingBlockEnd224px: { 'scroll-padding-block-end_224px': true }
+  readonly scrollPaddingBlockEnd256px: { 'scroll-padding-block-end_256px': true }
+  readonly scrollPaddingBlockEnd320px: { 'scroll-padding-block-end_320px': true }
+  readonly scrollPaddingBlockEnd384px: { 'scroll-padding-block-end_384px': true }
   readonly scrollPaddingBlockEnd0rem: { 'scroll-padding-block-end_0rem': true }
   readonly scrollPaddingBlockEnd0p25rem: { 'scroll-padding-block-end_0\.25rem': true }
   readonly scrollPaddingBlockEnd0p5rem: { 'scroll-padding-block-end_0\.5rem': true }
@@ -38404,16 +41672,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingBlockStart12pt: { 'scroll-padding-block-start_12pt': true }
   readonly scrollPaddingBlockStart16pt: { 'scroll-padding-block-start_16pt': true }
   readonly scrollPaddingBlockStart20pt: { 'scroll-padding-block-start_20pt': true }
+  readonly scrollPaddingBlockStartN384px: { 'scroll-padding-block-start_-384px': true }
+  readonly scrollPaddingBlockStartN320px: { 'scroll-padding-block-start_-320px': true }
+  readonly scrollPaddingBlockStartN256px: { 'scroll-padding-block-start_-256px': true }
+  readonly scrollPaddingBlockStartN224px: { 'scroll-padding-block-start_-224px': true }
+  readonly scrollPaddingBlockStartN192px: { 'scroll-padding-block-start_-192px': true }
+  readonly scrollPaddingBlockStartN160px: { 'scroll-padding-block-start_-160px': true }
+  readonly scrollPaddingBlockStartN128px: { 'scroll-padding-block-start_-128px': true }
+  readonly scrollPaddingBlockStartN96px: { 'scroll-padding-block-start_-96px': true }
+  readonly scrollPaddingBlockStartN80px: { 'scroll-padding-block-start_-80px': true }
+  readonly scrollPaddingBlockStartN64px: { 'scroll-padding-block-start_-64px': true }
+  readonly scrollPaddingBlockStartN56px: { 'scroll-padding-block-start_-56px': true }
+  readonly scrollPaddingBlockStartN48px: { 'scroll-padding-block-start_-48px': true }
+  readonly scrollPaddingBlockStartN40px: { 'scroll-padding-block-start_-40px': true }
+  readonly scrollPaddingBlockStartN32px: { 'scroll-padding-block-start_-32px': true }
+  readonly scrollPaddingBlockStartN28px: { 'scroll-padding-block-start_-28px': true }
+  readonly scrollPaddingBlockStartN24px: { 'scroll-padding-block-start_-24px': true }
+  readonly scrollPaddingBlockStartN20px: { 'scroll-padding-block-start_-20px': true }
+  readonly scrollPaddingBlockStartN16px: { 'scroll-padding-block-start_-16px': true }
+  readonly scrollPaddingBlockStartN14px: { 'scroll-padding-block-start_-14px': true }
+  readonly scrollPaddingBlockStartN12px: { 'scroll-padding-block-start_-12px': true }
+  readonly scrollPaddingBlockStartN10px: { 'scroll-padding-block-start_-10px': true }
+  readonly scrollPaddingBlockStartN8px: { 'scroll-padding-block-start_-8px': true }
+  readonly scrollPaddingBlockStartN6px: { 'scroll-padding-block-start_-6px': true }
+  readonly scrollPaddingBlockStartN4px: { 'scroll-padding-block-start_-4px': true }
+  readonly scrollPaddingBlockStartN2px: { 'scroll-padding-block-start_-2px': true }
+  readonly scrollPaddingBlockStartN1px: { 'scroll-padding-block-start_-1px': true }
   readonly scrollPaddingBlockStart0px: { 'scroll-padding-block-start_0px': true }
   readonly scrollPaddingBlockStart1px: { 'scroll-padding-block-start_1px': true }
   readonly scrollPaddingBlockStart2px: { 'scroll-padding-block-start_2px': true }
-  readonly scrollPaddingBlockStart3px: { 'scroll-padding-block-start_3px': true }
   readonly scrollPaddingBlockStart4px: { 'scroll-padding-block-start_4px': true }
-  readonly scrollPaddingBlockStart5px: { 'scroll-padding-block-start_5px': true }
+  readonly scrollPaddingBlockStart6px: { 'scroll-padding-block-start_6px': true }
+  readonly scrollPaddingBlockStart8px: { 'scroll-padding-block-start_8px': true }
   readonly scrollPaddingBlockStart10px: { 'scroll-padding-block-start_10px': true }
+  readonly scrollPaddingBlockStart12px: { 'scroll-padding-block-start_12px': true }
+  readonly scrollPaddingBlockStart14px: { 'scroll-padding-block-start_14px': true }
+  readonly scrollPaddingBlockStart16px: { 'scroll-padding-block-start_16px': true }
   readonly scrollPaddingBlockStart20px: { 'scroll-padding-block-start_20px': true }
-  readonly scrollPaddingBlockStart50px: { 'scroll-padding-block-start_50px': true }
-  readonly scrollPaddingBlockStart100px: { 'scroll-padding-block-start_100px': true }
+  readonly scrollPaddingBlockStart24px: { 'scroll-padding-block-start_24px': true }
+  readonly scrollPaddingBlockStart28px: { 'scroll-padding-block-start_28px': true }
+  readonly scrollPaddingBlockStart32px: { 'scroll-padding-block-start_32px': true }
+  readonly scrollPaddingBlockStart40px: { 'scroll-padding-block-start_40px': true }
+  readonly scrollPaddingBlockStart48px: { 'scroll-padding-block-start_48px': true }
+  readonly scrollPaddingBlockStart56px: { 'scroll-padding-block-start_56px': true }
+  readonly scrollPaddingBlockStart64px: { 'scroll-padding-block-start_64px': true }
+  readonly scrollPaddingBlockStart80px: { 'scroll-padding-block-start_80px': true }
+  readonly scrollPaddingBlockStart96px: { 'scroll-padding-block-start_96px': true }
+  readonly scrollPaddingBlockStart128px: { 'scroll-padding-block-start_128px': true }
+  readonly scrollPaddingBlockStart160px: { 'scroll-padding-block-start_160px': true }
+  readonly scrollPaddingBlockStart192px: { 'scroll-padding-block-start_192px': true }
+  readonly scrollPaddingBlockStart224px: { 'scroll-padding-block-start_224px': true }
+  readonly scrollPaddingBlockStart256px: { 'scroll-padding-block-start_256px': true }
+  readonly scrollPaddingBlockStart320px: { 'scroll-padding-block-start_320px': true }
+  readonly scrollPaddingBlockStart384px: { 'scroll-padding-block-start_384px': true }
   readonly scrollPaddingBlockStart0rem: { 'scroll-padding-block-start_0rem': true }
   readonly scrollPaddingBlockStart0p25rem: { 'scroll-padding-block-start_0\.25rem': true }
   readonly scrollPaddingBlockStart0p5rem: { 'scroll-padding-block-start_0\.5rem': true }
@@ -38784,16 +42095,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingBottom12pt: { 'scroll-padding-bottom_12pt': true }
   readonly scrollPaddingBottom16pt: { 'scroll-padding-bottom_16pt': true }
   readonly scrollPaddingBottom20pt: { 'scroll-padding-bottom_20pt': true }
+  readonly scrollPaddingBottomN384px: { 'scroll-padding-bottom_-384px': true }
+  readonly scrollPaddingBottomN320px: { 'scroll-padding-bottom_-320px': true }
+  readonly scrollPaddingBottomN256px: { 'scroll-padding-bottom_-256px': true }
+  readonly scrollPaddingBottomN224px: { 'scroll-padding-bottom_-224px': true }
+  readonly scrollPaddingBottomN192px: { 'scroll-padding-bottom_-192px': true }
+  readonly scrollPaddingBottomN160px: { 'scroll-padding-bottom_-160px': true }
+  readonly scrollPaddingBottomN128px: { 'scroll-padding-bottom_-128px': true }
+  readonly scrollPaddingBottomN96px: { 'scroll-padding-bottom_-96px': true }
+  readonly scrollPaddingBottomN80px: { 'scroll-padding-bottom_-80px': true }
+  readonly scrollPaddingBottomN64px: { 'scroll-padding-bottom_-64px': true }
+  readonly scrollPaddingBottomN56px: { 'scroll-padding-bottom_-56px': true }
+  readonly scrollPaddingBottomN48px: { 'scroll-padding-bottom_-48px': true }
+  readonly scrollPaddingBottomN40px: { 'scroll-padding-bottom_-40px': true }
+  readonly scrollPaddingBottomN32px: { 'scroll-padding-bottom_-32px': true }
+  readonly scrollPaddingBottomN28px: { 'scroll-padding-bottom_-28px': true }
+  readonly scrollPaddingBottomN24px: { 'scroll-padding-bottom_-24px': true }
+  readonly scrollPaddingBottomN20px: { 'scroll-padding-bottom_-20px': true }
+  readonly scrollPaddingBottomN16px: { 'scroll-padding-bottom_-16px': true }
+  readonly scrollPaddingBottomN14px: { 'scroll-padding-bottom_-14px': true }
+  readonly scrollPaddingBottomN12px: { 'scroll-padding-bottom_-12px': true }
+  readonly scrollPaddingBottomN10px: { 'scroll-padding-bottom_-10px': true }
+  readonly scrollPaddingBottomN8px: { 'scroll-padding-bottom_-8px': true }
+  readonly scrollPaddingBottomN6px: { 'scroll-padding-bottom_-6px': true }
+  readonly scrollPaddingBottomN4px: { 'scroll-padding-bottom_-4px': true }
+  readonly scrollPaddingBottomN2px: { 'scroll-padding-bottom_-2px': true }
+  readonly scrollPaddingBottomN1px: { 'scroll-padding-bottom_-1px': true }
   readonly scrollPaddingBottom0px: { 'scroll-padding-bottom_0px': true }
   readonly scrollPaddingBottom1px: { 'scroll-padding-bottom_1px': true }
   readonly scrollPaddingBottom2px: { 'scroll-padding-bottom_2px': true }
-  readonly scrollPaddingBottom3px: { 'scroll-padding-bottom_3px': true }
   readonly scrollPaddingBottom4px: { 'scroll-padding-bottom_4px': true }
-  readonly scrollPaddingBottom5px: { 'scroll-padding-bottom_5px': true }
+  readonly scrollPaddingBottom6px: { 'scroll-padding-bottom_6px': true }
+  readonly scrollPaddingBottom8px: { 'scroll-padding-bottom_8px': true }
   readonly scrollPaddingBottom10px: { 'scroll-padding-bottom_10px': true }
+  readonly scrollPaddingBottom12px: { 'scroll-padding-bottom_12px': true }
+  readonly scrollPaddingBottom14px: { 'scroll-padding-bottom_14px': true }
+  readonly scrollPaddingBottom16px: { 'scroll-padding-bottom_16px': true }
   readonly scrollPaddingBottom20px: { 'scroll-padding-bottom_20px': true }
-  readonly scrollPaddingBottom50px: { 'scroll-padding-bottom_50px': true }
-  readonly scrollPaddingBottom100px: { 'scroll-padding-bottom_100px': true }
+  readonly scrollPaddingBottom24px: { 'scroll-padding-bottom_24px': true }
+  readonly scrollPaddingBottom28px: { 'scroll-padding-bottom_28px': true }
+  readonly scrollPaddingBottom32px: { 'scroll-padding-bottom_32px': true }
+  readonly scrollPaddingBottom40px: { 'scroll-padding-bottom_40px': true }
+  readonly scrollPaddingBottom48px: { 'scroll-padding-bottom_48px': true }
+  readonly scrollPaddingBottom56px: { 'scroll-padding-bottom_56px': true }
+  readonly scrollPaddingBottom64px: { 'scroll-padding-bottom_64px': true }
+  readonly scrollPaddingBottom80px: { 'scroll-padding-bottom_80px': true }
+  readonly scrollPaddingBottom96px: { 'scroll-padding-bottom_96px': true }
+  readonly scrollPaddingBottom128px: { 'scroll-padding-bottom_128px': true }
+  readonly scrollPaddingBottom160px: { 'scroll-padding-bottom_160px': true }
+  readonly scrollPaddingBottom192px: { 'scroll-padding-bottom_192px': true }
+  readonly scrollPaddingBottom224px: { 'scroll-padding-bottom_224px': true }
+  readonly scrollPaddingBottom256px: { 'scroll-padding-bottom_256px': true }
+  readonly scrollPaddingBottom320px: { 'scroll-padding-bottom_320px': true }
+  readonly scrollPaddingBottom384px: { 'scroll-padding-bottom_384px': true }
   readonly scrollPaddingBottom0rem: { 'scroll-padding-bottom_0rem': true }
   readonly scrollPaddingBottom0p25rem: { 'scroll-padding-bottom_0\.25rem': true }
   readonly scrollPaddingBottom0p5rem: { 'scroll-padding-bottom_0\.5rem': true }
@@ -39164,16 +42518,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingInline12pt: { 'scroll-padding-inline_12pt': true }
   readonly scrollPaddingInline16pt: { 'scroll-padding-inline_16pt': true }
   readonly scrollPaddingInline20pt: { 'scroll-padding-inline_20pt': true }
+  readonly scrollPaddingInlineN384px: { 'scroll-padding-inline_-384px': true }
+  readonly scrollPaddingInlineN320px: { 'scroll-padding-inline_-320px': true }
+  readonly scrollPaddingInlineN256px: { 'scroll-padding-inline_-256px': true }
+  readonly scrollPaddingInlineN224px: { 'scroll-padding-inline_-224px': true }
+  readonly scrollPaddingInlineN192px: { 'scroll-padding-inline_-192px': true }
+  readonly scrollPaddingInlineN160px: { 'scroll-padding-inline_-160px': true }
+  readonly scrollPaddingInlineN128px: { 'scroll-padding-inline_-128px': true }
+  readonly scrollPaddingInlineN96px: { 'scroll-padding-inline_-96px': true }
+  readonly scrollPaddingInlineN80px: { 'scroll-padding-inline_-80px': true }
+  readonly scrollPaddingInlineN64px: { 'scroll-padding-inline_-64px': true }
+  readonly scrollPaddingInlineN56px: { 'scroll-padding-inline_-56px': true }
+  readonly scrollPaddingInlineN48px: { 'scroll-padding-inline_-48px': true }
+  readonly scrollPaddingInlineN40px: { 'scroll-padding-inline_-40px': true }
+  readonly scrollPaddingInlineN32px: { 'scroll-padding-inline_-32px': true }
+  readonly scrollPaddingInlineN28px: { 'scroll-padding-inline_-28px': true }
+  readonly scrollPaddingInlineN24px: { 'scroll-padding-inline_-24px': true }
+  readonly scrollPaddingInlineN20px: { 'scroll-padding-inline_-20px': true }
+  readonly scrollPaddingInlineN16px: { 'scroll-padding-inline_-16px': true }
+  readonly scrollPaddingInlineN14px: { 'scroll-padding-inline_-14px': true }
+  readonly scrollPaddingInlineN12px: { 'scroll-padding-inline_-12px': true }
+  readonly scrollPaddingInlineN10px: { 'scroll-padding-inline_-10px': true }
+  readonly scrollPaddingInlineN8px: { 'scroll-padding-inline_-8px': true }
+  readonly scrollPaddingInlineN6px: { 'scroll-padding-inline_-6px': true }
+  readonly scrollPaddingInlineN4px: { 'scroll-padding-inline_-4px': true }
+  readonly scrollPaddingInlineN2px: { 'scroll-padding-inline_-2px': true }
+  readonly scrollPaddingInlineN1px: { 'scroll-padding-inline_-1px': true }
   readonly scrollPaddingInline0px: { 'scroll-padding-inline_0px': true }
   readonly scrollPaddingInline1px: { 'scroll-padding-inline_1px': true }
   readonly scrollPaddingInline2px: { 'scroll-padding-inline_2px': true }
-  readonly scrollPaddingInline3px: { 'scroll-padding-inline_3px': true }
   readonly scrollPaddingInline4px: { 'scroll-padding-inline_4px': true }
-  readonly scrollPaddingInline5px: { 'scroll-padding-inline_5px': true }
+  readonly scrollPaddingInline6px: { 'scroll-padding-inline_6px': true }
+  readonly scrollPaddingInline8px: { 'scroll-padding-inline_8px': true }
   readonly scrollPaddingInline10px: { 'scroll-padding-inline_10px': true }
+  readonly scrollPaddingInline12px: { 'scroll-padding-inline_12px': true }
+  readonly scrollPaddingInline14px: { 'scroll-padding-inline_14px': true }
+  readonly scrollPaddingInline16px: { 'scroll-padding-inline_16px': true }
   readonly scrollPaddingInline20px: { 'scroll-padding-inline_20px': true }
-  readonly scrollPaddingInline50px: { 'scroll-padding-inline_50px': true }
-  readonly scrollPaddingInline100px: { 'scroll-padding-inline_100px': true }
+  readonly scrollPaddingInline24px: { 'scroll-padding-inline_24px': true }
+  readonly scrollPaddingInline28px: { 'scroll-padding-inline_28px': true }
+  readonly scrollPaddingInline32px: { 'scroll-padding-inline_32px': true }
+  readonly scrollPaddingInline40px: { 'scroll-padding-inline_40px': true }
+  readonly scrollPaddingInline48px: { 'scroll-padding-inline_48px': true }
+  readonly scrollPaddingInline56px: { 'scroll-padding-inline_56px': true }
+  readonly scrollPaddingInline64px: { 'scroll-padding-inline_64px': true }
+  readonly scrollPaddingInline80px: { 'scroll-padding-inline_80px': true }
+  readonly scrollPaddingInline96px: { 'scroll-padding-inline_96px': true }
+  readonly scrollPaddingInline128px: { 'scroll-padding-inline_128px': true }
+  readonly scrollPaddingInline160px: { 'scroll-padding-inline_160px': true }
+  readonly scrollPaddingInline192px: { 'scroll-padding-inline_192px': true }
+  readonly scrollPaddingInline224px: { 'scroll-padding-inline_224px': true }
+  readonly scrollPaddingInline256px: { 'scroll-padding-inline_256px': true }
+  readonly scrollPaddingInline320px: { 'scroll-padding-inline_320px': true }
+  readonly scrollPaddingInline384px: { 'scroll-padding-inline_384px': true }
   readonly scrollPaddingInline0rem: { 'scroll-padding-inline_0rem': true }
   readonly scrollPaddingInline0p25rem: { 'scroll-padding-inline_0\.25rem': true }
   readonly scrollPaddingInline0p5rem: { 'scroll-padding-inline_0\.5rem': true }
@@ -39544,16 +42941,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineEnd12pt: { 'scroll-padding-inline-end_12pt': true }
   readonly scrollPaddingInlineEnd16pt: { 'scroll-padding-inline-end_16pt': true }
   readonly scrollPaddingInlineEnd20pt: { 'scroll-padding-inline-end_20pt': true }
+  readonly scrollPaddingInlineEndN384px: { 'scroll-padding-inline-end_-384px': true }
+  readonly scrollPaddingInlineEndN320px: { 'scroll-padding-inline-end_-320px': true }
+  readonly scrollPaddingInlineEndN256px: { 'scroll-padding-inline-end_-256px': true }
+  readonly scrollPaddingInlineEndN224px: { 'scroll-padding-inline-end_-224px': true }
+  readonly scrollPaddingInlineEndN192px: { 'scroll-padding-inline-end_-192px': true }
+  readonly scrollPaddingInlineEndN160px: { 'scroll-padding-inline-end_-160px': true }
+  readonly scrollPaddingInlineEndN128px: { 'scroll-padding-inline-end_-128px': true }
+  readonly scrollPaddingInlineEndN96px: { 'scroll-padding-inline-end_-96px': true }
+  readonly scrollPaddingInlineEndN80px: { 'scroll-padding-inline-end_-80px': true }
+  readonly scrollPaddingInlineEndN64px: { 'scroll-padding-inline-end_-64px': true }
+  readonly scrollPaddingInlineEndN56px: { 'scroll-padding-inline-end_-56px': true }
+  readonly scrollPaddingInlineEndN48px: { 'scroll-padding-inline-end_-48px': true }
+  readonly scrollPaddingInlineEndN40px: { 'scroll-padding-inline-end_-40px': true }
+  readonly scrollPaddingInlineEndN32px: { 'scroll-padding-inline-end_-32px': true }
+  readonly scrollPaddingInlineEndN28px: { 'scroll-padding-inline-end_-28px': true }
+  readonly scrollPaddingInlineEndN24px: { 'scroll-padding-inline-end_-24px': true }
+  readonly scrollPaddingInlineEndN20px: { 'scroll-padding-inline-end_-20px': true }
+  readonly scrollPaddingInlineEndN16px: { 'scroll-padding-inline-end_-16px': true }
+  readonly scrollPaddingInlineEndN14px: { 'scroll-padding-inline-end_-14px': true }
+  readonly scrollPaddingInlineEndN12px: { 'scroll-padding-inline-end_-12px': true }
+  readonly scrollPaddingInlineEndN10px: { 'scroll-padding-inline-end_-10px': true }
+  readonly scrollPaddingInlineEndN8px: { 'scroll-padding-inline-end_-8px': true }
+  readonly scrollPaddingInlineEndN6px: { 'scroll-padding-inline-end_-6px': true }
+  readonly scrollPaddingInlineEndN4px: { 'scroll-padding-inline-end_-4px': true }
+  readonly scrollPaddingInlineEndN2px: { 'scroll-padding-inline-end_-2px': true }
+  readonly scrollPaddingInlineEndN1px: { 'scroll-padding-inline-end_-1px': true }
   readonly scrollPaddingInlineEnd0px: { 'scroll-padding-inline-end_0px': true }
   readonly scrollPaddingInlineEnd1px: { 'scroll-padding-inline-end_1px': true }
   readonly scrollPaddingInlineEnd2px: { 'scroll-padding-inline-end_2px': true }
-  readonly scrollPaddingInlineEnd3px: { 'scroll-padding-inline-end_3px': true }
   readonly scrollPaddingInlineEnd4px: { 'scroll-padding-inline-end_4px': true }
-  readonly scrollPaddingInlineEnd5px: { 'scroll-padding-inline-end_5px': true }
+  readonly scrollPaddingInlineEnd6px: { 'scroll-padding-inline-end_6px': true }
+  readonly scrollPaddingInlineEnd8px: { 'scroll-padding-inline-end_8px': true }
   readonly scrollPaddingInlineEnd10px: { 'scroll-padding-inline-end_10px': true }
+  readonly scrollPaddingInlineEnd12px: { 'scroll-padding-inline-end_12px': true }
+  readonly scrollPaddingInlineEnd14px: { 'scroll-padding-inline-end_14px': true }
+  readonly scrollPaddingInlineEnd16px: { 'scroll-padding-inline-end_16px': true }
   readonly scrollPaddingInlineEnd20px: { 'scroll-padding-inline-end_20px': true }
-  readonly scrollPaddingInlineEnd50px: { 'scroll-padding-inline-end_50px': true }
-  readonly scrollPaddingInlineEnd100px: { 'scroll-padding-inline-end_100px': true }
+  readonly scrollPaddingInlineEnd24px: { 'scroll-padding-inline-end_24px': true }
+  readonly scrollPaddingInlineEnd28px: { 'scroll-padding-inline-end_28px': true }
+  readonly scrollPaddingInlineEnd32px: { 'scroll-padding-inline-end_32px': true }
+  readonly scrollPaddingInlineEnd40px: { 'scroll-padding-inline-end_40px': true }
+  readonly scrollPaddingInlineEnd48px: { 'scroll-padding-inline-end_48px': true }
+  readonly scrollPaddingInlineEnd56px: { 'scroll-padding-inline-end_56px': true }
+  readonly scrollPaddingInlineEnd64px: { 'scroll-padding-inline-end_64px': true }
+  readonly scrollPaddingInlineEnd80px: { 'scroll-padding-inline-end_80px': true }
+  readonly scrollPaddingInlineEnd96px: { 'scroll-padding-inline-end_96px': true }
+  readonly scrollPaddingInlineEnd128px: { 'scroll-padding-inline-end_128px': true }
+  readonly scrollPaddingInlineEnd160px: { 'scroll-padding-inline-end_160px': true }
+  readonly scrollPaddingInlineEnd192px: { 'scroll-padding-inline-end_192px': true }
+  readonly scrollPaddingInlineEnd224px: { 'scroll-padding-inline-end_224px': true }
+  readonly scrollPaddingInlineEnd256px: { 'scroll-padding-inline-end_256px': true }
+  readonly scrollPaddingInlineEnd320px: { 'scroll-padding-inline-end_320px': true }
+  readonly scrollPaddingInlineEnd384px: { 'scroll-padding-inline-end_384px': true }
   readonly scrollPaddingInlineEnd0rem: { 'scroll-padding-inline-end_0rem': true }
   readonly scrollPaddingInlineEnd0p25rem: { 'scroll-padding-inline-end_0\.25rem': true }
   readonly scrollPaddingInlineEnd0p5rem: { 'scroll-padding-inline-end_0\.5rem': true }
@@ -39924,16 +43364,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingInlineStart12pt: { 'scroll-padding-inline-start_12pt': true }
   readonly scrollPaddingInlineStart16pt: { 'scroll-padding-inline-start_16pt': true }
   readonly scrollPaddingInlineStart20pt: { 'scroll-padding-inline-start_20pt': true }
+  readonly scrollPaddingInlineStartN384px: { 'scroll-padding-inline-start_-384px': true }
+  readonly scrollPaddingInlineStartN320px: { 'scroll-padding-inline-start_-320px': true }
+  readonly scrollPaddingInlineStartN256px: { 'scroll-padding-inline-start_-256px': true }
+  readonly scrollPaddingInlineStartN224px: { 'scroll-padding-inline-start_-224px': true }
+  readonly scrollPaddingInlineStartN192px: { 'scroll-padding-inline-start_-192px': true }
+  readonly scrollPaddingInlineStartN160px: { 'scroll-padding-inline-start_-160px': true }
+  readonly scrollPaddingInlineStartN128px: { 'scroll-padding-inline-start_-128px': true }
+  readonly scrollPaddingInlineStartN96px: { 'scroll-padding-inline-start_-96px': true }
+  readonly scrollPaddingInlineStartN80px: { 'scroll-padding-inline-start_-80px': true }
+  readonly scrollPaddingInlineStartN64px: { 'scroll-padding-inline-start_-64px': true }
+  readonly scrollPaddingInlineStartN56px: { 'scroll-padding-inline-start_-56px': true }
+  readonly scrollPaddingInlineStartN48px: { 'scroll-padding-inline-start_-48px': true }
+  readonly scrollPaddingInlineStartN40px: { 'scroll-padding-inline-start_-40px': true }
+  readonly scrollPaddingInlineStartN32px: { 'scroll-padding-inline-start_-32px': true }
+  readonly scrollPaddingInlineStartN28px: { 'scroll-padding-inline-start_-28px': true }
+  readonly scrollPaddingInlineStartN24px: { 'scroll-padding-inline-start_-24px': true }
+  readonly scrollPaddingInlineStartN20px: { 'scroll-padding-inline-start_-20px': true }
+  readonly scrollPaddingInlineStartN16px: { 'scroll-padding-inline-start_-16px': true }
+  readonly scrollPaddingInlineStartN14px: { 'scroll-padding-inline-start_-14px': true }
+  readonly scrollPaddingInlineStartN12px: { 'scroll-padding-inline-start_-12px': true }
+  readonly scrollPaddingInlineStartN10px: { 'scroll-padding-inline-start_-10px': true }
+  readonly scrollPaddingInlineStartN8px: { 'scroll-padding-inline-start_-8px': true }
+  readonly scrollPaddingInlineStartN6px: { 'scroll-padding-inline-start_-6px': true }
+  readonly scrollPaddingInlineStartN4px: { 'scroll-padding-inline-start_-4px': true }
+  readonly scrollPaddingInlineStartN2px: { 'scroll-padding-inline-start_-2px': true }
+  readonly scrollPaddingInlineStartN1px: { 'scroll-padding-inline-start_-1px': true }
   readonly scrollPaddingInlineStart0px: { 'scroll-padding-inline-start_0px': true }
   readonly scrollPaddingInlineStart1px: { 'scroll-padding-inline-start_1px': true }
   readonly scrollPaddingInlineStart2px: { 'scroll-padding-inline-start_2px': true }
-  readonly scrollPaddingInlineStart3px: { 'scroll-padding-inline-start_3px': true }
   readonly scrollPaddingInlineStart4px: { 'scroll-padding-inline-start_4px': true }
-  readonly scrollPaddingInlineStart5px: { 'scroll-padding-inline-start_5px': true }
+  readonly scrollPaddingInlineStart6px: { 'scroll-padding-inline-start_6px': true }
+  readonly scrollPaddingInlineStart8px: { 'scroll-padding-inline-start_8px': true }
   readonly scrollPaddingInlineStart10px: { 'scroll-padding-inline-start_10px': true }
+  readonly scrollPaddingInlineStart12px: { 'scroll-padding-inline-start_12px': true }
+  readonly scrollPaddingInlineStart14px: { 'scroll-padding-inline-start_14px': true }
+  readonly scrollPaddingInlineStart16px: { 'scroll-padding-inline-start_16px': true }
   readonly scrollPaddingInlineStart20px: { 'scroll-padding-inline-start_20px': true }
-  readonly scrollPaddingInlineStart50px: { 'scroll-padding-inline-start_50px': true }
-  readonly scrollPaddingInlineStart100px: { 'scroll-padding-inline-start_100px': true }
+  readonly scrollPaddingInlineStart24px: { 'scroll-padding-inline-start_24px': true }
+  readonly scrollPaddingInlineStart28px: { 'scroll-padding-inline-start_28px': true }
+  readonly scrollPaddingInlineStart32px: { 'scroll-padding-inline-start_32px': true }
+  readonly scrollPaddingInlineStart40px: { 'scroll-padding-inline-start_40px': true }
+  readonly scrollPaddingInlineStart48px: { 'scroll-padding-inline-start_48px': true }
+  readonly scrollPaddingInlineStart56px: { 'scroll-padding-inline-start_56px': true }
+  readonly scrollPaddingInlineStart64px: { 'scroll-padding-inline-start_64px': true }
+  readonly scrollPaddingInlineStart80px: { 'scroll-padding-inline-start_80px': true }
+  readonly scrollPaddingInlineStart96px: { 'scroll-padding-inline-start_96px': true }
+  readonly scrollPaddingInlineStart128px: { 'scroll-padding-inline-start_128px': true }
+  readonly scrollPaddingInlineStart160px: { 'scroll-padding-inline-start_160px': true }
+  readonly scrollPaddingInlineStart192px: { 'scroll-padding-inline-start_192px': true }
+  readonly scrollPaddingInlineStart224px: { 'scroll-padding-inline-start_224px': true }
+  readonly scrollPaddingInlineStart256px: { 'scroll-padding-inline-start_256px': true }
+  readonly scrollPaddingInlineStart320px: { 'scroll-padding-inline-start_320px': true }
+  readonly scrollPaddingInlineStart384px: { 'scroll-padding-inline-start_384px': true }
   readonly scrollPaddingInlineStart0rem: { 'scroll-padding-inline-start_0rem': true }
   readonly scrollPaddingInlineStart0p25rem: { 'scroll-padding-inline-start_0\.25rem': true }
   readonly scrollPaddingInlineStart0p5rem: { 'scroll-padding-inline-start_0\.5rem': true }
@@ -40304,16 +43787,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingLeft12pt: { 'scroll-padding-left_12pt': true }
   readonly scrollPaddingLeft16pt: { 'scroll-padding-left_16pt': true }
   readonly scrollPaddingLeft20pt: { 'scroll-padding-left_20pt': true }
+  readonly scrollPaddingLeftN384px: { 'scroll-padding-left_-384px': true }
+  readonly scrollPaddingLeftN320px: { 'scroll-padding-left_-320px': true }
+  readonly scrollPaddingLeftN256px: { 'scroll-padding-left_-256px': true }
+  readonly scrollPaddingLeftN224px: { 'scroll-padding-left_-224px': true }
+  readonly scrollPaddingLeftN192px: { 'scroll-padding-left_-192px': true }
+  readonly scrollPaddingLeftN160px: { 'scroll-padding-left_-160px': true }
+  readonly scrollPaddingLeftN128px: { 'scroll-padding-left_-128px': true }
+  readonly scrollPaddingLeftN96px: { 'scroll-padding-left_-96px': true }
+  readonly scrollPaddingLeftN80px: { 'scroll-padding-left_-80px': true }
+  readonly scrollPaddingLeftN64px: { 'scroll-padding-left_-64px': true }
+  readonly scrollPaddingLeftN56px: { 'scroll-padding-left_-56px': true }
+  readonly scrollPaddingLeftN48px: { 'scroll-padding-left_-48px': true }
+  readonly scrollPaddingLeftN40px: { 'scroll-padding-left_-40px': true }
+  readonly scrollPaddingLeftN32px: { 'scroll-padding-left_-32px': true }
+  readonly scrollPaddingLeftN28px: { 'scroll-padding-left_-28px': true }
+  readonly scrollPaddingLeftN24px: { 'scroll-padding-left_-24px': true }
+  readonly scrollPaddingLeftN20px: { 'scroll-padding-left_-20px': true }
+  readonly scrollPaddingLeftN16px: { 'scroll-padding-left_-16px': true }
+  readonly scrollPaddingLeftN14px: { 'scroll-padding-left_-14px': true }
+  readonly scrollPaddingLeftN12px: { 'scroll-padding-left_-12px': true }
+  readonly scrollPaddingLeftN10px: { 'scroll-padding-left_-10px': true }
+  readonly scrollPaddingLeftN8px: { 'scroll-padding-left_-8px': true }
+  readonly scrollPaddingLeftN6px: { 'scroll-padding-left_-6px': true }
+  readonly scrollPaddingLeftN4px: { 'scroll-padding-left_-4px': true }
+  readonly scrollPaddingLeftN2px: { 'scroll-padding-left_-2px': true }
+  readonly scrollPaddingLeftN1px: { 'scroll-padding-left_-1px': true }
   readonly scrollPaddingLeft0px: { 'scroll-padding-left_0px': true }
   readonly scrollPaddingLeft1px: { 'scroll-padding-left_1px': true }
   readonly scrollPaddingLeft2px: { 'scroll-padding-left_2px': true }
-  readonly scrollPaddingLeft3px: { 'scroll-padding-left_3px': true }
   readonly scrollPaddingLeft4px: { 'scroll-padding-left_4px': true }
-  readonly scrollPaddingLeft5px: { 'scroll-padding-left_5px': true }
+  readonly scrollPaddingLeft6px: { 'scroll-padding-left_6px': true }
+  readonly scrollPaddingLeft8px: { 'scroll-padding-left_8px': true }
   readonly scrollPaddingLeft10px: { 'scroll-padding-left_10px': true }
+  readonly scrollPaddingLeft12px: { 'scroll-padding-left_12px': true }
+  readonly scrollPaddingLeft14px: { 'scroll-padding-left_14px': true }
+  readonly scrollPaddingLeft16px: { 'scroll-padding-left_16px': true }
   readonly scrollPaddingLeft20px: { 'scroll-padding-left_20px': true }
-  readonly scrollPaddingLeft50px: { 'scroll-padding-left_50px': true }
-  readonly scrollPaddingLeft100px: { 'scroll-padding-left_100px': true }
+  readonly scrollPaddingLeft24px: { 'scroll-padding-left_24px': true }
+  readonly scrollPaddingLeft28px: { 'scroll-padding-left_28px': true }
+  readonly scrollPaddingLeft32px: { 'scroll-padding-left_32px': true }
+  readonly scrollPaddingLeft40px: { 'scroll-padding-left_40px': true }
+  readonly scrollPaddingLeft48px: { 'scroll-padding-left_48px': true }
+  readonly scrollPaddingLeft56px: { 'scroll-padding-left_56px': true }
+  readonly scrollPaddingLeft64px: { 'scroll-padding-left_64px': true }
+  readonly scrollPaddingLeft80px: { 'scroll-padding-left_80px': true }
+  readonly scrollPaddingLeft96px: { 'scroll-padding-left_96px': true }
+  readonly scrollPaddingLeft128px: { 'scroll-padding-left_128px': true }
+  readonly scrollPaddingLeft160px: { 'scroll-padding-left_160px': true }
+  readonly scrollPaddingLeft192px: { 'scroll-padding-left_192px': true }
+  readonly scrollPaddingLeft224px: { 'scroll-padding-left_224px': true }
+  readonly scrollPaddingLeft256px: { 'scroll-padding-left_256px': true }
+  readonly scrollPaddingLeft320px: { 'scroll-padding-left_320px': true }
+  readonly scrollPaddingLeft384px: { 'scroll-padding-left_384px': true }
   readonly scrollPaddingLeft0rem: { 'scroll-padding-left_0rem': true }
   readonly scrollPaddingLeft0p25rem: { 'scroll-padding-left_0\.25rem': true }
   readonly scrollPaddingLeft0p5rem: { 'scroll-padding-left_0\.5rem': true }
@@ -40684,16 +44210,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingRight12pt: { 'scroll-padding-right_12pt': true }
   readonly scrollPaddingRight16pt: { 'scroll-padding-right_16pt': true }
   readonly scrollPaddingRight20pt: { 'scroll-padding-right_20pt': true }
+  readonly scrollPaddingRightN384px: { 'scroll-padding-right_-384px': true }
+  readonly scrollPaddingRightN320px: { 'scroll-padding-right_-320px': true }
+  readonly scrollPaddingRightN256px: { 'scroll-padding-right_-256px': true }
+  readonly scrollPaddingRightN224px: { 'scroll-padding-right_-224px': true }
+  readonly scrollPaddingRightN192px: { 'scroll-padding-right_-192px': true }
+  readonly scrollPaddingRightN160px: { 'scroll-padding-right_-160px': true }
+  readonly scrollPaddingRightN128px: { 'scroll-padding-right_-128px': true }
+  readonly scrollPaddingRightN96px: { 'scroll-padding-right_-96px': true }
+  readonly scrollPaddingRightN80px: { 'scroll-padding-right_-80px': true }
+  readonly scrollPaddingRightN64px: { 'scroll-padding-right_-64px': true }
+  readonly scrollPaddingRightN56px: { 'scroll-padding-right_-56px': true }
+  readonly scrollPaddingRightN48px: { 'scroll-padding-right_-48px': true }
+  readonly scrollPaddingRightN40px: { 'scroll-padding-right_-40px': true }
+  readonly scrollPaddingRightN32px: { 'scroll-padding-right_-32px': true }
+  readonly scrollPaddingRightN28px: { 'scroll-padding-right_-28px': true }
+  readonly scrollPaddingRightN24px: { 'scroll-padding-right_-24px': true }
+  readonly scrollPaddingRightN20px: { 'scroll-padding-right_-20px': true }
+  readonly scrollPaddingRightN16px: { 'scroll-padding-right_-16px': true }
+  readonly scrollPaddingRightN14px: { 'scroll-padding-right_-14px': true }
+  readonly scrollPaddingRightN12px: { 'scroll-padding-right_-12px': true }
+  readonly scrollPaddingRightN10px: { 'scroll-padding-right_-10px': true }
+  readonly scrollPaddingRightN8px: { 'scroll-padding-right_-8px': true }
+  readonly scrollPaddingRightN6px: { 'scroll-padding-right_-6px': true }
+  readonly scrollPaddingRightN4px: { 'scroll-padding-right_-4px': true }
+  readonly scrollPaddingRightN2px: { 'scroll-padding-right_-2px': true }
+  readonly scrollPaddingRightN1px: { 'scroll-padding-right_-1px': true }
   readonly scrollPaddingRight0px: { 'scroll-padding-right_0px': true }
   readonly scrollPaddingRight1px: { 'scroll-padding-right_1px': true }
   readonly scrollPaddingRight2px: { 'scroll-padding-right_2px': true }
-  readonly scrollPaddingRight3px: { 'scroll-padding-right_3px': true }
   readonly scrollPaddingRight4px: { 'scroll-padding-right_4px': true }
-  readonly scrollPaddingRight5px: { 'scroll-padding-right_5px': true }
+  readonly scrollPaddingRight6px: { 'scroll-padding-right_6px': true }
+  readonly scrollPaddingRight8px: { 'scroll-padding-right_8px': true }
   readonly scrollPaddingRight10px: { 'scroll-padding-right_10px': true }
+  readonly scrollPaddingRight12px: { 'scroll-padding-right_12px': true }
+  readonly scrollPaddingRight14px: { 'scroll-padding-right_14px': true }
+  readonly scrollPaddingRight16px: { 'scroll-padding-right_16px': true }
   readonly scrollPaddingRight20px: { 'scroll-padding-right_20px': true }
-  readonly scrollPaddingRight50px: { 'scroll-padding-right_50px': true }
-  readonly scrollPaddingRight100px: { 'scroll-padding-right_100px': true }
+  readonly scrollPaddingRight24px: { 'scroll-padding-right_24px': true }
+  readonly scrollPaddingRight28px: { 'scroll-padding-right_28px': true }
+  readonly scrollPaddingRight32px: { 'scroll-padding-right_32px': true }
+  readonly scrollPaddingRight40px: { 'scroll-padding-right_40px': true }
+  readonly scrollPaddingRight48px: { 'scroll-padding-right_48px': true }
+  readonly scrollPaddingRight56px: { 'scroll-padding-right_56px': true }
+  readonly scrollPaddingRight64px: { 'scroll-padding-right_64px': true }
+  readonly scrollPaddingRight80px: { 'scroll-padding-right_80px': true }
+  readonly scrollPaddingRight96px: { 'scroll-padding-right_96px': true }
+  readonly scrollPaddingRight128px: { 'scroll-padding-right_128px': true }
+  readonly scrollPaddingRight160px: { 'scroll-padding-right_160px': true }
+  readonly scrollPaddingRight192px: { 'scroll-padding-right_192px': true }
+  readonly scrollPaddingRight224px: { 'scroll-padding-right_224px': true }
+  readonly scrollPaddingRight256px: { 'scroll-padding-right_256px': true }
+  readonly scrollPaddingRight320px: { 'scroll-padding-right_320px': true }
+  readonly scrollPaddingRight384px: { 'scroll-padding-right_384px': true }
   readonly scrollPaddingRight0rem: { 'scroll-padding-right_0rem': true }
   readonly scrollPaddingRight0p25rem: { 'scroll-padding-right_0\.25rem': true }
   readonly scrollPaddingRight0p5rem: { 'scroll-padding-right_0\.5rem': true }
@@ -41064,16 +44633,59 @@ export interface CsstsAtoms {
   readonly scrollPaddingTop12pt: { 'scroll-padding-top_12pt': true }
   readonly scrollPaddingTop16pt: { 'scroll-padding-top_16pt': true }
   readonly scrollPaddingTop20pt: { 'scroll-padding-top_20pt': true }
+  readonly scrollPaddingTopN384px: { 'scroll-padding-top_-384px': true }
+  readonly scrollPaddingTopN320px: { 'scroll-padding-top_-320px': true }
+  readonly scrollPaddingTopN256px: { 'scroll-padding-top_-256px': true }
+  readonly scrollPaddingTopN224px: { 'scroll-padding-top_-224px': true }
+  readonly scrollPaddingTopN192px: { 'scroll-padding-top_-192px': true }
+  readonly scrollPaddingTopN160px: { 'scroll-padding-top_-160px': true }
+  readonly scrollPaddingTopN128px: { 'scroll-padding-top_-128px': true }
+  readonly scrollPaddingTopN96px: { 'scroll-padding-top_-96px': true }
+  readonly scrollPaddingTopN80px: { 'scroll-padding-top_-80px': true }
+  readonly scrollPaddingTopN64px: { 'scroll-padding-top_-64px': true }
+  readonly scrollPaddingTopN56px: { 'scroll-padding-top_-56px': true }
+  readonly scrollPaddingTopN48px: { 'scroll-padding-top_-48px': true }
+  readonly scrollPaddingTopN40px: { 'scroll-padding-top_-40px': true }
+  readonly scrollPaddingTopN32px: { 'scroll-padding-top_-32px': true }
+  readonly scrollPaddingTopN28px: { 'scroll-padding-top_-28px': true }
+  readonly scrollPaddingTopN24px: { 'scroll-padding-top_-24px': true }
+  readonly scrollPaddingTopN20px: { 'scroll-padding-top_-20px': true }
+  readonly scrollPaddingTopN16px: { 'scroll-padding-top_-16px': true }
+  readonly scrollPaddingTopN14px: { 'scroll-padding-top_-14px': true }
+  readonly scrollPaddingTopN12px: { 'scroll-padding-top_-12px': true }
+  readonly scrollPaddingTopN10px: { 'scroll-padding-top_-10px': true }
+  readonly scrollPaddingTopN8px: { 'scroll-padding-top_-8px': true }
+  readonly scrollPaddingTopN6px: { 'scroll-padding-top_-6px': true }
+  readonly scrollPaddingTopN4px: { 'scroll-padding-top_-4px': true }
+  readonly scrollPaddingTopN2px: { 'scroll-padding-top_-2px': true }
+  readonly scrollPaddingTopN1px: { 'scroll-padding-top_-1px': true }
   readonly scrollPaddingTop0px: { 'scroll-padding-top_0px': true }
   readonly scrollPaddingTop1px: { 'scroll-padding-top_1px': true }
   readonly scrollPaddingTop2px: { 'scroll-padding-top_2px': true }
-  readonly scrollPaddingTop3px: { 'scroll-padding-top_3px': true }
   readonly scrollPaddingTop4px: { 'scroll-padding-top_4px': true }
-  readonly scrollPaddingTop5px: { 'scroll-padding-top_5px': true }
+  readonly scrollPaddingTop6px: { 'scroll-padding-top_6px': true }
+  readonly scrollPaddingTop8px: { 'scroll-padding-top_8px': true }
   readonly scrollPaddingTop10px: { 'scroll-padding-top_10px': true }
+  readonly scrollPaddingTop12px: { 'scroll-padding-top_12px': true }
+  readonly scrollPaddingTop14px: { 'scroll-padding-top_14px': true }
+  readonly scrollPaddingTop16px: { 'scroll-padding-top_16px': true }
   readonly scrollPaddingTop20px: { 'scroll-padding-top_20px': true }
-  readonly scrollPaddingTop50px: { 'scroll-padding-top_50px': true }
-  readonly scrollPaddingTop100px: { 'scroll-padding-top_100px': true }
+  readonly scrollPaddingTop24px: { 'scroll-padding-top_24px': true }
+  readonly scrollPaddingTop28px: { 'scroll-padding-top_28px': true }
+  readonly scrollPaddingTop32px: { 'scroll-padding-top_32px': true }
+  readonly scrollPaddingTop40px: { 'scroll-padding-top_40px': true }
+  readonly scrollPaddingTop48px: { 'scroll-padding-top_48px': true }
+  readonly scrollPaddingTop56px: { 'scroll-padding-top_56px': true }
+  readonly scrollPaddingTop64px: { 'scroll-padding-top_64px': true }
+  readonly scrollPaddingTop80px: { 'scroll-padding-top_80px': true }
+  readonly scrollPaddingTop96px: { 'scroll-padding-top_96px': true }
+  readonly scrollPaddingTop128px: { 'scroll-padding-top_128px': true }
+  readonly scrollPaddingTop160px: { 'scroll-padding-top_160px': true }
+  readonly scrollPaddingTop192px: { 'scroll-padding-top_192px': true }
+  readonly scrollPaddingTop224px: { 'scroll-padding-top_224px': true }
+  readonly scrollPaddingTop256px: { 'scroll-padding-top_256px': true }
+  readonly scrollPaddingTop320px: { 'scroll-padding-top_320px': true }
+  readonly scrollPaddingTop384px: { 'scroll-padding-top_384px': true }
   readonly scrollPaddingTop0rem: { 'scroll-padding-top_0rem': true }
   readonly scrollPaddingTop0p25rem: { 'scroll-padding-top_0\.25rem': true }
   readonly scrollPaddingTop0p5rem: { 'scroll-padding-top_0\.5rem': true }
@@ -41475,16 +45087,59 @@ export interface CsstsAtoms {
   readonly tabSize12pt: { 'tab-size_12pt': true }
   readonly tabSize16pt: { 'tab-size_16pt': true }
   readonly tabSize20pt: { 'tab-size_20pt': true }
+  readonly tabSizeN384px: { 'tab-size_-384px': true }
+  readonly tabSizeN320px: { 'tab-size_-320px': true }
+  readonly tabSizeN256px: { 'tab-size_-256px': true }
+  readonly tabSizeN224px: { 'tab-size_-224px': true }
+  readonly tabSizeN192px: { 'tab-size_-192px': true }
+  readonly tabSizeN160px: { 'tab-size_-160px': true }
+  readonly tabSizeN128px: { 'tab-size_-128px': true }
+  readonly tabSizeN96px: { 'tab-size_-96px': true }
+  readonly tabSizeN80px: { 'tab-size_-80px': true }
+  readonly tabSizeN64px: { 'tab-size_-64px': true }
+  readonly tabSizeN56px: { 'tab-size_-56px': true }
+  readonly tabSizeN48px: { 'tab-size_-48px': true }
+  readonly tabSizeN40px: { 'tab-size_-40px': true }
+  readonly tabSizeN32px: { 'tab-size_-32px': true }
+  readonly tabSizeN28px: { 'tab-size_-28px': true }
+  readonly tabSizeN24px: { 'tab-size_-24px': true }
+  readonly tabSizeN20px: { 'tab-size_-20px': true }
+  readonly tabSizeN16px: { 'tab-size_-16px': true }
+  readonly tabSizeN14px: { 'tab-size_-14px': true }
+  readonly tabSizeN12px: { 'tab-size_-12px': true }
+  readonly tabSizeN10px: { 'tab-size_-10px': true }
+  readonly tabSizeN8px: { 'tab-size_-8px': true }
+  readonly tabSizeN6px: { 'tab-size_-6px': true }
+  readonly tabSizeN4px: { 'tab-size_-4px': true }
+  readonly tabSizeN2px: { 'tab-size_-2px': true }
+  readonly tabSizeN1px: { 'tab-size_-1px': true }
   readonly tabSize0px: { 'tab-size_0px': true }
   readonly tabSize1px: { 'tab-size_1px': true }
   readonly tabSize2px: { 'tab-size_2px': true }
-  readonly tabSize3px: { 'tab-size_3px': true }
   readonly tabSize4px: { 'tab-size_4px': true }
-  readonly tabSize5px: { 'tab-size_5px': true }
+  readonly tabSize6px: { 'tab-size_6px': true }
+  readonly tabSize8px: { 'tab-size_8px': true }
   readonly tabSize10px: { 'tab-size_10px': true }
+  readonly tabSize12px: { 'tab-size_12px': true }
+  readonly tabSize14px: { 'tab-size_14px': true }
+  readonly tabSize16px: { 'tab-size_16px': true }
   readonly tabSize20px: { 'tab-size_20px': true }
-  readonly tabSize50px: { 'tab-size_50px': true }
-  readonly tabSize100px: { 'tab-size_100px': true }
+  readonly tabSize24px: { 'tab-size_24px': true }
+  readonly tabSize28px: { 'tab-size_28px': true }
+  readonly tabSize32px: { 'tab-size_32px': true }
+  readonly tabSize40px: { 'tab-size_40px': true }
+  readonly tabSize48px: { 'tab-size_48px': true }
+  readonly tabSize56px: { 'tab-size_56px': true }
+  readonly tabSize64px: { 'tab-size_64px': true }
+  readonly tabSize80px: { 'tab-size_80px': true }
+  readonly tabSize96px: { 'tab-size_96px': true }
+  readonly tabSize128px: { 'tab-size_128px': true }
+  readonly tabSize160px: { 'tab-size_160px': true }
+  readonly tabSize192px: { 'tab-size_192px': true }
+  readonly tabSize224px: { 'tab-size_224px': true }
+  readonly tabSize256px: { 'tab-size_256px': true }
+  readonly tabSize320px: { 'tab-size_320px': true }
+  readonly tabSize384px: { 'tab-size_384px': true }
   readonly tabSize0rem: { 'tab-size_0rem': true }
   readonly tabSize0p25rem: { 'tab-size_0\.25rem': true }
   readonly tabSize0p5rem: { 'tab-size_0\.5rem': true }
@@ -41870,16 +45525,59 @@ export interface CsstsAtoms {
   readonly top12pt: { 'top_12pt': true }
   readonly top16pt: { 'top_16pt': true }
   readonly top20pt: { 'top_20pt': true }
+  readonly topN384px: { 'top_-384px': true }
+  readonly topN320px: { 'top_-320px': true }
+  readonly topN256px: { 'top_-256px': true }
+  readonly topN224px: { 'top_-224px': true }
+  readonly topN192px: { 'top_-192px': true }
+  readonly topN160px: { 'top_-160px': true }
+  readonly topN128px: { 'top_-128px': true }
+  readonly topN96px: { 'top_-96px': true }
+  readonly topN80px: { 'top_-80px': true }
+  readonly topN64px: { 'top_-64px': true }
+  readonly topN56px: { 'top_-56px': true }
+  readonly topN48px: { 'top_-48px': true }
+  readonly topN40px: { 'top_-40px': true }
+  readonly topN32px: { 'top_-32px': true }
+  readonly topN28px: { 'top_-28px': true }
+  readonly topN24px: { 'top_-24px': true }
+  readonly topN20px: { 'top_-20px': true }
+  readonly topN16px: { 'top_-16px': true }
+  readonly topN14px: { 'top_-14px': true }
+  readonly topN12px: { 'top_-12px': true }
+  readonly topN10px: { 'top_-10px': true }
+  readonly topN8px: { 'top_-8px': true }
+  readonly topN6px: { 'top_-6px': true }
+  readonly topN4px: { 'top_-4px': true }
+  readonly topN2px: { 'top_-2px': true }
+  readonly topN1px: { 'top_-1px': true }
   readonly top0px: { 'top_0px': true }
   readonly top1px: { 'top_1px': true }
   readonly top2px: { 'top_2px': true }
-  readonly top3px: { 'top_3px': true }
   readonly top4px: { 'top_4px': true }
-  readonly top5px: { 'top_5px': true }
+  readonly top6px: { 'top_6px': true }
+  readonly top8px: { 'top_8px': true }
   readonly top10px: { 'top_10px': true }
+  readonly top12px: { 'top_12px': true }
+  readonly top14px: { 'top_14px': true }
+  readonly top16px: { 'top_16px': true }
   readonly top20px: { 'top_20px': true }
-  readonly top50px: { 'top_50px': true }
-  readonly top100px: { 'top_100px': true }
+  readonly top24px: { 'top_24px': true }
+  readonly top28px: { 'top_28px': true }
+  readonly top32px: { 'top_32px': true }
+  readonly top40px: { 'top_40px': true }
+  readonly top48px: { 'top_48px': true }
+  readonly top56px: { 'top_56px': true }
+  readonly top64px: { 'top_64px': true }
+  readonly top80px: { 'top_80px': true }
+  readonly top96px: { 'top_96px': true }
+  readonly top128px: { 'top_128px': true }
+  readonly top160px: { 'top_160px': true }
+  readonly top192px: { 'top_192px': true }
+  readonly top224px: { 'top_224px': true }
+  readonly top256px: { 'top_256px': true }
+  readonly top320px: { 'top_320px': true }
+  readonly top384px: { 'top_384px': true }
   readonly top0rem: { 'top_0rem': true }
   readonly top0p25rem: { 'top_0\.25rem': true }
   readonly top0p5rem: { 'top_0\.5rem': true }
@@ -42330,16 +46028,59 @@ export interface CsstsAtoms {
   readonly transform12pt: { 'transform_12pt': true }
   readonly transform16pt: { 'transform_16pt': true }
   readonly transform20pt: { 'transform_20pt': true }
+  readonly transformN384px: { 'transform_-384px': true }
+  readonly transformN320px: { 'transform_-320px': true }
+  readonly transformN256px: { 'transform_-256px': true }
+  readonly transformN224px: { 'transform_-224px': true }
+  readonly transformN192px: { 'transform_-192px': true }
+  readonly transformN160px: { 'transform_-160px': true }
+  readonly transformN128px: { 'transform_-128px': true }
+  readonly transformN96px: { 'transform_-96px': true }
+  readonly transformN80px: { 'transform_-80px': true }
+  readonly transformN64px: { 'transform_-64px': true }
+  readonly transformN56px: { 'transform_-56px': true }
+  readonly transformN48px: { 'transform_-48px': true }
+  readonly transformN40px: { 'transform_-40px': true }
+  readonly transformN32px: { 'transform_-32px': true }
+  readonly transformN28px: { 'transform_-28px': true }
+  readonly transformN24px: { 'transform_-24px': true }
+  readonly transformN20px: { 'transform_-20px': true }
+  readonly transformN16px: { 'transform_-16px': true }
+  readonly transformN14px: { 'transform_-14px': true }
+  readonly transformN12px: { 'transform_-12px': true }
+  readonly transformN10px: { 'transform_-10px': true }
+  readonly transformN8px: { 'transform_-8px': true }
+  readonly transformN6px: { 'transform_-6px': true }
+  readonly transformN4px: { 'transform_-4px': true }
+  readonly transformN2px: { 'transform_-2px': true }
+  readonly transformN1px: { 'transform_-1px': true }
   readonly transform0px: { 'transform_0px': true }
   readonly transform1px: { 'transform_1px': true }
   readonly transform2px: { 'transform_2px': true }
-  readonly transform3px: { 'transform_3px': true }
   readonly transform4px: { 'transform_4px': true }
-  readonly transform5px: { 'transform_5px': true }
+  readonly transform6px: { 'transform_6px': true }
+  readonly transform8px: { 'transform_8px': true }
   readonly transform10px: { 'transform_10px': true }
+  readonly transform12px: { 'transform_12px': true }
+  readonly transform14px: { 'transform_14px': true }
+  readonly transform16px: { 'transform_16px': true }
   readonly transform20px: { 'transform_20px': true }
-  readonly transform50px: { 'transform_50px': true }
-  readonly transform100px: { 'transform_100px': true }
+  readonly transform24px: { 'transform_24px': true }
+  readonly transform28px: { 'transform_28px': true }
+  readonly transform32px: { 'transform_32px': true }
+  readonly transform40px: { 'transform_40px': true }
+  readonly transform48px: { 'transform_48px': true }
+  readonly transform56px: { 'transform_56px': true }
+  readonly transform64px: { 'transform_64px': true }
+  readonly transform80px: { 'transform_80px': true }
+  readonly transform96px: { 'transform_96px': true }
+  readonly transform128px: { 'transform_128px': true }
+  readonly transform160px: { 'transform_160px': true }
+  readonly transform192px: { 'transform_192px': true }
+  readonly transform224px: { 'transform_224px': true }
+  readonly transform256px: { 'transform_256px': true }
+  readonly transform320px: { 'transform_320px': true }
+  readonly transform384px: { 'transform_384px': true }
   readonly transform0rem: { 'transform_0rem': true }
   readonly transform0p25rem: { 'transform_0\.25rem': true }
   readonly transform0p5rem: { 'transform_0\.5rem': true }
@@ -42726,16 +46467,59 @@ export interface CsstsAtoms {
   readonly transformOrigin12pt: { 'transform-origin_12pt': true }
   readonly transformOrigin16pt: { 'transform-origin_16pt': true }
   readonly transformOrigin20pt: { 'transform-origin_20pt': true }
+  readonly transformOriginN384px: { 'transform-origin_-384px': true }
+  readonly transformOriginN320px: { 'transform-origin_-320px': true }
+  readonly transformOriginN256px: { 'transform-origin_-256px': true }
+  readonly transformOriginN224px: { 'transform-origin_-224px': true }
+  readonly transformOriginN192px: { 'transform-origin_-192px': true }
+  readonly transformOriginN160px: { 'transform-origin_-160px': true }
+  readonly transformOriginN128px: { 'transform-origin_-128px': true }
+  readonly transformOriginN96px: { 'transform-origin_-96px': true }
+  readonly transformOriginN80px: { 'transform-origin_-80px': true }
+  readonly transformOriginN64px: { 'transform-origin_-64px': true }
+  readonly transformOriginN56px: { 'transform-origin_-56px': true }
+  readonly transformOriginN48px: { 'transform-origin_-48px': true }
+  readonly transformOriginN40px: { 'transform-origin_-40px': true }
+  readonly transformOriginN32px: { 'transform-origin_-32px': true }
+  readonly transformOriginN28px: { 'transform-origin_-28px': true }
+  readonly transformOriginN24px: { 'transform-origin_-24px': true }
+  readonly transformOriginN20px: { 'transform-origin_-20px': true }
+  readonly transformOriginN16px: { 'transform-origin_-16px': true }
+  readonly transformOriginN14px: { 'transform-origin_-14px': true }
+  readonly transformOriginN12px: { 'transform-origin_-12px': true }
+  readonly transformOriginN10px: { 'transform-origin_-10px': true }
+  readonly transformOriginN8px: { 'transform-origin_-8px': true }
+  readonly transformOriginN6px: { 'transform-origin_-6px': true }
+  readonly transformOriginN4px: { 'transform-origin_-4px': true }
+  readonly transformOriginN2px: { 'transform-origin_-2px': true }
+  readonly transformOriginN1px: { 'transform-origin_-1px': true }
   readonly transformOrigin0px: { 'transform-origin_0px': true }
   readonly transformOrigin1px: { 'transform-origin_1px': true }
   readonly transformOrigin2px: { 'transform-origin_2px': true }
-  readonly transformOrigin3px: { 'transform-origin_3px': true }
   readonly transformOrigin4px: { 'transform-origin_4px': true }
-  readonly transformOrigin5px: { 'transform-origin_5px': true }
+  readonly transformOrigin6px: { 'transform-origin_6px': true }
+  readonly transformOrigin8px: { 'transform-origin_8px': true }
   readonly transformOrigin10px: { 'transform-origin_10px': true }
+  readonly transformOrigin12px: { 'transform-origin_12px': true }
+  readonly transformOrigin14px: { 'transform-origin_14px': true }
+  readonly transformOrigin16px: { 'transform-origin_16px': true }
   readonly transformOrigin20px: { 'transform-origin_20px': true }
-  readonly transformOrigin50px: { 'transform-origin_50px': true }
-  readonly transformOrigin100px: { 'transform-origin_100px': true }
+  readonly transformOrigin24px: { 'transform-origin_24px': true }
+  readonly transformOrigin28px: { 'transform-origin_28px': true }
+  readonly transformOrigin32px: { 'transform-origin_32px': true }
+  readonly transformOrigin40px: { 'transform-origin_40px': true }
+  readonly transformOrigin48px: { 'transform-origin_48px': true }
+  readonly transformOrigin56px: { 'transform-origin_56px': true }
+  readonly transformOrigin64px: { 'transform-origin_64px': true }
+  readonly transformOrigin80px: { 'transform-origin_80px': true }
+  readonly transformOrigin96px: { 'transform-origin_96px': true }
+  readonly transformOrigin128px: { 'transform-origin_128px': true }
+  readonly transformOrigin160px: { 'transform-origin_160px': true }
+  readonly transformOrigin192px: { 'transform-origin_192px': true }
+  readonly transformOrigin224px: { 'transform-origin_224px': true }
+  readonly transformOrigin256px: { 'transform-origin_256px': true }
+  readonly transformOrigin320px: { 'transform-origin_320px': true }
+  readonly transformOrigin384px: { 'transform-origin_384px': true }
   readonly transformOrigin0rem: { 'transform-origin_0rem': true }
   readonly transformOrigin0p25rem: { 'transform-origin_0\.25rem': true }
   readonly transformOrigin0p5rem: { 'transform-origin_0\.5rem': true }
@@ -43214,16 +46998,59 @@ export interface CsstsAtoms {
   readonly translate12pt: { 'translate_12pt': true }
   readonly translate16pt: { 'translate_16pt': true }
   readonly translate20pt: { 'translate_20pt': true }
+  readonly translateN384px: { 'translate_-384px': true }
+  readonly translateN320px: { 'translate_-320px': true }
+  readonly translateN256px: { 'translate_-256px': true }
+  readonly translateN224px: { 'translate_-224px': true }
+  readonly translateN192px: { 'translate_-192px': true }
+  readonly translateN160px: { 'translate_-160px': true }
+  readonly translateN128px: { 'translate_-128px': true }
+  readonly translateN96px: { 'translate_-96px': true }
+  readonly translateN80px: { 'translate_-80px': true }
+  readonly translateN64px: { 'translate_-64px': true }
+  readonly translateN56px: { 'translate_-56px': true }
+  readonly translateN48px: { 'translate_-48px': true }
+  readonly translateN40px: { 'translate_-40px': true }
+  readonly translateN32px: { 'translate_-32px': true }
+  readonly translateN28px: { 'translate_-28px': true }
+  readonly translateN24px: { 'translate_-24px': true }
+  readonly translateN20px: { 'translate_-20px': true }
+  readonly translateN16px: { 'translate_-16px': true }
+  readonly translateN14px: { 'translate_-14px': true }
+  readonly translateN12px: { 'translate_-12px': true }
+  readonly translateN10px: { 'translate_-10px': true }
+  readonly translateN8px: { 'translate_-8px': true }
+  readonly translateN6px: { 'translate_-6px': true }
+  readonly translateN4px: { 'translate_-4px': true }
+  readonly translateN2px: { 'translate_-2px': true }
+  readonly translateN1px: { 'translate_-1px': true }
   readonly translate0px: { 'translate_0px': true }
   readonly translate1px: { 'translate_1px': true }
   readonly translate2px: { 'translate_2px': true }
-  readonly translate3px: { 'translate_3px': true }
   readonly translate4px: { 'translate_4px': true }
-  readonly translate5px: { 'translate_5px': true }
+  readonly translate6px: { 'translate_6px': true }
+  readonly translate8px: { 'translate_8px': true }
   readonly translate10px: { 'translate_10px': true }
+  readonly translate12px: { 'translate_12px': true }
+  readonly translate14px: { 'translate_14px': true }
+  readonly translate16px: { 'translate_16px': true }
   readonly translate20px: { 'translate_20px': true }
-  readonly translate50px: { 'translate_50px': true }
-  readonly translate100px: { 'translate_100px': true }
+  readonly translate24px: { 'translate_24px': true }
+  readonly translate28px: { 'translate_28px': true }
+  readonly translate32px: { 'translate_32px': true }
+  readonly translate40px: { 'translate_40px': true }
+  readonly translate48px: { 'translate_48px': true }
+  readonly translate56px: { 'translate_56px': true }
+  readonly translate64px: { 'translate_64px': true }
+  readonly translate80px: { 'translate_80px': true }
+  readonly translate96px: { 'translate_96px': true }
+  readonly translate128px: { 'translate_128px': true }
+  readonly translate160px: { 'translate_160px': true }
+  readonly translate192px: { 'translate_192px': true }
+  readonly translate224px: { 'translate_224px': true }
+  readonly translate256px: { 'translate_256px': true }
+  readonly translate320px: { 'translate_320px': true }
+  readonly translate384px: { 'translate_384px': true }
   readonly translate0rem: { 'translate_0rem': true }
   readonly translate0p25rem: { 'translate_0\.25rem': true }
   readonly translate0p5rem: { 'translate_0\.5rem': true }
@@ -43642,16 +47469,59 @@ export interface CsstsAtoms {
   readonly width12pt: { 'width_12pt': true }
   readonly width16pt: { 'width_16pt': true }
   readonly width20pt: { 'width_20pt': true }
+  readonly widthN384px: { 'width_-384px': true }
+  readonly widthN320px: { 'width_-320px': true }
+  readonly widthN256px: { 'width_-256px': true }
+  readonly widthN224px: { 'width_-224px': true }
+  readonly widthN192px: { 'width_-192px': true }
+  readonly widthN160px: { 'width_-160px': true }
+  readonly widthN128px: { 'width_-128px': true }
+  readonly widthN96px: { 'width_-96px': true }
+  readonly widthN80px: { 'width_-80px': true }
+  readonly widthN64px: { 'width_-64px': true }
+  readonly widthN56px: { 'width_-56px': true }
+  readonly widthN48px: { 'width_-48px': true }
+  readonly widthN40px: { 'width_-40px': true }
+  readonly widthN32px: { 'width_-32px': true }
+  readonly widthN28px: { 'width_-28px': true }
+  readonly widthN24px: { 'width_-24px': true }
+  readonly widthN20px: { 'width_-20px': true }
+  readonly widthN16px: { 'width_-16px': true }
+  readonly widthN14px: { 'width_-14px': true }
+  readonly widthN12px: { 'width_-12px': true }
+  readonly widthN10px: { 'width_-10px': true }
+  readonly widthN8px: { 'width_-8px': true }
+  readonly widthN6px: { 'width_-6px': true }
+  readonly widthN4px: { 'width_-4px': true }
+  readonly widthN2px: { 'width_-2px': true }
+  readonly widthN1px: { 'width_-1px': true }
   readonly width0px: { 'width_0px': true }
   readonly width1px: { 'width_1px': true }
   readonly width2px: { 'width_2px': true }
-  readonly width3px: { 'width_3px': true }
   readonly width4px: { 'width_4px': true }
-  readonly width5px: { 'width_5px': true }
+  readonly width6px: { 'width_6px': true }
+  readonly width8px: { 'width_8px': true }
   readonly width10px: { 'width_10px': true }
+  readonly width12px: { 'width_12px': true }
+  readonly width14px: { 'width_14px': true }
+  readonly width16px: { 'width_16px': true }
   readonly width20px: { 'width_20px': true }
-  readonly width50px: { 'width_50px': true }
-  readonly width100px: { 'width_100px': true }
+  readonly width24px: { 'width_24px': true }
+  readonly width28px: { 'width_28px': true }
+  readonly width32px: { 'width_32px': true }
+  readonly width40px: { 'width_40px': true }
+  readonly width48px: { 'width_48px': true }
+  readonly width56px: { 'width_56px': true }
+  readonly width64px: { 'width_64px': true }
+  readonly width80px: { 'width_80px': true }
+  readonly width96px: { 'width_96px': true }
+  readonly width128px: { 'width_128px': true }
+  readonly width160px: { 'width_160px': true }
+  readonly width192px: { 'width_192px': true }
+  readonly width224px: { 'width_224px': true }
+  readonly width256px: { 'width_256px': true }
+  readonly width320px: { 'width_320px': true }
+  readonly width384px: { 'width_384px': true }
   readonly width0rem: { 'width_0rem': true }
   readonly width0p25rem: { 'width_0\.25rem': true }
   readonly width0p5rem: { 'width_0\.5rem': true }
