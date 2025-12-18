@@ -11,7 +11,6 @@ import type {KeywordValue} from './config/keywords';
 import {CssPropertyConfigMap, type CssPropertyCamelName} from './config/property-config';
 import type {PseudoClassName} from './config/pseudo';
 import type {PseudoElementName} from './config/pseudo';
-import {RARE_PROPERTIES} from './presets/tailwind-like';
 import {
     type ProgressiveRange,
     type StepConfig,
@@ -440,8 +439,8 @@ export class CsstsConfig {
      */
     constructor(options = {} as CsstsConfig) {
         // 属性配置
-        this.includeProperties = options.includeProperties;
-        this.excludeProperties = options.excludeProperties ?? [...RARE_PROPERTIES];
+        this.includeProperties = options.includeProperties ?? defaultProperties
+        this.excludeProperties = options.excludeProperties ?? [];
 
         // 数值类型配置
         this.includeNumberTypes = options.includeNumberTypes;
