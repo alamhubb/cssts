@@ -7,89 +7,85 @@
 import type { CssPropertyValueMap } from './keywords';
 
 // ==================== 伪类/伪元素样式类型 ====================
-
-/** 伪类/伪元素样式值（使用 CssPropertyValueMap 提供智能提示） */
-export type PseudoStyleValue = CssPropertyValueMap;
-
 /** 伪类样式配置类 */
 export class PseudoClassStylesConfig {
     // user-action 伪类
-    hover?: PseudoStyleValue = { opacity: '0.9' };
-    active?: PseudoStyleValue = { opacity: '0.6' };
-    focus?: PseudoStyleValue = { opacity: '0.9' };
-    focusVisible?: PseudoStyleValue;
-    focusWithin?: PseudoStyleValue;
+    hover?: CssPropertyValueMap = { opacity: '0.9' };
+    active?: CssPropertyValueMap = { opacity: '0.6' };
+    focus?: CssPropertyValueMap = { opacity: '0.9' };
+    focusVisible?: CssPropertyValueMap;
+    focusWithin?: CssPropertyValueMap;
 
     // link 伪类
-    link?: PseudoStyleValue;
-    visited?: PseudoStyleValue;
-    anyLink?: PseudoStyleValue;
-    localLink?: PseudoStyleValue;
-    target?: PseudoStyleValue;
-    targetWithin?: PseudoStyleValue;
+    link?: CssPropertyValueMap;
+    visited?: CssPropertyValueMap;
+    anyLink?: CssPropertyValueMap;
+    localLink?: CssPropertyValueMap;
+    target?: CssPropertyValueMap;
+    targetWithin?: CssPropertyValueMap;
 
     // form 伪类
-    enabled?: PseudoStyleValue;
-    disabled?: PseudoStyleValue = { opacity: '0.5', cursor: 'not-allowed' };
-    readOnly?: PseudoStyleValue;
-    readWrite?: PseudoStyleValue;
-    placeholderShown?: PseudoStyleValue;
-    default?: PseudoStyleValue;
-    checked?: PseudoStyleValue;
-    indeterminate?: PseudoStyleValue;
-    valid?: PseudoStyleValue;
-    invalid?: PseudoStyleValue;
-    inRange?: PseudoStyleValue;
-    outOfRange?: PseudoStyleValue;
-    required?: PseudoStyleValue;
-    optional?: PseudoStyleValue;
-    userValid?: PseudoStyleValue;
-    userInvalid?: PseudoStyleValue;
-    autofill?: PseudoStyleValue;
+    enabled?: CssPropertyValueMap;
+    disabled?: CssPropertyValueMap = { opacity: '0.5', cursor: 'not-allowed' };
+    readOnly?: CssPropertyValueMap;
+    readWrite?: CssPropertyValueMap;
+    placeholderShown?: CssPropertyValueMap;
+    default?: CssPropertyValueMap;
+    checked?: CssPropertyValueMap;
+    indeterminate?: CssPropertyValueMap;
+    valid?: CssPropertyValueMap;
+    invalid?: CssPropertyValueMap;
+    inRange?: CssPropertyValueMap;
+    outOfRange?: CssPropertyValueMap;
+    required?: CssPropertyValueMap;
+    optional?: CssPropertyValueMap;
+    userValid?: CssPropertyValueMap;
+    userInvalid?: CssPropertyValueMap;
+    autofill?: CssPropertyValueMap;
 
     // structural 伪类
-    root?: PseudoStyleValue;
-    empty?: PseudoStyleValue;
-    firstChild?: PseudoStyleValue;
-    lastChild?: PseudoStyleValue;
-    onlyChild?: PseudoStyleValue;
-    firstOfType?: PseudoStyleValue;
-    lastOfType?: PseudoStyleValue;
-    onlyOfType?: PseudoStyleValue;
-    nthChild?: PseudoStyleValue;
-    nthLastChild?: PseudoStyleValue;
-    nthOfType?: PseudoStyleValue;
-    nthLastOfType?: PseudoStyleValue;
+    root?: CssPropertyValueMap;
+    empty?: CssPropertyValueMap;
+    firstChild?: CssPropertyValueMap;
+    lastChild?: CssPropertyValueMap;
+    onlyChild?: CssPropertyValueMap;
+    firstOfType?: CssPropertyValueMap;
+    lastOfType?: CssPropertyValueMap;
+    onlyOfType?: CssPropertyValueMap;
+    nthChild?: CssPropertyValueMap;
+    nthLastChild?: CssPropertyValueMap;
+    nthOfType?: CssPropertyValueMap;
+    nthLastOfType?: CssPropertyValueMap;
 
     // logical 伪类
-    not?: PseudoStyleValue;
-    is?: PseudoStyleValue;
-    where?: PseudoStyleValue;
-    has?: PseudoStyleValue;
+    not?: CssPropertyValueMap;
+    is?: CssPropertyValueMap;
+    where?: CssPropertyValueMap;
+    has?: CssPropertyValueMap;
 
     // linguistic 伪类
-    lang?: PseudoStyleValue;
-    dir?: PseudoStyleValue;
+    lang?: CssPropertyValueMap;
+    dir?: CssPropertyValueMap;
 
     // display 伪类
-    fullscreen?: PseudoStyleValue;
-    modal?: PseudoStyleValue;
-    pictureInPicture?: PseudoStyleValue;
+    fullscreen?: CssPropertyValueMap;
+    modal?: CssPropertyValueMap;
+    pictureInPicture?: CssPropertyValueMap;
 
     // media 伪类
-    playing?: PseudoStyleValue;
-    paused?: PseudoStyleValue;
-    seeking?: PseudoStyleValue;
-    buffering?: PseudoStyleValue;
-    stalled?: PseudoStyleValue;
-    muted?: PseudoStyleValue;
-    volumeLocked?: PseudoStyleValue;
+    playing?: CssPropertyValueMap;
+    paused?: CssPropertyValueMap;
+    seeking?: CssPropertyValueMap;
+    buffering?: CssPropertyValueMap;
+    stalled?: CssPropertyValueMap;
+    muted?: CssPropertyValueMap;
+    volumeLocked?: CssPropertyValueMap;
 
     // web-components 伪类
-    defined?: PseudoStyleValue;
-    host?: PseudoStyleValue;
-    hostContext?: PseudoStyleValue;
-    scope?: PseudoStyleValue;
+    defined?: CssPropertyValueMap;
+    host?: CssPropertyValueMap;
+    hostContext?: CssPropertyValueMap;
+    scope?: CssPropertyValueMap;
 
     constructor(options?: PseudoClassStylesConfig) {
         if (options) {
@@ -100,19 +96,19 @@ export class PseudoClassStylesConfig {
 
 /** 伪元素样式配置类 */
 export class PseudoElementStylesConfig {
-    before?: PseudoStyleValue;
-    after?: PseudoStyleValue;
-    firstLine?: PseudoStyleValue;
-    firstLetter?: PseudoStyleValue;
-    marker?: PseudoStyleValue;
-    selection?: PseudoStyleValue;
-    placeholder?: PseudoStyleValue;
-    backdrop?: PseudoStyleValue;
-    fileSelectorButton?: PseudoStyleValue;
-    cue?: PseudoStyleValue;
-    cueRegion?: PseudoStyleValue;
-    part?: PseudoStyleValue;
-    slotted?: PseudoStyleValue;
+    before?: CssPropertyValueMap;
+    after?: CssPropertyValueMap;
+    firstLine?: CssPropertyValueMap;
+    firstLetter?: CssPropertyValueMap;
+    marker?: CssPropertyValueMap;
+    selection?: CssPropertyValueMap;
+    placeholder?: CssPropertyValueMap;
+    backdrop?: CssPropertyValueMap;
+    fileSelectorButton?: CssPropertyValueMap;
+    cue?: CssPropertyValueMap;
+    cueRegion?: CssPropertyValueMap;
+    part?: CssPropertyValueMap;
+    slotted?: CssPropertyValueMap;
 
     constructor(options?: PseudoElementStylesConfig) {
         if (options) {

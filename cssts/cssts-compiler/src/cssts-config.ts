@@ -407,11 +407,13 @@ export class CsstsConfig {
      */
     excludePseudoElements: PseudoElementName[];
 
+    // ==================== 伪类/伪元素样式配置 ====================
+
     /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
-    pseudoClassStyles: PseudoClassStylesConfig;
+    pseudoClassesStyles: PseudoClassStylesConfig;
 
     /** 伪元素样式配置 */
-    pseudoElementStyles: PseudoElementStylesConfig;
+    pseudoElementsStyles: PseudoElementStylesConfig;
 
     /**
      * 创建 CSSTS 配置实例
@@ -476,9 +478,9 @@ export class CsstsConfig {
         this.pseudoElements = options.pseudoElements;
         this.excludePseudoElements = options.excludePseudoElements ?? [];
 
-        // 伪类/伪元素样式配置
-        this.pseudoClassStyles = new PseudoClassStylesConfig(options.pseudoClassStyles);
-        this.pseudoElementStyles = new PseudoElementStylesConfig(options.pseudoElementStyles);
+        // ==================== 伪类/伪元素样式配置 ====================
+        this.pseudoClassesStyles = new PseudoClassStylesConfig(options.pseudoClassesStyles);
+        this.pseudoElementsStyles = new PseudoElementStylesConfig(options.pseudoElementsStyles);
     }
 }
 
