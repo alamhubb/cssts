@@ -132,5 +132,7 @@ scripts/
 │   ├── index.ts           # 入口
 │   └── generate-config.ts # 生成逻辑
 └── generator-dts/         # config/ → .d.ts
-    └── index.ts           # 入口（调用 src/generator/）
+    ├── index.ts           # 入口 + 导出
+    ├── atom-generator.ts  # 原子类生成器
+    └── dts-generator.ts   # .d.ts 内容生成器
 ```

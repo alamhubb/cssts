@@ -11,6 +11,7 @@ import type { KeywordValue, CssPropertyValueMap } from './config/keywords';
 import { CssPropertyConfigMap, type CssPropertyCamelName } from './config/property-config';
 import type { PseudoClassName } from './config/pseudo';
 import type { PseudoElementName } from './config/pseudo';
+import { RARE_PROPERTIES } from './presets/tailwind-like';
 
 // ==================== 数值生成配置 ====================
 
@@ -151,174 +152,84 @@ export function normalizeUnitCategoriesConfig<T extends string>(
     return config;
 }
 
-/** 默认单位分类配置 */
+/** 
+ * 默认单位分类配置（Tailwind 风格）
+ * 
+ * 基于分类配置数值，同一分类下的所有单位共享相同的数值范围
+ * 使用 presets 模式可以精确控制生成的数值
+ */
 export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategoryConfig> = {
-    // 百分比类 (%, vw, vh, vmin, vmax, etc.)
-    percentage: {
-        min: 0,
-        max: 100,
-        negative: false,
+    // px 单位 - Tailwind spacing scale
+    px: {
+        negative: true,
+        // Tailwind 4px 基准间距系统（精简版）
+        presets: [
+            0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48,
+            56, 64, 80, 96, 128, 160, 192, 224, 256, 320, 384,
+        ],
     },
 
-    // 像素类 (px)
-    pixel: {
-        min: 0,
-        max: 2000,
-        negative: true,
-        step: [
-            {max: 100, divisors: [1]},
-            {max: 200, divisors: [2, 5]},
-            {max: 500, divisors: [5]},
-            {max: 1000, divisors: [10]},
-            {max: 2000, divisors: [20, 50]},
-        ],
+    // 百分比类 (%, vw, vh, vmin, vmax, etc.)
+    percentage: {
+        negative: false,
+        // 常用百分比值
+        presets: [0, 10, 20, 25, 30, 33.333333, 40, 50, 60, 66.666667, 70, 75, 80, 90, 100],
     },
 
     // 相对字体类 (em, rem, ch, ex, etc.)
     fontRelative: {
-        min: 0,
-        max: 10,
-        step: 0.25,
         negative: false,
+        presets: [0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8],
     },
 
-    // 物理长度类 (cm, mm, in, pt, pc, Q)
+    // 物理长度类 (cm, mm, in, pt, pc, Q) - 很少使用，大幅精简
     physical: {
-        min: 0,
-        max: 50,
-        step: 1,
         negative: false,
+        presets: [0, 1, 2, 4, 6, 8, 10, 12, 16, 20],
     },
 
     // 角度类 (deg, grad, rad, turn)
     angle: {
-        min: 0,
-        max: 360,
         negative: true,
-        step: [
-            {max: 90, divisors: [5, 15]},
-            {max: 180, divisors: [15, 30]},
-            {max: 360, divisors: [30, 45]},
-        ],
+        presets: [0, 45, 90, 135, 180, 225, 270, 315, 360],
     },
 
-    // 时间类 (s, ms)
+    // 时间类 (s, ms) - 动画/过渡常用值
     time: {
-        min: 0,
-        max: 5000,
         negative: false,
-        step: [
-            {max: 500, divisors: [50]},
-            {max: 1000, divisors: [100]},
-            {max: 5000, divisors: [250, 500]},
-        ],
+        presets: [0, 100, 150, 200, 300, 500, 1000],
     },
 
-    // 频率类 (Hz, kHz)
+    // 频率类 (Hz, kHz) - 很少使用
     frequency: {
-        min: 20,
-        max: 20000,
-        step: 100,
         negative: false,
+        presets: [100, 500, 1000, 5000],
     },
 
-    // 分辨率类 (dpi, dpcm, dppx, x)
+    // 分辨率类 (dpi, dpcm, dppx, x) - 媒体查询用
     resolution: {
-        min: 72,
-        max: 300,
-        step: 1,
         negative: false,
+        presets: [1, 2, 3, 96, 300],
     },
 
-    // 弹性类 (fr)
+    // 弹性类 (fr) - Grid 布局
     flex: {
-        min: 1,
-        max: 12,
-        step: 1,
         negative: false,
+        presets: [1, 2, 3, 4, 5, 6],
     },
 
-    // 无单位数值
+    // 无单位数值 - opacity, z-index, line-height 等
     unitless: {
-        min: 0,
-        max: 100,
-        negative: true,
-    },
-
-    // 零值（只有 0）
-    zero: {
-        min: 0,
-        max: 0,
         negative: false,
+        presets: [0, 0.5, 1, 1.5, 2, 3, 4, 5, 10, 20, 50, 100],
     },
 };
 
-/** 默认单位配置 */
-export const DEFAULT_UNIT_CONFIGS: Record<string, UnitValueConfig> = {
-    // 百分比
-    '%': {min: 1, max: 100},
-
-    // 无单位数值
-    unitless: {min: 0, max: 100},
-
-    // 频率
-    Hz: {min: 0, max: 20000, step: 100},
-    kHz: {min: 0, max: 20, step: 1},
-
-    // 长度 - 绝对单位
-    px: {min: 1, max: 10000},
-    cm: {min: 0, max: 100, step: 1},
-    mm: {min: 0, max: 1000, step: 1},
-    Q: {min: 0, max: 400, step: 1},      // 1/4 毫米
-    in: {min: 0, max: 40, step: 1},      // 英寸
-    pc: {min: 0, max: 100, step: 1},     // pica (1pc = 12pt)
-    pt: {min: 0, max: 1000, step: 1},    // point (1pt = 1/72 in)
-
-    // 长度 - 相对单位（字体）
-    em: {min: 0, max: 100, step: 0.25},
-    rem: {min: 0, max: 100, step: 0.25},
-    ex: {min: 0, max: 100, step: 1},     // x-height
-    ch: {min: 0, max: 100, step: 1},     // 字符宽度
-    ic: {min: 0, max: 100, step: 1},     // CJK 字符宽度
-    cap: {min: 0, max: 100, step: 1},    // 大写字母高度
-    lh: {min: 0, max: 10, step: 0.25},   // 行高
-    rlh: {min: 0, max: 10, step: 0.25},  // 根元素行高
-
-    // 长度 - 视口单位
-    vw: {min: 0, max: 100},
-    vh: {min: 0, max: 100},
-    vmin: {min: 0, max: 100},
-    vmax: {min: 0, max: 100},
-    vi: {min: 0, max: 100},              // 内联方向
-    vb: {min: 0, max: 100},              // 块方向
-
-    // 长度 - 动态视口单位
-    dvw: {min: 0, max: 100},
-    dvh: {min: 0, max: 100},
-    lvw: {min: 0, max: 100},             // 大视口
-    lvh: {min: 0, max: 100},
-    svw: {min: 0, max: 100},             // 小视口
-    svh: {min: 0, max: 100},
-
-    // 角度
-    deg: {min: 0, max: 360},
-    grad: {min: 0, max: 400},            // 百分度 (400grad = 360deg)
-    rad: {min: 0, max: 6.28, step: 0.01}, // 弧度 (2π ≈ 6.28)
-    turn: {min: 0, max: 1, step: 0.01},  // 圈数
-
-    // 时间
-    ms: {min: 0, max: 10000, step: 50},
-    s: {min: 0, max: 60, step: 0.1},
-
-    // 分辨率
-    dpi: {min: 72, max: 300, step: 1},
-    dpcm: {min: 28, max: 118, step: 1},
-    dppx: {min: 1, max: 4, step: 0.5},
-    x: {min: 1, max: 4, step: 0.5},      // dppx 的别名
-
-    // 弹性
-    fr: {min: 1, max: 12, step: 1},
-};
+/**
+ * @deprecated 使用 DEFAULT_UNIT_CATEGORY_CONFIGS 代替
+ * 保留此导出以兼容旧代码
+ */
+export const DEFAULT_UNIT_CONFIGS: Record<string, UnitValueConfig> = {};
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -327,8 +238,12 @@ export type CustomPropertyValue = string | Record<string, string>;
 
 /** CSSTS 配置 */
 export class CsstsConfig {
-    /** 排除的属性 */
-    excludeProperties: CssPropertyCamelName[] = [];
+    /** 
+     * 排除的属性
+     * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
+     * 设置为空数组 [] 可启用所有属性
+     */
+    excludeProperties: CssPropertyCamelName[] = [...RARE_PROPERTIES];
 
     /** 排除的关键字 */
     excludeKeywords: KeywordValue[] = [];

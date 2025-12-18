@@ -9,7 +9,7 @@ import type { UnitCategoryName } from '../custom/unit-categories';
 /** 单位分类描述 */
 export const UNIT_CATEGORY_DESCRIPTIONS: Record<UnitCategoryName, { en: string; zh: string }> = {
   percentage: { en: 'Percentage and viewport units (0-100)', zh: '百分比和视口单位 (0-100)' },
-  pixel: { en: 'Pixel units (0-2000+, progressive)', zh: '像素单位 (0-2000+, 渐进步长)' },
+  px: { en: 'Pixel units', zh: '像素单位' },
   fontRelative: { en: 'Font-relative units (0-10)', zh: '相对字体单位 (0-10)' },
   physical: { en: 'Physical length units (0-50)', zh: '物理长度单位 (0-50)' },
   angle: { en: 'Angle units (deg, grad, rad, turn)', zh: '角度单位 (deg, grad, rad, turn)' },

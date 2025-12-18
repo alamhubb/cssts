@@ -11,9 +11,9 @@
 export const PERCENTAGE_UNITS = ['%', 'vw', 'vh', 'vmin', 'vmax', 'svw', 'svh', 'lvw', 'lvh', 'dvw', 'dvh', 'vi', 'vb'] as const;
 export type PercentageUnit = typeof PERCENTAGE_UNITS[number];
 
-/** 像素类单位 (0-2000+, 渐进步长) */
-export const PIXEL_UNITS = ['px'] as const;
-export type PixelUnit = typeof PIXEL_UNITS[number];
+/** px 单位 */
+export const PX_UNITS = ['px'] as const;
+export type PxUnit = typeof PX_UNITS[number];
 
 /** 相对字体类单位 (0-10, 步长 0.1-0.25) */
 export const FONT_RELATIVE_UNITS = ['em', 'rem', 'ch', 'ex', 'cap', 'ic', 'lh', 'rlh'] as const;
@@ -52,7 +52,7 @@ export type UnitlessUnit = typeof UNITLESS_UNITS[number];
 /** 单位分类名称 */
 export const UNIT_CATEGORY_NAMES = [
   'percentage',
-  'pixel',
+  'px',
   'fontRelative',
   'physical',
   'angle',
@@ -70,7 +70,7 @@ export type UnitCategoryName = typeof UNIT_CATEGORY_NAMES[number];
 /** 分类到单位的映射类 */
 class UnitsByCategoryMapping {
   readonly percentage: readonly PercentageUnit[] = PERCENTAGE_UNITS;
-  readonly pixel: readonly PixelUnit[] = PIXEL_UNITS;
+  readonly px: readonly PxUnit[] = PX_UNITS;
   readonly fontRelative: readonly FontRelativeUnit[] = FONT_RELATIVE_UNITS;
   readonly physical: readonly PhysicalUnit[] = PHYSICAL_UNITS;
   readonly angle: readonly AngleUnit[] = ANGLE_UNITS;
@@ -85,19 +85,3 @@ export const unitsByCategory = new UnitsByCategoryMapping();
 
 /** 类型：分类到单位的映射 */
 export type UnitsByCategory = UnitsByCategoryMapping;
-
-// ==================== 分类描述 ====================
-
-/** 分类描述 */
-export const UNIT_CATEGORY_DESCRIPTIONS: Record<UnitCategoryName, { en: string; zh: string }> = {
-  percentage: { en: 'Percentage and viewport units (0-100)', zh: '百分比和视口单位 (0-100)' },
-  pixel: { en: 'Pixel units (0-2000+, progressive)', zh: '像素单位 (0-2000+, 渐进步长)' },
-  fontRelative: { en: 'Font-relative units (0-10)', zh: '相对字体单位 (0-10)' },
-  physical: { en: 'Physical length units (0-50)', zh: '物理长度单位 (0-50)' },
-  angle: { en: 'Angle units (deg, grad, rad, turn)', zh: '角度单位 (deg, grad, rad, turn)' },
-  time: { en: 'Time units (s, ms)', zh: '时间单位 (s, ms)' },
-  frequency: { en: 'Frequency units (Hz, kHz)', zh: '频率单位 (Hz, kHz)' },
-  resolution: { en: 'Resolution units (dpi, dpcm, dppx)', zh: '分辨率单位 (dpi, dpcm, dppx)' },
-  flex: { en: 'Flex units for CSS Grid (fr)', zh: 'Grid 弹性单位 (fr)' },
-  unitless: { en: 'Unitless numbers (opacity, z-index, etc.)', zh: '无单位数值 (opacity, z-index 等)' },
-};

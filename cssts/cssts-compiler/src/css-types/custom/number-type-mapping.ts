@@ -28,7 +28,7 @@ export type NumberTypeName = typeof NUMBER_TYPE_NAMES[number];
 // ==================== 每个 NumberType 对应的 Category 数据 ====================
 
 /** length 类型对应的单位分类 */
-export const LENGTH_CATEGORIES = ['pixel', 'fontRelative', 'physical', 'percentage'] as const;
+export const LENGTH_CATEGORIES = ['px', 'fontRelative', 'physical', 'percentage'] as const;
 export type LengthCategory = typeof LENGTH_CATEGORIES[number];
 
 /** angle 类型对应的单位分类 */
