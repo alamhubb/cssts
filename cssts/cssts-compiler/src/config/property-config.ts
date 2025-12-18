@@ -4729,4 +4729,10 @@ export class CssPropertyConfigMap {
   y = new YConfig();
   zIndex = new ZIndexConfig();
   zoom = new ZoomConfig();
+
+  constructor(options?: Partial<CssPropertyConfigMap>) {
+    if (options) {
+      Object.assign(this, options);
+    }
+  }
 }

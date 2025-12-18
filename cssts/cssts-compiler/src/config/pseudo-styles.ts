@@ -90,6 +90,12 @@ export class PseudoClassStylesConfig {
     host?: PseudoStyleValue;
     hostContext?: PseudoStyleValue;
     scope?: PseudoStyleValue;
+
+    constructor(options?: PseudoClassStylesConfig) {
+        if (options) {
+            Object.assign(this, options);
+        }
+    }
 }
 
 /** 伪元素样式配置类 */
@@ -107,4 +113,10 @@ export class PseudoElementStylesConfig {
     cueRegion?: PseudoStyleValue;
     part?: PseudoStyleValue;
     slotted?: PseudoStyleValue;
+
+    constructor(options?: PseudoElementStylesConfig) {
+        if (options) {
+            Object.assign(this, options);
+        }
+    }
 }
