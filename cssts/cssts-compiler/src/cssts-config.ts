@@ -60,6 +60,90 @@ export {
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
 
+
+// ==================== 合并所有核心属性 ====================
+
+export const defaultProperties: CssPropertyCamelName[] = [
+    'display',           // block, inline, flex, grid, none 等
+    'position',          // static, relative, absolute, fixed, sticky
+    'top',               // 数值
+    'right',             // 数值
+    'bottom',            // 数值
+    'left',              // 数值
+    'inset',             // 数值（top/right/bottom/left 简写）
+    'zIndex',            // 数值
+    'float',             // left, right, none
+    'clear',             // left, right, both, none
+    'flex',              // 0, 1, auto, none 等
+    'flexDirection',     // row, column, row-reverse, column-reverse
+    'justifyContent',    // flex-start, center, space-between 等
+    'alignItems',        // flex-start, center, stretch 等
+    'gap',               // 数值
+    'gridTemplateColumns',  // repeat, auto-fit, minmax 等
+    'gridTemplateRows',     // repeat, auto-fit, minmax 等
+    'gap',                  // 数值（与 Flexbox 共用）
+    'width',             // 数值 + 百分比
+    'height',            // 数值 + 百分比
+    'minWidth',          // 数值
+    'maxWidth',          // 数值
+    'minHeight',         // 数值
+    'maxHeight',         // 数值
+    'margin',            // 数值
+    'padding',
+    'backgroundColor',   // 颜色值
+    'backgroundSize',    // cover, contain, auto 等
+    'color',             // 颜色值
+    'fontSize',          // xs, sm, base, lg, xl 等
+    'fontWeight',        // 100, 200, 300, 400, 500, 600, 700, 800, 900
+    'lineHeight',        // 1, 1.25, 1.5, 1.75, 2 等
+    'textAlign',         // left, center, right, justify
+
+    'border',            // 宽度 + 样式 + 颜色
+    'borderColor',       // 颜色值
+    'borderRadius',      // 数值
+    'borderWidth',       // 数值
+    'border',            // 宽度 + 样式 + 颜色
+    'borderColor',       // 颜色值
+    'borderRadius',      // 数值
+    'borderWidth',       // 数值
+
+    'boxShadow',         // none, sm, md, lg, xl 等
+    'textShadow',        // none, sm, md, lg 等
+    'width',             // 数值 + 百分比
+    'height',            // 数值 + 百分比
+    'minWidth',          // 数值
+    'maxWidth',          // 数值
+    'minHeight',         // 数值
+    'maxHeight',         // 数值
+
+    'margin',            // 数值
+    'padding',           // 数值
+
+    'backgroundColor',   // 颜色值
+    'backgroundSize',    // cover, contain, auto 等
+    'color',             // 颜色值
+    'fontSize',          // xs, sm, base, lg, xl 等
+    'fontWeight',        // 100, 200, 300, 400, 500, 600, 700, 800, 900
+    'lineHeight',        // 1, 1.25, 1.5, 1.75, 2 等
+    'textAlign',         // left, center, right, justify
+    'boxShadow',         // none, sm, md, lg, xl 等
+    'textShadow',        // none, sm, md, lg 等
+
+    'transform',         // none, rotate, scale, translate 等
+    'rotate',            // 角度值
+    'scale',             // 数值
+    'translate',         // 数值
+    'transition',        // all, colors, opacity 等
+    'animation',         // animation-name, animation-duration 等
+
+
+    'opacity',           // 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100
+    'cursor',            // pointer, default, text, move 等
+    'overflow',
+];
+
+
+
 // ==================== 系统级别默认配置 ====================
 
 /** 默认渐进步长策略 */
