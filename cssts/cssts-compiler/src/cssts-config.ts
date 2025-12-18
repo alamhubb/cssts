@@ -60,44 +60,6 @@ export const SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES: UnitCategoryName[] = [
 
 // ==================== CSSTS 配置类 ====================
 
-/** CsstsConfig 构造函数参数类型 */
-export interface CsstsConfigOptions {
-    // 属性配置
-    includeProperties?: CssPropertyCamelName[];
-    excludeProperties?: CssPropertyCamelName[];
-    
-    // 数值类型配置
-    includeNumberTypes?: NumberTypeName[];
-    excludeNumberTypes?: NumberTypeName[];
-    
-    // 单位分类配置
-    includeUnitCategories?: UnitCategoryName[];
-    excludeUnitCategories?: UnitCategoryName[];
-    
-    // 单位配置
-    includeUnits?: UnitType[];
-    excludeUnits?: UnitType[];
-    
-    // 关键字/颜色配置
-    includeKeywords?: KeywordValue[];
-    excludeKeywords?: KeywordValue[];
-    includeColors?: AllColorValue[];
-    excludeColors?: AllColorValue[];
-    
-    // 伪类/伪元素配置
-    includePseudoClasses?: PseudoClassName[];
-    excludePseudoClasses?: PseudoClassName[];
-    includePseudoElements?: PseudoElementName[];
-    excludePseudoElements?: PseudoElementName[];
-    
-    // 其他配置
-    customProperties?: Record<string, CustomPropertyValue>;
-    progressiveRanges?: ProgressiveRange[];
-    unitCategories?: UnitsConfigValue<UnitCategoryName>;
-    pseudoClassStyles?: Partial<PseudoClassStylesConfig>;
-    pseudoElementStyles?: Partial<PseudoElementStylesConfig>;
-}
-
 /** CSSTS 配置 */
 export class CsstsConfig {
     // ==================== 属性配置 ====================
@@ -251,7 +213,7 @@ export class CsstsConfig {
      *   },
      * });
      */
-    constructor(options: CsstsConfigOptions = {}) {
+    constructor(options: CsstsConfig = {} as CsstsConfig) {
         // 属性配置
         this.includeProperties = options.includeProperties;
         this.excludeProperties = options.excludeProperties ?? [...RARE_PROPERTIES];
@@ -291,16 +253,6 @@ export class CsstsConfig {
         // 伪类/伪元素样式配置
         this.pseudoClassStyles = options.pseudoClassStyles ?? new PseudoClassStylesConfig();
         this.pseudoElementStyles = options.pseudoElementStyles ?? new PseudoElementStylesConfig();
-    }
-
-    /**
-     * 创建配置实例的静态工厂方法
-     * 
-     * @param options 可选的配置对象
-     * @returns CsstsConfig 实例
-     */
-    static create(options: CsstsConfigOptions = {}): CsstsConfig {
-        return new CsstsConfig(options);
     }
 }
 

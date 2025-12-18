@@ -157,7 +157,7 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
 };
 
 /**
- * @deprecated 使用 DEFAULT_UNIT_CATEGORY_CONFIGS 代替
+ * 使用 DEFAULT_UNIT_CATEGORY_CONFIGS 代替
  * 保留此导出以兼容旧代码
  */
 export const DEFAULT_UNIT_CONFIGS: Record<string, UnitValueConfig> = {};

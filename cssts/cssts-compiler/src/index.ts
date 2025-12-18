@@ -33,7 +33,6 @@ export {
 export {
   // 主配置类
   CsstsConfig,
-  type CsstsConfigOptions,
   // 单位配置类型
   type UnitValueConfig,
   type UnitCategoryConfig,

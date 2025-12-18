@@ -4,7 +4,7 @@
  * 提供创建配置实例的便捷方法
  */
 
-import { CsstsConfig, type CsstsConfigOptions } from '../cssts-config';
+import { CsstsConfig } from '../cssts-config';
 
 /**
  * 创建 CSSTS 配置实例
@@ -24,6 +24,6 @@ import { CsstsConfig, type CsstsConfigOptions } from '../cssts-config';
  *   includeUnitCategories: ['resolution']
  * });
  */
-export function createCsstsConfig(options?: CsstsConfigOptions): CsstsConfig {
+export function createCsstsConfig(options?: CsstsConfig): CsstsConfig {
     return new CsstsConfig(options);
 }
