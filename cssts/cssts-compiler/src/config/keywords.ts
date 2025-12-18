@@ -1,6 +1,7 @@
 /**
  * CSS 关键词配置（自动生成）
  */
+import {ALL_COLORS, AllColorValue} from "./colors.ts";
 
 export const ACCENT_COLOR_KEYWORDS = [
   '-moz-ButtonDefault',
@@ -6666,7 +6667,7 @@ export const ZOOM_KEYWORDS = [
 
 // ==================== 关键词类型 ====================
 
-export type AccentColorKeyword = typeof ACCENT_COLOR_KEYWORDS[number];
+export type AccentColorKeyword = typeof ACCENT_COLOR_KEYWORDS[number] | AllColorValue;
 export type AlignContentKeyword = typeof ALIGN_CONTENT_KEYWORDS[number];
 export type AlignItemsKeyword = typeof ALIGN_ITEMS_KEYWORDS[number];
 export type AlignSelfKeyword = typeof ALIGN_SELF_KEYWORDS[number];
