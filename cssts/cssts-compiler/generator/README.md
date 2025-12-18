@@ -1,30 +1,39 @@
-# 数据生成脚本
+# CSS 数据和配置生成脚本
 
-此目录包含从 csstree 生成 CSS 数据的脚本。
+此目录包含从 csstree 生成 CSS 数据和配置的脚本。这是唯一依赖 csstree 的地方，所有其他代码都从生成的数据中获取信息。
 
-## 脚本列表
+## 脚本
 
-### generate-property-data.ts
+### generate-all.ts
 
-从 csstree 提取 CSS 属性的 keywords 和 numberTypes 数据。
+统一的生成脚本，从 csstree 提取数据并生成所有必需的文件。
 
 **功能**：
 - 遍历 csstree 中的所有 CSS 属性
-- 提取每个属性的 keywords（关键字）
-- 提取每个属性的 numberTypes（数值类型）
-- 只有当属性有 keywords 时才包含 keywords 字段
-- 只有当属性有 numberTypes 时才包含 numberTypes 字段
+- 提取每个属性的 keywords（关键字）和 numberTypes（数值类型）
+- 生成数据文件和配置文件
 
-**输出**：`src/data/property.ts`
+**输出文件**：
+
+**数据文件** (`src/data/`)：
+- `property.ts` - CSS 属性的 keywords 和 numberTypes 数据
+
+**配置文件** (`src/config/`)：
+- `colors.ts` - 颜色配置（csstree colors + custom system-colors）
+- `keywords.ts` - 属性关键字（csstree 生成）
+- `units.ts` - 单位配置（csstree units + custom categories）
+- `pseudo.ts` - 伪类/伪元素（列表 + custom descriptions）
+- `property-config.ts` - 属性配置（csstree + custom units）
+- `index.ts` - 配置模块导出
 
 **运行方式**：
 ```bash
-npx tsx generator/generate-property-data.ts
+npx tsx generator/generate-all.ts
 ```
 
-**注意**：脚本已移动到 `generator/generate-property-data.ts`
-
 **输出示例**：
+
+`src/data/property.ts`:
 ```typescript
 export const PROPERTY_DATA: PropertyInfo[] = [
   {
@@ -42,14 +51,6 @@ export const PROPERTY_DATA: PropertyInfo[] = [
   },
 ];
 ```
-
-## 生成统计
-
-最后一次生成的统计信息：
-- 总属性数：521
-- 有 keywords 的属性：384
-- 有 numberTypes 的属性：236
-- 同时有两者的属性：174
 
 ## 联合类型处理
 
@@ -90,9 +91,38 @@ const UNION_TYPE_MAP: Record<string, string[]> = {
 };
 ```
 
+## 架构设计
+
+### 依赖关系
+
+```
+generator/generate-all.ts (依赖 csstree)
+    ↓
+生成数据和配置文件
+    ↓
+src/data/ 和 src/config/
+    ↓
+src/ 中的其他代码（不依赖 csstree）
+```
+
+### 关键原则
+
+1. **单一依赖点**：只有 `generator/generate-all.ts` 依赖 csstree
+2. **数据驱动**：`src/` 中的所有代码从 `src/data/` 和 `src/custom/` 获取数据
+3. **自动生成**：配置文件由脚本自动生成，不应手动修改
+
+## 生成统计
+
+最后一次生成的统计信息：
+- 总属性数：521
+- 有 keywords 的属性：384
+- 有 numberTypes 的属性：236
+- 同时有两者的属性：174
+
 ## 使用场景
 
-这些数据用于：
+这些生成的数据用于：
 1. 生成属性配置类的默认值
 2. 验证属性是否支持某种类型的值
-3. 为生成器提供属性元数据
+3. 为原子类生成器提供属性元数据
+4. 提供类型安全的属性和关键字定义
