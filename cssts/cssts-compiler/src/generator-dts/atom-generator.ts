@@ -14,11 +14,8 @@ import {
   type ProgressiveRange,
 } from '../cssts-config.js';
 import {
-  normalizeUnitCategoriesConfig,
   shouldInclude,
-  extractUnitConfigsFromArray,
   extractUnitCategoryConfigsFromArray,
-  extractNumberTypeConfigsFromArray,
   extractStringsFromArray,
   extractStringsFromNumberTypeExcludeArray,
   extractStringsFromUnitCategoryExcludeArray,

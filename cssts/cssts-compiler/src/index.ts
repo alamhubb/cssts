@@ -31,19 +31,9 @@ export {
 
 // ==================== 主配置系统 ====================
 export {
-  // 主配置类
+  // 主配置类和默认实例
   CsstsConfig,
-
-  // 默认配置
-  DEFAULT_UNIT_CATEGORY_CONFIGS,
-  DEFAULT_PROGRESSIVE_RANGES,
-  // 伪类/伪元素样式配置
-  PseudoClassStylesConfig,
-  PseudoElementStylesConfig,
-  type PseudoStyleValue,
-  type CustomPropertyValue,
-  // 系统级别默认配置
-  SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES,
+  csstsDefaultConfig,
 } from './cssts-config.js'
 
 // ==================== 配置工具函数 ====================
