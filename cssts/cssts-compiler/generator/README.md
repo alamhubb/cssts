@@ -8,15 +8,17 @@
 
 **阶段1：数据生成**
 
-从 csstree 提取 CSS 属性的 keywords 和 numberTypes 数据。
+从 csstree 提取所有 CSS 数据并生成单个合并文件。
 
 **功能**：
-- 遍历 csstree 中的所有 CSS 属性
-- 提取每个属性的 keywords（关键字）和 numberTypes（数值类型）
-- 生成原始数据文件
+- 遍历 csstree 中的所有 CSS 属性，提取 keywords 和 numberTypes
+- 提取 CSS 命名颜色列表
+- 提取 CSS 单位列表
+- 提取伪类/伪元素列表
+- 生成单个合并的数据文件
 
 **输出**：
-- `src/data/property.ts` - CSS 属性数据（不打包）
+- `src/data/cssts-data.ts` - 所有 CSS 数据（不打包）
 
 **运行方式**：
 ```bash
@@ -25,6 +27,7 @@ npx tsx generator/generator-data.ts
 
 **输出示例**：
 ```typescript
+// 属性数据
 export const PROPERTY_DATA: PropertyInfo[] = [
   {
     name: 'width',
@@ -35,13 +38,23 @@ export const PROPERTY_DATA: PropertyInfo[] = [
     keywords: ['block', 'inline', 'flex', 'grid', ...],
   },
 ];
+
+// 颜色数据
+export const NAMED_COLORS = ['aliceblue', 'antiquewhite', ...] as const;
+
+// 单位数据
+export const ALL_UNITS = ['px', 'em', 'rem', '%', ...] as const;
+
+// 伪类/伪元素数据
+export const PSEUDO_CLASSES = ['hover', 'active', 'focus', ...] as const;
+export const PSEUDO_ELEMENTS = ['before', 'after', ...] as const;
 ```
 
 ### 2. generator-config-type.ts
 
 **阶段2：配置类型提示生成**
 
-从 `src/data/property.ts` 生成用户配置时的类型提示文件。
+从 `src/data/cssts-data.ts` 生成用户配置时的类型提示文件。
 
 **功能**：
 - 读取属性数据
@@ -62,14 +75,14 @@ npx tsx generator/generator-config-type.ts
 ```
 
 **前置条件**：
-必须先运行 `generator-data.ts` 生成 `src/data/property.ts`
+必须先运行 `generator-data.ts` 生成 `src/data/cssts-data.ts`
 
 ## 执行顺序
 
 ```
 1. npx tsx generator/generator-data.ts
    ↓
-   生成 src/data/property.ts
+   生成 src/data/cssts-data.ts
    ↓
 2. npx tsx generator/generator-config-type.ts
    ↓
@@ -122,7 +135,7 @@ const UNION_TYPE_MAP: Record<string, string[]> = {
 ```
 generator-data.ts (依赖 csstree)
     ↓
-src/data/property.ts
+src/data/cssts-data.ts (合并的数据文件)
     ↓
 generator-config-type.ts
     ↓
@@ -140,6 +153,45 @@ src/ 中的其他代码（不依赖 csstree）
    - `generator-data.ts` - 只负责数据提取
    - `generator-config-type.ts` - 只负责类型生成
 
+## 数据文件结构
+
+`src/data/cssts-data.ts` 是唯一的数据文件，包含以下导出：
+
+```typescript
+// 属性数据
+export interface PropertyInfo { ... }
+export const PROPERTY_DATA: PropertyInfo[]
+
+// 颜色数据
+export const NAMED_COLORS: readonly string[]
+export type NamedColorValue
+
+// 单位数据
+export const ALL_UNITS: readonly string[]
+export type UnitType
+
+// 伪类/伪元素数据
+export const PSEUDO_CLASSES: readonly string[]
+export type PseudoClassName
+export const PSEUDO_ELEMENTS: readonly string[]
+export type PseudoElementName
+```
+
+## 数据提取方式
+
+所有数据都直接从 csstree 提取：
+
+- **属性数据**：从 `csstree.lexer.properties` 遍历每个属性的语法定义
+- **颜色数据**：从 `csstree.lexer.types['color']` 的语法定义中提取所有颜色关键字
+- **单位数据**：从 `csstree.lexer.units` 对象中收集所有单位
+- **伪类/伪元素**：
+  - 从 `csstree.lexer.types['legacy-pseudo-element-selector']` 中提取伪元素
+  - 从所有类型定义中提取伪类/伪元素关键字
+  - 补充 W3C CSS 规范中定义的标准伪类/伪元素列表
+    - 伪类来源：[W3C CSS Selectors Level 4](https://www.w3.org/TR/selectors-4/)
+    - 伪元素来源：[W3C CSS Pseudo-Elements Module Level 1](https://www.w3.org/TR/css-pseudo-elements-1/)
+  - 注：csstree 中的伪类定义使用 `ident-token`，允许任何标识符，因此需要使用标准列表确保完整性
+
 ## 生成统计
 
 最后一次生成的统计信息：
@@ -147,6 +199,10 @@ src/ 中的其他代码（不依赖 csstree）
 - 有 keywords 的属性：384
 - 有 numberTypes 的属性：236
 - 同时有两者的属性：174
+- 命名颜色数：236
+- CSS 单位数：65
+- 伪类数：60
+- 伪元素数：13
 
 ## 使用场景
 

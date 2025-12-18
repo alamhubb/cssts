@@ -854,6 +854,8 @@ export const CONTENT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 
 export const COUNTER_INCREMENT_NUMBER_TYPES = ['integer'] as const;
 export const COUNTER_RESET_NUMBER_TYPES = ['integer'] as const;
 export const COUNTER_SET_NUMBER_TYPES = ['integer'] as const;
+export const CUE_AFTER_NUMBER_TYPES = ['decibel'] as const;
+export const CUE_BEFORE_NUMBER_TYPES = ['decibel'] as const;
 export const CURSOR_NUMBER_TYPES = ['number'] as const;
 export const CX_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const CY_NUMBER_TYPES = ['length', 'percentage'] as const;
@@ -993,7 +995,7 @@ export const TEXT_SHADOW_NUMBER_TYPES = ['angle', 'length', 'number', 'percentag
 export const TEXT_SIZE_ADJUST_NUMBER_TYPES = ['percentage'] as const;
 export const TEXT_UNDERLINE_OFFSET_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
-export const TRANSFORM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const TRANSFORM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'zero'] as const;
 export const TRANSFORM_ORIGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const TRANSITION_NUMBER_TYPES = ['integer', 'number', 'time'] as const;
 export const TRANSITION_DELAY_NUMBER_TYPES = ['time'] as const;
@@ -1005,9 +1007,10 @@ export const VIEW_TIMELINE_INSET_NUMBER_TYPES = ['length', 'percentage'] as cons
 export const VOICE_BALANCE_NUMBER_TYPES = ['number'] as const;
 export const VOICE_DURATION_NUMBER_TYPES = ['time'] as const;
 export const VOICE_FAMILY_NUMBER_TYPES = ['integer'] as const;
-export const VOICE_PITCH_NUMBER_TYPES = ['frequency', 'percentage'] as const;
-export const VOICE_RANGE_NUMBER_TYPES = ['frequency', 'percentage'] as const;
+export const VOICE_PITCH_NUMBER_TYPES = ['frequency', 'percentage', 'semitones'] as const;
+export const VOICE_RANGE_NUMBER_TYPES = ['frequency', 'percentage', 'semitones'] as const;
 export const VOICE_RATE_NUMBER_TYPES = ['percentage'] as const;
+export const VOICE_VOLUME_NUMBER_TYPES = ['decibel'] as const;
 export const WIDOWS_NUMBER_TYPES = ['integer'] as const;
 export const WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const WORD_SPACING_NUMBER_TYPES = ['length'] as const;
@@ -1168,6 +1171,10 @@ export type CounterResetUnit = 'unitless';
 export type CounterResetUnitCategory = 'unitless';
 export type CounterSetUnit = 'unitless';
 export type CounterSetUnitCategory = 'unitless';
+export type CueAfterUnit = ;
+export type CueAfterUnitCategory = ;
+export type CueBeforeUnit = ;
+export type CueBeforeUnitCategory = ;
 export type CursorUnit = 'unitless';
 export type CursorUnitCategory = 'unitless';
 export type CxUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
@@ -1476,6 +1483,8 @@ export type VoiceRangeUnit = '%' | 'Hz' | 'kHz';
 export type VoiceRangeUnitCategory = 'frequency' | 'percentage';
 export type VoiceRateUnit = '%';
 export type VoiceRateUnitCategory = 'percentage';
+export type VoiceVolumeUnit = ;
+export type VoiceVolumeUnitCategory = ;
 export type WidowsUnit = 'unitless';
 export type WidowsUnitCategory = 'unitless';
 export type WidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
@@ -2454,12 +2463,14 @@ export class CueConfig {
 
 export class CueAfterConfig {
   static readonly DEFAULT_KEYWORDS = [...CUE_AFTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CUE_AFTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CueBeforeConfig {
   static readonly DEFAULT_KEYWORDS = [...CUE_BEFORE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CUE_BEFORE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -4626,6 +4637,7 @@ export class VoiceStressConfig {
 
 export class VoiceVolumeConfig {
   static readonly DEFAULT_KEYWORDS = [...VOICE_VOLUME_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_VOLUME_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }

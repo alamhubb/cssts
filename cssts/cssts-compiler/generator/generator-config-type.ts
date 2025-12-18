@@ -39,17 +39,17 @@ interface PropertyData {
   numberTypes: string[];
 }
 
-// 从 src/data/property.ts 读取数据
-function loadPropertyData(): PropertyData[] {
-  const propertyFilePath = path.join(dataDir, 'property.ts');
+// 从 src/data/cssts-data.ts 读取数据
+async function loadPropertyData(): Promise<PropertyData[]> {
+  const dataFilePath = path.join(dataDir, 'cssts-data.ts');
   
-  if (!fs.existsSync(propertyFilePath)) {
-    throw new Error(`Property data file not found: ${propertyFilePath}\nPlease run 'npx tsx generator/generator-data.ts' first.`);
+  if (!fs.existsSync(dataFilePath)) {
+    throw new Error(`Data file not found: ${dataFilePath}\nPlease run 'npx tsx generator/generator-data.ts' first.`);
   }
 
   // 动态导入数据
-  const moduleUrl = `file://${propertyFilePath}`;
-  const module = require(propertyFilePath);
+  const fileUrl = `file://${dataFilePath}`;
+  const module = await import(fileUrl);
   
   const properties: PropertyData[] = module.PROPERTY_DATA.map((prop: PropertyInfo) => ({
     name: prop.name,
@@ -362,11 +362,11 @@ export * from './property-config';
 
 // ==================== 主函数 ====================
 
-function main() {
+async function main() {
   console.log('🚀 Generating config type hints from property data...\n');
 
   // 读取属性数据
-  const allProperties = loadPropertyData();
+  const allProperties = await loadPropertyData();
 
   const propKeywordsMap = new Map<string, string[]>();
   const propNumberTypesMap = new Map<string, string[]>();
@@ -412,4 +412,7 @@ function main() {
   console.log('\n✨ Config type generation completed!');
 }
 
-main();
+main().catch(err => {
+  console.error('Error:', err.message);
+  process.exit(1);
+});
