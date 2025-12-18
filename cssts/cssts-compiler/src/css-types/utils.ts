@@ -1,36 +1,30 @@
 /**
- * NumberType → UnitCategory → Units 映射
+ * CSS Types 工具函数
  * 
- * 这是核心映射文件，定义了：
- * - numberType 到 unitCategory 的映射
- * - 提供链式查询函数
+ * 基于 custom/ 和 config/ 中的数据提供查询和转换功能
  */
 
-import type { NumberTypeName } from './unit-types';
-import { UNITS_BY_CATEGORY, type UnitCategoryName } from './unit-categories';
+import { UNITS_BY_CATEGORY, CATEGORY_BY_UNIT, type UnitCategoryName } from './config/units';
+import { NUMBER_TYPE_TO_CATEGORIES, type NumberTypeName } from './custom/number-type-mapping';
 
-// ==================== NumberType 到 UnitCategory 映射 ====================
+// ==================== 单位分类查询 ====================
 
-/**
- * NumberType 到 UnitCategory 的映射
- * 
- * 映射关系：
- * - length 包含多个 unitCategory: pixel, fontRelative, physical, percentage (viewport units)
- * - 其他 numberType 基本一一对应
- */
-export const NUMBER_TYPE_TO_CATEGORIES: Record<NumberTypeName, UnitCategoryName[]> = {
-  length: ['pixel', 'fontRelative', 'physical', 'percentage'],  // length 包含多种单位分类
-  angle: ['angle'],
-  time: ['time'],
-  frequency: ['frequency'],
-  percentage: ['percentage'],
-  number: ['unitless'],
-  integer: ['unitless'],
-  resolution: ['resolution'],
-  flex: ['flex'],
-};
+/** 获取单位所属分类 */
+export function getUnitCategory(unit: string): UnitCategoryName | undefined {
+  return CATEGORY_BY_UNIT[unit];
+}
 
-// ==================== 链式查询函数 ====================
+/** 获取分类下的所有单位 */
+export function getUnitsInCategory(category: UnitCategoryName): readonly string[] {
+  return UNITS_BY_CATEGORY[category];
+}
+
+/** 判断单位是否属于某分类 */
+export function isUnitInCategory(unit: string, category: UnitCategoryName): boolean {
+  return CATEGORY_BY_UNIT[unit] === category;
+}
+
+// ==================== NumberType 链式查询 ====================
 
 /**
  * 根据 numberTypes 获取对应的 unitCategories
@@ -43,9 +37,7 @@ export function getUnitCategoriesFromNumberTypes(numberTypes: NumberTypeName[]):
   const categories = new Set<UnitCategoryName>();
   for (const nt of numberTypes) {
     const cats = NUMBER_TYPE_TO_CATEGORIES[nt];
-    if (cats) {
-      cats.forEach(c => categories.add(c));
-    }
+    if (cats) cats.forEach(c => categories.add(c));
   }
   return Array.from(categories);
 }
@@ -61,9 +53,7 @@ export function getUnitsFromCategories(categories: UnitCategoryName[]): string[]
   const units = new Set<string>();
   for (const cat of categories) {
     const catUnits = UNITS_BY_CATEGORY[cat];
-    if (catUnits) {
-      catUnits.forEach(u => units.add(u));
-    }
+    if (catUnits) catUnits.forEach(u => units.add(u));
   }
   return Array.from(units);
 }
@@ -80,16 +70,12 @@ export function getUnitsFromNumberTypes(numberTypes: NumberTypeName[]): string[]
   return getUnitsFromCategories(categories);
 }
 
-/**
- * 获取单个 numberType 对应的 unitCategories
- */
+/** 获取单个 numberType 对应的 unitCategories */
 export function getCategoriesForNumberType(numberType: NumberTypeName): UnitCategoryName[] {
   return NUMBER_TYPE_TO_CATEGORIES[numberType] || [];
 }
 
-/**
- * 获取单个 numberType 对应的 units
- */
+/** 获取单个 numberType 对应的 units */
 export function getUnitsForNumberType(numberType: NumberTypeName): string[] {
   const categories = getCategoriesForNumberType(numberType);
   return getUnitsFromCategories(categories);

@@ -12,7 +12,7 @@ import {
   type ProgressiveRange,
   type StepConfig,
 } from './cssts-config';
-import { CssPropertyConfigMap, cssPropertyNameMap, type CssPropertyCamelName } from './property-config';
+import { CssPropertyConfigMap, cssPropertyNameMap, type CssPropertyCamelName } from './config/property-config';
 
 // ==================== 数值生成 ====================
 

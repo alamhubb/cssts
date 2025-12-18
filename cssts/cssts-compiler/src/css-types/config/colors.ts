@@ -1,10 +1,10 @@
 /**
- * CSS 颜色数据
- * 自动生成，请勿手动修改
+ * CSS 颜色配置（自动生成）
  */
 
-/** CSS 命名颜色关键字（149个） */
-export const COLORS = [
+import { SYSTEM_COLORS, type SystemColorValue } from '../custom/system-colors';
+
+export const NAMED_COLORS = [
   'aliceblue',
   'antiquewhite',
   'aqua',
@@ -156,37 +156,7 @@ export const COLORS = [
   'yellowgreen',
 ] as const;
 
-/** 颜色值类型 */
-export type ColorValue = typeof COLORS[number];
-
-/** CSS 系统颜色关键字（CSS Color Module Level 4） */
-export const SYSTEM_COLORS = [
-  'AccentColor',
-  'AccentColorText',
-  'ActiveText',
-  'ButtonBorder',
-  'ButtonFace',
-  'ButtonText',
-  'Canvas',
-  'CanvasText',
-  'Field',
-  'FieldText',
-  'GrayText',
-  'Highlight',
-  'HighlightText',
-  'LinkText',
-  'Mark',
-  'MarkText',
-  'SelectedItem',
-  'SelectedItemText',
-  'VisitedText',
-] as const;
-
-/** 系统颜色值类型 */
-export type SystemColorValue = typeof SYSTEM_COLORS[number];
-
-/** 所有颜色值（命名颜色 + 系统颜色） */
-export const ALL_COLORS = [...COLORS, ...SYSTEM_COLORS] as const;
-
-/** 所有颜色值类型 */
-export type AllColorValue = ColorValue | SystemColorValue;
+export type NamedColorValue = typeof NAMED_COLORS[number];
+export const ALL_COLORS = [...NAMED_COLORS, ...SYSTEM_COLORS] as const;
+export type AllColorValue = NamedColorValue | SystemColorValue;
+export { SYSTEM_COLORS, type SystemColorValue } from '../custom/system-colors';
