@@ -4,7 +4,7 @@
  * 基于 custom/ 和 config/ 中的数据提供查询和转换功能
  */
 
-import { UNITS_BY_CATEGORY, CATEGORY_BY_UNIT, type UnitCategoryName } from './config/units';
+import { unitsByCategory, CATEGORY_BY_UNIT, type UnitCategoryName } from './config/units';
 import { numberTypeToCategories, type NumberTypeName } from './custom/number-type-mapping';
 
 // ==================== 单位分类查询 ====================
@@ -16,7 +16,7 @@ export function getUnitCategory(unit: string): UnitCategoryName | undefined {
 
 /** 获取分类下的所有单位 */
 export function getUnitsInCategory(category: UnitCategoryName): readonly string[] {
-  return UNITS_BY_CATEGORY[category];
+  return unitsByCategory[category];
 }
 
 /** 判断单位是否属于某分类 */
@@ -52,7 +52,7 @@ export function getUnitCategoriesFromNumberTypes(numberTypes: NumberTypeName[]):
 export function getUnitsFromCategories(categories: UnitCategoryName[]): string[] {
   const units = new Set<string>();
   for (const cat of categories) {
-    const catUnits = UNITS_BY_CATEGORY[cat];
+    const catUnits = unitsByCategory[cat];
     if (catUnits) catUnits.forEach(u => units.add(u));
   }
   return Array.from(units);
