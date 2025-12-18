@@ -412,6 +412,27 @@ function generateKeywordsFile(): string {
   lines.push(`export type KeywordValue = ${keywordTypeNames.join(' | ')};`)
   lines.push(``)
 
+  // CSS 属性值映射类型（用于智能提示）
+  lines.push(`// ==================== CSS 属性值映射 ====================`)
+  lines.push(``)
+  lines.push(`/** CSS 属性到值类型的映射（用于智能提示） */`)
+  lines.push(`export interface CssPropertyValueMap {`)
+  
+  // 包含所有属性（有 keywords 的用 keyword 类型，没有的用 string）
+  for (const propName of sortedPropertyNames) {
+    const camelName = toCamelCase(propName)
+    const hasKeywords = propKeywordsMap.has(propName) && (propKeywordsMap.get(propName)?.length ?? 0) > 0
+    
+    if (hasKeywords) {
+      const keywordTypeName = `${toPascalCase(propName)}Keyword`
+      lines.push(`  ${camelName}?: ${keywordTypeName} | string;`)
+    } else {
+      lines.push(`  ${camelName}?: string;`)
+    }
+  }
+  lines.push(`}`)
+  lines.push(``)
+
   return lines.join('\n')
 }
 
