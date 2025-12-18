@@ -62,7 +62,7 @@ export type CustomPropertyValue = string | Record<string, string>;
 
 // ==================== 合并所有核心属性 ====================
 
-export const defaultProperties: CssPropertyCamelName[] = [
+export const cssDefaultProperties: CssPropertyCamelName[] = [
     // ==================== 布局属性 ====================
     'display',
     'position',
@@ -438,8 +438,13 @@ export class CsstsConfig {
      * });
      */
     constructor(options = {} as CsstsConfig) {
+        // 其他配置
+        this.customProperties = options.customProperties ?? {};
+        this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
+        this.properties = new CssPropertyConfigMap(options.properties);
+
         // 属性配置
-        this.includeProperties = options.includeProperties ?? defaultProperties
+        this.includeProperties = options.includeProperties ?? cssDefaultProperties
         this.excludeProperties = options.excludeProperties ?? [];
 
         // 数值类型配置
@@ -466,11 +471,6 @@ export class CsstsConfig {
         this.excludePseudoClasses = options.excludePseudoClasses ?? [];
         this.includePseudoElements = options.includePseudoElements;
         this.excludePseudoElements = options.excludePseudoElements ?? [];
-
-        // 其他配置
-        this.customProperties = options.customProperties ?? {};
-        this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
-        this.properties = new CssPropertyConfigMap(options.properties);
 
         // 伪类/伪元素样式配置
         this.pseudoClassStyles = new PseudoClassStylesConfig(options.pseudoClassStyles);
