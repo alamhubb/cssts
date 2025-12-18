@@ -59,8 +59,13 @@ export type CustomPropertyValue = string | Record<string, string>;
 
 
 // ==================== 合并所有核心属性 ====================
-
 export const cssDefaultProperties: CssPropertyCamelName[] = [
+    // ==================== 布局属性 ====================
+    'top',
+];
+
+
+/*export const cssDefaultProperties: CssPropertyCamelName[] = [
     // ==================== 布局属性 ====================
     'display',
     'position',
@@ -132,7 +137,7 @@ export const cssDefaultProperties: CssPropertyCamelName[] = [
     'opacity',
     'cursor',
     'overflow',
-];
+];*/
 
 
 // ==================== 系统级别默认配置 ====================
