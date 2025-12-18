@@ -370,15 +370,7 @@ export class CsstsConfig {
 
         // 单位分类配置 - 系统默认只在 includeUnitCategories 级别设置
         // 默认包含除了系统级别低频分类外的所有分类
-        this.includeUnitCategories = options.includeUnitCategories ?? [
-            'pixel',
-            'percentage',
-            'fontRelative',
-            'angle',
-            'time',
-            'frequency',
-            'unitless',
-        ];
+        this.includeUnitCategories = options.includeUnitCategories ?? [DEFAULT_UNIT_CATEGORY_CONFIGS];
         this.excludeUnitCategories = options.excludeUnitCategories ?? [];
 
         // 单位配置
