@@ -2,7 +2,1019 @@
  * CSS 属性配置（自动生成）
  */
 
+import { type AllColorValue } from './colors';
 import type { NumberTypeName } from './units';
+import {
+  ACCENT_COLOR_KEYWORDS,
+  ALIGN_CONTENT_KEYWORDS,
+  ALIGN_ITEMS_KEYWORDS,
+  ALIGN_SELF_KEYWORDS,
+  ALIGN_TRACKS_KEYWORDS,
+  ALIGNMENT_BASELINE_KEYWORDS,
+  ALL_KEYWORDS,
+  ANCHOR_NAME_KEYWORDS,
+  ANCHOR_SCOPE_KEYWORDS,
+  ANIMATION_KEYWORDS,
+  ANIMATION_COMPOSITION_KEYWORDS,
+  ANIMATION_DIRECTION_KEYWORDS,
+  ANIMATION_FILL_MODE_KEYWORDS,
+  ANIMATION_ITERATION_COUNT_KEYWORDS,
+  ANIMATION_NAME_KEYWORDS,
+  ANIMATION_PLAY_STATE_KEYWORDS,
+  ANIMATION_RANGE_END_KEYWORDS,
+  ANIMATION_RANGE_START_KEYWORDS,
+  ANIMATION_TIMELINE_KEYWORDS,
+  ANIMATION_TIMING_FUNCTION_KEYWORDS,
+  APPEARANCE_KEYWORDS,
+  ASPECT_RATIO_KEYWORDS,
+  AZIMUTH_KEYWORDS,
+  BACKDROP_FILTER_KEYWORDS,
+  BACKFACE_VISIBILITY_KEYWORDS,
+  BACKGROUND_KEYWORDS,
+  BACKGROUND_ATTACHMENT_KEYWORDS,
+  BACKGROUND_BLEND_MODE_KEYWORDS,
+  BACKGROUND_CLIP_KEYWORDS,
+  BACKGROUND_COLOR_KEYWORDS,
+  BACKGROUND_IMAGE_KEYWORDS,
+  BACKGROUND_ORIGIN_KEYWORDS,
+  BACKGROUND_POSITION_KEYWORDS,
+  BACKGROUND_POSITION_X_KEYWORDS,
+  BACKGROUND_POSITION_Y_KEYWORDS,
+  BACKGROUND_REPEAT_KEYWORDS,
+  BACKGROUND_SIZE_KEYWORDS,
+  BASELINE_SHIFT_KEYWORDS,
+  BORDER_KEYWORDS,
+  BORDER_BLOCK_KEYWORDS,
+  BORDER_BLOCK_END_KEYWORDS,
+  BORDER_BLOCK_START_KEYWORDS,
+  BORDER_BOTTOM_KEYWORDS,
+  BORDER_BOTTOM_STYLE_KEYWORDS,
+  BORDER_BOTTOM_WIDTH_KEYWORDS,
+  BORDER_COLLAPSE_KEYWORDS,
+  BORDER_COLOR_KEYWORDS,
+  BORDER_IMAGE_REPEAT_KEYWORDS,
+  BORDER_IMAGE_SLICE_KEYWORDS,
+  BORDER_IMAGE_SOURCE_KEYWORDS,
+  BORDER_IMAGE_WIDTH_KEYWORDS,
+  BORDER_INLINE_KEYWORDS,
+  BORDER_INLINE_END_KEYWORDS,
+  BORDER_INLINE_START_KEYWORDS,
+  BORDER_LEFT_KEYWORDS,
+  BORDER_LEFT_COLOR_KEYWORDS,
+  BORDER_LEFT_STYLE_KEYWORDS,
+  BORDER_LEFT_WIDTH_KEYWORDS,
+  BORDER_RIGHT_KEYWORDS,
+  BORDER_RIGHT_COLOR_KEYWORDS,
+  BORDER_RIGHT_STYLE_KEYWORDS,
+  BORDER_RIGHT_WIDTH_KEYWORDS,
+  BORDER_STYLE_KEYWORDS,
+  BORDER_TOP_KEYWORDS,
+  BORDER_TOP_COLOR_KEYWORDS,
+  BORDER_TOP_STYLE_KEYWORDS,
+  BORDER_TOP_WIDTH_KEYWORDS,
+  BORDER_WIDTH_KEYWORDS,
+  BOTTOM_KEYWORDS,
+  BOX_ALIGN_KEYWORDS,
+  BOX_DECORATION_BREAK_KEYWORDS,
+  BOX_DIRECTION_KEYWORDS,
+  BOX_LINES_KEYWORDS,
+  BOX_ORIENT_KEYWORDS,
+  BOX_PACK_KEYWORDS,
+  BOX_SHADOW_KEYWORDS,
+  BOX_SIZING_KEYWORDS,
+  BREAK_AFTER_KEYWORDS,
+  BREAK_BEFORE_KEYWORDS,
+  BREAK_INSIDE_KEYWORDS,
+  CAPTION_SIDE_KEYWORDS,
+  CARET_COLOR_KEYWORDS,
+  CARET_SHAPE_KEYWORDS,
+  CLEAR_KEYWORDS,
+  CLIP_KEYWORDS,
+  CLIP_PATH_KEYWORDS,
+  CLIP_RULE_KEYWORDS,
+  COLOR_KEYWORDS,
+  COLOR_INTERPOLATION_FILTERS_KEYWORDS,
+  COLOR_SCHEME_KEYWORDS,
+  COLUMN_COUNT_KEYWORDS,
+  COLUMN_FILL_KEYWORDS,
+  COLUMN_GAP_KEYWORDS,
+  COLUMN_RULE_COLOR_KEYWORDS,
+  COLUMN_SPAN_KEYWORDS,
+  COLUMN_WIDTH_KEYWORDS,
+  CONTAIN_KEYWORDS,
+  CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS,
+  CONTAIN_INTRINSIC_HEIGHT_KEYWORDS,
+  CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS,
+  CONTAIN_INTRINSIC_SIZE_KEYWORDS,
+  CONTAIN_INTRINSIC_WIDTH_KEYWORDS,
+  CONTAINER_NAME_KEYWORDS,
+  CONTAINER_TYPE_KEYWORDS,
+  CONTENT_KEYWORDS,
+  CONTENT_VISIBILITY_KEYWORDS,
+  COUNTER_INCREMENT_KEYWORDS,
+  COUNTER_RESET_KEYWORDS,
+  COUNTER_SET_KEYWORDS,
+  CUE_AFTER_KEYWORDS,
+  CUE_BEFORE_KEYWORDS,
+  CURSOR_KEYWORDS,
+  D_KEYWORDS,
+  DIRECTION_KEYWORDS,
+  DISPLAY_KEYWORDS,
+  DOMINANT_BASELINE_KEYWORDS,
+  EMPTY_CELLS_KEYWORDS,
+  FIELD_SIZING_KEYWORDS,
+  FILL_KEYWORDS,
+  FILL_RULE_KEYWORDS,
+  FILTER_KEYWORDS,
+  FLEX_KEYWORDS,
+  FLEX_BASIS_KEYWORDS,
+  FLEX_DIRECTION_KEYWORDS,
+  FLEX_WRAP_KEYWORDS,
+  FLOAT_KEYWORDS,
+  FONT_KEYWORDS,
+  FONT_FAMILY_KEYWORDS,
+  FONT_FEATURE_SETTINGS_KEYWORDS,
+  FONT_KERNING_KEYWORDS,
+  FONT_LANGUAGE_OVERRIDE_KEYWORDS,
+  FONT_OPTICAL_SIZING_KEYWORDS,
+  FONT_PALETTE_KEYWORDS,
+  FONT_SIZE_KEYWORDS,
+  FONT_SIZE_ADJUST_KEYWORDS,
+  FONT_SMOOTH_KEYWORDS,
+  FONT_STRETCH_KEYWORDS,
+  FONT_STYLE_KEYWORDS,
+  FONT_SYNTHESIS_KEYWORDS,
+  FONT_SYNTHESIS_POSITION_KEYWORDS,
+  FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS,
+  FONT_SYNTHESIS_STYLE_KEYWORDS,
+  FONT_SYNTHESIS_WEIGHT_KEYWORDS,
+  FONT_VARIANT_KEYWORDS,
+  FONT_VARIANT_ALTERNATES_KEYWORDS,
+  FONT_VARIANT_CAPS_KEYWORDS,
+  FONT_VARIANT_EAST_ASIAN_KEYWORDS,
+  FONT_VARIANT_EMOJI_KEYWORDS,
+  FONT_VARIANT_LIGATURES_KEYWORDS,
+  FONT_VARIANT_NUMERIC_KEYWORDS,
+  FONT_VARIANT_POSITION_KEYWORDS,
+  FONT_VARIATION_SETTINGS_KEYWORDS,
+  FONT_WEIGHT_KEYWORDS,
+  FORCED_COLOR_ADJUST_KEYWORDS,
+  GRID_KEYWORDS,
+  GRID_AREA_KEYWORDS,
+  GRID_AUTO_COLUMNS_KEYWORDS,
+  GRID_AUTO_FLOW_KEYWORDS,
+  GRID_AUTO_ROWS_KEYWORDS,
+  GRID_COLUMN_KEYWORDS,
+  GRID_COLUMN_END_KEYWORDS,
+  GRID_COLUMN_START_KEYWORDS,
+  GRID_ROW_KEYWORDS,
+  GRID_ROW_END_KEYWORDS,
+  GRID_ROW_START_KEYWORDS,
+  GRID_TEMPLATE_KEYWORDS,
+  GRID_TEMPLATE_AREAS_KEYWORDS,
+  GRID_TEMPLATE_COLUMNS_KEYWORDS,
+  GRID_TEMPLATE_ROWS_KEYWORDS,
+  HANGING_PUNCTUATION_KEYWORDS,
+  HEIGHT_KEYWORDS,
+  HYPHENATE_CHARACTER_KEYWORDS,
+  HYPHENATE_LIMIT_CHARS_KEYWORDS,
+  HYPHENS_KEYWORDS,
+  IMAGE_ORIENTATION_KEYWORDS,
+  IMAGE_RENDERING_KEYWORDS,
+  IMAGE_RESOLUTION_KEYWORDS,
+  IME_MODE_KEYWORDS,
+  INITIAL_LETTER_KEYWORDS,
+  INITIAL_LETTER_ALIGN_KEYWORDS,
+  INPUT_SECURITY_KEYWORDS,
+  INTERPOLATE_SIZE_KEYWORDS,
+  ISOLATION_KEYWORDS,
+  JUSTIFY_CONTENT_KEYWORDS,
+  JUSTIFY_ITEMS_KEYWORDS,
+  JUSTIFY_SELF_KEYWORDS,
+  JUSTIFY_TRACKS_KEYWORDS,
+  KERNING_KEYWORDS,
+  LEFT_KEYWORDS,
+  LETTER_SPACING_KEYWORDS,
+  LINE_BREAK_KEYWORDS,
+  LINE_CLAMP_KEYWORDS,
+  LINE_HEIGHT_KEYWORDS,
+  LIST_STYLE_IMAGE_KEYWORDS,
+  LIST_STYLE_POSITION_KEYWORDS,
+  LIST_STYLE_TYPE_KEYWORDS,
+  MARGIN_KEYWORDS,
+  MARGIN_BOTTOM_KEYWORDS,
+  MARGIN_LEFT_KEYWORDS,
+  MARGIN_RIGHT_KEYWORDS,
+  MARGIN_TOP_KEYWORDS,
+  MARGIN_TRIM_KEYWORDS,
+  MARKER_KEYWORDS,
+  MARKER_END_KEYWORDS,
+  MARKER_MID_KEYWORDS,
+  MARKER_START_KEYWORDS,
+  MASK_KEYWORDS,
+  MASK_BORDER_MODE_KEYWORDS,
+  MASK_BORDER_REPEAT_KEYWORDS,
+  MASK_BORDER_SLICE_KEYWORDS,
+  MASK_BORDER_SOURCE_KEYWORDS,
+  MASK_BORDER_WIDTH_KEYWORDS,
+  MASK_CLIP_KEYWORDS,
+  MASK_COMPOSITE_KEYWORDS,
+  MASK_IMAGE_KEYWORDS,
+  MASK_MODE_KEYWORDS,
+  MASK_ORIGIN_KEYWORDS,
+  MASK_POSITION_KEYWORDS,
+  MASK_REPEAT_KEYWORDS,
+  MASK_SIZE_KEYWORDS,
+  MASK_TYPE_KEYWORDS,
+  MASONRY_AUTO_FLOW_KEYWORDS,
+  MATH_DEPTH_KEYWORDS,
+  MATH_SHIFT_KEYWORDS,
+  MATH_STYLE_KEYWORDS,
+  MAX_HEIGHT_KEYWORDS,
+  MAX_LINES_KEYWORDS,
+  MAX_WIDTH_KEYWORDS,
+  MIN_HEIGHT_KEYWORDS,
+  MIN_WIDTH_KEYWORDS,
+  MIX_BLEND_MODE_KEYWORDS,
+  OBJECT_FIT_KEYWORDS,
+  OBJECT_POSITION_KEYWORDS,
+  OFFSET_ANCHOR_KEYWORDS,
+  OFFSET_PATH_KEYWORDS,
+  OFFSET_POSITION_KEYWORDS,
+  OFFSET_ROTATE_KEYWORDS,
+  OUTLINE_COLOR_KEYWORDS,
+  OUTLINE_STYLE_KEYWORDS,
+  OUTLINE_WIDTH_KEYWORDS,
+  OVERFLOW_KEYWORDS,
+  OVERFLOW_ANCHOR_KEYWORDS,
+  OVERFLOW_BLOCK_KEYWORDS,
+  OVERFLOW_CLIP_BOX_KEYWORDS,
+  OVERFLOW_CLIP_MARGIN_KEYWORDS,
+  OVERFLOW_INLINE_KEYWORDS,
+  OVERFLOW_WRAP_KEYWORDS,
+  OVERFLOW_X_KEYWORDS,
+  OVERFLOW_Y_KEYWORDS,
+  OVERLAY_KEYWORDS,
+  OVERSCROLL_BEHAVIOR_KEYWORDS,
+  OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS,
+  OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS,
+  OVERSCROLL_BEHAVIOR_X_KEYWORDS,
+  OVERSCROLL_BEHAVIOR_Y_KEYWORDS,
+  PAGE_KEYWORDS,
+  PAGE_BREAK_AFTER_KEYWORDS,
+  PAGE_BREAK_BEFORE_KEYWORDS,
+  PAGE_BREAK_INSIDE_KEYWORDS,
+  PAINT_ORDER_KEYWORDS,
+  PAUSE_AFTER_KEYWORDS,
+  PAUSE_BEFORE_KEYWORDS,
+  PERSPECTIVE_KEYWORDS,
+  PERSPECTIVE_ORIGIN_KEYWORDS,
+  POINTER_EVENTS_KEYWORDS,
+  POSITION_KEYWORDS,
+  POSITION_ANCHOR_KEYWORDS,
+  POSITION_AREA_KEYWORDS,
+  POSITION_TRY_FALLBACKS_KEYWORDS,
+  POSITION_TRY_ORDER_KEYWORDS,
+  POSITION_VISIBILITY_KEYWORDS,
+  PRINT_COLOR_ADJUST_KEYWORDS,
+  QUOTES_KEYWORDS,
+  RESIZE_KEYWORDS,
+  REST_AFTER_KEYWORDS,
+  REST_BEFORE_KEYWORDS,
+  RIGHT_KEYWORDS,
+  ROTATE_KEYWORDS,
+  ROW_GAP_KEYWORDS,
+  RUBY_ALIGN_KEYWORDS,
+  RUBY_MERGE_KEYWORDS,
+  RUBY_POSITION_KEYWORDS,
+  SCALE_KEYWORDS,
+  SCROLL_BEHAVIOR_KEYWORDS,
+  SCROLL_PADDING_KEYWORDS,
+  SCROLL_PADDING_BLOCK_KEYWORDS,
+  SCROLL_PADDING_BLOCK_END_KEYWORDS,
+  SCROLL_PADDING_BLOCK_START_KEYWORDS,
+  SCROLL_PADDING_BOTTOM_KEYWORDS,
+  SCROLL_PADDING_INLINE_KEYWORDS,
+  SCROLL_PADDING_INLINE_END_KEYWORDS,
+  SCROLL_PADDING_INLINE_START_KEYWORDS,
+  SCROLL_PADDING_LEFT_KEYWORDS,
+  SCROLL_PADDING_RIGHT_KEYWORDS,
+  SCROLL_PADDING_TOP_KEYWORDS,
+  SCROLL_SNAP_ALIGN_KEYWORDS,
+  SCROLL_SNAP_COORDINATE_KEYWORDS,
+  SCROLL_SNAP_DESTINATION_KEYWORDS,
+  SCROLL_SNAP_POINTS_X_KEYWORDS,
+  SCROLL_SNAP_POINTS_Y_KEYWORDS,
+  SCROLL_SNAP_STOP_KEYWORDS,
+  SCROLL_SNAP_TYPE_KEYWORDS,
+  SCROLL_SNAP_TYPE_X_KEYWORDS,
+  SCROLL_SNAP_TYPE_Y_KEYWORDS,
+  SCROLL_TIMELINE_AXIS_KEYWORDS,
+  SCROLL_TIMELINE_NAME_KEYWORDS,
+  SCROLLBAR_COLOR_KEYWORDS,
+  SCROLLBAR_GUTTER_KEYWORDS,
+  SCROLLBAR_WIDTH_KEYWORDS,
+  SHAPE_OUTSIDE_KEYWORDS,
+  SHAPE_RENDERING_KEYWORDS,
+  SPEAK_KEYWORDS,
+  SPEAK_AS_KEYWORDS,
+  STROKE_KEYWORDS,
+  STROKE_DASHARRAY_KEYWORDS,
+  STROKE_LINECAP_KEYWORDS,
+  STROKE_LINEJOIN_KEYWORDS,
+  TABLE_LAYOUT_KEYWORDS,
+  TEXT_ALIGN_KEYWORDS,
+  TEXT_ALIGN_LAST_KEYWORDS,
+  TEXT_ANCHOR_KEYWORDS,
+  TEXT_COMBINE_UPRIGHT_KEYWORDS,
+  TEXT_DECORATION_COLOR_KEYWORDS,
+  TEXT_DECORATION_LINE_KEYWORDS,
+  TEXT_DECORATION_SKIP_KEYWORDS,
+  TEXT_DECORATION_SKIP_INK_KEYWORDS,
+  TEXT_DECORATION_STYLE_KEYWORDS,
+  TEXT_DECORATION_THICKNESS_KEYWORDS,
+  TEXT_EMPHASIS_COLOR_KEYWORDS,
+  TEXT_EMPHASIS_POSITION_KEYWORDS,
+  TEXT_EMPHASIS_STYLE_KEYWORDS,
+  TEXT_INDENT_KEYWORDS,
+  TEXT_JUSTIFY_KEYWORDS,
+  TEXT_ORIENTATION_KEYWORDS,
+  TEXT_OVERFLOW_KEYWORDS,
+  TEXT_RENDERING_KEYWORDS,
+  TEXT_SHADOW_KEYWORDS,
+  TEXT_SIZE_ADJUST_KEYWORDS,
+  TEXT_SPACING_TRIM_KEYWORDS,
+  TEXT_TRANSFORM_KEYWORDS,
+  TEXT_UNDERLINE_OFFSET_KEYWORDS,
+  TEXT_UNDERLINE_POSITION_KEYWORDS,
+  TEXT_WRAP_MODE_KEYWORDS,
+  TEXT_WRAP_STYLE_KEYWORDS,
+  TIMELINE_SCOPE_KEYWORDS,
+  TOP_KEYWORDS,
+  TOUCH_ACTION_KEYWORDS,
+  TRANSFORM_KEYWORDS,
+  TRANSFORM_BOX_KEYWORDS,
+  TRANSFORM_ORIGIN_KEYWORDS,
+  TRANSFORM_STYLE_KEYWORDS,
+  TRANSITION_KEYWORDS,
+  TRANSITION_BEHAVIOR_KEYWORDS,
+  TRANSITION_PROPERTY_KEYWORDS,
+  TRANSITION_TIMING_FUNCTION_KEYWORDS,
+  TRANSLATE_KEYWORDS,
+  UNICODE_BIDI_KEYWORDS,
+  USER_SELECT_KEYWORDS,
+  VECTOR_EFFECT_KEYWORDS,
+  VERTICAL_ALIGN_KEYWORDS,
+  VIEW_TIMELINE_AXIS_KEYWORDS,
+  VIEW_TIMELINE_INSET_KEYWORDS,
+  VIEW_TIMELINE_NAME_KEYWORDS,
+  VIEW_TRANSITION_NAME_KEYWORDS,
+  VISIBILITY_KEYWORDS,
+  VOICE_BALANCE_KEYWORDS,
+  VOICE_DURATION_KEYWORDS,
+  VOICE_FAMILY_KEYWORDS,
+  VOICE_PITCH_KEYWORDS,
+  VOICE_RANGE_KEYWORDS,
+  VOICE_RATE_KEYWORDS,
+  VOICE_STRESS_KEYWORDS,
+  VOICE_VOLUME_KEYWORDS,
+  WHITE_SPACE_KEYWORDS,
+  WHITE_SPACE_COLLAPSE_KEYWORDS,
+  WHITE_SPACE_TRIM_KEYWORDS,
+  WIDTH_KEYWORDS,
+  WILL_CHANGE_KEYWORDS,
+  WORD_BREAK_KEYWORDS,
+  WORD_SPACING_KEYWORDS,
+  WORD_WRAP_KEYWORDS,
+  WRITING_MODE_KEYWORDS,
+  Z_INDEX_KEYWORDS,
+  ZOOM_KEYWORDS,
+} from './keywords';
+import type {
+  AccentColorKeyword,
+  AlignContentKeyword,
+  AlignItemsKeyword,
+  AlignSelfKeyword,
+  AlignTracksKeyword,
+  AlignmentBaselineKeyword,
+  AllKeyword,
+  AnchorNameKeyword,
+  AnchorScopeKeyword,
+  AnimationKeyword,
+  AnimationCompositionKeyword,
+  AnimationDirectionKeyword,
+  AnimationFillModeKeyword,
+  AnimationIterationCountKeyword,
+  AnimationNameKeyword,
+  AnimationPlayStateKeyword,
+  AnimationRangeEndKeyword,
+  AnimationRangeStartKeyword,
+  AnimationTimelineKeyword,
+  AnimationTimingFunctionKeyword,
+  AppearanceKeyword,
+  AspectRatioKeyword,
+  AzimuthKeyword,
+  BackdropFilterKeyword,
+  BackfaceVisibilityKeyword,
+  BackgroundKeyword,
+  BackgroundAttachmentKeyword,
+  BackgroundBlendModeKeyword,
+  BackgroundClipKeyword,
+  BackgroundColorKeyword,
+  BackgroundImageKeyword,
+  BackgroundOriginKeyword,
+  BackgroundPositionKeyword,
+  BackgroundPositionXKeyword,
+  BackgroundPositionYKeyword,
+  BackgroundRepeatKeyword,
+  BackgroundSizeKeyword,
+  BaselineShiftKeyword,
+  BorderKeyword,
+  BorderBlockKeyword,
+  BorderBlockEndKeyword,
+  BorderBlockStartKeyword,
+  BorderBottomKeyword,
+  BorderBottomStyleKeyword,
+  BorderBottomWidthKeyword,
+  BorderCollapseKeyword,
+  BorderColorKeyword,
+  BorderImageRepeatKeyword,
+  BorderImageSliceKeyword,
+  BorderImageSourceKeyword,
+  BorderImageWidthKeyword,
+  BorderInlineKeyword,
+  BorderInlineEndKeyword,
+  BorderInlineStartKeyword,
+  BorderLeftKeyword,
+  BorderLeftColorKeyword,
+  BorderLeftStyleKeyword,
+  BorderLeftWidthKeyword,
+  BorderRightKeyword,
+  BorderRightColorKeyword,
+  BorderRightStyleKeyword,
+  BorderRightWidthKeyword,
+  BorderStyleKeyword,
+  BorderTopKeyword,
+  BorderTopColorKeyword,
+  BorderTopStyleKeyword,
+  BorderTopWidthKeyword,
+  BorderWidthKeyword,
+  BottomKeyword,
+  BoxAlignKeyword,
+  BoxDecorationBreakKeyword,
+  BoxDirectionKeyword,
+  BoxLinesKeyword,
+  BoxOrientKeyword,
+  BoxPackKeyword,
+  BoxShadowKeyword,
+  BoxSizingKeyword,
+  BreakAfterKeyword,
+  BreakBeforeKeyword,
+  BreakInsideKeyword,
+  CaptionSideKeyword,
+  CaretColorKeyword,
+  CaretShapeKeyword,
+  ClearKeyword,
+  ClipKeyword,
+  ClipPathKeyword,
+  ClipRuleKeyword,
+  ColorKeyword,
+  ColorInterpolationFiltersKeyword,
+  ColorSchemeKeyword,
+  ColumnCountKeyword,
+  ColumnFillKeyword,
+  ColumnGapKeyword,
+  ColumnRuleColorKeyword,
+  ColumnSpanKeyword,
+  ColumnWidthKeyword,
+  ContainKeyword,
+  ContainIntrinsicBlockSizeKeyword,
+  ContainIntrinsicHeightKeyword,
+  ContainIntrinsicInlineSizeKeyword,
+  ContainIntrinsicSizeKeyword,
+  ContainIntrinsicWidthKeyword,
+  ContainerNameKeyword,
+  ContainerTypeKeyword,
+  ContentKeyword,
+  ContentVisibilityKeyword,
+  CounterIncrementKeyword,
+  CounterResetKeyword,
+  CounterSetKeyword,
+  CueAfterKeyword,
+  CueBeforeKeyword,
+  CursorKeyword,
+  DKeyword,
+  DirectionKeyword,
+  DisplayKeyword,
+  DominantBaselineKeyword,
+  EmptyCellsKeyword,
+  FieldSizingKeyword,
+  FillKeyword,
+  FillRuleKeyword,
+  FilterKeyword,
+  FlexKeyword,
+  FlexBasisKeyword,
+  FlexDirectionKeyword,
+  FlexWrapKeyword,
+  FloatKeyword,
+  FontKeyword,
+  FontFamilyKeyword,
+  FontFeatureSettingsKeyword,
+  FontKerningKeyword,
+  FontLanguageOverrideKeyword,
+  FontOpticalSizingKeyword,
+  FontPaletteKeyword,
+  FontSizeKeyword,
+  FontSizeAdjustKeyword,
+  FontSmoothKeyword,
+  FontStretchKeyword,
+  FontStyleKeyword,
+  FontSynthesisKeyword,
+  FontSynthesisPositionKeyword,
+  FontSynthesisSmallCapsKeyword,
+  FontSynthesisStyleKeyword,
+  FontSynthesisWeightKeyword,
+  FontVariantKeyword,
+  FontVariantAlternatesKeyword,
+  FontVariantCapsKeyword,
+  FontVariantEastAsianKeyword,
+  FontVariantEmojiKeyword,
+  FontVariantLigaturesKeyword,
+  FontVariantNumericKeyword,
+  FontVariantPositionKeyword,
+  FontVariationSettingsKeyword,
+  FontWeightKeyword,
+  ForcedColorAdjustKeyword,
+  GridKeyword,
+  GridAreaKeyword,
+  GridAutoColumnsKeyword,
+  GridAutoFlowKeyword,
+  GridAutoRowsKeyword,
+  GridColumnKeyword,
+  GridColumnEndKeyword,
+  GridColumnStartKeyword,
+  GridRowKeyword,
+  GridRowEndKeyword,
+  GridRowStartKeyword,
+  GridTemplateKeyword,
+  GridTemplateAreasKeyword,
+  GridTemplateColumnsKeyword,
+  GridTemplateRowsKeyword,
+  HangingPunctuationKeyword,
+  HeightKeyword,
+  HyphenateCharacterKeyword,
+  HyphenateLimitCharsKeyword,
+  HyphensKeyword,
+  ImageOrientationKeyword,
+  ImageRenderingKeyword,
+  ImageResolutionKeyword,
+  ImeModeKeyword,
+  InitialLetterKeyword,
+  InitialLetterAlignKeyword,
+  InputSecurityKeyword,
+  InterpolateSizeKeyword,
+  IsolationKeyword,
+  JustifyContentKeyword,
+  JustifyItemsKeyword,
+  JustifySelfKeyword,
+  JustifyTracksKeyword,
+  KerningKeyword,
+  LeftKeyword,
+  LetterSpacingKeyword,
+  LineBreakKeyword,
+  LineClampKeyword,
+  LineHeightKeyword,
+  ListStyleImageKeyword,
+  ListStylePositionKeyword,
+  ListStyleTypeKeyword,
+  MarginKeyword,
+  MarginBottomKeyword,
+  MarginLeftKeyword,
+  MarginRightKeyword,
+  MarginTopKeyword,
+  MarginTrimKeyword,
+  MarkerKeyword,
+  MarkerEndKeyword,
+  MarkerMidKeyword,
+  MarkerStartKeyword,
+  MaskKeyword,
+  MaskBorderModeKeyword,
+  MaskBorderRepeatKeyword,
+  MaskBorderSliceKeyword,
+  MaskBorderSourceKeyword,
+  MaskBorderWidthKeyword,
+  MaskClipKeyword,
+  MaskCompositeKeyword,
+  MaskImageKeyword,
+  MaskModeKeyword,
+  MaskOriginKeyword,
+  MaskPositionKeyword,
+  MaskRepeatKeyword,
+  MaskSizeKeyword,
+  MaskTypeKeyword,
+  MasonryAutoFlowKeyword,
+  MathDepthKeyword,
+  MathShiftKeyword,
+  MathStyleKeyword,
+  MaxHeightKeyword,
+  MaxLinesKeyword,
+  MaxWidthKeyword,
+  MinHeightKeyword,
+  MinWidthKeyword,
+  MixBlendModeKeyword,
+  ObjectFitKeyword,
+  ObjectPositionKeyword,
+  OffsetAnchorKeyword,
+  OffsetPathKeyword,
+  OffsetPositionKeyword,
+  OffsetRotateKeyword,
+  OutlineColorKeyword,
+  OutlineStyleKeyword,
+  OutlineWidthKeyword,
+  OverflowKeyword,
+  OverflowAnchorKeyword,
+  OverflowBlockKeyword,
+  OverflowClipBoxKeyword,
+  OverflowClipMarginKeyword,
+  OverflowInlineKeyword,
+  OverflowWrapKeyword,
+  OverflowXKeyword,
+  OverflowYKeyword,
+  OverlayKeyword,
+  OverscrollBehaviorKeyword,
+  OverscrollBehaviorBlockKeyword,
+  OverscrollBehaviorInlineKeyword,
+  OverscrollBehaviorXKeyword,
+  OverscrollBehaviorYKeyword,
+  PageKeyword,
+  PageBreakAfterKeyword,
+  PageBreakBeforeKeyword,
+  PageBreakInsideKeyword,
+  PaintOrderKeyword,
+  PauseAfterKeyword,
+  PauseBeforeKeyword,
+  PerspectiveKeyword,
+  PerspectiveOriginKeyword,
+  PointerEventsKeyword,
+  PositionKeyword,
+  PositionAnchorKeyword,
+  PositionAreaKeyword,
+  PositionTryFallbacksKeyword,
+  PositionTryOrderKeyword,
+  PositionVisibilityKeyword,
+  PrintColorAdjustKeyword,
+  QuotesKeyword,
+  ResizeKeyword,
+  RestAfterKeyword,
+  RestBeforeKeyword,
+  RightKeyword,
+  RotateKeyword,
+  RowGapKeyword,
+  RubyAlignKeyword,
+  RubyMergeKeyword,
+  RubyPositionKeyword,
+  ScaleKeyword,
+  ScrollBehaviorKeyword,
+  ScrollPaddingKeyword,
+  ScrollPaddingBlockKeyword,
+  ScrollPaddingBlockEndKeyword,
+  ScrollPaddingBlockStartKeyword,
+  ScrollPaddingBottomKeyword,
+  ScrollPaddingInlineKeyword,
+  ScrollPaddingInlineEndKeyword,
+  ScrollPaddingInlineStartKeyword,
+  ScrollPaddingLeftKeyword,
+  ScrollPaddingRightKeyword,
+  ScrollPaddingTopKeyword,
+  ScrollSnapAlignKeyword,
+  ScrollSnapCoordinateKeyword,
+  ScrollSnapDestinationKeyword,
+  ScrollSnapPointsXKeyword,
+  ScrollSnapPointsYKeyword,
+  ScrollSnapStopKeyword,
+  ScrollSnapTypeKeyword,
+  ScrollSnapTypeXKeyword,
+  ScrollSnapTypeYKeyword,
+  ScrollTimelineAxisKeyword,
+  ScrollTimelineNameKeyword,
+  ScrollbarColorKeyword,
+  ScrollbarGutterKeyword,
+  ScrollbarWidthKeyword,
+  ShapeOutsideKeyword,
+  ShapeRenderingKeyword,
+  SpeakKeyword,
+  SpeakAsKeyword,
+  StrokeKeyword,
+  StrokeDasharrayKeyword,
+  StrokeLinecapKeyword,
+  StrokeLinejoinKeyword,
+  TableLayoutKeyword,
+  TextAlignKeyword,
+  TextAlignLastKeyword,
+  TextAnchorKeyword,
+  TextCombineUprightKeyword,
+  TextDecorationColorKeyword,
+  TextDecorationLineKeyword,
+  TextDecorationSkipKeyword,
+  TextDecorationSkipInkKeyword,
+  TextDecorationStyleKeyword,
+  TextDecorationThicknessKeyword,
+  TextEmphasisColorKeyword,
+  TextEmphasisPositionKeyword,
+  TextEmphasisStyleKeyword,
+  TextIndentKeyword,
+  TextJustifyKeyword,
+  TextOrientationKeyword,
+  TextOverflowKeyword,
+  TextRenderingKeyword,
+  TextShadowKeyword,
+  TextSizeAdjustKeyword,
+  TextSpacingTrimKeyword,
+  TextTransformKeyword,
+  TextUnderlineOffsetKeyword,
+  TextUnderlinePositionKeyword,
+  TextWrapModeKeyword,
+  TextWrapStyleKeyword,
+  TimelineScopeKeyword,
+  TopKeyword,
+  TouchActionKeyword,
+  TransformKeyword,
+  TransformBoxKeyword,
+  TransformOriginKeyword,
+  TransformStyleKeyword,
+  TransitionKeyword,
+  TransitionBehaviorKeyword,
+  TransitionPropertyKeyword,
+  TransitionTimingFunctionKeyword,
+  TranslateKeyword,
+  UnicodeBidiKeyword,
+  UserSelectKeyword,
+  VectorEffectKeyword,
+  VerticalAlignKeyword,
+  ViewTimelineAxisKeyword,
+  ViewTimelineInsetKeyword,
+  ViewTimelineNameKeyword,
+  ViewTransitionNameKeyword,
+  VisibilityKeyword,
+  VoiceBalanceKeyword,
+  VoiceDurationKeyword,
+  VoiceFamilyKeyword,
+  VoicePitchKeyword,
+  VoiceRangeKeyword,
+  VoiceRateKeyword,
+  VoiceStressKeyword,
+  VoiceVolumeKeyword,
+  WhiteSpaceKeyword,
+  WhiteSpaceCollapseKeyword,
+  WhiteSpaceTrimKeyword,
+  WidthKeyword,
+  WillChangeKeyword,
+  WordBreakKeyword,
+  WordSpacingKeyword,
+  WordWrapKeyword,
+  WritingModeKeyword,
+  ZIndexKeyword,
+  ZoomKeyword,
+} from './keywords';
+
+// ==================== 数值类型常量 ====================
+
+export const ACCENT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const ANIMATION_NUMBER_TYPES = ['integer', 'number'] as const;
+export const ANIMATION_DELAY_NUMBER_TYPES = ['time'] as const;
+export const ANIMATION_DURATION_NUMBER_TYPES = ['time'] as const;
+export const ANIMATION_ITERATION_COUNT_NUMBER_TYPES = ['number'] as const;
+export const ANIMATION_RANGE_END_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const ANIMATION_RANGE_START_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const ANIMATION_TIMING_FUNCTION_NUMBER_TYPES = ['integer', 'number'] as const;
+export const ASPECT_RATIO_NUMBER_TYPES = ['number'] as const;
+export const AZIMUTH_NUMBER_TYPES = ['angle'] as const;
+export const BACKDROP_FILTER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BACKGROUND_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const BACKGROUND_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BACKGROUND_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const BACKGROUND_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BACKGROUND_POSITION_X_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BACKGROUND_POSITION_Y_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BACKGROUND_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BASELINE_SHIFT_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const BORDER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BORDER_BLOCK_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_BLOCK_END_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_BLOCK_START_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_BOTTOM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_BOTTOM_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const BORDER_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_END_END_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_END_START_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_IMAGE_OUTSET_NUMBER_TYPES = ['length', 'number'] as const;
+export const BORDER_IMAGE_SLICE_NUMBER_TYPES = ['number', 'percentage'] as const;
+export const BORDER_IMAGE_SOURCE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const BORDER_IMAGE_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const BORDER_INLINE_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_INLINE_END_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_INLINE_START_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_LEFT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BORDER_LEFT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_LEFT_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const BORDER_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_RIGHT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BORDER_RIGHT_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_RIGHT_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const BORDER_SPACING_NUMBER_TYPES = ['length'] as const;
+export const BORDER_START_END_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_START_START_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_TOP_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const BORDER_TOP_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BORDER_TOP_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const BORDER_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const BOX_FLEX_NUMBER_TYPES = ['number'] as const;
+export const BOX_FLEX_GROUP_NUMBER_TYPES = ['integer'] as const;
+export const BOX_ORDINAL_GROUP_NUMBER_TYPES = ['integer'] as const;
+export const BOX_SHADOW_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const CARET_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const CLIP_NUMBER_TYPES = ['length'] as const;
+export const CLIP_PATH_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const COLUMN_COUNT_NUMBER_TYPES = ['integer'] as const;
+export const COLUMN_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const COLUMN_RULE_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const COLUMN_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES = ['length'] as const;
+export const CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES = ['length'] as const;
+export const CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES = ['length'] as const;
+export const CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES = ['length'] as const;
+export const CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const CONTENT_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const COUNTER_INCREMENT_NUMBER_TYPES = ['integer'] as const;
+export const COUNTER_RESET_NUMBER_TYPES = ['integer'] as const;
+export const COUNTER_SET_NUMBER_TYPES = ['integer'] as const;
+export const CURSOR_NUMBER_TYPES = ['number'] as const;
+export const CX_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const CY_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const FILL_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const FILL_OPACITY_NUMBER_TYPES = ['number'] as const;
+export const FILTER_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const FLEX_GROW_NUMBER_TYPES = ['number'] as const;
+export const FLEX_SHRINK_NUMBER_TYPES = ['number'] as const;
+export const FONT_FEATURE_SETTINGS_NUMBER_TYPES = ['integer'] as const;
+export const FONT_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const FONT_SIZE_ADJUST_NUMBER_TYPES = ['number'] as const;
+export const FONT_SMOOTH_NUMBER_TYPES = ['length'] as const;
+export const FONT_STRETCH_NUMBER_TYPES = ['percentage'] as const;
+export const FONT_STYLE_NUMBER_TYPES = ['angle'] as const;
+export const FONT_VARIATION_SETTINGS_NUMBER_TYPES = ['number'] as const;
+export const FONT_WEIGHT_NUMBER_TYPES = ['number'] as const;
+export const GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES = ['angle'] as const;
+export const GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES = ['angle'] as const;
+export const GRID_AREA_NUMBER_TYPES = ['integer'] as const;
+export const GRID_AUTO_COLUMNS_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
+export const GRID_AUTO_ROWS_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
+export const GRID_COLUMN_NUMBER_TYPES = ['integer'] as const;
+export const GRID_COLUMN_END_NUMBER_TYPES = ['integer'] as const;
+export const GRID_COLUMN_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const GRID_COLUMN_START_NUMBER_TYPES = ['integer'] as const;
+export const GRID_ROW_NUMBER_TYPES = ['integer'] as const;
+export const GRID_ROW_END_NUMBER_TYPES = ['integer'] as const;
+export const GRID_ROW_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const GRID_ROW_START_NUMBER_TYPES = ['integer'] as const;
+export const GRID_TEMPLATE_NUMBER_TYPES = ['flex', 'length', 'percentage'] as const;
+export const GRID_TEMPLATE_COLUMNS_NUMBER_TYPES = ['flex', 'integer', 'length', 'percentage'] as const;
+export const GRID_TEMPLATE_ROWS_NUMBER_TYPES = ['flex', 'integer', 'length', 'percentage'] as const;
+export const HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const HYPHENATE_LIMIT_CHARS_NUMBER_TYPES = ['integer'] as const;
+export const IMAGE_ORIENTATION_NUMBER_TYPES = ['angle'] as const;
+export const IMAGE_RESOLUTION_NUMBER_TYPES = ['resolution'] as const;
+export const INITIAL_LETTER_NUMBER_TYPES = ['integer', 'number'] as const;
+export const KERNING_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const LETTER_SPACING_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const LINE_CLAMP_NUMBER_TYPES = ['integer'] as const;
+export const LINE_HEIGHT_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const LINE_HEIGHT_STEP_NUMBER_TYPES = ['length'] as const;
+export const LIST_STYLE_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const MARGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MARGIN_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MARGIN_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MARGIN_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MARGIN_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MASK_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const MASK_BORDER_OUTSET_NUMBER_TYPES = ['length', 'number'] as const;
+export const MASK_BORDER_SLICE_NUMBER_TYPES = ['number', 'percentage'] as const;
+export const MASK_BORDER_SOURCE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const MASK_BORDER_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const MASK_IMAGE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const MASK_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MASK_SIZE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MATH_DEPTH_NUMBER_TYPES = ['integer'] as const;
+export const MAX_HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MAX_LINES_NUMBER_TYPES = ['integer'] as const;
+export const MAX_WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MIN_HEIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const MIN_WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const OBJECT_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const OFFSET_ANCHOR_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const OFFSET_DISTANCE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const OFFSET_PATH_NUMBER_TYPES = ['angle', 'length', 'percentage'] as const;
+export const OFFSET_POSITION_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const OFFSET_ROTATE_NUMBER_TYPES = ['angle'] as const;
+export const OPACITY_NUMBER_TYPES = ['number', 'percentage'] as const;
+export const ORDER_NUMBER_TYPES = ['integer'] as const;
+export const ORPHANS_NUMBER_TYPES = ['integer'] as const;
+export const OUTLINE_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const OUTLINE_OFFSET_NUMBER_TYPES = ['length'] as const;
+export const OUTLINE_WIDTH_NUMBER_TYPES = ['length'] as const;
+export const OVERFLOW_CLIP_MARGIN_NUMBER_TYPES = ['length'] as const;
+export const PADDING_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const PADDING_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const PADDING_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const PADDING_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const PADDING_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const PAUSE_AFTER_NUMBER_TYPES = ['time'] as const;
+export const PAUSE_BEFORE_NUMBER_TYPES = ['time'] as const;
+export const PERSPECTIVE_NUMBER_TYPES = ['length'] as const;
+export const PERSPECTIVE_ORIGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const R_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const REST_AFTER_NUMBER_TYPES = ['time'] as const;
+export const REST_BEFORE_NUMBER_TYPES = ['time'] as const;
+export const RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const ROTATE_NUMBER_TYPES = ['angle', 'number'] as const;
+export const ROW_GAP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const RX_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const RY_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCALE_NUMBER_TYPES = ['number', 'percentage'] as const;
+export const SCROLL_MARGIN_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_BLOCK_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_BOTTOM_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_INLINE_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_INLINE_END_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_INLINE_START_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_LEFT_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_RIGHT_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_MARGIN_TOP_NUMBER_TYPES = ['length'] as const;
+export const SCROLL_PADDING_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_BLOCK_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_BLOCK_END_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_BLOCK_START_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_BOTTOM_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_INLINE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_INLINE_END_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_INLINE_START_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_LEFT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_RIGHT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_PADDING_TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_SNAP_COORDINATE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_SNAP_DESTINATION_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_SNAP_POINTS_X_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLL_SNAP_POINTS_Y_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SCROLLBAR_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES = ['number', 'percentage'] as const;
+export const SHAPE_MARGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const SHAPE_OUTSIDE_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage', 'resolution'] as const;
+export const STROKE_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const STROKE_DASHARRAY_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const STROKE_DASHOFFSET_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const STROKE_MITERLIMIT_NUMBER_TYPES = ['number'] as const;
+export const STROKE_WIDTH_NUMBER_TYPES = ['length', 'number', 'percentage'] as const;
+export const TAB_SIZE_NUMBER_TYPES = ['integer', 'length'] as const;
+export const TEXT_COMBINE_UPRIGHT_NUMBER_TYPES = ['integer'] as const;
+export const TEXT_DECORATION_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const TEXT_DECORATION_THICKNESS_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const TEXT_EMPHASIS_COLOR_NUMBER_TYPES = ['angle', 'number', 'percentage'] as const;
+export const TEXT_INDENT_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const TEXT_SHADOW_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const TEXT_SIZE_ADJUST_NUMBER_TYPES = ['percentage'] as const;
+export const TEXT_UNDERLINE_OFFSET_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const TOP_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const TRANSFORM_NUMBER_TYPES = ['angle', 'length', 'number', 'percentage'] as const;
+export const TRANSFORM_ORIGIN_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const TRANSITION_NUMBER_TYPES = ['integer', 'number', 'time'] as const;
+export const TRANSITION_DELAY_NUMBER_TYPES = ['time'] as const;
+export const TRANSITION_DURATION_NUMBER_TYPES = ['time'] as const;
+export const TRANSITION_TIMING_FUNCTION_NUMBER_TYPES = ['integer', 'number'] as const;
+export const TRANSLATE_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const VERTICAL_ALIGN_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const VIEW_TIMELINE_INSET_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const VOICE_BALANCE_NUMBER_TYPES = ['number'] as const;
+export const VOICE_DURATION_NUMBER_TYPES = ['time'] as const;
+export const VOICE_FAMILY_NUMBER_TYPES = ['integer'] as const;
+export const VOICE_PITCH_NUMBER_TYPES = ['frequency', 'percentage'] as const;
+export const VOICE_RANGE_NUMBER_TYPES = ['frequency', 'percentage'] as const;
+export const VOICE_RATE_NUMBER_TYPES = ['percentage'] as const;
+export const WIDOWS_NUMBER_TYPES = ['integer'] as const;
+export const WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const WORD_SPACING_NUMBER_TYPES = ['length'] as const;
+export const X_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const Y_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const Z_INDEX_NUMBER_TYPES = ['integer'] as const;
+export const ZOOM_NUMBER_TYPES = ['number', 'percentage'] as const;
 
 // ==================== 属性单位类型 ====================
 
@@ -482,91 +1494,112 @@ export type ZoomUnitCategory = 'percentage' | 'unitless';
 // ==================== 属性配置类 ====================
 
 export class AccentColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...ACCENT_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ACCENT_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignContentConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALIGN_CONTENT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignItemsConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALIGN_ITEMS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignSelfConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALIGN_SELF_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignTracksConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALIGN_TRACKS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AlignmentBaselineConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALIGNMENT_BASELINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AllConfig {
+  static readonly DEFAULT_KEYWORDS = [...ALL_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnchorNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANCHOR_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnchorScopeConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANCHOR_SCOPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationCompositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_COMPOSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDelayConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_DELAY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDirectionConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_DIRECTION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationDurationConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_DURATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationFillModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_FILL_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationIterationCountConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_ITERATION_COUNT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_ITERATION_COUNT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationPlayStateConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_PLAY_STATE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -577,111 +1610,147 @@ export class AnimationRangeConfig {
 }
 
 export class AnimationRangeEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_RANGE_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_RANGE_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationRangeStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_RANGE_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_RANGE_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationTimelineConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_TIMELINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AnimationTimingFunctionConfig {
+  static readonly DEFAULT_KEYWORDS = [...ANIMATION_TIMING_FUNCTION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ANIMATION_TIMING_FUNCTION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AppearanceConfig {
+  static readonly DEFAULT_KEYWORDS = [...APPEARANCE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AspectRatioConfig {
+  static readonly DEFAULT_KEYWORDS = [...ASPECT_RATIO_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ASPECT_RATIO_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class AzimuthConfig {
+  static readonly DEFAULT_KEYWORDS = [...AZIMUTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...AZIMUTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackdropFilterConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKDROP_FILTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKDROP_FILTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackfaceVisibilityConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKFACE_VISIBILITY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundAttachmentConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_ATTACHMENT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundBlendModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_BLEND_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundClipConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_CLIP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundImageConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_IMAGE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_IMAGE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundOriginConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_ORIGIN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_POSITION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_POSITION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionXConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_POSITION_X_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_POSITION_X_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundPositionYConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_POSITION_Y_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_POSITION_Y_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundRepeatConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_REPEAT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BackgroundSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...BACKGROUND_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BACKGROUND_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BaselineShiftConfig {
+  static readonly DEFAULT_KEYWORDS = [...BASELINE_SHIFT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BASELINE_SHIFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -697,11 +1766,15 @@ export class BlockSizeConfig {
 }
 
 export class BorderConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBlockConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BLOCK_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BLOCK_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -712,6 +1785,8 @@ export class BorderBlockColorConfig {
 }
 
 export class BorderBlockEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BLOCK_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BLOCK_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -732,6 +1807,8 @@ export class BorderBlockEndWidthConfig {
 }
 
 export class BorderBlockStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BLOCK_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BLOCK_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -762,6 +1839,8 @@ export class BorderBlockWidthConfig {
 }
 
 export class BorderBottomConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BOTTOM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -772,41 +1851,51 @@ export class BorderBottomColorConfig {
 }
 
 export class BorderBottomLeftRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomRightRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BOTTOM_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderBottomWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_BOTTOM_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_BOTTOM_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderCollapseConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_COLLAPSE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderEndEndRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_END_END_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderEndStartRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_END_START_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -817,31 +1906,41 @@ export class BorderImageConfig {
 }
 
 export class BorderImageOutsetConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_IMAGE_OUTSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageRepeatConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_IMAGE_REPEAT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageSliceConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_IMAGE_SLICE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_IMAGE_SLICE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageSourceConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_IMAGE_SOURCE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_IMAGE_SOURCE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderImageWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_IMAGE_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_IMAGE_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderInlineConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_INLINE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_INLINE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -852,6 +1951,8 @@ export class BorderInlineColorConfig {
 }
 
 export class BorderInlineEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_INLINE_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_INLINE_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -872,6 +1973,8 @@ export class BorderInlineEndWidthConfig {
 }
 
 export class BorderInlineStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_INLINE_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_INLINE_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -902,181 +2005,229 @@ export class BorderInlineWidthConfig {
 }
 
 export class BorderLeftConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_LEFT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_LEFT_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_LEFT_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_LEFT_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderLeftWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_LEFT_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_LEFT_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_RIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_RIGHT_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_RIGHT_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_RIGHT_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderRightWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_RIGHT_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_RIGHT_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderSpacingConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_SPACING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStartEndRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_START_END_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStartStartRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_START_START_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_TOP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_TOP_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_TOP_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopLeftRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopRightRadiusConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_TOP_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderTopWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_TOP_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_TOP_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BorderWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...BORDER_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BORDER_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BottomConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOTTOM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_ALIGN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxDecorationBreakConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_DECORATION_BREAK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxDirectionConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_DIRECTION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxFlexConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BOX_FLEX_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxFlexGroupConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BOX_FLEX_GROUP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxLinesConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_LINES_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxOrdinalGroupConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...BOX_ORDINAL_GROUP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxOrientConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_ORIENT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxPackConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_PACK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxShadowConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_SHADOW_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...BOX_SHADOW_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BoxSizingConfig {
+  static readonly DEFAULT_KEYWORDS = [...BOX_SIZING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakAfterConfig {
+  static readonly DEFAULT_KEYWORDS = [...BREAK_AFTER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakBeforeConfig {
+  static readonly DEFAULT_KEYWORDS = [...BREAK_BEFORE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class BreakInsideConfig {
+  static readonly DEFAULT_KEYWORDS = [...BREAK_INSIDE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaptionSideConfig {
+  static readonly DEFAULT_KEYWORDS = [...CAPTION_SIDE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1087,61 +2238,79 @@ export class CaretConfig {
 }
 
 export class CaretColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...CARET_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CARET_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CaretShapeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CARET_SHAPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClearConfig {
+  static readonly DEFAULT_KEYWORDS = [...CLEAR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipConfig {
+  static readonly DEFAULT_KEYWORDS = [...CLIP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CLIP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipPathConfig {
+  static readonly DEFAULT_KEYWORDS = [...CLIP_PATH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CLIP_PATH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ClipRuleConfig {
+  static readonly DEFAULT_KEYWORDS = [...CLIP_RULE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorInterpolationFiltersConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLOR_INTERPOLATION_FILTERS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColorSchemeConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLOR_SCHEME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnCountConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_COUNT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COLUMN_COUNT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnFillConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_FILL_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnGapConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_GAP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COLUMN_GAP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1152,6 +2321,8 @@ export class ColumnRuleConfig {
 }
 
 export class ColumnRuleColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_RULE_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COLUMN_RULE_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1167,11 +2338,14 @@ export class ColumnRuleWidthConfig {
 }
 
 export class ColumnSpanConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_SPAN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ColumnWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...COLUMN_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COLUMN_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1182,31 +2356,42 @@ export class ColumnsConfig {
 }
 
 export class ContainConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicBlockSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicHeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_INTRINSIC_HEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicInlineSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_INTRINSIC_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainIntrinsicWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAIN_INTRINSIC_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1217,36 +2402,47 @@ export class ContainerConfig {
 }
 
 export class ContainerNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAINER_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContainerTypeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTAINER_TYPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContentConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTENT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CONTENT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ContentVisibilityConfig {
+  static readonly DEFAULT_KEYWORDS = [...CONTENT_VISIBILITY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterIncrementConfig {
+  static readonly DEFAULT_KEYWORDS = [...COUNTER_INCREMENT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COUNTER_INCREMENT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterResetConfig {
+  static readonly DEFAULT_KEYWORDS = [...COUNTER_RESET_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COUNTER_RESET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CounterSetConfig {
+  static readonly DEFAULT_KEYWORDS = [...COUNTER_SET_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...COUNTER_SET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1257,91 +2453,112 @@ export class CueConfig {
 }
 
 export class CueAfterConfig {
+  static readonly DEFAULT_KEYWORDS = [...CUE_AFTER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CueBeforeConfig {
+  static readonly DEFAULT_KEYWORDS = [...CUE_BEFORE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CursorConfig {
+  static readonly DEFAULT_KEYWORDS = [...CURSOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...CURSOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CxConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...CX_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class CyConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...CY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DConfig {
+  static readonly DEFAULT_KEYWORDS = [...D_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DirectionConfig {
+  static readonly DEFAULT_KEYWORDS = [...DIRECTION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DisplayConfig {
+  static readonly DEFAULT_KEYWORDS = [...DISPLAY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class DominantBaselineConfig {
+  static readonly DEFAULT_KEYWORDS = [...DOMINANT_BASELINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class EmptyCellsConfig {
+  static readonly DEFAULT_KEYWORDS = [...EMPTY_CELLS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FieldSizingConfig {
+  static readonly DEFAULT_KEYWORDS = [...FIELD_SIZING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillConfig {
+  static readonly DEFAULT_KEYWORDS = [...FILL_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FILL_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillOpacityConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...FILL_OPACITY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FillRuleConfig {
+  static readonly DEFAULT_KEYWORDS = [...FILL_RULE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FilterConfig {
+  static readonly DEFAULT_KEYWORDS = [...FILTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FILTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexConfig {
+  static readonly DEFAULT_KEYWORDS = [...FLEX_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexBasisConfig {
+  static readonly DEFAULT_KEYWORDS = [...FLEX_BASIS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexDirectionConfig {
+  static readonly DEFAULT_KEYWORDS = [...FLEX_DIRECTION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1352,161 +2569,201 @@ export class FlexFlowConfig {
 }
 
 export class FlexGrowConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...FLEX_GROW_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexShrinkConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...FLEX_SHRINK_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FlexWrapConfig {
+  static readonly DEFAULT_KEYWORDS = [...FLEX_WRAP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FloatConfig {
+  static readonly DEFAULT_KEYWORDS = [...FLOAT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontFamilyConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_FAMILY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontFeatureSettingsConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_FEATURE_SETTINGS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_FEATURE_SETTINGS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontKerningConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_KERNING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontLanguageOverrideConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_LANGUAGE_OVERRIDE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontOpticalSizingConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_OPTICAL_SIZING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontPaletteConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_PALETTE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSizeAdjustConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SIZE_ADJUST_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_SIZE_ADJUST_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSmoothConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SMOOTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_SMOOTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontStretchConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_STRETCH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_STRETCH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_STYLE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_STYLE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SYNTHESIS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SYNTHESIS_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisSmallCapsConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SYNTHESIS_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontSynthesisWeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_SYNTHESIS_WEIGHT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantAlternatesConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_ALTERNATES_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantCapsConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_CAPS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantEastAsianConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_EAST_ASIAN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantEmojiConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_EMOJI_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantLigaturesConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_LIGATURES_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantNumericConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_NUMERIC_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariantPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIANT_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontVariationSettingsConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_VARIATION_SETTINGS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_VARIATION_SETTINGS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class FontWeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...FONT_WEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...FONT_WEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ForcedColorAdjustConfig {
+  static readonly DEFAULT_KEYWORDS = [...FORCED_COLOR_ADJUST_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1517,56 +2774,73 @@ export class GapConfig {
 }
 
 export class GlyphOrientationHorizontalConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GlyphOrientationVerticalConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAreaConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_AREA_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_AREA_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoColumnsConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_AUTO_COLUMNS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_AUTO_COLUMNS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoFlowConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_AUTO_FLOW_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridAutoRowsConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_AUTO_ROWS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_AUTO_ROWS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_COLUMN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_COLUMN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_COLUMN_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_COLUMN_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnGapConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_COLUMN_GAP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridColumnStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_COLUMN_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_COLUMN_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1577,96 +2851,126 @@ export class GridGapConfig {
 }
 
 export class GridRowConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_ROW_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_ROW_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_ROW_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_ROW_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowGapConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_ROW_GAP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridRowStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_ROW_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_ROW_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_TEMPLATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_TEMPLATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateAreasConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_TEMPLATE_AREAS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateColumnsConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_TEMPLATE_COLUMNS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_TEMPLATE_COLUMNS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class GridTemplateRowsConfig {
+  static readonly DEFAULT_KEYWORDS = [...GRID_TEMPLATE_ROWS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...GRID_TEMPLATE_ROWS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HangingPunctuationConfig {
+  static readonly DEFAULT_KEYWORDS = [...HANGING_PUNCTUATION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...HEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...HEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphenateCharacterConfig {
+  static readonly DEFAULT_KEYWORDS = [...HYPHENATE_CHARACTER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphenateLimitCharsConfig {
+  static readonly DEFAULT_KEYWORDS = [...HYPHENATE_LIMIT_CHARS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...HYPHENATE_LIMIT_CHARS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class HyphensConfig {
+  static readonly DEFAULT_KEYWORDS = [...HYPHENS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageOrientationConfig {
+  static readonly DEFAULT_KEYWORDS = [...IMAGE_ORIENTATION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...IMAGE_ORIENTATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageRenderingConfig {
+  static readonly DEFAULT_KEYWORDS = [...IMAGE_RENDERING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImageResolutionConfig {
+  static readonly DEFAULT_KEYWORDS = [...IMAGE_RESOLUTION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...IMAGE_RESOLUTION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ImeModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...IME_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InitialLetterConfig {
+  static readonly DEFAULT_KEYWORDS = [...INITIAL_LETTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...INITIAL_LETTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class InitialLetterAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...INITIAL_LETTER_ALIGN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1677,6 +2981,7 @@ export class InlineSizeConfig {
 }
 
 export class InputSecurityConfig {
+  static readonly DEFAULT_KEYWORDS = [...INPUT_SECURITY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1717,66 +3022,84 @@ export class InsetInlineStartConfig {
 }
 
 export class InterpolateSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...INTERPOLATE_SIZE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class IsolationConfig {
+  static readonly DEFAULT_KEYWORDS = [...ISOLATION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyContentConfig {
+  static readonly DEFAULT_KEYWORDS = [...JUSTIFY_CONTENT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyItemsConfig {
+  static readonly DEFAULT_KEYWORDS = [...JUSTIFY_ITEMS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifySelfConfig {
+  static readonly DEFAULT_KEYWORDS = [...JUSTIFY_SELF_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class JustifyTracksConfig {
+  static readonly DEFAULT_KEYWORDS = [...JUSTIFY_TRACKS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class KerningConfig {
+  static readonly DEFAULT_KEYWORDS = [...KERNING_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...KERNING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LeftConfig {
+  static readonly DEFAULT_KEYWORDS = [...LEFT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LetterSpacingConfig {
+  static readonly DEFAULT_KEYWORDS = [...LETTER_SPACING_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...LETTER_SPACING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineBreakConfig {
+  static readonly DEFAULT_KEYWORDS = [...LINE_BREAK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineClampConfig {
+  static readonly DEFAULT_KEYWORDS = [...LINE_CLAMP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...LINE_CLAMP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineHeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...LINE_HEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...LINE_HEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class LineHeightStepConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...LINE_HEIGHT_STEP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1787,21 +3110,27 @@ export class ListStyleConfig {
 }
 
 export class ListStyleImageConfig {
+  static readonly DEFAULT_KEYWORDS = [...LIST_STYLE_IMAGE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...LIST_STYLE_IMAGE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStylePositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...LIST_STYLE_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ListStyleTypeConfig {
+  static readonly DEFAULT_KEYWORDS = [...LIST_STYLE_TYPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MARGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1822,6 +3151,8 @@ export class MarginBlockStartConfig {
 }
 
 export class MarginBottomConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_BOTTOM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MARGIN_BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1842,46 +3173,59 @@ export class MarginInlineStartConfig {
 }
 
 export class MarginLeftConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_LEFT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MARGIN_LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginRightConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_RIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MARGIN_RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginTopConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_TOP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MARGIN_TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarginTrimConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARGIN_TRIM_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARKER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARKER_END_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerMidConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARKER_MID_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MarkerStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...MARKER_START_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1892,96 +3236,122 @@ export class MaskBorderConfig {
 }
 
 export class MaskBorderModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_BORDER_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderOutsetConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_BORDER_OUTSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderRepeatConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_BORDER_REPEAT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderSliceConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_BORDER_SLICE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_BORDER_SLICE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderSourceConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_BORDER_SOURCE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_BORDER_SOURCE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskBorderWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_BORDER_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_BORDER_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskClipConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_CLIP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskCompositeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_COMPOSITE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskImageConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_IMAGE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_IMAGE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskOriginConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_ORIGIN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_POSITION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_POSITION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskRepeatConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_REPEAT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskSizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_SIZE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MASK_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaskTypeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASK_TYPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MasonryAutoFlowConfig {
+  static readonly DEFAULT_KEYWORDS = [...MASONRY_AUTO_FLOW_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathDepthConfig {
+  static readonly DEFAULT_KEYWORDS = [...MATH_DEPTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MATH_DEPTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathShiftConfig {
+  static readonly DEFAULT_KEYWORDS = [...MATH_SHIFT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MathStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...MATH_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -1992,6 +3362,8 @@ export class MaxBlockSizeConfig {
 }
 
 export class MaxHeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...MAX_HEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MAX_HEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2002,11 +3374,15 @@ export class MaxInlineSizeConfig {
 }
 
 export class MaxLinesConfig {
+  static readonly DEFAULT_KEYWORDS = [...MAX_LINES_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MAX_LINES_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MaxWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...MAX_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MAX_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2017,6 +3393,8 @@ export class MinBlockSizeConfig {
 }
 
 export class MinHeightConfig {
+  static readonly DEFAULT_KEYWORDS = [...MIN_HEIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MIN_HEIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2027,21 +3405,27 @@ export class MinInlineSizeConfig {
 }
 
 export class MinWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...MIN_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...MIN_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class MixBlendModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...MIX_BLEND_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ObjectFitConfig {
+  static readonly DEFAULT_KEYWORDS = [...OBJECT_FIT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ObjectPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...OBJECT_POSITION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OBJECT_POSITION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2052,41 +3436,53 @@ export class OffsetConfig {
 }
 
 export class OffsetAnchorConfig {
+  static readonly DEFAULT_KEYWORDS = [...OFFSET_ANCHOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OFFSET_ANCHOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetDistanceConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...OFFSET_DISTANCE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetPathConfig {
+  static readonly DEFAULT_KEYWORDS = [...OFFSET_PATH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OFFSET_PATH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...OFFSET_POSITION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OFFSET_POSITION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OffsetRotateConfig {
+  static readonly DEFAULT_KEYWORDS = [...OFFSET_ROTATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OFFSET_ROTATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OpacityConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...OPACITY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OrderConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...ORDER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OrphansConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...ORPHANS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2097,101 +3493,124 @@ export class OutlineConfig {
 }
 
 export class OutlineColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...OUTLINE_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OUTLINE_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineOffsetConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...OUTLINE_OFFSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...OUTLINE_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OutlineWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...OUTLINE_WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OUTLINE_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowAnchorConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_ANCHOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowBlockConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_BLOCK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowClipBoxConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_CLIP_BOX_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowClipMarginConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_CLIP_MARGIN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...OVERFLOW_CLIP_MARGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowInlineConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_INLINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowWrapConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_WRAP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowXConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_X_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverflowYConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERFLOW_Y_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverlayConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERLAY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERSCROLL_BEHAVIOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorBlockConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorInlineConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorXConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERSCROLL_BEHAVIOR_X_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class OverscrollBehaviorYConfig {
+  static readonly DEFAULT_KEYWORDS = [...OVERSCROLL_BEHAVIOR_Y_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...PADDING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2212,6 +3631,7 @@ export class PaddingBlockStartConfig {
 }
 
 export class PaddingBottomConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...PADDING_BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2232,41 +3652,49 @@ export class PaddingInlineStartConfig {
 }
 
 export class PaddingLeftConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...PADDING_LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingRightConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...PADDING_RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaddingTopConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...PADDING_TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAGE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakAfterConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAGE_BREAK_AFTER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakBeforeConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAGE_BREAK_BEFORE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PageBreakInsideConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAGE_BREAK_INSIDE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PaintOrderConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAINT_ORDER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2277,21 +3705,29 @@ export class PauseConfig {
 }
 
 export class PauseAfterConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAUSE_AFTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...PAUSE_AFTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PauseBeforeConfig {
+  static readonly DEFAULT_KEYWORDS = [...PAUSE_BEFORE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...PAUSE_BEFORE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PerspectiveConfig {
+  static readonly DEFAULT_KEYWORDS = [...PERSPECTIVE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...PERSPECTIVE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PerspectiveOriginConfig {
+  static readonly DEFAULT_KEYWORDS = [...PERSPECTIVE_ORIGIN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...PERSPECTIVE_ORIGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2312,21 +3748,25 @@ export class PlaceSelfConfig {
 }
 
 export class PointerEventsConfig {
+  static readonly DEFAULT_KEYWORDS = [...POINTER_EVENTS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionAnchorConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_ANCHOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionAreaConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_AREA_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2337,36 +3777,43 @@ export class PositionTryConfig {
 }
 
 export class PositionTryFallbacksConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_TRY_FALLBACKS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionTryOrderConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_TRY_ORDER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PositionVisibilityConfig {
+  static readonly DEFAULT_KEYWORDS = [...POSITION_VISIBILITY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class PrintColorAdjustConfig {
+  static readonly DEFAULT_KEYWORDS = [...PRINT_COLOR_ADJUST_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class QuotesConfig {
+  static readonly DEFAULT_KEYWORDS = [...QUOTES_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...R_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ResizeConfig {
+  static readonly DEFAULT_KEYWORDS = [...RESIZE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2377,216 +3824,280 @@ export class RestConfig {
 }
 
 export class RestAfterConfig {
+  static readonly DEFAULT_KEYWORDS = [...REST_AFTER_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...REST_AFTER_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RestBeforeConfig {
+  static readonly DEFAULT_KEYWORDS = [...REST_BEFORE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...REST_BEFORE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RightConfig {
+  static readonly DEFAULT_KEYWORDS = [...RIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RotateConfig {
+  static readonly DEFAULT_KEYWORDS = [...ROTATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ROTATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RowGapConfig {
+  static readonly DEFAULT_KEYWORDS = [...ROW_GAP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ROW_GAP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...RUBY_ALIGN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyMergeConfig {
+  static readonly DEFAULT_KEYWORDS = [...RUBY_MERGE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RubyPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...RUBY_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RxConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...RX_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class RyConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...RY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScaleConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCALE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCALE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollBehaviorConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_BEHAVIOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_BLOCK_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockEndConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBlockStartConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginBottomConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_INLINE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineEndConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_INLINE_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginInlineStartConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_INLINE_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginLeftConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginRightConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollMarginTopConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_MARGIN_TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_BLOCK_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_BLOCK_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_BLOCK_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_BLOCK_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBlockStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_BLOCK_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_BLOCK_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingBottomConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_BOTTOM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_BOTTOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_INLINE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_INLINE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineEndConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_INLINE_END_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_INLINE_END_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingInlineStartConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_INLINE_START_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_INLINE_START_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingLeftConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_LEFT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_LEFT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingRightConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_RIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_RIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollPaddingTopConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_PADDING_TOP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_PADDING_TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_ALIGN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapCoordinateConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_COORDINATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_SNAP_COORDINATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapDestinationConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_DESTINATION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_SNAP_DESTINATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapPointsXConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_POINTS_X_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_SNAP_POINTS_X_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapPointsYConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_POINTS_Y_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLL_SNAP_POINTS_Y_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapStopConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_STOP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_TYPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeXConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_TYPE_X_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollSnapTypeYConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_SNAP_TYPE_Y_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2597,56 +4108,69 @@ export class ScrollTimelineConfig {
 }
 
 export class ScrollTimelineAxisConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_TIMELINE_AXIS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollTimelineNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLL_TIMELINE_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLLBAR_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SCROLLBAR_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarGutterConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLLBAR_GUTTER_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ScrollbarWidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...SCROLLBAR_WIDTH_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeImageThresholdConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeMarginConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...SHAPE_MARGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeOutsideConfig {
+  static readonly DEFAULT_KEYWORDS = [...SHAPE_OUTSIDE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...SHAPE_OUTSIDE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ShapeRenderingConfig {
+  static readonly DEFAULT_KEYWORDS = [...SHAPE_RENDERING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class SpeakConfig {
+  static readonly DEFAULT_KEYWORDS = [...SPEAK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class SpeakAsConfig {
+  static readonly DEFAULT_KEYWORDS = [...SPEAK_AS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2657,31 +4181,39 @@ export class SrcConfig {
 }
 
 export class StrokeConfig {
+  static readonly DEFAULT_KEYWORDS = [...STROKE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...STROKE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeDasharrayConfig {
+  static readonly DEFAULT_KEYWORDS = [...STROKE_DASHARRAY_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...STROKE_DASHARRAY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeDashoffsetConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...STROKE_DASHOFFSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeLinecapConfig {
+  static readonly DEFAULT_KEYWORDS = [...STROKE_LINECAP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeLinejoinConfig {
+  static readonly DEFAULT_KEYWORDS = [...STROKE_LINEJOIN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class StrokeMiterlimitConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...STROKE_MITERLIMIT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2692,36 +4224,44 @@ export class StrokeOpacityConfig {
 }
 
 export class StrokeWidthConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...STROKE_WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TabSizeConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...TAB_SIZE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TableLayoutConfig {
+  static readonly DEFAULT_KEYWORDS = [...TABLE_LAYOUT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_ALIGN_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAlignLastConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_ALIGN_LAST_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextAnchorConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_ANCHOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextCombineUprightConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_COMBINE_UPRIGHT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_COMBINE_UPRIGHT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2732,31 +4272,39 @@ export class TextDecorationConfig {
 }
 
 export class TextDecorationColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_DECORATION_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationLineConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_LINE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationSkipConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_SKIP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationSkipInkConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_SKIP_INK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextDecorationThicknessConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_DECORATION_THICKNESS_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_DECORATION_THICKNESS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2767,71 +4315,90 @@ export class TextEmphasisConfig {
 }
 
 export class TextEmphasisColorConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_EMPHASIS_COLOR_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisPositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_EMPHASIS_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextEmphasisStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_EMPHASIS_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextIndentConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_INDENT_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_INDENT_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextJustifyConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_JUSTIFY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextOrientationConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_ORIENTATION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextOverflowConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_OVERFLOW_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextRenderingConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_RENDERING_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextShadowConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_SHADOW_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_SHADOW_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextSizeAdjustConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_SIZE_ADJUST_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_SIZE_ADJUST_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextSpacingTrimConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_SPACING_TRIM_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextTransformConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_TRANSFORM_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextUnderlineOffsetConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_UNDERLINE_OFFSET_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TEXT_UNDERLINE_OFFSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextUnderlinePositionConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_UNDERLINE_POSITION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2842,86 +4409,109 @@ export class TextWrapConfig {
 }
 
 export class TextWrapModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_WRAP_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TextWrapStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...TEXT_WRAP_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TimelineScopeConfig {
+  static readonly DEFAULT_KEYWORDS = [...TIMELINE_SCOPE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TopConfig {
+  static readonly DEFAULT_KEYWORDS = [...TOP_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TOP_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TouchActionConfig {
+  static readonly DEFAULT_KEYWORDS = [...TOUCH_ACTION_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSFORM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSFORM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformBoxConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSFORM_BOX_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformOriginConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSFORM_ORIGIN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSFORM_ORIGIN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransformStyleConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSFORM_STYLE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSITION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSITION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionBehaviorConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSITION_BEHAVIOR_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionDelayConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSITION_DELAY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionDurationConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSITION_DURATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionPropertyConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSITION_PROPERTY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TransitionTimingFunctionConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSITION_TIMING_FUNCTION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSITION_TIMING_FUNCTION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class TranslateConfig {
+  static readonly DEFAULT_KEYWORDS = [...TRANSLATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...TRANSLATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class UnicodeBidiConfig {
+  static readonly DEFAULT_KEYWORDS = [...UNICODE_BIDI_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2932,16 +4522,20 @@ export class UnicodeRangeConfig {
 }
 
 export class UserSelectConfig {
+  static readonly DEFAULT_KEYWORDS = [...USER_SELECT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VectorEffectConfig {
+  static readonly DEFAULT_KEYWORDS = [...VECTOR_EFFECT_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VerticalAlignConfig {
+  static readonly DEFAULT_KEYWORDS = [...VERTICAL_ALIGN_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VERTICAL_ALIGN_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
@@ -2952,136 +4546,174 @@ export class ViewTimelineConfig {
 }
 
 export class ViewTimelineAxisConfig {
+  static readonly DEFAULT_KEYWORDS = [...VIEW_TIMELINE_AXIS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineInsetConfig {
+  static readonly DEFAULT_KEYWORDS = [...VIEW_TIMELINE_INSET_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VIEW_TIMELINE_INSET_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTimelineNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...VIEW_TIMELINE_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ViewTransitionNameConfig {
+  static readonly DEFAULT_KEYWORDS = [...VIEW_TRANSITION_NAME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VisibilityConfig {
+  static readonly DEFAULT_KEYWORDS = [...VISIBILITY_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceBalanceConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_BALANCE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_BALANCE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceDurationConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_DURATION_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_DURATION_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceFamilyConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_FAMILY_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_FAMILY_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoicePitchConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_PITCH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_PITCH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceRangeConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_RANGE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_RANGE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceRateConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_RATE_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...VOICE_RATE_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceStressConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_STRESS_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class VoiceVolumeConfig {
+  static readonly DEFAULT_KEYWORDS = [...VOICE_VOLUME_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceConfig {
+  static readonly DEFAULT_KEYWORDS = [...WHITE_SPACE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceCollapseConfig {
+  static readonly DEFAULT_KEYWORDS = [...WHITE_SPACE_COLLAPSE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WhiteSpaceTrimConfig {
+  static readonly DEFAULT_KEYWORDS = [...WHITE_SPACE_TRIM_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WidowsConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...WIDOWS_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WidthConfig {
+  static readonly DEFAULT_KEYWORDS = [...WIDTH_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...WIDTH_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WillChangeConfig {
+  static readonly DEFAULT_KEYWORDS = [...WILL_CHANGE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordBreakConfig {
+  static readonly DEFAULT_KEYWORDS = [...WORD_BREAK_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordSpacingConfig {
+  static readonly DEFAULT_KEYWORDS = [...WORD_SPACING_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...WORD_SPACING_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WordWrapConfig {
+  static readonly DEFAULT_KEYWORDS = [...WORD_WRAP_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class WritingModeConfig {
+  static readonly DEFAULT_KEYWORDS = [...WRITING_MODE_KEYWORDS];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class XConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...X_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class YConfig {
+  static readonly DEFAULT_NUMBER_TYPES = [...Y_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ZIndexConfig {
+  static readonly DEFAULT_KEYWORDS = [...Z_INDEX_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...Z_INDEX_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }
 
 export class ZoomConfig {
+  static readonly DEFAULT_KEYWORDS = [...ZOOM_KEYWORDS];
+  static readonly DEFAULT_NUMBER_TYPES = [...ZOOM_NUMBER_TYPES];
   keywords: string[] | null = null;
   numberTypes: NumberTypeName[] | null = null;
 }

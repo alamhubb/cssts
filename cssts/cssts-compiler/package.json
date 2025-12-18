@@ -31,7 +31,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "css-tree": "^3.1.0",
     "cssts-ts": "^0.2.5",
     "slime-ast": "^0.2.3",
     "slime-generator": "^0.2.3",
@@ -40,6 +39,7 @@
     "subhuti": "^0.2.3"
   },
   "devDependencies": {
+    "css-tree": "^3.1.0",
     "slime-test": "^0.2.3",
     "tsdown": "^0.18.0",
     "typescript": "^5.8.3"

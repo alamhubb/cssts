@@ -1,443 +1,387 @@
-# CSSTS 配置系统
+# CSSTS 配置系统说明
 
-> 灵活的分层配置系统，支持属性、数值类型、单位分类、单位、关键字、颜色、伪类等多维度定制
+## 概述
 
-## 快速开始
+CSSTS 的配置系统分为三个层级：
 
-```typescript
-import { CsstsConfig } from 'cssts-compiler'
+1. **属性级别配置** - 在 `config/property-config.ts` 中自动生成
+2. **全局级别配置** - 在 `CsstsConfig` 中手动配置
+3. **生成器** - 根据配置生成原子类型提示和原子类
 
-// 使用默认配置
-const config = new CsstsConfig()
+## 三层配置体系
 
-// 自定义配置
-const config = new CsstsConfig({
-  includeProperties: ['width', 'height', 'margin', 'padding'],
-  includeUnitCategories: ['pixel', 'percentage'],
-  excludeNumberTypes: ['angle', 'frequency'],
-})
-```
+### 1. 属性级别配置（Property-Level Config）
 
-## 配置架构
-
-CSSTS 配置采用**分层白名单/黑名单**模式，支持**跨级别配置**和**混合数组格式**：
-
-```
-属性 (Properties)
-  ↓
-数值类型 (NumberTypes)
-  ↓
-单位分类 (UnitCategories)
-  ↓
-单位 (Units)
-  ↓
-数值 (Values)
-```
-
-## 配置层级详解
-
-### 1. 属性配置 (Properties)
-
-控制生成哪些 CSS 属性的原子类。
+位置：`config/property-config.ts`（自动生成）
 
 ```typescript
-// 白名单：只生成指定属性
-includeProperties: ['width', 'height', 'margin', 'padding']
-
-// 黑名单：排除指定属性（默认排除 Tailwind 中 98% 用不到的属性）
-excludeProperties: ['all', 'appearance', 'backfaceVisibility']
-```
-
-**优先级**：`includeProperties` > `excludeProperties`
-
----
-
-### 2. 数值类型配置 (NumberTypes)
-
-控制支持哪些数值类型（length、angle、time 等）。
-
-#### Include 配置（支持嵌套配置）
-
-```typescript
-includeNumberTypes: [
-  'length',                                    // 启用整个 length 类型
-  { time: ['ms', 's'] },                       // 启用 time 类型，但只用 ms 和 s
-  { length: { pixel: ['px', 'em'] } }          // 启用 length 中 pixel 分类的 px 和 em
-]
-```
-
-#### Exclude 配置（只排除名字）
-
-```typescript
-excludeNumberTypes: [
-  'angle',                                     // 排除整个 angle 类型
-  { time: ['ms', 's'] },                       // 排除 time 类型的 ms 和 s
-  { length: { pixel: ['px'] } }                // 排除 length 中 pixel 分类的 px
-]
-```
-
-**支持的数值类型**：
-- `length` - 长度（px、em、rem、%、vw 等）
-- `angle` - 角度（deg、grad、rad、turn）
-- `time` - 时间（s、ms）
-- `frequency` - 频率（Hz、kHz）
-- `percentage` - 百分比（%）
-- `number` / `integer` - 数值（opacity、z-index 等）
-- `resolution` - 分辨率（dpi、dpcm、dppx）
-- `flex` - 弹性（fr）
-
----
-
-### 3. 单位分类配置 (UnitCategories)
-
-控制支持哪些单位分类，以及每个分类的数值范围。
-
-#### Include 配置（支持嵌套配置 + 步长）
-
-```typescript
-includeUnitCategories: [
-  'pixel',                                     // 启用 pixel 分类，使用默认配置
-  { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } },  // 自定义百分比值
-  { fontRelative: { em: { step: 0.25, max: 10 } } }            // 自定义 em 的步长
-]
-```
-
-#### Exclude 配置（只排除名字）
-
-```typescript
-excludeUnitCategories: [
-  'resolution',                                // 排除整个 resolution 分类
-  { pixel: ['px'] }                            // 排除 pixel 分类的 px 单位
-]
-```
-
-**系统级别默认排除**（低频使用）：
-```typescript
-SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES = [
-  'resolution',  // dpi, dpcm, dppx, x - 98% 用不到
-  'physical',    // pt, pc, in, cm, mm, Q - 95% 用不到
-  'flex',        // fr - Grid 用户较少
-]
-```
-
-**支持的单位分类**：
-- `pixel` - 像素单位（px）
-- `percentage` - 百分比和视口单位（%、vw、vh、vmin、vmax 等）
-- `fontRelative` - 相对字体单位（em、rem、ch、ex、cap、ic、lh、rlh）
-- `physical` - 物理长度单位（cm、mm、in、pt、pc、Q）
-- `angle` - 角度单位（deg、grad、rad、turn）
-- `time` - 时间单位（s、ms）
-- `frequency` - 频率单位（Hz、kHz）
-- `resolution` - 分辨率单位（dpi、dpcm、dppx、x）
-- `flex` - 弹性单位（fr）
-- `unitless` - 无单位数值（opacity、z-index、line-height 等）
-
----
-
-### 4. 单位配置 (Units)
-
-控制支持哪些单位，以及每个单位的数值范围。
-
-#### Include 配置（支持步长配置）
-
-```typescript
-includeUnits: [
-  'px',                                        // 启用 px，使用默认配置
-  'em',                                        // 启用 em，使用默认配置
-  { px: { step: 4, max: 500 } },              // 自定义 px 的步长和最大值
-  { em: { presets: [0.5, 1, 1.5, 2] } }       // 自定义 em 的预设值
-]
-```
-
-#### Exclude 配置（只排除名字）
-
-```typescript
-excludeUnits: [
-  'px',
-  'em',
-  { dpi: {} }
-]
-```
-
----
-
-### 5. 关键字配置 (Keywords)
-
-控制支持哪些 CSS 关键字值。
-
-```typescript
-// 白名单
-includeKeywords: ['auto', 'inherit', 'initial', 'unset']
-
-// 黑名单
-excludeKeywords: ['revert', 'revert-layer']
-```
-
----
-
-### 6. 颜色配置 (Colors)
-
-控制支持哪些颜色值。
-
-```typescript
-// 白名单
-includeColors: ['red', 'blue', 'green', '#fff', 'rgb(255, 0, 0)']
-
-// 黑名单
-excludeColors: ['transparent']
-```
-
----
-
-### 7. 伪类/伪元素配置 (Pseudo)
-
-控制支持哪些伪类和伪元素。
-
-```typescript
-// 伪类
-includePseudoClasses: ['hover', 'active', 'focus', 'disabled']
-excludePseudoClasses: ['visited', 'target']
-
-// 伪元素
-includePseudoElements: ['before', 'after', 'first-line']
-excludePseudoElements: ['selection']
-
-// 伪类样式配置（当变量名包含伪类后缀时自动添加的样式）
-pseudoClassStyles: {
-  hover: { opacity: 0.9 },
-  active: { opacity: 0.6 },
-  disabled: { opacity: 0.5, cursor: 'not-allowed' }
+export class TopConfig {
+  keywords: TopKeyword[] = [...TOP_KEYWORDS];
+  numberTypes: NumberTypeName[] = [...TOP_NUMBER_TYPES];
 }
 ```
 
----
+**说明**：
+- 每个 CSS 属性都有一个对应的 `Config` 类
+- `keywords` - 该属性支持的关键字列表（如果有的话）
+- `numberTypes` - 该属性支持的数值类型（如果有的话）
+- 如果属性没有关键字或数值类型，则对应字段为 `null`
 
-## 配置优先级
+**示例**：
+- `top` 属性：`keywords: ['auto', ...]`, `numberTypes: ['length', 'percentage']`
+- `display` 属性：`keywords: ['block', 'inline', ...]`, `numberTypes: null`
+- `opacity` 属性：`keywords: null`, `numberTypes: ['number']`
 
-### 白名单 vs 黑名单
+### 2. 全局级别配置（Global-Level Config）
 
-```
-if (includeList && includeList.length > 0) {
-  // 使用白名单（只包含指定的项）
-  return includeList.includes(value)
-} else {
-  // 使用黑名单（排除指定的项）
-  return !excludeList.includes(value)
-}
-```
-
-**规则**：
-1. 如果配置了 `include*`，则只生成这些项，忽略 `exclude*`
-2. 如果没有配置 `include*`，则使用 `exclude*` 排除不需要的项
-3. 系统级别默认排除（如 `SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES`）只在 `excludeUnitCategories` 为空时生效
-
----
-
-## 高级用法
-
-### 跨级别配置
-
-在 `includeNumberTypes` 中直接配置单位，跳过 unitCategory 层级：
-
-```typescript
-includeNumberTypes: [
-  { length: { px: { step: 4 } } }  // 完整三层
-  { length: { em: { step: 0.25 } } }  // 跨越 unitCategory 层级
-]
-```
-
-### 混合数组格式
-
-在同一个数组中混合字符串和对象：
-
-```typescript
-includeUnitCategories: [
-  'pixel',                                     // 字符串：使用默认配置
-  { percentage: { '%': { presets: [...] } } } // 对象：自定义配置
-]
-```
-
-### 分层配置示例
+位置：`CsstsConfig` 类
 
 ```typescript
 const config = new CsstsConfig({
-  // 只生成常用属性
-  includeProperties: [
-    'width', 'height', 'margin', 'padding',
-    'display', 'position', 'top', 'left', 'right', 'bottom',
-    'backgroundColor', 'color', 'fontSize'
-  ],
-
-  // 只支持 length 和 percentage 数值类型
-  includeNumberTypes: [
-    'length',
-    'percentage'
-  ],
-
-  // 只支持 pixel 和 percentage 单位分类
-  includeUnitCategories: [
-    'pixel',
-    'percentage'
-  ],
-
-  // 自定义单位配置
-  includeUnits: [
-    'px',
-    { em: { step: 0.25, max: 10 } }
-  ],
-
-  // 排除某些关键字
-  excludeKeywords: ['inherit', 'initial'],
-
-  // 支持的伪类
-  includePseudoClasses: ['hover', 'active', 'focus', 'disabled']
-})
-```
-
----
-
-## 数值生成策略
-
-### 渐进步长 (Progressive Ranges)
-
-系统默认使用渐进步长策略，根据数值范围自动调整步长：
-
-```typescript
-DEFAULT_PROGRESSIVE_RANGES = [
-  { max: 100, divisors: [1] },         // 0-100: 每个整数
-  { max: 200, divisors: [2, 5] },      // 100-200: 能被 2 或 5 整除
-  { max: 500, divisors: [5] },         // 200-500: 能被 5 整除
-  { max: 1000, divisors: [10] },       // 500-1000: 能被 10 整除
-  // ...
-]
-```
-
-### 预设值 (Presets)
-
-使用预设值精确控制生成的数值：
-
-```typescript
-DEFAULT_UNIT_CATEGORY_CONFIGS = {
-  pixel: {
-    negative: true,
-    presets: [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, ...]
-  },
-  percentage: {
-    negative: false,
-    presets: [0, 10, 20, 25, 30, 33.333333, 40, 50, 60, 66.666667, 70, 75, 80, 90, 100]
-  }
-}
-```
-
----
-
-## 配置类型参考
-
-### CsstsConfig
-
-主配置类，包含所有配置选项。
-
-```typescript
-class CsstsConfig {
   // 属性配置
-  includeProperties?: CssPropertyCamelName[]
-  excludeProperties: CssPropertyCamelName[]
-
+  properties: ['width', 'height', 'margin'],  // 白名单
+  excludeProperties: ['appearance'],           // 黑名单
+  
   // 数值类型配置
-  includeNumberTypes?: NumberTypeConfigItem<NumberTypeName>[]
-  excludeNumberTypes: NumberTypeExcludeItem<NumberTypeName>[]
-
+  numberTypes: ['length', 'percentage'],       // 白名单
+  excludeNumberTypes: ['angle'],               // 黑名单
+  
   // 单位分类配置
-  includeUnitCategories?: UnitCategoryConfigItem<UnitCategoryName>[]
-  excludeUnitCategories: UnitCategoryExcludeItem<UnitCategoryName>[]
-
+  unitCategories: ['pixel', 'percentage'],     // 白名单
+  excludeUnitCategories: ['resolution'],       // 黑名单
+  
   // 单位配置
-  includeUnits?: UnitConfigItem<UnitType>[]
-  excludeUnits: UnitExcludeItem<UnitType>[]
-
+  units: ['px', 'em'],                         // 白名单
+  excludeUnits: ['dpi'],                       // 黑名单
+  
   // 关键字/颜色配置
-  includeKeywords?: KeywordValue[]
-  excludeKeywords: KeywordValue[]
-  includeColors?: AllColorValue[]
-  excludeColors: AllColorValue[]
-
-  // 伪类/伪元素配置
-  includePseudoClasses?: PseudoClassName[]
-  excludePseudoClasses: PseudoClassName[]
-  includePseudoElements?: PseudoElementName[]
-  excludePseudoElements: PseudoElementName[]
-
-  // 其他配置
-  customProperties: Record<string, CustomPropertyValue>
-  progressiveRanges: ProgressiveRange[]
-  properties: CssPropertyConfigMap
-  pseudoClassStyles: PseudoClassStylesConfig
-  pseudoElementStyles: PseudoElementStylesConfig
-}
+  keywords: ['auto', 'inherit'],               // 白名单
+  excludeKeywords: [],                         // 黑名单
+  colors: ['red', 'blue'],                     // 白名单
+  excludeColors: [],                           // 黑名单
+});
 ```
 
----
+**优先级规则**：
+- 白名单优先于黑名单
+- 如果配置了白名单，则黑名单被忽略
+- 如果没配置白名单，则使用黑名单过滤
 
-## 常见场景
+## 生成流程
 
-### 场景 1：最小化配置（只生成常用的）
+### 第一步：确定要处理的属性
+
+```
+如果全局配置了 properties（白名单）
+  ↓
+  只处理配置的属性
+  
+否则
+  ↓
+  处理所有属性，排除 excludeProperties 中的属性
+```
+
+### 第二步：获取属性的默认配置
+
+```
+对于每个属性：
+  ↓
+  从 CssPropertyConfigMap 获取属性配置
+  ↓
+  获取 keywords 和 numberTypes（可能为 null）
+```
+
+### 第三步：生成关键字原子类
+
+```
+如果属性配置中 keywords !== null
+  ↓
+  遍历 keywords 列表
+  ↓
+  应用全局 keywords 和 colors 过滤
+  ↓
+  生成原子类
+```
+
+**示例**：
+```typescript
+// 属性配置
+TopConfig.keywords = ['auto', 'inherit', ...]
+
+// 全局配置
+config.keywords = ['auto']  // 白名单
+
+// 结果：只生成 'auto' 的原子类
+```
+
+### 第四步：生成数值原子类
+
+```
+如果属性配置中 numberTypes !== null
+  ↓
+  确定要使用的 numberTypes
+    ├─ 如果全局配置了 numberTypes → 使用全局配置
+    └─ 否则 → 使用属性配置的 numberTypes
+  ↓
+  对每个 numberType，获取对应的单位列表
+  ↓
+  应用全局 units 和 unitCategories 过滤
+  ↓
+  对每个单位，生成数值列表
+  ↓
+  生成原子类
+```
+
+**示例**：
+```typescript
+// 属性配置
+TopConfig.numberTypes = ['length', 'percentage']
+
+// 全局配置
+config.numberTypes = ['length']  // 白名单
+
+// 结果：只生成 length 类型的原子类（px, em, rem 等）
+```
+
+## 配置与原子类的对应关系
+
+### 场景 1：只配置属性
 
 ```typescript
 const config = new CsstsConfig({
-  includeProperties: ['width', 'height', 'margin', 'padding', 'display'],
-  includeUnitCategories: ['pixel', 'percentage'],
-  includeUnits: ['px', '%'],
-})
+  properties: ['width', 'height']
+});
 ```
 
-### 场景 2：排除低频使用的
+**结果**：
+- 只生成 `width` 和 `height` 的原子类
+- 使用这两个属性的默认 `keywords` 和 `numberTypes`
+- 使用所有单位和数值
+
+### 场景 2：配置属性和数值类型
 
 ```typescript
 const config = new CsstsConfig({
-  excludeNumberTypes: ['angle', 'frequency', 'resolution'],
-  excludeUnitCategories: ['physical', 'flex'],
-})
+  properties: ['width', 'height'],
+  numberTypes: ['length']  // 只使用 length 类型
+});
 ```
 
-### 场景 3：自定义数值范围
+**结果**：
+- 只生成 `width` 和 `height` 的原子类
+- 只使用 `length` 类型的单位（px, em, rem, vh, vw 等）
+- 不生成百分比单位的原子类
+
+### 场景 3：配置属性、数值类型和单位
 
 ```typescript
 const config = new CsstsConfig({
-  includeUnits: [
-    { px: { step: 4, max: 256 } },      // px: 0, 4, 8, 12, ..., 256
-    { em: { presets: [0.5, 1, 1.5, 2] } } // em: 0.5, 1, 1.5, 2
-  ]
-})
+  properties: ['width', 'height'],
+  numberTypes: ['length'],
+  units: ['px', 'em']  // 只使用这两个单位
+});
 ```
 
-### 场景 4：跨级别配置
+**结果**：
+- 只生成 `width` 和 `height` 的原子类
+- 只使用 `px` 和 `em` 单位
+- 生成的原子类数量最少
+
+### 场景 4：配置单位分类
 
 ```typescript
 const config = new CsstsConfig({
-  includeNumberTypes: [
-    'length',
-    { time: ['ms', 's'] },                    // 只用 time 的 ms 和 s
-    { length: { pixel: ['px'] } }             // 只用 length 中 pixel 的 px
-  ]
-})
+  properties: ['width', 'height'],
+  unitCategories: ['pixel']  // 只使用 pixel 分类
+});
 ```
 
----
+**结果**：
+- 只生成 `width` 和 `height` 的原子类
+- 只使用 `pixel` 分类中的单位（px）
+- 不生成其他分类的单位（em, rem, vh, vw 等）
 
-## 最佳实践
+## 单位分类说明
 
-1. **从系统默认开始** - 系统已经排除了 98% 用不到的项
-2. **优先使用白名单** - 明确指定需要的项比排除不需要的更清晰
-3. **分层配置** - 在不同层级精确控制，避免过度配置
-4. **使用预设值** - 对于常用的数值范围，使用预设值而不是步长
-5. **测试生成结果** - 运行生成器验证配置是否符合预期
+| 分类 | 单位 | 说明 |
+|------|------|------|
+| `pixel` | px | 像素单位 |
+| `percentage` | % | 百分比 |
+| `fontRelative` | em, rem, ch, ex, ic, lh, rlh | 相对字体大小 |
+| `physical` | cm, mm, in, pt, pc, Q | 物理长度 |
+| `angle` | deg, grad, rad, turn | 角度 |
+| `time` | s, ms | 时间 |
+| `frequency` | Hz, kHz | 频率 |
+| `resolution` | dpi, dpcm, dppx, x | 分辨率 |
+| `flex` | fr | Grid 弹性单位 |
+| `unitless` | 无单位 | 纯数值 |
 
----
+## 数值类型说明
 
-## 相关文件
+| 类型 | 说明 | 单位分类 |
+|------|------|---------|
+| `length` | 长度 | pixel, fontRelative, physical, 视口单位 |
+| `percentage` | 百分比 | percentage |
+| `angle` | 角度 | angle |
+| `time` | 时间 | time |
+| `frequency` | 频率 | frequency |
+| `resolution` | 分辨率 | resolution |
+| `number` | 纯数值 | unitless |
+| `integer` | 整数 | unitless |
+| `flex` | 弹性 | flex |
 
-- `src/cssts-config.ts` - 主配置类
-- `src/config/value-config.ts` - 配置类型定义
-- `src/utils/config-utils.ts` - 配置工具函数
-- `src/generator-dts/atom-generator.ts` - 原子类生成器
+## 原子类生成示例
 
+### 示例 1：简单属性
+
+```typescript
+// 配置
+const config = new CsstsConfig({
+  properties: ['display']
+});
+
+// 属性配置
+DisplayConfig.keywords = ['block', 'inline', 'flex', 'grid', ...]
+DisplayConfig.numberTypes = null
+
+// 生成结果
+displayBlock: { 'display_block': true }
+displayInline: { 'display_inline': true }
+displayFlex: { 'display_flex': true }
+displayGrid: { 'display_grid': true }
+// ... 等等
+```
+
+### 示例 2：数值属性
+
+```typescript
+// 配置
+const config = new CsstsConfig({
+  properties: ['width'],
+  units: ['px']
+});
+
+// 属性配置
+WidthConfig.keywords = null
+WidthConfig.numberTypes = ['length', 'percentage']
+
+// 生成结果（只显示 px 单位）
+width0: { 'width_0px': true }
+width1: { 'width_1px': true }
+width2: { 'width_2px': true }
+// ... 等等（根据 pixel 分类的预设值）
+```
+
+### 示例 3：混合属性
+
+```typescript
+// 配置
+const config = new CsstsConfig({
+  properties: ['border']
+});
+
+// 属性配置
+BorderConfig.keywords = ['solid', 'dashed', 'dotted', ...]
+BorderConfig.numberTypes = ['length']
+
+// 生成结果
+borderSolid: { 'border_solid': true }
+borderDashed: { 'border_dashed': true }
+border0: { 'border_0px': true }
+border1: { 'border_1px': true }
+// ... 等等
+```
+
+## 配置最佳实践
+
+### 1. 最小化配置
+
+```typescript
+// 只配置需要的属性
+const config = new CsstsConfig({
+  properties: ['width', 'height', 'margin', 'padding']
+});
+```
+
+### 2. 限制单位
+
+```typescript
+// 只使用常用单位
+const config = new CsstsConfig({
+  properties: ['width', 'height'],
+  unitCategories: ['pixel', 'percentage']
+});
+```
+
+### 3. 限制数值范围
+
+```typescript
+// 通过 unitCategories 配置限制数值
+const config = new CsstsConfig({
+  properties: ['width'],
+  unitCategories: {
+    pixel: {
+      presets: [0, 4, 8, 16, 32, 64]  // 只生成这些值
+    }
+  }
+});
+```
+
+### 4. 排除不需要的项
+
+```typescript
+// 使用黑名单排除
+const config = new CsstsConfig({
+  excludeProperties: ['appearance', 'clip'],
+  excludeKeywords: ['inherit', 'initial']
+});
+```
+
+## 性能优化建议
+
+| 优化方向 | 方法 | 效果 |
+|---------|------|------|
+| 减少属性 | 使用 `properties` 白名单 | 减少 50-90% 原子类 |
+| 减少单位 | 使用 `units` 或 `unitCategories` | 减少 30-70% 原子类 |
+| 减少数值 | 配置 `unitCategories` 的 `presets` | 减少 50-80% 原子类 |
+| 减少关键字 | 使用 `keywords` 白名单 | 减少 20-50% 原子类 |
+
+## 常见问题
+
+### Q: 为什么配置了 `properties` 但还是生成了很多原子类？
+
+A: 因为每个属性可能支持多个单位和数值。例如 `width` 属性支持 `length` 和 `percentage` 类型，而 `length` 类型包含多个单位（px, em, rem, vh, vw 等），每个单位又有多个预设值。
+
+**解决方案**：
+- 限制 `numberTypes`
+- 限制 `unitCategories`
+- 限制 `units`
+
+### Q: 如何只生成特定单位的原子类？
+
+A: 使用 `units` 白名单：
+
+```typescript
+const config = new CsstsConfig({
+  properties: ['width', 'height'],
+  units: ['px', 'em']
+});
+```
+
+### Q: 如何自定义数值范围？
+
+A: 配置 `unitCategories` 的 `presets`：
+
+```typescript
+const config = new CsstsConfig({
+  unitCategories: {
+    pixel: {
+      presets: [0, 4, 8, 16, 32, 64]
+    }
+  }
+});
+```
+
+### Q: 属性配置中的 `null` 是什么意思？
+
+A: 表示该属性不支持该类型的值。例如 `display` 属性的 `numberTypes` 为 `null`，表示 `display` 不支持数值。
