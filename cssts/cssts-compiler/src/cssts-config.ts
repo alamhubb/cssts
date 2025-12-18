@@ -31,7 +31,7 @@ import {
     PseudoClassStylesConfig,
     PseudoElementStylesConfig,
     type PseudoStyleValue,
-} from './config/pseudo-styles';
+} from './config/pseudo-styles.js';
 
 // ==================== 重新导出配置相关类型和常量 ====================
 
@@ -61,13 +61,6 @@ export {
 export type CustomPropertyValue = string | Record<string, string>;
 
 // ==================== 系统级别默认配置 ====================
-
-/** 系统级别默认排除的单位分类（低频使用） */
-export const SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES: UnitCategoryName[] = [
-    'resolution',  // dpi, dpcm, dppx, x - 98% 用不到
-    'physical',    // pt, pc, in, cm, mm, Q - 95% 用不到
-    'flex',        // fr - Grid 用户较少
-];
 
 /** 默认渐进步长策略 */
 export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
@@ -210,13 +203,15 @@ export class CsstsConfig {
      * 可以是字符串数组或混合数组（字符串 + 对象）
      * 对象格式：{ unitCategory: { unit: { step: 4 } } }
      * 
+     * 默认包含除了系统级别低频分类外的所有分类
+     * 
      * @example
      * includeUnitCategories: [
      *   'pixel',
      *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
      * ]
      */
-    includeUnitCategories?: UnitCategoryConfigItem<UnitCategoryName>[];
+    includeUnitCategories: UnitCategoryConfigItem<UnitCategoryName>[];
 
     /**
      * 排除的单位分类列表（黑名单）
@@ -373,9 +368,18 @@ export class CsstsConfig {
         this.includeNumberTypes = options.includeNumberTypes;
         this.excludeNumberTypes = options.excludeNumberTypes ?? [];
 
-        // 单位分类配置 - 合并系统级别默认排除
-        this.includeUnitCategories = options.includeUnitCategories;
-        this.excludeUnitCategories = options.excludeUnitCategories ?? SYSTEM_DEFAULT_EXCLUDED_UNIT_CATEGORIES
+        // 单位分类配置 - 系统默认只在 includeUnitCategories 级别设置
+        // 默认包含除了系统级别低频分类外的所有分类
+        this.includeUnitCategories = options.includeUnitCategories ?? [
+            'pixel',
+            'percentage',
+            'fontRelative',
+            'angle',
+            'time',
+            'frequency',
+            'unitless',
+        ];
+        this.excludeUnitCategories = options.excludeUnitCategories ?? [];
 
         // 单位配置
         this.includeUnits = options.includeUnits;
