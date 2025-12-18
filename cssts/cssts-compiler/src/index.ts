@@ -102,6 +102,9 @@ export type {
   UnitType,
   NumberTypeName,
   UnitCategoryName,
+} from './config/units.js'
+
+export type {
   ProgressiveRange,
   StepConfig,
   UnitValueConfig,
@@ -113,7 +116,7 @@ export type {
   NumberTypeExcludeItem,
   UnitCategoryExcludeItem,
   UnitExcludeItem,
-} from './config/units.js'
+} from './types/config.js'
 export type { KeywordValue } from './config/keywords.js'
 export type { AllColorValue, SystemColorValue } from './config/colors.js'
 

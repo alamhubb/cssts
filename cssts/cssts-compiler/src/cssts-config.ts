@@ -15,21 +15,20 @@ import {
     type ProgressiveRange,
     type StepConfig,
     type UnitValueConfig,
-} from './config/units';
+    type UnitCategoryConfig,
+} from './types/value';
 import {
     type UnitsConfigValue,
-    type UnitCategoryConfig,
     type NumberTypeConfigItem,
     type UnitCategoryConfigItem,
     type UnitConfigItem,
     type NumberTypeExcludeItem,
     type UnitCategoryExcludeItem,
     type UnitExcludeItem,
-} from './config/units';
+} from './types/config';
 import {
     PseudoClassStylesConfig,
     PseudoElementStylesConfig,
-    type PseudoStyleValue,
 } from './config/pseudo-styles.js';
 
 // ==================== 重新导出配置相关类型和常量 ====================
@@ -40,7 +39,6 @@ export type {
     UnitValueConfig,
     UnitsConfigValue,
     UnitCategoryConfig,
-    PseudoStyleValue,
     NumberTypeConfigItem,
     UnitCategoryConfigItem,
     UnitConfigItem,

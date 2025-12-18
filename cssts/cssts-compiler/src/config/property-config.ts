@@ -2,7 +2,7 @@
  * CSS 属性配置（自动生成）
  */
 
-import { ALL_COLORS, type AllColorValue } from './colors';
+import { type AllColorValue } from './colors';
 import type { NumberTypeName, UnitCategoryName } from './units';
 import {
   ACCENT_COLOR_KEYWORDS,
@@ -1494,7 +1494,7 @@ export type ZoomUnitCategory = 'percentage' | 'unitless';
 // ==================== 属性配置类 ====================
 
 export class AccentColorConfig {
-  keywords: (AccentColorKeyword | AllColorValue)[] = [...ACCENT_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: AccentColorKeyword[] = [...ACCENT_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ACCENT_COLOR_NUMBER_TYPES];
 }
 
@@ -1605,7 +1605,7 @@ export class AzimuthConfig {
 }
 
 export class BackdropFilterConfig {
-  keywords: (BackdropFilterKeyword | AllColorValue)[] = [...BACKDROP_FILTER_KEYWORDS, ...ALL_COLORS];
+  keywords: BackdropFilterKeyword[] = [...BACKDROP_FILTER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKDROP_FILTER_NUMBER_TYPES];
 }
 
@@ -1614,7 +1614,7 @@ export class BackfaceVisibilityConfig {
 }
 
 export class BackgroundConfig {
-  keywords: (BackgroundKeyword | AllColorValue)[] = [...BACKGROUND_KEYWORDS, ...ALL_COLORS];
+  keywords: BackgroundKeyword[] = [...BACKGROUND_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_NUMBER_TYPES];
 }
 
@@ -1631,12 +1631,12 @@ export class BackgroundClipConfig {
 }
 
 export class BackgroundColorConfig {
-  keywords: (BackgroundColorKeyword | AllColorValue)[] = [...BACKGROUND_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: BackgroundColorKeyword[] = [...BACKGROUND_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_COLOR_NUMBER_TYPES];
 }
 
 export class BackgroundImageConfig {
-  keywords: (BackgroundImageKeyword | AllColorValue)[] = [...BACKGROUND_IMAGE_KEYWORDS, ...ALL_COLORS];
+  keywords: BackgroundImageKeyword[] = [...BACKGROUND_IMAGE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_IMAGE_NUMBER_TYPES];
 }
 
@@ -1680,12 +1680,12 @@ export class BlockSizeConfig {
 }
 
 export class BorderConfig {
-  keywords: (BorderKeyword | AllColorValue)[] = [...BORDER_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderKeyword[] = [...BORDER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_NUMBER_TYPES];
 }
 
 export class BorderBlockConfig {
-  keywords: (BorderBlockKeyword | AllColorValue)[] = [...BORDER_BLOCK_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderBlockKeyword[] = [...BORDER_BLOCK_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_NUMBER_TYPES];
 }
 
@@ -1693,7 +1693,7 @@ export class BorderBlockColorConfig {
 }
 
 export class BorderBlockEndConfig {
-  keywords: (BorderBlockEndKeyword | AllColorValue)[] = [...BORDER_BLOCK_END_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderBlockEndKeyword[] = [...BORDER_BLOCK_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_END_NUMBER_TYPES];
 }
 
@@ -1707,7 +1707,7 @@ export class BorderBlockEndWidthConfig {
 }
 
 export class BorderBlockStartConfig {
-  keywords: (BorderBlockStartKeyword | AllColorValue)[] = [...BORDER_BLOCK_START_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderBlockStartKeyword[] = [...BORDER_BLOCK_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_START_NUMBER_TYPES];
 }
 
@@ -1727,7 +1727,7 @@ export class BorderBlockWidthConfig {
 }
 
 export class BorderBottomConfig {
-  keywords: (BorderBottomKeyword | AllColorValue)[] = [...BORDER_BOTTOM_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderBottomKeyword[] = [...BORDER_BOTTOM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_NUMBER_TYPES];
 }
 
@@ -1756,7 +1756,7 @@ export class BorderCollapseConfig {
 }
 
 export class BorderColorConfig {
-  keywords: (BorderColorKeyword | AllColorValue)[] = [...BORDER_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderColorKeyword[] = [...BORDER_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_COLOR_NUMBER_TYPES];
 }
 
@@ -1785,7 +1785,7 @@ export class BorderImageSliceConfig {
 }
 
 export class BorderImageSourceConfig {
-  keywords: (BorderImageSourceKeyword | AllColorValue)[] = [...BORDER_IMAGE_SOURCE_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderImageSourceKeyword[] = [...BORDER_IMAGE_SOURCE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_IMAGE_SOURCE_NUMBER_TYPES];
 }
 
@@ -1795,7 +1795,7 @@ export class BorderImageWidthConfig {
 }
 
 export class BorderInlineConfig {
-  keywords: (BorderInlineKeyword | AllColorValue)[] = [...BORDER_INLINE_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderInlineKeyword[] = [...BORDER_INLINE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_NUMBER_TYPES];
 }
 
@@ -1803,7 +1803,7 @@ export class BorderInlineColorConfig {
 }
 
 export class BorderInlineEndConfig {
-  keywords: (BorderInlineEndKeyword | AllColorValue)[] = [...BORDER_INLINE_END_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderInlineEndKeyword[] = [...BORDER_INLINE_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_END_NUMBER_TYPES];
 }
 
@@ -1817,7 +1817,7 @@ export class BorderInlineEndWidthConfig {
 }
 
 export class BorderInlineStartConfig {
-  keywords: (BorderInlineStartKeyword | AllColorValue)[] = [...BORDER_INLINE_START_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderInlineStartKeyword[] = [...BORDER_INLINE_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_START_NUMBER_TYPES];
 }
 
@@ -1837,12 +1837,12 @@ export class BorderInlineWidthConfig {
 }
 
 export class BorderLeftConfig {
-  keywords: (BorderLeftKeyword | AllColorValue)[] = [...BORDER_LEFT_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderLeftKeyword[] = [...BORDER_LEFT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_LEFT_NUMBER_TYPES];
 }
 
 export class BorderLeftColorConfig {
-  keywords: (BorderLeftColorKeyword | AllColorValue)[] = [...BORDER_LEFT_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderLeftColorKeyword[] = [...BORDER_LEFT_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_LEFT_COLOR_NUMBER_TYPES];
 }
 
@@ -1860,12 +1860,12 @@ export class BorderRadiusConfig {
 }
 
 export class BorderRightConfig {
-  keywords: (BorderRightKeyword | AllColorValue)[] = [...BORDER_RIGHT_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderRightKeyword[] = [...BORDER_RIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_RIGHT_NUMBER_TYPES];
 }
 
 export class BorderRightColorConfig {
-  keywords: (BorderRightColorKeyword | AllColorValue)[] = [...BORDER_RIGHT_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderRightColorKeyword[] = [...BORDER_RIGHT_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_RIGHT_COLOR_NUMBER_TYPES];
 }
 
@@ -1895,12 +1895,12 @@ export class BorderStyleConfig {
 }
 
 export class BorderTopConfig {
-  keywords: (BorderTopKeyword | AllColorValue)[] = [...BORDER_TOP_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderTopKeyword[] = [...BORDER_TOP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_TOP_NUMBER_TYPES];
 }
 
 export class BorderTopColorConfig {
-  keywords: (BorderTopColorKeyword | AllColorValue)[] = [...BORDER_TOP_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: BorderTopColorKeyword[] = [...BORDER_TOP_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_TOP_COLOR_NUMBER_TYPES];
 }
 
@@ -1968,7 +1968,7 @@ export class BoxPackConfig {
 }
 
 export class BoxShadowConfig {
-  keywords: (BoxShadowKeyword | AllColorValue)[] = [...BOX_SHADOW_KEYWORDS, ...ALL_COLORS];
+  keywords: BoxShadowKeyword[] = [...BOX_SHADOW_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BOX_SHADOW_NUMBER_TYPES];
 }
 
@@ -1996,7 +1996,7 @@ export class CaretConfig {
 }
 
 export class CaretColorConfig {
-  keywords: (CaretColorKeyword | AllColorValue)[] = [...CARET_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: CaretColorKeyword[] = [...CARET_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CARET_COLOR_NUMBER_TYPES];
 }
 
@@ -2023,7 +2023,7 @@ export class ClipRuleConfig {
 }
 
 export class ColorConfig {
-  keywords: (ColorKeyword | AllColorValue)[] = [...COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: ColorKeyword[] = [...COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COLOR_NUMBER_TYPES];
 }
 
@@ -2053,7 +2053,7 @@ export class ColumnRuleConfig {
 }
 
 export class ColumnRuleColorConfig {
-  keywords: (ColumnRuleColorKeyword | AllColorValue)[] = [...COLUMN_RULE_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: ColumnRuleColorKeyword[] = [...COLUMN_RULE_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COLUMN_RULE_COLOR_NUMBER_TYPES];
 }
 
@@ -2116,7 +2116,7 @@ export class ContainerTypeConfig {
 }
 
 export class ContentConfig {
-  keywords: (ContentKeyword | AllColorValue)[] = [...CONTENT_KEYWORDS, ...ALL_COLORS];
+  keywords: ContentKeyword[] = [...CONTENT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTENT_NUMBER_TYPES];
 }
 
@@ -2188,7 +2188,7 @@ export class FieldSizingConfig {
 }
 
 export class FillConfig {
-  keywords: (FillKeyword | AllColorValue)[] = [...FILL_KEYWORDS, ...ALL_COLORS];
+  keywords: FillKeyword[] = [...FILL_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FILL_NUMBER_TYPES];
 }
 
@@ -2201,7 +2201,7 @@ export class FillRuleConfig {
 }
 
 export class FilterConfig {
-  keywords: (FilterKeyword | AllColorValue)[] = [...FILTER_KEYWORDS, ...ALL_COLORS];
+  keywords: FilterKeyword[] = [...FILTER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FILTER_NUMBER_TYPES];
 }
 
@@ -2588,7 +2588,7 @@ export class ListStyleConfig {
 }
 
 export class ListStyleImageConfig {
-  keywords: (ListStyleImageKeyword | AllColorValue)[] = [...LIST_STYLE_IMAGE_KEYWORDS, ...ALL_COLORS];
+  keywords: ListStyleImageKeyword[] = [...LIST_STYLE_IMAGE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...LIST_STYLE_IMAGE_NUMBER_TYPES];
 }
 
@@ -2664,7 +2664,7 @@ export class MarkerStartConfig {
 }
 
 export class MaskConfig {
-  keywords: (MaskKeyword | AllColorValue)[] = [...MASK_KEYWORDS, ...ALL_COLORS];
+  keywords: MaskKeyword[] = [...MASK_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_NUMBER_TYPES];
 }
 
@@ -2689,7 +2689,7 @@ export class MaskBorderSliceConfig {
 }
 
 export class MaskBorderSourceConfig {
-  keywords: (MaskBorderSourceKeyword | AllColorValue)[] = [...MASK_BORDER_SOURCE_KEYWORDS, ...ALL_COLORS];
+  keywords: MaskBorderSourceKeyword[] = [...MASK_BORDER_SOURCE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_BORDER_SOURCE_NUMBER_TYPES];
 }
 
@@ -2707,7 +2707,7 @@ export class MaskCompositeConfig {
 }
 
 export class MaskImageConfig {
-  keywords: (MaskImageKeyword | AllColorValue)[] = [...MASK_IMAGE_KEYWORDS, ...ALL_COLORS];
+  keywords: MaskImageKeyword[] = [...MASK_IMAGE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_IMAGE_NUMBER_TYPES];
 }
 
@@ -2847,7 +2847,7 @@ export class OutlineConfig {
 }
 
 export class OutlineColorConfig {
-  keywords: (OutlineColorKeyword | AllColorValue)[] = [...OUTLINE_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: OutlineColorKeyword[] = [...OUTLINE_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OUTLINE_COLOR_NUMBER_TYPES];
 }
 
@@ -3270,7 +3270,7 @@ export class ScrollTimelineNameConfig {
 }
 
 export class ScrollbarColorConfig {
-  keywords: (ScrollbarColorKeyword | AllColorValue)[] = [...SCROLLBAR_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: ScrollbarColorKeyword[] = [...SCROLLBAR_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLLBAR_COLOR_NUMBER_TYPES];
 }
 
@@ -3291,7 +3291,7 @@ export class ShapeMarginConfig {
 }
 
 export class ShapeOutsideConfig {
-  keywords: (ShapeOutsideKeyword | AllColorValue)[] = [...SHAPE_OUTSIDE_KEYWORDS, ...ALL_COLORS];
+  keywords: ShapeOutsideKeyword[] = [...SHAPE_OUTSIDE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SHAPE_OUTSIDE_NUMBER_TYPES];
 }
 
@@ -3311,7 +3311,7 @@ export class SrcConfig {
 }
 
 export class StrokeConfig {
-  keywords: (StrokeKeyword | AllColorValue)[] = [...STROKE_KEYWORDS, ...ALL_COLORS];
+  keywords: StrokeKeyword[] = [...STROKE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...STROKE_NUMBER_TYPES];
 }
 
@@ -3372,7 +3372,7 @@ export class TextDecorationConfig {
 }
 
 export class TextDecorationColorConfig {
-  keywords: (TextDecorationColorKeyword | AllColorValue)[] = [...TEXT_DECORATION_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: TextDecorationColorKeyword[] = [...TEXT_DECORATION_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_DECORATION_COLOR_NUMBER_TYPES];
 }
 
@@ -3401,7 +3401,7 @@ export class TextEmphasisConfig {
 }
 
 export class TextEmphasisColorConfig {
-  keywords: (TextEmphasisColorKeyword | AllColorValue)[] = [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...ALL_COLORS];
+  keywords: TextEmphasisColorKeyword[] = [...TEXT_EMPHASIS_COLOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES];
 }
 
@@ -3435,7 +3435,7 @@ export class TextRenderingConfig {
 }
 
 export class TextShadowConfig {
-  keywords: (TextShadowKeyword | AllColorValue)[] = [...TEXT_SHADOW_KEYWORDS, ...ALL_COLORS];
+  keywords: TextShadowKeyword[] = [...TEXT_SHADOW_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_SHADOW_NUMBER_TYPES];
 }
 
@@ -4729,10 +4729,4 @@ export class CssPropertyConfigMap {
   y = new YConfig();
   zIndex = new ZIndexConfig();
   zoom = new ZoomConfig();
-
-  constructor(options?: Partial<CssPropertyConfigMap>) {
-    if (options) {
-      Object.assign(this, options);
-    }
-  }
 }

@@ -7,4 +7,3 @@ export * from './units';
 export * from './keywords';
 export * from './pseudo';
 export * from './property-config';
-export * from './pseudo-styles';

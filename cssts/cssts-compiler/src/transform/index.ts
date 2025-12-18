@@ -13,10 +13,10 @@ import {
   camelToKebab,
   CSSTS_CONFIG
 } from '../utils/cssClassName.js'
-import { type PseudoStyleValue } from '../cssts-config.js'
+import type { CssPropertyValueMap } from '../config/keywords.js'
 
 /** 伪类工具配置 */
-type PseudoUtilsConfig = Record<string, PseudoStyleValue>
+type PseudoUtilsConfig = Record<string, CssPropertyValueMap>
 import { SlimeGenerator } from 'slime-generator'
 
 // ==================== 类型定义 ====================
@@ -160,7 +160,7 @@ function generateAtomCssRule(atomName: string, prefix: string = ''): string | nu
 function generatePseudoCssRule(
   className: string,
   pseudo: string,
-  pseudoConfig: PseudoStyleValue,
+  pseudoConfig: CssPropertyValueMap,
   prefix: string = ''
 ): string {
   const fullClassName = prefix ? `${prefix}${className}` : className

@@ -264,7 +264,8 @@ export {
 function generateKeywordsFile(
   keywordProperties: PropertyData[],
   propKeywordsMap: Map<string, string[]>,
-  sortedPropertyNames: string[]
+  sortedPropertyNames: string[],
+  colorSupportingProps: string[]
 ): string {
   const lines: string[] = ['/**', ' * CSS 关键词配置（自动生成）', ' */', ''];
 
@@ -280,7 +281,11 @@ function generateKeywordsFile(
   // 类型定义
   lines.push('// ==================== 关键词类型 ====================', '');
   for (const prop of keywordProperties) {
-    lines.push(`export type ${toPascalCase(prop.name)}Keyword = typeof ${toConstName(prop.name)}_KEYWORDS[number];`);
+    const hasColors = colorSupportingProps.includes(prop.name);
+    const typeStr = hasColors 
+      ? `typeof ${toConstName(prop.name)}_KEYWORDS[number] | AllColorValue`
+      : `typeof ${toConstName(prop.name)}_KEYWORDS[number]`;
+    lines.push(`export type ${toPascalCase(prop.name)}Keyword = ${typeStr};`);
   }
   lines.push('');
 
@@ -315,7 +320,7 @@ function generatePropertyConfigFile(
   const lines: string[] = ['/**', ' * CSS 属性配置（自动生成）', ' */', ''];
 
   // 导入
-  lines.push(`import { ALL_COLORS, type AllColorValue } from './colors';`);
+  lines.push(`import { type AllColorValue } from './colors';`);
   lines.push(`import type { NumberTypeName, UnitCategoryName } from './units';`);
   lines.push(`import {`);
   keywordProperties.forEach(p => lines.push(`  ${toConstName(p.name)}_KEYWORDS,`));
@@ -347,13 +352,10 @@ function generatePropertyConfigFile(
     const pascalName = toPascalCase(propName);
     const keywords = propKeywordsMap.get(propName) || [];
     const numberTypes = propNumberTypesMap.get(propName) || [];
-    const hasColors = colorSupportingProps.includes(propName);
 
     lines.push(`export class ${pascalName}Config {`);
     if (keywords.length > 0) {
-      const kwType = hasColors ? `(${pascalName}Keyword | AllColorValue)[]` : `${pascalName}Keyword[]`;
-      const kwInit = hasColors ? `[...${toConstName(propName)}_KEYWORDS, ...ALL_COLORS]` : `[...${toConstName(propName)}_KEYWORDS]`;
-      lines.push(`  keywords: ${kwType} = ${kwInit};`);
+      lines.push(`  keywords: ${pascalName}Keyword[] = [...${toConstName(propName)}_KEYWORDS];`);
     }
     if (numberTypes.length > 0) {
       lines.push(`  numberTypes: NumberTypeName[] = [...${toConstName(propName)}_NUMBER_TYPES];`);
@@ -419,7 +421,7 @@ export function generateAll(): void {
   fs.writeFileSync(path.join(configDir, 'units.ts'), generateUnitsFile());
   console.log('✅ config/units.ts');
 
-  fs.writeFileSync(path.join(configDir, 'keywords.ts'), generateKeywordsFile(keywordProperties, propKeywordsMap, sortedPropertyNames));
+  fs.writeFileSync(path.join(configDir, 'keywords.ts'), generateKeywordsFile(keywordProperties, propKeywordsMap, sortedPropertyNames, colorSupportingProps));
   console.log('✅ config/keywords.ts');
 
   fs.writeFileSync(path.join(configDir, 'pseudo.ts'), generatePseudoFile());
