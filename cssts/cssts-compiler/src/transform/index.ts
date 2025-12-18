@@ -13,7 +13,7 @@ import {
   camelToKebab,
   CSSTS_CONFIG
 } from '../utils/cssClassName.js'
-import { type PseudoStyleValue } from '../css-types/cssts-config.js'
+import { type PseudoStyleValue } from '../cssts-config.js'
 
 /** 伪类工具配置 */
 type PseudoUtilsConfig = Record<string, PseudoStyleValue>
@@ -160,14 +160,13 @@ function generateAtomCssRule(atomName: string, prefix: string = ''): string | nu
 function generatePseudoCssRule(
   className: string,
   pseudo: string,
-  pseudoConfig: Record<string, string> | Record<string, string>[],
+  pseudoConfig: PseudoStyleValue,
   prefix: string = ''
 ): string {
   const fullClassName = prefix ? `${prefix}${className}` : className
-  const configs = Array.isArray(pseudoConfig) ? pseudoConfig : [pseudoConfig]
-  const props = configs
-    .flatMap(config => Object.entries(config))
-    .map(([prop, val]) => `${prop}: ${val}`)
+  const props = Object.entries(pseudoConfig)
+    .filter(([, val]) => val !== undefined)
+    .map(([prop, val]) => `${camelToKebab(prop)}: ${val}`)
     .join('; ')
   return `.${fullClassName}:${pseudo} { ${props}; }`
 }

@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, generatePropertiesJson } from "../generator/index.js"
+import { generateAtoms, generatePropertiesJson } from "../generator-dts/index.js"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）

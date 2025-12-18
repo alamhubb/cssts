@@ -29,31 +29,7 @@ export {
   generateAtomCssRule,
 } from './utils/cssClassName.js'
 
-// Generator (从 cssts-types 移入)
-export {
-  // 配置类型
-  CsstsConfig as LegacyCsstsConfig,
-  type PropertyConfig,
-  type UnitValueConfig as UnitConfig,
-  type UnitType,
-  defaultConfig,
-  defaultProperties,
-  systemDefaults,
-  // 原子类生成
-  type AtomDefinition,
-  generateAtoms,
-  generatePropertiesJson,
-  // 类型定义生成
-  generateCsstsAtomsDts,
-  generateGlobalDts,
-  generateRuntimeDts,
-  generateIndexDts,
-  // 生成器
-  type GeneratorOptions,
-  generateDtsAsync,
-} from './generator/index.js'
-
-// CSS Types - 新的配置系统
+// ==================== 主配置系统 ====================
 export {
   // 主配置类
   CsstsConfig,
@@ -72,9 +48,56 @@ export {
   // 默认配置
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
+  DEFAULT_UNIT_CONFIGS,
   // 伪类/伪元素样式配置
   PseudoClassStylesConfig,
   PseudoElementStylesConfig,
   type PseudoStyleValue,
   type CustomPropertyValue,
-} from './css-types/cssts-config.js'
+} from './cssts-config.js'
+
+// ==================== 生成器 ====================
+export {
+  generateDtsAsync,
+  generateAtoms,
+  generatePropertiesJson,
+  generateCsstsAtomsDts,
+  generateGlobalDts,
+  generateRuntimeDts,
+  generateIndexDts,
+  type AtomDefinition,
+  type GeneratorOptions,
+} from './generator-dts/index.js'
+
+// ==================== 配置数据 ====================
+export {
+  CssPropertyConfigMap,
+  cssPropertyNameMap,
+  type CssPropertyCamelName,
+  type CssPropertyKebabName,
+} from './config/property-config.js'
+
+export {
+  PSEUDO_CLASSES,
+  PSEUDO_ELEMENTS,
+  COMMON_PSEUDO_CLASSES,
+  COMMON_PSEUDO_ELEMENTS,
+  type PseudoClassName,
+  type PseudoElementName,
+} from './config/pseudo.js'
+
+export type { UnitType, NumberTypeName, UnitCategoryName } from './config/units.js'
+export type { KeywordValue } from './config/keywords.js'
+export type { AllColorValue, SystemColorValue } from './config/colors.js'
+
+// ==================== 工具函数 ====================
+export {
+  getUnitCategory,
+  getUnitsInCategory,
+  isUnitInCategory,
+  getUnitCategoriesFromNumberTypes,
+  getUnitsFromCategories,
+  getUnitsFromNumberTypes,
+  getCategoriesForNumberType,
+  getUnitsForNumberType,
+} from './css-utils.js'

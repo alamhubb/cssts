@@ -8,7 +8,7 @@
  * - config/pseudo.ts - 伪类/伪元素（列表 + custom descriptions）
  * - config/property-config.ts - 属性配置（csstree + custom units）
  *
- * 运行方式：npx tsx src/css-types/scripts/generator-data/index.ts
+ * 运行方式：npx tsx src/generator-data/index.ts
  */
 
 import * as fs from 'node:fs';
@@ -19,8 +19,8 @@ import * as csstree from 'css-tree';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 输出到 ../../config/
-const configDir = path.join(__dirname, '../../config');
+// 输出到 ../config/
+const configDir = path.join(__dirname, '../config');
 
 // 确保输出目录存在
 if (!fs.existsSync(configDir)) {

@@ -3,7 +3,7 @@
  * 
  * 从 csstree 提取数据，生成 data/ 和 config/ 目录下的文件
  * 
- * 运行: npx tsx src/css-types/scripts/generator-data/index.ts
+ * 运行: npx tsx src/generator-data/index.ts
  */
 
 export { generateAll } from './generate-config.js';

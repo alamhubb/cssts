@@ -3,14 +3,14 @@
  * 
  * 根据 config/ 中的配置生成用户使用的类型定义文件
  * 
- * 运行: npx tsx src/css-types/scripts/generator-dts/index.ts
+ * 运行: npx tsx src/generator-dts/index.ts
  */
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { CsstsConfig } from '../../cssts-config.js';
+import { CsstsConfig } from '../cssts-config.js';
 import { generateAtoms } from './atom-generator.js';
 import {
   generateCsstsAtomsDts,
@@ -23,7 +23,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // 默认输出到 cssts-compiler/types/
-const DEFAULT_OUT_DIR = path.resolve(__dirname, '../../../../types');
+const DEFAULT_OUT_DIR = path.resolve(__dirname, '../../types');
 
 export interface GeneratorOptions {
   /** 输出目录，默认为 cssts-compiler/types/ */
@@ -73,7 +73,7 @@ export async function generateDtsAsync(options: GeneratorOptions = {}): Promise<
 }
 
 // 导出生成器函数
-export { generateAtoms } from './atom-generator.js';
+export { generateAtoms, generatePropertiesJson } from './atom-generator.js';
 export type { AtomDefinition } from './atom-generator.js';
 export {
   generateCsstsAtomsDts,

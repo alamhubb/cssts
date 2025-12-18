@@ -14,13 +14,13 @@ import {
   shouldInclude,
   type UnitCategoryConfig,
   type ProgressiveRange,
-} from '../../cssts-config.js';
+} from '../cssts-config.js';
 import {
   cssPropertyNameMap,
   type CssPropertyCamelName,
-} from '../../config/property-config.js';
-import { NUMBER_TYPE_UNITS, CATEGORY_BY_UNIT } from '../../config/units.js';
-import type { UnitCategoryName } from '../../custom/unit-categories.js';
+} from '../config/property-config.js';
+import { NUMBER_TYPE_UNITS, CATEGORY_BY_UNIT } from '../config/units.js';
+import type { UnitCategoryName } from '../custom/unit-categories.js';
 
 // ==================== 原子类定义 ====================
 
