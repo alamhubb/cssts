@@ -22,6 +22,9 @@ import {
     type UnitsConfigValue,
     type UnitCategoryConfig,
     type CustomPropertyValue,
+    type NumberTypeConfigItem,
+    type UnitCategoryConfigItem,
+    type UnitConfigItem,
 } from './config/value-config';
 import {
     PseudoClassStylesConfig,
@@ -39,6 +42,9 @@ export type {
     UnitCategoryConfig,
     CustomPropertyValue,
     PseudoStyleValue,
+    NumberTypeConfigItem,
+    UnitCategoryConfigItem,
+    UnitConfigItem,
 };
 
 export {
@@ -82,10 +88,16 @@ export class CsstsConfig {
 
     /**
      * 支持的数值类型列表（白名单）
-     * 如果配置了此项，则只生成这些数值类型，忽略 excludeNumberTypes
-     * 为空或 undefined 时使用 excludeNumberTypes 逻辑
+     * 可以是字符串数组或混合数组（字符串 + 对象）
+     * 对象格式：{ numberType: { unitCategory: { unit: { step: 4 } } } }
+     * 
+     * @example
+     * includeNumberTypes: [
+     *   'length',
+     *   { time: { px: { px: { step: 4 } } } }
+     * ]
      */
-    includeNumberTypes?: NumberTypeName[];
+    includeNumberTypes?: NumberTypeConfigItem<NumberTypeName>[];
 
     /**
      * 排除的数值类型列表（黑名单）
@@ -97,10 +109,16 @@ export class CsstsConfig {
 
     /**
      * 支持的单位分类列表（白名单）
-     * 如果配置了此项，则只生成这些分类的单位，忽略 excludeUnitCategories
-     * 为空或 undefined 时使用 excludeUnitCategories 逻辑
+     * 可以是字符串数组或混合数组（字符串 + 对象）
+     * 对象格式：{ unitCategory: { unit: { step: 4 } } }
+     * 
+     * @example
+     * includeUnitCategories: [
+     *   'px',
+     *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
+     * ]
      */
-    includeUnitCategories?: UnitCategoryName[];
+    includeUnitCategories?: UnitCategoryConfigItem<UnitCategoryName>[];
 
     /**
      * 排除的单位分类列表（黑名单）
@@ -112,10 +130,17 @@ export class CsstsConfig {
 
     /**
      * 支持的单位列表（白名单）
-     * 如果配置了此项，则只生成这些单位，忽略 excludeUnits
-     * 为空或 undefined 时使用 excludeUnits 逻辑
+     * 可以是字符串数组或混合数组（字符串 + 对象）
+     * 对象格式：{ unit: { step: 4, max: 500 } }
+     * 
+     * @example
+     * includeUnits: [
+     *   'px',
+     *   'em',
+     *   { px: { step: 4, max: 500 } }
+     * ]
      */
-    includeUnits?: UnitType[];
+    includeUnits?: UnitConfigItem<UnitType>[];
 
     /**
      * 排除的单位列表（黑名单）
@@ -150,9 +175,6 @@ export class CsstsConfig {
 
     /** 渐进步长策略（不设置则使用默认策略） */
     progressiveRanges: ProgressiveRange[];
-
-    /** 单位分类配置（覆盖 DEFAULT_UNIT_CATEGORY_CONFIGS） */
-    unitCategories: UnitsConfigValue<UnitCategoryName>;
 
     /** 属性级别配置 */
     properties: CssPropertyConfigMap;
@@ -245,7 +267,6 @@ export class CsstsConfig {
         // 其他配置
         this.customProperties = options.customProperties ?? {};
         this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
-        this.unitCategories = options.unitCategories ?? {};
         this.properties = new CssPropertyConfigMap(options.properties);
 
         // 伪类/伪元素样式配置

@@ -16,6 +16,10 @@ import {
 import {
   normalizeUnitCategoriesConfig,
   shouldInclude,
+  extractUnitConfigsFromArray,
+  extractUnitCategoryConfigsFromArray,
+  extractNumberTypeConfigsFromArray,
+  extractStringsFromArray,
 } from '../utils/config-utils.js';
 import {
   cssPropertyNameMap,
@@ -216,9 +220,9 @@ function generateValuesForUnit(
   const categoryConfig = category ? DEFAULT_UNIT_CATEGORY_CONFIGS[category] : undefined;
   const defaultConfig = categoryConfig || { presets: [0, 1, 2, 3, 4, 5, 10, 20, 50, 100] };
   
-  // 3. 获取用户自定义的分类配置
-  const normalizedCategories = normalizeUnitCategoriesConfig(config.unitCategories);
-  const userConfig = category ? (normalizedCategories[category] || {}) : {};
+  // 3. 获取用户自定义的分类配置（从 includeUnitCategories 中提取）
+  const categoryConfigs = extractUnitCategoryConfigsFromArray(config.includeUnitCategories);
+  const userConfig = category ? (categoryConfigs[category]?.[unit] || {}) : {};
 
   // 4. 合并配置
   const finalConfig: UnitCategoryConfig = {
@@ -331,9 +335,11 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     // 2. 生成数值原子类
     if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
       const supportedUnits = new Set<string>();
+      const includeNumberTypesList = extractStringsFromArray(config.includeNumberTypes);
+      
       for (const nt of propConfig.numberTypes as string[]) {
         // 使用 shouldInclude 处理数值类型过滤
-        if (!shouldInclude(nt, config.includeNumberTypes, config.excludeNumberTypes)) continue;
+        if (!shouldInclude(nt, includeNumberTypesList.length > 0 ? includeNumberTypesList : undefined, config.excludeNumberTypes)) continue;
         
         const typeUnits = NUMBER_TYPE_UNITS[nt as keyof typeof NUMBER_TYPE_UNITS];
         if (typeUnits) {
@@ -343,13 +349,16 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
         }
       }
 
+      const includeUnitsList = extractStringsFromArray(config.includeUnits);
+      const includeUnitCategoriesList = extractStringsFromArray(config.includeUnitCategories);
+      
       for (const unit of supportedUnits) {
         // 使用 shouldInclude 处理单位过滤
-        if (!shouldInclude(unit, config.includeUnits, config.excludeUnits)) continue;
+        if (!shouldInclude(unit, includeUnitsList.length > 0 ? includeUnitsList : undefined, config.excludeUnits)) continue;
         
         // 使用 shouldInclude 处理单位分类过滤
         const category = CATEGORY_BY_UNIT[unit] as UnitCategoryName | undefined;
-        if (category && !shouldInclude(category, config.includeUnitCategories, config.excludeUnitCategories)) continue;
+        if (category && !shouldInclude(category, includeUnitCategoriesList.length > 0 ? includeUnitCategoriesList : undefined, config.excludeUnitCategories)) continue;
 
         const values = generateValuesForUnit(unit, config);
         

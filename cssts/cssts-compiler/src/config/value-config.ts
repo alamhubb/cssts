@@ -75,11 +75,7 @@ export interface UnitCategoryConfig {
     presets?: number[];
 }
 
-/** 单位分类配置项（带分类名称） */
-export interface UnitCategoryConfigItem extends UnitCategoryConfig {
-    /** 分类名称 */
-    category: string;
-}
+
 
 
 
@@ -164,3 +160,29 @@ export const DEFAULT_UNIT_CONFIGS: Record<string, UnitValueConfig> = {};
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
+
+// ==================== 层级配置类型 ====================
+
+/**
+ * 数值类型配置项
+ * 可以是字符串（简单启用）或对象（带单位分类配置）
+ */
+export type NumberTypeConfigItem<T extends string = string> =
+  | T
+  | Record<T, Record<string, Record<string, UnitValueConfig>>>;
+
+/**
+ * 单位分类配置项
+ * 可以是字符串（简单启用）或对象（带单位配置）
+ */
+export type UnitCategoryConfigItem<T extends string = string> =
+  | T
+  | Record<T, Record<string, UnitValueConfig>>;
+
+/**
+ * 单位配置项
+ * 可以是字符串（简单启用）或对象（带配置）
+ */
+export type UnitConfigItem<T extends string = string> =
+  | T
+  | Record<T, UnitValueConfig>;

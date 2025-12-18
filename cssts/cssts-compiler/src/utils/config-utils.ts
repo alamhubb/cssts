@@ -118,3 +118,100 @@ export function normalizeUnitCategoriesConfig<T extends string>(
     // Record 形式: { pixel: { max: 500 } }
     return config;
 }
+
+/**
+ * 从新的层级配置格式中提取单位配置
+ * 支持混合数组格式：['px', { em: { step: 0.25 } }]
+ */
+export function extractUnitConfigsFromArray<T extends string>(
+    items: (T | Record<T, UnitValueConfig>)[] | undefined
+): Partial<Record<T, UnitValueConfig>> {
+    if (!items) return {};
+
+    const result: Partial<Record<T, UnitValueConfig>> = {};
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            // 字符串项：使用默认配置
+            result[item] = {};
+        } else if (typeof item === 'object') {
+            // 对象项：提取配置
+            Object.assign(result, item);
+        }
+    }
+
+    return result;
+}
+
+
+/**
+ * 从新的层级配置格式中提取单位分类配置
+ * 支持混合数组格式：['px', { em: { step: 0.25 } }]
+ */
+export function extractUnitCategoryConfigsFromArray<T extends string>(
+    items: (T | Record<T, Record<string, UnitValueConfig>>)[] | undefined
+): Partial<Record<T, Record<string, UnitValueConfig>>> {
+    if (!items) return {};
+
+    const result: Partial<Record<T, Record<string, UnitValueConfig>>> = {};
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            // 字符串项：使用默认配置
+            result[item] = {};
+        } else if (typeof item === 'object') {
+            // 对象项：提取配置
+            Object.assign(result, item);
+        }
+    }
+
+    return result;
+}
+
+/**
+ * 从新的层级配置格式中提取单位配置
+ * 支持混合数组格式：['length', { time: { px: { px: { step: 4 } } } }]
+ */
+export function extractNumberTypeConfigsFromArray<T extends string>(
+    items: (T | Record<T, Record<string, Record<string, UnitValueConfig>>>)[] | undefined
+): Partial<Record<T, Record<string, Record<string, UnitValueConfig>>>> {
+    if (!items) return {};
+
+    const result: Partial<Record<T, Record<string, Record<string, UnitValueConfig>>>> = {};
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            // 字符串项：使用默认配置
+            result[item] = {};
+        } else if (typeof item === 'object') {
+            // 对象项：提取配置
+            Object.assign(result, item);
+        }
+    }
+
+    return result;
+}
+
+
+/**
+ * 从混合数组中提取字符串列表
+ * 用于 shouldInclude 函数
+ */
+export function extractStringsFromArray<T extends string>(
+    items: (T | Record<T, any>)[] | undefined
+): T[] {
+    if (!items) return [];
+
+    const result: T[] = [];
+
+    for (const item of items) {
+        if (typeof item === 'string') {
+            result.push(item);
+        } else if (typeof item === 'object') {
+            // 从对象中提取 key
+            result.push(...(Object.keys(item) as T[]));
+        }
+    }
+
+    return result;
+}
