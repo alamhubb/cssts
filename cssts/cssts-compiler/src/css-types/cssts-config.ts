@@ -238,33 +238,94 @@ export type CustomPropertyValue = string | Record<string, string>;
 
 /** CSSTS 配置 */
 export class CsstsConfig {
+    // ==================== 属性配置 ====================
+    
     /** 
-     * 排除的属性
+     * 支持的属性列表（白名单）
+     * 如果配置了此项，则只生成这些属性的原子类，忽略 excludeProperties
+     * 为空或 undefined 时使用 excludeProperties 逻辑
+     */
+    includeProperties?: CssPropertyCamelName[];
+
+    /** 
+     * 排除的属性列表（黑名单）
+     * 仅当 includeProperties 为空时生效
      * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
-     * 设置为空数组 [] 可启用所有属性
      */
     excludeProperties: CssPropertyCamelName[] = [...RARE_PROPERTIES];
 
-    /** 排除的关键字 */
-    excludeKeywords: KeywordValue[] = [];
+    // ==================== 数值类型配置 ====================
 
-    /** 排除的颜色 */
-    excludeColors: AllColorValue[] = [];
+    /**
+     * 支持的数值类型列表（白名单）
+     * 如果配置了此项，则只生成这些数值类型，忽略 excludeNumberTypes
+     * 为空或 undefined 时使用 excludeNumberTypes 逻辑
+     */
+    includeNumberTypes?: NumberTypeName[];
 
-    /** 排除的数值类型 */
+    /** 
+     * 排除的数值类型列表（黑名单）
+     * 仅当 includeNumberTypes 为空时生效
+     */
     excludeNumberTypes: NumberTypeName[] = [];
 
-    /** 排除的单位 */
+    // ==================== 单位分类配置 ====================
+
+    /**
+     * 支持的单位分类列表（白名单）
+     * 如果配置了此项，则只生成这些分类的单位，忽略 excludeUnitCategories
+     * 为空或 undefined 时使用 excludeUnitCategories 逻辑
+     */
+    includeUnitCategories?: UnitCategoryName[];
+
+    /**
+     * 排除的单位分类列表（黑名单）
+     * 仅当 includeUnitCategories 为空时生效
+     */
+    excludeUnitCategories: UnitCategoryName[] = [];
+
+    // ==================== 单位配置 ====================
+
+    /**
+     * 支持的单位列表（白名单）
+     * 如果配置了此项，则只生成这些单位，忽略 excludeUnits
+     * 为空或 undefined 时使用 excludeUnits 逻辑
+     */
+    includeUnits?: UnitType[];
+
+    /** 
+     * 排除的单位列表（黑名单）
+     * 仅当 includeUnits 为空时生效
+     */
     excludeUnits: UnitType[] = [];
+
+    // ==================== 关键字/颜色配置 ====================
+
+    /**
+     * 支持的关键字列表（白名单）
+     * 如果配置了此项，则只生成这些关键字，忽略 excludeKeywords
+     */
+    includeKeywords?: KeywordValue[];
+
+    /** 排除的关键字列表（黑名单） */
+    excludeKeywords: KeywordValue[] = [];
+
+    /**
+     * 支持的颜色列表（白名单）
+     * 如果配置了此项，则只生成这些颜色，忽略 excludeColors
+     */
+    includeColors?: AllColorValue[];
+
+    /** 排除的颜色列表（黑名单） */
+    excludeColors: AllColorValue[] = [];
+
+    // ==================== 其他配置 ====================
 
     /** 自定义属性 */
     customProperties: Record<string, CustomPropertyValue> = {};
 
     /** 渐进步长策略（不设置则使用默认策略） */
     progressiveRanges: ProgressiveRange[] = DEFAULT_PROGRESSIVE_RANGES;
-
-    /** 单位配置（覆盖 DEFAULT_UNIT_CONFIGS，优先级最高） */
-    units: UnitsConfigValue<UnitType> = {};
 
     /** 单位分类配置（覆盖 DEFAULT_UNIT_CATEGORY_CONFIGS） */
     unitCategories: UnitsConfigValue<UnitCategoryName> = {};
@@ -274,10 +335,22 @@ export class CsstsConfig {
 
     // ==================== 伪类/伪元素配置 ====================
 
-    /** 排除的伪类 */
+    /**
+     * 支持的伪类列表（白名单）
+     * 如果配置了此项，则只生成这些伪类，忽略 excludePseudoClasses
+     */
+    includePseudoClasses?: PseudoClassName[];
+
+    /** 排除的伪类列表（黑名单） */
     excludePseudoClasses: PseudoClassName[] = [];
 
-    /** 排除的伪元素 */
+    /**
+     * 支持的伪元素列表（白名单）
+     * 如果配置了此项，则只生成这些伪元素，忽略 excludePseudoElements
+     */
+    includePseudoElements?: PseudoElementName[];
+
+    /** 排除的伪元素列表（黑名单） */
     excludePseudoElements: PseudoElementName[] = [];
 
     /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
@@ -388,4 +461,52 @@ export class PseudoElementStylesConfig {
     cueRegion?: PseudoStyleValue;
     part?: PseudoStyleValue;
     slotted?: PseudoStyleValue;
+}
+
+// ==================== 配置工具函数 ====================
+
+/**
+ * 判断一个值是否应该被包含
+ * 
+ * 优先级规则：
+ * 1. 如果 includeList 有值（非空数组），则只包含 includeList 中的值
+ * 2. 否则，排除 excludeList 中的值
+ * 
+ * @param value 要检查的值
+ * @param includeList 白名单（可选）
+ * @param excludeList 黑名单
+ * @returns 是否应该包含该值
+ */
+export function shouldInclude<T>(
+    value: T,
+    includeList: T[] | undefined,
+    excludeList: T[]
+): boolean {
+    // 如果配置了白名单，只使用白名单
+    if (includeList && includeList.length > 0) {
+        return includeList.includes(value);
+    }
+    // 否则使用黑名单
+    return !excludeList.includes(value);
+}
+
+/**
+ * 从配置中获取有效的列表
+ * 
+ * @param allItems 所有可能的值
+ * @param includeList 白名单（可选）
+ * @param excludeList 黑名单
+ * @returns 过滤后的有效列表
+ */
+export function getEffectiveList<T>(
+    allItems: readonly T[],
+    includeList: T[] | undefined,
+    excludeList: T[]
+): T[] {
+    // 如果配置了白名单，只使用白名单
+    if (includeList && includeList.length > 0) {
+        return includeList.filter(item => allItems.includes(item));
+    }
+    // 否则使用黑名单过滤
+    return allItems.filter(item => !excludeList.includes(item));
 }

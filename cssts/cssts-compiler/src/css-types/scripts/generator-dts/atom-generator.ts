@@ -11,6 +11,7 @@ import {
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
   normalizeUnitCategoriesConfig,
+  shouldInclude,
   type UnitCategoryConfig,
   type ProgressiveRange,
 } from '../../cssts-config.js';
@@ -280,11 +281,6 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
   const atoms: AtomDefinition[] = [];
   const seenNames = new Set<string>();
 
-  const excludePropsSet = new Set(config.excludeProperties);
-  const excludeKeywordsSet = new Set(config.excludeKeywords as string[]);
-  const excludeColorsSet = new Set(config.excludeColors as string[]);
-  const excludeUnitsSet = new Set(config.excludeUnits as string[]);
-
   const allPropNames = Object.keys(cssPropertyNameMap) as CssPropertyCamelName[];
 
   // 调试统计
@@ -298,7 +294,8 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
   };
 
   for (const camelName of allPropNames) {
-    if (excludePropsSet.has(camelName)) continue;
+    // 使用 shouldInclude 处理属性过滤（白名单优先）
+    if (!shouldInclude(camelName, config.includeProperties, config.excludeProperties)) continue;
 
     const kebabName = cssPropertyNameMap[camelName];
     const propConfig = config.properties[camelName];
@@ -310,7 +307,9 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     // 1. 生成关键词原子类
     if ('keywords' in propConfig && Array.isArray(propConfig.keywords)) {
       for (const keyword of propConfig.keywords) {
-        if (excludeKeywordsSet.has(keyword) || excludeColorsSet.has(keyword)) continue;
+        // 使用 shouldInclude 处理关键字和颜色过滤
+        if (!shouldInclude(keyword, config.includeKeywords, config.excludeKeywords)) continue;
+        if (!shouldInclude(keyword, config.includeColors, config.excludeColors)) continue;
 
         const name = generateAtomName(kebabName, keyword);
         if (seenNames.has(name)) continue;
@@ -331,6 +330,9 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
     if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
       const supportedUnits = new Set<string>();
       for (const nt of propConfig.numberTypes as string[]) {
+        // 使用 shouldInclude 处理数值类型过滤
+        if (!shouldInclude(nt, config.includeNumberTypes, config.excludeNumberTypes)) continue;
+        
         const typeUnits = NUMBER_TYPE_UNITS[nt as keyof typeof NUMBER_TYPE_UNITS];
         if (typeUnits) {
           for (const u of typeUnits) {
@@ -340,7 +342,12 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig(), debug = f
       }
 
       for (const unit of supportedUnits) {
-        if (excludeUnitsSet.has(unit)) continue;
+        // 使用 shouldInclude 处理单位过滤
+        if (!shouldInclude(unit, config.includeUnits, config.excludeUnits)) continue;
+        
+        // 使用 shouldInclude 处理单位分类过滤
+        const category = CATEGORY_BY_UNIT[unit] as UnitCategoryName | undefined;
+        if (category && !shouldInclude(category, config.includeUnitCategories, config.excludeUnitCategories)) continue;
 
         const values = generateValuesForUnit(unit, config);
         
