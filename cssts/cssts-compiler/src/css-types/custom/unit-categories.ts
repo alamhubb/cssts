@@ -19,7 +19,6 @@ export const UNIT_CATEGORY_NAMES = [
   'resolution',
   'flex',
   'unitless',
-  'zero',
 ] as const;
 
 export type UnitCategoryName = typeof UNIT_CATEGORY_NAMES[number];
@@ -57,9 +56,6 @@ export const UNITS_BY_CATEGORY: Record<UnitCategoryName, readonly string[]> = {
   
   /** 无单位数值 (0-100, 渐进步长) */
   unitless: ['unitless'],
-  
-  /** 零值（只有 0，无单位） */
-  zero: ['zero'],
 };
 
 // ==================== 分类描述 ====================
@@ -76,5 +72,4 @@ export const UNIT_CATEGORY_DESCRIPTIONS: Record<UnitCategoryName, { en: string; 
   resolution: { en: 'Resolution units (dpi, dpcm, dppx)', zh: '分辨率单位 (dpi, dpcm, dppx)' },
   flex: { en: 'Flex units for CSS Grid (fr)', zh: 'Grid 弹性单位 (fr)' },
   unitless: { en: 'Unitless numbers (opacity, z-index, etc.)', zh: '无单位数值 (opacity, z-index 等)' },
-  zero: { en: 'Zero value only (0)', zh: '仅零值 (0)' },
 };

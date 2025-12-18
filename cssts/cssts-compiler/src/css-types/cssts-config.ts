@@ -19,7 +19,7 @@ export interface ProgressiveRange {
     /** 区间最小值（默认为上一个区间的 max，首个区间默认为 0） */
     min?: number;
     /** 区间最大值 */
-    max: number;
+    max?: number;
     /** 能被整除的除数 */
     divisors: number | number[];
 }

@@ -72,40 +72,30 @@ export type ResolutionCategory = typeof RESOLUTION_CATEGORIES[number];
 export const FLEX_CATEGORIES = ['flex'] as const;
 export type FlexCategory = typeof FLEX_CATEGORIES[number];
 
-// ==================== NumberType 到 UnitCategory 映射 ====================
+// ==================== NumberType 到 UnitCategory 映射类 ====================
 
 /**
- * NumberType 到 UnitCategory 的映射
+ * NumberType 到 UnitCategory 的映射类
  * 
  * 这是手动维护的核心配置：
  * - length 包含多个 unitCategory（因为 length 单位有不同的步长范围）
  * - 其他 numberType 基本一一对应
  * 
- * 注意：`zero` 分类不在此映射中，因为：
- * - `0` 是特殊值，所有支持数值的属性都可以使用 `0`（无单位）
- * - 它不属于任何特定的 numberType，而是通用的
+ * 注意：`0` 值由系统自动处理（通过 allowZero 配置），不作为单独的分类
  */
-export const NUMBER_TYPE_TO_CATEGORIES = {
-  length: LENGTH_CATEGORIES,
-  angle: ANGLE_CATEGORIES,
-  time: TIME_CATEGORIES,
-  frequency: FREQUENCY_CATEGORIES,
-  percentage: PERCENTAGE_CATEGORIES,
-  number: UNITLESS_CATEGORIES,
-  integer: UNITLESS_CATEGORIES,
-  resolution: RESOLUTION_CATEGORIES,
-  flex: FLEX_CATEGORIES,
-} as const;
+class NumberTypeToCategoriesMapping {
+  readonly length: readonly LengthCategory[] = LENGTH_CATEGORIES;
+  readonly angle: readonly AngleCategory[] = ANGLE_CATEGORIES;
+  readonly time: readonly TimeCategory[] = TIME_CATEGORIES;
+  readonly frequency: readonly FrequencyCategory[] = FREQUENCY_CATEGORIES;
+  readonly percentage: readonly PercentageCategory[] = PERCENTAGE_CATEGORIES;
+  readonly number: readonly UnitlessCategory[] = UNITLESS_CATEGORIES;
+  readonly integer: readonly UnitlessCategory[] = UNITLESS_CATEGORIES;
+  readonly resolution: readonly ResolutionCategory[] = RESOLUTION_CATEGORIES;
+  readonly flex: readonly FlexCategory[] = FLEX_CATEGORIES;
+}
 
-/**
- * 特殊分类：zero
- * 
- * `zero` 是一个特殊的单位分类，表示值为 0 时可以省略单位。
- * 在 CSS 中，`0` 对于任何长度/角度/时间等都是有效的，无需单位。
- * 
- * 使用场景：
- * - margin: 0;  (不需要 0px)
- * - padding: 0;
- * - transform: rotate(0);  (不需要 0deg)
- */
-export const ZERO_CATEGORY = 'zero' as const;
+export const numberTypeToCategories = new NumberTypeToCategoriesMapping();
+
+/** 类型：NumberType 到 UnitCategory 的映射 */
+export type NumberTypeToCategories = NumberTypeToCategoriesMapping;

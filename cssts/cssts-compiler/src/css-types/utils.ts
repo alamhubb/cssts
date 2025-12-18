@@ -5,7 +5,7 @@
  */
 
 import { UNITS_BY_CATEGORY, CATEGORY_BY_UNIT, type UnitCategoryName } from './config/units';
-import { NUMBER_TYPE_TO_CATEGORIES, type NumberTypeName } from './custom/number-type-mapping';
+import { numberTypeToCategories, type NumberTypeName } from './custom/number-type-mapping';
 
 // ==================== 单位分类查询 ====================
 
@@ -36,7 +36,7 @@ export function isUnitInCategory(unit: string, category: UnitCategoryName): bool
 export function getUnitCategoriesFromNumberTypes(numberTypes: NumberTypeName[]): UnitCategoryName[] {
   const categories = new Set<UnitCategoryName>();
   for (const nt of numberTypes) {
-    const cats = NUMBER_TYPE_TO_CATEGORIES[nt];
+    const cats = numberTypeToCategories[nt];
     if (cats) cats.forEach(c => categories.add(c));
   }
   return Array.from(categories);
@@ -72,7 +72,7 @@ export function getUnitsFromNumberTypes(numberTypes: NumberTypeName[]): string[]
 
 /** 获取单个 numberType 对应的 unitCategories */
 export function getCategoriesForNumberType(numberType: NumberTypeName): UnitCategoryName[] {
-  return NUMBER_TYPE_TO_CATEGORIES[numberType] || [];
+  return [...(numberTypeToCategories[numberType] || [])];
 }
 
 /** 获取单个 numberType 对应的 units */
