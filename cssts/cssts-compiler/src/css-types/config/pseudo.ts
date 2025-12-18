@@ -1,100 +1,19 @@
 /**
  * CSS 伪类/伪元素配置（自动生成）
+ * 
+ * 组合 data/ 中的伪类列表和 descriptions/ 中的描述。
  */
 
-import {
-  PSEUDO_CLASS_DESCRIPTIONS,
-  PSEUDO_ELEMENT_DESCRIPTIONS,
-  PSEUDO_CLASS_CATEGORIES,
-  type PseudoClassCategory,
-} from '../custom/pseudo-descriptions';
+// Re-export from data
+export { PSEUDO_CLASSES, PSEUDO_ELEMENTS, type PseudoClassName, type PseudoElementName } from '../data/pseudo';
 
-export const PSEUDO_CLASSES = [
-  'hover',
-  'active',
-  'focus',
-  'focus-visible',
-  'focus-within',
-  'link',
-  'visited',
-  'any-link',
-  'local-link',
-  'target',
-  'target-within',
-  'enabled',
-  'disabled',
-  'read-only',
-  'read-write',
-  'placeholder-shown',
-  'default',
-  'checked',
-  'indeterminate',
-  'valid',
-  'invalid',
-  'in-range',
-  'out-of-range',
-  'required',
-  'optional',
-  'user-valid',
-  'user-invalid',
-  'autofill',
-  'root',
-  'empty',
-  'first-child',
-  'last-child',
-  'only-child',
-  'first-of-type',
-  'last-of-type',
-  'only-of-type',
-  'nth-child',
-  'nth-last-child',
-  'nth-of-type',
-  'nth-last-of-type',
-  'not',
-  'is',
-  'where',
-  'has',
-  'lang',
-  'dir',
-  'fullscreen',
-  'modal',
-  'picture-in-picture',
-  'playing',
-  'paused',
-  'seeking',
-  'buffering',
-  'stalled',
-  'muted',
-  'volume-locked',
-  'defined',
-  'host',
-  'host-context',
-  'scope',
-] as const;
-
-export type PseudoClassName = typeof PSEUDO_CLASSES[number];
-
-export const PSEUDO_ELEMENTS = [
-  'before',
-  'after',
-  'first-line',
-  'first-letter',
-  'marker',
-  'selection',
-  'placeholder',
-  'backdrop',
-  'file-selector-button',
-  'cue',
-  'cue-region',
-  'part',
-  'slotted',
-] as const;
-
-export type PseudoElementName = typeof PSEUDO_ELEMENTS[number];
-
+// Re-export from descriptions
 export {
   PSEUDO_CLASS_DESCRIPTIONS,
   PSEUDO_ELEMENT_DESCRIPTIONS,
   PSEUDO_CLASS_CATEGORIES,
+  PSEUDO_CLASS_CATEGORY_DESCRIPTIONS,
+  COMMON_PSEUDO_CLASSES,
+  COMMON_PSEUDO_ELEMENTS,
   type PseudoClassCategory,
-} from '../custom/pseudo-descriptions';
+} from '../descriptions/pseudo';

@@ -1,10 +1,9 @@
 /**
- * Custom 模块导出
+ * 自定义配置模块（手动维护）
  * 
- * 手动维护的定制化数据（只包含数据，不包含函数）
+ * 包含我们自定义的分类和映射逻辑。
  */
 
 export * from './unit-categories';
-export * from './system-colors';
 export * from './number-type-mapping';
-export * from './pseudo-descriptions';
+export * from './system-colors';

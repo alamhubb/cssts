@@ -1,60 +1,23 @@
 /**
  * CSS 单位配置（自动生成）
+ * 
+ * 组合 data/ 中的单位列表和 custom/ 中的分类映射。
  */
 
 import { unitsByCategory, type UnitCategoryName } from '../custom/unit-categories';
+
+// Re-export from data
+export { ALL_UNITS, type UnitType } from '../data/units';
 
 // Re-export from custom
 export * from '../custom/unit-categories';
 export * from '../custom/number-type-mapping';
 
-export const ALL_UNITS = [
-  '%',
-  'Hz',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'fr',
-  'grad',
-  'ic',
-  'in',
-  'kHz',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'ms',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  's',
-  'svh',
-  'svw',
-  'turn',
-  'unitless',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
-] as const;
+// Re-export from descriptions
+export { UNIT_CATEGORY_DESCRIPTIONS } from '../descriptions/units';
+export { NUMBER_TYPE_DESCRIPTIONS } from '../descriptions/number-types';
 
-export type UnitType = typeof ALL_UNITS[number];
-
+/** NumberType 到 Units 的映射 */
 export const NUMBER_TYPE_UNITS = {
   length: ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'],
   angle: ['deg', 'grad', 'rad', 'turn'],
