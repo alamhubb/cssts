@@ -1,17 +1,13 @@
 /**
  * CSS 数据生成脚本
  *
- * 从 csstree 提取 CSS 数据：
+ * 从 csstree 提取 CSS 数据并生成统一的数据文件：
  * - 属性的 keywords 和 numberTypes
  * - 命名颜色列表
  * - CSS 单位列表
- * - 伪类/伪元素列表
+ * - 伪类/伪元素列表（从 pseudo-standards.json 读取）
  *
- * 生成文件：
- * - src/data/property.ts
- * - src/data/colors.ts
- * - src/data/units.ts
- * - src/data/pseudo.ts
+ * 生成文件：src/data/cssts-data.ts
  *
  * 运行方式：npx tsx generator/generator-data.ts
  */
@@ -107,7 +103,8 @@ function extractFromSyntaxNode(
   keywords: Set<string>,
   numberTypes: Set<string>,
   lexer: any,
-  visited: Set<string> = new Set()
+  visited: Set<string> = new Set(),
+  visitedProperties: Set<string> = new Set()
 ): void {
   if (!node) return;
 
@@ -133,7 +130,19 @@ function extractFromSyntaxNode(
         visited.add(typeName);
         const typeDef = lexer.types[typeName];
         if (typeDef?.syntax) {
-          extractFromSyntaxNode(typeDef.syntax, keywords, numberTypes, lexer, visited);
+          extractFromSyntaxNode(typeDef.syntax, keywords, numberTypes, lexer, visited, visitedProperties);
+        }
+      }
+      break;
+
+    case 'Property':
+      // 递归解析被引用的属性
+      const propName = node.name;
+      if (!visitedProperties.has(propName)) {
+        visitedProperties.add(propName);
+        const propDef = lexer.properties[propName];
+        if (propDef?.syntax) {
+          extractFromSyntaxNode(propDef.syntax, keywords, numberTypes, lexer, visited, visitedProperties);
         }
       }
       break;
@@ -141,16 +150,16 @@ function extractFromSyntaxNode(
     case 'Group':
     case 'Multiplier':
       if (node.term) {
-        extractFromSyntaxNode(node.term, keywords, numberTypes, lexer, visited);
+        extractFromSyntaxNode(node.term, keywords, numberTypes, lexer, visited, visitedProperties);
       }
       if (node.terms) {
-        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer, visited));
+        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer, visited, visitedProperties));
       }
       break;
 
     case 'Combination':
       if (node.terms) {
-        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer, visited));
+        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer, visited, visitedProperties));
       }
       break;
   }
@@ -165,46 +174,14 @@ function extractColorsFromCsstree(): string[] {
   // 从 csstree 的 types 中查找 color 类型定义
   const colorType = lexer.types['color'];
   if (colorType && colorType.syntax) {
-    extractColorKeywordsFromSyntax(colorType.syntax, colors, lexer);
+    // 只提取 keywords，不提取 numberTypes
+    const keywords = new Set<string>();
+    const numberTypes = new Set<string>();
+    extractFromSyntaxNode(colorType.syntax, keywords, numberTypes, lexer);
+    keywords.forEach(k => colors.add(k));
   }
 
   return Array.from(colors).sort();
-}
-
-function extractColorKeywordsFromSyntax(node: any, colors: Set<string>, lexer: any, visited: Set<string> = new Set()): void {
-  if (!node) return;
-
-  switch (node.type) {
-    case 'Keyword':
-      colors.add(node.name);
-      break;
-
-    case 'Type':
-      if (!visited.has(node.name)) {
-        visited.add(node.name);
-        const typeDef = lexer.types[node.name];
-        if (typeDef?.syntax) {
-          extractColorKeywordsFromSyntax(typeDef.syntax, colors, lexer, visited);
-        }
-      }
-      break;
-
-    case 'Group':
-    case 'Multiplier':
-      if (node.term) {
-        extractColorKeywordsFromSyntax(node.term, colors, lexer, visited);
-      }
-      if (node.terms) {
-        node.terms.forEach((t: any) => extractColorKeywordsFromSyntax(t, colors, lexer, visited));
-      }
-      break;
-
-    case 'Combination':
-      if (node.terms) {
-        node.terms.forEach((t: any) => extractColorKeywordsFromSyntax(t, colors, lexer, visited));
-      }
-      break;
-  }
 }
 
 // ==================== 从 csstree 提取单位 ====================
@@ -298,7 +275,8 @@ function generateCsstsDataFile(
   lines.push('// ==================== 属性查询 Map ====================', '');
   lines.push('export const PROPERTY_MAP = new Map<string, PropertyInfo>([');
   for (const prop of properties) {
-    lines.push(`  ['${prop.name}', ${JSON.stringify(prop)}],`);
+    const propStr = `{ name: '${prop.name}'${prop.keywords ? `, keywords: [${prop.keywords.map(k => `'${k}'`).join(', ')}]` : ''}${prop.numberTypes ? `, numberTypes: [${prop.numberTypes.map(t => `'${t}'`).join(', ')}]` : ''} }`;
+    lines.push(`  ['${prop.name}', ${propStr}],`);
   }
   lines.push(']);', '');
 
