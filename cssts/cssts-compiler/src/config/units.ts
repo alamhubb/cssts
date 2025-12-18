@@ -5,7 +5,6 @@
  */
 
 import { unitsByCategory, type UnitCategoryName } from '../custom/unit-categories';
-import type { ProgressiveRange, StepConfig, UnitValueConfig } from './value-config';
 
 // Re-export from data
 export { ALL_UNITS, type UnitType } from '../data/units';

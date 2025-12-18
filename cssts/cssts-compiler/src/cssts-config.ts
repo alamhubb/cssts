@@ -41,7 +41,6 @@ export type {
     UnitValueConfig,
     UnitsConfigValue,
     UnitCategoryConfig,
-    CustomPropertyValue,
     PseudoStyleValue,
     NumberTypeConfigItem,
     UnitCategoryConfigItem,
