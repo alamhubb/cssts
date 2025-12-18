@@ -2,17 +2,12 @@
  * CSS 类型生成脚本
  *
  * 生成文件到 src/css-types/ 目录：
- * 1. colors.ts - 颜色相关（命名颜色、系统颜色）
- * 2. units.ts - 单位和数值类型
- * 3. keywords.ts - 关键词常量和类型
- * 4. property-config.ts - 属性配置类
- * 5. cssts-config.ts - CSSTS 配置类
- * 6. index.ts - 统一导出
+ * 1. keywords.ts - 关键词常量和类型（从 csstree 提取）
+ * 2. property-config.ts - 属性配置类
  *
  * 数据来源：
- * - css-number-types.json: 数值类型（13种）和属性映射
- * - css-keywords.json: 属性关键词
- * - css-colors.json: 颜色关键字
+ * - csstree 库：属性关键词和数值类型
+ * - data/ 目录：颜色、伪类、伪元素（已迁移为 TypeScript）
  *
  * 运行方式：npx tsx scripts/generate-css-types.ts
  */
@@ -20,68 +15,129 @@
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import * as csstree from 'css-tree'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// ==================== 加载 JSON 数据 ====================
-
-const dataDir = path.join(__dirname, '../src/data')
 const outputDir = path.join(__dirname, '../src/css-types')
 
-interface KeywordsData {
-  properties: { name: string; keywords: string[] }[]
-}
+// ==================== 从 csstree 提取数据 ====================
 
-interface NumberTypesData {
-  properties: { name: string; numberTypes: string[] }[]
-  typeDescriptions: Record<string, { en: string; zh: string }>
-  units: Record<string, string[]>  // 基础类型的 units 映射
-}
-
-interface ColorsData {
-  colors: string[]
-}
-
-const keywordsData: KeywordsData = JSON.parse(
-  fs.readFileSync(path.join(dataDir, 'css-keywords.json'), 'utf-8')
-)
-
-const numberTypesData: NumberTypesData = JSON.parse(
-  fs.readFileSync(path.join(dataDir, 'css-number-types.json'), 'utf-8')
-)
-
-const colorsData: ColorsData = JSON.parse(
-  fs.readFileSync(path.join(dataDir, 'css-colors.json'), 'utf-8')
-)
-
-interface PseudoClassItem {
+interface PropertyData {
   name: string
-  category: string
-  description: { en: string; zh: string }
+  keywords: string[]
+  numberTypes: string[]
 }
 
-interface PseudoElementItem {
-  name: string
-  description: { en: string; zh: string }
+// 基础数值类型
+const BASE_NUMBER_TYPES = [
+  'length', 'angle', 'time', 'frequency', 'percentage',
+  'number', 'integer', 'resolution', 'flex'
+]
+
+// 联合类型映射
+const UNION_TYPE_MAP: Record<string, string[]> = {
+  'length-percentage': ['length', 'percentage'],
+  'angle-percentage': ['angle', 'percentage'],
+  'time-percentage': ['time', 'percentage'],
+  'frequency-percentage': ['frequency', 'percentage'],
 }
 
-interface PseudoClassesData {
-  pseudoClasses: PseudoClassItem[]
-  categories: string[]
+/**
+ * 从 csstree 提取属性数据
+ */
+function extractPropertiesFromCsstree(): PropertyData[] {
+  const lexer = csstree.lexer
+  const properties: PropertyData[] = []
+
+  for (const [propName, propDef] of Object.entries(lexer.properties)) {
+    // 跳过 vendor prefix
+    if (propName.startsWith('-')) continue
+
+    const keywords = new Set<string>()
+    const numberTypes = new Set<string>()
+
+    // 解析语法
+    if (propDef && typeof propDef === 'object' && 'syntax' in propDef) {
+      const syntax = (propDef as any).syntax
+      if (syntax) {
+        try {
+          const ast = csstree.definitionSyntax.parse(syntax)
+          extractFromSyntaxNode(ast, keywords, numberTypes, lexer)
+        } catch (e) {
+          // 忽略解析错误
+        }
+      }
+    }
+
+    properties.push({
+      name: propName,
+      keywords: Array.from(keywords).sort(),
+      numberTypes: Array.from(numberTypes).sort(),
+    })
+  }
+
+  return properties.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-interface PseudoElementsData {
-  pseudoElements: PseudoElementItem[]
+/**
+ * 递归提取语法节点中的关键词和数值类型
+ */
+function extractFromSyntaxNode(
+  node: any,
+  keywords: Set<string>,
+  numberTypes: Set<string>,
+  lexer: any
+): void {
+  if (!node) return
+
+  switch (node.type) {
+    case 'Keyword':
+      keywords.add(node.name)
+      break
+
+    case 'Type':
+      const typeName = node.name
+      // 检查是否是基础数值类型
+      if (BASE_NUMBER_TYPES.includes(typeName)) {
+        numberTypes.add(typeName)
+      }
+      // 检查是否是联合类型
+      else if (UNION_TYPE_MAP[typeName]) {
+        UNION_TYPE_MAP[typeName].forEach(t => numberTypes.add(t))
+      }
+      // 递归展开类型定义
+      else {
+        const typeDef = lexer.types[typeName]
+        if (typeDef && typeof typeDef === 'object' && 'syntax' in typeDef) {
+          try {
+            const typeAst = csstree.definitionSyntax.parse((typeDef as any).syntax)
+            extractFromSyntaxNode(typeAst, keywords, numberTypes, lexer)
+          } catch (e) {
+            // 忽略
+          }
+        }
+      }
+      break
+
+    case 'Group':
+    case 'Multiplier':
+      if (node.term) {
+        extractFromSyntaxNode(node.term, keywords, numberTypes, lexer)
+      }
+      if (node.terms) {
+        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer))
+      }
+      break
+
+    default:
+      if (node.terms) {
+        node.terms.forEach((t: any) => extractFromSyntaxNode(t, keywords, numberTypes, lexer))
+      }
+      break
+  }
 }
-
-const pseudoClassesData: PseudoClassesData = JSON.parse(
-  fs.readFileSync(path.join(dataDir, 'css-pseudo-classes.json'), 'utf-8')
-)
-
-const pseudoElementsData: PseudoElementsData = JSON.parse(
-  fs.readFileSync(path.join(dataDir, 'css-pseudo-elements.json'), 'utf-8')
-)
 
 // ==================== 工具函数 ====================
 
@@ -97,68 +153,91 @@ function toConstName(str: string): string {
   return str.toUpperCase().replace(/-/g, '_')
 }
 
-// 单位名称转换：<number> -> unitless
-function normalizeUnitName(unit: string): string {
-  if (unit === '<number>') return 'unitless'
-  return unit
-}
+// ==================== 颜色数据（从 data/colors.ts 导入） ====================
 
-/**
- * 构建数值类型到单位的映射（直接从 css-number-types.json 的 units 字段读取）
- */
-function buildNumberTypeUnitsMap(): Map<string, Set<string>> {
-  const map = new Map<string, Set<string>>()
-  
-  for (const [typeName, units] of Object.entries(numberTypesData.units)) {
-    // 转换 <number> -> unitless
-    const normalizedUnits = units.map(u => normalizeUnitName(u))
-    map.set(typeName, new Set(normalizedUnits))
-  }
-  
-  return map
-}
+// 直接定义颜色列表（与 data/colors.ts 保持同步）
+const COLORS = [
+  'aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige', 'bisque',
+  'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown', 'burlywood', 'cadetblue',
+  'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan',
+  'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray', 'darkgreen', 'darkgrey',
+  'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred',
+  'darksalmon', 'darkseagreen', 'darkslateblue', 'darkslategray', 'darkslategrey',
+  'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey',
+  'dodgerblue', 'firebrick', 'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro',
+  'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'greenyellow', 'grey', 'honeydew',
+  'hotpink', 'indianred', 'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush',
+  'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan',
+  'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink',
+  'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray', 'lightslategrey',
+  'lightsteelblue', 'lightyellow', 'lime', 'limegreen', 'linen', 'magenta', 'maroon',
+  'mediumaquamarine', 'mediumblue', 'mediumorchid', 'mediumpurple', 'mediumseagreen',
+  'mediumslateblue', 'mediumspringgreen', 'mediumturquoise', 'mediumvioletred',
+  'midnightblue', 'mintcream', 'mistyrose', 'moccasin', 'navajowhite', 'navy',
+  'oldlace', 'olive', 'olivedrab', 'orange', 'orangered', 'orchid', 'palegoldenrod',
+  'palegreen', 'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru',
+  'pink', 'plum', 'powderblue', 'purple', 'rebeccapurple', 'red', 'rosybrown',
+  'royalblue', 'saddlebrown', 'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna',
+  'silver', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen',
+  'steelblue', 'tan', 'teal', 'thistle', 'tomato', 'transparent', 'turquoise', 'violet',
+  'wheat', 'white', 'whitesmoke', 'yellow', 'yellowgreen',
+]
 
-// 单位到分类的映射（与 unit-categories.ts 保持一致）
+const SYSTEM_COLORS = [
+  'AccentColor', 'AccentColorText', 'ActiveText', 'ButtonBorder', 'ButtonFace',
+  'ButtonText', 'Canvas', 'CanvasText', 'Field', 'FieldText', 'GrayText',
+  'Highlight', 'HighlightText', 'LinkText', 'Mark', 'MarkText',
+  'SelectedItem', 'SelectedItemText', 'VisitedText',
+]
+
+const colorSet = new Set([...COLORS, ...SYSTEM_COLORS])
+
+// ==================== 单位映射 ====================
+
+// 单位到分类的映射
 const UNIT_TO_CATEGORY: Record<string, string> = {
-  // percentage
   '%': 'percentage',
   'vw': 'percentage', 'vh': 'percentage', 'vmin': 'percentage', 'vmax': 'percentage',
   'svw': 'percentage', 'svh': 'percentage', 'lvw': 'percentage', 'lvh': 'percentage',
   'dvw': 'percentage', 'dvh': 'percentage', 'vi': 'percentage', 'vb': 'percentage',
-  // pixel
   'px': 'pixel',
-  // fontRelative
   'em': 'fontRelative', 'rem': 'fontRelative',
   'ch': 'fontRelative', 'ex': 'fontRelative', 'cap': 'fontRelative', 'ic': 'fontRelative',
   'lh': 'fontRelative', 'rlh': 'fontRelative',
-  // physical
   'cm': 'physical', 'mm': 'physical', 'in': 'physical', 'pt': 'physical', 'pc': 'physical', 'Q': 'physical',
-  // angle
   'deg': 'angle', 'grad': 'angle', 'rad': 'angle', 'turn': 'angle',
-  // time
   's': 'time', 'ms': 'time',
-  // frequency
   'Hz': 'frequency', 'kHz': 'frequency',
-  // resolution
   'dpi': 'resolution', 'dpcm': 'resolution', 'dppx': 'resolution', 'x': 'resolution',
-  // flex
   'fr': 'flex',
-  // unitless
   'unitless': 'unitless',
 }
 
-// 分类到单位的映射
-const CATEGORY_TO_UNITS: Record<string, string[]> = {
-  percentage: ['%', 'vw', 'vh', 'vmin', 'vmax', 'svw', 'svh', 'lvw', 'lvh', 'dvw', 'dvh', 'vi', 'vb'],
-  pixel: ['px'],
-  fontRelative: ['em', 'rem', 'ch', 'ex', 'cap', 'ic', 'lh', 'rlh'],
-  physical: ['cm', 'mm', 'in', 'pt', 'pc', 'Q'],
+// 数值类型到单位的映射
+const NUMBER_TYPE_UNITS: Record<string, string[]> = {
+  length: ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'],
   angle: ['deg', 'grad', 'rad', 'turn'],
-  time: ['s', 'ms'],
+  time: ['ms', 's'],
   frequency: ['Hz', 'kHz'],
-  resolution: ['dpi', 'dpcm', 'dppx', 'x'],
+  percentage: ['%'],
+  number: ['unitless'],
+  integer: ['unitless'],
+  resolution: ['dpcm', 'dpi', 'dppx', 'x'],
   flex: ['fr'],
-  unitless: ['unitless'],
+}
+
+/**
+ * 根据 numberTypes 计算属性的 units
+ */
+function computePropertyUnits(numberTypes: string[]): string[] {
+  const units = new Set<string>()
+  for (const nt of numberTypes) {
+    const typeUnits = NUMBER_TYPE_UNITS[nt]
+    if (typeUnits) {
+      typeUnits.forEach(u => units.add(u))
+    }
+  }
+  return Array.from(units).sort()
 }
 
 /**
@@ -175,203 +254,31 @@ function computeUnitCategories(units: string[]): string[] {
   return Array.from(categories).sort()
 }
 
-/**
- * 从单位分类列表计算单位列表
- */
-function computeUnitsFromCategories(categories: string[]): string[] {
-  const units = new Set<string>()
-  for (const category of categories) {
-    const categoryUnits = CATEGORY_TO_UNITS[category]
-    if (categoryUnits) {
-      categoryUnits.forEach(u => units.add(u))
-    }
-  }
-  return Array.from(units).sort()
-}
+// ==================== 主逻辑 ====================
 
-const numberTypeUnitsMap = buildNumberTypeUnitsMap()
-const colorSet = new Set(colorsData.colors)
-const numberTypes = Object.keys(numberTypesData.typeDescriptions).sort()
+console.log('Generating CSS types...\n')
 
-/** CSS 系统颜色（来自 CSS Color Module Level 4 规范） */
-const systemColors = [
-  'AccentColor', 'AccentColorText', 'ActiveText', 'ButtonBorder', 'ButtonFace',
-  'ButtonText', 'Canvas', 'CanvasText', 'Field', 'FieldText', 'GrayText',
-  'Highlight', 'HighlightText', 'LinkText', 'Mark', 'MarkText',
-  'SelectedItem', 'SelectedItemText', 'VisitedText',
-]
-const systemColorSet = new Set(systemColors)
+// 从 csstree 提取数据
+const properties = extractPropertiesFromCsstree()
 
-// 过滤掉 vendor prefix 属性
-const keywordProperties = keywordsData.properties.filter(p => !p.name.startsWith('-'))
-const numericProperties = numberTypesData.properties.filter(p => !p.name.startsWith('-'))
-
-// 记录哪些属性支持颜色
+// 过滤掉颜色关键词
+const propKeywordsMap = new Map<string, string[]>()
+const propNumberTypesMap = new Map<string, string[]>()
 const colorSupportingProps: string[] = []
-for (const prop of keywordProperties) {
-  if (prop.keywords.some(k => colorSet.has(k) || systemColorSet.has(k))) {
+
+for (const prop of properties) {
+  const nonColorKeywords = prop.keywords.filter(k => !colorSet.has(k))
+  propKeywordsMap.set(prop.name, nonColorKeywords)
+  propNumberTypesMap.set(prop.name, prop.numberTypes)
+  
+  if (prop.keywords.some(k => colorSet.has(k))) {
     colorSupportingProps.push(prop.name)
   }
 }
 
-// 获取所有属性名
-const allPropertyNames = new Set<string>()
-keywordProperties.forEach(p => allPropertyNames.add(p.name))
-numericProperties.forEach(p => allPropertyNames.add(p.name))
-const sortedPropertyNames = Array.from(allPropertyNames).sort()
-
-// 创建属性映射
-const propKeywordsMap = new Map<string, string[]>()
-keywordProperties.forEach(p => {
-  const nonColorKeywords = p.keywords.filter(k => !colorSet.has(k) && !systemColorSet.has(k))
-  propKeywordsMap.set(p.name, nonColorKeywords)
-})
-
-const propNumberTypesMap = new Map<string, string[]>()
-numericProperties.forEach(p => {
-  propNumberTypesMap.set(p.name, p.numberTypes)
-})
-
-/**
- * 根据 numberTypes 计算属性的 units
- */
-function computePropertyUnits(numberTypes: string[]): string[] {
-  const units = new Set<string>()
-  for (const nt of numberTypes) {
-    const typeUnits = numberTypeUnitsMap.get(nt)
-    if (typeUnits) {
-      typeUnits.forEach(u => units.add(u))
-    }
-  }
-  return Array.from(units).sort()
-}
-
-
-// ==================== 生成 colors.ts ====================
-
-function generateColorsFile(): string {
-  const lines: string[] = []
-
-  lines.push(`/**`)
-  lines.push(` * CSS 颜色定义`)
-  lines.push(` * 自动生成，请勿手动修改`)
-  lines.push(` */`)
-  lines.push(``)
-
-  // 命名颜色
-  lines.push(`/** CSS 命名颜色关键字（${colorsData.colors.length}个） */`)
-  lines.push(`export const COLORS = [`)
-  colorsData.colors.forEach(c => lines.push(`  '${c}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 颜色值类型 */`)
-  lines.push(`export type ColorValue = typeof COLORS[number];`)
-  lines.push(``)
-
-  // 系统颜色
-  lines.push(`/** CSS 系统颜色关键字（CSS Color Module Level 4） */`)
-  lines.push(`export const SYSTEM_COLORS = [`)
-  systemColors.forEach(c => lines.push(`  '${c}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 系统颜色值类型 */`)
-  lines.push(`export type SystemColorValue = typeof SYSTEM_COLORS[number];`)
-  lines.push(``)
-
-  // 所有颜色
-  lines.push(`/** 所有颜色值（命名颜色 + 系统颜色） */`)
-  lines.push(`export const ALL_COLORS = [...COLORS, ...SYSTEM_COLORS] as const;`)
-  lines.push(``)
-  lines.push(`/** 所有颜色值类型 */`)
-  lines.push(`export type AllColorValue = ColorValue | SystemColorValue;`)
-  lines.push(``)
-
-  return lines.join('\n')
-}
-
-// ==================== 生成 units.ts ====================
-
-function generateUnitsFile(): string {
-  const lines: string[] = []
-
-  lines.push(`/**`)
-  lines.push(` * CSS 单位和数值类型定义`)
-  lines.push(` * 自动生成，请勿手动修改`)
-  lines.push(` */`)
-  lines.push(``)
-
-  // 数值类型名称
-  lines.push(`// ==================== 数值类型名称 ====================`)
-  lines.push(``)
-  for (const typeName of numberTypes) {
-    const constName = `${toConstName(typeName)}_NUMBER_TYPE_NAME`
-    const desc = numberTypesData.typeDescriptions[typeName]
-    lines.push(`/** ${desc?.zh || typeName} */`)
-    lines.push(`export const ${constName} = '${typeName}' as const;`)
-  }
-  lines.push(``)
-
-  lines.push(`/** 所有数值类型名称 */`)
-  lines.push(`export const NUMBER_TYPES = [`)
-  numberTypes.forEach(t => lines.push(`  ${toConstName(t)}_NUMBER_TYPE_NAME,`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 数值类型名称联合 */`)
-  lines.push(`export type NumberTypeName = typeof NUMBER_TYPES[number];`)
-  lines.push(``)
-
-  // 单位
-  const allUnits = new Set<string>()
-  for (const typeName of numberTypes) {
-    const units = numberTypeUnitsMap.get(typeName) || new Set()
-    units.forEach(u => allUnits.add(u))
-  }
-  const sortedUnits = Array.from(allUnits).sort()
-
-  lines.push(`// ==================== 单位 ====================`)
-  lines.push(``)
-  lines.push(`/** 所有单位 */`)
-  lines.push(`export const ALL_UNITS = [`)
-  sortedUnits.forEach(u => lines.push(`  '${normalizeUnitName(u)}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 单位类型 */`)
-  lines.push(`export type UnitType = typeof ALL_UNITS[number];`)
-  lines.push(``)
-
-  // 数值类型到单位的映射
-  lines.push(`// ==================== 数值类型到单位映射 ====================`)
-  lines.push(``)
-  for (const typeName of numberTypes) {
-    const units = Array.from(numberTypeUnitsMap.get(typeName) || []).sort()
-    const constName = `${toConstName(typeName)}_UNITS`
-    lines.push(`export const ${constName} = [`)
-    units.forEach(u => lines.push(`  '${normalizeUnitName(u)}',`))
-    lines.push(`] as const;`)
-  }
-  lines.push(``)
-
-  lines.push(`/** 数值类型到单位的映射 */`)
-  lines.push(`export const NUMBER_TYPE_UNITS = {`)
-  for (const typeName of numberTypes) {
-    lines.push(`  '${typeName}': ${toConstName(typeName)}_UNITS,`)
-  }
-  lines.push(`} as const;`)
-  lines.push(``)
-
-  // 属性数值类型常量
-  lines.push(`// ==================== 属性数值类型 ====================`)
-  lines.push(``)
-  for (const prop of numericProperties) {
-    const constName = `${toConstName(prop.name)}_NUMBER_TYPES`
-    lines.push(`export const ${constName} = [`)
-    prop.numberTypes.forEach(t => lines.push(`  ${toConstName(t)}_NUMBER_TYPE_NAME,`))
-    lines.push(`] as const;`)
-  }
-  lines.push(``)
-
-  return lines.join('\n')
-}
+const sortedPropertyNames = properties.map(p => p.name)
+const keywordProperties = properties.filter(p => p.keywords.length > 0)
+const numericProperties = properties.filter(p => p.numberTypes.length > 0)
 
 
 // ==================== 生成 keywords.ts ====================
@@ -388,7 +295,7 @@ function generateKeywordsFile(): string {
   // 为每个属性生成关键词数组
   for (const prop of keywordProperties) {
     const constName = `${toConstName(prop.name)}_KEYWORDS`
-    const nonColorKeywords = prop.keywords.filter(k => !colorSet.has(k) && !systemColorSet.has(k))
+    const nonColorKeywords = propKeywordsMap.get(prop.name) || []
     lines.push(`/** ${prop.name} 属性关键词 */`)
     lines.push(`export const ${constName} = [`)
     nonColorKeywords.forEach(k => lines.push(`  '${k}',`))
@@ -418,10 +325,10 @@ function generateKeywordsFile(): string {
   lines.push(`/** CSS 属性到值类型的映射（用于智能提示） */`)
   lines.push(`export interface CssPropertyValueMap {`)
   
-  // 包含所有属性（有 keywords 的用 keyword 类型，没有的用 string）
   for (const propName of sortedPropertyNames) {
     const camelName = toCamelCase(propName)
-    const hasKeywords = propKeywordsMap.has(propName) && (propKeywordsMap.get(propName)?.length ?? 0) > 0
+    const keywords = propKeywordsMap.get(propName) || []
+    const hasKeywords = keywords.length > 0
     
     if (hasKeywords) {
       const keywordTypeName = `${toPascalCase(propName)}Keyword`
@@ -447,16 +354,11 @@ function generatePropertyConfigFile(): string {
   lines.push(` */`)
   lines.push(``)
 
-  // 导入
-  lines.push(`import { ALL_COLORS, type AllColorValue } from './colors';`)
-  lines.push(`import {`)
-  for (const prop of numericProperties) {
-    if (prop.numberTypes.length > 0) {
-      lines.push(`  ${toConstName(prop.name)}_NUMBER_TYPES,`)
-    }
-  }
-  lines.push(`  type NumberTypeName,`)
-  lines.push(`} from './units';`)
+  // 导入（使用新的目录结构）
+  lines.push(`import { ALL_COLORS, type AllColorValue } from './data/colors';`)
+  lines.push(`import type { NumberTypeName } from './units/unit-types';`)
+  lines.push(`import type { UnitCategoryName } from './units/unit-categories';`)
+  lines.push(`import type { UnitValueConfig, UnitsConfigValue } from './cssts-config';`)
   lines.push(`import {`)
   keywordProperties.forEach(p => {
     lines.push(`  ${toConstName(p.name)}_KEYWORDS,`)
@@ -465,8 +367,17 @@ function generatePropertyConfigFile(): string {
     lines.push(`  type ${toPascalCase(p.name)}Keyword,`)
   })
   lines.push(`} from './keywords';`)
-  lines.push(`import type { UnitValueConfig, UnitCategoryConfig, UnitsConfigValue } from './cssts-config';`)
-  lines.push(`import type { UnitCategoryName } from './unit-categories';`)
+  lines.push(``)
+
+  // 数值类型常量
+  lines.push(`// ==================== 数值类型常量 ====================`)
+  lines.push(``)
+  for (const prop of numericProperties) {
+    const constName = `${toConstName(prop.name)}_NUMBER_TYPES`
+    lines.push(`export const ${constName} = [`)
+    prop.numberTypes.forEach(t => lines.push(`  '${t}',`))
+    lines.push(`] as const;`)
+  }
   lines.push(``)
 
   // 为支持数值的属性生成 Unit 和 UnitCategory 类型
@@ -478,18 +389,8 @@ function generatePropertyConfigFile(): string {
     const units = computePropertyUnits(prop.numberTypes)
     const unitCategories = computeUnitCategories(units)
     
-    // 校验：从 unitCategories 反推的 units 应该包含原始 units
-    const unitsFromCategories = computeUnitsFromCategories(unitCategories)
-    const missingUnits = units.filter(u => !unitsFromCategories.includes(u))
-    if (missingUnits.length > 0) {
-      console.warn(`⚠️ ${prop.name}: units [${missingUnits.join(', ')}] 没有对应的 unitCategory`)
-    }
-    
-    // 生成 Unit 类型
     lines.push(`/** ${prop.name} 支持的单位 */`)
     lines.push(`export type ${pascalName}Unit = ${units.map(u => `'${u}'`).join(' | ')};`)
-    
-    // 生成 UnitCategory 类型
     lines.push(`/** ${prop.name} 支持的单位分类 */`)
     lines.push(`export type ${pascalName}UnitCategory = ${unitCategories.map(c => `'${c}'`).join(' | ')};`)
     lines.push(``)
@@ -501,8 +402,9 @@ function generatePropertyConfigFile(): string {
 
   for (const propName of sortedPropertyNames) {
     const pascalName = toPascalCase(propName)
-    const hasKeywords = propKeywordsMap.has(propName)
+    const keywords = propKeywordsMap.get(propName) || []
     const numberTypes = propNumberTypesMap.get(propName) || []
+    const hasKeywords = keywords.length > 0
     const hasColors = colorSupportingProps.includes(propName)
     const hasNumberTypes = numberTypes.length > 0
 
@@ -565,196 +467,20 @@ function generatePropertyConfigFile(): string {
   return lines.join('\n')
 }
 
+// ==================== 写入文件 ====================
 
-// 注意：cssts-config.ts 是手动维护的文件，不在此脚本中生成
-
-// ==================== 生成 pseudo.ts ====================
-
-function generatePseudoFile(): string {
-  const lines: string[] = []
-
-  lines.push(`/**`)
-  lines.push(` * CSS 伪类和伪元素定义`)
-  lines.push(` * 自动生成，请勿手动修改`)
-  lines.push(` */`)
-  lines.push(``)
-
-  // 伪类分类
-  const categories = pseudoClassesData.categories
-  lines.push(`/** 伪类分类 */`)
-  lines.push(`export const PSEUDO_CLASS_CATEGORIES = [`)
-  categories.forEach(c => lines.push(`  '${c}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`export type PseudoClassCategory = typeof PSEUDO_CLASS_CATEGORIES[number];`)
-  lines.push(``)
-
-  // 按分类分组伪类
-  const pseudoByCategory = new Map<string, PseudoClassItem[]>()
-  for (const category of categories) {
-    pseudoByCategory.set(category, [])
-  }
-  for (const item of pseudoClassesData.pseudoClasses) {
-    const list = pseudoByCategory.get(item.category)
-    if (list) list.push(item)
-  }
-
-  // 生成各分类的伪类常量
-  for (const category of categories) {
-    const items = pseudoByCategory.get(category) || []
-    const constName = `${toConstName(category)}_PSEUDO_CLASSES`
-    lines.push(`/** ${category} 伪类 */`)
-    lines.push(`export const ${constName} = [`)
-    items.forEach(item => lines.push(`  '${item.name}',`))
-    lines.push(`] as const;`)
-    lines.push(``)
-  }
-
-  // 所有伪类
-  lines.push(`/** 所有 CSS 伪类 */`)
-  lines.push(`export const PSEUDO_CLASSES = [`)
-  pseudoClassesData.pseudoClasses.forEach(item => lines.push(`  '${item.name}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 伪类名称类型 */`)
-  lines.push(`export type PseudoClassName = typeof PSEUDO_CLASSES[number];`)
-  lines.push(``)
-
-  // 常用伪类
-  const commonPseudoClasses = ['hover', 'active', 'focus', 'focus-visible', 'focus-within',
-    'disabled', 'enabled', 'checked', 'valid', 'invalid', 'required', 'optional',
-    'read-only', 'read-write', 'first-child', 'last-child', 'empty']
-  lines.push(`/** 常用伪类 */`)
-  lines.push(`export const COMMON_PSEUDO_CLASSES = [`)
-  commonPseudoClasses.forEach(c => lines.push(`  '${c}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`export type CommonPseudoClass = typeof COMMON_PSEUDO_CLASSES[number];`)
-  lines.push(``)
-
-  // 伪元素
-  lines.push(`// ==================== 伪元素 ====================`)
-  lines.push(``)
-  lines.push(`/** 所有 CSS 伪元素 */`)
-  lines.push(`export const PSEUDO_ELEMENTS = [`)
-  pseudoElementsData.pseudoElements.forEach(item => lines.push(`  '${item.name}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`/** 伪元素名称类型 */`)
-  lines.push(`export type PseudoElementName = typeof PSEUDO_ELEMENTS[number];`)
-  lines.push(``)
-
-  // 常用伪元素
-  const commonPseudoElements = ['before', 'after', 'placeholder', 'selection', 'first-line', 'first-letter']
-  lines.push(`/** 常用伪元素 */`)
-  lines.push(`export const COMMON_PSEUDO_ELEMENTS = [`)
-  commonPseudoElements.forEach(c => lines.push(`  '${c}',`))
-  lines.push(`] as const;`)
-  lines.push(``)
-  lines.push(`export type CommonPseudoElement = typeof COMMON_PSEUDO_ELEMENTS[number];`)
-  lines.push(``)
-
-  // 伪类描述映射
-  lines.push(`// ==================== 描述映射 ====================`)
-  lines.push(``)
-  lines.push(`/** 伪类描述 */`)
-  lines.push(`export const PSEUDO_CLASS_DESCRIPTIONS: Record<PseudoClassName, { en: string; zh: string }> = {`)
-  for (const item of pseudoClassesData.pseudoClasses) {
-    lines.push(`  '${item.name}': { en: '${item.description.en}', zh: '${item.description.zh}' },`)
-  }
-  lines.push(`};`)
-  lines.push(``)
-
-  lines.push(`/** 伪元素描述 */`)
-  lines.push(`export const PSEUDO_ELEMENT_DESCRIPTIONS: Record<PseudoElementName, { en: string; zh: string }> = {`)
-  for (const item of pseudoElementsData.pseudoElements) {
-    lines.push(`  '${item.name}': { en: '${item.description.en}', zh: '${item.description.zh}' },`)
-  }
-  lines.push(`};`)
-  lines.push(``)
-
-  // 伪类分类映射
-  lines.push(`/** 伪类分类映射 */`)
-  lines.push(`export const PSEUDO_CLASS_CATEGORY_MAP: Record<PseudoClassName, PseudoClassCategory> = {`)
-  for (const item of pseudoClassesData.pseudoClasses) {
-    lines.push(`  '${item.name}': '${item.category}',`)
-  }
-  lines.push(`};`)
-  lines.push(``)
-
-  return lines.join('\n')
+// 确保输出目录存在
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true })
 }
 
-// ==================== 生成 index.ts ====================
+fs.writeFileSync(path.join(outputDir, 'keywords.ts'), generateKeywordsFile())
+console.log('✅ Created: keywords.ts')
 
-function generateIndexFile(): string {
-  const lines: string[] = []
+fs.writeFileSync(path.join(outputDir, 'property-config.ts'), generatePropertyConfigFile())
+console.log('✅ Created: property-config.ts')
 
-  lines.push(`/**`)
-  lines.push(` * CSS 类型定义导出`)
-  lines.push(` * 自动生成，请勿手动修改`)
-  lines.push(` */`)
-  lines.push(``)
-  lines.push(`export * from './colors';`)
-  lines.push(`export * from './units';`)
-  lines.push(`export * from './keywords';`)
-  lines.push(`export * from './property-config';`)
-  lines.push(`export * from './pseudo';`)
-  lines.push(`export * from './cssts-config';`)
-  lines.push(`export * from './config-utils';`)
-  lines.push(``)
-
-  return lines.join('\n')
-}
-
-// ==================== 主函数 ====================
-
-function main() {
-  console.log('Generating CSS types...\n')
-
-  // 确保输出目录存在
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true })
-  }
-
-  // 删除旧文件
-  const oldFiles = ['css-keywords.ts', 'css-numeric.ts', 'css-property-keywords.ts', 
-                    'css-property-number-types.ts', 'css-property-types.ts', 'css-property-config.ts']
-  for (const file of oldFiles) {
-    const filePath = path.join(outputDir, file)
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath)
-      console.log(`🗑️  Deleted: ${file}`)
-    }
-  }
-
-  // 生成新文件
-  fs.writeFileSync(path.join(outputDir, 'colors.ts'), generateColorsFile())
-  console.log('✅ Created: colors.ts')
-
-  fs.writeFileSync(path.join(outputDir, 'units.ts'), generateUnitsFile())
-  console.log('✅ Created: units.ts')
-
-  fs.writeFileSync(path.join(outputDir, 'keywords.ts'), generateKeywordsFile())
-  console.log('✅ Created: keywords.ts')
-
-  fs.writeFileSync(path.join(outputDir, 'property-config.ts'), generatePropertyConfigFile())
-  console.log('✅ Created: property-config.ts')
-
-  fs.writeFileSync(path.join(outputDir, 'pseudo.ts'), generatePseudoFile())
-  console.log('✅ Created: pseudo.ts')
-
-  // cssts-config.ts 是手动维护的，不自动生成
-  console.log('ℹ️  Skipped: cssts-config.ts (手动维护)')
-
-  fs.writeFileSync(path.join(outputDir, 'index.ts'), generateIndexFile())
-  console.log('✅ Created: index.ts')
-
-  console.log(`\nStatistics:`)
-  console.log(`  - Colors: ${colorsData.colors.length}`)
-  console.log(`  - System colors: ${systemColors.length}`)
-  console.log(`  - Number types: ${numberTypes.length}`)
-  console.log(`  - Properties: ${sortedPropertyNames.length}`)
-}
-
-main()
+console.log(`\nStatistics:`)
+console.log(`  - Properties with keywords: ${keywordProperties.length}`)
+console.log(`  - Properties with number types: ${numericProperties.length}`)
+console.log(`  - Total properties: ${sortedPropertyNames.length}`)

@@ -5,12 +5,13 @@
  * 聚合了自动生成的类型，提供用户配置接口
  */
 
-import type {AllColorValue} from './colors';
-import type {NumberTypeName, UnitType} from './units';
+import type {AllColorValue} from './data/colors';
+import type {NumberTypeName, UnitType} from './units/unit-types';
 import type {KeywordValue, CssPropertyValueMap} from './keywords';
 import {CssPropertyConfigMap, type CssPropertyCamelName} from './property-config';
-import type {PseudoClassName, PseudoElementName} from './pseudo';
-import type {UnitCategoryName} from './unit-categories';
+import type {PseudoClassName} from './data/pseudo-classes';
+import type {PseudoElementName} from './data/pseudo-elements';
+import type {UnitCategoryName} from './units/unit-categories';
 
 // ==================== 数值生成配置 ====================
 
