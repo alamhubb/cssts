@@ -232,14 +232,24 @@ export class CsstsConfig {
 
     /**
      * 支持的属性列表（白名单）
+     * 可以是属性名数组或属性配置对象
      * 如果配置了此项，则只生成这些属性的原子类，忽略 excludeProperties
      * 为空或 undefined 时使用 excludeProperties 逻辑
+     * 
+     * @example
+     * properties: ['width', 'height', 'margin']
+     * 
+     * @example
+     * properties: {
+     *   width: { numberTypes: ['length'] },
+     *   height: { numberTypes: ['length'] }
+     * }
      */
-    includeProperties?: CssPropertyCamelName[] | CssPropertyConfigMap[];
+    properties?: CssPropertyCamelName[] | CssPropertyConfigMap;
 
     /**
      * 排除的属性列表（黑名单）
-     * 仅当 includeProperties 为空时生效
+     * 仅当 properties 为空时生效
      * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
      */
     excludeProperties: CssPropertyCamelName[];
@@ -252,16 +262,16 @@ export class CsstsConfig {
      * 对象格式：{ numberType: { unitCategory: { unit: { step: 4 } } } }
      *
      * @example
-     * includeNumberTypes: [
+     * numberTypes: [
      *   'length',
      *   { time: { px: { px: { step: 4 } } } }
      * ]
      */
-    includeNumberTypes?: NumberTypeConfigItem<NumberTypeName>[];
+    numberTypes?: NumberTypeConfigItem<NumberTypeName>[];
 
     /**
      * 排除的数值类型列表（黑名单）
-     * 仅当 includeNumberTypes 为空时生效
+     * 仅当 numberTypes 为空时生效
      * 支持混合数组格式，可以排除整个数值类型、特定单位或特定分类下的单位
      *
      * @example
@@ -283,16 +293,16 @@ export class CsstsConfig {
      * 默认包含除了系统级别低频分类外的所有分类
      *
      * @example
-     * includeUnitCategories: [
+     * unitCategories: [
      *   'pixel',
      *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
      * ]
      */
-    includeUnitCategories: UnitCategoryConfigItem<UnitCategoryName>[];
+    unitCategories: UnitCategoryConfigItem<UnitCategoryName>[];
 
     /**
      * 排除的单位分类列表（黑名单）
-     * 仅当 includeUnitCategories 为空时生效
+     * 仅当 unitCategories 为空时生效
      * 支持混合数组格式，可以排除整个分类或特定单位
      *
      * @example
@@ -311,17 +321,17 @@ export class CsstsConfig {
      * 对象格式：{ unit: { step: 4, max: 500 } }
      *
      * @example
-     * includeUnits: [
+     * units: [
      *   'px',
      *   'em',
      *   { px: { step: 4, max: 500 } }  // px is the unit name, not category
      * ]
      */
-    includeUnits?: UnitConfigItem<UnitType>[];
+    units?: UnitConfigItem<UnitType>[];
 
     /**
      * 排除的单位列表（黑名单）
-     * 仅当 includeUnits 为空时生效
+     * 仅当 units 为空时生效
      * 支持混合数组格式（为了保持一致性）
      *
      * @example
@@ -339,11 +349,11 @@ export class CsstsConfig {
      * 支持的关键字列表（白名单）
      * 如果配置了此项，则只生成这些关键字，忽略 excludeKeywords
      */
-    includeKeywords?: KeywordValue[];
+    keywords?: KeywordValue[];
 
     /**
      * 排除的关键字列表（黑名单）
-     * 仅当 includeKeywords 为空时生效
+     * 仅当 keywords 为空时生效
      * 只需要名字列表，不支持配置
      */
     excludeKeywords: KeywordValue[];
@@ -352,11 +362,11 @@ export class CsstsConfig {
      * 支持的颜色列表（白名单）
      * 如果配置了此项，则只生成这些颜色，忽略 excludeColors
      */
-    includeColors?: AllColorValue[];
+    colors?: AllColorValue[];
 
     /**
      * 排除的颜色列表（黑名单）
-     * 仅当 includeColors 为空时生效
+     * 仅当 colors 为空时生效
      * 只需要名字列表，不支持配置
      */
     excludeColors: AllColorValue[];
@@ -375,11 +385,11 @@ export class CsstsConfig {
      * 支持的伪类列表（白名单）
      * 如果配置了此项，则只生成这些伪类，忽略 excludePseudoClasses
      */
-    includePseudoClasses?: PseudoClassName[];
+    pseudoClasses?: PseudoClassName[];
 
     /**
      * 排除的伪类列表（黑名单）
-     * 仅当 includePseudoClasses 为空时生效
+     * 仅当 pseudoClasses 为空时生效
      * 只需要名字列表，不支持配置
      */
     excludePseudoClasses: PseudoClassName[];
@@ -388,11 +398,11 @@ export class CsstsConfig {
      * 支持的伪元素列表（白名单）
      * 如果配置了此项，则只生成这些伪元素，忽略 excludePseudoElements
      */
-    includePseudoElements?: PseudoElementName[];
+    pseudoElements?: PseudoElementName[];
 
     /**
      * 排除的伪元素列表（黑名单）
-     * 仅当 includePseudoElements 为空时生效
+     * 仅当 pseudoElements 为空时生效
      * 只需要名字列表，不支持配置
      */
     excludePseudoElements: PseudoElementName[];
@@ -438,33 +448,32 @@ export class CsstsConfig {
         this.customProperties = options.customProperties ?? {};
         this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
 
-        // 属性配置
-        this.includeProperties = options.includeProperties ?? cssDefaultProperties
+        // ==================== 属性配置 ====================
+        this.properties = options.properties ?? cssDefaultProperties
         this.excludeProperties = options.excludeProperties ?? [];
 
-        // 数值类型配置
-        this.includeNumberTypes = options.includeNumberTypes;
+        // ==================== 数值类型配置 ====================
+        this.numberTypes = options.numberTypes;
         this.excludeNumberTypes = options.excludeNumberTypes ?? [];
 
-        // 单位分类配置 - 系统默认只在 includeUnitCategories 级别设置
-        // 默认包含除了系统级别低频分类外的所有分类
-        this.includeUnitCategories = options.includeUnitCategories ?? [DEFAULT_UNIT_CATEGORY_CONFIGS];
+        // ==================== 单位分类配置 ====================
+        this.unitCategories = options.unitCategories ?? [DEFAULT_UNIT_CATEGORY_CONFIGS];
         this.excludeUnitCategories = options.excludeUnitCategories ?? [];
 
-        // 单位配置
-        this.includeUnits = options.includeUnits;
+        // ==================== 单位配置 ====================
+        this.units = options.units;
         this.excludeUnits = options.excludeUnits ?? [];
 
-        // 关键字/颜色配置
-        this.includeKeywords = options.includeKeywords;
+        // ==================== 关键字/颜色配置 ====================
+        this.keywords = options.keywords;
         this.excludeKeywords = options.excludeKeywords ?? [];
-        this.includeColors = options.includeColors;
+        this.colors = options.colors;
         this.excludeColors = options.excludeColors ?? [];
 
-        // 伪类/伪元素配置
-        this.includePseudoClasses = options.includePseudoClasses;
+        // ==================== 伪类/伪元素配置 ====================
+        this.pseudoClasses = options.pseudoClasses;
         this.excludePseudoClasses = options.excludePseudoClasses ?? [];
-        this.includePseudoElements = options.includePseudoElements;
+        this.pseudoElements = options.pseudoElements;
         this.excludePseudoElements = options.excludePseudoElements ?? [];
 
         // 伪类/伪元素样式配置
