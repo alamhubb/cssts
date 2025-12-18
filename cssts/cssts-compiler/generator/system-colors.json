@@ -1,0 +1,23 @@
+{
+  "systemColor": [
+    "AccentColor",
+    "AccentColorText",
+    "ActiveText",
+    "ButtonBorder",
+    "ButtonFace",
+    "ButtonText",
+    "Canvas",
+    "CanvasText",
+    "Field",
+    "FieldText",
+    "GrayText",
+    "Highlight",
+    "HighlightText",
+    "LinkText",
+    "Mark",
+    "MarkText",
+    "SelectedItem",
+    "SelectedItemText",
+    "VisitedText"
+  ]
+}
