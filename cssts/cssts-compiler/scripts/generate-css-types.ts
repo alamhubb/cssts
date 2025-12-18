@@ -34,8 +34,9 @@ interface KeywordsData {
 }
 
 interface NumberTypesData {
-  properties: { name: string; numberTypes: string[]; units: string[] }[]
+  properties: { name: string; numberTypes: string[] }[]
   typeDescriptions: Record<string, { en: string; zh: string }>
+  units: Record<string, string[]>  // 基础类型的 units 映射
 }
 
 interface ColorsData {
@@ -102,22 +103,18 @@ function normalizeUnitName(unit: string): string {
   return unit
 }
 
-// 聚合每个数值类型支持的单位
+/**
+ * 构建数值类型到单位的映射（直接从 css-number-types.json 的 units 字段读取）
+ */
 function buildNumberTypeUnitsMap(): Map<string, Set<string>> {
   const map = new Map<string, Set<string>>()
-  for (const typeName of Object.keys(numberTypesData.typeDescriptions)) {
-    map.set(typeName, new Set())
+  
+  for (const [typeName, units] of Object.entries(numberTypesData.units)) {
+    // 转换 <number> -> unitless
+    const normalizedUnits = units.map(u => normalizeUnitName(u))
+    map.set(typeName, new Set(normalizedUnits))
   }
-  for (const prop of numberTypesData.properties) {
-    for (const numberType of prop.numberTypes) {
-      const units = map.get(numberType)
-      if (units) {
-        for (const unit of prop.units) {
-          units.add(unit)
-        }
-      }
-    }
-  }
+  
   return map
 }
 
@@ -163,6 +160,20 @@ const propNumberTypesMap = new Map<string, string[]>()
 numericProperties.forEach(p => {
   propNumberTypesMap.set(p.name, p.numberTypes)
 })
+
+/**
+ * 根据 numberTypes 计算属性的 units
+ */
+function computePropertyUnits(numberTypes: string[]): string[] {
+  const units = new Set<string>()
+  for (const nt of numberTypes) {
+    const typeUnits = numberTypeUnitsMap.get(nt)
+    if (typeUnits) {
+      typeUnits.forEach(u => units.add(u))
+    }
+  }
+  return Array.from(units).sort()
+}
 
 
 // ==================== 生成 colors.ts ====================
@@ -391,6 +402,12 @@ function generatePropertyConfigFile(): string {
     if (hasNumberTypes) {
       const constNumberTypesName = `${toConstName(propName)}_NUMBER_TYPES`
       lines.push(`  numberTypes: NumberTypeName[] = [...${constNumberTypesName}];`)
+      
+      // 根据 numberTypes 计算 units
+      const units = computePropertyUnits(numberTypes)
+      if (units.length > 0) {
+        lines.push(`  units: string[] = [${units.map(u => `'${u}'`).join(', ')}];`)
+      }
     }
 
     lines.push(`}`)

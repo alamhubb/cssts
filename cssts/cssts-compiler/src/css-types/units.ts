@@ -5,48 +5,36 @@
 
 // ==================== 数值类型名称 ====================
 
-/** 角度值，以度 (deg)、百分度 (grad)、弧度 (rad) 或圈数 (turn) 表示。 */
+/** 角度值（deg、grad、rad、turn） */
 export const ANGLE_NUMBER_TYPE_NAME = 'angle' as const;
-/** 可以是 <angle> 或 <percentage> 的值。 */
-export const ANGLE_PERCENTAGE_NUMBER_TYPE_NAME = 'angle-percentage' as const;
-/** 弹性长度，以 fr 为单位，表示网格容器中剩余空间的分数。 */
+/** 弹性长度（fr 单位） */
 export const FLEX_NUMBER_TYPE_NAME = 'flex' as const;
-/** 频率值，以赫兹 (Hz) 或千赫兹 (kHz) 表示。 */
+/** 频率值（Hz、kHz） */
 export const FREQUENCY_NUMBER_TYPE_NAME = 'frequency' as const;
-/** 可以是 <frequency> 或 <percentage> 的值。 */
-export const FREQUENCY_PERCENTAGE_NUMBER_TYPE_NAME = 'frequency-percentage' as const;
-/** 整数，正数或负数。 */
+/** 整数，正数或负数 */
 export const INTEGER_NUMBER_TYPE_NAME = 'integer' as const;
-/** 距离度量。表示长度值，如 px、em、rem、vh、vw 等。 */
+/** 距离度量（px、em、rem、vh、vw 等） */
 export const LENGTH_NUMBER_TYPE_NAME = 'length' as const;
-/** 可以是 <length> 或 <percentage> 的值。 */
-export const LENGTH_PERCENTAGE_NUMBER_TYPE_NAME = 'length-percentage' as const;
-/** 实数，可能带有小数部分。 */
+/** 实数，可能带有小数部分 */
 export const NUMBER_NUMBER_TYPE_NAME = 'number' as const;
-/** 百分比值。表示某个其他值的分数。 */
+/** 百分比值（%） */
 export const PERCENTAGE_NUMBER_TYPE_NAME = 'percentage' as const;
-/** 分辨率值，用于描述输出设备的像素密度 (dpi、dpcm、dppx)。 */
+/** 分辨率值（dpi、dpcm、dppx、x） */
 export const RESOLUTION_NUMBER_TYPE_NAME = 'resolution' as const;
-/** 时间值，以秒 (s) 或毫秒 (ms) 表示。 */
+/** 时间值（s、ms） */
 export const TIME_NUMBER_TYPE_NAME = 'time' as const;
-/** 可以是 <time> 或 <percentage> 的值。 */
-export const TIME_PERCENTAGE_NUMBER_TYPE_NAME = 'time-percentage' as const;
 
 /** 所有数值类型名称 */
 export const NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   FLEX_NUMBER_TYPE_NAME,
   FREQUENCY_NUMBER_TYPE_NAME,
-  FREQUENCY_PERCENTAGE_NUMBER_TYPE_NAME,
   INTEGER_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
   TIME_NUMBER_TYPE_NAME,
-  TIME_PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 
 /** 数值类型名称联合 */
@@ -57,7 +45,6 @@ export type NumberTypeName = typeof NUMBER_TYPES[number];
 /** 所有单位 */
 export const ALL_UNITS = [
   '%',
-  'unitless',
   'Hz',
   'Q',
   'cap',
@@ -91,6 +78,7 @@ export const ALL_UNITS = [
   'svh',
   'svw',
   'turn',
+  'unitless',
   'vb',
   'vh',
   'vi',
@@ -106,173 +94,30 @@ export type UnitType = typeof ALL_UNITS[number];
 // ==================== 数值类型到单位映射 ====================
 
 export const ANGLE_UNITS = [
-  '%',
-  'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
   'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
   'grad',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
   'rad',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
   'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
-] as const;
-export const ANGLE_PERCENTAGE_UNITS = [
-  '%',
-  'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'grad',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
-  'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
 ] as const;
 export const FLEX_UNITS = [
-  '%',
-  'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
   'fr',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
 ] as const;
 export const FREQUENCY_UNITS = [
-  '%',
   'Hz',
   'kHz',
 ] as const;
-export const FREQUENCY_PERCENTAGE_UNITS = [
-] as const;
 export const INTEGER_UNITS = [
-  '%',
   'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'fr',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'ms',
-  'pc',
-  'pt',
-  'px',
-  'rem',
-  'rlh',
-  's',
-  'svh',
-  'svw',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
 ] as const;
 export const LENGTH_UNITS = [
-  '%',
-  'unitless',
   'Q',
   'cap',
   'ch',
   'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
   'dvh',
   'dvw',
   'em',
   'ex',
-  'fr',
-  'grad',
   'ic',
   'in',
   'lh',
@@ -282,205 +127,45 @@ export const LENGTH_UNITS = [
   'pc',
   'pt',
   'px',
-  'rad',
   'rem',
   'rlh',
   'svh',
   'svw',
-  'turn',
   'vb',
   'vh',
   'vi',
   'vmax',
   'vmin',
   'vw',
-  'x',
-] as const;
-export const LENGTH_PERCENTAGE_UNITS = [
-  '%',
-  'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'fr',
-  'grad',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
-  'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
 ] as const;
 export const NUMBER_UNITS = [
-  '%',
   'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'grad',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'ms',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  's',
-  'svh',
-  'svw',
-  'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
 ] as const;
 export const PERCENTAGE_UNITS = [
   '%',
-  'unitless',
-  'Hz',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
-  'dpcm',
-  'dpi',
-  'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'fr',
-  'grad',
-  'ic',
-  'in',
-  'kHz',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
-  'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
-  'x',
 ] as const;
 export const RESOLUTION_UNITS = [
-  '%',
-  'unitless',
-  'Q',
-  'cap',
-  'ch',
-  'cm',
-  'deg',
   'dpcm',
   'dpi',
   'dppx',
-  'dvh',
-  'dvw',
-  'em',
-  'ex',
-  'grad',
-  'ic',
-  'in',
-  'lh',
-  'lvh',
-  'lvw',
-  'mm',
-  'pc',
-  'pt',
-  'px',
-  'rad',
-  'rem',
-  'rlh',
-  'svh',
-  'svw',
-  'turn',
-  'vb',
-  'vh',
-  'vi',
-  'vmax',
-  'vmin',
-  'vw',
   'x',
 ] as const;
 export const TIME_UNITS = [
-  'unitless',
   'ms',
   's',
-] as const;
-export const TIME_PERCENTAGE_UNITS = [
 ] as const;
 
 /** 数值类型到单位的映射 */
 export const NUMBER_TYPE_UNITS = {
   'angle': ANGLE_UNITS,
-  'angle-percentage': ANGLE_PERCENTAGE_UNITS,
   'flex': FLEX_UNITS,
   'frequency': FREQUENCY_UNITS,
-  'frequency-percentage': FREQUENCY_PERCENTAGE_UNITS,
   'integer': INTEGER_UNITS,
   'length': LENGTH_UNITS,
-  'length-percentage': LENGTH_PERCENTAGE_UNITS,
   'number': NUMBER_UNITS,
   'percentage': PERCENTAGE_UNITS,
   'resolution': RESOLUTION_UNITS,
   'time': TIME_UNITS,
-  'time-percentage': TIME_PERCENTAGE_UNITS,
 } as const;
 
 // ==================== 属性数值类型 ====================
@@ -505,12 +190,10 @@ export const ANIMATION_ITERATION_COUNT_NUMBER_TYPES = [
 ] as const;
 export const ANIMATION_RANGE_END_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const ANIMATION_RANGE_START_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const ANIMATION_TIMING_FUNCTION_NUMBER_TYPES = [
@@ -531,9 +214,7 @@ export const BACKDROP_FILTER_NUMBER_TYPES = [
 ] as const;
 export const BACKGROUND_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
@@ -545,31 +226,25 @@ export const BACKGROUND_COLOR_NUMBER_TYPES = [
 ] as const;
 export const BACKGROUND_IMAGE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 export const BACKGROUND_POSITION_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BACKGROUND_POSITION_X_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BACKGROUND_POSITION_Y_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BACKGROUND_SIZE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BASELINE_SHIFT_NUMBER_TYPES = [
@@ -606,12 +281,10 @@ export const BORDER_BOTTOM_NUMBER_TYPES = [
 ] as const;
 export const BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_BOTTOM_WIDTH_NUMBER_TYPES = [
@@ -624,12 +297,10 @@ export const BORDER_COLOR_NUMBER_TYPES = [
 ] as const;
 export const BORDER_END_END_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_END_START_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_IMAGE_OUTSET_NUMBER_TYPES = [
@@ -642,16 +313,13 @@ export const BORDER_IMAGE_SLICE_NUMBER_TYPES = [
 ] as const;
 export const BORDER_IMAGE_SOURCE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_IMAGE_WIDTH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
@@ -686,7 +354,6 @@ export const BORDER_LEFT_WIDTH_NUMBER_TYPES = [
 ] as const;
 export const BORDER_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_RIGHT_NUMBER_TYPES = [
@@ -708,12 +375,10 @@ export const BORDER_SPACING_NUMBER_TYPES = [
 ] as const;
 export const BORDER_START_END_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_START_START_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_TOP_NUMBER_TYPES = [
@@ -729,12 +394,10 @@ export const BORDER_TOP_COLOR_NUMBER_TYPES = [
 ] as const;
 export const BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const BORDER_TOP_WIDTH_NUMBER_TYPES = [
@@ -772,7 +435,6 @@ export const CLIP_NUMBER_TYPES = [
 ] as const;
 export const CLIP_PATH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const COLOR_NUMBER_TYPES = [
@@ -785,7 +447,6 @@ export const COLUMN_COUNT_NUMBER_TYPES = [
 ] as const;
 export const COLUMN_GAP_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const COLUMN_RULE_COLOR_NUMBER_TYPES = [
@@ -813,9 +474,7 @@ export const CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES = [
 ] as const;
 export const CONTENT_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
@@ -865,7 +524,6 @@ export const FONT_FEATURE_SETTINGS_NUMBER_TYPES = [
 ] as const;
 export const FONT_SIZE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const FONT_SIZE_ADJUST_NUMBER_TYPES = [
@@ -898,13 +556,11 @@ export const GRID_AREA_NUMBER_TYPES = [
 export const GRID_AUTO_COLUMNS_NUMBER_TYPES = [
   FLEX_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_AUTO_ROWS_NUMBER_TYPES = [
   FLEX_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_COLUMN_NUMBER_TYPES = [
@@ -915,7 +571,6 @@ export const GRID_COLUMN_END_NUMBER_TYPES = [
 ] as const;
 export const GRID_COLUMN_GAP_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_COLUMN_START_NUMBER_TYPES = [
@@ -929,7 +584,6 @@ export const GRID_ROW_END_NUMBER_TYPES = [
 ] as const;
 export const GRID_ROW_GAP_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_ROW_START_NUMBER_TYPES = [
@@ -938,26 +592,22 @@ export const GRID_ROW_START_NUMBER_TYPES = [
 export const GRID_TEMPLATE_NUMBER_TYPES = [
   FLEX_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_TEMPLATE_COLUMNS_NUMBER_TYPES = [
   FLEX_NUMBER_TYPE_NAME,
   INTEGER_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const GRID_TEMPLATE_ROWS_NUMBER_TYPES = [
   FLEX_NUMBER_TYPE_NAME,
   INTEGER_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const HEIGHT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const HYPHENATE_LIMIT_CHARS_NUMBER_TYPES = [
@@ -984,7 +634,6 @@ export const LEFT_NUMBER_TYPES = [
 ] as const;
 export const LETTER_SPACING_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const LINE_CLAMP_NUMBER_TYPES = [
@@ -1000,9 +649,7 @@ export const LINE_HEIGHT_STEP_NUMBER_TYPES = [
 ] as const;
 export const LIST_STYLE_IMAGE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
@@ -1029,9 +676,7 @@ export const MARGIN_TOP_NUMBER_TYPES = [
 ] as const;
 export const MASK_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
@@ -1046,36 +691,29 @@ export const MASK_BORDER_SLICE_NUMBER_TYPES = [
 ] as const;
 export const MASK_BORDER_SOURCE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 export const MASK_BORDER_WIDTH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MASK_IMAGE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
 ] as const;
 export const MASK_POSITION_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MASK_SIZE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MATH_DEPTH_NUMBER_TYPES = [
@@ -1083,7 +721,6 @@ export const MATH_DEPTH_NUMBER_TYPES = [
 ] as const;
 export const MAX_HEIGHT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MAX_LINES_NUMBER_TYPES = [
@@ -1091,43 +728,35 @@ export const MAX_LINES_NUMBER_TYPES = [
 ] as const;
 export const MAX_WIDTH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MIN_HEIGHT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const MIN_WIDTH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OBJECT_POSITION_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OFFSET_ANCHOR_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OFFSET_DISTANCE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OFFSET_PATH_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OFFSET_POSITION_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const OFFSET_ROTATE_NUMBER_TYPES = [
@@ -1188,7 +817,6 @@ export const PERSPECTIVE_NUMBER_TYPES = [
 ] as const;
 export const PERSPECTIVE_ORIGIN_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const R_NUMBER_TYPES = [
@@ -1211,7 +839,6 @@ export const ROTATE_NUMBER_TYPES = [
 ] as const;
 export const ROW_GAP_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const RX_NUMBER_TYPES = [
@@ -1261,77 +888,62 @@ export const SCROLL_MARGIN_TOP_NUMBER_TYPES = [
 ] as const;
 export const SCROLL_PADDING_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_BLOCK_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_BLOCK_END_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_BLOCK_START_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_BOTTOM_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_INLINE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_INLINE_END_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_INLINE_START_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_LEFT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_RIGHT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_PADDING_TOP_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_SNAP_COORDINATE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_SNAP_DESTINATION_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_SNAP_POINTS_X_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLL_SNAP_POINTS_Y_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SCROLLBAR_COLOR_NUMBER_TYPES = [
@@ -1345,14 +957,11 @@ export const SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES = [
 ] as const;
 export const SHAPE_MARGIN_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const SHAPE_OUTSIDE_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
-  ANGLE_PERCENTAGE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
   RESOLUTION_NUMBER_TYPE_NAME,
@@ -1403,7 +1012,6 @@ export const TEXT_EMPHASIS_COLOR_NUMBER_TYPES = [
 ] as const;
 export const TEXT_INDENT_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const TEXT_SHADOW_NUMBER_TYPES = [
@@ -1426,13 +1034,11 @@ export const TOP_NUMBER_TYPES = [
 export const TRANSFORM_NUMBER_TYPES = [
   ANGLE_NUMBER_TYPE_NAME,
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   NUMBER_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const TRANSFORM_ORIGIN_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const TRANSITION_NUMBER_TYPES = [
@@ -1452,7 +1058,6 @@ export const TRANSITION_TIMING_FUNCTION_NUMBER_TYPES = [
 ] as const;
 export const TRANSLATE_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const VERTICAL_ALIGN_NUMBER_TYPES = [
@@ -1461,7 +1066,6 @@ export const VERTICAL_ALIGN_NUMBER_TYPES = [
 ] as const;
 export const VIEW_TIMELINE_INSET_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const VOICE_BALANCE_NUMBER_TYPES = [
@@ -1489,7 +1093,6 @@ export const WIDOWS_NUMBER_TYPES = [
 ] as const;
 export const WIDTH_NUMBER_TYPES = [
   LENGTH_NUMBER_TYPE_NAME,
-  LENGTH_PERCENTAGE_NUMBER_TYPE_NAME,
   PERCENTAGE_NUMBER_TYPE_NAME,
 ] as const;
 export const WORD_SPACING_NUMBER_TYPES = [

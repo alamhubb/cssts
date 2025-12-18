@@ -2,8 +2,6 @@
  * CssTs Generator
  *
  * 提供类型定义生成功能
- * 
- * 注意：properties.json 在 src/data/ 目录下，由 extract-css-data.ts 生成
  */
 
 import * as fs from 'node:fs';
@@ -72,9 +70,6 @@ export { generateValues, resolveUnitConfig } from './value-generator.js';
 
 // ==================== 原子类生成 ====================
 
-// 导出 CSS 数据
-export { default as cssData } from '../data/css-data.json' with { type: 'json' };
-
 // 导出原子类生成
 export type { AtomDefinition } from './atom-generator.js';
 export { generateAtoms, generatePropertiesJson } from './atom-generator.js';
@@ -109,14 +104,14 @@ import {
   generateRuntimeDts,
   generateIndexDts,
 } from './dts-generator.js';
-import { defaultConfig } from './config.js';
+import { CsstsConfig } from '../css-types/cssts-config.js';
 
 /**
  * 异步生成 .d.ts 文件
  */
 export async function generateDtsAsync(options: GeneratorOptions = {}): Promise<string[]> {
   const outDir = options.outDir ?? DEFAULT_OUT_DIR;
-  const config = options.config ?? defaultConfig;
+  const config = options.config ?? new CsstsConfig();
   const atoms = generateAtoms(config);
 
   if (!fs.existsSync(outDir)) {
