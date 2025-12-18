@@ -7,8 +7,10 @@ import {
   CsstsConfig,
   DEFAULT_PROGRESSIVE_RANGES,
   DEFAULT_UNIT_CONFIGS,
+  normalizeUnitsConfig,
   type UnitValueConfig,
   type ProgressiveRange,
+  type StepConfig,
 } from './cssts-config';
 import { CssPropertyConfigMap, cssPropertyNameMap, type CssPropertyCamelName } from './property-config';
 
@@ -17,8 +19,9 @@ import { CssPropertyConfigMap, cssPropertyNameMap, type CssPropertyCamelName } f
 /**
  * 判断值是否能被任一除数整除
  */
-function isDivisibleByAny(value: number, divisors: number[]): boolean {
-  return divisors.some(d => value % d === 0);
+function isDivisibleByAny(value: number, divisors: number | number[]): boolean {
+  const divisorArr = Array.isArray(divisors) ? divisors : [divisors];
+  return divisorArr.some(d => value % d === 0);
 }
 
 /**
@@ -102,7 +105,8 @@ export function generateValuesForUnit(
 ): number[] {
   // 合并配置：用户配置 > 默认配置
   const defaultConfig = DEFAULT_UNIT_CONFIGS[unit] || { min: 0, max: 100 };
-  const userConfig = config.unitConfigs[unit] || {};
+  const normalizedUnits = normalizeUnitsConfig(config.units);
+  const userConfig = normalizedUnits[unit] || {};
   
   const finalConfig: UnitValueConfig = {
     min: userConfig.min ?? defaultConfig.min ?? 0,
@@ -113,14 +117,22 @@ export function generateValuesForUnit(
   };
 
   const { min, max, step, negative, presets } = finalConfig;
-  const ranges = config.progressiveRanges || DEFAULT_PROGRESSIVE_RANGES;
+  const defaultRanges = config.progressiveRanges || DEFAULT_PROGRESSIVE_RANGES;
 
   let values: number[];
 
   if (step !== undefined) {
-    values = generateStepValues(min!, max!, step, negative!);
+    // step 可以是 number | ProgressiveRange | ProgressiveRange[]
+    if (typeof step === 'number') {
+      values = generateStepValues(min!, max!, step, negative!);
+    } else if (Array.isArray(step)) {
+      values = generateProgressiveValues(min!, max!, negative!, step);
+    } else {
+      // 单个 ProgressiveRange
+      values = generateProgressiveValues(min!, max!, negative!, [step]);
+    }
   } else {
-    values = generateProgressiveValues(min!, max!, negative!, ranges);
+    values = generateProgressiveValues(min!, max!, negative!, defaultRanges);
   }
 
   // 合并预设值

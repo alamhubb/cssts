@@ -41,6 +41,51 @@ export interface UnitValueConfig {
     negative?: boolean;
 }
 
+/**
+ * 单位配置值类型
+ * 支持三种格式：
+ * - 字符串: 'px' - 单个单位，使用默认配置
+ * - 字符串数组: ['px', 'em'] - 多个单位，使用默认配置
+ * - Record: { px: { max: 500 }, em: { max: 10 } } - 带配置的单位
+ */
+export type UnitsConfigValue<T extends string = string> =
+    | T                                    // 单个单位
+    | T[]                                  // 单位数组
+    | Partial<Record<T, UnitValueConfig>>; // Record 形式
+
+/**
+ * 标准化单位配置为 Record 形式
+ */
+export function normalizeUnitsConfig<T extends string>(
+    config: UnitsConfigValue<T> | undefined
+): Partial<Record<T, UnitValueConfig>> {
+    if (!config) return {};
+
+    // 字符串: 'px'
+    if (typeof config === 'string') {
+        return {[config]: {}} as Partial<Record<T, UnitValueConfig>>;
+    }
+
+    // 字符串数组: ['px', 'em']
+    if (Array.isArray(config)) {
+        const result: Partial<Record<T, UnitValueConfig>> = {};
+        const seenUnits = new Set<string>();
+
+        for (const unit of config) {
+            if (seenUnits.has(unit)) {
+                console.warn(`⚠️ 重复的单位配置: ${unit}`);
+                continue;
+            }
+            seenUnits.add(unit);
+            result[unit as T] = {};
+        }
+        return result;
+    }
+
+    // Record 形式: { px: { max: 500 } }
+    return config;
+}
+
 /** 默认渐进步长策略 */
 export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
     {max: 100, divisors: [1]},         // 0-100: 每个整数
@@ -65,6 +110,45 @@ export interface UnitCategoryConfig {
     negative?: boolean;
     /** 额外预设值 */
     presets?: number[];
+}
+
+/** 单位分类配置项（带分类名称） */
+export interface UnitCategoryConfigItem extends UnitCategoryConfig {
+    /** 分类名称 */
+    category: string;
+}
+
+/**
+ * 标准化单位分类配置为 Record 形式
+ */
+export function normalizeUnitCategoriesConfig<T extends string>(
+    config: UnitsConfigValue<T> | undefined
+): Partial<Record<T, UnitCategoryConfig>> {
+    if (!config) return {};
+
+    // 字符串: 'pixel'
+    if (typeof config === 'string') {
+        return { [config]: {} } as Partial<Record<T, UnitCategoryConfig>>;
+    }
+
+    // 字符串数组: ['pixel', 'fontRelative']
+    if (Array.isArray(config)) {
+        const result: Partial<Record<T, UnitCategoryConfig>> = {};
+        const seenCategories = new Set<string>();
+
+        for (const category of config) {
+            if (seenCategories.has(category)) {
+                console.warn(`⚠️ 重复的单位分类配置: ${category}`);
+                continue;
+            }
+            seenCategories.add(category);
+            result[category as T] = {};
+        }
+        return result;
+    }
+
+    // Record 形式: { pixel: { max: 500 } }
+    return config;
 }
 
 /** 默认单位分类配置 */
@@ -258,10 +342,10 @@ export class CsstsConfig {
     progressiveRanges: ProgressiveRange[] = DEFAULT_PROGRESSIVE_RANGES;
 
     /** 单位配置（覆盖 DEFAULT_UNIT_CONFIGS，优先级最高） */
-    unitConfigs: Partial<Record<UnitType, UnitValueConfig>> = {};
+    units: UnitsConfigValue<UnitType> = {};
 
     /** 单位分类配置（覆盖 DEFAULT_UNIT_CATEGORY_CONFIGS） */
-    unitCategoryConfigs: Partial<Record<UnitCategoryName, UnitCategoryConfig>> = {};
+    unitCategories: UnitsConfigValue<UnitCategoryName> = {};
 
     /** 属性级别配置 */
     properties = new CssPropertyConfigMap();

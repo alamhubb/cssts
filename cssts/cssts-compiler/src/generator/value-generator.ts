@@ -13,8 +13,9 @@ import { DEFAULT_UNIT_CONFIGS, DEFAULT_PROGRESSIVE_RANGES } from '../css-types/c
 /**
  * 判断值是否能被任一除数整除
  */
-function isDivisibleByAny(value: number, divisors: number[]): boolean {
-  return divisors.some(d => value % d === 0);
+function isDivisibleByAny(value: number, divisors: number | number[]): boolean {
+  const divisorArr = Array.isArray(divisors) ? divisors : [divisors];
+  return divisorArr.some(d => value % d === 0);
 }
 
 /**
@@ -117,8 +118,13 @@ export function generateValues(config: UnitValueConfig): number[] {
   let values: number[];
 
   if (step !== undefined) {
-    // 有 step → 固定步长
-    values = generateStepValues(min, max, step, negative);
+    // step 可以是 number | ProgressiveRange | ProgressiveRange[]
+    if (typeof step === 'number') {
+      values = generateStepValues(min, max, step, negative);
+    } else {
+      // ProgressiveRange 或 ProgressiveRange[] - 使用渐进步长
+      values = generateProgressiveValues(min, max, negative);
+    }
   } else {
     // 无 step → 渐进步长
     values = generateProgressiveValues(min, max, negative);

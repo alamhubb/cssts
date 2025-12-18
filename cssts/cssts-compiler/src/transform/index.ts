@@ -13,7 +13,10 @@ import {
   camelToKebab,
   CSSTS_CONFIG
 } from '../utils/cssClassName.js'
-import { type PseudoUtilsConfig } from '../generator/config.js'
+import { type PseudoStyleValue } from '../css-types/cssts-config.js'
+
+/** 伪类工具配置 */
+type PseudoUtilsConfig = Record<string, PseudoStyleValue>
 import { SlimeGenerator } from 'slime-generator'
 
 // ==================== 类型定义 ====================

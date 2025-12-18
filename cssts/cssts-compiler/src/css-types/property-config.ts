@@ -1013,6 +1013,1190 @@ import {
   type ZIndexKeyword,
   type ZoomKeyword,
 } from './keywords';
+import type { UnitValueConfig, UnitCategoryConfig, UnitsConfigValue } from './cssts-config';
+import type { UnitCategoryName } from './unit-categories';
+
+// ==================== 属性单位类型 ====================
+
+/** accent-color 支持的单位 */
+export type AccentColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** accent-color 支持的单位分类 */
+export type AccentColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** animation 支持的单位 */
+export type AnimationUnit = 'unitless';
+/** animation 支持的单位分类 */
+export type AnimationUnitCategory = 'unitless';
+
+/** animation-delay 支持的单位 */
+export type AnimationDelayUnit = 'ms' | 's';
+/** animation-delay 支持的单位分类 */
+export type AnimationDelayUnitCategory = 'time';
+
+/** animation-duration 支持的单位 */
+export type AnimationDurationUnit = 'ms' | 's';
+/** animation-duration 支持的单位分类 */
+export type AnimationDurationUnitCategory = 'time';
+
+/** animation-iteration-count 支持的单位 */
+export type AnimationIterationCountUnit = 'unitless';
+/** animation-iteration-count 支持的单位分类 */
+export type AnimationIterationCountUnitCategory = 'unitless';
+
+/** animation-range-end 支持的单位 */
+export type AnimationRangeEndUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** animation-range-end 支持的单位分类 */
+export type AnimationRangeEndUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** animation-range-start 支持的单位 */
+export type AnimationRangeStartUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** animation-range-start 支持的单位分类 */
+export type AnimationRangeStartUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** animation-timing-function 支持的单位 */
+export type AnimationTimingFunctionUnit = 'unitless';
+/** animation-timing-function 支持的单位分类 */
+export type AnimationTimingFunctionUnitCategory = 'unitless';
+
+/** aspect-ratio 支持的单位 */
+export type AspectRatioUnit = 'unitless';
+/** aspect-ratio 支持的单位分类 */
+export type AspectRatioUnitCategory = 'unitless';
+
+/** azimuth 支持的单位 */
+export type AzimuthUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** azimuth 支持的单位分类 */
+export type AzimuthUnitCategory = 'angle';
+
+/** backdrop-filter 支持的单位 */
+export type BackdropFilterUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** backdrop-filter 支持的单位分类 */
+export type BackdropFilterUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** background 支持的单位 */
+export type BackgroundUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** background 支持的单位分类 */
+export type BackgroundUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** background-color 支持的单位 */
+export type BackgroundColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** background-color 支持的单位分类 */
+export type BackgroundColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** background-image 支持的单位 */
+export type BackgroundImageUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** background-image 支持的单位分类 */
+export type BackgroundImageUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** background-position 支持的单位 */
+export type BackgroundPositionUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** background-position 支持的单位分类 */
+export type BackgroundPositionUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** background-position-x 支持的单位 */
+export type BackgroundPositionXUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** background-position-x 支持的单位分类 */
+export type BackgroundPositionXUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** background-position-y 支持的单位 */
+export type BackgroundPositionYUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** background-position-y 支持的单位分类 */
+export type BackgroundPositionYUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** background-size 支持的单位 */
+export type BackgroundSizeUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** background-size 支持的单位分类 */
+export type BackgroundSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** baseline-shift 支持的单位 */
+export type BaselineShiftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** baseline-shift 支持的单位分类 */
+export type BaselineShiftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border 支持的单位 */
+export type BorderUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border 支持的单位分类 */
+export type BorderUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-block 支持的单位 */
+export type BorderBlockUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-block 支持的单位分类 */
+export type BorderBlockUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-block-end 支持的单位 */
+export type BorderBlockEndUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-block-end 支持的单位分类 */
+export type BorderBlockEndUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-block-start 支持的单位 */
+export type BorderBlockStartUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-block-start 支持的单位分类 */
+export type BorderBlockStartUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-bottom 支持的单位 */
+export type BorderBottomUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-bottom 支持的单位分类 */
+export type BorderBottomUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-bottom-left-radius 支持的单位 */
+export type BorderBottomLeftRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-bottom-left-radius 支持的单位分类 */
+export type BorderBottomLeftRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-bottom-right-radius 支持的单位 */
+export type BorderBottomRightRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-bottom-right-radius 支持的单位分类 */
+export type BorderBottomRightRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-bottom-width 支持的单位 */
+export type BorderBottomWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-bottom-width 支持的单位分类 */
+export type BorderBottomWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-color 支持的单位 */
+export type BorderColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-color 支持的单位分类 */
+export type BorderColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-end-end-radius 支持的单位 */
+export type BorderEndEndRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-end-end-radius 支持的单位分类 */
+export type BorderEndEndRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-end-start-radius 支持的单位 */
+export type BorderEndStartRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-end-start-radius 支持的单位分类 */
+export type BorderEndStartRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-image-outset 支持的单位 */
+export type BorderImageOutsetUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-image-outset 支持的单位分类 */
+export type BorderImageOutsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-image-slice 支持的单位 */
+export type BorderImageSliceUnit = '%' | 'unitless';
+/** border-image-slice 支持的单位分类 */
+export type BorderImageSliceUnitCategory = 'percentage' | 'unitless';
+
+/** border-image-source 支持的单位 */
+export type BorderImageSourceUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** border-image-source 支持的单位分类 */
+export type BorderImageSourceUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** border-image-width 支持的单位 */
+export type BorderImageWidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-image-width 支持的单位分类 */
+export type BorderImageWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-inline 支持的单位 */
+export type BorderInlineUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-inline 支持的单位分类 */
+export type BorderInlineUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-inline-end 支持的单位 */
+export type BorderInlineEndUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-inline-end 支持的单位分类 */
+export type BorderInlineEndUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-inline-start 支持的单位 */
+export type BorderInlineStartUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-inline-start 支持的单位分类 */
+export type BorderInlineStartUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-left 支持的单位 */
+export type BorderLeftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-left 支持的单位分类 */
+export type BorderLeftUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-left-color 支持的单位 */
+export type BorderLeftColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-left-color 支持的单位分类 */
+export type BorderLeftColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-left-width 支持的单位 */
+export type BorderLeftWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-left-width 支持的单位分类 */
+export type BorderLeftWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-radius 支持的单位 */
+export type BorderRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-radius 支持的单位分类 */
+export type BorderRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-right 支持的单位 */
+export type BorderRightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-right 支持的单位分类 */
+export type BorderRightUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-right-color 支持的单位 */
+export type BorderRightColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-right-color 支持的单位分类 */
+export type BorderRightColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-right-width 支持的单位 */
+export type BorderRightWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-right-width 支持的单位分类 */
+export type BorderRightWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-spacing 支持的单位 */
+export type BorderSpacingUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-spacing 支持的单位分类 */
+export type BorderSpacingUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-start-end-radius 支持的单位 */
+export type BorderStartEndRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-start-end-radius 支持的单位分类 */
+export type BorderStartEndRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-start-start-radius 支持的单位 */
+export type BorderStartStartRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-start-start-radius 支持的单位分类 */
+export type BorderStartStartRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-top 支持的单位 */
+export type BorderTopUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-top 支持的单位分类 */
+export type BorderTopUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** border-top-color 支持的单位 */
+export type BorderTopColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** border-top-color 支持的单位分类 */
+export type BorderTopColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** border-top-left-radius 支持的单位 */
+export type BorderTopLeftRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-top-left-radius 支持的单位分类 */
+export type BorderTopLeftRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-top-right-radius 支持的单位 */
+export type BorderTopRightRadiusUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-top-right-radius 支持的单位分类 */
+export type BorderTopRightRadiusUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-top-width 支持的单位 */
+export type BorderTopWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-top-width 支持的单位分类 */
+export type BorderTopWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** border-width 支持的单位 */
+export type BorderWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** border-width 支持的单位分类 */
+export type BorderWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** bottom 支持的单位 */
+export type BottomUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** bottom 支持的单位分类 */
+export type BottomUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** box-flex 支持的单位 */
+export type BoxFlexUnit = 'unitless';
+/** box-flex 支持的单位分类 */
+export type BoxFlexUnitCategory = 'unitless';
+
+/** box-flex-group 支持的单位 */
+export type BoxFlexGroupUnit = 'unitless';
+/** box-flex-group 支持的单位分类 */
+export type BoxFlexGroupUnitCategory = 'unitless';
+
+/** box-ordinal-group 支持的单位 */
+export type BoxOrdinalGroupUnit = 'unitless';
+/** box-ordinal-group 支持的单位分类 */
+export type BoxOrdinalGroupUnitCategory = 'unitless';
+
+/** box-shadow 支持的单位 */
+export type BoxShadowUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** box-shadow 支持的单位分类 */
+export type BoxShadowUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** caret-color 支持的单位 */
+export type CaretColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** caret-color 支持的单位分类 */
+export type CaretColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** clip 支持的单位 */
+export type ClipUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** clip 支持的单位分类 */
+export type ClipUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** clip-path 支持的单位 */
+export type ClipPathUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** clip-path 支持的单位分类 */
+export type ClipPathUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** color 支持的单位 */
+export type ColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** color 支持的单位分类 */
+export type ColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** column-count 支持的单位 */
+export type ColumnCountUnit = 'unitless';
+/** column-count 支持的单位分类 */
+export type ColumnCountUnitCategory = 'unitless';
+
+/** column-gap 支持的单位 */
+export type ColumnGapUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** column-gap 支持的单位分类 */
+export type ColumnGapUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** column-rule-color 支持的单位 */
+export type ColumnRuleColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** column-rule-color 支持的单位分类 */
+export type ColumnRuleColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** column-width 支持的单位 */
+export type ColumnWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** column-width 支持的单位分类 */
+export type ColumnWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** contain-intrinsic-block-size 支持的单位 */
+export type ContainIntrinsicBlockSizeUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** contain-intrinsic-block-size 支持的单位分类 */
+export type ContainIntrinsicBlockSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** contain-intrinsic-height 支持的单位 */
+export type ContainIntrinsicHeightUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** contain-intrinsic-height 支持的单位分类 */
+export type ContainIntrinsicHeightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** contain-intrinsic-inline-size 支持的单位 */
+export type ContainIntrinsicInlineSizeUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** contain-intrinsic-inline-size 支持的单位分类 */
+export type ContainIntrinsicInlineSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** contain-intrinsic-size 支持的单位 */
+export type ContainIntrinsicSizeUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** contain-intrinsic-size 支持的单位分类 */
+export type ContainIntrinsicSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** contain-intrinsic-width 支持的单位 */
+export type ContainIntrinsicWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** contain-intrinsic-width 支持的单位分类 */
+export type ContainIntrinsicWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** content 支持的单位 */
+export type ContentUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** content 支持的单位分类 */
+export type ContentUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** counter-increment 支持的单位 */
+export type CounterIncrementUnit = 'unitless';
+/** counter-increment 支持的单位分类 */
+export type CounterIncrementUnitCategory = 'unitless';
+
+/** counter-reset 支持的单位 */
+export type CounterResetUnit = 'unitless';
+/** counter-reset 支持的单位分类 */
+export type CounterResetUnitCategory = 'unitless';
+
+/** counter-set 支持的单位 */
+export type CounterSetUnit = 'unitless';
+/** counter-set 支持的单位分类 */
+export type CounterSetUnitCategory = 'unitless';
+
+/** cursor 支持的单位 */
+export type CursorUnit = 'unitless';
+/** cursor 支持的单位分类 */
+export type CursorUnitCategory = 'unitless';
+
+/** cx 支持的单位 */
+export type CxUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** cx 支持的单位分类 */
+export type CxUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** cy 支持的单位 */
+export type CyUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** cy 支持的单位分类 */
+export type CyUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** fill 支持的单位 */
+export type FillUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** fill 支持的单位分类 */
+export type FillUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** fill-opacity 支持的单位 */
+export type FillOpacityUnit = 'unitless';
+/** fill-opacity 支持的单位分类 */
+export type FillOpacityUnitCategory = 'unitless';
+
+/** filter 支持的单位 */
+export type FilterUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** filter 支持的单位分类 */
+export type FilterUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** flex-grow 支持的单位 */
+export type FlexGrowUnit = 'unitless';
+/** flex-grow 支持的单位分类 */
+export type FlexGrowUnitCategory = 'unitless';
+
+/** flex-shrink 支持的单位 */
+export type FlexShrinkUnit = 'unitless';
+/** flex-shrink 支持的单位分类 */
+export type FlexShrinkUnitCategory = 'unitless';
+
+/** font-feature-settings 支持的单位 */
+export type FontFeatureSettingsUnit = 'unitless';
+/** font-feature-settings 支持的单位分类 */
+export type FontFeatureSettingsUnitCategory = 'unitless';
+
+/** font-size 支持的单位 */
+export type FontSizeUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** font-size 支持的单位分类 */
+export type FontSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** font-size-adjust 支持的单位 */
+export type FontSizeAdjustUnit = 'unitless';
+/** font-size-adjust 支持的单位分类 */
+export type FontSizeAdjustUnitCategory = 'unitless';
+
+/** font-smooth 支持的单位 */
+export type FontSmoothUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** font-smooth 支持的单位分类 */
+export type FontSmoothUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** font-stretch 支持的单位 */
+export type FontStretchUnit = '%';
+/** font-stretch 支持的单位分类 */
+export type FontStretchUnitCategory = 'percentage';
+
+/** font-style 支持的单位 */
+export type FontStyleUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** font-style 支持的单位分类 */
+export type FontStyleUnitCategory = 'angle';
+
+/** font-variation-settings 支持的单位 */
+export type FontVariationSettingsUnit = 'unitless';
+/** font-variation-settings 支持的单位分类 */
+export type FontVariationSettingsUnitCategory = 'unitless';
+
+/** font-weight 支持的单位 */
+export type FontWeightUnit = 'unitless';
+/** font-weight 支持的单位分类 */
+export type FontWeightUnitCategory = 'unitless';
+
+/** glyph-orientation-horizontal 支持的单位 */
+export type GlyphOrientationHorizontalUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** glyph-orientation-horizontal 支持的单位分类 */
+export type GlyphOrientationHorizontalUnitCategory = 'angle';
+
+/** glyph-orientation-vertical 支持的单位 */
+export type GlyphOrientationVerticalUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** glyph-orientation-vertical 支持的单位分类 */
+export type GlyphOrientationVerticalUnitCategory = 'angle';
+
+/** grid-area 支持的单位 */
+export type GridAreaUnit = 'unitless';
+/** grid-area 支持的单位分类 */
+export type GridAreaUnitCategory = 'unitless';
+
+/** grid-auto-columns 支持的单位 */
+export type GridAutoColumnsUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'fr' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-auto-columns 支持的单位分类 */
+export type GridAutoColumnsUnitCategory = 'flex' | 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** grid-auto-rows 支持的单位 */
+export type GridAutoRowsUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'fr' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-auto-rows 支持的单位分类 */
+export type GridAutoRowsUnitCategory = 'flex' | 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** grid-column 支持的单位 */
+export type GridColumnUnit = 'unitless';
+/** grid-column 支持的单位分类 */
+export type GridColumnUnitCategory = 'unitless';
+
+/** grid-column-end 支持的单位 */
+export type GridColumnEndUnit = 'unitless';
+/** grid-column-end 支持的单位分类 */
+export type GridColumnEndUnitCategory = 'unitless';
+
+/** grid-column-gap 支持的单位 */
+export type GridColumnGapUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-column-gap 支持的单位分类 */
+export type GridColumnGapUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** grid-column-start 支持的单位 */
+export type GridColumnStartUnit = 'unitless';
+/** grid-column-start 支持的单位分类 */
+export type GridColumnStartUnitCategory = 'unitless';
+
+/** grid-row 支持的单位 */
+export type GridRowUnit = 'unitless';
+/** grid-row 支持的单位分类 */
+export type GridRowUnitCategory = 'unitless';
+
+/** grid-row-end 支持的单位 */
+export type GridRowEndUnit = 'unitless';
+/** grid-row-end 支持的单位分类 */
+export type GridRowEndUnitCategory = 'unitless';
+
+/** grid-row-gap 支持的单位 */
+export type GridRowGapUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-row-gap 支持的单位分类 */
+export type GridRowGapUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** grid-row-start 支持的单位 */
+export type GridRowStartUnit = 'unitless';
+/** grid-row-start 支持的单位分类 */
+export type GridRowStartUnitCategory = 'unitless';
+
+/** grid-template 支持的单位 */
+export type GridTemplateUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'fr' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-template 支持的单位分类 */
+export type GridTemplateUnitCategory = 'flex' | 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** grid-template-columns 支持的单位 */
+export type GridTemplateColumnsUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'fr' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-template-columns 支持的单位分类 */
+export type GridTemplateColumnsUnitCategory = 'flex' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** grid-template-rows 支持的单位 */
+export type GridTemplateRowsUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'fr' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** grid-template-rows 支持的单位分类 */
+export type GridTemplateRowsUnitCategory = 'flex' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** height 支持的单位 */
+export type HeightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** height 支持的单位分类 */
+export type HeightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** hyphenate-limit-chars 支持的单位 */
+export type HyphenateLimitCharsUnit = 'unitless';
+/** hyphenate-limit-chars 支持的单位分类 */
+export type HyphenateLimitCharsUnitCategory = 'unitless';
+
+/** image-orientation 支持的单位 */
+export type ImageOrientationUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** image-orientation 支持的单位分类 */
+export type ImageOrientationUnitCategory = 'angle';
+
+/** image-resolution 支持的单位 */
+export type ImageResolutionUnit = 'dpcm' | 'dpi' | 'dppx' | 'x';
+/** image-resolution 支持的单位分类 */
+export type ImageResolutionUnitCategory = 'resolution';
+
+/** initial-letter 支持的单位 */
+export type InitialLetterUnit = 'unitless';
+/** initial-letter 支持的单位分类 */
+export type InitialLetterUnitCategory = 'unitless';
+
+/** kerning 支持的单位 */
+export type KerningUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** kerning 支持的单位分类 */
+export type KerningUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** left 支持的单位 */
+export type LeftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** left 支持的单位分类 */
+export type LeftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** letter-spacing 支持的单位 */
+export type LetterSpacingUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** letter-spacing 支持的单位分类 */
+export type LetterSpacingUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** line-clamp 支持的单位 */
+export type LineClampUnit = 'unitless';
+/** line-clamp 支持的单位分类 */
+export type LineClampUnitCategory = 'unitless';
+
+/** line-height 支持的单位 */
+export type LineHeightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** line-height 支持的单位分类 */
+export type LineHeightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** line-height-step 支持的单位 */
+export type LineHeightStepUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** line-height-step 支持的单位分类 */
+export type LineHeightStepUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** list-style-image 支持的单位 */
+export type ListStyleImageUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** list-style-image 支持的单位分类 */
+export type ListStyleImageUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** margin 支持的单位 */
+export type MarginUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** margin 支持的单位分类 */
+export type MarginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** margin-bottom 支持的单位 */
+export type MarginBottomUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** margin-bottom 支持的单位分类 */
+export type MarginBottomUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** margin-left 支持的单位 */
+export type MarginLeftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** margin-left 支持的单位分类 */
+export type MarginLeftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** margin-right 支持的单位 */
+export type MarginRightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** margin-right 支持的单位分类 */
+export type MarginRightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** margin-top 支持的单位 */
+export type MarginTopUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** margin-top 支持的单位分类 */
+export type MarginTopUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** mask 支持的单位 */
+export type MaskUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** mask 支持的单位分类 */
+export type MaskUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** mask-border-outset 支持的单位 */
+export type MaskBorderOutsetUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** mask-border-outset 支持的单位分类 */
+export type MaskBorderOutsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** mask-border-slice 支持的单位 */
+export type MaskBorderSliceUnit = '%' | 'unitless';
+/** mask-border-slice 支持的单位分类 */
+export type MaskBorderSliceUnitCategory = 'percentage' | 'unitless';
+
+/** mask-border-source 支持的单位 */
+export type MaskBorderSourceUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** mask-border-source 支持的单位分类 */
+export type MaskBorderSourceUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** mask-border-width 支持的单位 */
+export type MaskBorderWidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** mask-border-width 支持的单位分类 */
+export type MaskBorderWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** mask-image 支持的单位 */
+export type MaskImageUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** mask-image 支持的单位分类 */
+export type MaskImageUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** mask-position 支持的单位 */
+export type MaskPositionUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** mask-position 支持的单位分类 */
+export type MaskPositionUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** mask-size 支持的单位 */
+export type MaskSizeUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** mask-size 支持的单位分类 */
+export type MaskSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** math-depth 支持的单位 */
+export type MathDepthUnit = 'unitless';
+/** math-depth 支持的单位分类 */
+export type MathDepthUnitCategory = 'unitless';
+
+/** max-height 支持的单位 */
+export type MaxHeightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** max-height 支持的单位分类 */
+export type MaxHeightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** max-lines 支持的单位 */
+export type MaxLinesUnit = 'unitless';
+/** max-lines 支持的单位分类 */
+export type MaxLinesUnitCategory = 'unitless';
+
+/** max-width 支持的单位 */
+export type MaxWidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** max-width 支持的单位分类 */
+export type MaxWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** min-height 支持的单位 */
+export type MinHeightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** min-height 支持的单位分类 */
+export type MinHeightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** min-width 支持的单位 */
+export type MinWidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** min-width 支持的单位分类 */
+export type MinWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** object-position 支持的单位 */
+export type ObjectPositionUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** object-position 支持的单位分类 */
+export type ObjectPositionUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** offset-anchor 支持的单位 */
+export type OffsetAnchorUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** offset-anchor 支持的单位分类 */
+export type OffsetAnchorUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** offset-distance 支持的单位 */
+export type OffsetDistanceUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** offset-distance 支持的单位分类 */
+export type OffsetDistanceUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** offset-path 支持的单位 */
+export type OffsetPathUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** offset-path 支持的单位分类 */
+export type OffsetPathUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** offset-position 支持的单位 */
+export type OffsetPositionUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** offset-position 支持的单位分类 */
+export type OffsetPositionUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** offset-rotate 支持的单位 */
+export type OffsetRotateUnit = 'deg' | 'grad' | 'rad' | 'turn';
+/** offset-rotate 支持的单位分类 */
+export type OffsetRotateUnitCategory = 'angle';
+
+/** opacity 支持的单位 */
+export type OpacityUnit = '%' | 'unitless';
+/** opacity 支持的单位分类 */
+export type OpacityUnitCategory = 'percentage' | 'unitless';
+
+/** order 支持的单位 */
+export type OrderUnit = 'unitless';
+/** order 支持的单位分类 */
+export type OrderUnitCategory = 'unitless';
+
+/** orphans 支持的单位 */
+export type OrphansUnit = 'unitless';
+/** orphans 支持的单位分类 */
+export type OrphansUnitCategory = 'unitless';
+
+/** outline-color 支持的单位 */
+export type OutlineColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** outline-color 支持的单位分类 */
+export type OutlineColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** outline-offset 支持的单位 */
+export type OutlineOffsetUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** outline-offset 支持的单位分类 */
+export type OutlineOffsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** outline-width 支持的单位 */
+export type OutlineWidthUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** outline-width 支持的单位分类 */
+export type OutlineWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** overflow-clip-margin 支持的单位 */
+export type OverflowClipMarginUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** overflow-clip-margin 支持的单位分类 */
+export type OverflowClipMarginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** padding 支持的单位 */
+export type PaddingUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** padding 支持的单位分类 */
+export type PaddingUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** padding-bottom 支持的单位 */
+export type PaddingBottomUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** padding-bottom 支持的单位分类 */
+export type PaddingBottomUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** padding-left 支持的单位 */
+export type PaddingLeftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** padding-left 支持的单位分类 */
+export type PaddingLeftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** padding-right 支持的单位 */
+export type PaddingRightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** padding-right 支持的单位分类 */
+export type PaddingRightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** padding-top 支持的单位 */
+export type PaddingTopUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** padding-top 支持的单位分类 */
+export type PaddingTopUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** pause-after 支持的单位 */
+export type PauseAfterUnit = 'ms' | 's';
+/** pause-after 支持的单位分类 */
+export type PauseAfterUnitCategory = 'time';
+
+/** pause-before 支持的单位 */
+export type PauseBeforeUnit = 'ms' | 's';
+/** pause-before 支持的单位分类 */
+export type PauseBeforeUnitCategory = 'time';
+
+/** perspective 支持的单位 */
+export type PerspectiveUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** perspective 支持的单位分类 */
+export type PerspectiveUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** perspective-origin 支持的单位 */
+export type PerspectiveOriginUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** perspective-origin 支持的单位分类 */
+export type PerspectiveOriginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** r 支持的单位 */
+export type RUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** r 支持的单位分类 */
+export type RUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** rest-after 支持的单位 */
+export type RestAfterUnit = 'ms' | 's';
+/** rest-after 支持的单位分类 */
+export type RestAfterUnitCategory = 'time';
+
+/** rest-before 支持的单位 */
+export type RestBeforeUnit = 'ms' | 's';
+/** rest-before 支持的单位分类 */
+export type RestBeforeUnitCategory = 'time';
+
+/** right 支持的单位 */
+export type RightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** right 支持的单位分类 */
+export type RightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** rotate 支持的单位 */
+export type RotateUnit = 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** rotate 支持的单位分类 */
+export type RotateUnitCategory = 'angle' | 'unitless';
+
+/** row-gap 支持的单位 */
+export type RowGapUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** row-gap 支持的单位分类 */
+export type RowGapUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** rx 支持的单位 */
+export type RxUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** rx 支持的单位分类 */
+export type RxUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** ry 支持的单位 */
+export type RyUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** ry 支持的单位分类 */
+export type RyUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scale 支持的单位 */
+export type ScaleUnit = '%' | 'unitless';
+/** scale 支持的单位分类 */
+export type ScaleUnitCategory = 'percentage' | 'unitless';
+
+/** scroll-margin 支持的单位 */
+export type ScrollMarginUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin 支持的单位分类 */
+export type ScrollMarginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-block 支持的单位 */
+export type ScrollMarginBlockUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-block 支持的单位分类 */
+export type ScrollMarginBlockUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-block-end 支持的单位 */
+export type ScrollMarginBlockEndUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-block-end 支持的单位分类 */
+export type ScrollMarginBlockEndUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-block-start 支持的单位 */
+export type ScrollMarginBlockStartUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-block-start 支持的单位分类 */
+export type ScrollMarginBlockStartUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-bottom 支持的单位 */
+export type ScrollMarginBottomUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-bottom 支持的单位分类 */
+export type ScrollMarginBottomUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-inline 支持的单位 */
+export type ScrollMarginInlineUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-inline 支持的单位分类 */
+export type ScrollMarginInlineUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-inline-end 支持的单位 */
+export type ScrollMarginInlineEndUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-inline-end 支持的单位分类 */
+export type ScrollMarginInlineEndUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-inline-start 支持的单位 */
+export type ScrollMarginInlineStartUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-inline-start 支持的单位分类 */
+export type ScrollMarginInlineStartUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-left 支持的单位 */
+export type ScrollMarginLeftUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-left 支持的单位分类 */
+export type ScrollMarginLeftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-right 支持的单位 */
+export type ScrollMarginRightUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-right 支持的单位分类 */
+export type ScrollMarginRightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-margin-top 支持的单位 */
+export type ScrollMarginTopUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-margin-top 支持的单位分类 */
+export type ScrollMarginTopUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding 支持的单位 */
+export type ScrollPaddingUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding 支持的单位分类 */
+export type ScrollPaddingUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-block 支持的单位 */
+export type ScrollPaddingBlockUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-block 支持的单位分类 */
+export type ScrollPaddingBlockUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-block-end 支持的单位 */
+export type ScrollPaddingBlockEndUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-block-end 支持的单位分类 */
+export type ScrollPaddingBlockEndUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-block-start 支持的单位 */
+export type ScrollPaddingBlockStartUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-block-start 支持的单位分类 */
+export type ScrollPaddingBlockStartUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-bottom 支持的单位 */
+export type ScrollPaddingBottomUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-bottom 支持的单位分类 */
+export type ScrollPaddingBottomUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-inline 支持的单位 */
+export type ScrollPaddingInlineUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-inline 支持的单位分类 */
+export type ScrollPaddingInlineUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-inline-end 支持的单位 */
+export type ScrollPaddingInlineEndUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-inline-end 支持的单位分类 */
+export type ScrollPaddingInlineEndUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-inline-start 支持的单位 */
+export type ScrollPaddingInlineStartUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-inline-start 支持的单位分类 */
+export type ScrollPaddingInlineStartUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-left 支持的单位 */
+export type ScrollPaddingLeftUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-left 支持的单位分类 */
+export type ScrollPaddingLeftUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-right 支持的单位 */
+export type ScrollPaddingRightUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-right 支持的单位分类 */
+export type ScrollPaddingRightUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-padding-top 支持的单位 */
+export type ScrollPaddingTopUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-padding-top 支持的单位分类 */
+export type ScrollPaddingTopUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-snap-coordinate 支持的单位 */
+export type ScrollSnapCoordinateUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-snap-coordinate 支持的单位分类 */
+export type ScrollSnapCoordinateUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-snap-destination 支持的单位 */
+export type ScrollSnapDestinationUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-snap-destination 支持的单位分类 */
+export type ScrollSnapDestinationUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-snap-points-x 支持的单位 */
+export type ScrollSnapPointsXUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-snap-points-x 支持的单位分类 */
+export type ScrollSnapPointsXUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scroll-snap-points-y 支持的单位 */
+export type ScrollSnapPointsYUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** scroll-snap-points-y 支持的单位分类 */
+export type ScrollSnapPointsYUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** scrollbar-color 支持的单位 */
+export type ScrollbarColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** scrollbar-color 支持的单位分类 */
+export type ScrollbarColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** shape-image-threshold 支持的单位 */
+export type ShapeImageThresholdUnit = '%' | 'unitless';
+/** shape-image-threshold 支持的单位分类 */
+export type ShapeImageThresholdUnitCategory = 'percentage' | 'unitless';
+
+/** shape-margin 支持的单位 */
+export type ShapeMarginUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** shape-margin 支持的单位分类 */
+export type ShapeMarginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** shape-outside 支持的单位 */
+export type ShapeOutsideUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dpcm' | 'dpi' | 'dppx' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw' | 'x';
+/** shape-outside 支持的单位分类 */
+export type ShapeOutsideUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'resolution' | 'unitless';
+
+/** stroke 支持的单位 */
+export type StrokeUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** stroke 支持的单位分类 */
+export type StrokeUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** stroke-dasharray 支持的单位 */
+export type StrokeDasharrayUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** stroke-dasharray 支持的单位分类 */
+export type StrokeDasharrayUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** stroke-dashoffset 支持的单位 */
+export type StrokeDashoffsetUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** stroke-dashoffset 支持的单位分类 */
+export type StrokeDashoffsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** stroke-miterlimit 支持的单位 */
+export type StrokeMiterlimitUnit = 'unitless';
+/** stroke-miterlimit 支持的单位分类 */
+export type StrokeMiterlimitUnitCategory = 'unitless';
+
+/** stroke-width 支持的单位 */
+export type StrokeWidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** stroke-width 支持的单位分类 */
+export type StrokeWidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** tab-size 支持的单位 */
+export type TabSizeUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** tab-size 支持的单位分类 */
+export type TabSizeUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** text-combine-upright 支持的单位 */
+export type TextCombineUprightUnit = 'unitless';
+/** text-combine-upright 支持的单位分类 */
+export type TextCombineUprightUnitCategory = 'unitless';
+
+/** text-decoration-color 支持的单位 */
+export type TextDecorationColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** text-decoration-color 支持的单位分类 */
+export type TextDecorationColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** text-decoration-thickness 支持的单位 */
+export type TextDecorationThicknessUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** text-decoration-thickness 支持的单位分类 */
+export type TextDecorationThicknessUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** text-emphasis-color 支持的单位 */
+export type TextEmphasisColorUnit = '%' | 'deg' | 'grad' | 'rad' | 'turn' | 'unitless';
+/** text-emphasis-color 支持的单位分类 */
+export type TextEmphasisColorUnitCategory = 'angle' | 'percentage' | 'unitless';
+
+/** text-indent 支持的单位 */
+export type TextIndentUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** text-indent 支持的单位分类 */
+export type TextIndentUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** text-shadow 支持的单位 */
+export type TextShadowUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** text-shadow 支持的单位分类 */
+export type TextShadowUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** text-size-adjust 支持的单位 */
+export type TextSizeAdjustUnit = '%';
+/** text-size-adjust 支持的单位分类 */
+export type TextSizeAdjustUnitCategory = 'percentage';
+
+/** text-underline-offset 支持的单位 */
+export type TextUnderlineOffsetUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** text-underline-offset 支持的单位分类 */
+export type TextUnderlineOffsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** top 支持的单位 */
+export type TopUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** top 支持的单位分类 */
+export type TopUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** transform 支持的单位 */
+export type TransformUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'deg' | 'dvh' | 'dvw' | 'em' | 'ex' | 'grad' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rad' | 'rem' | 'rlh' | 'svh' | 'svw' | 'turn' | 'unitless' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** transform 支持的单位分类 */
+export type TransformUnitCategory = 'angle' | 'fontRelative' | 'percentage' | 'physical' | 'pixel' | 'unitless';
+
+/** transform-origin 支持的单位 */
+export type TransformOriginUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** transform-origin 支持的单位分类 */
+export type TransformOriginUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** transition 支持的单位 */
+export type TransitionUnit = 'ms' | 's' | 'unitless';
+/** transition 支持的单位分类 */
+export type TransitionUnitCategory = 'time' | 'unitless';
+
+/** transition-delay 支持的单位 */
+export type TransitionDelayUnit = 'ms' | 's';
+/** transition-delay 支持的单位分类 */
+export type TransitionDelayUnitCategory = 'time';
+
+/** transition-duration 支持的单位 */
+export type TransitionDurationUnit = 'ms' | 's';
+/** transition-duration 支持的单位分类 */
+export type TransitionDurationUnitCategory = 'time';
+
+/** transition-timing-function 支持的单位 */
+export type TransitionTimingFunctionUnit = 'unitless';
+/** transition-timing-function 支持的单位分类 */
+export type TransitionTimingFunctionUnitCategory = 'unitless';
+
+/** translate 支持的单位 */
+export type TranslateUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** translate 支持的单位分类 */
+export type TranslateUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** vertical-align 支持的单位 */
+export type VerticalAlignUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** vertical-align 支持的单位分类 */
+export type VerticalAlignUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** view-timeline-inset 支持的单位 */
+export type ViewTimelineInsetUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** view-timeline-inset 支持的单位分类 */
+export type ViewTimelineInsetUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** voice-balance 支持的单位 */
+export type VoiceBalanceUnit = 'unitless';
+/** voice-balance 支持的单位分类 */
+export type VoiceBalanceUnitCategory = 'unitless';
+
+/** voice-duration 支持的单位 */
+export type VoiceDurationUnit = 'ms' | 's';
+/** voice-duration 支持的单位分类 */
+export type VoiceDurationUnitCategory = 'time';
+
+/** voice-family 支持的单位 */
+export type VoiceFamilyUnit = 'unitless';
+/** voice-family 支持的单位分类 */
+export type VoiceFamilyUnitCategory = 'unitless';
+
+/** voice-pitch 支持的单位 */
+export type VoicePitchUnit = '%' | 'Hz' | 'kHz';
+/** voice-pitch 支持的单位分类 */
+export type VoicePitchUnitCategory = 'frequency' | 'percentage';
+
+/** voice-range 支持的单位 */
+export type VoiceRangeUnit = '%' | 'Hz' | 'kHz';
+/** voice-range 支持的单位分类 */
+export type VoiceRangeUnitCategory = 'frequency' | 'percentage';
+
+/** voice-rate 支持的单位 */
+export type VoiceRateUnit = '%';
+/** voice-rate 支持的单位分类 */
+export type VoiceRateUnitCategory = 'percentage';
+
+/** widows 支持的单位 */
+export type WidowsUnit = 'unitless';
+/** widows 支持的单位分类 */
+export type WidowsUnitCategory = 'unitless';
+
+/** width 支持的单位 */
+export type WidthUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** width 支持的单位分类 */
+export type WidthUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** word-spacing 支持的单位 */
+export type WordSpacingUnit = 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** word-spacing 支持的单位分类 */
+export type WordSpacingUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** x 支持的单位 */
+export type XUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** x 支持的单位分类 */
+export type XUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** y 支持的单位 */
+export type YUnit = '%' | 'Q' | 'cap' | 'ch' | 'cm' | 'dvh' | 'dvw' | 'em' | 'ex' | 'ic' | 'in' | 'lh' | 'lvh' | 'lvw' | 'mm' | 'pc' | 'pt' | 'px' | 'rem' | 'rlh' | 'svh' | 'svw' | 'vb' | 'vh' | 'vi' | 'vmax' | 'vmin' | 'vw';
+/** y 支持的单位分类 */
+export type YUnitCategory = 'fontRelative' | 'percentage' | 'physical' | 'pixel';
+
+/** z-index 支持的单位 */
+export type ZIndexUnit = 'unitless';
+/** z-index 支持的单位分类 */
+export type ZIndexUnitCategory = 'unitless';
+
+/** zoom 支持的单位 */
+export type ZoomUnit = '%' | 'unitless';
+/** zoom 支持的单位分类 */
+export type ZoomUnitCategory = 'percentage' | 'unitless';
 
 // ==================== 属性配置类 ====================
 
@@ -1020,7 +2204,8 @@ import {
 export class AccentColorConfig {
   keywords: (AccentColorKeyword | AllColorValue)[] = [...ACCENT_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...ACCENT_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<AccentColorUnit> = {};
+  unitCategories: UnitsConfigValue<AccentColorUnitCategory> = {};
 }
 
 /** align-content 属性配置 */
@@ -1067,7 +2252,8 @@ export class AnchorScopeConfig {
 export class AnimationConfig {
   keywords: AnimationKeyword[] = [...ANIMATION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ANIMATION_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<AnimationUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationUnitCategory> = {};
 }
 
 /** animation-composition 属性配置 */
@@ -1078,7 +2264,8 @@ export class AnimationCompositionConfig {
 /** animation-delay 属性配置 */
 export class AnimationDelayConfig {
   numberTypes: NumberTypeName[] = [...ANIMATION_DELAY_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<AnimationDelayUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationDelayUnitCategory> = {};
 }
 
 /** animation-direction 属性配置 */
@@ -1089,7 +2276,8 @@ export class AnimationDirectionConfig {
 /** animation-duration 属性配置 */
 export class AnimationDurationConfig {
   numberTypes: NumberTypeName[] = [...ANIMATION_DURATION_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<AnimationDurationUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationDurationUnitCategory> = {};
 }
 
 /** animation-fill-mode 属性配置 */
@@ -1101,7 +2289,8 @@ export class AnimationFillModeConfig {
 export class AnimationIterationCountConfig {
   keywords: AnimationIterationCountKeyword[] = [...ANIMATION_ITERATION_COUNT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ANIMATION_ITERATION_COUNT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<AnimationIterationCountUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationIterationCountUnitCategory> = {};
 }
 
 /** animation-name 属性配置 */
@@ -1118,14 +2307,16 @@ export class AnimationPlayStateConfig {
 export class AnimationRangeEndConfig {
   keywords: AnimationRangeEndKeyword[] = [...ANIMATION_RANGE_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ANIMATION_RANGE_END_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<AnimationRangeEndUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationRangeEndUnitCategory> = {};
 }
 
 /** animation-range-start 属性配置 */
 export class AnimationRangeStartConfig {
   keywords: AnimationRangeStartKeyword[] = [...ANIMATION_RANGE_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ANIMATION_RANGE_START_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<AnimationRangeStartUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationRangeStartUnitCategory> = {};
 }
 
 /** animation-timeline 属性配置 */
@@ -1137,7 +2328,8 @@ export class AnimationTimelineConfig {
 export class AnimationTimingFunctionConfig {
   keywords: AnimationTimingFunctionKeyword[] = [...ANIMATION_TIMING_FUNCTION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ANIMATION_TIMING_FUNCTION_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<AnimationTimingFunctionUnit> = {};
+  unitCategories: UnitsConfigValue<AnimationTimingFunctionUnitCategory> = {};
 }
 
 /** appearance 属性配置 */
@@ -1149,21 +2341,24 @@ export class AppearanceConfig {
 export class AspectRatioConfig {
   keywords: AspectRatioKeyword[] = [...ASPECT_RATIO_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ASPECT_RATIO_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<AspectRatioUnit> = {};
+  unitCategories: UnitsConfigValue<AspectRatioUnitCategory> = {};
 }
 
 /** azimuth 属性配置 */
 export class AzimuthConfig {
   keywords: AzimuthKeyword[] = [...AZIMUTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...AZIMUTH_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<AzimuthUnit> = {};
+  unitCategories: UnitsConfigValue<AzimuthUnitCategory> = {};
 }
 
 /** backdrop-filter 属性配置 */
 export class BackdropFilterConfig {
   keywords: (BackdropFilterKeyword | AllColorValue)[] = [...BACKDROP_FILTER_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BACKDROP_FILTER_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BackdropFilterUnit> = {};
+  unitCategories: UnitsConfigValue<BackdropFilterUnitCategory> = {};
 }
 
 /** backface-visibility 属性配置 */
@@ -1175,7 +2370,8 @@ export class BackfaceVisibilityConfig {
 export class BackgroundConfig {
   keywords: (BackgroundKeyword | AllColorValue)[] = [...BACKGROUND_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<BackgroundUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundUnitCategory> = {};
 }
 
 /** background-attachment 属性配置 */
@@ -1197,14 +2393,16 @@ export class BackgroundClipConfig {
 export class BackgroundColorConfig {
   keywords: (BackgroundColorKeyword | AllColorValue)[] = [...BACKGROUND_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BackgroundColorUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundColorUnitCategory> = {};
 }
 
 /** background-image 属性配置 */
 export class BackgroundImageConfig {
   keywords: (BackgroundImageKeyword | AllColorValue)[] = [...BACKGROUND_IMAGE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_IMAGE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<BackgroundImageUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundImageUnitCategory> = {};
 }
 
 /** background-origin 属性配置 */
@@ -1216,21 +2414,24 @@ export class BackgroundOriginConfig {
 export class BackgroundPositionConfig {
   keywords: BackgroundPositionKeyword[] = [...BACKGROUND_POSITION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BackgroundPositionUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundPositionUnitCategory> = {};
 }
 
 /** background-position-x 属性配置 */
 export class BackgroundPositionXConfig {
   keywords: BackgroundPositionXKeyword[] = [...BACKGROUND_POSITION_X_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_X_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BackgroundPositionXUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundPositionXUnitCategory> = {};
 }
 
 /** background-position-y 属性配置 */
 export class BackgroundPositionYConfig {
   keywords: BackgroundPositionYKeyword[] = [...BACKGROUND_POSITION_Y_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_POSITION_Y_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BackgroundPositionYUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundPositionYUnitCategory> = {};
 }
 
 /** background-repeat 属性配置 */
@@ -1242,61 +2443,70 @@ export class BackgroundRepeatConfig {
 export class BackgroundSizeConfig {
   keywords: BackgroundSizeKeyword[] = [...BACKGROUND_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BACKGROUND_SIZE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BackgroundSizeUnit> = {};
+  unitCategories: UnitsConfigValue<BackgroundSizeUnitCategory> = {};
 }
 
 /** baseline-shift 属性配置 */
 export class BaselineShiftConfig {
   keywords: BaselineShiftKeyword[] = [...BASELINE_SHIFT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BASELINE_SHIFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BaselineShiftUnit> = {};
+  unitCategories: UnitsConfigValue<BaselineShiftUnitCategory> = {};
 }
 
 /** border 属性配置 */
 export class BorderConfig {
   keywords: (BorderKeyword | AllColorValue)[] = [...BORDER_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderUnit> = {};
+  unitCategories: UnitsConfigValue<BorderUnitCategory> = {};
 }
 
 /** border-block 属性配置 */
 export class BorderBlockConfig {
   keywords: (BorderBlockKeyword | AllColorValue)[] = [...BORDER_BLOCK_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderBlockUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBlockUnitCategory> = {};
 }
 
 /** border-block-end 属性配置 */
 export class BorderBlockEndConfig {
   keywords: (BorderBlockEndKeyword | AllColorValue)[] = [...BORDER_BLOCK_END_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_END_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderBlockEndUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBlockEndUnitCategory> = {};
 }
 
 /** border-block-start 属性配置 */
 export class BorderBlockStartConfig {
   keywords: (BorderBlockStartKeyword | AllColorValue)[] = [...BORDER_BLOCK_START_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_BLOCK_START_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderBlockStartUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBlockStartUnitCategory> = {};
 }
 
 /** border-bottom 属性配置 */
 export class BorderBottomConfig {
   keywords: (BorderBottomKeyword | AllColorValue)[] = [...BORDER_BOTTOM_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderBottomUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBottomUnitCategory> = {};
 }
 
 /** border-bottom-left-radius 属性配置 */
 export class BorderBottomLeftRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderBottomLeftRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBottomLeftRadiusUnitCategory> = {};
 }
 
 /** border-bottom-right-radius 属性配置 */
 export class BorderBottomRightRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderBottomRightRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBottomRightRadiusUnitCategory> = {};
 }
 
 /** border-bottom-style 属性配置 */
@@ -1308,7 +2518,8 @@ export class BorderBottomStyleConfig {
 export class BorderBottomWidthConfig {
   keywords: BorderBottomWidthKeyword[] = [...BORDER_BOTTOM_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_BOTTOM_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderBottomWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderBottomWidthUnitCategory> = {};
 }
 
 /** border-collapse 属性配置 */
@@ -1320,25 +2531,29 @@ export class BorderCollapseConfig {
 export class BorderColorConfig {
   keywords: (BorderColorKeyword | AllColorValue)[] = [...BORDER_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderColorUnit> = {};
+  unitCategories: UnitsConfigValue<BorderColorUnitCategory> = {};
 }
 
 /** border-end-end-radius 属性配置 */
 export class BorderEndEndRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_END_END_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderEndEndRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderEndEndRadiusUnitCategory> = {};
 }
 
 /** border-end-start-radius 属性配置 */
 export class BorderEndStartRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_END_START_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderEndStartRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderEndStartRadiusUnitCategory> = {};
 }
 
 /** border-image-outset 属性配置 */
 export class BorderImageOutsetConfig {
   numberTypes: NumberTypeName[] = [...BORDER_IMAGE_OUTSET_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderImageOutsetUnit> = {};
+  unitCategories: UnitsConfigValue<BorderImageOutsetUnitCategory> = {};
 }
 
 /** border-image-repeat 属性配置 */
@@ -1350,56 +2565,64 @@ export class BorderImageRepeatConfig {
 export class BorderImageSliceConfig {
   keywords: BorderImageSliceKeyword[] = [...BORDER_IMAGE_SLICE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_IMAGE_SLICE_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<BorderImageSliceUnit> = {};
+  unitCategories: UnitsConfigValue<BorderImageSliceUnitCategory> = {};
 }
 
 /** border-image-source 属性配置 */
 export class BorderImageSourceConfig {
   keywords: (BorderImageSourceKeyword | AllColorValue)[] = [...BORDER_IMAGE_SOURCE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_IMAGE_SOURCE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<BorderImageSourceUnit> = {};
+  unitCategories: UnitsConfigValue<BorderImageSourceUnitCategory> = {};
 }
 
 /** border-image-width 属性配置 */
 export class BorderImageWidthConfig {
   keywords: BorderImageWidthKeyword[] = [...BORDER_IMAGE_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_IMAGE_WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderImageWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderImageWidthUnitCategory> = {};
 }
 
 /** border-inline 属性配置 */
 export class BorderInlineConfig {
   keywords: (BorderInlineKeyword | AllColorValue)[] = [...BORDER_INLINE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderInlineUnit> = {};
+  unitCategories: UnitsConfigValue<BorderInlineUnitCategory> = {};
 }
 
 /** border-inline-end 属性配置 */
 export class BorderInlineEndConfig {
   keywords: (BorderInlineEndKeyword | AllColorValue)[] = [...BORDER_INLINE_END_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_END_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderInlineEndUnit> = {};
+  unitCategories: UnitsConfigValue<BorderInlineEndUnitCategory> = {};
 }
 
 /** border-inline-start 属性配置 */
 export class BorderInlineStartConfig {
   keywords: (BorderInlineStartKeyword | AllColorValue)[] = [...BORDER_INLINE_START_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_INLINE_START_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderInlineStartUnit> = {};
+  unitCategories: UnitsConfigValue<BorderInlineStartUnitCategory> = {};
 }
 
 /** border-left 属性配置 */
 export class BorderLeftConfig {
   keywords: (BorderLeftKeyword | AllColorValue)[] = [...BORDER_LEFT_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_LEFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderLeftUnit> = {};
+  unitCategories: UnitsConfigValue<BorderLeftUnitCategory> = {};
 }
 
 /** border-left-color 属性配置 */
 export class BorderLeftColorConfig {
   keywords: (BorderLeftColorKeyword | AllColorValue)[] = [...BORDER_LEFT_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_LEFT_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderLeftColorUnit> = {};
+  unitCategories: UnitsConfigValue<BorderLeftColorUnitCategory> = {};
 }
 
 /** border-left-style 属性配置 */
@@ -1411,27 +2634,31 @@ export class BorderLeftStyleConfig {
 export class BorderLeftWidthConfig {
   keywords: BorderLeftWidthKeyword[] = [...BORDER_LEFT_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_LEFT_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderLeftWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderLeftWidthUnitCategory> = {};
 }
 
 /** border-radius 属性配置 */
 export class BorderRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderRadiusUnitCategory> = {};
 }
 
 /** border-right 属性配置 */
 export class BorderRightConfig {
   keywords: (BorderRightKeyword | AllColorValue)[] = [...BORDER_RIGHT_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_RIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderRightUnit> = {};
+  unitCategories: UnitsConfigValue<BorderRightUnitCategory> = {};
 }
 
 /** border-right-color 属性配置 */
 export class BorderRightColorConfig {
   keywords: (BorderRightColorKeyword | AllColorValue)[] = [...BORDER_RIGHT_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_RIGHT_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderRightColorUnit> = {};
+  unitCategories: UnitsConfigValue<BorderRightColorUnitCategory> = {};
 }
 
 /** border-right-style 属性配置 */
@@ -1443,25 +2670,29 @@ export class BorderRightStyleConfig {
 export class BorderRightWidthConfig {
   keywords: BorderRightWidthKeyword[] = [...BORDER_RIGHT_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_RIGHT_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderRightWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderRightWidthUnitCategory> = {};
 }
 
 /** border-spacing 属性配置 */
 export class BorderSpacingConfig {
   numberTypes: NumberTypeName[] = [...BORDER_SPACING_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderSpacingUnit> = {};
+  unitCategories: UnitsConfigValue<BorderSpacingUnitCategory> = {};
 }
 
 /** border-start-end-radius 属性配置 */
 export class BorderStartEndRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_START_END_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderStartEndRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderStartEndRadiusUnitCategory> = {};
 }
 
 /** border-start-start-radius 属性配置 */
 export class BorderStartStartRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_START_START_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderStartStartRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderStartStartRadiusUnitCategory> = {};
 }
 
 /** border-style 属性配置 */
@@ -1473,26 +2704,30 @@ export class BorderStyleConfig {
 export class BorderTopConfig {
   keywords: (BorderTopKeyword | AllColorValue)[] = [...BORDER_TOP_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_TOP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderTopUnit> = {};
+  unitCategories: UnitsConfigValue<BorderTopUnitCategory> = {};
 }
 
 /** border-top-color 属性配置 */
 export class BorderTopColorConfig {
   keywords: (BorderTopColorKeyword | AllColorValue)[] = [...BORDER_TOP_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BORDER_TOP_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<BorderTopColorUnit> = {};
+  unitCategories: UnitsConfigValue<BorderTopColorUnitCategory> = {};
 }
 
 /** border-top-left-radius 属性配置 */
 export class BorderTopLeftRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderTopLeftRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderTopLeftRadiusUnitCategory> = {};
 }
 
 /** border-top-right-radius 属性配置 */
 export class BorderTopRightRadiusConfig {
   numberTypes: NumberTypeName[] = [...BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderTopRightRadiusUnit> = {};
+  unitCategories: UnitsConfigValue<BorderTopRightRadiusUnitCategory> = {};
 }
 
 /** border-top-style 属性配置 */
@@ -1504,21 +2739,24 @@ export class BorderTopStyleConfig {
 export class BorderTopWidthConfig {
   keywords: BorderTopWidthKeyword[] = [...BORDER_TOP_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_TOP_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderTopWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderTopWidthUnitCategory> = {};
 }
 
 /** border-width 属性配置 */
 export class BorderWidthConfig {
   keywords: BorderWidthKeyword[] = [...BORDER_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BORDER_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BorderWidthUnit> = {};
+  unitCategories: UnitsConfigValue<BorderWidthUnitCategory> = {};
 }
 
 /** bottom 属性配置 */
 export class BottomConfig {
   keywords: BottomKeyword[] = [...BOTTOM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...BOTTOM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BottomUnit> = {};
+  unitCategories: UnitsConfigValue<BottomUnitCategory> = {};
 }
 
 /** box-align 属性配置 */
@@ -1539,13 +2777,15 @@ export class BoxDirectionConfig {
 /** box-flex 属性配置 */
 export class BoxFlexConfig {
   numberTypes: NumberTypeName[] = [...BOX_FLEX_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<BoxFlexUnit> = {};
+  unitCategories: UnitsConfigValue<BoxFlexUnitCategory> = {};
 }
 
 /** box-flex-group 属性配置 */
 export class BoxFlexGroupConfig {
   numberTypes: NumberTypeName[] = [...BOX_FLEX_GROUP_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<BoxFlexGroupUnit> = {};
+  unitCategories: UnitsConfigValue<BoxFlexGroupUnitCategory> = {};
 }
 
 /** box-lines 属性配置 */
@@ -1556,7 +2796,8 @@ export class BoxLinesConfig {
 /** box-ordinal-group 属性配置 */
 export class BoxOrdinalGroupConfig {
   numberTypes: NumberTypeName[] = [...BOX_ORDINAL_GROUP_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<BoxOrdinalGroupUnit> = {};
+  unitCategories: UnitsConfigValue<BoxOrdinalGroupUnitCategory> = {};
 }
 
 /** box-orient 属性配置 */
@@ -1573,7 +2814,8 @@ export class BoxPackConfig {
 export class BoxShadowConfig {
   keywords: (BoxShadowKeyword | AllColorValue)[] = [...BOX_SHADOW_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...BOX_SHADOW_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<BoxShadowUnit> = {};
+  unitCategories: UnitsConfigValue<BoxShadowUnitCategory> = {};
 }
 
 /** box-sizing 属性配置 */
@@ -1605,7 +2847,8 @@ export class CaptionSideConfig {
 export class CaretColorConfig {
   keywords: (CaretColorKeyword | AllColorValue)[] = [...CARET_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...CARET_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<CaretColorUnit> = {};
+  unitCategories: UnitsConfigValue<CaretColorUnitCategory> = {};
 }
 
 /** caret-shape 属性配置 */
@@ -1622,14 +2865,16 @@ export class ClearConfig {
 export class ClipConfig {
   keywords: ClipKeyword[] = [...CLIP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CLIP_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ClipUnit> = {};
+  unitCategories: UnitsConfigValue<ClipUnitCategory> = {};
 }
 
 /** clip-path 属性配置 */
 export class ClipPathConfig {
   keywords: ClipPathKeyword[] = [...CLIP_PATH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CLIP_PATH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ClipPathUnit> = {};
+  unitCategories: UnitsConfigValue<ClipPathUnitCategory> = {};
 }
 
 /** clip-rule 属性配置 */
@@ -1641,7 +2886,8 @@ export class ClipRuleConfig {
 export class ColorConfig {
   keywords: (ColorKeyword | AllColorValue)[] = [...COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<ColorUnit> = {};
+  unitCategories: UnitsConfigValue<ColorUnitCategory> = {};
 }
 
 /** color-interpolation-filters 属性配置 */
@@ -1658,7 +2904,8 @@ export class ColorSchemeConfig {
 export class ColumnCountConfig {
   keywords: ColumnCountKeyword[] = [...COLUMN_COUNT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COLUMN_COUNT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<ColumnCountUnit> = {};
+  unitCategories: UnitsConfigValue<ColumnCountUnitCategory> = {};
 }
 
 /** column-fill 属性配置 */
@@ -1670,14 +2917,16 @@ export class ColumnFillConfig {
 export class ColumnGapConfig {
   keywords: ColumnGapKeyword[] = [...COLUMN_GAP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COLUMN_GAP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ColumnGapUnit> = {};
+  unitCategories: UnitsConfigValue<ColumnGapUnitCategory> = {};
 }
 
 /** column-rule-color 属性配置 */
 export class ColumnRuleColorConfig {
   keywords: (ColumnRuleColorKeyword | AllColorValue)[] = [...COLUMN_RULE_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...COLUMN_RULE_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<ColumnRuleColorUnit> = {};
+  unitCategories: UnitsConfigValue<ColumnRuleColorUnitCategory> = {};
 }
 
 /** column-span 属性配置 */
@@ -1689,7 +2938,8 @@ export class ColumnSpanConfig {
 export class ColumnWidthConfig {
   keywords: ColumnWidthKeyword[] = [...COLUMN_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COLUMN_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ColumnWidthUnit> = {};
+  unitCategories: UnitsConfigValue<ColumnWidthUnitCategory> = {};
 }
 
 /** contain 属性配置 */
@@ -1701,35 +2951,40 @@ export class ContainConfig {
 export class ContainIntrinsicBlockSizeConfig {
   keywords: ContainIntrinsicBlockSizeKeyword[] = [...CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ContainIntrinsicBlockSizeUnit> = {};
+  unitCategories: UnitsConfigValue<ContainIntrinsicBlockSizeUnitCategory> = {};
 }
 
 /** contain-intrinsic-height 属性配置 */
 export class ContainIntrinsicHeightConfig {
   keywords: ContainIntrinsicHeightKeyword[] = [...CONTAIN_INTRINSIC_HEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ContainIntrinsicHeightUnit> = {};
+  unitCategories: UnitsConfigValue<ContainIntrinsicHeightUnitCategory> = {};
 }
 
 /** contain-intrinsic-inline-size 属性配置 */
 export class ContainIntrinsicInlineSizeConfig {
   keywords: ContainIntrinsicInlineSizeKeyword[] = [...CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ContainIntrinsicInlineSizeUnit> = {};
+  unitCategories: UnitsConfigValue<ContainIntrinsicInlineSizeUnitCategory> = {};
 }
 
 /** contain-intrinsic-size 属性配置 */
 export class ContainIntrinsicSizeConfig {
   keywords: ContainIntrinsicSizeKeyword[] = [...CONTAIN_INTRINSIC_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ContainIntrinsicSizeUnit> = {};
+  unitCategories: UnitsConfigValue<ContainIntrinsicSizeUnitCategory> = {};
 }
 
 /** contain-intrinsic-width 属性配置 */
 export class ContainIntrinsicWidthConfig {
   keywords: ContainIntrinsicWidthKeyword[] = [...CONTAIN_INTRINSIC_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ContainIntrinsicWidthUnit> = {};
+  unitCategories: UnitsConfigValue<ContainIntrinsicWidthUnitCategory> = {};
 }
 
 /** container-name 属性配置 */
@@ -1746,7 +3001,8 @@ export class ContainerTypeConfig {
 export class ContentConfig {
   keywords: (ContentKeyword | AllColorValue)[] = [...CONTENT_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...CONTENT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<ContentUnit> = {};
+  unitCategories: UnitsConfigValue<ContentUnitCategory> = {};
 }
 
 /** content-visibility 属性配置 */
@@ -1758,21 +3014,24 @@ export class ContentVisibilityConfig {
 export class CounterIncrementConfig {
   keywords: CounterIncrementKeyword[] = [...COUNTER_INCREMENT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COUNTER_INCREMENT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<CounterIncrementUnit> = {};
+  unitCategories: UnitsConfigValue<CounterIncrementUnitCategory> = {};
 }
 
 /** counter-reset 属性配置 */
 export class CounterResetConfig {
   keywords: CounterResetKeyword[] = [...COUNTER_RESET_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COUNTER_RESET_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<CounterResetUnit> = {};
+  unitCategories: UnitsConfigValue<CounterResetUnitCategory> = {};
 }
 
 /** counter-set 属性配置 */
 export class CounterSetConfig {
   keywords: CounterSetKeyword[] = [...COUNTER_SET_KEYWORDS];
   numberTypes: NumberTypeName[] = [...COUNTER_SET_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<CounterSetUnit> = {};
+  unitCategories: UnitsConfigValue<CounterSetUnitCategory> = {};
 }
 
 /** cue-after 属性配置 */
@@ -1789,19 +3048,22 @@ export class CueBeforeConfig {
 export class CursorConfig {
   keywords: CursorKeyword[] = [...CURSOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...CURSOR_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<CursorUnit> = {};
+  unitCategories: UnitsConfigValue<CursorUnitCategory> = {};
 }
 
 /** cx 属性配置 */
 export class CxConfig {
   numberTypes: NumberTypeName[] = [...CX_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<CxUnit> = {};
+  unitCategories: UnitsConfigValue<CxUnitCategory> = {};
 }
 
 /** cy 属性配置 */
 export class CyConfig {
   numberTypes: NumberTypeName[] = [...CY_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<CyUnit> = {};
+  unitCategories: UnitsConfigValue<CyUnitCategory> = {};
 }
 
 /** d 属性配置 */
@@ -1838,13 +3100,15 @@ export class FieldSizingConfig {
 export class FillConfig {
   keywords: (FillKeyword | AllColorValue)[] = [...FILL_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...FILL_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<FillUnit> = {};
+  unitCategories: UnitsConfigValue<FillUnitCategory> = {};
 }
 
 /** fill-opacity 属性配置 */
 export class FillOpacityConfig {
   numberTypes: NumberTypeName[] = [...FILL_OPACITY_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FillOpacityUnit> = {};
+  unitCategories: UnitsConfigValue<FillOpacityUnitCategory> = {};
 }
 
 /** fill-rule 属性配置 */
@@ -1856,7 +3120,8 @@ export class FillRuleConfig {
 export class FilterConfig {
   keywords: (FilterKeyword | AllColorValue)[] = [...FILTER_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...FILTER_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<FilterUnit> = {};
+  unitCategories: UnitsConfigValue<FilterUnitCategory> = {};
 }
 
 /** flex 属性配置 */
@@ -1877,13 +3142,15 @@ export class FlexDirectionConfig {
 /** flex-grow 属性配置 */
 export class FlexGrowConfig {
   numberTypes: NumberTypeName[] = [...FLEX_GROW_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FlexGrowUnit> = {};
+  unitCategories: UnitsConfigValue<FlexGrowUnitCategory> = {};
 }
 
 /** flex-shrink 属性配置 */
 export class FlexShrinkConfig {
   numberTypes: NumberTypeName[] = [...FLEX_SHRINK_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FlexShrinkUnit> = {};
+  unitCategories: UnitsConfigValue<FlexShrinkUnitCategory> = {};
 }
 
 /** flex-wrap 属性配置 */
@@ -1910,7 +3177,8 @@ export class FontFamilyConfig {
 export class FontFeatureSettingsConfig {
   keywords: FontFeatureSettingsKeyword[] = [...FONT_FEATURE_SETTINGS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_FEATURE_SETTINGS_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FontFeatureSettingsUnit> = {};
+  unitCategories: UnitsConfigValue<FontFeatureSettingsUnitCategory> = {};
 }
 
 /** font-kerning 属性配置 */
@@ -1937,35 +3205,40 @@ export class FontPaletteConfig {
 export class FontSizeConfig {
   keywords: FontSizeKeyword[] = [...FONT_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_SIZE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<FontSizeUnit> = {};
+  unitCategories: UnitsConfigValue<FontSizeUnitCategory> = {};
 }
 
 /** font-size-adjust 属性配置 */
 export class FontSizeAdjustConfig {
   keywords: FontSizeAdjustKeyword[] = [...FONT_SIZE_ADJUST_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_SIZE_ADJUST_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FontSizeAdjustUnit> = {};
+  unitCategories: UnitsConfigValue<FontSizeAdjustUnitCategory> = {};
 }
 
 /** font-smooth 属性配置 */
 export class FontSmoothConfig {
   keywords: FontSmoothKeyword[] = [...FONT_SMOOTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_SMOOTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<FontSmoothUnit> = {};
+  unitCategories: UnitsConfigValue<FontSmoothUnitCategory> = {};
 }
 
 /** font-stretch 属性配置 */
 export class FontStretchConfig {
   keywords: FontStretchKeyword[] = [...FONT_STRETCH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_STRETCH_NUMBER_TYPES];
-  units: string[] = ['%'];
+  units: UnitsConfigValue<FontStretchUnit> = {};
+  unitCategories: UnitsConfigValue<FontStretchUnitCategory> = {};
 }
 
 /** font-style 属性配置 */
 export class FontStyleConfig {
   keywords: FontStyleKeyword[] = [...FONT_STYLE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_STYLE_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<FontStyleUnit> = {};
+  unitCategories: UnitsConfigValue<FontStyleUnitCategory> = {};
 }
 
 /** font-synthesis 属性配置 */
@@ -2037,14 +3310,16 @@ export class FontVariantPositionConfig {
 export class FontVariationSettingsConfig {
   keywords: FontVariationSettingsKeyword[] = [...FONT_VARIATION_SETTINGS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_VARIATION_SETTINGS_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FontVariationSettingsUnit> = {};
+  unitCategories: UnitsConfigValue<FontVariationSettingsUnitCategory> = {};
 }
 
 /** font-weight 属性配置 */
 export class FontWeightConfig {
   keywords: FontWeightKeyword[] = [...FONT_WEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...FONT_WEIGHT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<FontWeightUnit> = {};
+  unitCategories: UnitsConfigValue<FontWeightUnitCategory> = {};
 }
 
 /** forced-color-adjust 属性配置 */
@@ -2055,13 +3330,15 @@ export class ForcedColorAdjustConfig {
 /** glyph-orientation-horizontal 属性配置 */
 export class GlyphOrientationHorizontalConfig {
   numberTypes: NumberTypeName[] = [...GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<GlyphOrientationHorizontalUnit> = {};
+  unitCategories: UnitsConfigValue<GlyphOrientationHorizontalUnitCategory> = {};
 }
 
 /** glyph-orientation-vertical 属性配置 */
 export class GlyphOrientationVerticalConfig {
   numberTypes: NumberTypeName[] = [...GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<GlyphOrientationVerticalUnit> = {};
+  unitCategories: UnitsConfigValue<GlyphOrientationVerticalUnitCategory> = {};
 }
 
 /** grid 属性配置 */
@@ -2073,14 +3350,16 @@ export class GridConfig {
 export class GridAreaConfig {
   keywords: GridAreaKeyword[] = [...GRID_AREA_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_AREA_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridAreaUnit> = {};
+  unitCategories: UnitsConfigValue<GridAreaUnitCategory> = {};
 }
 
 /** grid-auto-columns 属性配置 */
 export class GridAutoColumnsConfig {
   keywords: GridAutoColumnsKeyword[] = [...GRID_AUTO_COLUMNS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_AUTO_COLUMNS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'fr', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridAutoColumnsUnit> = {};
+  unitCategories: UnitsConfigValue<GridAutoColumnsUnitCategory> = {};
 }
 
 /** grid-auto-flow 属性配置 */
@@ -2092,68 +3371,78 @@ export class GridAutoFlowConfig {
 export class GridAutoRowsConfig {
   keywords: GridAutoRowsKeyword[] = [...GRID_AUTO_ROWS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_AUTO_ROWS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'fr', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridAutoRowsUnit> = {};
+  unitCategories: UnitsConfigValue<GridAutoRowsUnitCategory> = {};
 }
 
 /** grid-column 属性配置 */
 export class GridColumnConfig {
   keywords: GridColumnKeyword[] = [...GRID_COLUMN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_COLUMN_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridColumnUnit> = {};
+  unitCategories: UnitsConfigValue<GridColumnUnitCategory> = {};
 }
 
 /** grid-column-end 属性配置 */
 export class GridColumnEndConfig {
   keywords: GridColumnEndKeyword[] = [...GRID_COLUMN_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_COLUMN_END_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridColumnEndUnit> = {};
+  unitCategories: UnitsConfigValue<GridColumnEndUnitCategory> = {};
 }
 
 /** grid-column-gap 属性配置 */
 export class GridColumnGapConfig {
   numberTypes: NumberTypeName[] = [...GRID_COLUMN_GAP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridColumnGapUnit> = {};
+  unitCategories: UnitsConfigValue<GridColumnGapUnitCategory> = {};
 }
 
 /** grid-column-start 属性配置 */
 export class GridColumnStartConfig {
   keywords: GridColumnStartKeyword[] = [...GRID_COLUMN_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_COLUMN_START_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridColumnStartUnit> = {};
+  unitCategories: UnitsConfigValue<GridColumnStartUnitCategory> = {};
 }
 
 /** grid-row 属性配置 */
 export class GridRowConfig {
   keywords: GridRowKeyword[] = [...GRID_ROW_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_ROW_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridRowUnit> = {};
+  unitCategories: UnitsConfigValue<GridRowUnitCategory> = {};
 }
 
 /** grid-row-end 属性配置 */
 export class GridRowEndConfig {
   keywords: GridRowEndKeyword[] = [...GRID_ROW_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_ROW_END_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridRowEndUnit> = {};
+  unitCategories: UnitsConfigValue<GridRowEndUnitCategory> = {};
 }
 
 /** grid-row-gap 属性配置 */
 export class GridRowGapConfig {
   numberTypes: NumberTypeName[] = [...GRID_ROW_GAP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridRowGapUnit> = {};
+  unitCategories: UnitsConfigValue<GridRowGapUnitCategory> = {};
 }
 
 /** grid-row-start 属性配置 */
 export class GridRowStartConfig {
   keywords: GridRowStartKeyword[] = [...GRID_ROW_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_ROW_START_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<GridRowStartUnit> = {};
+  unitCategories: UnitsConfigValue<GridRowStartUnitCategory> = {};
 }
 
 /** grid-template 属性配置 */
 export class GridTemplateConfig {
   keywords: GridTemplateKeyword[] = [...GRID_TEMPLATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'fr', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridTemplateUnit> = {};
+  unitCategories: UnitsConfigValue<GridTemplateUnitCategory> = {};
 }
 
 /** grid-template-areas 属性配置 */
@@ -2165,14 +3454,16 @@ export class GridTemplateAreasConfig {
 export class GridTemplateColumnsConfig {
   keywords: GridTemplateColumnsKeyword[] = [...GRID_TEMPLATE_COLUMNS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_COLUMNS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'fr', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridTemplateColumnsUnit> = {};
+  unitCategories: UnitsConfigValue<GridTemplateColumnsUnitCategory> = {};
 }
 
 /** grid-template-rows 属性配置 */
 export class GridTemplateRowsConfig {
   keywords: GridTemplateRowsKeyword[] = [...GRID_TEMPLATE_ROWS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...GRID_TEMPLATE_ROWS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'fr', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<GridTemplateRowsUnit> = {};
+  unitCategories: UnitsConfigValue<GridTemplateRowsUnitCategory> = {};
 }
 
 /** hanging-punctuation 属性配置 */
@@ -2184,7 +3475,8 @@ export class HangingPunctuationConfig {
 export class HeightConfig {
   keywords: HeightKeyword[] = [...HEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...HEIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<HeightUnit> = {};
+  unitCategories: UnitsConfigValue<HeightUnitCategory> = {};
 }
 
 /** hyphenate-character 属性配置 */
@@ -2196,7 +3488,8 @@ export class HyphenateCharacterConfig {
 export class HyphenateLimitCharsConfig {
   keywords: HyphenateLimitCharsKeyword[] = [...HYPHENATE_LIMIT_CHARS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...HYPHENATE_LIMIT_CHARS_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<HyphenateLimitCharsUnit> = {};
+  unitCategories: UnitsConfigValue<HyphenateLimitCharsUnitCategory> = {};
 }
 
 /** hyphens 属性配置 */
@@ -2208,7 +3501,8 @@ export class HyphensConfig {
 export class ImageOrientationConfig {
   keywords: ImageOrientationKeyword[] = [...IMAGE_ORIENTATION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...IMAGE_ORIENTATION_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<ImageOrientationUnit> = {};
+  unitCategories: UnitsConfigValue<ImageOrientationUnitCategory> = {};
 }
 
 /** image-rendering 属性配置 */
@@ -2220,7 +3514,8 @@ export class ImageRenderingConfig {
 export class ImageResolutionConfig {
   keywords: ImageResolutionKeyword[] = [...IMAGE_RESOLUTION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...IMAGE_RESOLUTION_NUMBER_TYPES];
-  units: string[] = ['dpcm', 'dpi', 'dppx', 'x'];
+  units: UnitsConfigValue<ImageResolutionUnit> = {};
+  unitCategories: UnitsConfigValue<ImageResolutionUnitCategory> = {};
 }
 
 /** ime-mode 属性配置 */
@@ -2232,7 +3527,8 @@ export class ImeModeConfig {
 export class InitialLetterConfig {
   keywords: InitialLetterKeyword[] = [...INITIAL_LETTER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...INITIAL_LETTER_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<InitialLetterUnit> = {};
+  unitCategories: UnitsConfigValue<InitialLetterUnitCategory> = {};
 }
 
 /** initial-letter-align 属性配置 */
@@ -2279,21 +3575,24 @@ export class JustifyTracksConfig {
 export class KerningConfig {
   keywords: KerningKeyword[] = [...KERNING_KEYWORDS];
   numberTypes: NumberTypeName[] = [...KERNING_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<KerningUnit> = {};
+  unitCategories: UnitsConfigValue<KerningUnitCategory> = {};
 }
 
 /** left 属性配置 */
 export class LeftConfig {
   keywords: LeftKeyword[] = [...LEFT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...LEFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<LeftUnit> = {};
+  unitCategories: UnitsConfigValue<LeftUnitCategory> = {};
 }
 
 /** letter-spacing 属性配置 */
 export class LetterSpacingConfig {
   keywords: LetterSpacingKeyword[] = [...LETTER_SPACING_KEYWORDS];
   numberTypes: NumberTypeName[] = [...LETTER_SPACING_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<LetterSpacingUnit> = {};
+  unitCategories: UnitsConfigValue<LetterSpacingUnitCategory> = {};
 }
 
 /** line-break 属性配置 */
@@ -2305,27 +3604,31 @@ export class LineBreakConfig {
 export class LineClampConfig {
   keywords: LineClampKeyword[] = [...LINE_CLAMP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...LINE_CLAMP_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<LineClampUnit> = {};
+  unitCategories: UnitsConfigValue<LineClampUnitCategory> = {};
 }
 
 /** line-height 属性配置 */
 export class LineHeightConfig {
   keywords: LineHeightKeyword[] = [...LINE_HEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...LINE_HEIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<LineHeightUnit> = {};
+  unitCategories: UnitsConfigValue<LineHeightUnitCategory> = {};
 }
 
 /** line-height-step 属性配置 */
 export class LineHeightStepConfig {
   numberTypes: NumberTypeName[] = [...LINE_HEIGHT_STEP_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<LineHeightStepUnit> = {};
+  unitCategories: UnitsConfigValue<LineHeightStepUnitCategory> = {};
 }
 
 /** list-style-image 属性配置 */
 export class ListStyleImageConfig {
   keywords: (ListStyleImageKeyword | AllColorValue)[] = [...LIST_STYLE_IMAGE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...LIST_STYLE_IMAGE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<ListStyleImageUnit> = {};
+  unitCategories: UnitsConfigValue<ListStyleImageUnitCategory> = {};
 }
 
 /** list-style-position 属性配置 */
@@ -2342,35 +3645,40 @@ export class ListStyleTypeConfig {
 export class MarginConfig {
   keywords: MarginKeyword[] = [...MARGIN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MARGIN_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MarginUnit> = {};
+  unitCategories: UnitsConfigValue<MarginUnitCategory> = {};
 }
 
 /** margin-bottom 属性配置 */
 export class MarginBottomConfig {
   keywords: MarginBottomKeyword[] = [...MARGIN_BOTTOM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MARGIN_BOTTOM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MarginBottomUnit> = {};
+  unitCategories: UnitsConfigValue<MarginBottomUnitCategory> = {};
 }
 
 /** margin-left 属性配置 */
 export class MarginLeftConfig {
   keywords: MarginLeftKeyword[] = [...MARGIN_LEFT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MARGIN_LEFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MarginLeftUnit> = {};
+  unitCategories: UnitsConfigValue<MarginLeftUnitCategory> = {};
 }
 
 /** margin-right 属性配置 */
 export class MarginRightConfig {
   keywords: MarginRightKeyword[] = [...MARGIN_RIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MARGIN_RIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MarginRightUnit> = {};
+  unitCategories: UnitsConfigValue<MarginRightUnitCategory> = {};
 }
 
 /** margin-top 属性配置 */
 export class MarginTopConfig {
   keywords: MarginTopKeyword[] = [...MARGIN_TOP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MARGIN_TOP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MarginTopUnit> = {};
+  unitCategories: UnitsConfigValue<MarginTopUnitCategory> = {};
 }
 
 /** margin-trim 属性配置 */
@@ -2402,7 +3710,8 @@ export class MarkerStartConfig {
 export class MaskConfig {
   keywords: (MaskKeyword | AllColorValue)[] = [...MASK_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...MASK_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<MaskUnit> = {};
+  unitCategories: UnitsConfigValue<MaskUnitCategory> = {};
 }
 
 /** mask-border-mode 属性配置 */
@@ -2413,7 +3722,8 @@ export class MaskBorderModeConfig {
 /** mask-border-outset 属性配置 */
 export class MaskBorderOutsetConfig {
   numberTypes: NumberTypeName[] = [...MASK_BORDER_OUTSET_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaskBorderOutsetUnit> = {};
+  unitCategories: UnitsConfigValue<MaskBorderOutsetUnitCategory> = {};
 }
 
 /** mask-border-repeat 属性配置 */
@@ -2425,21 +3735,24 @@ export class MaskBorderRepeatConfig {
 export class MaskBorderSliceConfig {
   keywords: MaskBorderSliceKeyword[] = [...MASK_BORDER_SLICE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_BORDER_SLICE_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<MaskBorderSliceUnit> = {};
+  unitCategories: UnitsConfigValue<MaskBorderSliceUnitCategory> = {};
 }
 
 /** mask-border-source 属性配置 */
 export class MaskBorderSourceConfig {
   keywords: (MaskBorderSourceKeyword | AllColorValue)[] = [...MASK_BORDER_SOURCE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...MASK_BORDER_SOURCE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<MaskBorderSourceUnit> = {};
+  unitCategories: UnitsConfigValue<MaskBorderSourceUnitCategory> = {};
 }
 
 /** mask-border-width 属性配置 */
 export class MaskBorderWidthConfig {
   keywords: MaskBorderWidthKeyword[] = [...MASK_BORDER_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_BORDER_WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaskBorderWidthUnit> = {};
+  unitCategories: UnitsConfigValue<MaskBorderWidthUnitCategory> = {};
 }
 
 /** mask-clip 属性配置 */
@@ -2456,7 +3769,8 @@ export class MaskCompositeConfig {
 export class MaskImageConfig {
   keywords: (MaskImageKeyword | AllColorValue)[] = [...MASK_IMAGE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...MASK_IMAGE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<MaskImageUnit> = {};
+  unitCategories: UnitsConfigValue<MaskImageUnitCategory> = {};
 }
 
 /** mask-mode 属性配置 */
@@ -2473,7 +3787,8 @@ export class MaskOriginConfig {
 export class MaskPositionConfig {
   keywords: MaskPositionKeyword[] = [...MASK_POSITION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_POSITION_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaskPositionUnit> = {};
+  unitCategories: UnitsConfigValue<MaskPositionUnitCategory> = {};
 }
 
 /** mask-repeat 属性配置 */
@@ -2485,7 +3800,8 @@ export class MaskRepeatConfig {
 export class MaskSizeConfig {
   keywords: MaskSizeKeyword[] = [...MASK_SIZE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MASK_SIZE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaskSizeUnit> = {};
+  unitCategories: UnitsConfigValue<MaskSizeUnitCategory> = {};
 }
 
 /** mask-type 属性配置 */
@@ -2502,7 +3818,8 @@ export class MasonryAutoFlowConfig {
 export class MathDepthConfig {
   keywords: MathDepthKeyword[] = [...MATH_DEPTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MATH_DEPTH_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<MathDepthUnit> = {};
+  unitCategories: UnitsConfigValue<MathDepthUnitCategory> = {};
 }
 
 /** math-shift 属性配置 */
@@ -2519,35 +3836,40 @@ export class MathStyleConfig {
 export class MaxHeightConfig {
   keywords: MaxHeightKeyword[] = [...MAX_HEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MAX_HEIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaxHeightUnit> = {};
+  unitCategories: UnitsConfigValue<MaxHeightUnitCategory> = {};
 }
 
 /** max-lines 属性配置 */
 export class MaxLinesConfig {
   keywords: MaxLinesKeyword[] = [...MAX_LINES_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MAX_LINES_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<MaxLinesUnit> = {};
+  unitCategories: UnitsConfigValue<MaxLinesUnitCategory> = {};
 }
 
 /** max-width 属性配置 */
 export class MaxWidthConfig {
   keywords: MaxWidthKeyword[] = [...MAX_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MAX_WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MaxWidthUnit> = {};
+  unitCategories: UnitsConfigValue<MaxWidthUnitCategory> = {};
 }
 
 /** min-height 属性配置 */
 export class MinHeightConfig {
   keywords: MinHeightKeyword[] = [...MIN_HEIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MIN_HEIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MinHeightUnit> = {};
+  unitCategories: UnitsConfigValue<MinHeightUnitCategory> = {};
 }
 
 /** min-width 属性配置 */
 export class MinWidthConfig {
   keywords: MinWidthKeyword[] = [...MIN_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...MIN_WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<MinWidthUnit> = {};
+  unitCategories: UnitsConfigValue<MinWidthUnitCategory> = {};
 }
 
 /** mix-blend-mode 属性配置 */
@@ -2564,72 +3886,83 @@ export class ObjectFitConfig {
 export class ObjectPositionConfig {
   keywords: ObjectPositionKeyword[] = [...OBJECT_POSITION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OBJECT_POSITION_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ObjectPositionUnit> = {};
+  unitCategories: UnitsConfigValue<ObjectPositionUnitCategory> = {};
 }
 
 /** offset-anchor 属性配置 */
 export class OffsetAnchorConfig {
   keywords: OffsetAnchorKeyword[] = [...OFFSET_ANCHOR_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OFFSET_ANCHOR_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OffsetAnchorUnit> = {};
+  unitCategories: UnitsConfigValue<OffsetAnchorUnitCategory> = {};
 }
 
 /** offset-distance 属性配置 */
 export class OffsetDistanceConfig {
   numberTypes: NumberTypeName[] = [...OFFSET_DISTANCE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OffsetDistanceUnit> = {};
+  unitCategories: UnitsConfigValue<OffsetDistanceUnitCategory> = {};
 }
 
 /** offset-path 属性配置 */
 export class OffsetPathConfig {
   keywords: OffsetPathKeyword[] = [...OFFSET_PATH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OFFSET_PATH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OffsetPathUnit> = {};
+  unitCategories: UnitsConfigValue<OffsetPathUnitCategory> = {};
 }
 
 /** offset-position 属性配置 */
 export class OffsetPositionConfig {
   keywords: OffsetPositionKeyword[] = [...OFFSET_POSITION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OFFSET_POSITION_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OffsetPositionUnit> = {};
+  unitCategories: UnitsConfigValue<OffsetPositionUnitCategory> = {};
 }
 
 /** offset-rotate 属性配置 */
 export class OffsetRotateConfig {
   keywords: OffsetRotateKeyword[] = [...OFFSET_ROTATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OFFSET_ROTATE_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn'];
+  units: UnitsConfigValue<OffsetRotateUnit> = {};
+  unitCategories: UnitsConfigValue<OffsetRotateUnitCategory> = {};
 }
 
 /** opacity 属性配置 */
 export class OpacityConfig {
   numberTypes: NumberTypeName[] = [...OPACITY_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<OpacityUnit> = {};
+  unitCategories: UnitsConfigValue<OpacityUnitCategory> = {};
 }
 
 /** order 属性配置 */
 export class OrderConfig {
   numberTypes: NumberTypeName[] = [...ORDER_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<OrderUnit> = {};
+  unitCategories: UnitsConfigValue<OrderUnitCategory> = {};
 }
 
 /** orphans 属性配置 */
 export class OrphansConfig {
   numberTypes: NumberTypeName[] = [...ORPHANS_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<OrphansUnit> = {};
+  unitCategories: UnitsConfigValue<OrphansUnitCategory> = {};
 }
 
 /** outline-color 属性配置 */
 export class OutlineColorConfig {
   keywords: (OutlineColorKeyword | AllColorValue)[] = [...OUTLINE_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...OUTLINE_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<OutlineColorUnit> = {};
+  unitCategories: UnitsConfigValue<OutlineColorUnitCategory> = {};
 }
 
 /** outline-offset 属性配置 */
 export class OutlineOffsetConfig {
   numberTypes: NumberTypeName[] = [...OUTLINE_OFFSET_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OutlineOffsetUnit> = {};
+  unitCategories: UnitsConfigValue<OutlineOffsetUnitCategory> = {};
 }
 
 /** outline-style 属性配置 */
@@ -2641,7 +3974,8 @@ export class OutlineStyleConfig {
 export class OutlineWidthConfig {
   keywords: OutlineWidthKeyword[] = [...OUTLINE_WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OUTLINE_WIDTH_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OutlineWidthUnit> = {};
+  unitCategories: UnitsConfigValue<OutlineWidthUnitCategory> = {};
 }
 
 /** overflow 属性配置 */
@@ -2668,7 +4002,8 @@ export class OverflowClipBoxConfig {
 export class OverflowClipMarginConfig {
   keywords: OverflowClipMarginKeyword[] = [...OVERFLOW_CLIP_MARGIN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...OVERFLOW_CLIP_MARGIN_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<OverflowClipMarginUnit> = {};
+  unitCategories: UnitsConfigValue<OverflowClipMarginUnitCategory> = {};
 }
 
 /** overflow-inline 属性配置 */
@@ -2724,31 +4059,36 @@ export class OverscrollBehaviorYConfig {
 /** padding 属性配置 */
 export class PaddingConfig {
   numberTypes: NumberTypeName[] = [...PADDING_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PaddingUnit> = {};
+  unitCategories: UnitsConfigValue<PaddingUnitCategory> = {};
 }
 
 /** padding-bottom 属性配置 */
 export class PaddingBottomConfig {
   numberTypes: NumberTypeName[] = [...PADDING_BOTTOM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PaddingBottomUnit> = {};
+  unitCategories: UnitsConfigValue<PaddingBottomUnitCategory> = {};
 }
 
 /** padding-left 属性配置 */
 export class PaddingLeftConfig {
   numberTypes: NumberTypeName[] = [...PADDING_LEFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PaddingLeftUnit> = {};
+  unitCategories: UnitsConfigValue<PaddingLeftUnitCategory> = {};
 }
 
 /** padding-right 属性配置 */
 export class PaddingRightConfig {
   numberTypes: NumberTypeName[] = [...PADDING_RIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PaddingRightUnit> = {};
+  unitCategories: UnitsConfigValue<PaddingRightUnitCategory> = {};
 }
 
 /** padding-top 属性配置 */
 export class PaddingTopConfig {
   numberTypes: NumberTypeName[] = [...PADDING_TOP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PaddingTopUnit> = {};
+  unitCategories: UnitsConfigValue<PaddingTopUnitCategory> = {};
 }
 
 /** page 属性配置 */
@@ -2780,28 +4120,32 @@ export class PaintOrderConfig {
 export class PauseAfterConfig {
   keywords: PauseAfterKeyword[] = [...PAUSE_AFTER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...PAUSE_AFTER_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<PauseAfterUnit> = {};
+  unitCategories: UnitsConfigValue<PauseAfterUnitCategory> = {};
 }
 
 /** pause-before 属性配置 */
 export class PauseBeforeConfig {
   keywords: PauseBeforeKeyword[] = [...PAUSE_BEFORE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...PAUSE_BEFORE_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<PauseBeforeUnit> = {};
+  unitCategories: UnitsConfigValue<PauseBeforeUnitCategory> = {};
 }
 
 /** perspective 属性配置 */
 export class PerspectiveConfig {
   keywords: PerspectiveKeyword[] = [...PERSPECTIVE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...PERSPECTIVE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PerspectiveUnit> = {};
+  unitCategories: UnitsConfigValue<PerspectiveUnitCategory> = {};
 }
 
 /** perspective-origin 属性配置 */
 export class PerspectiveOriginConfig {
   keywords: PerspectiveOriginKeyword[] = [...PERSPECTIVE_ORIGIN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...PERSPECTIVE_ORIGIN_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<PerspectiveOriginUnit> = {};
+  unitCategories: UnitsConfigValue<PerspectiveOriginUnitCategory> = {};
 }
 
 /** pointer-events 属性配置 */
@@ -2852,7 +4196,8 @@ export class QuotesConfig {
 /** r 属性配置 */
 export class RConfig {
   numberTypes: NumberTypeName[] = [...R_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<RUnit> = {};
+  unitCategories: UnitsConfigValue<RUnitCategory> = {};
 }
 
 /** resize 属性配置 */
@@ -2864,35 +4209,40 @@ export class ResizeConfig {
 export class RestAfterConfig {
   keywords: RestAfterKeyword[] = [...REST_AFTER_KEYWORDS];
   numberTypes: NumberTypeName[] = [...REST_AFTER_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<RestAfterUnit> = {};
+  unitCategories: UnitsConfigValue<RestAfterUnitCategory> = {};
 }
 
 /** rest-before 属性配置 */
 export class RestBeforeConfig {
   keywords: RestBeforeKeyword[] = [...REST_BEFORE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...REST_BEFORE_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<RestBeforeUnit> = {};
+  unitCategories: UnitsConfigValue<RestBeforeUnitCategory> = {};
 }
 
 /** right 属性配置 */
 export class RightConfig {
   keywords: RightKeyword[] = [...RIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...RIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<RightUnit> = {};
+  unitCategories: UnitsConfigValue<RightUnitCategory> = {};
 }
 
 /** rotate 属性配置 */
 export class RotateConfig {
   keywords: RotateKeyword[] = [...ROTATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ROTATE_NUMBER_TYPES];
-  units: string[] = ['deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<RotateUnit> = {};
+  unitCategories: UnitsConfigValue<RotateUnitCategory> = {};
 }
 
 /** row-gap 属性配置 */
 export class RowGapConfig {
   keywords: RowGapKeyword[] = [...ROW_GAP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ROW_GAP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<RowGapUnit> = {};
+  unitCategories: UnitsConfigValue<RowGapUnitCategory> = {};
 }
 
 /** ruby-align 属性配置 */
@@ -2913,20 +4263,23 @@ export class RubyPositionConfig {
 /** rx 属性配置 */
 export class RxConfig {
   numberTypes: NumberTypeName[] = [...RX_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<RxUnit> = {};
+  unitCategories: UnitsConfigValue<RxUnitCategory> = {};
 }
 
 /** ry 属性配置 */
 export class RyConfig {
   numberTypes: NumberTypeName[] = [...RY_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<RyUnit> = {};
+  unitCategories: UnitsConfigValue<RyUnitCategory> = {};
 }
 
 /** scale 属性配置 */
 export class ScaleConfig {
   keywords: ScaleKeyword[] = [...SCALE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCALE_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<ScaleUnit> = {};
+  unitCategories: UnitsConfigValue<ScaleUnitCategory> = {};
 }
 
 /** scroll-behavior 属性配置 */
@@ -2937,144 +4290,166 @@ export class ScrollBehaviorConfig {
 /** scroll-margin 属性配置 */
 export class ScrollMarginConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginUnitCategory> = {};
 }
 
 /** scroll-margin-block 属性配置 */
 export class ScrollMarginBlockConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginBlockUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginBlockUnitCategory> = {};
 }
 
 /** scroll-margin-block-end 属性配置 */
 export class ScrollMarginBlockEndConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginBlockEndUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginBlockEndUnitCategory> = {};
 }
 
 /** scroll-margin-block-start 属性配置 */
 export class ScrollMarginBlockStartConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginBlockStartUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginBlockStartUnitCategory> = {};
 }
 
 /** scroll-margin-bottom 属性配置 */
 export class ScrollMarginBottomConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_BOTTOM_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginBottomUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginBottomUnitCategory> = {};
 }
 
 /** scroll-margin-inline 属性配置 */
 export class ScrollMarginInlineConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginInlineUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginInlineUnitCategory> = {};
 }
 
 /** scroll-margin-inline-end 属性配置 */
 export class ScrollMarginInlineEndConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_END_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginInlineEndUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginInlineEndUnitCategory> = {};
 }
 
 /** scroll-margin-inline-start 属性配置 */
 export class ScrollMarginInlineStartConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_INLINE_START_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginInlineStartUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginInlineStartUnitCategory> = {};
 }
 
 /** scroll-margin-left 属性配置 */
 export class ScrollMarginLeftConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_LEFT_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginLeftUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginLeftUnitCategory> = {};
 }
 
 /** scroll-margin-right 属性配置 */
 export class ScrollMarginRightConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_RIGHT_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginRightUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginRightUnitCategory> = {};
 }
 
 /** scroll-margin-top 属性配置 */
 export class ScrollMarginTopConfig {
   numberTypes: NumberTypeName[] = [...SCROLL_MARGIN_TOP_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollMarginTopUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollMarginTopUnitCategory> = {};
 }
 
 /** scroll-padding 属性配置 */
 export class ScrollPaddingConfig {
   keywords: ScrollPaddingKeyword[] = [...SCROLL_PADDING_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingUnitCategory> = {};
 }
 
 /** scroll-padding-block 属性配置 */
 export class ScrollPaddingBlockConfig {
   keywords: ScrollPaddingBlockKeyword[] = [...SCROLL_PADDING_BLOCK_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingBlockUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingBlockUnitCategory> = {};
 }
 
 /** scroll-padding-block-end 属性配置 */
 export class ScrollPaddingBlockEndConfig {
   keywords: ScrollPaddingBlockEndKeyword[] = [...SCROLL_PADDING_BLOCK_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_END_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingBlockEndUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingBlockEndUnitCategory> = {};
 }
 
 /** scroll-padding-block-start 属性配置 */
 export class ScrollPaddingBlockStartConfig {
   keywords: ScrollPaddingBlockStartKeyword[] = [...SCROLL_PADDING_BLOCK_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BLOCK_START_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingBlockStartUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingBlockStartUnitCategory> = {};
 }
 
 /** scroll-padding-bottom 属性配置 */
 export class ScrollPaddingBottomConfig {
   keywords: ScrollPaddingBottomKeyword[] = [...SCROLL_PADDING_BOTTOM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_BOTTOM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingBottomUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingBottomUnitCategory> = {};
 }
 
 /** scroll-padding-inline 属性配置 */
 export class ScrollPaddingInlineConfig {
   keywords: ScrollPaddingInlineKeyword[] = [...SCROLL_PADDING_INLINE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingInlineUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingInlineUnitCategory> = {};
 }
 
 /** scroll-padding-inline-end 属性配置 */
 export class ScrollPaddingInlineEndConfig {
   keywords: ScrollPaddingInlineEndKeyword[] = [...SCROLL_PADDING_INLINE_END_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_END_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingInlineEndUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingInlineEndUnitCategory> = {};
 }
 
 /** scroll-padding-inline-start 属性配置 */
 export class ScrollPaddingInlineStartConfig {
   keywords: ScrollPaddingInlineStartKeyword[] = [...SCROLL_PADDING_INLINE_START_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_INLINE_START_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingInlineStartUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingInlineStartUnitCategory> = {};
 }
 
 /** scroll-padding-left 属性配置 */
 export class ScrollPaddingLeftConfig {
   keywords: ScrollPaddingLeftKeyword[] = [...SCROLL_PADDING_LEFT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_LEFT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingLeftUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingLeftUnitCategory> = {};
 }
 
 /** scroll-padding-right 属性配置 */
 export class ScrollPaddingRightConfig {
   keywords: ScrollPaddingRightKeyword[] = [...SCROLL_PADDING_RIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_RIGHT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingRightUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingRightUnitCategory> = {};
 }
 
 /** scroll-padding-top 属性配置 */
 export class ScrollPaddingTopConfig {
   keywords: ScrollPaddingTopKeyword[] = [...SCROLL_PADDING_TOP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_PADDING_TOP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollPaddingTopUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollPaddingTopUnitCategory> = {};
 }
 
 /** scroll-snap-align 属性配置 */
@@ -3086,28 +4461,32 @@ export class ScrollSnapAlignConfig {
 export class ScrollSnapCoordinateConfig {
   keywords: ScrollSnapCoordinateKeyword[] = [...SCROLL_SNAP_COORDINATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_SNAP_COORDINATE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollSnapCoordinateUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollSnapCoordinateUnitCategory> = {};
 }
 
 /** scroll-snap-destination 属性配置 */
 export class ScrollSnapDestinationConfig {
   keywords: ScrollSnapDestinationKeyword[] = [...SCROLL_SNAP_DESTINATION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_SNAP_DESTINATION_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollSnapDestinationUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollSnapDestinationUnitCategory> = {};
 }
 
 /** scroll-snap-points-x 属性配置 */
 export class ScrollSnapPointsXConfig {
   keywords: ScrollSnapPointsXKeyword[] = [...SCROLL_SNAP_POINTS_X_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_SNAP_POINTS_X_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollSnapPointsXUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollSnapPointsXUnitCategory> = {};
 }
 
 /** scroll-snap-points-y 属性配置 */
 export class ScrollSnapPointsYConfig {
   keywords: ScrollSnapPointsYKeyword[] = [...SCROLL_SNAP_POINTS_Y_KEYWORDS];
   numberTypes: NumberTypeName[] = [...SCROLL_SNAP_POINTS_Y_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ScrollSnapPointsYUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollSnapPointsYUnitCategory> = {};
 }
 
 /** scroll-snap-stop 属性配置 */
@@ -3144,7 +4523,8 @@ export class ScrollTimelineNameConfig {
 export class ScrollbarColorConfig {
   keywords: (ScrollbarColorKeyword | AllColorValue)[] = [...SCROLLBAR_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...SCROLLBAR_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<ScrollbarColorUnit> = {};
+  unitCategories: UnitsConfigValue<ScrollbarColorUnitCategory> = {};
 }
 
 /** scrollbar-gutter 属性配置 */
@@ -3160,20 +4540,23 @@ export class ScrollbarWidthConfig {
 /** shape-image-threshold 属性配置 */
 export class ShapeImageThresholdConfig {
   numberTypes: NumberTypeName[] = [...SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<ShapeImageThresholdUnit> = {};
+  unitCategories: UnitsConfigValue<ShapeImageThresholdUnitCategory> = {};
 }
 
 /** shape-margin 属性配置 */
 export class ShapeMarginConfig {
   numberTypes: NumberTypeName[] = [...SHAPE_MARGIN_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ShapeMarginUnit> = {};
+  unitCategories: UnitsConfigValue<ShapeMarginUnitCategory> = {};
 }
 
 /** shape-outside 属性配置 */
 export class ShapeOutsideConfig {
   keywords: (ShapeOutsideKeyword | AllColorValue)[] = [...SHAPE_OUTSIDE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...SHAPE_OUTSIDE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dpcm', 'dpi', 'dppx', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw', 'x'];
+  units: UnitsConfigValue<ShapeOutsideUnit> = {};
+  unitCategories: UnitsConfigValue<ShapeOutsideUnitCategory> = {};
 }
 
 /** shape-rendering 属性配置 */
@@ -3195,20 +4578,23 @@ export class SpeakAsConfig {
 export class StrokeConfig {
   keywords: (StrokeKeyword | AllColorValue)[] = [...STROKE_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...STROKE_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<StrokeUnit> = {};
+  unitCategories: UnitsConfigValue<StrokeUnitCategory> = {};
 }
 
 /** stroke-dasharray 属性配置 */
 export class StrokeDasharrayConfig {
   keywords: StrokeDasharrayKeyword[] = [...STROKE_DASHARRAY_KEYWORDS];
   numberTypes: NumberTypeName[] = [...STROKE_DASHARRAY_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<StrokeDasharrayUnit> = {};
+  unitCategories: UnitsConfigValue<StrokeDasharrayUnitCategory> = {};
 }
 
 /** stroke-dashoffset 属性配置 */
 export class StrokeDashoffsetConfig {
   numberTypes: NumberTypeName[] = [...STROKE_DASHOFFSET_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<StrokeDashoffsetUnit> = {};
+  unitCategories: UnitsConfigValue<StrokeDashoffsetUnitCategory> = {};
 }
 
 /** stroke-linecap 属性配置 */
@@ -3224,19 +4610,22 @@ export class StrokeLinejoinConfig {
 /** stroke-miterlimit 属性配置 */
 export class StrokeMiterlimitConfig {
   numberTypes: NumberTypeName[] = [...STROKE_MITERLIMIT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<StrokeMiterlimitUnit> = {};
+  unitCategories: UnitsConfigValue<StrokeMiterlimitUnitCategory> = {};
 }
 
 /** stroke-width 属性配置 */
 export class StrokeWidthConfig {
   numberTypes: NumberTypeName[] = [...STROKE_WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<StrokeWidthUnit> = {};
+  unitCategories: UnitsConfigValue<StrokeWidthUnitCategory> = {};
 }
 
 /** tab-size 属性配置 */
 export class TabSizeConfig {
   numberTypes: NumberTypeName[] = [...TAB_SIZE_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TabSizeUnit> = {};
+  unitCategories: UnitsConfigValue<TabSizeUnitCategory> = {};
 }
 
 /** table-layout 属性配置 */
@@ -3263,14 +4652,16 @@ export class TextAnchorConfig {
 export class TextCombineUprightConfig {
   keywords: TextCombineUprightKeyword[] = [...TEXT_COMBINE_UPRIGHT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_COMBINE_UPRIGHT_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<TextCombineUprightUnit> = {};
+  unitCategories: UnitsConfigValue<TextCombineUprightUnitCategory> = {};
 }
 
 /** text-decoration-color 属性配置 */
 export class TextDecorationColorConfig {
   keywords: (TextDecorationColorKeyword | AllColorValue)[] = [...TEXT_DECORATION_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...TEXT_DECORATION_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<TextDecorationColorUnit> = {};
+  unitCategories: UnitsConfigValue<TextDecorationColorUnitCategory> = {};
 }
 
 /** text-decoration-line 属性配置 */
@@ -3297,14 +4688,16 @@ export class TextDecorationStyleConfig {
 export class TextDecorationThicknessConfig {
   keywords: TextDecorationThicknessKeyword[] = [...TEXT_DECORATION_THICKNESS_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_DECORATION_THICKNESS_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TextDecorationThicknessUnit> = {};
+  unitCategories: UnitsConfigValue<TextDecorationThicknessUnitCategory> = {};
 }
 
 /** text-emphasis-color 属性配置 */
 export class TextEmphasisColorConfig {
   keywords: (TextEmphasisColorKeyword | AllColorValue)[] = [...TEXT_EMPHASIS_COLOR_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...TEXT_EMPHASIS_COLOR_NUMBER_TYPES];
-  units: string[] = ['%', 'deg', 'grad', 'rad', 'turn', 'unitless'];
+  units: UnitsConfigValue<TextEmphasisColorUnit> = {};
+  unitCategories: UnitsConfigValue<TextEmphasisColorUnitCategory> = {};
 }
 
 /** text-emphasis-position 属性配置 */
@@ -3321,7 +4714,8 @@ export class TextEmphasisStyleConfig {
 export class TextIndentConfig {
   keywords: TextIndentKeyword[] = [...TEXT_INDENT_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_INDENT_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TextIndentUnit> = {};
+  unitCategories: UnitsConfigValue<TextIndentUnitCategory> = {};
 }
 
 /** text-justify 属性配置 */
@@ -3348,14 +4742,16 @@ export class TextRenderingConfig {
 export class TextShadowConfig {
   keywords: (TextShadowKeyword | AllColorValue)[] = [...TEXT_SHADOW_KEYWORDS, ...ALL_COLORS];
   numberTypes: NumberTypeName[] = [...TEXT_SHADOW_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TextShadowUnit> = {};
+  unitCategories: UnitsConfigValue<TextShadowUnitCategory> = {};
 }
 
 /** text-size-adjust 属性配置 */
 export class TextSizeAdjustConfig {
   keywords: TextSizeAdjustKeyword[] = [...TEXT_SIZE_ADJUST_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_SIZE_ADJUST_NUMBER_TYPES];
-  units: string[] = ['%'];
+  units: UnitsConfigValue<TextSizeAdjustUnit> = {};
+  unitCategories: UnitsConfigValue<TextSizeAdjustUnitCategory> = {};
 }
 
 /** text-spacing-trim 属性配置 */
@@ -3372,7 +4768,8 @@ export class TextTransformConfig {
 export class TextUnderlineOffsetConfig {
   keywords: TextUnderlineOffsetKeyword[] = [...TEXT_UNDERLINE_OFFSET_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TEXT_UNDERLINE_OFFSET_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TextUnderlineOffsetUnit> = {};
+  unitCategories: UnitsConfigValue<TextUnderlineOffsetUnitCategory> = {};
 }
 
 /** text-underline-position 属性配置 */
@@ -3399,7 +4796,8 @@ export class TimelineScopeConfig {
 export class TopConfig {
   keywords: TopKeyword[] = [...TOP_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TOP_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TopUnit> = {};
+  unitCategories: UnitsConfigValue<TopUnitCategory> = {};
 }
 
 /** touch-action 属性配置 */
@@ -3411,7 +4809,8 @@ export class TouchActionConfig {
 export class TransformConfig {
   keywords: TransformKeyword[] = [...TRANSFORM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TRANSFORM_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'deg', 'dvh', 'dvw', 'em', 'ex', 'grad', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rad', 'rem', 'rlh', 'svh', 'svw', 'turn', 'unitless', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TransformUnit> = {};
+  unitCategories: UnitsConfigValue<TransformUnitCategory> = {};
 }
 
 /** transform-box 属性配置 */
@@ -3423,7 +4822,8 @@ export class TransformBoxConfig {
 export class TransformOriginConfig {
   keywords: TransformOriginKeyword[] = [...TRANSFORM_ORIGIN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TRANSFORM_ORIGIN_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TransformOriginUnit> = {};
+  unitCategories: UnitsConfigValue<TransformOriginUnitCategory> = {};
 }
 
 /** transform-style 属性配置 */
@@ -3435,7 +4835,8 @@ export class TransformStyleConfig {
 export class TransitionConfig {
   keywords: TransitionKeyword[] = [...TRANSITION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TRANSITION_NUMBER_TYPES];
-  units: string[] = ['ms', 's', 'unitless'];
+  units: UnitsConfigValue<TransitionUnit> = {};
+  unitCategories: UnitsConfigValue<TransitionUnitCategory> = {};
 }
 
 /** transition-behavior 属性配置 */
@@ -3446,13 +4847,15 @@ export class TransitionBehaviorConfig {
 /** transition-delay 属性配置 */
 export class TransitionDelayConfig {
   numberTypes: NumberTypeName[] = [...TRANSITION_DELAY_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<TransitionDelayUnit> = {};
+  unitCategories: UnitsConfigValue<TransitionDelayUnitCategory> = {};
 }
 
 /** transition-duration 属性配置 */
 export class TransitionDurationConfig {
   numberTypes: NumberTypeName[] = [...TRANSITION_DURATION_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<TransitionDurationUnit> = {};
+  unitCategories: UnitsConfigValue<TransitionDurationUnitCategory> = {};
 }
 
 /** transition-property 属性配置 */
@@ -3464,14 +4867,16 @@ export class TransitionPropertyConfig {
 export class TransitionTimingFunctionConfig {
   keywords: TransitionTimingFunctionKeyword[] = [...TRANSITION_TIMING_FUNCTION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TRANSITION_TIMING_FUNCTION_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<TransitionTimingFunctionUnit> = {};
+  unitCategories: UnitsConfigValue<TransitionTimingFunctionUnitCategory> = {};
 }
 
 /** translate 属性配置 */
 export class TranslateConfig {
   keywords: TranslateKeyword[] = [...TRANSLATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...TRANSLATE_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<TranslateUnit> = {};
+  unitCategories: UnitsConfigValue<TranslateUnitCategory> = {};
 }
 
 /** unicode-bidi 属性配置 */
@@ -3493,7 +4898,8 @@ export class VectorEffectConfig {
 export class VerticalAlignConfig {
   keywords: VerticalAlignKeyword[] = [...VERTICAL_ALIGN_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VERTICAL_ALIGN_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<VerticalAlignUnit> = {};
+  unitCategories: UnitsConfigValue<VerticalAlignUnitCategory> = {};
 }
 
 /** view-timeline-axis 属性配置 */
@@ -3505,7 +4911,8 @@ export class ViewTimelineAxisConfig {
 export class ViewTimelineInsetConfig {
   keywords: ViewTimelineInsetKeyword[] = [...VIEW_TIMELINE_INSET_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VIEW_TIMELINE_INSET_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<ViewTimelineInsetUnit> = {};
+  unitCategories: UnitsConfigValue<ViewTimelineInsetUnitCategory> = {};
 }
 
 /** view-timeline-name 属性配置 */
@@ -3527,42 +4934,48 @@ export class VisibilityConfig {
 export class VoiceBalanceConfig {
   keywords: VoiceBalanceKeyword[] = [...VOICE_BALANCE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_BALANCE_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<VoiceBalanceUnit> = {};
+  unitCategories: UnitsConfigValue<VoiceBalanceUnitCategory> = {};
 }
 
 /** voice-duration 属性配置 */
 export class VoiceDurationConfig {
   keywords: VoiceDurationKeyword[] = [...VOICE_DURATION_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_DURATION_NUMBER_TYPES];
-  units: string[] = ['ms', 's'];
+  units: UnitsConfigValue<VoiceDurationUnit> = {};
+  unitCategories: UnitsConfigValue<VoiceDurationUnitCategory> = {};
 }
 
 /** voice-family 属性配置 */
 export class VoiceFamilyConfig {
   keywords: VoiceFamilyKeyword[] = [...VOICE_FAMILY_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_FAMILY_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<VoiceFamilyUnit> = {};
+  unitCategories: UnitsConfigValue<VoiceFamilyUnitCategory> = {};
 }
 
 /** voice-pitch 属性配置 */
 export class VoicePitchConfig {
   keywords: VoicePitchKeyword[] = [...VOICE_PITCH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_PITCH_NUMBER_TYPES];
-  units: string[] = ['%', 'Hz', 'kHz'];
+  units: UnitsConfigValue<VoicePitchUnit> = {};
+  unitCategories: UnitsConfigValue<VoicePitchUnitCategory> = {};
 }
 
 /** voice-range 属性配置 */
 export class VoiceRangeConfig {
   keywords: VoiceRangeKeyword[] = [...VOICE_RANGE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_RANGE_NUMBER_TYPES];
-  units: string[] = ['%', 'Hz', 'kHz'];
+  units: UnitsConfigValue<VoiceRangeUnit> = {};
+  unitCategories: UnitsConfigValue<VoiceRangeUnitCategory> = {};
 }
 
 /** voice-rate 属性配置 */
 export class VoiceRateConfig {
   keywords: VoiceRateKeyword[] = [...VOICE_RATE_KEYWORDS];
   numberTypes: NumberTypeName[] = [...VOICE_RATE_NUMBER_TYPES];
-  units: string[] = ['%'];
+  units: UnitsConfigValue<VoiceRateUnit> = {};
+  unitCategories: UnitsConfigValue<VoiceRateUnitCategory> = {};
 }
 
 /** voice-stress 属性配置 */
@@ -3593,14 +5006,16 @@ export class WhiteSpaceTrimConfig {
 /** widows 属性配置 */
 export class WidowsConfig {
   numberTypes: NumberTypeName[] = [...WIDOWS_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<WidowsUnit> = {};
+  unitCategories: UnitsConfigValue<WidowsUnitCategory> = {};
 }
 
 /** width 属性配置 */
 export class WidthConfig {
   keywords: WidthKeyword[] = [...WIDTH_KEYWORDS];
   numberTypes: NumberTypeName[] = [...WIDTH_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<WidthUnit> = {};
+  unitCategories: UnitsConfigValue<WidthUnitCategory> = {};
 }
 
 /** will-change 属性配置 */
@@ -3617,7 +5032,8 @@ export class WordBreakConfig {
 export class WordSpacingConfig {
   keywords: WordSpacingKeyword[] = [...WORD_SPACING_KEYWORDS];
   numberTypes: NumberTypeName[] = [...WORD_SPACING_NUMBER_TYPES];
-  units: string[] = ['Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<WordSpacingUnit> = {};
+  unitCategories: UnitsConfigValue<WordSpacingUnitCategory> = {};
 }
 
 /** word-wrap 属性配置 */
@@ -3633,27 +5049,31 @@ export class WritingModeConfig {
 /** x 属性配置 */
 export class XConfig {
   numberTypes: NumberTypeName[] = [...X_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<XUnit> = {};
+  unitCategories: UnitsConfigValue<XUnitCategory> = {};
 }
 
 /** y 属性配置 */
 export class YConfig {
   numberTypes: NumberTypeName[] = [...Y_NUMBER_TYPES];
-  units: string[] = ['%', 'Q', 'cap', 'ch', 'cm', 'dvh', 'dvw', 'em', 'ex', 'ic', 'in', 'lh', 'lvh', 'lvw', 'mm', 'pc', 'pt', 'px', 'rem', 'rlh', 'svh', 'svw', 'vb', 'vh', 'vi', 'vmax', 'vmin', 'vw'];
+  units: UnitsConfigValue<YUnit> = {};
+  unitCategories: UnitsConfigValue<YUnitCategory> = {};
 }
 
 /** z-index 属性配置 */
 export class ZIndexConfig {
   keywords: ZIndexKeyword[] = [...Z_INDEX_KEYWORDS];
   numberTypes: NumberTypeName[] = [...Z_INDEX_NUMBER_TYPES];
-  units: string[] = ['unitless'];
+  units: UnitsConfigValue<ZIndexUnit> = {};
+  unitCategories: UnitsConfigValue<ZIndexUnitCategory> = {};
 }
 
 /** zoom 属性配置 */
 export class ZoomConfig {
   keywords: ZoomKeyword[] = [...ZOOM_KEYWORDS];
   numberTypes: NumberTypeName[] = [...ZOOM_NUMBER_TYPES];
-  units: string[] = ['%', 'unitless'];
+  units: UnitsConfigValue<ZoomUnit> = {};
+  unitCategories: UnitsConfigValue<ZoomUnitCategory> = {};
 }
 
 // ==================== 属性名映射 ====================

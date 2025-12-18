@@ -32,15 +32,13 @@ export {
 // Generator (从 cssts-types 移入)
 export {
   // 配置类型
-  type CsstsConfig,
+  CsstsConfig,
   type PropertyConfig,
-  type UnitConfig,
+  type UnitValueConfig as UnitConfig,
   type UnitType,
   defaultConfig,
   defaultProperties,
   systemDefaults,
-  createConfig,
-  mergeConfig,
   // 原子类生成
   type AtomDefinition,
   generateAtoms,
@@ -52,7 +50,5 @@ export {
   generateIndexDts,
   // 生成器
   type GeneratorOptions,
-  generatePropertiesJsonSync,
   generateDtsAsync,
-  generate,
 } from './generator/index.js'

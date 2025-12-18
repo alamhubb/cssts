@@ -118,6 +118,77 @@ function buildNumberTypeUnitsMap(): Map<string, Set<string>> {
   return map
 }
 
+// 单位到分类的映射（与 unit-categories.ts 保持一致）
+const UNIT_TO_CATEGORY: Record<string, string> = {
+  // percentage
+  '%': 'percentage',
+  'vw': 'percentage', 'vh': 'percentage', 'vmin': 'percentage', 'vmax': 'percentage',
+  'svw': 'percentage', 'svh': 'percentage', 'lvw': 'percentage', 'lvh': 'percentage',
+  'dvw': 'percentage', 'dvh': 'percentage', 'vi': 'percentage', 'vb': 'percentage',
+  // pixel
+  'px': 'pixel',
+  // fontRelative
+  'em': 'fontRelative', 'rem': 'fontRelative',
+  'ch': 'fontRelative', 'ex': 'fontRelative', 'cap': 'fontRelative', 'ic': 'fontRelative',
+  'lh': 'fontRelative', 'rlh': 'fontRelative',
+  // physical
+  'cm': 'physical', 'mm': 'physical', 'in': 'physical', 'pt': 'physical', 'pc': 'physical', 'Q': 'physical',
+  // angle
+  'deg': 'angle', 'grad': 'angle', 'rad': 'angle', 'turn': 'angle',
+  // time
+  's': 'time', 'ms': 'time',
+  // frequency
+  'Hz': 'frequency', 'kHz': 'frequency',
+  // resolution
+  'dpi': 'resolution', 'dpcm': 'resolution', 'dppx': 'resolution', 'x': 'resolution',
+  // flex
+  'fr': 'flex',
+  // unitless
+  'unitless': 'unitless',
+}
+
+// 分类到单位的映射
+const CATEGORY_TO_UNITS: Record<string, string[]> = {
+  percentage: ['%', 'vw', 'vh', 'vmin', 'vmax', 'svw', 'svh', 'lvw', 'lvh', 'dvw', 'dvh', 'vi', 'vb'],
+  pixel: ['px'],
+  fontRelative: ['em', 'rem', 'ch', 'ex', 'cap', 'ic', 'lh', 'rlh'],
+  physical: ['cm', 'mm', 'in', 'pt', 'pc', 'Q'],
+  angle: ['deg', 'grad', 'rad', 'turn'],
+  time: ['s', 'ms'],
+  frequency: ['Hz', 'kHz'],
+  resolution: ['dpi', 'dpcm', 'dppx', 'x'],
+  flex: ['fr'],
+  unitless: ['unitless'],
+}
+
+/**
+ * 从单位列表计算单位分类列表
+ */
+function computeUnitCategories(units: string[]): string[] {
+  const categories = new Set<string>()
+  for (const unit of units) {
+    const category = UNIT_TO_CATEGORY[unit]
+    if (category) {
+      categories.add(category)
+    }
+  }
+  return Array.from(categories).sort()
+}
+
+/**
+ * 从单位分类列表计算单位列表
+ */
+function computeUnitsFromCategories(categories: string[]): string[] {
+  const units = new Set<string>()
+  for (const category of categories) {
+    const categoryUnits = CATEGORY_TO_UNITS[category]
+    if (categoryUnits) {
+      categoryUnits.forEach(u => units.add(u))
+    }
+  }
+  return Array.from(units).sort()
+}
+
 const numberTypeUnitsMap = buildNumberTypeUnitsMap()
 const colorSet = new Set(colorsData.colors)
 const numberTypes = Object.keys(numberTypesData.typeDescriptions).sort()
@@ -373,7 +444,35 @@ function generatePropertyConfigFile(): string {
     lines.push(`  type ${toPascalCase(p.name)}Keyword,`)
   })
   lines.push(`} from './keywords';`)
+  lines.push(`import type { UnitValueConfig, UnitCategoryConfig, UnitsConfigValue } from './cssts-config';`)
+  lines.push(`import type { UnitCategoryName } from './unit-categories';`)
   lines.push(``)
+
+  // 为支持数值的属性生成 Unit 和 UnitCategory 类型
+  lines.push(`// ==================== 属性单位类型 ====================`)
+  lines.push(``)
+  
+  for (const prop of numericProperties) {
+    const pascalName = toPascalCase(prop.name)
+    const units = computePropertyUnits(prop.numberTypes)
+    const unitCategories = computeUnitCategories(units)
+    
+    // 校验：从 unitCategories 反推的 units 应该包含原始 units
+    const unitsFromCategories = computeUnitsFromCategories(unitCategories)
+    const missingUnits = units.filter(u => !unitsFromCategories.includes(u))
+    if (missingUnits.length > 0) {
+      console.warn(`⚠️ ${prop.name}: units [${missingUnits.join(', ')}] 没有对应的 unitCategory`)
+    }
+    
+    // 生成 Unit 类型
+    lines.push(`/** ${prop.name} 支持的单位 */`)
+    lines.push(`export type ${pascalName}Unit = ${units.map(u => `'${u}'`).join(' | ')};`)
+    
+    // 生成 UnitCategory 类型
+    lines.push(`/** ${prop.name} 支持的单位分类 */`)
+    lines.push(`export type ${pascalName}UnitCategory = ${unitCategories.map(c => `'${c}'`).join(' | ')};`)
+    lines.push(``)
+  }
 
   // 为每个属性生成配置类
   lines.push(`// ==================== 属性配置类 ====================`)
@@ -401,13 +500,11 @@ function generatePropertyConfigFile(): string {
 
     if (hasNumberTypes) {
       const constNumberTypesName = `${toConstName(propName)}_NUMBER_TYPES`
+      const unitTypeName = `${pascalName}Unit`
+      const unitCategoryTypeName = `${pascalName}UnitCategory`
       lines.push(`  numberTypes: NumberTypeName[] = [...${constNumberTypesName}];`)
-      
-      // 根据 numberTypes 计算 units
-      const units = computePropertyUnits(numberTypes)
-      if (units.length > 0) {
-        lines.push(`  units: string[] = [${units.map(u => `'${u}'`).join(', ')}];`)
-      }
+      lines.push(`  units: UnitsConfigValue<${unitTypeName}> = {};`)
+      lines.push(`  unitCategories: UnitsConfigValue<${unitCategoryTypeName}> = {};`)
     }
 
     lines.push(`}`)

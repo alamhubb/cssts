@@ -10,4 +10,3 @@ export * from './property-config';
 export * from './pseudo';
 export * from './cssts-config';
 export * from './config-utils';
-export * from './unit-categories'; // 手动维护

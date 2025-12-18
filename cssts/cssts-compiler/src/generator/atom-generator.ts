@@ -8,6 +8,7 @@ import {
   CsstsConfig,
   DEFAULT_UNIT_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
+  normalizeUnitsConfig,
   type UnitValueConfig,
   type ProgressiveRange,
 } from '../css-types/cssts-config.js';
@@ -15,6 +16,7 @@ import {
   cssPropertyNameMap,
   type CssPropertyCamelName,
 } from '../css-types/property-config.js';
+import { NUMBER_TYPE_UNITS } from '../css-types/units.js';
 
 // ==================== 原子类定义 ====================
 
@@ -135,8 +137,9 @@ function generateClassName(property: string, value: string): string {
 /**
  * 判断值是否能被任一除数整除
  */
-function isDivisibleByAny(value: number, divisors: number[]): boolean {
-  return divisors.some(d => value % d === 0);
+function isDivisibleByAny(value: number, divisors: number | number[]): boolean {
+  const divisorArr = Array.isArray(divisors) ? divisors : [divisors];
+  return divisorArr.some(d => value % d === 0);
 }
 
 /**
@@ -220,7 +223,8 @@ function generateValuesForUnit(
 ): number[] {
   // 合并配置：用户配置 > 默认配置
   const defaultConfig = DEFAULT_UNIT_CONFIGS[unit] || { min: 0, max: 100 };
-  const userConfig = config.unitConfigs[unit as keyof typeof config.unitConfigs] || {};
+  const normalizedUnits = normalizeUnitsConfig(config.units);
+  const userConfig = normalizedUnits[unit] || {};
 
   const finalConfig: UnitValueConfig = {
     min: userConfig.min ?? defaultConfig.min ?? 0,
@@ -231,14 +235,22 @@ function generateValuesForUnit(
   };
 
   const { min, max, step, negative, presets } = finalConfig;
-  const ranges = config.progressiveRanges || DEFAULT_PROGRESSIVE_RANGES;
+  const defaultRanges = config.progressiveRanges || DEFAULT_PROGRESSIVE_RANGES;
 
   let values: number[];
 
   if (step !== undefined) {
-    values = generateStepValues(min!, max!, step, negative!);
+    // step 可以是 number | ProgressiveRange | ProgressiveRange[]
+    if (typeof step === 'number') {
+      values = generateStepValues(min!, max!, step, negative!);
+    } else if (Array.isArray(step)) {
+      values = generateProgressiveValues(min!, max!, negative!, step);
+    } else {
+      // 单个 ProgressiveRange
+      values = generateProgressiveValues(min!, max!, negative!, [step]);
+    }
   } else {
-    values = generateProgressiveValues(min!, max!, negative!, ranges);
+    values = generateProgressiveValues(min!, max!, negative!, defaultRanges);
   }
 
   // 合并预设值
@@ -310,9 +322,20 @@ export function generateAtoms(config: CsstsConfig = new CsstsConfig()): AtomDefi
       }
     }
 
-    // 2. 生成数值原子类（直接使用属性的 units 字段）
-    if ('units' in propConfig && Array.isArray(propConfig.units)) {
-      for (const unit of propConfig.units as string[]) {
+    // 2. 生成数值原子类（从 numberTypes 计算支持的单位）
+    if ('numberTypes' in propConfig && Array.isArray(propConfig.numberTypes)) {
+      // 从 numberTypes 计算支持的单位
+      const supportedUnits = new Set<string>();
+      for (const nt of propConfig.numberTypes as string[]) {
+        const typeUnits = NUMBER_TYPE_UNITS[nt as keyof typeof NUMBER_TYPE_UNITS];
+        if (typeUnits) {
+          for (const u of typeUnits) {
+            supportedUnits.add(u);
+          }
+        }
+      }
+
+      for (const unit of supportedUnits) {
         // 排除单位
         if (excludeUnitsSet.has(unit)) continue;
 
