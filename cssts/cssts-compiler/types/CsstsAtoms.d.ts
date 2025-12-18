@@ -2,7 +2,7 @@
  * CsstsAtoms 接口 - 原子类类型定义
  *
  * 自动生成，请勿手动修改
- * 生成时间: 2025-12-18T14:52:18.018Z
+ * 生成时间: 2025-12-18T16:26:15.373Z
  */
 
 export interface CsstsAtoms {
@@ -56,17 +56,11 @@ export interface CsstsAtoms {
   readonly animationX: { 'animation_x': true }
   readonly animationY: { 'animation_y': true }
   readonly animation0: { 'animation_0': true }
-  readonly animation0p5: { 'animation_0\.5': true }
   readonly animation1: { 'animation_1': true }
-  readonly animation1p5: { 'animation_1\.5': true }
   readonly animation2: { 'animation_2': true }
   readonly animation3: { 'animation_3': true }
-  readonly animation4: { 'animation_4': true }
   readonly animation5: { 'animation_5': true }
   readonly animation10: { 'animation_10': true }
-  readonly animation20: { 'animation_20': true }
-  readonly animation50: { 'animation_50': true }
-  readonly animation100: { 'animation_100': true }
 
   // ==================== background-color ====================
   readonly backgroundColorNmozButtonDefault: { 'background-color_-moz-ButtonDefault': true }
@@ -156,100 +150,16 @@ export interface CsstsAtoms {
   readonly backgroundColorXyz: { 'background-color_xyz': true }
   readonly backgroundColorXyzD50: { 'background-color_xyz-d50': true }
   readonly backgroundColorXyzD65: { 'background-color_xyz-d65': true }
-  readonly backgroundColorN360deg: { 'background-color_-360deg': true }
-  readonly backgroundColorN315deg: { 'background-color_-315deg': true }
-  readonly backgroundColorN270deg: { 'background-color_-270deg': true }
-  readonly backgroundColorN225deg: { 'background-color_-225deg': true }
-  readonly backgroundColorN180deg: { 'background-color_-180deg': true }
-  readonly backgroundColorN135deg: { 'background-color_-135deg': true }
-  readonly backgroundColorN90deg: { 'background-color_-90deg': true }
-  readonly backgroundColorN45deg: { 'background-color_-45deg': true }
-  readonly backgroundColor0deg: { 'background-color_0deg': true }
-  readonly backgroundColor45deg: { 'background-color_45deg': true }
-  readonly backgroundColor90deg: { 'background-color_90deg': true }
-  readonly backgroundColor135deg: { 'background-color_135deg': true }
-  readonly backgroundColor180deg: { 'background-color_180deg': true }
-  readonly backgroundColor225deg: { 'background-color_225deg': true }
-  readonly backgroundColor270deg: { 'background-color_270deg': true }
-  readonly backgroundColor315deg: { 'background-color_315deg': true }
-  readonly backgroundColor360deg: { 'background-color_360deg': true }
-  readonly backgroundColorN360grad: { 'background-color_-360grad': true }
-  readonly backgroundColorN315grad: { 'background-color_-315grad': true }
-  readonly backgroundColorN270grad: { 'background-color_-270grad': true }
-  readonly backgroundColorN225grad: { 'background-color_-225grad': true }
-  readonly backgroundColorN180grad: { 'background-color_-180grad': true }
-  readonly backgroundColorN135grad: { 'background-color_-135grad': true }
-  readonly backgroundColorN90grad: { 'background-color_-90grad': true }
-  readonly backgroundColorN45grad: { 'background-color_-45grad': true }
-  readonly backgroundColor0grad: { 'background-color_0grad': true }
-  readonly backgroundColor45grad: { 'background-color_45grad': true }
-  readonly backgroundColor90grad: { 'background-color_90grad': true }
-  readonly backgroundColor135grad: { 'background-color_135grad': true }
-  readonly backgroundColor180grad: { 'background-color_180grad': true }
-  readonly backgroundColor225grad: { 'background-color_225grad': true }
-  readonly backgroundColor270grad: { 'background-color_270grad': true }
-  readonly backgroundColor315grad: { 'background-color_315grad': true }
-  readonly backgroundColor360grad: { 'background-color_360grad': true }
-  readonly backgroundColorN360rad: { 'background-color_-360rad': true }
-  readonly backgroundColorN315rad: { 'background-color_-315rad': true }
-  readonly backgroundColorN270rad: { 'background-color_-270rad': true }
-  readonly backgroundColorN225rad: { 'background-color_-225rad': true }
-  readonly backgroundColorN180rad: { 'background-color_-180rad': true }
-  readonly backgroundColorN135rad: { 'background-color_-135rad': true }
-  readonly backgroundColorN90rad: { 'background-color_-90rad': true }
-  readonly backgroundColorN45rad: { 'background-color_-45rad': true }
-  readonly backgroundColor0rad: { 'background-color_0rad': true }
-  readonly backgroundColor45rad: { 'background-color_45rad': true }
-  readonly backgroundColor90rad: { 'background-color_90rad': true }
-  readonly backgroundColor135rad: { 'background-color_135rad': true }
-  readonly backgroundColor180rad: { 'background-color_180rad': true }
-  readonly backgroundColor225rad: { 'background-color_225rad': true }
-  readonly backgroundColor270rad: { 'background-color_270rad': true }
-  readonly backgroundColor315rad: { 'background-color_315rad': true }
-  readonly backgroundColor360rad: { 'background-color_360rad': true }
-  readonly backgroundColorN360turn: { 'background-color_-360turn': true }
-  readonly backgroundColorN315turn: { 'background-color_-315turn': true }
-  readonly backgroundColorN270turn: { 'background-color_-270turn': true }
-  readonly backgroundColorN225turn: { 'background-color_-225turn': true }
-  readonly backgroundColorN180turn: { 'background-color_-180turn': true }
-  readonly backgroundColorN135turn: { 'background-color_-135turn': true }
-  readonly backgroundColorN90turn: { 'background-color_-90turn': true }
-  readonly backgroundColorN45turn: { 'background-color_-45turn': true }
-  readonly backgroundColor0turn: { 'background-color_0turn': true }
-  readonly backgroundColor45turn: { 'background-color_45turn': true }
-  readonly backgroundColor90turn: { 'background-color_90turn': true }
-  readonly backgroundColor135turn: { 'background-color_135turn': true }
-  readonly backgroundColor180turn: { 'background-color_180turn': true }
-  readonly backgroundColor225turn: { 'background-color_225turn': true }
-  readonly backgroundColor270turn: { 'background-color_270turn': true }
-  readonly backgroundColor315turn: { 'background-color_315turn': true }
-  readonly backgroundColor360turn: { 'background-color_360turn': true }
   readonly backgroundColor0: { 'background-color_0': true }
-  readonly backgroundColor0p5: { 'background-color_0\.5': true }
   readonly backgroundColor1: { 'background-color_1': true }
-  readonly backgroundColor1p5: { 'background-color_1\.5': true }
   readonly backgroundColor2: { 'background-color_2': true }
   readonly backgroundColor3: { 'background-color_3': true }
-  readonly backgroundColor4: { 'background-color_4': true }
   readonly backgroundColor5: { 'background-color_5': true }
   readonly backgroundColor10: { 'background-color_10': true }
-  readonly backgroundColor20: { 'background-color_20': true }
-  readonly backgroundColor50: { 'background-color_50': true }
-  readonly backgroundColor100: { 'background-color_100': true }
   readonly backgroundColor0Pct: { 'background-color_0\%': true }
-  readonly backgroundColor10Pct: { 'background-color_10\%': true }
-  readonly backgroundColor20Pct: { 'background-color_20\%': true }
   readonly backgroundColor25Pct: { 'background-color_25\%': true }
-  readonly backgroundColor30Pct: { 'background-color_30\%': true }
-  readonly backgroundColor33p33Pct: { 'background-color_33\.33\%': true }
-  readonly backgroundColor40Pct: { 'background-color_40\%': true }
   readonly backgroundColor50Pct: { 'background-color_50\%': true }
-  readonly backgroundColor60Pct: { 'background-color_60\%': true }
-  readonly backgroundColor66p67Pct: { 'background-color_66\.67\%': true }
-  readonly backgroundColor70Pct: { 'background-color_70\%': true }
   readonly backgroundColor75Pct: { 'background-color_75\%': true }
-  readonly backgroundColor80Pct: { 'background-color_80\%': true }
-  readonly backgroundColor90Pct: { 'background-color_90\%': true }
   readonly backgroundColor100Pct: { 'background-color_100\%': true }
 
   // ==================== background-image ====================
@@ -364,526 +274,186 @@ export interface CsstsAtoms {
   readonly backgroundImageXyz: { 'background-image_xyz': true }
   readonly backgroundImageXyzD50: { 'background-image_xyz-d50': true }
   readonly backgroundImageXyzD65: { 'background-image_xyz-d65': true }
-  readonly backgroundImageN360deg: { 'background-image_-360deg': true }
-  readonly backgroundImageN315deg: { 'background-image_-315deg': true }
-  readonly backgroundImageN270deg: { 'background-image_-270deg': true }
-  readonly backgroundImageN225deg: { 'background-image_-225deg': true }
-  readonly backgroundImageN180deg: { 'background-image_-180deg': true }
-  readonly backgroundImageN135deg: { 'background-image_-135deg': true }
-  readonly backgroundImageN90deg: { 'background-image_-90deg': true }
-  readonly backgroundImageN45deg: { 'background-image_-45deg': true }
-  readonly backgroundImage0deg: { 'background-image_0deg': true }
-  readonly backgroundImage45deg: { 'background-image_45deg': true }
-  readonly backgroundImage90deg: { 'background-image_90deg': true }
-  readonly backgroundImage135deg: { 'background-image_135deg': true }
-  readonly backgroundImage180deg: { 'background-image_180deg': true }
-  readonly backgroundImage225deg: { 'background-image_225deg': true }
-  readonly backgroundImage270deg: { 'background-image_270deg': true }
-  readonly backgroundImage315deg: { 'background-image_315deg': true }
-  readonly backgroundImage360deg: { 'background-image_360deg': true }
-  readonly backgroundImageN360grad: { 'background-image_-360grad': true }
-  readonly backgroundImageN315grad: { 'background-image_-315grad': true }
-  readonly backgroundImageN270grad: { 'background-image_-270grad': true }
-  readonly backgroundImageN225grad: { 'background-image_-225grad': true }
-  readonly backgroundImageN180grad: { 'background-image_-180grad': true }
-  readonly backgroundImageN135grad: { 'background-image_-135grad': true }
-  readonly backgroundImageN90grad: { 'background-image_-90grad': true }
-  readonly backgroundImageN45grad: { 'background-image_-45grad': true }
-  readonly backgroundImage0grad: { 'background-image_0grad': true }
-  readonly backgroundImage45grad: { 'background-image_45grad': true }
-  readonly backgroundImage90grad: { 'background-image_90grad': true }
-  readonly backgroundImage135grad: { 'background-image_135grad': true }
-  readonly backgroundImage180grad: { 'background-image_180grad': true }
-  readonly backgroundImage225grad: { 'background-image_225grad': true }
-  readonly backgroundImage270grad: { 'background-image_270grad': true }
-  readonly backgroundImage315grad: { 'background-image_315grad': true }
-  readonly backgroundImage360grad: { 'background-image_360grad': true }
-  readonly backgroundImageN360rad: { 'background-image_-360rad': true }
-  readonly backgroundImageN315rad: { 'background-image_-315rad': true }
-  readonly backgroundImageN270rad: { 'background-image_-270rad': true }
-  readonly backgroundImageN225rad: { 'background-image_-225rad': true }
-  readonly backgroundImageN180rad: { 'background-image_-180rad': true }
-  readonly backgroundImageN135rad: { 'background-image_-135rad': true }
-  readonly backgroundImageN90rad: { 'background-image_-90rad': true }
-  readonly backgroundImageN45rad: { 'background-image_-45rad': true }
-  readonly backgroundImage0rad: { 'background-image_0rad': true }
-  readonly backgroundImage45rad: { 'background-image_45rad': true }
-  readonly backgroundImage90rad: { 'background-image_90rad': true }
-  readonly backgroundImage135rad: { 'background-image_135rad': true }
-  readonly backgroundImage180rad: { 'background-image_180rad': true }
-  readonly backgroundImage225rad: { 'background-image_225rad': true }
-  readonly backgroundImage270rad: { 'background-image_270rad': true }
-  readonly backgroundImage315rad: { 'background-image_315rad': true }
-  readonly backgroundImage360rad: { 'background-image_360rad': true }
-  readonly backgroundImageN360turn: { 'background-image_-360turn': true }
-  readonly backgroundImageN315turn: { 'background-image_-315turn': true }
-  readonly backgroundImageN270turn: { 'background-image_-270turn': true }
-  readonly backgroundImageN225turn: { 'background-image_-225turn': true }
-  readonly backgroundImageN180turn: { 'background-image_-180turn': true }
-  readonly backgroundImageN135turn: { 'background-image_-135turn': true }
-  readonly backgroundImageN90turn: { 'background-image_-90turn': true }
-  readonly backgroundImageN45turn: { 'background-image_-45turn': true }
-  readonly backgroundImage0turn: { 'background-image_0turn': true }
-  readonly backgroundImage45turn: { 'background-image_45turn': true }
-  readonly backgroundImage90turn: { 'background-image_90turn': true }
-  readonly backgroundImage135turn: { 'background-image_135turn': true }
-  readonly backgroundImage180turn: { 'background-image_180turn': true }
-  readonly backgroundImage225turn: { 'background-image_225turn': true }
-  readonly backgroundImage270turn: { 'background-image_270turn': true }
-  readonly backgroundImage315turn: { 'background-image_315turn': true }
-  readonly backgroundImage360turn: { 'background-image_360turn': true }
   readonly backgroundImage0Q: { 'background-image_0Q': true }
   readonly backgroundImage1Q: { 'background-image_1Q': true }
   readonly backgroundImage2Q: { 'background-image_2Q': true }
   readonly backgroundImage4Q: { 'background-image_4Q': true }
-  readonly backgroundImage6Q: { 'background-image_6Q': true }
   readonly backgroundImage8Q: { 'background-image_8Q': true }
-  readonly backgroundImage10Q: { 'background-image_10Q': true }
-  readonly backgroundImage12Q: { 'background-image_12Q': true }
-  readonly backgroundImage16Q: { 'background-image_16Q': true }
-  readonly backgroundImage20Q: { 'background-image_20Q': true }
   readonly backgroundImage0cap: { 'background-image_0cap': true }
-  readonly backgroundImage0p25cap: { 'background-image_0\.25cap': true }
   readonly backgroundImage0p5cap: { 'background-image_0\.5cap': true }
-  readonly backgroundImage0p75cap: { 'background-image_0\.75cap': true }
   readonly backgroundImage1cap: { 'background-image_1cap': true }
-  readonly backgroundImage1p25cap: { 'background-image_1\.25cap': true }
   readonly backgroundImage1p5cap: { 'background-image_1\.5cap': true }
   readonly backgroundImage2cap: { 'background-image_2cap': true }
-  readonly backgroundImage2p5cap: { 'background-image_2\.5cap': true }
   readonly backgroundImage3cap: { 'background-image_3cap': true }
-  readonly backgroundImage4cap: { 'background-image_4cap': true }
-  readonly backgroundImage5cap: { 'background-image_5cap': true }
-  readonly backgroundImage6cap: { 'background-image_6cap': true }
-  readonly backgroundImage8cap: { 'background-image_8cap': true }
   readonly backgroundImage0ch: { 'background-image_0ch': true }
-  readonly backgroundImage0p25ch: { 'background-image_0\.25ch': true }
   readonly backgroundImage0p5ch: { 'background-image_0\.5ch': true }
-  readonly backgroundImage0p75ch: { 'background-image_0\.75ch': true }
   readonly backgroundImage1ch: { 'background-image_1ch': true }
-  readonly backgroundImage1p25ch: { 'background-image_1\.25ch': true }
   readonly backgroundImage1p5ch: { 'background-image_1\.5ch': true }
   readonly backgroundImage2ch: { 'background-image_2ch': true }
-  readonly backgroundImage2p5ch: { 'background-image_2\.5ch': true }
   readonly backgroundImage3ch: { 'background-image_3ch': true }
-  readonly backgroundImage4ch: { 'background-image_4ch': true }
-  readonly backgroundImage5ch: { 'background-image_5ch': true }
-  readonly backgroundImage6ch: { 'background-image_6ch': true }
-  readonly backgroundImage8ch: { 'background-image_8ch': true }
   readonly backgroundImage0cm: { 'background-image_0cm': true }
   readonly backgroundImage1cm: { 'background-image_1cm': true }
   readonly backgroundImage2cm: { 'background-image_2cm': true }
   readonly backgroundImage4cm: { 'background-image_4cm': true }
-  readonly backgroundImage6cm: { 'background-image_6cm': true }
   readonly backgroundImage8cm: { 'background-image_8cm': true }
-  readonly backgroundImage10cm: { 'background-image_10cm': true }
-  readonly backgroundImage12cm: { 'background-image_12cm': true }
-  readonly backgroundImage16cm: { 'background-image_16cm': true }
-  readonly backgroundImage20cm: { 'background-image_20cm': true }
   readonly backgroundImage0dvh: { 'background-image_0dvh': true }
-  readonly backgroundImage10dvh: { 'background-image_10dvh': true }
-  readonly backgroundImage20dvh: { 'background-image_20dvh': true }
   readonly backgroundImage25dvh: { 'background-image_25dvh': true }
-  readonly backgroundImage30dvh: { 'background-image_30dvh': true }
-  readonly backgroundImage33p33dvh: { 'background-image_33\.33dvh': true }
-  readonly backgroundImage40dvh: { 'background-image_40dvh': true }
   readonly backgroundImage50dvh: { 'background-image_50dvh': true }
-  readonly backgroundImage60dvh: { 'background-image_60dvh': true }
-  readonly backgroundImage66p67dvh: { 'background-image_66\.67dvh': true }
-  readonly backgroundImage70dvh: { 'background-image_70dvh': true }
   readonly backgroundImage75dvh: { 'background-image_75dvh': true }
-  readonly backgroundImage80dvh: { 'background-image_80dvh': true }
-  readonly backgroundImage90dvh: { 'background-image_90dvh': true }
   readonly backgroundImage100dvh: { 'background-image_100dvh': true }
   readonly backgroundImage0dvw: { 'background-image_0dvw': true }
-  readonly backgroundImage10dvw: { 'background-image_10dvw': true }
-  readonly backgroundImage20dvw: { 'background-image_20dvw': true }
   readonly backgroundImage25dvw: { 'background-image_25dvw': true }
-  readonly backgroundImage30dvw: { 'background-image_30dvw': true }
-  readonly backgroundImage33p33dvw: { 'background-image_33\.33dvw': true }
-  readonly backgroundImage40dvw: { 'background-image_40dvw': true }
   readonly backgroundImage50dvw: { 'background-image_50dvw': true }
-  readonly backgroundImage60dvw: { 'background-image_60dvw': true }
-  readonly backgroundImage66p67dvw: { 'background-image_66\.67dvw': true }
-  readonly backgroundImage70dvw: { 'background-image_70dvw': true }
   readonly backgroundImage75dvw: { 'background-image_75dvw': true }
-  readonly backgroundImage80dvw: { 'background-image_80dvw': true }
-  readonly backgroundImage90dvw: { 'background-image_90dvw': true }
   readonly backgroundImage100dvw: { 'background-image_100dvw': true }
   readonly backgroundImage0em: { 'background-image_0em': true }
-  readonly backgroundImage0p25em: { 'background-image_0\.25em': true }
   readonly backgroundImage0p5em: { 'background-image_0\.5em': true }
-  readonly backgroundImage0p75em: { 'background-image_0\.75em': true }
   readonly backgroundImage1em: { 'background-image_1em': true }
-  readonly backgroundImage1p25em: { 'background-image_1\.25em': true }
   readonly backgroundImage1p5em: { 'background-image_1\.5em': true }
   readonly backgroundImage2em: { 'background-image_2em': true }
-  readonly backgroundImage2p5em: { 'background-image_2\.5em': true }
   readonly backgroundImage3em: { 'background-image_3em': true }
-  readonly backgroundImage4em: { 'background-image_4em': true }
-  readonly backgroundImage5em: { 'background-image_5em': true }
-  readonly backgroundImage6em: { 'background-image_6em': true }
-  readonly backgroundImage8em: { 'background-image_8em': true }
   readonly backgroundImage0ex: { 'background-image_0ex': true }
-  readonly backgroundImage0p25ex: { 'background-image_0\.25ex': true }
   readonly backgroundImage0p5ex: { 'background-image_0\.5ex': true }
-  readonly backgroundImage0p75ex: { 'background-image_0\.75ex': true }
   readonly backgroundImage1ex: { 'background-image_1ex': true }
-  readonly backgroundImage1p25ex: { 'background-image_1\.25ex': true }
   readonly backgroundImage1p5ex: { 'background-image_1\.5ex': true }
   readonly backgroundImage2ex: { 'background-image_2ex': true }
-  readonly backgroundImage2p5ex: { 'background-image_2\.5ex': true }
   readonly backgroundImage3ex: { 'background-image_3ex': true }
-  readonly backgroundImage4ex: { 'background-image_4ex': true }
-  readonly backgroundImage5ex: { 'background-image_5ex': true }
-  readonly backgroundImage6ex: { 'background-image_6ex': true }
-  readonly backgroundImage8ex: { 'background-image_8ex': true }
   readonly backgroundImage0ic: { 'background-image_0ic': true }
-  readonly backgroundImage0p25ic: { 'background-image_0\.25ic': true }
   readonly backgroundImage0p5ic: { 'background-image_0\.5ic': true }
-  readonly backgroundImage0p75ic: { 'background-image_0\.75ic': true }
   readonly backgroundImage1ic: { 'background-image_1ic': true }
-  readonly backgroundImage1p25ic: { 'background-image_1\.25ic': true }
   readonly backgroundImage1p5ic: { 'background-image_1\.5ic': true }
   readonly backgroundImage2ic: { 'background-image_2ic': true }
-  readonly backgroundImage2p5ic: { 'background-image_2\.5ic': true }
   readonly backgroundImage3ic: { 'background-image_3ic': true }
-  readonly backgroundImage4ic: { 'background-image_4ic': true }
-  readonly backgroundImage5ic: { 'background-image_5ic': true }
-  readonly backgroundImage6ic: { 'background-image_6ic': true }
-  readonly backgroundImage8ic: { 'background-image_8ic': true }
   readonly backgroundImage0in: { 'background-image_0in': true }
   readonly backgroundImage1in: { 'background-image_1in': true }
   readonly backgroundImage2in: { 'background-image_2in': true }
   readonly backgroundImage4in: { 'background-image_4in': true }
-  readonly backgroundImage6in: { 'background-image_6in': true }
   readonly backgroundImage8in: { 'background-image_8in': true }
-  readonly backgroundImage10in: { 'background-image_10in': true }
-  readonly backgroundImage12in: { 'background-image_12in': true }
-  readonly backgroundImage16in: { 'background-image_16in': true }
-  readonly backgroundImage20in: { 'background-image_20in': true }
   readonly backgroundImage0lh: { 'background-image_0lh': true }
-  readonly backgroundImage0p25lh: { 'background-image_0\.25lh': true }
   readonly backgroundImage0p5lh: { 'background-image_0\.5lh': true }
-  readonly backgroundImage0p75lh: { 'background-image_0\.75lh': true }
   readonly backgroundImage1lh: { 'background-image_1lh': true }
-  readonly backgroundImage1p25lh: { 'background-image_1\.25lh': true }
   readonly backgroundImage1p5lh: { 'background-image_1\.5lh': true }
   readonly backgroundImage2lh: { 'background-image_2lh': true }
-  readonly backgroundImage2p5lh: { 'background-image_2\.5lh': true }
   readonly backgroundImage3lh: { 'background-image_3lh': true }
-  readonly backgroundImage4lh: { 'background-image_4lh': true }
-  readonly backgroundImage5lh: { 'background-image_5lh': true }
-  readonly backgroundImage6lh: { 'background-image_6lh': true }
-  readonly backgroundImage8lh: { 'background-image_8lh': true }
   readonly backgroundImage0lvh: { 'background-image_0lvh': true }
-  readonly backgroundImage10lvh: { 'background-image_10lvh': true }
-  readonly backgroundImage20lvh: { 'background-image_20lvh': true }
   readonly backgroundImage25lvh: { 'background-image_25lvh': true }
-  readonly backgroundImage30lvh: { 'background-image_30lvh': true }
-  readonly backgroundImage33p33lvh: { 'background-image_33\.33lvh': true }
-  readonly backgroundImage40lvh: { 'background-image_40lvh': true }
   readonly backgroundImage50lvh: { 'background-image_50lvh': true }
-  readonly backgroundImage60lvh: { 'background-image_60lvh': true }
-  readonly backgroundImage66p67lvh: { 'background-image_66\.67lvh': true }
-  readonly backgroundImage70lvh: { 'background-image_70lvh': true }
   readonly backgroundImage75lvh: { 'background-image_75lvh': true }
-  readonly backgroundImage80lvh: { 'background-image_80lvh': true }
-  readonly backgroundImage90lvh: { 'background-image_90lvh': true }
   readonly backgroundImage100lvh: { 'background-image_100lvh': true }
   readonly backgroundImage0lvw: { 'background-image_0lvw': true }
-  readonly backgroundImage10lvw: { 'background-image_10lvw': true }
-  readonly backgroundImage20lvw: { 'background-image_20lvw': true }
   readonly backgroundImage25lvw: { 'background-image_25lvw': true }
-  readonly backgroundImage30lvw: { 'background-image_30lvw': true }
-  readonly backgroundImage33p33lvw: { 'background-image_33\.33lvw': true }
-  readonly backgroundImage40lvw: { 'background-image_40lvw': true }
   readonly backgroundImage50lvw: { 'background-image_50lvw': true }
-  readonly backgroundImage60lvw: { 'background-image_60lvw': true }
-  readonly backgroundImage66p67lvw: { 'background-image_66\.67lvw': true }
-  readonly backgroundImage70lvw: { 'background-image_70lvw': true }
   readonly backgroundImage75lvw: { 'background-image_75lvw': true }
-  readonly backgroundImage80lvw: { 'background-image_80lvw': true }
-  readonly backgroundImage90lvw: { 'background-image_90lvw': true }
   readonly backgroundImage100lvw: { 'background-image_100lvw': true }
   readonly backgroundImage0mm: { 'background-image_0mm': true }
   readonly backgroundImage1mm: { 'background-image_1mm': true }
   readonly backgroundImage2mm: { 'background-image_2mm': true }
   readonly backgroundImage4mm: { 'background-image_4mm': true }
-  readonly backgroundImage6mm: { 'background-image_6mm': true }
   readonly backgroundImage8mm: { 'background-image_8mm': true }
-  readonly backgroundImage10mm: { 'background-image_10mm': true }
-  readonly backgroundImage12mm: { 'background-image_12mm': true }
-  readonly backgroundImage16mm: { 'background-image_16mm': true }
-  readonly backgroundImage20mm: { 'background-image_20mm': true }
   readonly backgroundImage0pc: { 'background-image_0pc': true }
   readonly backgroundImage1pc: { 'background-image_1pc': true }
   readonly backgroundImage2pc: { 'background-image_2pc': true }
   readonly backgroundImage4pc: { 'background-image_4pc': true }
-  readonly backgroundImage6pc: { 'background-image_6pc': true }
   readonly backgroundImage8pc: { 'background-image_8pc': true }
-  readonly backgroundImage10pc: { 'background-image_10pc': true }
-  readonly backgroundImage12pc: { 'background-image_12pc': true }
-  readonly backgroundImage16pc: { 'background-image_16pc': true }
-  readonly backgroundImage20pc: { 'background-image_20pc': true }
   readonly backgroundImage0pt: { 'background-image_0pt': true }
   readonly backgroundImage1pt: { 'background-image_1pt': true }
   readonly backgroundImage2pt: { 'background-image_2pt': true }
   readonly backgroundImage4pt: { 'background-image_4pt': true }
-  readonly backgroundImage6pt: { 'background-image_6pt': true }
   readonly backgroundImage8pt: { 'background-image_8pt': true }
-  readonly backgroundImage10pt: { 'background-image_10pt': true }
-  readonly backgroundImage12pt: { 'background-image_12pt': true }
-  readonly backgroundImage16pt: { 'background-image_16pt': true }
-  readonly backgroundImage20pt: { 'background-image_20pt': true }
-  readonly backgroundImageN384px: { 'background-image_-384px': true }
-  readonly backgroundImageN320px: { 'background-image_-320px': true }
-  readonly backgroundImageN256px: { 'background-image_-256px': true }
-  readonly backgroundImageN224px: { 'background-image_-224px': true }
-  readonly backgroundImageN192px: { 'background-image_-192px': true }
-  readonly backgroundImageN160px: { 'background-image_-160px': true }
-  readonly backgroundImageN128px: { 'background-image_-128px': true }
   readonly backgroundImageN96px: { 'background-image_-96px': true }
   readonly backgroundImageN80px: { 'background-image_-80px': true }
   readonly backgroundImageN64px: { 'background-image_-64px': true }
-  readonly backgroundImageN56px: { 'background-image_-56px': true }
   readonly backgroundImageN48px: { 'background-image_-48px': true }
   readonly backgroundImageN40px: { 'background-image_-40px': true }
   readonly backgroundImageN32px: { 'background-image_-32px': true }
-  readonly backgroundImageN28px: { 'background-image_-28px': true }
   readonly backgroundImageN24px: { 'background-image_-24px': true }
   readonly backgroundImageN20px: { 'background-image_-20px': true }
   readonly backgroundImageN16px: { 'background-image_-16px': true }
-  readonly backgroundImageN14px: { 'background-image_-14px': true }
   readonly backgroundImageN12px: { 'background-image_-12px': true }
   readonly backgroundImageN10px: { 'background-image_-10px': true }
   readonly backgroundImageN8px: { 'background-image_-8px': true }
   readonly backgroundImageN6px: { 'background-image_-6px': true }
   readonly backgroundImageN4px: { 'background-image_-4px': true }
   readonly backgroundImageN2px: { 'background-image_-2px': true }
-  readonly backgroundImageN1px: { 'background-image_-1px': true }
   readonly backgroundImage0px: { 'background-image_0px': true }
-  readonly backgroundImage1px: { 'background-image_1px': true }
   readonly backgroundImage2px: { 'background-image_2px': true }
   readonly backgroundImage4px: { 'background-image_4px': true }
   readonly backgroundImage6px: { 'background-image_6px': true }
   readonly backgroundImage8px: { 'background-image_8px': true }
   readonly backgroundImage10px: { 'background-image_10px': true }
   readonly backgroundImage12px: { 'background-image_12px': true }
-  readonly backgroundImage14px: { 'background-image_14px': true }
   readonly backgroundImage16px: { 'background-image_16px': true }
   readonly backgroundImage20px: { 'background-image_20px': true }
   readonly backgroundImage24px: { 'background-image_24px': true }
-  readonly backgroundImage28px: { 'background-image_28px': true }
   readonly backgroundImage32px: { 'background-image_32px': true }
   readonly backgroundImage40px: { 'background-image_40px': true }
   readonly backgroundImage48px: { 'background-image_48px': true }
-  readonly backgroundImage56px: { 'background-image_56px': true }
   readonly backgroundImage64px: { 'background-image_64px': true }
   readonly backgroundImage80px: { 'background-image_80px': true }
   readonly backgroundImage96px: { 'background-image_96px': true }
-  readonly backgroundImage128px: { 'background-image_128px': true }
-  readonly backgroundImage160px: { 'background-image_160px': true }
-  readonly backgroundImage192px: { 'background-image_192px': true }
-  readonly backgroundImage224px: { 'background-image_224px': true }
-  readonly backgroundImage256px: { 'background-image_256px': true }
-  readonly backgroundImage320px: { 'background-image_320px': true }
-  readonly backgroundImage384px: { 'background-image_384px': true }
   readonly backgroundImage0rem: { 'background-image_0rem': true }
-  readonly backgroundImage0p25rem: { 'background-image_0\.25rem': true }
   readonly backgroundImage0p5rem: { 'background-image_0\.5rem': true }
-  readonly backgroundImage0p75rem: { 'background-image_0\.75rem': true }
   readonly backgroundImage1rem: { 'background-image_1rem': true }
-  readonly backgroundImage1p25rem: { 'background-image_1\.25rem': true }
   readonly backgroundImage1p5rem: { 'background-image_1\.5rem': true }
   readonly backgroundImage2rem: { 'background-image_2rem': true }
-  readonly backgroundImage2p5rem: { 'background-image_2\.5rem': true }
   readonly backgroundImage3rem: { 'background-image_3rem': true }
-  readonly backgroundImage4rem: { 'background-image_4rem': true }
-  readonly backgroundImage5rem: { 'background-image_5rem': true }
-  readonly backgroundImage6rem: { 'background-image_6rem': true }
-  readonly backgroundImage8rem: { 'background-image_8rem': true }
   readonly backgroundImage0rlh: { 'background-image_0rlh': true }
-  readonly backgroundImage0p25rlh: { 'background-image_0\.25rlh': true }
   readonly backgroundImage0p5rlh: { 'background-image_0\.5rlh': true }
-  readonly backgroundImage0p75rlh: { 'background-image_0\.75rlh': true }
   readonly backgroundImage1rlh: { 'background-image_1rlh': true }
-  readonly backgroundImage1p25rlh: { 'background-image_1\.25rlh': true }
   readonly backgroundImage1p5rlh: { 'background-image_1\.5rlh': true }
   readonly backgroundImage2rlh: { 'background-image_2rlh': true }
-  readonly backgroundImage2p5rlh: { 'background-image_2\.5rlh': true }
   readonly backgroundImage3rlh: { 'background-image_3rlh': true }
-  readonly backgroundImage4rlh: { 'background-image_4rlh': true }
-  readonly backgroundImage5rlh: { 'background-image_5rlh': true }
-  readonly backgroundImage6rlh: { 'background-image_6rlh': true }
-  readonly backgroundImage8rlh: { 'background-image_8rlh': true }
   readonly backgroundImage0svh: { 'background-image_0svh': true }
-  readonly backgroundImage10svh: { 'background-image_10svh': true }
-  readonly backgroundImage20svh: { 'background-image_20svh': true }
   readonly backgroundImage25svh: { 'background-image_25svh': true }
-  readonly backgroundImage30svh: { 'background-image_30svh': true }
-  readonly backgroundImage33p33svh: { 'background-image_33\.33svh': true }
-  readonly backgroundImage40svh: { 'background-image_40svh': true }
   readonly backgroundImage50svh: { 'background-image_50svh': true }
-  readonly backgroundImage60svh: { 'background-image_60svh': true }
-  readonly backgroundImage66p67svh: { 'background-image_66\.67svh': true }
-  readonly backgroundImage70svh: { 'background-image_70svh': true }
   readonly backgroundImage75svh: { 'background-image_75svh': true }
-  readonly backgroundImage80svh: { 'background-image_80svh': true }
-  readonly backgroundImage90svh: { 'background-image_90svh': true }
   readonly backgroundImage100svh: { 'background-image_100svh': true }
   readonly backgroundImage0svw: { 'background-image_0svw': true }
-  readonly backgroundImage10svw: { 'background-image_10svw': true }
-  readonly backgroundImage20svw: { 'background-image_20svw': true }
   readonly backgroundImage25svw: { 'background-image_25svw': true }
-  readonly backgroundImage30svw: { 'background-image_30svw': true }
-  readonly backgroundImage33p33svw: { 'background-image_33\.33svw': true }
-  readonly backgroundImage40svw: { 'background-image_40svw': true }
   readonly backgroundImage50svw: { 'background-image_50svw': true }
-  readonly backgroundImage60svw: { 'background-image_60svw': true }
-  readonly backgroundImage66p67svw: { 'background-image_66\.67svw': true }
-  readonly backgroundImage70svw: { 'background-image_70svw': true }
   readonly backgroundImage75svw: { 'background-image_75svw': true }
-  readonly backgroundImage80svw: { 'background-image_80svw': true }
-  readonly backgroundImage90svw: { 'background-image_90svw': true }
   readonly backgroundImage100svw: { 'background-image_100svw': true }
   readonly backgroundImage0vb: { 'background-image_0vb': true }
-  readonly backgroundImage10vb: { 'background-image_10vb': true }
-  readonly backgroundImage20vb: { 'background-image_20vb': true }
   readonly backgroundImage25vb: { 'background-image_25vb': true }
-  readonly backgroundImage30vb: { 'background-image_30vb': true }
-  readonly backgroundImage33p33vb: { 'background-image_33\.33vb': true }
-  readonly backgroundImage40vb: { 'background-image_40vb': true }
   readonly backgroundImage50vb: { 'background-image_50vb': true }
-  readonly backgroundImage60vb: { 'background-image_60vb': true }
-  readonly backgroundImage66p67vb: { 'background-image_66\.67vb': true }
-  readonly backgroundImage70vb: { 'background-image_70vb': true }
   readonly backgroundImage75vb: { 'background-image_75vb': true }
-  readonly backgroundImage80vb: { 'background-image_80vb': true }
-  readonly backgroundImage90vb: { 'background-image_90vb': true }
   readonly backgroundImage100vb: { 'background-image_100vb': true }
   readonly backgroundImage0vh: { 'background-image_0vh': true }
-  readonly backgroundImage10vh: { 'background-image_10vh': true }
-  readonly backgroundImage20vh: { 'background-image_20vh': true }
   readonly backgroundImage25vh: { 'background-image_25vh': true }
-  readonly backgroundImage30vh: { 'background-image_30vh': true }
-  readonly backgroundImage33p33vh: { 'background-image_33\.33vh': true }
-  readonly backgroundImage40vh: { 'background-image_40vh': true }
   readonly backgroundImage50vh: { 'background-image_50vh': true }
-  readonly backgroundImage60vh: { 'background-image_60vh': true }
-  readonly backgroundImage66p67vh: { 'background-image_66\.67vh': true }
-  readonly backgroundImage70vh: { 'background-image_70vh': true }
   readonly backgroundImage75vh: { 'background-image_75vh': true }
-  readonly backgroundImage80vh: { 'background-image_80vh': true }
-  readonly backgroundImage90vh: { 'background-image_90vh': true }
   readonly backgroundImage100vh: { 'background-image_100vh': true }
   readonly backgroundImage0vi: { 'background-image_0vi': true }
-  readonly backgroundImage10vi: { 'background-image_10vi': true }
-  readonly backgroundImage20vi: { 'background-image_20vi': true }
   readonly backgroundImage25vi: { 'background-image_25vi': true }
-  readonly backgroundImage30vi: { 'background-image_30vi': true }
-  readonly backgroundImage33p33vi: { 'background-image_33\.33vi': true }
-  readonly backgroundImage40vi: { 'background-image_40vi': true }
   readonly backgroundImage50vi: { 'background-image_50vi': true }
-  readonly backgroundImage60vi: { 'background-image_60vi': true }
-  readonly backgroundImage66p67vi: { 'background-image_66\.67vi': true }
-  readonly backgroundImage70vi: { 'background-image_70vi': true }
   readonly backgroundImage75vi: { 'background-image_75vi': true }
-  readonly backgroundImage80vi: { 'background-image_80vi': true }
-  readonly backgroundImage90vi: { 'background-image_90vi': true }
   readonly backgroundImage100vi: { 'background-image_100vi': true }
   readonly backgroundImage0vmax: { 'background-image_0vmax': true }
-  readonly backgroundImage10vmax: { 'background-image_10vmax': true }
-  readonly backgroundImage20vmax: { 'background-image_20vmax': true }
   readonly backgroundImage25vmax: { 'background-image_25vmax': true }
-  readonly backgroundImage30vmax: { 'background-image_30vmax': true }
-  readonly backgroundImage33p33vmax: { 'background-image_33\.33vmax': true }
-  readonly backgroundImage40vmax: { 'background-image_40vmax': true }
   readonly backgroundImage50vmax: { 'background-image_50vmax': true }
-  readonly backgroundImage60vmax: { 'background-image_60vmax': true }
-  readonly backgroundImage66p67vmax: { 'background-image_66\.67vmax': true }
-  readonly backgroundImage70vmax: { 'background-image_70vmax': true }
   readonly backgroundImage75vmax: { 'background-image_75vmax': true }
-  readonly backgroundImage80vmax: { 'background-image_80vmax': true }
-  readonly backgroundImage90vmax: { 'background-image_90vmax': true }
   readonly backgroundImage100vmax: { 'background-image_100vmax': true }
   readonly backgroundImage0vmin: { 'background-image_0vmin': true }
-  readonly backgroundImage10vmin: { 'background-image_10vmin': true }
-  readonly backgroundImage20vmin: { 'background-image_20vmin': true }
   readonly backgroundImage25vmin: { 'background-image_25vmin': true }
-  readonly backgroundImage30vmin: { 'background-image_30vmin': true }
-  readonly backgroundImage33p33vmin: { 'background-image_33\.33vmin': true }
-  readonly backgroundImage40vmin: { 'background-image_40vmin': true }
   readonly backgroundImage50vmin: { 'background-image_50vmin': true }
-  readonly backgroundImage60vmin: { 'background-image_60vmin': true }
-  readonly backgroundImage66p67vmin: { 'background-image_66\.67vmin': true }
-  readonly backgroundImage70vmin: { 'background-image_70vmin': true }
   readonly backgroundImage75vmin: { 'background-image_75vmin': true }
-  readonly backgroundImage80vmin: { 'background-image_80vmin': true }
-  readonly backgroundImage90vmin: { 'background-image_90vmin': true }
   readonly backgroundImage100vmin: { 'background-image_100vmin': true }
   readonly backgroundImage0vw: { 'background-image_0vw': true }
-  readonly backgroundImage10vw: { 'background-image_10vw': true }
-  readonly backgroundImage20vw: { 'background-image_20vw': true }
   readonly backgroundImage25vw: { 'background-image_25vw': true }
-  readonly backgroundImage30vw: { 'background-image_30vw': true }
-  readonly backgroundImage33p33vw: { 'background-image_33\.33vw': true }
-  readonly backgroundImage40vw: { 'background-image_40vw': true }
   readonly backgroundImage50vw: { 'background-image_50vw': true }
-  readonly backgroundImage60vw: { 'background-image_60vw': true }
-  readonly backgroundImage66p67vw: { 'background-image_66\.67vw': true }
-  readonly backgroundImage70vw: { 'background-image_70vw': true }
   readonly backgroundImage75vw: { 'background-image_75vw': true }
-  readonly backgroundImage80vw: { 'background-image_80vw': true }
-  readonly backgroundImage90vw: { 'background-image_90vw': true }
   readonly backgroundImage100vw: { 'background-image_100vw': true }
   readonly backgroundImage0: { 'background-image_0': true }
-  readonly backgroundImage0p5: { 'background-image_0\.5': true }
   readonly backgroundImage1: { 'background-image_1': true }
-  readonly backgroundImage1p5: { 'background-image_1\.5': true }
   readonly backgroundImage2: { 'background-image_2': true }
   readonly backgroundImage3: { 'background-image_3': true }
-  readonly backgroundImage4: { 'background-image_4': true }
   readonly backgroundImage5: { 'background-image_5': true }
   readonly backgroundImage10: { 'background-image_10': true }
-  readonly backgroundImage20: { 'background-image_20': true }
-  readonly backgroundImage50: { 'background-image_50': true }
-  readonly backgroundImage100: { 'background-image_100': true }
   readonly backgroundImage0Pct: { 'background-image_0\%': true }
-  readonly backgroundImage10Pct: { 'background-image_10\%': true }
-  readonly backgroundImage20Pct: { 'background-image_20\%': true }
   readonly backgroundImage25Pct: { 'background-image_25\%': true }
-  readonly backgroundImage30Pct: { 'background-image_30\%': true }
-  readonly backgroundImage33p33Pct: { 'background-image_33\.33\%': true }
-  readonly backgroundImage40Pct: { 'background-image_40\%': true }
   readonly backgroundImage50Pct: { 'background-image_50\%': true }
-  readonly backgroundImage60Pct: { 'background-image_60\%': true }
-  readonly backgroundImage66p67Pct: { 'background-image_66\.67\%': true }
-  readonly backgroundImage70Pct: { 'background-image_70\%': true }
   readonly backgroundImage75Pct: { 'background-image_75\%': true }
-  readonly backgroundImage80Pct: { 'background-image_80\%': true }
-  readonly backgroundImage90Pct: { 'background-image_90\%': true }
   readonly backgroundImage100Pct: { 'background-image_100\%': true }
-  readonly backgroundImage1dpcm: { 'background-image_1dpcm': true }
-  readonly backgroundImage2dpcm: { 'background-image_2dpcm': true }
-  readonly backgroundImage3dpcm: { 'background-image_3dpcm': true }
-  readonly backgroundImage96dpcm: { 'background-image_96dpcm': true }
-  readonly backgroundImage300dpcm: { 'background-image_300dpcm': true }
-  readonly backgroundImage1dpi: { 'background-image_1dpi': true }
-  readonly backgroundImage2dpi: { 'background-image_2dpi': true }
-  readonly backgroundImage3dpi: { 'background-image_3dpi': true }
-  readonly backgroundImage96dpi: { 'background-image_96dpi': true }
-  readonly backgroundImage300dpi: { 'background-image_300dpi': true }
-  readonly backgroundImage1dppx: { 'background-image_1dppx': true }
-  readonly backgroundImage2dppx: { 'background-image_2dppx': true }
-  readonly backgroundImage3dppx: { 'background-image_3dppx': true }
-  readonly backgroundImage96dppx: { 'background-image_96dppx': true }
-  readonly backgroundImage300dppx: { 'background-image_300dppx': true }
-  readonly backgroundImage1x: { 'background-image_1x': true }
-  readonly backgroundImage2x: { 'background-image_2x': true }
-  readonly backgroundImage3x: { 'background-image_3x': true }
-  readonly backgroundImage96x: { 'background-image_96x': true }
-  readonly backgroundImage300x: { 'background-image_300x': true }
 
   // ==================== background-size ====================
   readonly backgroundSizeAuto: { 'background-size_auto': true }
@@ -893,421 +463,175 @@ export interface CsstsAtoms {
   readonly backgroundSize1Q: { 'background-size_1Q': true }
   readonly backgroundSize2Q: { 'background-size_2Q': true }
   readonly backgroundSize4Q: { 'background-size_4Q': true }
-  readonly backgroundSize6Q: { 'background-size_6Q': true }
   readonly backgroundSize8Q: { 'background-size_8Q': true }
-  readonly backgroundSize10Q: { 'background-size_10Q': true }
-  readonly backgroundSize12Q: { 'background-size_12Q': true }
-  readonly backgroundSize16Q: { 'background-size_16Q': true }
-  readonly backgroundSize20Q: { 'background-size_20Q': true }
   readonly backgroundSize0cap: { 'background-size_0cap': true }
-  readonly backgroundSize0p25cap: { 'background-size_0\.25cap': true }
   readonly backgroundSize0p5cap: { 'background-size_0\.5cap': true }
-  readonly backgroundSize0p75cap: { 'background-size_0\.75cap': true }
   readonly backgroundSize1cap: { 'background-size_1cap': true }
-  readonly backgroundSize1p25cap: { 'background-size_1\.25cap': true }
   readonly backgroundSize1p5cap: { 'background-size_1\.5cap': true }
   readonly backgroundSize2cap: { 'background-size_2cap': true }
-  readonly backgroundSize2p5cap: { 'background-size_2\.5cap': true }
   readonly backgroundSize3cap: { 'background-size_3cap': true }
-  readonly backgroundSize4cap: { 'background-size_4cap': true }
-  readonly backgroundSize5cap: { 'background-size_5cap': true }
-  readonly backgroundSize6cap: { 'background-size_6cap': true }
-  readonly backgroundSize8cap: { 'background-size_8cap': true }
   readonly backgroundSize0ch: { 'background-size_0ch': true }
-  readonly backgroundSize0p25ch: { 'background-size_0\.25ch': true }
   readonly backgroundSize0p5ch: { 'background-size_0\.5ch': true }
-  readonly backgroundSize0p75ch: { 'background-size_0\.75ch': true }
   readonly backgroundSize1ch: { 'background-size_1ch': true }
-  readonly backgroundSize1p25ch: { 'background-size_1\.25ch': true }
   readonly backgroundSize1p5ch: { 'background-size_1\.5ch': true }
   readonly backgroundSize2ch: { 'background-size_2ch': true }
-  readonly backgroundSize2p5ch: { 'background-size_2\.5ch': true }
   readonly backgroundSize3ch: { 'background-size_3ch': true }
-  readonly backgroundSize4ch: { 'background-size_4ch': true }
-  readonly backgroundSize5ch: { 'background-size_5ch': true }
-  readonly backgroundSize6ch: { 'background-size_6ch': true }
-  readonly backgroundSize8ch: { 'background-size_8ch': true }
   readonly backgroundSize0cm: { 'background-size_0cm': true }
   readonly backgroundSize1cm: { 'background-size_1cm': true }
   readonly backgroundSize2cm: { 'background-size_2cm': true }
   readonly backgroundSize4cm: { 'background-size_4cm': true }
-  readonly backgroundSize6cm: { 'background-size_6cm': true }
   readonly backgroundSize8cm: { 'background-size_8cm': true }
-  readonly backgroundSize10cm: { 'background-size_10cm': true }
-  readonly backgroundSize12cm: { 'background-size_12cm': true }
-  readonly backgroundSize16cm: { 'background-size_16cm': true }
-  readonly backgroundSize20cm: { 'background-size_20cm': true }
   readonly backgroundSize0dvh: { 'background-size_0dvh': true }
-  readonly backgroundSize10dvh: { 'background-size_10dvh': true }
-  readonly backgroundSize20dvh: { 'background-size_20dvh': true }
   readonly backgroundSize25dvh: { 'background-size_25dvh': true }
-  readonly backgroundSize30dvh: { 'background-size_30dvh': true }
-  readonly backgroundSize33p33dvh: { 'background-size_33\.33dvh': true }
-  readonly backgroundSize40dvh: { 'background-size_40dvh': true }
   readonly backgroundSize50dvh: { 'background-size_50dvh': true }
-  readonly backgroundSize60dvh: { 'background-size_60dvh': true }
-  readonly backgroundSize66p67dvh: { 'background-size_66\.67dvh': true }
-  readonly backgroundSize70dvh: { 'background-size_70dvh': true }
   readonly backgroundSize75dvh: { 'background-size_75dvh': true }
-  readonly backgroundSize80dvh: { 'background-size_80dvh': true }
-  readonly backgroundSize90dvh: { 'background-size_90dvh': true }
   readonly backgroundSize100dvh: { 'background-size_100dvh': true }
   readonly backgroundSize0dvw: { 'background-size_0dvw': true }
-  readonly backgroundSize10dvw: { 'background-size_10dvw': true }
-  readonly backgroundSize20dvw: { 'background-size_20dvw': true }
   readonly backgroundSize25dvw: { 'background-size_25dvw': true }
-  readonly backgroundSize30dvw: { 'background-size_30dvw': true }
-  readonly backgroundSize33p33dvw: { 'background-size_33\.33dvw': true }
-  readonly backgroundSize40dvw: { 'background-size_40dvw': true }
   readonly backgroundSize50dvw: { 'background-size_50dvw': true }
-  readonly backgroundSize60dvw: { 'background-size_60dvw': true }
-  readonly backgroundSize66p67dvw: { 'background-size_66\.67dvw': true }
-  readonly backgroundSize70dvw: { 'background-size_70dvw': true }
   readonly backgroundSize75dvw: { 'background-size_75dvw': true }
-  readonly backgroundSize80dvw: { 'background-size_80dvw': true }
-  readonly backgroundSize90dvw: { 'background-size_90dvw': true }
   readonly backgroundSize100dvw: { 'background-size_100dvw': true }
   readonly backgroundSize0em: { 'background-size_0em': true }
-  readonly backgroundSize0p25em: { 'background-size_0\.25em': true }
   readonly backgroundSize0p5em: { 'background-size_0\.5em': true }
-  readonly backgroundSize0p75em: { 'background-size_0\.75em': true }
   readonly backgroundSize1em: { 'background-size_1em': true }
-  readonly backgroundSize1p25em: { 'background-size_1\.25em': true }
   readonly backgroundSize1p5em: { 'background-size_1\.5em': true }
   readonly backgroundSize2em: { 'background-size_2em': true }
-  readonly backgroundSize2p5em: { 'background-size_2\.5em': true }
   readonly backgroundSize3em: { 'background-size_3em': true }
-  readonly backgroundSize4em: { 'background-size_4em': true }
-  readonly backgroundSize5em: { 'background-size_5em': true }
-  readonly backgroundSize6em: { 'background-size_6em': true }
-  readonly backgroundSize8em: { 'background-size_8em': true }
   readonly backgroundSize0ex: { 'background-size_0ex': true }
-  readonly backgroundSize0p25ex: { 'background-size_0\.25ex': true }
   readonly backgroundSize0p5ex: { 'background-size_0\.5ex': true }
-  readonly backgroundSize0p75ex: { 'background-size_0\.75ex': true }
   readonly backgroundSize1ex: { 'background-size_1ex': true }
-  readonly backgroundSize1p25ex: { 'background-size_1\.25ex': true }
   readonly backgroundSize1p5ex: { 'background-size_1\.5ex': true }
   readonly backgroundSize2ex: { 'background-size_2ex': true }
-  readonly backgroundSize2p5ex: { 'background-size_2\.5ex': true }
   readonly backgroundSize3ex: { 'background-size_3ex': true }
-  readonly backgroundSize4ex: { 'background-size_4ex': true }
-  readonly backgroundSize5ex: { 'background-size_5ex': true }
-  readonly backgroundSize6ex: { 'background-size_6ex': true }
-  readonly backgroundSize8ex: { 'background-size_8ex': true }
   readonly backgroundSize0ic: { 'background-size_0ic': true }
-  readonly backgroundSize0p25ic: { 'background-size_0\.25ic': true }
   readonly backgroundSize0p5ic: { 'background-size_0\.5ic': true }
-  readonly backgroundSize0p75ic: { 'background-size_0\.75ic': true }
   readonly backgroundSize1ic: { 'background-size_1ic': true }
-  readonly backgroundSize1p25ic: { 'background-size_1\.25ic': true }
   readonly backgroundSize1p5ic: { 'background-size_1\.5ic': true }
   readonly backgroundSize2ic: { 'background-size_2ic': true }
-  readonly backgroundSize2p5ic: { 'background-size_2\.5ic': true }
   readonly backgroundSize3ic: { 'background-size_3ic': true }
-  readonly backgroundSize4ic: { 'background-size_4ic': true }
-  readonly backgroundSize5ic: { 'background-size_5ic': true }
-  readonly backgroundSize6ic: { 'background-size_6ic': true }
-  readonly backgroundSize8ic: { 'background-size_8ic': true }
   readonly backgroundSize0in: { 'background-size_0in': true }
   readonly backgroundSize1in: { 'background-size_1in': true }
   readonly backgroundSize2in: { 'background-size_2in': true }
   readonly backgroundSize4in: { 'background-size_4in': true }
-  readonly backgroundSize6in: { 'background-size_6in': true }
   readonly backgroundSize8in: { 'background-size_8in': true }
-  readonly backgroundSize10in: { 'background-size_10in': true }
-  readonly backgroundSize12in: { 'background-size_12in': true }
-  readonly backgroundSize16in: { 'background-size_16in': true }
-  readonly backgroundSize20in: { 'background-size_20in': true }
   readonly backgroundSize0lh: { 'background-size_0lh': true }
-  readonly backgroundSize0p25lh: { 'background-size_0\.25lh': true }
   readonly backgroundSize0p5lh: { 'background-size_0\.5lh': true }
-  readonly backgroundSize0p75lh: { 'background-size_0\.75lh': true }
   readonly backgroundSize1lh: { 'background-size_1lh': true }
-  readonly backgroundSize1p25lh: { 'background-size_1\.25lh': true }
   readonly backgroundSize1p5lh: { 'background-size_1\.5lh': true }
   readonly backgroundSize2lh: { 'background-size_2lh': true }
-  readonly backgroundSize2p5lh: { 'background-size_2\.5lh': true }
   readonly backgroundSize3lh: { 'background-size_3lh': true }
-  readonly backgroundSize4lh: { 'background-size_4lh': true }
-  readonly backgroundSize5lh: { 'background-size_5lh': true }
-  readonly backgroundSize6lh: { 'background-size_6lh': true }
-  readonly backgroundSize8lh: { 'background-size_8lh': true }
   readonly backgroundSize0lvh: { 'background-size_0lvh': true }
-  readonly backgroundSize10lvh: { 'background-size_10lvh': true }
-  readonly backgroundSize20lvh: { 'background-size_20lvh': true }
   readonly backgroundSize25lvh: { 'background-size_25lvh': true }
-  readonly backgroundSize30lvh: { 'background-size_30lvh': true }
-  readonly backgroundSize33p33lvh: { 'background-size_33\.33lvh': true }
-  readonly backgroundSize40lvh: { 'background-size_40lvh': true }
   readonly backgroundSize50lvh: { 'background-size_50lvh': true }
-  readonly backgroundSize60lvh: { 'background-size_60lvh': true }
-  readonly backgroundSize66p67lvh: { 'background-size_66\.67lvh': true }
-  readonly backgroundSize70lvh: { 'background-size_70lvh': true }
   readonly backgroundSize75lvh: { 'background-size_75lvh': true }
-  readonly backgroundSize80lvh: { 'background-size_80lvh': true }
-  readonly backgroundSize90lvh: { 'background-size_90lvh': true }
   readonly backgroundSize100lvh: { 'background-size_100lvh': true }
   readonly backgroundSize0lvw: { 'background-size_0lvw': true }
-  readonly backgroundSize10lvw: { 'background-size_10lvw': true }
-  readonly backgroundSize20lvw: { 'background-size_20lvw': true }
   readonly backgroundSize25lvw: { 'background-size_25lvw': true }
-  readonly backgroundSize30lvw: { 'background-size_30lvw': true }
-  readonly backgroundSize33p33lvw: { 'background-size_33\.33lvw': true }
-  readonly backgroundSize40lvw: { 'background-size_40lvw': true }
   readonly backgroundSize50lvw: { 'background-size_50lvw': true }
-  readonly backgroundSize60lvw: { 'background-size_60lvw': true }
-  readonly backgroundSize66p67lvw: { 'background-size_66\.67lvw': true }
-  readonly backgroundSize70lvw: { 'background-size_70lvw': true }
   readonly backgroundSize75lvw: { 'background-size_75lvw': true }
-  readonly backgroundSize80lvw: { 'background-size_80lvw': true }
-  readonly backgroundSize90lvw: { 'background-size_90lvw': true }
   readonly backgroundSize100lvw: { 'background-size_100lvw': true }
   readonly backgroundSize0mm: { 'background-size_0mm': true }
   readonly backgroundSize1mm: { 'background-size_1mm': true }
   readonly backgroundSize2mm: { 'background-size_2mm': true }
   readonly backgroundSize4mm: { 'background-size_4mm': true }
-  readonly backgroundSize6mm: { 'background-size_6mm': true }
   readonly backgroundSize8mm: { 'background-size_8mm': true }
-  readonly backgroundSize10mm: { 'background-size_10mm': true }
-  readonly backgroundSize12mm: { 'background-size_12mm': true }
-  readonly backgroundSize16mm: { 'background-size_16mm': true }
-  readonly backgroundSize20mm: { 'background-size_20mm': true }
   readonly backgroundSize0pc: { 'background-size_0pc': true }
   readonly backgroundSize1pc: { 'background-size_1pc': true }
   readonly backgroundSize2pc: { 'background-size_2pc': true }
   readonly backgroundSize4pc: { 'background-size_4pc': true }
-  readonly backgroundSize6pc: { 'background-size_6pc': true }
   readonly backgroundSize8pc: { 'background-size_8pc': true }
-  readonly backgroundSize10pc: { 'background-size_10pc': true }
-  readonly backgroundSize12pc: { 'background-size_12pc': true }
-  readonly backgroundSize16pc: { 'background-size_16pc': true }
-  readonly backgroundSize20pc: { 'background-size_20pc': true }
   readonly backgroundSize0pt: { 'background-size_0pt': true }
   readonly backgroundSize1pt: { 'background-size_1pt': true }
   readonly backgroundSize2pt: { 'background-size_2pt': true }
   readonly backgroundSize4pt: { 'background-size_4pt': true }
-  readonly backgroundSize6pt: { 'background-size_6pt': true }
   readonly backgroundSize8pt: { 'background-size_8pt': true }
-  readonly backgroundSize10pt: { 'background-size_10pt': true }
-  readonly backgroundSize12pt: { 'background-size_12pt': true }
-  readonly backgroundSize16pt: { 'background-size_16pt': true }
-  readonly backgroundSize20pt: { 'background-size_20pt': true }
-  readonly backgroundSizeN384px: { 'background-size_-384px': true }
-  readonly backgroundSizeN320px: { 'background-size_-320px': true }
-  readonly backgroundSizeN256px: { 'background-size_-256px': true }
-  readonly backgroundSizeN224px: { 'background-size_-224px': true }
-  readonly backgroundSizeN192px: { 'background-size_-192px': true }
-  readonly backgroundSizeN160px: { 'background-size_-160px': true }
-  readonly backgroundSizeN128px: { 'background-size_-128px': true }
   readonly backgroundSizeN96px: { 'background-size_-96px': true }
   readonly backgroundSizeN80px: { 'background-size_-80px': true }
   readonly backgroundSizeN64px: { 'background-size_-64px': true }
-  readonly backgroundSizeN56px: { 'background-size_-56px': true }
   readonly backgroundSizeN48px: { 'background-size_-48px': true }
   readonly backgroundSizeN40px: { 'background-size_-40px': true }
   readonly backgroundSizeN32px: { 'background-size_-32px': true }
-  readonly backgroundSizeN28px: { 'background-size_-28px': true }
   readonly backgroundSizeN24px: { 'background-size_-24px': true }
   readonly backgroundSizeN20px: { 'background-size_-20px': true }
   readonly backgroundSizeN16px: { 'background-size_-16px': true }
-  readonly backgroundSizeN14px: { 'background-size_-14px': true }
   readonly backgroundSizeN12px: { 'background-size_-12px': true }
   readonly backgroundSizeN10px: { 'background-size_-10px': true }
   readonly backgroundSizeN8px: { 'background-size_-8px': true }
   readonly backgroundSizeN6px: { 'background-size_-6px': true }
   readonly backgroundSizeN4px: { 'background-size_-4px': true }
   readonly backgroundSizeN2px: { 'background-size_-2px': true }
-  readonly backgroundSizeN1px: { 'background-size_-1px': true }
   readonly backgroundSize0px: { 'background-size_0px': true }
-  readonly backgroundSize1px: { 'background-size_1px': true }
   readonly backgroundSize2px: { 'background-size_2px': true }
   readonly backgroundSize4px: { 'background-size_4px': true }
   readonly backgroundSize6px: { 'background-size_6px': true }
   readonly backgroundSize8px: { 'background-size_8px': true }
   readonly backgroundSize10px: { 'background-size_10px': true }
   readonly backgroundSize12px: { 'background-size_12px': true }
-  readonly backgroundSize14px: { 'background-size_14px': true }
   readonly backgroundSize16px: { 'background-size_16px': true }
   readonly backgroundSize20px: { 'background-size_20px': true }
   readonly backgroundSize24px: { 'background-size_24px': true }
-  readonly backgroundSize28px: { 'background-size_28px': true }
   readonly backgroundSize32px: { 'background-size_32px': true }
   readonly backgroundSize40px: { 'background-size_40px': true }
   readonly backgroundSize48px: { 'background-size_48px': true }
-  readonly backgroundSize56px: { 'background-size_56px': true }
   readonly backgroundSize64px: { 'background-size_64px': true }
   readonly backgroundSize80px: { 'background-size_80px': true }
   readonly backgroundSize96px: { 'background-size_96px': true }
-  readonly backgroundSize128px: { 'background-size_128px': true }
-  readonly backgroundSize160px: { 'background-size_160px': true }
-  readonly backgroundSize192px: { 'background-size_192px': true }
-  readonly backgroundSize224px: { 'background-size_224px': true }
-  readonly backgroundSize256px: { 'background-size_256px': true }
-  readonly backgroundSize320px: { 'background-size_320px': true }
-  readonly backgroundSize384px: { 'background-size_384px': true }
   readonly backgroundSize0rem: { 'background-size_0rem': true }
-  readonly backgroundSize0p25rem: { 'background-size_0\.25rem': true }
   readonly backgroundSize0p5rem: { 'background-size_0\.5rem': true }
-  readonly backgroundSize0p75rem: { 'background-size_0\.75rem': true }
   readonly backgroundSize1rem: { 'background-size_1rem': true }
-  readonly backgroundSize1p25rem: { 'background-size_1\.25rem': true }
   readonly backgroundSize1p5rem: { 'background-size_1\.5rem': true }
   readonly backgroundSize2rem: { 'background-size_2rem': true }
-  readonly backgroundSize2p5rem: { 'background-size_2\.5rem': true }
   readonly backgroundSize3rem: { 'background-size_3rem': true }
-  readonly backgroundSize4rem: { 'background-size_4rem': true }
-  readonly backgroundSize5rem: { 'background-size_5rem': true }
-  readonly backgroundSize6rem: { 'background-size_6rem': true }
-  readonly backgroundSize8rem: { 'background-size_8rem': true }
   readonly backgroundSize0rlh: { 'background-size_0rlh': true }
-  readonly backgroundSize0p25rlh: { 'background-size_0\.25rlh': true }
   readonly backgroundSize0p5rlh: { 'background-size_0\.5rlh': true }
-  readonly backgroundSize0p75rlh: { 'background-size_0\.75rlh': true }
   readonly backgroundSize1rlh: { 'background-size_1rlh': true }
-  readonly backgroundSize1p25rlh: { 'background-size_1\.25rlh': true }
   readonly backgroundSize1p5rlh: { 'background-size_1\.5rlh': true }
   readonly backgroundSize2rlh: { 'background-size_2rlh': true }
-  readonly backgroundSize2p5rlh: { 'background-size_2\.5rlh': true }
   readonly backgroundSize3rlh: { 'background-size_3rlh': true }
-  readonly backgroundSize4rlh: { 'background-size_4rlh': true }
-  readonly backgroundSize5rlh: { 'background-size_5rlh': true }
-  readonly backgroundSize6rlh: { 'background-size_6rlh': true }
-  readonly backgroundSize8rlh: { 'background-size_8rlh': true }
   readonly backgroundSize0svh: { 'background-size_0svh': true }
-  readonly backgroundSize10svh: { 'background-size_10svh': true }
-  readonly backgroundSize20svh: { 'background-size_20svh': true }
   readonly backgroundSize25svh: { 'background-size_25svh': true }
-  readonly backgroundSize30svh: { 'background-size_30svh': true }
-  readonly backgroundSize33p33svh: { 'background-size_33\.33svh': true }
-  readonly backgroundSize40svh: { 'background-size_40svh': true }
   readonly backgroundSize50svh: { 'background-size_50svh': true }
-  readonly backgroundSize60svh: { 'background-size_60svh': true }
-  readonly backgroundSize66p67svh: { 'background-size_66\.67svh': true }
-  readonly backgroundSize70svh: { 'background-size_70svh': true }
   readonly backgroundSize75svh: { 'background-size_75svh': true }
-  readonly backgroundSize80svh: { 'background-size_80svh': true }
-  readonly backgroundSize90svh: { 'background-size_90svh': true }
   readonly backgroundSize100svh: { 'background-size_100svh': true }
   readonly backgroundSize0svw: { 'background-size_0svw': true }
-  readonly backgroundSize10svw: { 'background-size_10svw': true }
-  readonly backgroundSize20svw: { 'background-size_20svw': true }
   readonly backgroundSize25svw: { 'background-size_25svw': true }
-  readonly backgroundSize30svw: { 'background-size_30svw': true }
-  readonly backgroundSize33p33svw: { 'background-size_33\.33svw': true }
-  readonly backgroundSize40svw: { 'background-size_40svw': true }
   readonly backgroundSize50svw: { 'background-size_50svw': true }
-  readonly backgroundSize60svw: { 'background-size_60svw': true }
-  readonly backgroundSize66p67svw: { 'background-size_66\.67svw': true }
-  readonly backgroundSize70svw: { 'background-size_70svw': true }
   readonly backgroundSize75svw: { 'background-size_75svw': true }
-  readonly backgroundSize80svw: { 'background-size_80svw': true }
-  readonly backgroundSize90svw: { 'background-size_90svw': true }
   readonly backgroundSize100svw: { 'background-size_100svw': true }
   readonly backgroundSize0vb: { 'background-size_0vb': true }
-  readonly backgroundSize10vb: { 'background-size_10vb': true }
-  readonly backgroundSize20vb: { 'background-size_20vb': true }
   readonly backgroundSize25vb: { 'background-size_25vb': true }
-  readonly backgroundSize30vb: { 'background-size_30vb': true }
-  readonly backgroundSize33p33vb: { 'background-size_33\.33vb': true }
-  readonly backgroundSize40vb: { 'background-size_40vb': true }
   readonly backgroundSize50vb: { 'background-size_50vb': true }
-  readonly backgroundSize60vb: { 'background-size_60vb': true }
-  readonly backgroundSize66p67vb: { 'background-size_66\.67vb': true }
-  readonly backgroundSize70vb: { 'background-size_70vb': true }
   readonly backgroundSize75vb: { 'background-size_75vb': true }
-  readonly backgroundSize80vb: { 'background-size_80vb': true }
-  readonly backgroundSize90vb: { 'background-size_90vb': true }
   readonly backgroundSize100vb: { 'background-size_100vb': true }
   readonly backgroundSize0vh: { 'background-size_0vh': true }
-  readonly backgroundSize10vh: { 'background-size_10vh': true }
-  readonly backgroundSize20vh: { 'background-size_20vh': true }
   readonly backgroundSize25vh: { 'background-size_25vh': true }
-  readonly backgroundSize30vh: { 'background-size_30vh': true }
-  readonly backgroundSize33p33vh: { 'background-size_33\.33vh': true }
-  readonly backgroundSize40vh: { 'background-size_40vh': true }
   readonly backgroundSize50vh: { 'background-size_50vh': true }
-  readonly backgroundSize60vh: { 'background-size_60vh': true }
-  readonly backgroundSize66p67vh: { 'background-size_66\.67vh': true }
-  readonly backgroundSize70vh: { 'background-size_70vh': true }
   readonly backgroundSize75vh: { 'background-size_75vh': true }
-  readonly backgroundSize80vh: { 'background-size_80vh': true }
-  readonly backgroundSize90vh: { 'background-size_90vh': true }
   readonly backgroundSize100vh: { 'background-size_100vh': true }
   readonly backgroundSize0vi: { 'background-size_0vi': true }
-  readonly backgroundSize10vi: { 'background-size_10vi': true }
-  readonly backgroundSize20vi: { 'background-size_20vi': true }
   readonly backgroundSize25vi: { 'background-size_25vi': true }
-  readonly backgroundSize30vi: { 'background-size_30vi': true }
-  readonly backgroundSize33p33vi: { 'background-size_33\.33vi': true }
-  readonly backgroundSize40vi: { 'background-size_40vi': true }
   readonly backgroundSize50vi: { 'background-size_50vi': true }
-  readonly backgroundSize60vi: { 'background-size_60vi': true }
-  readonly backgroundSize66p67vi: { 'background-size_66\.67vi': true }
-  readonly backgroundSize70vi: { 'background-size_70vi': true }
   readonly backgroundSize75vi: { 'background-size_75vi': true }
-  readonly backgroundSize80vi: { 'background-size_80vi': true }
-  readonly backgroundSize90vi: { 'background-size_90vi': true }
   readonly backgroundSize100vi: { 'background-size_100vi': true }
   readonly backgroundSize0vmax: { 'background-size_0vmax': true }
-  readonly backgroundSize10vmax: { 'background-size_10vmax': true }
-  readonly backgroundSize20vmax: { 'background-size_20vmax': true }
   readonly backgroundSize25vmax: { 'background-size_25vmax': true }
-  readonly backgroundSize30vmax: { 'background-size_30vmax': true }
-  readonly backgroundSize33p33vmax: { 'background-size_33\.33vmax': true }
-  readonly backgroundSize40vmax: { 'background-size_40vmax': true }
   readonly backgroundSize50vmax: { 'background-size_50vmax': true }
-  readonly backgroundSize60vmax: { 'background-size_60vmax': true }
-  readonly backgroundSize66p67vmax: { 'background-size_66\.67vmax': true }
-  readonly backgroundSize70vmax: { 'background-size_70vmax': true }
   readonly backgroundSize75vmax: { 'background-size_75vmax': true }
-  readonly backgroundSize80vmax: { 'background-size_80vmax': true }
-  readonly backgroundSize90vmax: { 'background-size_90vmax': true }
   readonly backgroundSize100vmax: { 'background-size_100vmax': true }
   readonly backgroundSize0vmin: { 'background-size_0vmin': true }
-  readonly backgroundSize10vmin: { 'background-size_10vmin': true }
-  readonly backgroundSize20vmin: { 'background-size_20vmin': true }
   readonly backgroundSize25vmin: { 'background-size_25vmin': true }
-  readonly backgroundSize30vmin: { 'background-size_30vmin': true }
-  readonly backgroundSize33p33vmin: { 'background-size_33\.33vmin': true }
-  readonly backgroundSize40vmin: { 'background-size_40vmin': true }
   readonly backgroundSize50vmin: { 'background-size_50vmin': true }
-  readonly backgroundSize60vmin: { 'background-size_60vmin': true }
-  readonly backgroundSize66p67vmin: { 'background-size_66\.67vmin': true }
-  readonly backgroundSize70vmin: { 'background-size_70vmin': true }
   readonly backgroundSize75vmin: { 'background-size_75vmin': true }
-  readonly backgroundSize80vmin: { 'background-size_80vmin': true }
-  readonly backgroundSize90vmin: { 'background-size_90vmin': true }
   readonly backgroundSize100vmin: { 'background-size_100vmin': true }
   readonly backgroundSize0vw: { 'background-size_0vw': true }
-  readonly backgroundSize10vw: { 'background-size_10vw': true }
-  readonly backgroundSize20vw: { 'background-size_20vw': true }
   readonly backgroundSize25vw: { 'background-size_25vw': true }
-  readonly backgroundSize30vw: { 'background-size_30vw': true }
-  readonly backgroundSize33p33vw: { 'background-size_33\.33vw': true }
-  readonly backgroundSize40vw: { 'background-size_40vw': true }
   readonly backgroundSize50vw: { 'background-size_50vw': true }
-  readonly backgroundSize60vw: { 'background-size_60vw': true }
-  readonly backgroundSize66p67vw: { 'background-size_66\.67vw': true }
-  readonly backgroundSize70vw: { 'background-size_70vw': true }
   readonly backgroundSize75vw: { 'background-size_75vw': true }
-  readonly backgroundSize80vw: { 'background-size_80vw': true }
-  readonly backgroundSize90vw: { 'background-size_90vw': true }
   readonly backgroundSize100vw: { 'background-size_100vw': true }
   readonly backgroundSize0Pct: { 'background-size_0\%': true }
-  readonly backgroundSize10Pct: { 'background-size_10\%': true }
-  readonly backgroundSize20Pct: { 'background-size_20\%': true }
   readonly backgroundSize25Pct: { 'background-size_25\%': true }
-  readonly backgroundSize30Pct: { 'background-size_30\%': true }
-  readonly backgroundSize33p33Pct: { 'background-size_33\.33\%': true }
-  readonly backgroundSize40Pct: { 'background-size_40\%': true }
   readonly backgroundSize50Pct: { 'background-size_50\%': true }
-  readonly backgroundSize60Pct: { 'background-size_60\%': true }
-  readonly backgroundSize66p67Pct: { 'background-size_66\.67\%': true }
-  readonly backgroundSize70Pct: { 'background-size_70\%': true }
   readonly backgroundSize75Pct: { 'background-size_75\%': true }
-  readonly backgroundSize80Pct: { 'background-size_80\%': true }
-  readonly backgroundSize90Pct: { 'background-size_90\%': true }
   readonly backgroundSize100Pct: { 'background-size_100\%': true }
 
   // ==================== border ====================
@@ -1410,505 +734,185 @@ export interface CsstsAtoms {
   readonly borderXyz: { 'border_xyz': true }
   readonly borderXyzD50: { 'border_xyz-d50': true }
   readonly borderXyzD65: { 'border_xyz-d65': true }
-  readonly borderN360deg: { 'border_-360deg': true }
-  readonly borderN315deg: { 'border_-315deg': true }
-  readonly borderN270deg: { 'border_-270deg': true }
-  readonly borderN225deg: { 'border_-225deg': true }
-  readonly borderN180deg: { 'border_-180deg': true }
-  readonly borderN135deg: { 'border_-135deg': true }
-  readonly borderN90deg: { 'border_-90deg': true }
-  readonly borderN45deg: { 'border_-45deg': true }
-  readonly border0deg: { 'border_0deg': true }
-  readonly border45deg: { 'border_45deg': true }
-  readonly border90deg: { 'border_90deg': true }
-  readonly border135deg: { 'border_135deg': true }
-  readonly border180deg: { 'border_180deg': true }
-  readonly border225deg: { 'border_225deg': true }
-  readonly border270deg: { 'border_270deg': true }
-  readonly border315deg: { 'border_315deg': true }
-  readonly border360deg: { 'border_360deg': true }
-  readonly borderN360grad: { 'border_-360grad': true }
-  readonly borderN315grad: { 'border_-315grad': true }
-  readonly borderN270grad: { 'border_-270grad': true }
-  readonly borderN225grad: { 'border_-225grad': true }
-  readonly borderN180grad: { 'border_-180grad': true }
-  readonly borderN135grad: { 'border_-135grad': true }
-  readonly borderN90grad: { 'border_-90grad': true }
-  readonly borderN45grad: { 'border_-45grad': true }
-  readonly border0grad: { 'border_0grad': true }
-  readonly border45grad: { 'border_45grad': true }
-  readonly border90grad: { 'border_90grad': true }
-  readonly border135grad: { 'border_135grad': true }
-  readonly border180grad: { 'border_180grad': true }
-  readonly border225grad: { 'border_225grad': true }
-  readonly border270grad: { 'border_270grad': true }
-  readonly border315grad: { 'border_315grad': true }
-  readonly border360grad: { 'border_360grad': true }
-  readonly borderN360rad: { 'border_-360rad': true }
-  readonly borderN315rad: { 'border_-315rad': true }
-  readonly borderN270rad: { 'border_-270rad': true }
-  readonly borderN225rad: { 'border_-225rad': true }
-  readonly borderN180rad: { 'border_-180rad': true }
-  readonly borderN135rad: { 'border_-135rad': true }
-  readonly borderN90rad: { 'border_-90rad': true }
-  readonly borderN45rad: { 'border_-45rad': true }
-  readonly border0rad: { 'border_0rad': true }
-  readonly border45rad: { 'border_45rad': true }
-  readonly border90rad: { 'border_90rad': true }
-  readonly border135rad: { 'border_135rad': true }
-  readonly border180rad: { 'border_180rad': true }
-  readonly border225rad: { 'border_225rad': true }
-  readonly border270rad: { 'border_270rad': true }
-  readonly border315rad: { 'border_315rad': true }
-  readonly border360rad: { 'border_360rad': true }
-  readonly borderN360turn: { 'border_-360turn': true }
-  readonly borderN315turn: { 'border_-315turn': true }
-  readonly borderN270turn: { 'border_-270turn': true }
-  readonly borderN225turn: { 'border_-225turn': true }
-  readonly borderN180turn: { 'border_-180turn': true }
-  readonly borderN135turn: { 'border_-135turn': true }
-  readonly borderN90turn: { 'border_-90turn': true }
-  readonly borderN45turn: { 'border_-45turn': true }
-  readonly border0turn: { 'border_0turn': true }
-  readonly border45turn: { 'border_45turn': true }
-  readonly border90turn: { 'border_90turn': true }
-  readonly border135turn: { 'border_135turn': true }
-  readonly border180turn: { 'border_180turn': true }
-  readonly border225turn: { 'border_225turn': true }
-  readonly border270turn: { 'border_270turn': true }
-  readonly border315turn: { 'border_315turn': true }
-  readonly border360turn: { 'border_360turn': true }
   readonly border0Q: { 'border_0Q': true }
   readonly border1Q: { 'border_1Q': true }
   readonly border2Q: { 'border_2Q': true }
   readonly border4Q: { 'border_4Q': true }
-  readonly border6Q: { 'border_6Q': true }
   readonly border8Q: { 'border_8Q': true }
-  readonly border10Q: { 'border_10Q': true }
-  readonly border12Q: { 'border_12Q': true }
-  readonly border16Q: { 'border_16Q': true }
-  readonly border20Q: { 'border_20Q': true }
   readonly border0cap: { 'border_0cap': true }
-  readonly border0p25cap: { 'border_0\.25cap': true }
   readonly border0p5cap: { 'border_0\.5cap': true }
-  readonly border0p75cap: { 'border_0\.75cap': true }
   readonly border1cap: { 'border_1cap': true }
-  readonly border1p25cap: { 'border_1\.25cap': true }
   readonly border1p5cap: { 'border_1\.5cap': true }
   readonly border2cap: { 'border_2cap': true }
-  readonly border2p5cap: { 'border_2\.5cap': true }
   readonly border3cap: { 'border_3cap': true }
-  readonly border4cap: { 'border_4cap': true }
-  readonly border5cap: { 'border_5cap': true }
-  readonly border6cap: { 'border_6cap': true }
-  readonly border8cap: { 'border_8cap': true }
   readonly border0ch: { 'border_0ch': true }
-  readonly border0p25ch: { 'border_0\.25ch': true }
   readonly border0p5ch: { 'border_0\.5ch': true }
-  readonly border0p75ch: { 'border_0\.75ch': true }
   readonly border1ch: { 'border_1ch': true }
-  readonly border1p25ch: { 'border_1\.25ch': true }
   readonly border1p5ch: { 'border_1\.5ch': true }
   readonly border2ch: { 'border_2ch': true }
-  readonly border2p5ch: { 'border_2\.5ch': true }
   readonly border3ch: { 'border_3ch': true }
-  readonly border4ch: { 'border_4ch': true }
-  readonly border5ch: { 'border_5ch': true }
-  readonly border6ch: { 'border_6ch': true }
-  readonly border8ch: { 'border_8ch': true }
   readonly border0cm: { 'border_0cm': true }
   readonly border1cm: { 'border_1cm': true }
   readonly border2cm: { 'border_2cm': true }
   readonly border4cm: { 'border_4cm': true }
-  readonly border6cm: { 'border_6cm': true }
   readonly border8cm: { 'border_8cm': true }
-  readonly border10cm: { 'border_10cm': true }
-  readonly border12cm: { 'border_12cm': true }
-  readonly border16cm: { 'border_16cm': true }
-  readonly border20cm: { 'border_20cm': true }
   readonly border0dvh: { 'border_0dvh': true }
-  readonly border10dvh: { 'border_10dvh': true }
-  readonly border20dvh: { 'border_20dvh': true }
   readonly border25dvh: { 'border_25dvh': true }
-  readonly border30dvh: { 'border_30dvh': true }
-  readonly border33p33dvh: { 'border_33\.33dvh': true }
-  readonly border40dvh: { 'border_40dvh': true }
   readonly border50dvh: { 'border_50dvh': true }
-  readonly border60dvh: { 'border_60dvh': true }
-  readonly border66p67dvh: { 'border_66\.67dvh': true }
-  readonly border70dvh: { 'border_70dvh': true }
   readonly border75dvh: { 'border_75dvh': true }
-  readonly border80dvh: { 'border_80dvh': true }
-  readonly border90dvh: { 'border_90dvh': true }
   readonly border100dvh: { 'border_100dvh': true }
   readonly border0dvw: { 'border_0dvw': true }
-  readonly border10dvw: { 'border_10dvw': true }
-  readonly border20dvw: { 'border_20dvw': true }
   readonly border25dvw: { 'border_25dvw': true }
-  readonly border30dvw: { 'border_30dvw': true }
-  readonly border33p33dvw: { 'border_33\.33dvw': true }
-  readonly border40dvw: { 'border_40dvw': true }
   readonly border50dvw: { 'border_50dvw': true }
-  readonly border60dvw: { 'border_60dvw': true }
-  readonly border66p67dvw: { 'border_66\.67dvw': true }
-  readonly border70dvw: { 'border_70dvw': true }
   readonly border75dvw: { 'border_75dvw': true }
-  readonly border80dvw: { 'border_80dvw': true }
-  readonly border90dvw: { 'border_90dvw': true }
   readonly border100dvw: { 'border_100dvw': true }
   readonly border0em: { 'border_0em': true }
-  readonly border0p25em: { 'border_0\.25em': true }
   readonly border0p5em: { 'border_0\.5em': true }
-  readonly border0p75em: { 'border_0\.75em': true }
   readonly border1em: { 'border_1em': true }
-  readonly border1p25em: { 'border_1\.25em': true }
   readonly border1p5em: { 'border_1\.5em': true }
   readonly border2em: { 'border_2em': true }
-  readonly border2p5em: { 'border_2\.5em': true }
   readonly border3em: { 'border_3em': true }
-  readonly border4em: { 'border_4em': true }
-  readonly border5em: { 'border_5em': true }
-  readonly border6em: { 'border_6em': true }
-  readonly border8em: { 'border_8em': true }
   readonly border0ex: { 'border_0ex': true }
-  readonly border0p25ex: { 'border_0\.25ex': true }
   readonly border0p5ex: { 'border_0\.5ex': true }
-  readonly border0p75ex: { 'border_0\.75ex': true }
   readonly border1ex: { 'border_1ex': true }
-  readonly border1p25ex: { 'border_1\.25ex': true }
   readonly border1p5ex: { 'border_1\.5ex': true }
   readonly border2ex: { 'border_2ex': true }
-  readonly border2p5ex: { 'border_2\.5ex': true }
   readonly border3ex: { 'border_3ex': true }
-  readonly border4ex: { 'border_4ex': true }
-  readonly border5ex: { 'border_5ex': true }
-  readonly border6ex: { 'border_6ex': true }
-  readonly border8ex: { 'border_8ex': true }
   readonly border0ic: { 'border_0ic': true }
-  readonly border0p25ic: { 'border_0\.25ic': true }
   readonly border0p5ic: { 'border_0\.5ic': true }
-  readonly border0p75ic: { 'border_0\.75ic': true }
   readonly border1ic: { 'border_1ic': true }
-  readonly border1p25ic: { 'border_1\.25ic': true }
   readonly border1p5ic: { 'border_1\.5ic': true }
   readonly border2ic: { 'border_2ic': true }
-  readonly border2p5ic: { 'border_2\.5ic': true }
   readonly border3ic: { 'border_3ic': true }
-  readonly border4ic: { 'border_4ic': true }
-  readonly border5ic: { 'border_5ic': true }
-  readonly border6ic: { 'border_6ic': true }
-  readonly border8ic: { 'border_8ic': true }
   readonly border0in: { 'border_0in': true }
   readonly border1in: { 'border_1in': true }
   readonly border2in: { 'border_2in': true }
   readonly border4in: { 'border_4in': true }
-  readonly border6in: { 'border_6in': true }
   readonly border8in: { 'border_8in': true }
-  readonly border10in: { 'border_10in': true }
-  readonly border12in: { 'border_12in': true }
-  readonly border16in: { 'border_16in': true }
-  readonly border20in: { 'border_20in': true }
   readonly border0lh: { 'border_0lh': true }
-  readonly border0p25lh: { 'border_0\.25lh': true }
   readonly border0p5lh: { 'border_0\.5lh': true }
-  readonly border0p75lh: { 'border_0\.75lh': true }
   readonly border1lh: { 'border_1lh': true }
-  readonly border1p25lh: { 'border_1\.25lh': true }
   readonly border1p5lh: { 'border_1\.5lh': true }
   readonly border2lh: { 'border_2lh': true }
-  readonly border2p5lh: { 'border_2\.5lh': true }
   readonly border3lh: { 'border_3lh': true }
-  readonly border4lh: { 'border_4lh': true }
-  readonly border5lh: { 'border_5lh': true }
-  readonly border6lh: { 'border_6lh': true }
-  readonly border8lh: { 'border_8lh': true }
   readonly border0lvh: { 'border_0lvh': true }
-  readonly border10lvh: { 'border_10lvh': true }
-  readonly border20lvh: { 'border_20lvh': true }
   readonly border25lvh: { 'border_25lvh': true }
-  readonly border30lvh: { 'border_30lvh': true }
-  readonly border33p33lvh: { 'border_33\.33lvh': true }
-  readonly border40lvh: { 'border_40lvh': true }
   readonly border50lvh: { 'border_50lvh': true }
-  readonly border60lvh: { 'border_60lvh': true }
-  readonly border66p67lvh: { 'border_66\.67lvh': true }
-  readonly border70lvh: { 'border_70lvh': true }
   readonly border75lvh: { 'border_75lvh': true }
-  readonly border80lvh: { 'border_80lvh': true }
-  readonly border90lvh: { 'border_90lvh': true }
   readonly border100lvh: { 'border_100lvh': true }
   readonly border0lvw: { 'border_0lvw': true }
-  readonly border10lvw: { 'border_10lvw': true }
-  readonly border20lvw: { 'border_20lvw': true }
   readonly border25lvw: { 'border_25lvw': true }
-  readonly border30lvw: { 'border_30lvw': true }
-  readonly border33p33lvw: { 'border_33\.33lvw': true }
-  readonly border40lvw: { 'border_40lvw': true }
   readonly border50lvw: { 'border_50lvw': true }
-  readonly border60lvw: { 'border_60lvw': true }
-  readonly border66p67lvw: { 'border_66\.67lvw': true }
-  readonly border70lvw: { 'border_70lvw': true }
   readonly border75lvw: { 'border_75lvw': true }
-  readonly border80lvw: { 'border_80lvw': true }
-  readonly border90lvw: { 'border_90lvw': true }
   readonly border100lvw: { 'border_100lvw': true }
   readonly border0mm: { 'border_0mm': true }
   readonly border1mm: { 'border_1mm': true }
   readonly border2mm: { 'border_2mm': true }
   readonly border4mm: { 'border_4mm': true }
-  readonly border6mm: { 'border_6mm': true }
   readonly border8mm: { 'border_8mm': true }
-  readonly border10mm: { 'border_10mm': true }
-  readonly border12mm: { 'border_12mm': true }
-  readonly border16mm: { 'border_16mm': true }
-  readonly border20mm: { 'border_20mm': true }
   readonly border0pc: { 'border_0pc': true }
   readonly border1pc: { 'border_1pc': true }
   readonly border2pc: { 'border_2pc': true }
   readonly border4pc: { 'border_4pc': true }
-  readonly border6pc: { 'border_6pc': true }
   readonly border8pc: { 'border_8pc': true }
-  readonly border10pc: { 'border_10pc': true }
-  readonly border12pc: { 'border_12pc': true }
-  readonly border16pc: { 'border_16pc': true }
-  readonly border20pc: { 'border_20pc': true }
   readonly border0pt: { 'border_0pt': true }
   readonly border1pt: { 'border_1pt': true }
   readonly border2pt: { 'border_2pt': true }
   readonly border4pt: { 'border_4pt': true }
-  readonly border6pt: { 'border_6pt': true }
   readonly border8pt: { 'border_8pt': true }
-  readonly border10pt: { 'border_10pt': true }
-  readonly border12pt: { 'border_12pt': true }
-  readonly border16pt: { 'border_16pt': true }
-  readonly border20pt: { 'border_20pt': true }
-  readonly borderN384px: { 'border_-384px': true }
-  readonly borderN320px: { 'border_-320px': true }
-  readonly borderN256px: { 'border_-256px': true }
-  readonly borderN224px: { 'border_-224px': true }
-  readonly borderN192px: { 'border_-192px': true }
-  readonly borderN160px: { 'border_-160px': true }
-  readonly borderN128px: { 'border_-128px': true }
   readonly borderN96px: { 'border_-96px': true }
   readonly borderN80px: { 'border_-80px': true }
   readonly borderN64px: { 'border_-64px': true }
-  readonly borderN56px: { 'border_-56px': true }
   readonly borderN48px: { 'border_-48px': true }
   readonly borderN40px: { 'border_-40px': true }
   readonly borderN32px: { 'border_-32px': true }
-  readonly borderN28px: { 'border_-28px': true }
   readonly borderN24px: { 'border_-24px': true }
   readonly borderN20px: { 'border_-20px': true }
   readonly borderN16px: { 'border_-16px': true }
-  readonly borderN14px: { 'border_-14px': true }
   readonly borderN12px: { 'border_-12px': true }
   readonly borderN10px: { 'border_-10px': true }
   readonly borderN8px: { 'border_-8px': true }
   readonly borderN6px: { 'border_-6px': true }
   readonly borderN4px: { 'border_-4px': true }
   readonly borderN2px: { 'border_-2px': true }
-  readonly borderN1px: { 'border_-1px': true }
   readonly border0px: { 'border_0px': true }
-  readonly border1px: { 'border_1px': true }
   readonly border2px: { 'border_2px': true }
   readonly border4px: { 'border_4px': true }
   readonly border6px: { 'border_6px': true }
   readonly border8px: { 'border_8px': true }
   readonly border10px: { 'border_10px': true }
   readonly border12px: { 'border_12px': true }
-  readonly border14px: { 'border_14px': true }
   readonly border16px: { 'border_16px': true }
   readonly border20px: { 'border_20px': true }
   readonly border24px: { 'border_24px': true }
-  readonly border28px: { 'border_28px': true }
   readonly border32px: { 'border_32px': true }
   readonly border40px: { 'border_40px': true }
   readonly border48px: { 'border_48px': true }
-  readonly border56px: { 'border_56px': true }
   readonly border64px: { 'border_64px': true }
   readonly border80px: { 'border_80px': true }
   readonly border96px: { 'border_96px': true }
-  readonly border128px: { 'border_128px': true }
-  readonly border160px: { 'border_160px': true }
-  readonly border192px: { 'border_192px': true }
-  readonly border224px: { 'border_224px': true }
-  readonly border256px: { 'border_256px': true }
-  readonly border320px: { 'border_320px': true }
-  readonly border384px: { 'border_384px': true }
   readonly border0rem: { 'border_0rem': true }
-  readonly border0p25rem: { 'border_0\.25rem': true }
   readonly border0p5rem: { 'border_0\.5rem': true }
-  readonly border0p75rem: { 'border_0\.75rem': true }
   readonly border1rem: { 'border_1rem': true }
-  readonly border1p25rem: { 'border_1\.25rem': true }
   readonly border1p5rem: { 'border_1\.5rem': true }
   readonly border2rem: { 'border_2rem': true }
-  readonly border2p5rem: { 'border_2\.5rem': true }
   readonly border3rem: { 'border_3rem': true }
-  readonly border4rem: { 'border_4rem': true }
-  readonly border5rem: { 'border_5rem': true }
-  readonly border6rem: { 'border_6rem': true }
-  readonly border8rem: { 'border_8rem': true }
   readonly border0rlh: { 'border_0rlh': true }
-  readonly border0p25rlh: { 'border_0\.25rlh': true }
   readonly border0p5rlh: { 'border_0\.5rlh': true }
-  readonly border0p75rlh: { 'border_0\.75rlh': true }
   readonly border1rlh: { 'border_1rlh': true }
-  readonly border1p25rlh: { 'border_1\.25rlh': true }
   readonly border1p5rlh: { 'border_1\.5rlh': true }
   readonly border2rlh: { 'border_2rlh': true }
-  readonly border2p5rlh: { 'border_2\.5rlh': true }
   readonly border3rlh: { 'border_3rlh': true }
-  readonly border4rlh: { 'border_4rlh': true }
-  readonly border5rlh: { 'border_5rlh': true }
-  readonly border6rlh: { 'border_6rlh': true }
-  readonly border8rlh: { 'border_8rlh': true }
   readonly border0svh: { 'border_0svh': true }
-  readonly border10svh: { 'border_10svh': true }
-  readonly border20svh: { 'border_20svh': true }
   readonly border25svh: { 'border_25svh': true }
-  readonly border30svh: { 'border_30svh': true }
-  readonly border33p33svh: { 'border_33\.33svh': true }
-  readonly border40svh: { 'border_40svh': true }
   readonly border50svh: { 'border_50svh': true }
-  readonly border60svh: { 'border_60svh': true }
-  readonly border66p67svh: { 'border_66\.67svh': true }
-  readonly border70svh: { 'border_70svh': true }
   readonly border75svh: { 'border_75svh': true }
-  readonly border80svh: { 'border_80svh': true }
-  readonly border90svh: { 'border_90svh': true }
   readonly border100svh: { 'border_100svh': true }
   readonly border0svw: { 'border_0svw': true }
-  readonly border10svw: { 'border_10svw': true }
-  readonly border20svw: { 'border_20svw': true }
   readonly border25svw: { 'border_25svw': true }
-  readonly border30svw: { 'border_30svw': true }
-  readonly border33p33svw: { 'border_33\.33svw': true }
-  readonly border40svw: { 'border_40svw': true }
   readonly border50svw: { 'border_50svw': true }
-  readonly border60svw: { 'border_60svw': true }
-  readonly border66p67svw: { 'border_66\.67svw': true }
-  readonly border70svw: { 'border_70svw': true }
   readonly border75svw: { 'border_75svw': true }
-  readonly border80svw: { 'border_80svw': true }
-  readonly border90svw: { 'border_90svw': true }
   readonly border100svw: { 'border_100svw': true }
   readonly border0vb: { 'border_0vb': true }
-  readonly border10vb: { 'border_10vb': true }
-  readonly border20vb: { 'border_20vb': true }
   readonly border25vb: { 'border_25vb': true }
-  readonly border30vb: { 'border_30vb': true }
-  readonly border33p33vb: { 'border_33\.33vb': true }
-  readonly border40vb: { 'border_40vb': true }
   readonly border50vb: { 'border_50vb': true }
-  readonly border60vb: { 'border_60vb': true }
-  readonly border66p67vb: { 'border_66\.67vb': true }
-  readonly border70vb: { 'border_70vb': true }
   readonly border75vb: { 'border_75vb': true }
-  readonly border80vb: { 'border_80vb': true }
-  readonly border90vb: { 'border_90vb': true }
   readonly border100vb: { 'border_100vb': true }
   readonly border0vh: { 'border_0vh': true }
-  readonly border10vh: { 'border_10vh': true }
-  readonly border20vh: { 'border_20vh': true }
   readonly border25vh: { 'border_25vh': true }
-  readonly border30vh: { 'border_30vh': true }
-  readonly border33p33vh: { 'border_33\.33vh': true }
-  readonly border40vh: { 'border_40vh': true }
   readonly border50vh: { 'border_50vh': true }
-  readonly border60vh: { 'border_60vh': true }
-  readonly border66p67vh: { 'border_66\.67vh': true }
-  readonly border70vh: { 'border_70vh': true }
   readonly border75vh: { 'border_75vh': true }
-  readonly border80vh: { 'border_80vh': true }
-  readonly border90vh: { 'border_90vh': true }
   readonly border100vh: { 'border_100vh': true }
   readonly border0vi: { 'border_0vi': true }
-  readonly border10vi: { 'border_10vi': true }
-  readonly border20vi: { 'border_20vi': true }
   readonly border25vi: { 'border_25vi': true }
-  readonly border30vi: { 'border_30vi': true }
-  readonly border33p33vi: { 'border_33\.33vi': true }
-  readonly border40vi: { 'border_40vi': true }
   readonly border50vi: { 'border_50vi': true }
-  readonly border60vi: { 'border_60vi': true }
-  readonly border66p67vi: { 'border_66\.67vi': true }
-  readonly border70vi: { 'border_70vi': true }
   readonly border75vi: { 'border_75vi': true }
-  readonly border80vi: { 'border_80vi': true }
-  readonly border90vi: { 'border_90vi': true }
   readonly border100vi: { 'border_100vi': true }
   readonly border0vmax: { 'border_0vmax': true }
-  readonly border10vmax: { 'border_10vmax': true }
-  readonly border20vmax: { 'border_20vmax': true }
   readonly border25vmax: { 'border_25vmax': true }
-  readonly border30vmax: { 'border_30vmax': true }
-  readonly border33p33vmax: { 'border_33\.33vmax': true }
-  readonly border40vmax: { 'border_40vmax': true }
   readonly border50vmax: { 'border_50vmax': true }
-  readonly border60vmax: { 'border_60vmax': true }
-  readonly border66p67vmax: { 'border_66\.67vmax': true }
-  readonly border70vmax: { 'border_70vmax': true }
   readonly border75vmax: { 'border_75vmax': true }
-  readonly border80vmax: { 'border_80vmax': true }
-  readonly border90vmax: { 'border_90vmax': true }
   readonly border100vmax: { 'border_100vmax': true }
   readonly border0vmin: { 'border_0vmin': true }
-  readonly border10vmin: { 'border_10vmin': true }
-  readonly border20vmin: { 'border_20vmin': true }
   readonly border25vmin: { 'border_25vmin': true }
-  readonly border30vmin: { 'border_30vmin': true }
-  readonly border33p33vmin: { 'border_33\.33vmin': true }
-  readonly border40vmin: { 'border_40vmin': true }
   readonly border50vmin: { 'border_50vmin': true }
-  readonly border60vmin: { 'border_60vmin': true }
-  readonly border66p67vmin: { 'border_66\.67vmin': true }
-  readonly border70vmin: { 'border_70vmin': true }
   readonly border75vmin: { 'border_75vmin': true }
-  readonly border80vmin: { 'border_80vmin': true }
-  readonly border90vmin: { 'border_90vmin': true }
   readonly border100vmin: { 'border_100vmin': true }
   readonly border0vw: { 'border_0vw': true }
-  readonly border10vw: { 'border_10vw': true }
-  readonly border20vw: { 'border_20vw': true }
   readonly border25vw: { 'border_25vw': true }
-  readonly border30vw: { 'border_30vw': true }
-  readonly border33p33vw: { 'border_33\.33vw': true }
-  readonly border40vw: { 'border_40vw': true }
   readonly border50vw: { 'border_50vw': true }
-  readonly border60vw: { 'border_60vw': true }
-  readonly border66p67vw: { 'border_66\.67vw': true }
-  readonly border70vw: { 'border_70vw': true }
   readonly border75vw: { 'border_75vw': true }
-  readonly border80vw: { 'border_80vw': true }
-  readonly border90vw: { 'border_90vw': true }
   readonly border100vw: { 'border_100vw': true }
   readonly border0: { 'border_0': true }
-  readonly border0p5: { 'border_0\.5': true }
   readonly border1: { 'border_1': true }
-  readonly border1p5: { 'border_1\.5': true }
   readonly border2: { 'border_2': true }
   readonly border3: { 'border_3': true }
-  readonly border4: { 'border_4': true }
   readonly border5: { 'border_5': true }
   readonly border10: { 'border_10': true }
-  readonly border20: { 'border_20': true }
-  readonly border50: { 'border_50': true }
-  readonly border100: { 'border_100': true }
   readonly border0Pct: { 'border_0\%': true }
-  readonly border10Pct: { 'border_10\%': true }
-  readonly border20Pct: { 'border_20\%': true }
   readonly border25Pct: { 'border_25\%': true }
-  readonly border30Pct: { 'border_30\%': true }
-  readonly border33p33Pct: { 'border_33\.33\%': true }
-  readonly border40Pct: { 'border_40\%': true }
   readonly border50Pct: { 'border_50\%': true }
-  readonly border60Pct: { 'border_60\%': true }
-  readonly border66p67Pct: { 'border_66\.67\%': true }
-  readonly border70Pct: { 'border_70\%': true }
   readonly border75Pct: { 'border_75\%': true }
-  readonly border80Pct: { 'border_80\%': true }
-  readonly border90Pct: { 'border_90\%': true }
   readonly border100Pct: { 'border_100\%': true }
 
   // ==================== border-color ====================
@@ -1999,100 +1003,16 @@ export interface CsstsAtoms {
   readonly borderColorXyz: { 'border-color_xyz': true }
   readonly borderColorXyzD50: { 'border-color_xyz-d50': true }
   readonly borderColorXyzD65: { 'border-color_xyz-d65': true }
-  readonly borderColorN360deg: { 'border-color_-360deg': true }
-  readonly borderColorN315deg: { 'border-color_-315deg': true }
-  readonly borderColorN270deg: { 'border-color_-270deg': true }
-  readonly borderColorN225deg: { 'border-color_-225deg': true }
-  readonly borderColorN180deg: { 'border-color_-180deg': true }
-  readonly borderColorN135deg: { 'border-color_-135deg': true }
-  readonly borderColorN90deg: { 'border-color_-90deg': true }
-  readonly borderColorN45deg: { 'border-color_-45deg': true }
-  readonly borderColor0deg: { 'border-color_0deg': true }
-  readonly borderColor45deg: { 'border-color_45deg': true }
-  readonly borderColor90deg: { 'border-color_90deg': true }
-  readonly borderColor135deg: { 'border-color_135deg': true }
-  readonly borderColor180deg: { 'border-color_180deg': true }
-  readonly borderColor225deg: { 'border-color_225deg': true }
-  readonly borderColor270deg: { 'border-color_270deg': true }
-  readonly borderColor315deg: { 'border-color_315deg': true }
-  readonly borderColor360deg: { 'border-color_360deg': true }
-  readonly borderColorN360grad: { 'border-color_-360grad': true }
-  readonly borderColorN315grad: { 'border-color_-315grad': true }
-  readonly borderColorN270grad: { 'border-color_-270grad': true }
-  readonly borderColorN225grad: { 'border-color_-225grad': true }
-  readonly borderColorN180grad: { 'border-color_-180grad': true }
-  readonly borderColorN135grad: { 'border-color_-135grad': true }
-  readonly borderColorN90grad: { 'border-color_-90grad': true }
-  readonly borderColorN45grad: { 'border-color_-45grad': true }
-  readonly borderColor0grad: { 'border-color_0grad': true }
-  readonly borderColor45grad: { 'border-color_45grad': true }
-  readonly borderColor90grad: { 'border-color_90grad': true }
-  readonly borderColor135grad: { 'border-color_135grad': true }
-  readonly borderColor180grad: { 'border-color_180grad': true }
-  readonly borderColor225grad: { 'border-color_225grad': true }
-  readonly borderColor270grad: { 'border-color_270grad': true }
-  readonly borderColor315grad: { 'border-color_315grad': true }
-  readonly borderColor360grad: { 'border-color_360grad': true }
-  readonly borderColorN360rad: { 'border-color_-360rad': true }
-  readonly borderColorN315rad: { 'border-color_-315rad': true }
-  readonly borderColorN270rad: { 'border-color_-270rad': true }
-  readonly borderColorN225rad: { 'border-color_-225rad': true }
-  readonly borderColorN180rad: { 'border-color_-180rad': true }
-  readonly borderColorN135rad: { 'border-color_-135rad': true }
-  readonly borderColorN90rad: { 'border-color_-90rad': true }
-  readonly borderColorN45rad: { 'border-color_-45rad': true }
-  readonly borderColor0rad: { 'border-color_0rad': true }
-  readonly borderColor45rad: { 'border-color_45rad': true }
-  readonly borderColor90rad: { 'border-color_90rad': true }
-  readonly borderColor135rad: { 'border-color_135rad': true }
-  readonly borderColor180rad: { 'border-color_180rad': true }
-  readonly borderColor225rad: { 'border-color_225rad': true }
-  readonly borderColor270rad: { 'border-color_270rad': true }
-  readonly borderColor315rad: { 'border-color_315rad': true }
-  readonly borderColor360rad: { 'border-color_360rad': true }
-  readonly borderColorN360turn: { 'border-color_-360turn': true }
-  readonly borderColorN315turn: { 'border-color_-315turn': true }
-  readonly borderColorN270turn: { 'border-color_-270turn': true }
-  readonly borderColorN225turn: { 'border-color_-225turn': true }
-  readonly borderColorN180turn: { 'border-color_-180turn': true }
-  readonly borderColorN135turn: { 'border-color_-135turn': true }
-  readonly borderColorN90turn: { 'border-color_-90turn': true }
-  readonly borderColorN45turn: { 'border-color_-45turn': true }
-  readonly borderColor0turn: { 'border-color_0turn': true }
-  readonly borderColor45turn: { 'border-color_45turn': true }
-  readonly borderColor90turn: { 'border-color_90turn': true }
-  readonly borderColor135turn: { 'border-color_135turn': true }
-  readonly borderColor180turn: { 'border-color_180turn': true }
-  readonly borderColor225turn: { 'border-color_225turn': true }
-  readonly borderColor270turn: { 'border-color_270turn': true }
-  readonly borderColor315turn: { 'border-color_315turn': true }
-  readonly borderColor360turn: { 'border-color_360turn': true }
   readonly borderColor0: { 'border-color_0': true }
-  readonly borderColor0p5: { 'border-color_0\.5': true }
   readonly borderColor1: { 'border-color_1': true }
-  readonly borderColor1p5: { 'border-color_1\.5': true }
   readonly borderColor2: { 'border-color_2': true }
   readonly borderColor3: { 'border-color_3': true }
-  readonly borderColor4: { 'border-color_4': true }
   readonly borderColor5: { 'border-color_5': true }
   readonly borderColor10: { 'border-color_10': true }
-  readonly borderColor20: { 'border-color_20': true }
-  readonly borderColor50: { 'border-color_50': true }
-  readonly borderColor100: { 'border-color_100': true }
   readonly borderColor0Pct: { 'border-color_0\%': true }
-  readonly borderColor10Pct: { 'border-color_10\%': true }
-  readonly borderColor20Pct: { 'border-color_20\%': true }
   readonly borderColor25Pct: { 'border-color_25\%': true }
-  readonly borderColor30Pct: { 'border-color_30\%': true }
-  readonly borderColor33p33Pct: { 'border-color_33\.33\%': true }
-  readonly borderColor40Pct: { 'border-color_40\%': true }
   readonly borderColor50Pct: { 'border-color_50\%': true }
-  readonly borderColor60Pct: { 'border-color_60\%': true }
-  readonly borderColor66p67Pct: { 'border-color_66\.67\%': true }
-  readonly borderColor70Pct: { 'border-color_70\%': true }
   readonly borderColor75Pct: { 'border-color_75\%': true }
-  readonly borderColor80Pct: { 'border-color_80\%': true }
-  readonly borderColor90Pct: { 'border-color_90\%': true }
   readonly borderColor100Pct: { 'border-color_100\%': true }
 
   // ==================== border-radius ====================
@@ -2100,421 +1020,175 @@ export interface CsstsAtoms {
   readonly borderRadius1Q: { 'border-radius_1Q': true }
   readonly borderRadius2Q: { 'border-radius_2Q': true }
   readonly borderRadius4Q: { 'border-radius_4Q': true }
-  readonly borderRadius6Q: { 'border-radius_6Q': true }
   readonly borderRadius8Q: { 'border-radius_8Q': true }
-  readonly borderRadius10Q: { 'border-radius_10Q': true }
-  readonly borderRadius12Q: { 'border-radius_12Q': true }
-  readonly borderRadius16Q: { 'border-radius_16Q': true }
-  readonly borderRadius20Q: { 'border-radius_20Q': true }
   readonly borderRadius0cap: { 'border-radius_0cap': true }
-  readonly borderRadius0p25cap: { 'border-radius_0\.25cap': true }
   readonly borderRadius0p5cap: { 'border-radius_0\.5cap': true }
-  readonly borderRadius0p75cap: { 'border-radius_0\.75cap': true }
   readonly borderRadius1cap: { 'border-radius_1cap': true }
-  readonly borderRadius1p25cap: { 'border-radius_1\.25cap': true }
   readonly borderRadius1p5cap: { 'border-radius_1\.5cap': true }
   readonly borderRadius2cap: { 'border-radius_2cap': true }
-  readonly borderRadius2p5cap: { 'border-radius_2\.5cap': true }
   readonly borderRadius3cap: { 'border-radius_3cap': true }
-  readonly borderRadius4cap: { 'border-radius_4cap': true }
-  readonly borderRadius5cap: { 'border-radius_5cap': true }
-  readonly borderRadius6cap: { 'border-radius_6cap': true }
-  readonly borderRadius8cap: { 'border-radius_8cap': true }
   readonly borderRadius0ch: { 'border-radius_0ch': true }
-  readonly borderRadius0p25ch: { 'border-radius_0\.25ch': true }
   readonly borderRadius0p5ch: { 'border-radius_0\.5ch': true }
-  readonly borderRadius0p75ch: { 'border-radius_0\.75ch': true }
   readonly borderRadius1ch: { 'border-radius_1ch': true }
-  readonly borderRadius1p25ch: { 'border-radius_1\.25ch': true }
   readonly borderRadius1p5ch: { 'border-radius_1\.5ch': true }
   readonly borderRadius2ch: { 'border-radius_2ch': true }
-  readonly borderRadius2p5ch: { 'border-radius_2\.5ch': true }
   readonly borderRadius3ch: { 'border-radius_3ch': true }
-  readonly borderRadius4ch: { 'border-radius_4ch': true }
-  readonly borderRadius5ch: { 'border-radius_5ch': true }
-  readonly borderRadius6ch: { 'border-radius_6ch': true }
-  readonly borderRadius8ch: { 'border-radius_8ch': true }
   readonly borderRadius0cm: { 'border-radius_0cm': true }
   readonly borderRadius1cm: { 'border-radius_1cm': true }
   readonly borderRadius2cm: { 'border-radius_2cm': true }
   readonly borderRadius4cm: { 'border-radius_4cm': true }
-  readonly borderRadius6cm: { 'border-radius_6cm': true }
   readonly borderRadius8cm: { 'border-radius_8cm': true }
-  readonly borderRadius10cm: { 'border-radius_10cm': true }
-  readonly borderRadius12cm: { 'border-radius_12cm': true }
-  readonly borderRadius16cm: { 'border-radius_16cm': true }
-  readonly borderRadius20cm: { 'border-radius_20cm': true }
   readonly borderRadius0dvh: { 'border-radius_0dvh': true }
-  readonly borderRadius10dvh: { 'border-radius_10dvh': true }
-  readonly borderRadius20dvh: { 'border-radius_20dvh': true }
   readonly borderRadius25dvh: { 'border-radius_25dvh': true }
-  readonly borderRadius30dvh: { 'border-radius_30dvh': true }
-  readonly borderRadius33p33dvh: { 'border-radius_33\.33dvh': true }
-  readonly borderRadius40dvh: { 'border-radius_40dvh': true }
   readonly borderRadius50dvh: { 'border-radius_50dvh': true }
-  readonly borderRadius60dvh: { 'border-radius_60dvh': true }
-  readonly borderRadius66p67dvh: { 'border-radius_66\.67dvh': true }
-  readonly borderRadius70dvh: { 'border-radius_70dvh': true }
   readonly borderRadius75dvh: { 'border-radius_75dvh': true }
-  readonly borderRadius80dvh: { 'border-radius_80dvh': true }
-  readonly borderRadius90dvh: { 'border-radius_90dvh': true }
   readonly borderRadius100dvh: { 'border-radius_100dvh': true }
   readonly borderRadius0dvw: { 'border-radius_0dvw': true }
-  readonly borderRadius10dvw: { 'border-radius_10dvw': true }
-  readonly borderRadius20dvw: { 'border-radius_20dvw': true }
   readonly borderRadius25dvw: { 'border-radius_25dvw': true }
-  readonly borderRadius30dvw: { 'border-radius_30dvw': true }
-  readonly borderRadius33p33dvw: { 'border-radius_33\.33dvw': true }
-  readonly borderRadius40dvw: { 'border-radius_40dvw': true }
   readonly borderRadius50dvw: { 'border-radius_50dvw': true }
-  readonly borderRadius60dvw: { 'border-radius_60dvw': true }
-  readonly borderRadius66p67dvw: { 'border-radius_66\.67dvw': true }
-  readonly borderRadius70dvw: { 'border-radius_70dvw': true }
   readonly borderRadius75dvw: { 'border-radius_75dvw': true }
-  readonly borderRadius80dvw: { 'border-radius_80dvw': true }
-  readonly borderRadius90dvw: { 'border-radius_90dvw': true }
   readonly borderRadius100dvw: { 'border-radius_100dvw': true }
   readonly borderRadius0em: { 'border-radius_0em': true }
-  readonly borderRadius0p25em: { 'border-radius_0\.25em': true }
   readonly borderRadius0p5em: { 'border-radius_0\.5em': true }
-  readonly borderRadius0p75em: { 'border-radius_0\.75em': true }
   readonly borderRadius1em: { 'border-radius_1em': true }
-  readonly borderRadius1p25em: { 'border-radius_1\.25em': true }
   readonly borderRadius1p5em: { 'border-radius_1\.5em': true }
   readonly borderRadius2em: { 'border-radius_2em': true }
-  readonly borderRadius2p5em: { 'border-radius_2\.5em': true }
   readonly borderRadius3em: { 'border-radius_3em': true }
-  readonly borderRadius4em: { 'border-radius_4em': true }
-  readonly borderRadius5em: { 'border-radius_5em': true }
-  readonly borderRadius6em: { 'border-radius_6em': true }
-  readonly borderRadius8em: { 'border-radius_8em': true }
   readonly borderRadius0ex: { 'border-radius_0ex': true }
-  readonly borderRadius0p25ex: { 'border-radius_0\.25ex': true }
   readonly borderRadius0p5ex: { 'border-radius_0\.5ex': true }
-  readonly borderRadius0p75ex: { 'border-radius_0\.75ex': true }
   readonly borderRadius1ex: { 'border-radius_1ex': true }
-  readonly borderRadius1p25ex: { 'border-radius_1\.25ex': true }
   readonly borderRadius1p5ex: { 'border-radius_1\.5ex': true }
   readonly borderRadius2ex: { 'border-radius_2ex': true }
-  readonly borderRadius2p5ex: { 'border-radius_2\.5ex': true }
   readonly borderRadius3ex: { 'border-radius_3ex': true }
-  readonly borderRadius4ex: { 'border-radius_4ex': true }
-  readonly borderRadius5ex: { 'border-radius_5ex': true }
-  readonly borderRadius6ex: { 'border-radius_6ex': true }
-  readonly borderRadius8ex: { 'border-radius_8ex': true }
   readonly borderRadius0ic: { 'border-radius_0ic': true }
-  readonly borderRadius0p25ic: { 'border-radius_0\.25ic': true }
   readonly borderRadius0p5ic: { 'border-radius_0\.5ic': true }
-  readonly borderRadius0p75ic: { 'border-radius_0\.75ic': true }
   readonly borderRadius1ic: { 'border-radius_1ic': true }
-  readonly borderRadius1p25ic: { 'border-radius_1\.25ic': true }
   readonly borderRadius1p5ic: { 'border-radius_1\.5ic': true }
   readonly borderRadius2ic: { 'border-radius_2ic': true }
-  readonly borderRadius2p5ic: { 'border-radius_2\.5ic': true }
   readonly borderRadius3ic: { 'border-radius_3ic': true }
-  readonly borderRadius4ic: { 'border-radius_4ic': true }
-  readonly borderRadius5ic: { 'border-radius_5ic': true }
-  readonly borderRadius6ic: { 'border-radius_6ic': true }
-  readonly borderRadius8ic: { 'border-radius_8ic': true }
   readonly borderRadius0in: { 'border-radius_0in': true }
   readonly borderRadius1in: { 'border-radius_1in': true }
   readonly borderRadius2in: { 'border-radius_2in': true }
   readonly borderRadius4in: { 'border-radius_4in': true }
-  readonly borderRadius6in: { 'border-radius_6in': true }
   readonly borderRadius8in: { 'border-radius_8in': true }
-  readonly borderRadius10in: { 'border-radius_10in': true }
-  readonly borderRadius12in: { 'border-radius_12in': true }
-  readonly borderRadius16in: { 'border-radius_16in': true }
-  readonly borderRadius20in: { 'border-radius_20in': true }
   readonly borderRadius0lh: { 'border-radius_0lh': true }
-  readonly borderRadius0p25lh: { 'border-radius_0\.25lh': true }
   readonly borderRadius0p5lh: { 'border-radius_0\.5lh': true }
-  readonly borderRadius0p75lh: { 'border-radius_0\.75lh': true }
   readonly borderRadius1lh: { 'border-radius_1lh': true }
-  readonly borderRadius1p25lh: { 'border-radius_1\.25lh': true }
   readonly borderRadius1p5lh: { 'border-radius_1\.5lh': true }
   readonly borderRadius2lh: { 'border-radius_2lh': true }
-  readonly borderRadius2p5lh: { 'border-radius_2\.5lh': true }
   readonly borderRadius3lh: { 'border-radius_3lh': true }
-  readonly borderRadius4lh: { 'border-radius_4lh': true }
-  readonly borderRadius5lh: { 'border-radius_5lh': true }
-  readonly borderRadius6lh: { 'border-radius_6lh': true }
-  readonly borderRadius8lh: { 'border-radius_8lh': true }
   readonly borderRadius0lvh: { 'border-radius_0lvh': true }
-  readonly borderRadius10lvh: { 'border-radius_10lvh': true }
-  readonly borderRadius20lvh: { 'border-radius_20lvh': true }
   readonly borderRadius25lvh: { 'border-radius_25lvh': true }
-  readonly borderRadius30lvh: { 'border-radius_30lvh': true }
-  readonly borderRadius33p33lvh: { 'border-radius_33\.33lvh': true }
-  readonly borderRadius40lvh: { 'border-radius_40lvh': true }
   readonly borderRadius50lvh: { 'border-radius_50lvh': true }
-  readonly borderRadius60lvh: { 'border-radius_60lvh': true }
-  readonly borderRadius66p67lvh: { 'border-radius_66\.67lvh': true }
-  readonly borderRadius70lvh: { 'border-radius_70lvh': true }
   readonly borderRadius75lvh: { 'border-radius_75lvh': true }
-  readonly borderRadius80lvh: { 'border-radius_80lvh': true }
-  readonly borderRadius90lvh: { 'border-radius_90lvh': true }
   readonly borderRadius100lvh: { 'border-radius_100lvh': true }
   readonly borderRadius0lvw: { 'border-radius_0lvw': true }
-  readonly borderRadius10lvw: { 'border-radius_10lvw': true }
-  readonly borderRadius20lvw: { 'border-radius_20lvw': true }
   readonly borderRadius25lvw: { 'border-radius_25lvw': true }
-  readonly borderRadius30lvw: { 'border-radius_30lvw': true }
-  readonly borderRadius33p33lvw: { 'border-radius_33\.33lvw': true }
-  readonly borderRadius40lvw: { 'border-radius_40lvw': true }
   readonly borderRadius50lvw: { 'border-radius_50lvw': true }
-  readonly borderRadius60lvw: { 'border-radius_60lvw': true }
-  readonly borderRadius66p67lvw: { 'border-radius_66\.67lvw': true }
-  readonly borderRadius70lvw: { 'border-radius_70lvw': true }
   readonly borderRadius75lvw: { 'border-radius_75lvw': true }
-  readonly borderRadius80lvw: { 'border-radius_80lvw': true }
-  readonly borderRadius90lvw: { 'border-radius_90lvw': true }
   readonly borderRadius100lvw: { 'border-radius_100lvw': true }
   readonly borderRadius0mm: { 'border-radius_0mm': true }
   readonly borderRadius1mm: { 'border-radius_1mm': true }
   readonly borderRadius2mm: { 'border-radius_2mm': true }
   readonly borderRadius4mm: { 'border-radius_4mm': true }
-  readonly borderRadius6mm: { 'border-radius_6mm': true }
   readonly borderRadius8mm: { 'border-radius_8mm': true }
-  readonly borderRadius10mm: { 'border-radius_10mm': true }
-  readonly borderRadius12mm: { 'border-radius_12mm': true }
-  readonly borderRadius16mm: { 'border-radius_16mm': true }
-  readonly borderRadius20mm: { 'border-radius_20mm': true }
   readonly borderRadius0pc: { 'border-radius_0pc': true }
   readonly borderRadius1pc: { 'border-radius_1pc': true }
   readonly borderRadius2pc: { 'border-radius_2pc': true }
   readonly borderRadius4pc: { 'border-radius_4pc': true }
-  readonly borderRadius6pc: { 'border-radius_6pc': true }
   readonly borderRadius8pc: { 'border-radius_8pc': true }
-  readonly borderRadius10pc: { 'border-radius_10pc': true }
-  readonly borderRadius12pc: { 'border-radius_12pc': true }
-  readonly borderRadius16pc: { 'border-radius_16pc': true }
-  readonly borderRadius20pc: { 'border-radius_20pc': true }
   readonly borderRadius0pt: { 'border-radius_0pt': true }
   readonly borderRadius1pt: { 'border-radius_1pt': true }
   readonly borderRadius2pt: { 'border-radius_2pt': true }
   readonly borderRadius4pt: { 'border-radius_4pt': true }
-  readonly borderRadius6pt: { 'border-radius_6pt': true }
   readonly borderRadius8pt: { 'border-radius_8pt': true }
-  readonly borderRadius10pt: { 'border-radius_10pt': true }
-  readonly borderRadius12pt: { 'border-radius_12pt': true }
-  readonly borderRadius16pt: { 'border-radius_16pt': true }
-  readonly borderRadius20pt: { 'border-radius_20pt': true }
-  readonly borderRadiusN384px: { 'border-radius_-384px': true }
-  readonly borderRadiusN320px: { 'border-radius_-320px': true }
-  readonly borderRadiusN256px: { 'border-radius_-256px': true }
-  readonly borderRadiusN224px: { 'border-radius_-224px': true }
-  readonly borderRadiusN192px: { 'border-radius_-192px': true }
-  readonly borderRadiusN160px: { 'border-radius_-160px': true }
-  readonly borderRadiusN128px: { 'border-radius_-128px': true }
   readonly borderRadiusN96px: { 'border-radius_-96px': true }
   readonly borderRadiusN80px: { 'border-radius_-80px': true }
   readonly borderRadiusN64px: { 'border-radius_-64px': true }
-  readonly borderRadiusN56px: { 'border-radius_-56px': true }
   readonly borderRadiusN48px: { 'border-radius_-48px': true }
   readonly borderRadiusN40px: { 'border-radius_-40px': true }
   readonly borderRadiusN32px: { 'border-radius_-32px': true }
-  readonly borderRadiusN28px: { 'border-radius_-28px': true }
   readonly borderRadiusN24px: { 'border-radius_-24px': true }
   readonly borderRadiusN20px: { 'border-radius_-20px': true }
   readonly borderRadiusN16px: { 'border-radius_-16px': true }
-  readonly borderRadiusN14px: { 'border-radius_-14px': true }
   readonly borderRadiusN12px: { 'border-radius_-12px': true }
   readonly borderRadiusN10px: { 'border-radius_-10px': true }
   readonly borderRadiusN8px: { 'border-radius_-8px': true }
   readonly borderRadiusN6px: { 'border-radius_-6px': true }
   readonly borderRadiusN4px: { 'border-radius_-4px': true }
   readonly borderRadiusN2px: { 'border-radius_-2px': true }
-  readonly borderRadiusN1px: { 'border-radius_-1px': true }
   readonly borderRadius0px: { 'border-radius_0px': true }
-  readonly borderRadius1px: { 'border-radius_1px': true }
   readonly borderRadius2px: { 'border-radius_2px': true }
   readonly borderRadius4px: { 'border-radius_4px': true }
   readonly borderRadius6px: { 'border-radius_6px': true }
   readonly borderRadius8px: { 'border-radius_8px': true }
   readonly borderRadius10px: { 'border-radius_10px': true }
   readonly borderRadius12px: { 'border-radius_12px': true }
-  readonly borderRadius14px: { 'border-radius_14px': true }
   readonly borderRadius16px: { 'border-radius_16px': true }
   readonly borderRadius20px: { 'border-radius_20px': true }
   readonly borderRadius24px: { 'border-radius_24px': true }
-  readonly borderRadius28px: { 'border-radius_28px': true }
   readonly borderRadius32px: { 'border-radius_32px': true }
   readonly borderRadius40px: { 'border-radius_40px': true }
   readonly borderRadius48px: { 'border-radius_48px': true }
-  readonly borderRadius56px: { 'border-radius_56px': true }
   readonly borderRadius64px: { 'border-radius_64px': true }
   readonly borderRadius80px: { 'border-radius_80px': true }
   readonly borderRadius96px: { 'border-radius_96px': true }
-  readonly borderRadius128px: { 'border-radius_128px': true }
-  readonly borderRadius160px: { 'border-radius_160px': true }
-  readonly borderRadius192px: { 'border-radius_192px': true }
-  readonly borderRadius224px: { 'border-radius_224px': true }
-  readonly borderRadius256px: { 'border-radius_256px': true }
-  readonly borderRadius320px: { 'border-radius_320px': true }
-  readonly borderRadius384px: { 'border-radius_384px': true }
   readonly borderRadius0rem: { 'border-radius_0rem': true }
-  readonly borderRadius0p25rem: { 'border-radius_0\.25rem': true }
   readonly borderRadius0p5rem: { 'border-radius_0\.5rem': true }
-  readonly borderRadius0p75rem: { 'border-radius_0\.75rem': true }
   readonly borderRadius1rem: { 'border-radius_1rem': true }
-  readonly borderRadius1p25rem: { 'border-radius_1\.25rem': true }
   readonly borderRadius1p5rem: { 'border-radius_1\.5rem': true }
   readonly borderRadius2rem: { 'border-radius_2rem': true }
-  readonly borderRadius2p5rem: { 'border-radius_2\.5rem': true }
   readonly borderRadius3rem: { 'border-radius_3rem': true }
-  readonly borderRadius4rem: { 'border-radius_4rem': true }
-  readonly borderRadius5rem: { 'border-radius_5rem': true }
-  readonly borderRadius6rem: { 'border-radius_6rem': true }
-  readonly borderRadius8rem: { 'border-radius_8rem': true }
   readonly borderRadius0rlh: { 'border-radius_0rlh': true }
-  readonly borderRadius0p25rlh: { 'border-radius_0\.25rlh': true }
   readonly borderRadius0p5rlh: { 'border-radius_0\.5rlh': true }
-  readonly borderRadius0p75rlh: { 'border-radius_0\.75rlh': true }
   readonly borderRadius1rlh: { 'border-radius_1rlh': true }
-  readonly borderRadius1p25rlh: { 'border-radius_1\.25rlh': true }
   readonly borderRadius1p5rlh: { 'border-radius_1\.5rlh': true }
   readonly borderRadius2rlh: { 'border-radius_2rlh': true }
-  readonly borderRadius2p5rlh: { 'border-radius_2\.5rlh': true }
   readonly borderRadius3rlh: { 'border-radius_3rlh': true }
-  readonly borderRadius4rlh: { 'border-radius_4rlh': true }
-  readonly borderRadius5rlh: { 'border-radius_5rlh': true }
-  readonly borderRadius6rlh: { 'border-radius_6rlh': true }
-  readonly borderRadius8rlh: { 'border-radius_8rlh': true }
   readonly borderRadius0svh: { 'border-radius_0svh': true }
-  readonly borderRadius10svh: { 'border-radius_10svh': true }
-  readonly borderRadius20svh: { 'border-radius_20svh': true }
   readonly borderRadius25svh: { 'border-radius_25svh': true }
-  readonly borderRadius30svh: { 'border-radius_30svh': true }
-  readonly borderRadius33p33svh: { 'border-radius_33\.33svh': true }
-  readonly borderRadius40svh: { 'border-radius_40svh': true }
   readonly borderRadius50svh: { 'border-radius_50svh': true }
-  readonly borderRadius60svh: { 'border-radius_60svh': true }
-  readonly borderRadius66p67svh: { 'border-radius_66\.67svh': true }
-  readonly borderRadius70svh: { 'border-radius_70svh': true }
   readonly borderRadius75svh: { 'border-radius_75svh': true }
-  readonly borderRadius80svh: { 'border-radius_80svh': true }
-  readonly borderRadius90svh: { 'border-radius_90svh': true }
   readonly borderRadius100svh: { 'border-radius_100svh': true }
   readonly borderRadius0svw: { 'border-radius_0svw': true }
-  readonly borderRadius10svw: { 'border-radius_10svw': true }
-  readonly borderRadius20svw: { 'border-radius_20svw': true }
   readonly borderRadius25svw: { 'border-radius_25svw': true }
-  readonly borderRadius30svw: { 'border-radius_30svw': true }
-  readonly borderRadius33p33svw: { 'border-radius_33\.33svw': true }
-  readonly borderRadius40svw: { 'border-radius_40svw': true }
   readonly borderRadius50svw: { 'border-radius_50svw': true }
-  readonly borderRadius60svw: { 'border-radius_60svw': true }
-  readonly borderRadius66p67svw: { 'border-radius_66\.67svw': true }
-  readonly borderRadius70svw: { 'border-radius_70svw': true }
   readonly borderRadius75svw: { 'border-radius_75svw': true }
-  readonly borderRadius80svw: { 'border-radius_80svw': true }
-  readonly borderRadius90svw: { 'border-radius_90svw': true }
   readonly borderRadius100svw: { 'border-radius_100svw': true }
   readonly borderRadius0vb: { 'border-radius_0vb': true }
-  readonly borderRadius10vb: { 'border-radius_10vb': true }
-  readonly borderRadius20vb: { 'border-radius_20vb': true }
   readonly borderRadius25vb: { 'border-radius_25vb': true }
-  readonly borderRadius30vb: { 'border-radius_30vb': true }
-  readonly borderRadius33p33vb: { 'border-radius_33\.33vb': true }
-  readonly borderRadius40vb: { 'border-radius_40vb': true }
   readonly borderRadius50vb: { 'border-radius_50vb': true }
-  readonly borderRadius60vb: { 'border-radius_60vb': true }
-  readonly borderRadius66p67vb: { 'border-radius_66\.67vb': true }
-  readonly borderRadius70vb: { 'border-radius_70vb': true }
   readonly borderRadius75vb: { 'border-radius_75vb': true }
-  readonly borderRadius80vb: { 'border-radius_80vb': true }
-  readonly borderRadius90vb: { 'border-radius_90vb': true }
   readonly borderRadius100vb: { 'border-radius_100vb': true }
   readonly borderRadius0vh: { 'border-radius_0vh': true }
-  readonly borderRadius10vh: { 'border-radius_10vh': true }
-  readonly borderRadius20vh: { 'border-radius_20vh': true }
   readonly borderRadius25vh: { 'border-radius_25vh': true }
-  readonly borderRadius30vh: { 'border-radius_30vh': true }
-  readonly borderRadius33p33vh: { 'border-radius_33\.33vh': true }
-  readonly borderRadius40vh: { 'border-radius_40vh': true }
   readonly borderRadius50vh: { 'border-radius_50vh': true }
-  readonly borderRadius60vh: { 'border-radius_60vh': true }
-  readonly borderRadius66p67vh: { 'border-radius_66\.67vh': true }
-  readonly borderRadius70vh: { 'border-radius_70vh': true }
   readonly borderRadius75vh: { 'border-radius_75vh': true }
-  readonly borderRadius80vh: { 'border-radius_80vh': true }
-  readonly borderRadius90vh: { 'border-radius_90vh': true }
   readonly borderRadius100vh: { 'border-radius_100vh': true }
   readonly borderRadius0vi: { 'border-radius_0vi': true }
-  readonly borderRadius10vi: { 'border-radius_10vi': true }
-  readonly borderRadius20vi: { 'border-radius_20vi': true }
   readonly borderRadius25vi: { 'border-radius_25vi': true }
-  readonly borderRadius30vi: { 'border-radius_30vi': true }
-  readonly borderRadius33p33vi: { 'border-radius_33\.33vi': true }
-  readonly borderRadius40vi: { 'border-radius_40vi': true }
   readonly borderRadius50vi: { 'border-radius_50vi': true }
-  readonly borderRadius60vi: { 'border-radius_60vi': true }
-  readonly borderRadius66p67vi: { 'border-radius_66\.67vi': true }
-  readonly borderRadius70vi: { 'border-radius_70vi': true }
   readonly borderRadius75vi: { 'border-radius_75vi': true }
-  readonly borderRadius80vi: { 'border-radius_80vi': true }
-  readonly borderRadius90vi: { 'border-radius_90vi': true }
   readonly borderRadius100vi: { 'border-radius_100vi': true }
   readonly borderRadius0vmax: { 'border-radius_0vmax': true }
-  readonly borderRadius10vmax: { 'border-radius_10vmax': true }
-  readonly borderRadius20vmax: { 'border-radius_20vmax': true }
   readonly borderRadius25vmax: { 'border-radius_25vmax': true }
-  readonly borderRadius30vmax: { 'border-radius_30vmax': true }
-  readonly borderRadius33p33vmax: { 'border-radius_33\.33vmax': true }
-  readonly borderRadius40vmax: { 'border-radius_40vmax': true }
   readonly borderRadius50vmax: { 'border-radius_50vmax': true }
-  readonly borderRadius60vmax: { 'border-radius_60vmax': true }
-  readonly borderRadius66p67vmax: { 'border-radius_66\.67vmax': true }
-  readonly borderRadius70vmax: { 'border-radius_70vmax': true }
   readonly borderRadius75vmax: { 'border-radius_75vmax': true }
-  readonly borderRadius80vmax: { 'border-radius_80vmax': true }
-  readonly borderRadius90vmax: { 'border-radius_90vmax': true }
   readonly borderRadius100vmax: { 'border-radius_100vmax': true }
   readonly borderRadius0vmin: { 'border-radius_0vmin': true }
-  readonly borderRadius10vmin: { 'border-radius_10vmin': true }
-  readonly borderRadius20vmin: { 'border-radius_20vmin': true }
   readonly borderRadius25vmin: { 'border-radius_25vmin': true }
-  readonly borderRadius30vmin: { 'border-radius_30vmin': true }
-  readonly borderRadius33p33vmin: { 'border-radius_33\.33vmin': true }
-  readonly borderRadius40vmin: { 'border-radius_40vmin': true }
   readonly borderRadius50vmin: { 'border-radius_50vmin': true }
-  readonly borderRadius60vmin: { 'border-radius_60vmin': true }
-  readonly borderRadius66p67vmin: { 'border-radius_66\.67vmin': true }
-  readonly borderRadius70vmin: { 'border-radius_70vmin': true }
   readonly borderRadius75vmin: { 'border-radius_75vmin': true }
-  readonly borderRadius80vmin: { 'border-radius_80vmin': true }
-  readonly borderRadius90vmin: { 'border-radius_90vmin': true }
   readonly borderRadius100vmin: { 'border-radius_100vmin': true }
   readonly borderRadius0vw: { 'border-radius_0vw': true }
-  readonly borderRadius10vw: { 'border-radius_10vw': true }
-  readonly borderRadius20vw: { 'border-radius_20vw': true }
   readonly borderRadius25vw: { 'border-radius_25vw': true }
-  readonly borderRadius30vw: { 'border-radius_30vw': true }
-  readonly borderRadius33p33vw: { 'border-radius_33\.33vw': true }
-  readonly borderRadius40vw: { 'border-radius_40vw': true }
   readonly borderRadius50vw: { 'border-radius_50vw': true }
-  readonly borderRadius60vw: { 'border-radius_60vw': true }
-  readonly borderRadius66p67vw: { 'border-radius_66\.67vw': true }
-  readonly borderRadius70vw: { 'border-radius_70vw': true }
   readonly borderRadius75vw: { 'border-radius_75vw': true }
-  readonly borderRadius80vw: { 'border-radius_80vw': true }
-  readonly borderRadius90vw: { 'border-radius_90vw': true }
   readonly borderRadius100vw: { 'border-radius_100vw': true }
   readonly borderRadius0Pct: { 'border-radius_0\%': true }
-  readonly borderRadius10Pct: { 'border-radius_10\%': true }
-  readonly borderRadius20Pct: { 'border-radius_20\%': true }
   readonly borderRadius25Pct: { 'border-radius_25\%': true }
-  readonly borderRadius30Pct: { 'border-radius_30\%': true }
-  readonly borderRadius33p33Pct: { 'border-radius_33\.33\%': true }
-  readonly borderRadius40Pct: { 'border-radius_40\%': true }
   readonly borderRadius50Pct: { 'border-radius_50\%': true }
-  readonly borderRadius60Pct: { 'border-radius_60\%': true }
-  readonly borderRadius66p67Pct: { 'border-radius_66\.67\%': true }
-  readonly borderRadius70Pct: { 'border-radius_70\%': true }
   readonly borderRadius75Pct: { 'border-radius_75\%': true }
-  readonly borderRadius80Pct: { 'border-radius_80\%': true }
-  readonly borderRadius90Pct: { 'border-radius_90\%': true }
   readonly borderRadius100Pct: { 'border-radius_100\%': true }
 
   // ==================== border-width ====================
@@ -2525,406 +1199,170 @@ export interface CsstsAtoms {
   readonly borderWidth1Q: { 'border-width_1Q': true }
   readonly borderWidth2Q: { 'border-width_2Q': true }
   readonly borderWidth4Q: { 'border-width_4Q': true }
-  readonly borderWidth6Q: { 'border-width_6Q': true }
   readonly borderWidth8Q: { 'border-width_8Q': true }
-  readonly borderWidth10Q: { 'border-width_10Q': true }
-  readonly borderWidth12Q: { 'border-width_12Q': true }
-  readonly borderWidth16Q: { 'border-width_16Q': true }
-  readonly borderWidth20Q: { 'border-width_20Q': true }
   readonly borderWidth0cap: { 'border-width_0cap': true }
-  readonly borderWidth0p25cap: { 'border-width_0\.25cap': true }
   readonly borderWidth0p5cap: { 'border-width_0\.5cap': true }
-  readonly borderWidth0p75cap: { 'border-width_0\.75cap': true }
   readonly borderWidth1cap: { 'border-width_1cap': true }
-  readonly borderWidth1p25cap: { 'border-width_1\.25cap': true }
   readonly borderWidth1p5cap: { 'border-width_1\.5cap': true }
   readonly borderWidth2cap: { 'border-width_2cap': true }
-  readonly borderWidth2p5cap: { 'border-width_2\.5cap': true }
   readonly borderWidth3cap: { 'border-width_3cap': true }
-  readonly borderWidth4cap: { 'border-width_4cap': true }
-  readonly borderWidth5cap: { 'border-width_5cap': true }
-  readonly borderWidth6cap: { 'border-width_6cap': true }
-  readonly borderWidth8cap: { 'border-width_8cap': true }
   readonly borderWidth0ch: { 'border-width_0ch': true }
-  readonly borderWidth0p25ch: { 'border-width_0\.25ch': true }
   readonly borderWidth0p5ch: { 'border-width_0\.5ch': true }
-  readonly borderWidth0p75ch: { 'border-width_0\.75ch': true }
   readonly borderWidth1ch: { 'border-width_1ch': true }
-  readonly borderWidth1p25ch: { 'border-width_1\.25ch': true }
   readonly borderWidth1p5ch: { 'border-width_1\.5ch': true }
   readonly borderWidth2ch: { 'border-width_2ch': true }
-  readonly borderWidth2p5ch: { 'border-width_2\.5ch': true }
   readonly borderWidth3ch: { 'border-width_3ch': true }
-  readonly borderWidth4ch: { 'border-width_4ch': true }
-  readonly borderWidth5ch: { 'border-width_5ch': true }
-  readonly borderWidth6ch: { 'border-width_6ch': true }
-  readonly borderWidth8ch: { 'border-width_8ch': true }
   readonly borderWidth0cm: { 'border-width_0cm': true }
   readonly borderWidth1cm: { 'border-width_1cm': true }
   readonly borderWidth2cm: { 'border-width_2cm': true }
   readonly borderWidth4cm: { 'border-width_4cm': true }
-  readonly borderWidth6cm: { 'border-width_6cm': true }
   readonly borderWidth8cm: { 'border-width_8cm': true }
-  readonly borderWidth10cm: { 'border-width_10cm': true }
-  readonly borderWidth12cm: { 'border-width_12cm': true }
-  readonly borderWidth16cm: { 'border-width_16cm': true }
-  readonly borderWidth20cm: { 'border-width_20cm': true }
   readonly borderWidth0dvh: { 'border-width_0dvh': true }
-  readonly borderWidth10dvh: { 'border-width_10dvh': true }
-  readonly borderWidth20dvh: { 'border-width_20dvh': true }
   readonly borderWidth25dvh: { 'border-width_25dvh': true }
-  readonly borderWidth30dvh: { 'border-width_30dvh': true }
-  readonly borderWidth33p33dvh: { 'border-width_33\.33dvh': true }
-  readonly borderWidth40dvh: { 'border-width_40dvh': true }
   readonly borderWidth50dvh: { 'border-width_50dvh': true }
-  readonly borderWidth60dvh: { 'border-width_60dvh': true }
-  readonly borderWidth66p67dvh: { 'border-width_66\.67dvh': true }
-  readonly borderWidth70dvh: { 'border-width_70dvh': true }
   readonly borderWidth75dvh: { 'border-width_75dvh': true }
-  readonly borderWidth80dvh: { 'border-width_80dvh': true }
-  readonly borderWidth90dvh: { 'border-width_90dvh': true }
   readonly borderWidth100dvh: { 'border-width_100dvh': true }
   readonly borderWidth0dvw: { 'border-width_0dvw': true }
-  readonly borderWidth10dvw: { 'border-width_10dvw': true }
-  readonly borderWidth20dvw: { 'border-width_20dvw': true }
   readonly borderWidth25dvw: { 'border-width_25dvw': true }
-  readonly borderWidth30dvw: { 'border-width_30dvw': true }
-  readonly borderWidth33p33dvw: { 'border-width_33\.33dvw': true }
-  readonly borderWidth40dvw: { 'border-width_40dvw': true }
   readonly borderWidth50dvw: { 'border-width_50dvw': true }
-  readonly borderWidth60dvw: { 'border-width_60dvw': true }
-  readonly borderWidth66p67dvw: { 'border-width_66\.67dvw': true }
-  readonly borderWidth70dvw: { 'border-width_70dvw': true }
   readonly borderWidth75dvw: { 'border-width_75dvw': true }
-  readonly borderWidth80dvw: { 'border-width_80dvw': true }
-  readonly borderWidth90dvw: { 'border-width_90dvw': true }
   readonly borderWidth100dvw: { 'border-width_100dvw': true }
   readonly borderWidth0em: { 'border-width_0em': true }
-  readonly borderWidth0p25em: { 'border-width_0\.25em': true }
   readonly borderWidth0p5em: { 'border-width_0\.5em': true }
-  readonly borderWidth0p75em: { 'border-width_0\.75em': true }
   readonly borderWidth1em: { 'border-width_1em': true }
-  readonly borderWidth1p25em: { 'border-width_1\.25em': true }
   readonly borderWidth1p5em: { 'border-width_1\.5em': true }
   readonly borderWidth2em: { 'border-width_2em': true }
-  readonly borderWidth2p5em: { 'border-width_2\.5em': true }
   readonly borderWidth3em: { 'border-width_3em': true }
-  readonly borderWidth4em: { 'border-width_4em': true }
-  readonly borderWidth5em: { 'border-width_5em': true }
-  readonly borderWidth6em: { 'border-width_6em': true }
-  readonly borderWidth8em: { 'border-width_8em': true }
   readonly borderWidth0ex: { 'border-width_0ex': true }
-  readonly borderWidth0p25ex: { 'border-width_0\.25ex': true }
   readonly borderWidth0p5ex: { 'border-width_0\.5ex': true }
-  readonly borderWidth0p75ex: { 'border-width_0\.75ex': true }
   readonly borderWidth1ex: { 'border-width_1ex': true }
-  readonly borderWidth1p25ex: { 'border-width_1\.25ex': true }
   readonly borderWidth1p5ex: { 'border-width_1\.5ex': true }
   readonly borderWidth2ex: { 'border-width_2ex': true }
-  readonly borderWidth2p5ex: { 'border-width_2\.5ex': true }
   readonly borderWidth3ex: { 'border-width_3ex': true }
-  readonly borderWidth4ex: { 'border-width_4ex': true }
-  readonly borderWidth5ex: { 'border-width_5ex': true }
-  readonly borderWidth6ex: { 'border-width_6ex': true }
-  readonly borderWidth8ex: { 'border-width_8ex': true }
   readonly borderWidth0ic: { 'border-width_0ic': true }
-  readonly borderWidth0p25ic: { 'border-width_0\.25ic': true }
   readonly borderWidth0p5ic: { 'border-width_0\.5ic': true }
-  readonly borderWidth0p75ic: { 'border-width_0\.75ic': true }
   readonly borderWidth1ic: { 'border-width_1ic': true }
-  readonly borderWidth1p25ic: { 'border-width_1\.25ic': true }
   readonly borderWidth1p5ic: { 'border-width_1\.5ic': true }
   readonly borderWidth2ic: { 'border-width_2ic': true }
-  readonly borderWidth2p5ic: { 'border-width_2\.5ic': true }
   readonly borderWidth3ic: { 'border-width_3ic': true }
-  readonly borderWidth4ic: { 'border-width_4ic': true }
-  readonly borderWidth5ic: { 'border-width_5ic': true }
-  readonly borderWidth6ic: { 'border-width_6ic': true }
-  readonly borderWidth8ic: { 'border-width_8ic': true }
   readonly borderWidth0in: { 'border-width_0in': true }
   readonly borderWidth1in: { 'border-width_1in': true }
   readonly borderWidth2in: { 'border-width_2in': true }
   readonly borderWidth4in: { 'border-width_4in': true }
-  readonly borderWidth6in: { 'border-width_6in': true }
   readonly borderWidth8in: { 'border-width_8in': true }
-  readonly borderWidth10in: { 'border-width_10in': true }
-  readonly borderWidth12in: { 'border-width_12in': true }
-  readonly borderWidth16in: { 'border-width_16in': true }
-  readonly borderWidth20in: { 'border-width_20in': true }
   readonly borderWidth0lh: { 'border-width_0lh': true }
-  readonly borderWidth0p25lh: { 'border-width_0\.25lh': true }
   readonly borderWidth0p5lh: { 'border-width_0\.5lh': true }
-  readonly borderWidth0p75lh: { 'border-width_0\.75lh': true }
   readonly borderWidth1lh: { 'border-width_1lh': true }
-  readonly borderWidth1p25lh: { 'border-width_1\.25lh': true }
   readonly borderWidth1p5lh: { 'border-width_1\.5lh': true }
   readonly borderWidth2lh: { 'border-width_2lh': true }
-  readonly borderWidth2p5lh: { 'border-width_2\.5lh': true }
   readonly borderWidth3lh: { 'border-width_3lh': true }
-  readonly borderWidth4lh: { 'border-width_4lh': true }
-  readonly borderWidth5lh: { 'border-width_5lh': true }
-  readonly borderWidth6lh: { 'border-width_6lh': true }
-  readonly borderWidth8lh: { 'border-width_8lh': true }
   readonly borderWidth0lvh: { 'border-width_0lvh': true }
-  readonly borderWidth10lvh: { 'border-width_10lvh': true }
-  readonly borderWidth20lvh: { 'border-width_20lvh': true }
   readonly borderWidth25lvh: { 'border-width_25lvh': true }
-  readonly borderWidth30lvh: { 'border-width_30lvh': true }
-  readonly borderWidth33p33lvh: { 'border-width_33\.33lvh': true }
-  readonly borderWidth40lvh: { 'border-width_40lvh': true }
   readonly borderWidth50lvh: { 'border-width_50lvh': true }
-  readonly borderWidth60lvh: { 'border-width_60lvh': true }
-  readonly borderWidth66p67lvh: { 'border-width_66\.67lvh': true }
-  readonly borderWidth70lvh: { 'border-width_70lvh': true }
   readonly borderWidth75lvh: { 'border-width_75lvh': true }
-  readonly borderWidth80lvh: { 'border-width_80lvh': true }
-  readonly borderWidth90lvh: { 'border-width_90lvh': true }
   readonly borderWidth100lvh: { 'border-width_100lvh': true }
   readonly borderWidth0lvw: { 'border-width_0lvw': true }
-  readonly borderWidth10lvw: { 'border-width_10lvw': true }
-  readonly borderWidth20lvw: { 'border-width_20lvw': true }
   readonly borderWidth25lvw: { 'border-width_25lvw': true }
-  readonly borderWidth30lvw: { 'border-width_30lvw': true }
-  readonly borderWidth33p33lvw: { 'border-width_33\.33lvw': true }
-  readonly borderWidth40lvw: { 'border-width_40lvw': true }
   readonly borderWidth50lvw: { 'border-width_50lvw': true }
-  readonly borderWidth60lvw: { 'border-width_60lvw': true }
-  readonly borderWidth66p67lvw: { 'border-width_66\.67lvw': true }
-  readonly borderWidth70lvw: { 'border-width_70lvw': true }
   readonly borderWidth75lvw: { 'border-width_75lvw': true }
-  readonly borderWidth80lvw: { 'border-width_80lvw': true }
-  readonly borderWidth90lvw: { 'border-width_90lvw': true }
   readonly borderWidth100lvw: { 'border-width_100lvw': true }
   readonly borderWidth0mm: { 'border-width_0mm': true }
   readonly borderWidth1mm: { 'border-width_1mm': true }
   readonly borderWidth2mm: { 'border-width_2mm': true }
   readonly borderWidth4mm: { 'border-width_4mm': true }
-  readonly borderWidth6mm: { 'border-width_6mm': true }
   readonly borderWidth8mm: { 'border-width_8mm': true }
-  readonly borderWidth10mm: { 'border-width_10mm': true }
-  readonly borderWidth12mm: { 'border-width_12mm': true }
-  readonly borderWidth16mm: { 'border-width_16mm': true }
-  readonly borderWidth20mm: { 'border-width_20mm': true }
   readonly borderWidth0pc: { 'border-width_0pc': true }
   readonly borderWidth1pc: { 'border-width_1pc': true }
   readonly borderWidth2pc: { 'border-width_2pc': true }
   readonly borderWidth4pc: { 'border-width_4pc': true }
-  readonly borderWidth6pc: { 'border-width_6pc': true }
   readonly borderWidth8pc: { 'border-width_8pc': true }
-  readonly borderWidth10pc: { 'border-width_10pc': true }
-  readonly borderWidth12pc: { 'border-width_12pc': true }
-  readonly borderWidth16pc: { 'border-width_16pc': true }
-  readonly borderWidth20pc: { 'border-width_20pc': true }
   readonly borderWidth0pt: { 'border-width_0pt': true }
   readonly borderWidth1pt: { 'border-width_1pt': true }
   readonly borderWidth2pt: { 'border-width_2pt': true }
   readonly borderWidth4pt: { 'border-width_4pt': true }
-  readonly borderWidth6pt: { 'border-width_6pt': true }
   readonly borderWidth8pt: { 'border-width_8pt': true }
-  readonly borderWidth10pt: { 'border-width_10pt': true }
-  readonly borderWidth12pt: { 'border-width_12pt': true }
-  readonly borderWidth16pt: { 'border-width_16pt': true }
-  readonly borderWidth20pt: { 'border-width_20pt': true }
-  readonly borderWidthN384px: { 'border-width_-384px': true }
-  readonly borderWidthN320px: { 'border-width_-320px': true }
-  readonly borderWidthN256px: { 'border-width_-256px': true }
-  readonly borderWidthN224px: { 'border-width_-224px': true }
-  readonly borderWidthN192px: { 'border-width_-192px': true }
-  readonly borderWidthN160px: { 'border-width_-160px': true }
-  readonly borderWidthN128px: { 'border-width_-128px': true }
   readonly borderWidthN96px: { 'border-width_-96px': true }
   readonly borderWidthN80px: { 'border-width_-80px': true }
   readonly borderWidthN64px: { 'border-width_-64px': true }
-  readonly borderWidthN56px: { 'border-width_-56px': true }
   readonly borderWidthN48px: { 'border-width_-48px': true }
   readonly borderWidthN40px: { 'border-width_-40px': true }
   readonly borderWidthN32px: { 'border-width_-32px': true }
-  readonly borderWidthN28px: { 'border-width_-28px': true }
   readonly borderWidthN24px: { 'border-width_-24px': true }
   readonly borderWidthN20px: { 'border-width_-20px': true }
   readonly borderWidthN16px: { 'border-width_-16px': true }
-  readonly borderWidthN14px: { 'border-width_-14px': true }
   readonly borderWidthN12px: { 'border-width_-12px': true }
   readonly borderWidthN10px: { 'border-width_-10px': true }
   readonly borderWidthN8px: { 'border-width_-8px': true }
   readonly borderWidthN6px: { 'border-width_-6px': true }
   readonly borderWidthN4px: { 'border-width_-4px': true }
   readonly borderWidthN2px: { 'border-width_-2px': true }
-  readonly borderWidthN1px: { 'border-width_-1px': true }
   readonly borderWidth0px: { 'border-width_0px': true }
-  readonly borderWidth1px: { 'border-width_1px': true }
   readonly borderWidth2px: { 'border-width_2px': true }
   readonly borderWidth4px: { 'border-width_4px': true }
   readonly borderWidth6px: { 'border-width_6px': true }
   readonly borderWidth8px: { 'border-width_8px': true }
   readonly borderWidth10px: { 'border-width_10px': true }
   readonly borderWidth12px: { 'border-width_12px': true }
-  readonly borderWidth14px: { 'border-width_14px': true }
   readonly borderWidth16px: { 'border-width_16px': true }
   readonly borderWidth20px: { 'border-width_20px': true }
   readonly borderWidth24px: { 'border-width_24px': true }
-  readonly borderWidth28px: { 'border-width_28px': true }
   readonly borderWidth32px: { 'border-width_32px': true }
   readonly borderWidth40px: { 'border-width_40px': true }
   readonly borderWidth48px: { 'border-width_48px': true }
-  readonly borderWidth56px: { 'border-width_56px': true }
   readonly borderWidth64px: { 'border-width_64px': true }
   readonly borderWidth80px: { 'border-width_80px': true }
   readonly borderWidth96px: { 'border-width_96px': true }
-  readonly borderWidth128px: { 'border-width_128px': true }
-  readonly borderWidth160px: { 'border-width_160px': true }
-  readonly borderWidth192px: { 'border-width_192px': true }
-  readonly borderWidth224px: { 'border-width_224px': true }
-  readonly borderWidth256px: { 'border-width_256px': true }
-  readonly borderWidth320px: { 'border-width_320px': true }
-  readonly borderWidth384px: { 'border-width_384px': true }
   readonly borderWidth0rem: { 'border-width_0rem': true }
-  readonly borderWidth0p25rem: { 'border-width_0\.25rem': true }
   readonly borderWidth0p5rem: { 'border-width_0\.5rem': true }
-  readonly borderWidth0p75rem: { 'border-width_0\.75rem': true }
   readonly borderWidth1rem: { 'border-width_1rem': true }
-  readonly borderWidth1p25rem: { 'border-width_1\.25rem': true }
   readonly borderWidth1p5rem: { 'border-width_1\.5rem': true }
   readonly borderWidth2rem: { 'border-width_2rem': true }
-  readonly borderWidth2p5rem: { 'border-width_2\.5rem': true }
   readonly borderWidth3rem: { 'border-width_3rem': true }
-  readonly borderWidth4rem: { 'border-width_4rem': true }
-  readonly borderWidth5rem: { 'border-width_5rem': true }
-  readonly borderWidth6rem: { 'border-width_6rem': true }
-  readonly borderWidth8rem: { 'border-width_8rem': true }
   readonly borderWidth0rlh: { 'border-width_0rlh': true }
-  readonly borderWidth0p25rlh: { 'border-width_0\.25rlh': true }
   readonly borderWidth0p5rlh: { 'border-width_0\.5rlh': true }
-  readonly borderWidth0p75rlh: { 'border-width_0\.75rlh': true }
   readonly borderWidth1rlh: { 'border-width_1rlh': true }
-  readonly borderWidth1p25rlh: { 'border-width_1\.25rlh': true }
   readonly borderWidth1p5rlh: { 'border-width_1\.5rlh': true }
   readonly borderWidth2rlh: { 'border-width_2rlh': true }
-  readonly borderWidth2p5rlh: { 'border-width_2\.5rlh': true }
   readonly borderWidth3rlh: { 'border-width_3rlh': true }
-  readonly borderWidth4rlh: { 'border-width_4rlh': true }
-  readonly borderWidth5rlh: { 'border-width_5rlh': true }
-  readonly borderWidth6rlh: { 'border-width_6rlh': true }
-  readonly borderWidth8rlh: { 'border-width_8rlh': true }
   readonly borderWidth0svh: { 'border-width_0svh': true }
-  readonly borderWidth10svh: { 'border-width_10svh': true }
-  readonly borderWidth20svh: { 'border-width_20svh': true }
   readonly borderWidth25svh: { 'border-width_25svh': true }
-  readonly borderWidth30svh: { 'border-width_30svh': true }
-  readonly borderWidth33p33svh: { 'border-width_33\.33svh': true }
-  readonly borderWidth40svh: { 'border-width_40svh': true }
   readonly borderWidth50svh: { 'border-width_50svh': true }
-  readonly borderWidth60svh: { 'border-width_60svh': true }
-  readonly borderWidth66p67svh: { 'border-width_66\.67svh': true }
-  readonly borderWidth70svh: { 'border-width_70svh': true }
   readonly borderWidth75svh: { 'border-width_75svh': true }
-  readonly borderWidth80svh: { 'border-width_80svh': true }
-  readonly borderWidth90svh: { 'border-width_90svh': true }
   readonly borderWidth100svh: { 'border-width_100svh': true }
   readonly borderWidth0svw: { 'border-width_0svw': true }
-  readonly borderWidth10svw: { 'border-width_10svw': true }
-  readonly borderWidth20svw: { 'border-width_20svw': true }
   readonly borderWidth25svw: { 'border-width_25svw': true }
-  readonly borderWidth30svw: { 'border-width_30svw': true }
-  readonly borderWidth33p33svw: { 'border-width_33\.33svw': true }
-  readonly borderWidth40svw: { 'border-width_40svw': true }
   readonly borderWidth50svw: { 'border-width_50svw': true }
-  readonly borderWidth60svw: { 'border-width_60svw': true }
-  readonly borderWidth66p67svw: { 'border-width_66\.67svw': true }
-  readonly borderWidth70svw: { 'border-width_70svw': true }
   readonly borderWidth75svw: { 'border-width_75svw': true }
-  readonly borderWidth80svw: { 'border-width_80svw': true }
-  readonly borderWidth90svw: { 'border-width_90svw': true }
   readonly borderWidth100svw: { 'border-width_100svw': true }
   readonly borderWidth0vb: { 'border-width_0vb': true }
-  readonly borderWidth10vb: { 'border-width_10vb': true }
-  readonly borderWidth20vb: { 'border-width_20vb': true }
   readonly borderWidth25vb: { 'border-width_25vb': true }
-  readonly borderWidth30vb: { 'border-width_30vb': true }
-  readonly borderWidth33p33vb: { 'border-width_33\.33vb': true }
-  readonly borderWidth40vb: { 'border-width_40vb': true }
   readonly borderWidth50vb: { 'border-width_50vb': true }
-  readonly borderWidth60vb: { 'border-width_60vb': true }
-  readonly borderWidth66p67vb: { 'border-width_66\.67vb': true }
-  readonly borderWidth70vb: { 'border-width_70vb': true }
   readonly borderWidth75vb: { 'border-width_75vb': true }
-  readonly borderWidth80vb: { 'border-width_80vb': true }
-  readonly borderWidth90vb: { 'border-width_90vb': true }
   readonly borderWidth100vb: { 'border-width_100vb': true }
   readonly borderWidth0vh: { 'border-width_0vh': true }
-  readonly borderWidth10vh: { 'border-width_10vh': true }
-  readonly borderWidth20vh: { 'border-width_20vh': true }
   readonly borderWidth25vh: { 'border-width_25vh': true }
-  readonly borderWidth30vh: { 'border-width_30vh': true }
-  readonly borderWidth33p33vh: { 'border-width_33\.33vh': true }
-  readonly borderWidth40vh: { 'border-width_40vh': true }
   readonly borderWidth50vh: { 'border-width_50vh': true }
-  readonly borderWidth60vh: { 'border-width_60vh': true }
-  readonly borderWidth66p67vh: { 'border-width_66\.67vh': true }
-  readonly borderWidth70vh: { 'border-width_70vh': true }
   readonly borderWidth75vh: { 'border-width_75vh': true }
-  readonly borderWidth80vh: { 'border-width_80vh': true }
-  readonly borderWidth90vh: { 'border-width_90vh': true }
   readonly borderWidth100vh: { 'border-width_100vh': true }
   readonly borderWidth0vi: { 'border-width_0vi': true }
-  readonly borderWidth10vi: { 'border-width_10vi': true }
-  readonly borderWidth20vi: { 'border-width_20vi': true }
   readonly borderWidth25vi: { 'border-width_25vi': true }
-  readonly borderWidth30vi: { 'border-width_30vi': true }
-  readonly borderWidth33p33vi: { 'border-width_33\.33vi': true }
-  readonly borderWidth40vi: { 'border-width_40vi': true }
   readonly borderWidth50vi: { 'border-width_50vi': true }
-  readonly borderWidth60vi: { 'border-width_60vi': true }
-  readonly borderWidth66p67vi: { 'border-width_66\.67vi': true }
-  readonly borderWidth70vi: { 'border-width_70vi': true }
   readonly borderWidth75vi: { 'border-width_75vi': true }
-  readonly borderWidth80vi: { 'border-width_80vi': true }
-  readonly borderWidth90vi: { 'border-width_90vi': true }
   readonly borderWidth100vi: { 'border-width_100vi': true }
   readonly borderWidth0vmax: { 'border-width_0vmax': true }
-  readonly borderWidth10vmax: { 'border-width_10vmax': true }
-  readonly borderWidth20vmax: { 'border-width_20vmax': true }
   readonly borderWidth25vmax: { 'border-width_25vmax': true }
-  readonly borderWidth30vmax: { 'border-width_30vmax': true }
-  readonly borderWidth33p33vmax: { 'border-width_33\.33vmax': true }
-  readonly borderWidth40vmax: { 'border-width_40vmax': true }
   readonly borderWidth50vmax: { 'border-width_50vmax': true }
-  readonly borderWidth60vmax: { 'border-width_60vmax': true }
-  readonly borderWidth66p67vmax: { 'border-width_66\.67vmax': true }
-  readonly borderWidth70vmax: { 'border-width_70vmax': true }
   readonly borderWidth75vmax: { 'border-width_75vmax': true }
-  readonly borderWidth80vmax: { 'border-width_80vmax': true }
-  readonly borderWidth90vmax: { 'border-width_90vmax': true }
   readonly borderWidth100vmax: { 'border-width_100vmax': true }
   readonly borderWidth0vmin: { 'border-width_0vmin': true }
-  readonly borderWidth10vmin: { 'border-width_10vmin': true }
-  readonly borderWidth20vmin: { 'border-width_20vmin': true }
   readonly borderWidth25vmin: { 'border-width_25vmin': true }
-  readonly borderWidth30vmin: { 'border-width_30vmin': true }
-  readonly borderWidth33p33vmin: { 'border-width_33\.33vmin': true }
-  readonly borderWidth40vmin: { 'border-width_40vmin': true }
   readonly borderWidth50vmin: { 'border-width_50vmin': true }
-  readonly borderWidth60vmin: { 'border-width_60vmin': true }
-  readonly borderWidth66p67vmin: { 'border-width_66\.67vmin': true }
-  readonly borderWidth70vmin: { 'border-width_70vmin': true }
   readonly borderWidth75vmin: { 'border-width_75vmin': true }
-  readonly borderWidth80vmin: { 'border-width_80vmin': true }
-  readonly borderWidth90vmin: { 'border-width_90vmin': true }
   readonly borderWidth100vmin: { 'border-width_100vmin': true }
   readonly borderWidth0vw: { 'border-width_0vw': true }
-  readonly borderWidth10vw: { 'border-width_10vw': true }
-  readonly borderWidth20vw: { 'border-width_20vw': true }
   readonly borderWidth25vw: { 'border-width_25vw': true }
-  readonly borderWidth30vw: { 'border-width_30vw': true }
-  readonly borderWidth33p33vw: { 'border-width_33\.33vw': true }
-  readonly borderWidth40vw: { 'border-width_40vw': true }
   readonly borderWidth50vw: { 'border-width_50vw': true }
-  readonly borderWidth60vw: { 'border-width_60vw': true }
-  readonly borderWidth66p67vw: { 'border-width_66\.67vw': true }
-  readonly borderWidth70vw: { 'border-width_70vw': true }
   readonly borderWidth75vw: { 'border-width_75vw': true }
-  readonly borderWidth80vw: { 'border-width_80vw': true }
-  readonly borderWidth90vw: { 'border-width_90vw': true }
   readonly borderWidth100vw: { 'border-width_100vw': true }
 
   // ==================== bottom ====================
@@ -2933,421 +1371,175 @@ export interface CsstsAtoms {
   readonly bottom1Q: { 'bottom_1Q': true }
   readonly bottom2Q: { 'bottom_2Q': true }
   readonly bottom4Q: { 'bottom_4Q': true }
-  readonly bottom6Q: { 'bottom_6Q': true }
   readonly bottom8Q: { 'bottom_8Q': true }
-  readonly bottom10Q: { 'bottom_10Q': true }
-  readonly bottom12Q: { 'bottom_12Q': true }
-  readonly bottom16Q: { 'bottom_16Q': true }
-  readonly bottom20Q: { 'bottom_20Q': true }
   readonly bottom0cap: { 'bottom_0cap': true }
-  readonly bottom0p25cap: { 'bottom_0\.25cap': true }
   readonly bottom0p5cap: { 'bottom_0\.5cap': true }
-  readonly bottom0p75cap: { 'bottom_0\.75cap': true }
   readonly bottom1cap: { 'bottom_1cap': true }
-  readonly bottom1p25cap: { 'bottom_1\.25cap': true }
   readonly bottom1p5cap: { 'bottom_1\.5cap': true }
   readonly bottom2cap: { 'bottom_2cap': true }
-  readonly bottom2p5cap: { 'bottom_2\.5cap': true }
   readonly bottom3cap: { 'bottom_3cap': true }
-  readonly bottom4cap: { 'bottom_4cap': true }
-  readonly bottom5cap: { 'bottom_5cap': true }
-  readonly bottom6cap: { 'bottom_6cap': true }
-  readonly bottom8cap: { 'bottom_8cap': true }
   readonly bottom0ch: { 'bottom_0ch': true }
-  readonly bottom0p25ch: { 'bottom_0\.25ch': true }
   readonly bottom0p5ch: { 'bottom_0\.5ch': true }
-  readonly bottom0p75ch: { 'bottom_0\.75ch': true }
   readonly bottom1ch: { 'bottom_1ch': true }
-  readonly bottom1p25ch: { 'bottom_1\.25ch': true }
   readonly bottom1p5ch: { 'bottom_1\.5ch': true }
   readonly bottom2ch: { 'bottom_2ch': true }
-  readonly bottom2p5ch: { 'bottom_2\.5ch': true }
   readonly bottom3ch: { 'bottom_3ch': true }
-  readonly bottom4ch: { 'bottom_4ch': true }
-  readonly bottom5ch: { 'bottom_5ch': true }
-  readonly bottom6ch: { 'bottom_6ch': true }
-  readonly bottom8ch: { 'bottom_8ch': true }
   readonly bottom0cm: { 'bottom_0cm': true }
   readonly bottom1cm: { 'bottom_1cm': true }
   readonly bottom2cm: { 'bottom_2cm': true }
   readonly bottom4cm: { 'bottom_4cm': true }
-  readonly bottom6cm: { 'bottom_6cm': true }
   readonly bottom8cm: { 'bottom_8cm': true }
-  readonly bottom10cm: { 'bottom_10cm': true }
-  readonly bottom12cm: { 'bottom_12cm': true }
-  readonly bottom16cm: { 'bottom_16cm': true }
-  readonly bottom20cm: { 'bottom_20cm': true }
   readonly bottom0dvh: { 'bottom_0dvh': true }
-  readonly bottom10dvh: { 'bottom_10dvh': true }
-  readonly bottom20dvh: { 'bottom_20dvh': true }
   readonly bottom25dvh: { 'bottom_25dvh': true }
-  readonly bottom30dvh: { 'bottom_30dvh': true }
-  readonly bottom33p33dvh: { 'bottom_33\.33dvh': true }
-  readonly bottom40dvh: { 'bottom_40dvh': true }
   readonly bottom50dvh: { 'bottom_50dvh': true }
-  readonly bottom60dvh: { 'bottom_60dvh': true }
-  readonly bottom66p67dvh: { 'bottom_66\.67dvh': true }
-  readonly bottom70dvh: { 'bottom_70dvh': true }
   readonly bottom75dvh: { 'bottom_75dvh': true }
-  readonly bottom80dvh: { 'bottom_80dvh': true }
-  readonly bottom90dvh: { 'bottom_90dvh': true }
   readonly bottom100dvh: { 'bottom_100dvh': true }
   readonly bottom0dvw: { 'bottom_0dvw': true }
-  readonly bottom10dvw: { 'bottom_10dvw': true }
-  readonly bottom20dvw: { 'bottom_20dvw': true }
   readonly bottom25dvw: { 'bottom_25dvw': true }
-  readonly bottom30dvw: { 'bottom_30dvw': true }
-  readonly bottom33p33dvw: { 'bottom_33\.33dvw': true }
-  readonly bottom40dvw: { 'bottom_40dvw': true }
   readonly bottom50dvw: { 'bottom_50dvw': true }
-  readonly bottom60dvw: { 'bottom_60dvw': true }
-  readonly bottom66p67dvw: { 'bottom_66\.67dvw': true }
-  readonly bottom70dvw: { 'bottom_70dvw': true }
   readonly bottom75dvw: { 'bottom_75dvw': true }
-  readonly bottom80dvw: { 'bottom_80dvw': true }
-  readonly bottom90dvw: { 'bottom_90dvw': true }
   readonly bottom100dvw: { 'bottom_100dvw': true }
   readonly bottom0em: { 'bottom_0em': true }
-  readonly bottom0p25em: { 'bottom_0\.25em': true }
   readonly bottom0p5em: { 'bottom_0\.5em': true }
-  readonly bottom0p75em: { 'bottom_0\.75em': true }
   readonly bottom1em: { 'bottom_1em': true }
-  readonly bottom1p25em: { 'bottom_1\.25em': true }
   readonly bottom1p5em: { 'bottom_1\.5em': true }
   readonly bottom2em: { 'bottom_2em': true }
-  readonly bottom2p5em: { 'bottom_2\.5em': true }
   readonly bottom3em: { 'bottom_3em': true }
-  readonly bottom4em: { 'bottom_4em': true }
-  readonly bottom5em: { 'bottom_5em': true }
-  readonly bottom6em: { 'bottom_6em': true }
-  readonly bottom8em: { 'bottom_8em': true }
   readonly bottom0ex: { 'bottom_0ex': true }
-  readonly bottom0p25ex: { 'bottom_0\.25ex': true }
   readonly bottom0p5ex: { 'bottom_0\.5ex': true }
-  readonly bottom0p75ex: { 'bottom_0\.75ex': true }
   readonly bottom1ex: { 'bottom_1ex': true }
-  readonly bottom1p25ex: { 'bottom_1\.25ex': true }
   readonly bottom1p5ex: { 'bottom_1\.5ex': true }
   readonly bottom2ex: { 'bottom_2ex': true }
-  readonly bottom2p5ex: { 'bottom_2\.5ex': true }
   readonly bottom3ex: { 'bottom_3ex': true }
-  readonly bottom4ex: { 'bottom_4ex': true }
-  readonly bottom5ex: { 'bottom_5ex': true }
-  readonly bottom6ex: { 'bottom_6ex': true }
-  readonly bottom8ex: { 'bottom_8ex': true }
   readonly bottom0ic: { 'bottom_0ic': true }
-  readonly bottom0p25ic: { 'bottom_0\.25ic': true }
   readonly bottom0p5ic: { 'bottom_0\.5ic': true }
-  readonly bottom0p75ic: { 'bottom_0\.75ic': true }
   readonly bottom1ic: { 'bottom_1ic': true }
-  readonly bottom1p25ic: { 'bottom_1\.25ic': true }
   readonly bottom1p5ic: { 'bottom_1\.5ic': true }
   readonly bottom2ic: { 'bottom_2ic': true }
-  readonly bottom2p5ic: { 'bottom_2\.5ic': true }
   readonly bottom3ic: { 'bottom_3ic': true }
-  readonly bottom4ic: { 'bottom_4ic': true }
-  readonly bottom5ic: { 'bottom_5ic': true }
-  readonly bottom6ic: { 'bottom_6ic': true }
-  readonly bottom8ic: { 'bottom_8ic': true }
   readonly bottom0in: { 'bottom_0in': true }
   readonly bottom1in: { 'bottom_1in': true }
   readonly bottom2in: { 'bottom_2in': true }
   readonly bottom4in: { 'bottom_4in': true }
-  readonly bottom6in: { 'bottom_6in': true }
   readonly bottom8in: { 'bottom_8in': true }
-  readonly bottom10in: { 'bottom_10in': true }
-  readonly bottom12in: { 'bottom_12in': true }
-  readonly bottom16in: { 'bottom_16in': true }
-  readonly bottom20in: { 'bottom_20in': true }
   readonly bottom0lh: { 'bottom_0lh': true }
-  readonly bottom0p25lh: { 'bottom_0\.25lh': true }
   readonly bottom0p5lh: { 'bottom_0\.5lh': true }
-  readonly bottom0p75lh: { 'bottom_0\.75lh': true }
   readonly bottom1lh: { 'bottom_1lh': true }
-  readonly bottom1p25lh: { 'bottom_1\.25lh': true }
   readonly bottom1p5lh: { 'bottom_1\.5lh': true }
   readonly bottom2lh: { 'bottom_2lh': true }
-  readonly bottom2p5lh: { 'bottom_2\.5lh': true }
   readonly bottom3lh: { 'bottom_3lh': true }
-  readonly bottom4lh: { 'bottom_4lh': true }
-  readonly bottom5lh: { 'bottom_5lh': true }
-  readonly bottom6lh: { 'bottom_6lh': true }
-  readonly bottom8lh: { 'bottom_8lh': true }
   readonly bottom0lvh: { 'bottom_0lvh': true }
-  readonly bottom10lvh: { 'bottom_10lvh': true }
-  readonly bottom20lvh: { 'bottom_20lvh': true }
   readonly bottom25lvh: { 'bottom_25lvh': true }
-  readonly bottom30lvh: { 'bottom_30lvh': true }
-  readonly bottom33p33lvh: { 'bottom_33\.33lvh': true }
-  readonly bottom40lvh: { 'bottom_40lvh': true }
   readonly bottom50lvh: { 'bottom_50lvh': true }
-  readonly bottom60lvh: { 'bottom_60lvh': true }
-  readonly bottom66p67lvh: { 'bottom_66\.67lvh': true }
-  readonly bottom70lvh: { 'bottom_70lvh': true }
   readonly bottom75lvh: { 'bottom_75lvh': true }
-  readonly bottom80lvh: { 'bottom_80lvh': true }
-  readonly bottom90lvh: { 'bottom_90lvh': true }
   readonly bottom100lvh: { 'bottom_100lvh': true }
   readonly bottom0lvw: { 'bottom_0lvw': true }
-  readonly bottom10lvw: { 'bottom_10lvw': true }
-  readonly bottom20lvw: { 'bottom_20lvw': true }
   readonly bottom25lvw: { 'bottom_25lvw': true }
-  readonly bottom30lvw: { 'bottom_30lvw': true }
-  readonly bottom33p33lvw: { 'bottom_33\.33lvw': true }
-  readonly bottom40lvw: { 'bottom_40lvw': true }
   readonly bottom50lvw: { 'bottom_50lvw': true }
-  readonly bottom60lvw: { 'bottom_60lvw': true }
-  readonly bottom66p67lvw: { 'bottom_66\.67lvw': true }
-  readonly bottom70lvw: { 'bottom_70lvw': true }
   readonly bottom75lvw: { 'bottom_75lvw': true }
-  readonly bottom80lvw: { 'bottom_80lvw': true }
-  readonly bottom90lvw: { 'bottom_90lvw': true }
   readonly bottom100lvw: { 'bottom_100lvw': true }
   readonly bottom0mm: { 'bottom_0mm': true }
   readonly bottom1mm: { 'bottom_1mm': true }
   readonly bottom2mm: { 'bottom_2mm': true }
   readonly bottom4mm: { 'bottom_4mm': true }
-  readonly bottom6mm: { 'bottom_6mm': true }
   readonly bottom8mm: { 'bottom_8mm': true }
-  readonly bottom10mm: { 'bottom_10mm': true }
-  readonly bottom12mm: { 'bottom_12mm': true }
-  readonly bottom16mm: { 'bottom_16mm': true }
-  readonly bottom20mm: { 'bottom_20mm': true }
   readonly bottom0pc: { 'bottom_0pc': true }
   readonly bottom1pc: { 'bottom_1pc': true }
   readonly bottom2pc: { 'bottom_2pc': true }
   readonly bottom4pc: { 'bottom_4pc': true }
-  readonly bottom6pc: { 'bottom_6pc': true }
   readonly bottom8pc: { 'bottom_8pc': true }
-  readonly bottom10pc: { 'bottom_10pc': true }
-  readonly bottom12pc: { 'bottom_12pc': true }
-  readonly bottom16pc: { 'bottom_16pc': true }
-  readonly bottom20pc: { 'bottom_20pc': true }
   readonly bottom0pt: { 'bottom_0pt': true }
   readonly bottom1pt: { 'bottom_1pt': true }
   readonly bottom2pt: { 'bottom_2pt': true }
   readonly bottom4pt: { 'bottom_4pt': true }
-  readonly bottom6pt: { 'bottom_6pt': true }
   readonly bottom8pt: { 'bottom_8pt': true }
-  readonly bottom10pt: { 'bottom_10pt': true }
-  readonly bottom12pt: { 'bottom_12pt': true }
-  readonly bottom16pt: { 'bottom_16pt': true }
-  readonly bottom20pt: { 'bottom_20pt': true }
-  readonly bottomN384px: { 'bottom_-384px': true }
-  readonly bottomN320px: { 'bottom_-320px': true }
-  readonly bottomN256px: { 'bottom_-256px': true }
-  readonly bottomN224px: { 'bottom_-224px': true }
-  readonly bottomN192px: { 'bottom_-192px': true }
-  readonly bottomN160px: { 'bottom_-160px': true }
-  readonly bottomN128px: { 'bottom_-128px': true }
   readonly bottomN96px: { 'bottom_-96px': true }
   readonly bottomN80px: { 'bottom_-80px': true }
   readonly bottomN64px: { 'bottom_-64px': true }
-  readonly bottomN56px: { 'bottom_-56px': true }
   readonly bottomN48px: { 'bottom_-48px': true }
   readonly bottomN40px: { 'bottom_-40px': true }
   readonly bottomN32px: { 'bottom_-32px': true }
-  readonly bottomN28px: { 'bottom_-28px': true }
   readonly bottomN24px: { 'bottom_-24px': true }
   readonly bottomN20px: { 'bottom_-20px': true }
   readonly bottomN16px: { 'bottom_-16px': true }
-  readonly bottomN14px: { 'bottom_-14px': true }
   readonly bottomN12px: { 'bottom_-12px': true }
   readonly bottomN10px: { 'bottom_-10px': true }
   readonly bottomN8px: { 'bottom_-8px': true }
   readonly bottomN6px: { 'bottom_-6px': true }
   readonly bottomN4px: { 'bottom_-4px': true }
   readonly bottomN2px: { 'bottom_-2px': true }
-  readonly bottomN1px: { 'bottom_-1px': true }
   readonly bottom0px: { 'bottom_0px': true }
-  readonly bottom1px: { 'bottom_1px': true }
   readonly bottom2px: { 'bottom_2px': true }
   readonly bottom4px: { 'bottom_4px': true }
   readonly bottom6px: { 'bottom_6px': true }
   readonly bottom8px: { 'bottom_8px': true }
   readonly bottom10px: { 'bottom_10px': true }
   readonly bottom12px: { 'bottom_12px': true }
-  readonly bottom14px: { 'bottom_14px': true }
   readonly bottom16px: { 'bottom_16px': true }
   readonly bottom20px: { 'bottom_20px': true }
   readonly bottom24px: { 'bottom_24px': true }
-  readonly bottom28px: { 'bottom_28px': true }
   readonly bottom32px: { 'bottom_32px': true }
   readonly bottom40px: { 'bottom_40px': true }
   readonly bottom48px: { 'bottom_48px': true }
-  readonly bottom56px: { 'bottom_56px': true }
   readonly bottom64px: { 'bottom_64px': true }
   readonly bottom80px: { 'bottom_80px': true }
   readonly bottom96px: { 'bottom_96px': true }
-  readonly bottom128px: { 'bottom_128px': true }
-  readonly bottom160px: { 'bottom_160px': true }
-  readonly bottom192px: { 'bottom_192px': true }
-  readonly bottom224px: { 'bottom_224px': true }
-  readonly bottom256px: { 'bottom_256px': true }
-  readonly bottom320px: { 'bottom_320px': true }
-  readonly bottom384px: { 'bottom_384px': true }
   readonly bottom0rem: { 'bottom_0rem': true }
-  readonly bottom0p25rem: { 'bottom_0\.25rem': true }
   readonly bottom0p5rem: { 'bottom_0\.5rem': true }
-  readonly bottom0p75rem: { 'bottom_0\.75rem': true }
   readonly bottom1rem: { 'bottom_1rem': true }
-  readonly bottom1p25rem: { 'bottom_1\.25rem': true }
   readonly bottom1p5rem: { 'bottom_1\.5rem': true }
   readonly bottom2rem: { 'bottom_2rem': true }
-  readonly bottom2p5rem: { 'bottom_2\.5rem': true }
   readonly bottom3rem: { 'bottom_3rem': true }
-  readonly bottom4rem: { 'bottom_4rem': true }
-  readonly bottom5rem: { 'bottom_5rem': true }
-  readonly bottom6rem: { 'bottom_6rem': true }
-  readonly bottom8rem: { 'bottom_8rem': true }
   readonly bottom0rlh: { 'bottom_0rlh': true }
-  readonly bottom0p25rlh: { 'bottom_0\.25rlh': true }
   readonly bottom0p5rlh: { 'bottom_0\.5rlh': true }
-  readonly bottom0p75rlh: { 'bottom_0\.75rlh': true }
   readonly bottom1rlh: { 'bottom_1rlh': true }
-  readonly bottom1p25rlh: { 'bottom_1\.25rlh': true }
   readonly bottom1p5rlh: { 'bottom_1\.5rlh': true }
   readonly bottom2rlh: { 'bottom_2rlh': true }
-  readonly bottom2p5rlh: { 'bottom_2\.5rlh': true }
   readonly bottom3rlh: { 'bottom_3rlh': true }
-  readonly bottom4rlh: { 'bottom_4rlh': true }
-  readonly bottom5rlh: { 'bottom_5rlh': true }
-  readonly bottom6rlh: { 'bottom_6rlh': true }
-  readonly bottom8rlh: { 'bottom_8rlh': true }
   readonly bottom0svh: { 'bottom_0svh': true }
-  readonly bottom10svh: { 'bottom_10svh': true }
-  readonly bottom20svh: { 'bottom_20svh': true }
   readonly bottom25svh: { 'bottom_25svh': true }
-  readonly bottom30svh: { 'bottom_30svh': true }
-  readonly bottom33p33svh: { 'bottom_33\.33svh': true }
-  readonly bottom40svh: { 'bottom_40svh': true }
   readonly bottom50svh: { 'bottom_50svh': true }
-  readonly bottom60svh: { 'bottom_60svh': true }
-  readonly bottom66p67svh: { 'bottom_66\.67svh': true }
-  readonly bottom70svh: { 'bottom_70svh': true }
   readonly bottom75svh: { 'bottom_75svh': true }
-  readonly bottom80svh: { 'bottom_80svh': true }
-  readonly bottom90svh: { 'bottom_90svh': true }
   readonly bottom100svh: { 'bottom_100svh': true }
   readonly bottom0svw: { 'bottom_0svw': true }
-  readonly bottom10svw: { 'bottom_10svw': true }
-  readonly bottom20svw: { 'bottom_20svw': true }
   readonly bottom25svw: { 'bottom_25svw': true }
-  readonly bottom30svw: { 'bottom_30svw': true }
-  readonly bottom33p33svw: { 'bottom_33\.33svw': true }
-  readonly bottom40svw: { 'bottom_40svw': true }
   readonly bottom50svw: { 'bottom_50svw': true }
-  readonly bottom60svw: { 'bottom_60svw': true }
-  readonly bottom66p67svw: { 'bottom_66\.67svw': true }
-  readonly bottom70svw: { 'bottom_70svw': true }
   readonly bottom75svw: { 'bottom_75svw': true }
-  readonly bottom80svw: { 'bottom_80svw': true }
-  readonly bottom90svw: { 'bottom_90svw': true }
   readonly bottom100svw: { 'bottom_100svw': true }
   readonly bottom0vb: { 'bottom_0vb': true }
-  readonly bottom10vb: { 'bottom_10vb': true }
-  readonly bottom20vb: { 'bottom_20vb': true }
   readonly bottom25vb: { 'bottom_25vb': true }
-  readonly bottom30vb: { 'bottom_30vb': true }
-  readonly bottom33p33vb: { 'bottom_33\.33vb': true }
-  readonly bottom40vb: { 'bottom_40vb': true }
   readonly bottom50vb: { 'bottom_50vb': true }
-  readonly bottom60vb: { 'bottom_60vb': true }
-  readonly bottom66p67vb: { 'bottom_66\.67vb': true }
-  readonly bottom70vb: { 'bottom_70vb': true }
   readonly bottom75vb: { 'bottom_75vb': true }
-  readonly bottom80vb: { 'bottom_80vb': true }
-  readonly bottom90vb: { 'bottom_90vb': true }
   readonly bottom100vb: { 'bottom_100vb': true }
   readonly bottom0vh: { 'bottom_0vh': true }
-  readonly bottom10vh: { 'bottom_10vh': true }
-  readonly bottom20vh: { 'bottom_20vh': true }
   readonly bottom25vh: { 'bottom_25vh': true }
-  readonly bottom30vh: { 'bottom_30vh': true }
-  readonly bottom33p33vh: { 'bottom_33\.33vh': true }
-  readonly bottom40vh: { 'bottom_40vh': true }
   readonly bottom50vh: { 'bottom_50vh': true }
-  readonly bottom60vh: { 'bottom_60vh': true }
-  readonly bottom66p67vh: { 'bottom_66\.67vh': true }
-  readonly bottom70vh: { 'bottom_70vh': true }
   readonly bottom75vh: { 'bottom_75vh': true }
-  readonly bottom80vh: { 'bottom_80vh': true }
-  readonly bottom90vh: { 'bottom_90vh': true }
   readonly bottom100vh: { 'bottom_100vh': true }
   readonly bottom0vi: { 'bottom_0vi': true }
-  readonly bottom10vi: { 'bottom_10vi': true }
-  readonly bottom20vi: { 'bottom_20vi': true }
   readonly bottom25vi: { 'bottom_25vi': true }
-  readonly bottom30vi: { 'bottom_30vi': true }
-  readonly bottom33p33vi: { 'bottom_33\.33vi': true }
-  readonly bottom40vi: { 'bottom_40vi': true }
   readonly bottom50vi: { 'bottom_50vi': true }
-  readonly bottom60vi: { 'bottom_60vi': true }
-  readonly bottom66p67vi: { 'bottom_66\.67vi': true }
-  readonly bottom70vi: { 'bottom_70vi': true }
   readonly bottom75vi: { 'bottom_75vi': true }
-  readonly bottom80vi: { 'bottom_80vi': true }
-  readonly bottom90vi: { 'bottom_90vi': true }
   readonly bottom100vi: { 'bottom_100vi': true }
   readonly bottom0vmax: { 'bottom_0vmax': true }
-  readonly bottom10vmax: { 'bottom_10vmax': true }
-  readonly bottom20vmax: { 'bottom_20vmax': true }
   readonly bottom25vmax: { 'bottom_25vmax': true }
-  readonly bottom30vmax: { 'bottom_30vmax': true }
-  readonly bottom33p33vmax: { 'bottom_33\.33vmax': true }
-  readonly bottom40vmax: { 'bottom_40vmax': true }
   readonly bottom50vmax: { 'bottom_50vmax': true }
-  readonly bottom60vmax: { 'bottom_60vmax': true }
-  readonly bottom66p67vmax: { 'bottom_66\.67vmax': true }
-  readonly bottom70vmax: { 'bottom_70vmax': true }
   readonly bottom75vmax: { 'bottom_75vmax': true }
-  readonly bottom80vmax: { 'bottom_80vmax': true }
-  readonly bottom90vmax: { 'bottom_90vmax': true }
   readonly bottom100vmax: { 'bottom_100vmax': true }
   readonly bottom0vmin: { 'bottom_0vmin': true }
-  readonly bottom10vmin: { 'bottom_10vmin': true }
-  readonly bottom20vmin: { 'bottom_20vmin': true }
   readonly bottom25vmin: { 'bottom_25vmin': true }
-  readonly bottom30vmin: { 'bottom_30vmin': true }
-  readonly bottom33p33vmin: { 'bottom_33\.33vmin': true }
-  readonly bottom40vmin: { 'bottom_40vmin': true }
   readonly bottom50vmin: { 'bottom_50vmin': true }
-  readonly bottom60vmin: { 'bottom_60vmin': true }
-  readonly bottom66p67vmin: { 'bottom_66\.67vmin': true }
-  readonly bottom70vmin: { 'bottom_70vmin': true }
   readonly bottom75vmin: { 'bottom_75vmin': true }
-  readonly bottom80vmin: { 'bottom_80vmin': true }
-  readonly bottom90vmin: { 'bottom_90vmin': true }
   readonly bottom100vmin: { 'bottom_100vmin': true }
   readonly bottom0vw: { 'bottom_0vw': true }
-  readonly bottom10vw: { 'bottom_10vw': true }
-  readonly bottom20vw: { 'bottom_20vw': true }
   readonly bottom25vw: { 'bottom_25vw': true }
-  readonly bottom30vw: { 'bottom_30vw': true }
-  readonly bottom33p33vw: { 'bottom_33\.33vw': true }
-  readonly bottom40vw: { 'bottom_40vw': true }
   readonly bottom50vw: { 'bottom_50vw': true }
-  readonly bottom60vw: { 'bottom_60vw': true }
-  readonly bottom66p67vw: { 'bottom_66\.67vw': true }
-  readonly bottom70vw: { 'bottom_70vw': true }
   readonly bottom75vw: { 'bottom_75vw': true }
-  readonly bottom80vw: { 'bottom_80vw': true }
-  readonly bottom90vw: { 'bottom_90vw': true }
   readonly bottom100vw: { 'bottom_100vw': true }
   readonly bottom0Pct: { 'bottom_0\%': true }
-  readonly bottom10Pct: { 'bottom_10\%': true }
-  readonly bottom20Pct: { 'bottom_20\%': true }
   readonly bottom25Pct: { 'bottom_25\%': true }
-  readonly bottom30Pct: { 'bottom_30\%': true }
-  readonly bottom33p33Pct: { 'bottom_33\.33\%': true }
-  readonly bottom40Pct: { 'bottom_40\%': true }
   readonly bottom50Pct: { 'bottom_50\%': true }
-  readonly bottom60Pct: { 'bottom_60\%': true }
-  readonly bottom66p67Pct: { 'bottom_66\.67\%': true }
-  readonly bottom70Pct: { 'bottom_70\%': true }
   readonly bottom75Pct: { 'bottom_75\%': true }
-  readonly bottom80Pct: { 'bottom_80\%': true }
-  readonly bottom90Pct: { 'bottom_90\%': true }
   readonly bottom100Pct: { 'bottom_100\%': true }
 
   // ==================== box-shadow ====================
@@ -3439,505 +1631,185 @@ export interface CsstsAtoms {
   readonly boxShadowXyz: { 'box-shadow_xyz': true }
   readonly boxShadowXyzD50: { 'box-shadow_xyz-d50': true }
   readonly boxShadowXyzD65: { 'box-shadow_xyz-d65': true }
-  readonly boxShadowN360deg: { 'box-shadow_-360deg': true }
-  readonly boxShadowN315deg: { 'box-shadow_-315deg': true }
-  readonly boxShadowN270deg: { 'box-shadow_-270deg': true }
-  readonly boxShadowN225deg: { 'box-shadow_-225deg': true }
-  readonly boxShadowN180deg: { 'box-shadow_-180deg': true }
-  readonly boxShadowN135deg: { 'box-shadow_-135deg': true }
-  readonly boxShadowN90deg: { 'box-shadow_-90deg': true }
-  readonly boxShadowN45deg: { 'box-shadow_-45deg': true }
-  readonly boxShadow0deg: { 'box-shadow_0deg': true }
-  readonly boxShadow45deg: { 'box-shadow_45deg': true }
-  readonly boxShadow90deg: { 'box-shadow_90deg': true }
-  readonly boxShadow135deg: { 'box-shadow_135deg': true }
-  readonly boxShadow180deg: { 'box-shadow_180deg': true }
-  readonly boxShadow225deg: { 'box-shadow_225deg': true }
-  readonly boxShadow270deg: { 'box-shadow_270deg': true }
-  readonly boxShadow315deg: { 'box-shadow_315deg': true }
-  readonly boxShadow360deg: { 'box-shadow_360deg': true }
-  readonly boxShadowN360grad: { 'box-shadow_-360grad': true }
-  readonly boxShadowN315grad: { 'box-shadow_-315grad': true }
-  readonly boxShadowN270grad: { 'box-shadow_-270grad': true }
-  readonly boxShadowN225grad: { 'box-shadow_-225grad': true }
-  readonly boxShadowN180grad: { 'box-shadow_-180grad': true }
-  readonly boxShadowN135grad: { 'box-shadow_-135grad': true }
-  readonly boxShadowN90grad: { 'box-shadow_-90grad': true }
-  readonly boxShadowN45grad: { 'box-shadow_-45grad': true }
-  readonly boxShadow0grad: { 'box-shadow_0grad': true }
-  readonly boxShadow45grad: { 'box-shadow_45grad': true }
-  readonly boxShadow90grad: { 'box-shadow_90grad': true }
-  readonly boxShadow135grad: { 'box-shadow_135grad': true }
-  readonly boxShadow180grad: { 'box-shadow_180grad': true }
-  readonly boxShadow225grad: { 'box-shadow_225grad': true }
-  readonly boxShadow270grad: { 'box-shadow_270grad': true }
-  readonly boxShadow315grad: { 'box-shadow_315grad': true }
-  readonly boxShadow360grad: { 'box-shadow_360grad': true }
-  readonly boxShadowN360rad: { 'box-shadow_-360rad': true }
-  readonly boxShadowN315rad: { 'box-shadow_-315rad': true }
-  readonly boxShadowN270rad: { 'box-shadow_-270rad': true }
-  readonly boxShadowN225rad: { 'box-shadow_-225rad': true }
-  readonly boxShadowN180rad: { 'box-shadow_-180rad': true }
-  readonly boxShadowN135rad: { 'box-shadow_-135rad': true }
-  readonly boxShadowN90rad: { 'box-shadow_-90rad': true }
-  readonly boxShadowN45rad: { 'box-shadow_-45rad': true }
-  readonly boxShadow0rad: { 'box-shadow_0rad': true }
-  readonly boxShadow45rad: { 'box-shadow_45rad': true }
-  readonly boxShadow90rad: { 'box-shadow_90rad': true }
-  readonly boxShadow135rad: { 'box-shadow_135rad': true }
-  readonly boxShadow180rad: { 'box-shadow_180rad': true }
-  readonly boxShadow225rad: { 'box-shadow_225rad': true }
-  readonly boxShadow270rad: { 'box-shadow_270rad': true }
-  readonly boxShadow315rad: { 'box-shadow_315rad': true }
-  readonly boxShadow360rad: { 'box-shadow_360rad': true }
-  readonly boxShadowN360turn: { 'box-shadow_-360turn': true }
-  readonly boxShadowN315turn: { 'box-shadow_-315turn': true }
-  readonly boxShadowN270turn: { 'box-shadow_-270turn': true }
-  readonly boxShadowN225turn: { 'box-shadow_-225turn': true }
-  readonly boxShadowN180turn: { 'box-shadow_-180turn': true }
-  readonly boxShadowN135turn: { 'box-shadow_-135turn': true }
-  readonly boxShadowN90turn: { 'box-shadow_-90turn': true }
-  readonly boxShadowN45turn: { 'box-shadow_-45turn': true }
-  readonly boxShadow0turn: { 'box-shadow_0turn': true }
-  readonly boxShadow45turn: { 'box-shadow_45turn': true }
-  readonly boxShadow90turn: { 'box-shadow_90turn': true }
-  readonly boxShadow135turn: { 'box-shadow_135turn': true }
-  readonly boxShadow180turn: { 'box-shadow_180turn': true }
-  readonly boxShadow225turn: { 'box-shadow_225turn': true }
-  readonly boxShadow270turn: { 'box-shadow_270turn': true }
-  readonly boxShadow315turn: { 'box-shadow_315turn': true }
-  readonly boxShadow360turn: { 'box-shadow_360turn': true }
   readonly boxShadow0Q: { 'box-shadow_0Q': true }
   readonly boxShadow1Q: { 'box-shadow_1Q': true }
   readonly boxShadow2Q: { 'box-shadow_2Q': true }
   readonly boxShadow4Q: { 'box-shadow_4Q': true }
-  readonly boxShadow6Q: { 'box-shadow_6Q': true }
   readonly boxShadow8Q: { 'box-shadow_8Q': true }
-  readonly boxShadow10Q: { 'box-shadow_10Q': true }
-  readonly boxShadow12Q: { 'box-shadow_12Q': true }
-  readonly boxShadow16Q: { 'box-shadow_16Q': true }
-  readonly boxShadow20Q: { 'box-shadow_20Q': true }
   readonly boxShadow0cap: { 'box-shadow_0cap': true }
-  readonly boxShadow0p25cap: { 'box-shadow_0\.25cap': true }
   readonly boxShadow0p5cap: { 'box-shadow_0\.5cap': true }
-  readonly boxShadow0p75cap: { 'box-shadow_0\.75cap': true }
   readonly boxShadow1cap: { 'box-shadow_1cap': true }
-  readonly boxShadow1p25cap: { 'box-shadow_1\.25cap': true }
   readonly boxShadow1p5cap: { 'box-shadow_1\.5cap': true }
   readonly boxShadow2cap: { 'box-shadow_2cap': true }
-  readonly boxShadow2p5cap: { 'box-shadow_2\.5cap': true }
   readonly boxShadow3cap: { 'box-shadow_3cap': true }
-  readonly boxShadow4cap: { 'box-shadow_4cap': true }
-  readonly boxShadow5cap: { 'box-shadow_5cap': true }
-  readonly boxShadow6cap: { 'box-shadow_6cap': true }
-  readonly boxShadow8cap: { 'box-shadow_8cap': true }
   readonly boxShadow0ch: { 'box-shadow_0ch': true }
-  readonly boxShadow0p25ch: { 'box-shadow_0\.25ch': true }
   readonly boxShadow0p5ch: { 'box-shadow_0\.5ch': true }
-  readonly boxShadow0p75ch: { 'box-shadow_0\.75ch': true }
   readonly boxShadow1ch: { 'box-shadow_1ch': true }
-  readonly boxShadow1p25ch: { 'box-shadow_1\.25ch': true }
   readonly boxShadow1p5ch: { 'box-shadow_1\.5ch': true }
   readonly boxShadow2ch: { 'box-shadow_2ch': true }
-  readonly boxShadow2p5ch: { 'box-shadow_2\.5ch': true }
   readonly boxShadow3ch: { 'box-shadow_3ch': true }
-  readonly boxShadow4ch: { 'box-shadow_4ch': true }
-  readonly boxShadow5ch: { 'box-shadow_5ch': true }
-  readonly boxShadow6ch: { 'box-shadow_6ch': true }
-  readonly boxShadow8ch: { 'box-shadow_8ch': true }
   readonly boxShadow0cm: { 'box-shadow_0cm': true }
   readonly boxShadow1cm: { 'box-shadow_1cm': true }
   readonly boxShadow2cm: { 'box-shadow_2cm': true }
   readonly boxShadow4cm: { 'box-shadow_4cm': true }
-  readonly boxShadow6cm: { 'box-shadow_6cm': true }
   readonly boxShadow8cm: { 'box-shadow_8cm': true }
-  readonly boxShadow10cm: { 'box-shadow_10cm': true }
-  readonly boxShadow12cm: { 'box-shadow_12cm': true }
-  readonly boxShadow16cm: { 'box-shadow_16cm': true }
-  readonly boxShadow20cm: { 'box-shadow_20cm': true }
   readonly boxShadow0dvh: { 'box-shadow_0dvh': true }
-  readonly boxShadow10dvh: { 'box-shadow_10dvh': true }
-  readonly boxShadow20dvh: { 'box-shadow_20dvh': true }
   readonly boxShadow25dvh: { 'box-shadow_25dvh': true }
-  readonly boxShadow30dvh: { 'box-shadow_30dvh': true }
-  readonly boxShadow33p33dvh: { 'box-shadow_33\.33dvh': true }
-  readonly boxShadow40dvh: { 'box-shadow_40dvh': true }
   readonly boxShadow50dvh: { 'box-shadow_50dvh': true }
-  readonly boxShadow60dvh: { 'box-shadow_60dvh': true }
-  readonly boxShadow66p67dvh: { 'box-shadow_66\.67dvh': true }
-  readonly boxShadow70dvh: { 'box-shadow_70dvh': true }
   readonly boxShadow75dvh: { 'box-shadow_75dvh': true }
-  readonly boxShadow80dvh: { 'box-shadow_80dvh': true }
-  readonly boxShadow90dvh: { 'box-shadow_90dvh': true }
   readonly boxShadow100dvh: { 'box-shadow_100dvh': true }
   readonly boxShadow0dvw: { 'box-shadow_0dvw': true }
-  readonly boxShadow10dvw: { 'box-shadow_10dvw': true }
-  readonly boxShadow20dvw: { 'box-shadow_20dvw': true }
   readonly boxShadow25dvw: { 'box-shadow_25dvw': true }
-  readonly boxShadow30dvw: { 'box-shadow_30dvw': true }
-  readonly boxShadow33p33dvw: { 'box-shadow_33\.33dvw': true }
-  readonly boxShadow40dvw: { 'box-shadow_40dvw': true }
   readonly boxShadow50dvw: { 'box-shadow_50dvw': true }
-  readonly boxShadow60dvw: { 'box-shadow_60dvw': true }
-  readonly boxShadow66p67dvw: { 'box-shadow_66\.67dvw': true }
-  readonly boxShadow70dvw: { 'box-shadow_70dvw': true }
   readonly boxShadow75dvw: { 'box-shadow_75dvw': true }
-  readonly boxShadow80dvw: { 'box-shadow_80dvw': true }
-  readonly boxShadow90dvw: { 'box-shadow_90dvw': true }
   readonly boxShadow100dvw: { 'box-shadow_100dvw': true }
   readonly boxShadow0em: { 'box-shadow_0em': true }
-  readonly boxShadow0p25em: { 'box-shadow_0\.25em': true }
   readonly boxShadow0p5em: { 'box-shadow_0\.5em': true }
-  readonly boxShadow0p75em: { 'box-shadow_0\.75em': true }
   readonly boxShadow1em: { 'box-shadow_1em': true }
-  readonly boxShadow1p25em: { 'box-shadow_1\.25em': true }
   readonly boxShadow1p5em: { 'box-shadow_1\.5em': true }
   readonly boxShadow2em: { 'box-shadow_2em': true }
-  readonly boxShadow2p5em: { 'box-shadow_2\.5em': true }
   readonly boxShadow3em: { 'box-shadow_3em': true }
-  readonly boxShadow4em: { 'box-shadow_4em': true }
-  readonly boxShadow5em: { 'box-shadow_5em': true }
-  readonly boxShadow6em: { 'box-shadow_6em': true }
-  readonly boxShadow8em: { 'box-shadow_8em': true }
   readonly boxShadow0ex: { 'box-shadow_0ex': true }
-  readonly boxShadow0p25ex: { 'box-shadow_0\.25ex': true }
   readonly boxShadow0p5ex: { 'box-shadow_0\.5ex': true }
-  readonly boxShadow0p75ex: { 'box-shadow_0\.75ex': true }
   readonly boxShadow1ex: { 'box-shadow_1ex': true }
-  readonly boxShadow1p25ex: { 'box-shadow_1\.25ex': true }
   readonly boxShadow1p5ex: { 'box-shadow_1\.5ex': true }
   readonly boxShadow2ex: { 'box-shadow_2ex': true }
-  readonly boxShadow2p5ex: { 'box-shadow_2\.5ex': true }
   readonly boxShadow3ex: { 'box-shadow_3ex': true }
-  readonly boxShadow4ex: { 'box-shadow_4ex': true }
-  readonly boxShadow5ex: { 'box-shadow_5ex': true }
-  readonly boxShadow6ex: { 'box-shadow_6ex': true }
-  readonly boxShadow8ex: { 'box-shadow_8ex': true }
   readonly boxShadow0ic: { 'box-shadow_0ic': true }
-  readonly boxShadow0p25ic: { 'box-shadow_0\.25ic': true }
   readonly boxShadow0p5ic: { 'box-shadow_0\.5ic': true }
-  readonly boxShadow0p75ic: { 'box-shadow_0\.75ic': true }
   readonly boxShadow1ic: { 'box-shadow_1ic': true }
-  readonly boxShadow1p25ic: { 'box-shadow_1\.25ic': true }
   readonly boxShadow1p5ic: { 'box-shadow_1\.5ic': true }
   readonly boxShadow2ic: { 'box-shadow_2ic': true }
-  readonly boxShadow2p5ic: { 'box-shadow_2\.5ic': true }
   readonly boxShadow3ic: { 'box-shadow_3ic': true }
-  readonly boxShadow4ic: { 'box-shadow_4ic': true }
-  readonly boxShadow5ic: { 'box-shadow_5ic': true }
-  readonly boxShadow6ic: { 'box-shadow_6ic': true }
-  readonly boxShadow8ic: { 'box-shadow_8ic': true }
   readonly boxShadow0in: { 'box-shadow_0in': true }
   readonly boxShadow1in: { 'box-shadow_1in': true }
   readonly boxShadow2in: { 'box-shadow_2in': true }
   readonly boxShadow4in: { 'box-shadow_4in': true }
-  readonly boxShadow6in: { 'box-shadow_6in': true }
   readonly boxShadow8in: { 'box-shadow_8in': true }
-  readonly boxShadow10in: { 'box-shadow_10in': true }
-  readonly boxShadow12in: { 'box-shadow_12in': true }
-  readonly boxShadow16in: { 'box-shadow_16in': true }
-  readonly boxShadow20in: { 'box-shadow_20in': true }
   readonly boxShadow0lh: { 'box-shadow_0lh': true }
-  readonly boxShadow0p25lh: { 'box-shadow_0\.25lh': true }
   readonly boxShadow0p5lh: { 'box-shadow_0\.5lh': true }
-  readonly boxShadow0p75lh: { 'box-shadow_0\.75lh': true }
   readonly boxShadow1lh: { 'box-shadow_1lh': true }
-  readonly boxShadow1p25lh: { 'box-shadow_1\.25lh': true }
   readonly boxShadow1p5lh: { 'box-shadow_1\.5lh': true }
   readonly boxShadow2lh: { 'box-shadow_2lh': true }
-  readonly boxShadow2p5lh: { 'box-shadow_2\.5lh': true }
   readonly boxShadow3lh: { 'box-shadow_3lh': true }
-  readonly boxShadow4lh: { 'box-shadow_4lh': true }
-  readonly boxShadow5lh: { 'box-shadow_5lh': true }
-  readonly boxShadow6lh: { 'box-shadow_6lh': true }
-  readonly boxShadow8lh: { 'box-shadow_8lh': true }
   readonly boxShadow0lvh: { 'box-shadow_0lvh': true }
-  readonly boxShadow10lvh: { 'box-shadow_10lvh': true }
-  readonly boxShadow20lvh: { 'box-shadow_20lvh': true }
   readonly boxShadow25lvh: { 'box-shadow_25lvh': true }
-  readonly boxShadow30lvh: { 'box-shadow_30lvh': true }
-  readonly boxShadow33p33lvh: { 'box-shadow_33\.33lvh': true }
-  readonly boxShadow40lvh: { 'box-shadow_40lvh': true }
   readonly boxShadow50lvh: { 'box-shadow_50lvh': true }
-  readonly boxShadow60lvh: { 'box-shadow_60lvh': true }
-  readonly boxShadow66p67lvh: { 'box-shadow_66\.67lvh': true }
-  readonly boxShadow70lvh: { 'box-shadow_70lvh': true }
   readonly boxShadow75lvh: { 'box-shadow_75lvh': true }
-  readonly boxShadow80lvh: { 'box-shadow_80lvh': true }
-  readonly boxShadow90lvh: { 'box-shadow_90lvh': true }
   readonly boxShadow100lvh: { 'box-shadow_100lvh': true }
   readonly boxShadow0lvw: { 'box-shadow_0lvw': true }
-  readonly boxShadow10lvw: { 'box-shadow_10lvw': true }
-  readonly boxShadow20lvw: { 'box-shadow_20lvw': true }
   readonly boxShadow25lvw: { 'box-shadow_25lvw': true }
-  readonly boxShadow30lvw: { 'box-shadow_30lvw': true }
-  readonly boxShadow33p33lvw: { 'box-shadow_33\.33lvw': true }
-  readonly boxShadow40lvw: { 'box-shadow_40lvw': true }
   readonly boxShadow50lvw: { 'box-shadow_50lvw': true }
-  readonly boxShadow60lvw: { 'box-shadow_60lvw': true }
-  readonly boxShadow66p67lvw: { 'box-shadow_66\.67lvw': true }
-  readonly boxShadow70lvw: { 'box-shadow_70lvw': true }
   readonly boxShadow75lvw: { 'box-shadow_75lvw': true }
-  readonly boxShadow80lvw: { 'box-shadow_80lvw': true }
-  readonly boxShadow90lvw: { 'box-shadow_90lvw': true }
   readonly boxShadow100lvw: { 'box-shadow_100lvw': true }
   readonly boxShadow0mm: { 'box-shadow_0mm': true }
   readonly boxShadow1mm: { 'box-shadow_1mm': true }
   readonly boxShadow2mm: { 'box-shadow_2mm': true }
   readonly boxShadow4mm: { 'box-shadow_4mm': true }
-  readonly boxShadow6mm: { 'box-shadow_6mm': true }
   readonly boxShadow8mm: { 'box-shadow_8mm': true }
-  readonly boxShadow10mm: { 'box-shadow_10mm': true }
-  readonly boxShadow12mm: { 'box-shadow_12mm': true }
-  readonly boxShadow16mm: { 'box-shadow_16mm': true }
-  readonly boxShadow20mm: { 'box-shadow_20mm': true }
   readonly boxShadow0pc: { 'box-shadow_0pc': true }
   readonly boxShadow1pc: { 'box-shadow_1pc': true }
   readonly boxShadow2pc: { 'box-shadow_2pc': true }
   readonly boxShadow4pc: { 'box-shadow_4pc': true }
-  readonly boxShadow6pc: { 'box-shadow_6pc': true }
   readonly boxShadow8pc: { 'box-shadow_8pc': true }
-  readonly boxShadow10pc: { 'box-shadow_10pc': true }
-  readonly boxShadow12pc: { 'box-shadow_12pc': true }
-  readonly boxShadow16pc: { 'box-shadow_16pc': true }
-  readonly boxShadow20pc: { 'box-shadow_20pc': true }
   readonly boxShadow0pt: { 'box-shadow_0pt': true }
   readonly boxShadow1pt: { 'box-shadow_1pt': true }
   readonly boxShadow2pt: { 'box-shadow_2pt': true }
   readonly boxShadow4pt: { 'box-shadow_4pt': true }
-  readonly boxShadow6pt: { 'box-shadow_6pt': true }
   readonly boxShadow8pt: { 'box-shadow_8pt': true }
-  readonly boxShadow10pt: { 'box-shadow_10pt': true }
-  readonly boxShadow12pt: { 'box-shadow_12pt': true }
-  readonly boxShadow16pt: { 'box-shadow_16pt': true }
-  readonly boxShadow20pt: { 'box-shadow_20pt': true }
-  readonly boxShadowN384px: { 'box-shadow_-384px': true }
-  readonly boxShadowN320px: { 'box-shadow_-320px': true }
-  readonly boxShadowN256px: { 'box-shadow_-256px': true }
-  readonly boxShadowN224px: { 'box-shadow_-224px': true }
-  readonly boxShadowN192px: { 'box-shadow_-192px': true }
-  readonly boxShadowN160px: { 'box-shadow_-160px': true }
-  readonly boxShadowN128px: { 'box-shadow_-128px': true }
   readonly boxShadowN96px: { 'box-shadow_-96px': true }
   readonly boxShadowN80px: { 'box-shadow_-80px': true }
   readonly boxShadowN64px: { 'box-shadow_-64px': true }
-  readonly boxShadowN56px: { 'box-shadow_-56px': true }
   readonly boxShadowN48px: { 'box-shadow_-48px': true }
   readonly boxShadowN40px: { 'box-shadow_-40px': true }
   readonly boxShadowN32px: { 'box-shadow_-32px': true }
-  readonly boxShadowN28px: { 'box-shadow_-28px': true }
   readonly boxShadowN24px: { 'box-shadow_-24px': true }
   readonly boxShadowN20px: { 'box-shadow_-20px': true }
   readonly boxShadowN16px: { 'box-shadow_-16px': true }
-  readonly boxShadowN14px: { 'box-shadow_-14px': true }
   readonly boxShadowN12px: { 'box-shadow_-12px': true }
   readonly boxShadowN10px: { 'box-shadow_-10px': true }
   readonly boxShadowN8px: { 'box-shadow_-8px': true }
   readonly boxShadowN6px: { 'box-shadow_-6px': true }
   readonly boxShadowN4px: { 'box-shadow_-4px': true }
   readonly boxShadowN2px: { 'box-shadow_-2px': true }
-  readonly boxShadowN1px: { 'box-shadow_-1px': true }
   readonly boxShadow0px: { 'box-shadow_0px': true }
-  readonly boxShadow1px: { 'box-shadow_1px': true }
   readonly boxShadow2px: { 'box-shadow_2px': true }
   readonly boxShadow4px: { 'box-shadow_4px': true }
   readonly boxShadow6px: { 'box-shadow_6px': true }
   readonly boxShadow8px: { 'box-shadow_8px': true }
   readonly boxShadow10px: { 'box-shadow_10px': true }
   readonly boxShadow12px: { 'box-shadow_12px': true }
-  readonly boxShadow14px: { 'box-shadow_14px': true }
   readonly boxShadow16px: { 'box-shadow_16px': true }
   readonly boxShadow20px: { 'box-shadow_20px': true }
   readonly boxShadow24px: { 'box-shadow_24px': true }
-  readonly boxShadow28px: { 'box-shadow_28px': true }
   readonly boxShadow32px: { 'box-shadow_32px': true }
   readonly boxShadow40px: { 'box-shadow_40px': true }
   readonly boxShadow48px: { 'box-shadow_48px': true }
-  readonly boxShadow56px: { 'box-shadow_56px': true }
   readonly boxShadow64px: { 'box-shadow_64px': true }
   readonly boxShadow80px: { 'box-shadow_80px': true }
   readonly boxShadow96px: { 'box-shadow_96px': true }
-  readonly boxShadow128px: { 'box-shadow_128px': true }
-  readonly boxShadow160px: { 'box-shadow_160px': true }
-  readonly boxShadow192px: { 'box-shadow_192px': true }
-  readonly boxShadow224px: { 'box-shadow_224px': true }
-  readonly boxShadow256px: { 'box-shadow_256px': true }
-  readonly boxShadow320px: { 'box-shadow_320px': true }
-  readonly boxShadow384px: { 'box-shadow_384px': true }
   readonly boxShadow0rem: { 'box-shadow_0rem': true }
-  readonly boxShadow0p25rem: { 'box-shadow_0\.25rem': true }
   readonly boxShadow0p5rem: { 'box-shadow_0\.5rem': true }
-  readonly boxShadow0p75rem: { 'box-shadow_0\.75rem': true }
   readonly boxShadow1rem: { 'box-shadow_1rem': true }
-  readonly boxShadow1p25rem: { 'box-shadow_1\.25rem': true }
   readonly boxShadow1p5rem: { 'box-shadow_1\.5rem': true }
   readonly boxShadow2rem: { 'box-shadow_2rem': true }
-  readonly boxShadow2p5rem: { 'box-shadow_2\.5rem': true }
   readonly boxShadow3rem: { 'box-shadow_3rem': true }
-  readonly boxShadow4rem: { 'box-shadow_4rem': true }
-  readonly boxShadow5rem: { 'box-shadow_5rem': true }
-  readonly boxShadow6rem: { 'box-shadow_6rem': true }
-  readonly boxShadow8rem: { 'box-shadow_8rem': true }
   readonly boxShadow0rlh: { 'box-shadow_0rlh': true }
-  readonly boxShadow0p25rlh: { 'box-shadow_0\.25rlh': true }
   readonly boxShadow0p5rlh: { 'box-shadow_0\.5rlh': true }
-  readonly boxShadow0p75rlh: { 'box-shadow_0\.75rlh': true }
   readonly boxShadow1rlh: { 'box-shadow_1rlh': true }
-  readonly boxShadow1p25rlh: { 'box-shadow_1\.25rlh': true }
   readonly boxShadow1p5rlh: { 'box-shadow_1\.5rlh': true }
   readonly boxShadow2rlh: { 'box-shadow_2rlh': true }
-  readonly boxShadow2p5rlh: { 'box-shadow_2\.5rlh': true }
   readonly boxShadow3rlh: { 'box-shadow_3rlh': true }
-  readonly boxShadow4rlh: { 'box-shadow_4rlh': true }
-  readonly boxShadow5rlh: { 'box-shadow_5rlh': true }
-  readonly boxShadow6rlh: { 'box-shadow_6rlh': true }
-  readonly boxShadow8rlh: { 'box-shadow_8rlh': true }
   readonly boxShadow0svh: { 'box-shadow_0svh': true }
-  readonly boxShadow10svh: { 'box-shadow_10svh': true }
-  readonly boxShadow20svh: { 'box-shadow_20svh': true }
   readonly boxShadow25svh: { 'box-shadow_25svh': true }
-  readonly boxShadow30svh: { 'box-shadow_30svh': true }
-  readonly boxShadow33p33svh: { 'box-shadow_33\.33svh': true }
-  readonly boxShadow40svh: { 'box-shadow_40svh': true }
   readonly boxShadow50svh: { 'box-shadow_50svh': true }
-  readonly boxShadow60svh: { 'box-shadow_60svh': true }
-  readonly boxShadow66p67svh: { 'box-shadow_66\.67svh': true }
-  readonly boxShadow70svh: { 'box-shadow_70svh': true }
   readonly boxShadow75svh: { 'box-shadow_75svh': true }
-  readonly boxShadow80svh: { 'box-shadow_80svh': true }
-  readonly boxShadow90svh: { 'box-shadow_90svh': true }
   readonly boxShadow100svh: { 'box-shadow_100svh': true }
   readonly boxShadow0svw: { 'box-shadow_0svw': true }
-  readonly boxShadow10svw: { 'box-shadow_10svw': true }
-  readonly boxShadow20svw: { 'box-shadow_20svw': true }
   readonly boxShadow25svw: { 'box-shadow_25svw': true }
-  readonly boxShadow30svw: { 'box-shadow_30svw': true }
-  readonly boxShadow33p33svw: { 'box-shadow_33\.33svw': true }
-  readonly boxShadow40svw: { 'box-shadow_40svw': true }
   readonly boxShadow50svw: { 'box-shadow_50svw': true }
-  readonly boxShadow60svw: { 'box-shadow_60svw': true }
-  readonly boxShadow66p67svw: { 'box-shadow_66\.67svw': true }
-  readonly boxShadow70svw: { 'box-shadow_70svw': true }
   readonly boxShadow75svw: { 'box-shadow_75svw': true }
-  readonly boxShadow80svw: { 'box-shadow_80svw': true }
-  readonly boxShadow90svw: { 'box-shadow_90svw': true }
   readonly boxShadow100svw: { 'box-shadow_100svw': true }
   readonly boxShadow0vb: { 'box-shadow_0vb': true }
-  readonly boxShadow10vb: { 'box-shadow_10vb': true }
-  readonly boxShadow20vb: { 'box-shadow_20vb': true }
   readonly boxShadow25vb: { 'box-shadow_25vb': true }
-  readonly boxShadow30vb: { 'box-shadow_30vb': true }
-  readonly boxShadow33p33vb: { 'box-shadow_33\.33vb': true }
-  readonly boxShadow40vb: { 'box-shadow_40vb': true }
   readonly boxShadow50vb: { 'box-shadow_50vb': true }
-  readonly boxShadow60vb: { 'box-shadow_60vb': true }
-  readonly boxShadow66p67vb: { 'box-shadow_66\.67vb': true }
-  readonly boxShadow70vb: { 'box-shadow_70vb': true }
   readonly boxShadow75vb: { 'box-shadow_75vb': true }
-  readonly boxShadow80vb: { 'box-shadow_80vb': true }
-  readonly boxShadow90vb: { 'box-shadow_90vb': true }
   readonly boxShadow100vb: { 'box-shadow_100vb': true }
   readonly boxShadow0vh: { 'box-shadow_0vh': true }
-  readonly boxShadow10vh: { 'box-shadow_10vh': true }
-  readonly boxShadow20vh: { 'box-shadow_20vh': true }
   readonly boxShadow25vh: { 'box-shadow_25vh': true }
-  readonly boxShadow30vh: { 'box-shadow_30vh': true }
-  readonly boxShadow33p33vh: { 'box-shadow_33\.33vh': true }
-  readonly boxShadow40vh: { 'box-shadow_40vh': true }
   readonly boxShadow50vh: { 'box-shadow_50vh': true }
-  readonly boxShadow60vh: { 'box-shadow_60vh': true }
-  readonly boxShadow66p67vh: { 'box-shadow_66\.67vh': true }
-  readonly boxShadow70vh: { 'box-shadow_70vh': true }
   readonly boxShadow75vh: { 'box-shadow_75vh': true }
-  readonly boxShadow80vh: { 'box-shadow_80vh': true }
-  readonly boxShadow90vh: { 'box-shadow_90vh': true }
   readonly boxShadow100vh: { 'box-shadow_100vh': true }
   readonly boxShadow0vi: { 'box-shadow_0vi': true }
-  readonly boxShadow10vi: { 'box-shadow_10vi': true }
-  readonly boxShadow20vi: { 'box-shadow_20vi': true }
   readonly boxShadow25vi: { 'box-shadow_25vi': true }
-  readonly boxShadow30vi: { 'box-shadow_30vi': true }
-  readonly boxShadow33p33vi: { 'box-shadow_33\.33vi': true }
-  readonly boxShadow40vi: { 'box-shadow_40vi': true }
   readonly boxShadow50vi: { 'box-shadow_50vi': true }
-  readonly boxShadow60vi: { 'box-shadow_60vi': true }
-  readonly boxShadow66p67vi: { 'box-shadow_66\.67vi': true }
-  readonly boxShadow70vi: { 'box-shadow_70vi': true }
   readonly boxShadow75vi: { 'box-shadow_75vi': true }
-  readonly boxShadow80vi: { 'box-shadow_80vi': true }
-  readonly boxShadow90vi: { 'box-shadow_90vi': true }
   readonly boxShadow100vi: { 'box-shadow_100vi': true }
   readonly boxShadow0vmax: { 'box-shadow_0vmax': true }
-  readonly boxShadow10vmax: { 'box-shadow_10vmax': true }
-  readonly boxShadow20vmax: { 'box-shadow_20vmax': true }
   readonly boxShadow25vmax: { 'box-shadow_25vmax': true }
-  readonly boxShadow30vmax: { 'box-shadow_30vmax': true }
-  readonly boxShadow33p33vmax: { 'box-shadow_33\.33vmax': true }
-  readonly boxShadow40vmax: { 'box-shadow_40vmax': true }
   readonly boxShadow50vmax: { 'box-shadow_50vmax': true }
-  readonly boxShadow60vmax: { 'box-shadow_60vmax': true }
-  readonly boxShadow66p67vmax: { 'box-shadow_66\.67vmax': true }
-  readonly boxShadow70vmax: { 'box-shadow_70vmax': true }
   readonly boxShadow75vmax: { 'box-shadow_75vmax': true }
-  readonly boxShadow80vmax: { 'box-shadow_80vmax': true }
-  readonly boxShadow90vmax: { 'box-shadow_90vmax': true }
   readonly boxShadow100vmax: { 'box-shadow_100vmax': true }
   readonly boxShadow0vmin: { 'box-shadow_0vmin': true }
-  readonly boxShadow10vmin: { 'box-shadow_10vmin': true }
-  readonly boxShadow20vmin: { 'box-shadow_20vmin': true }
   readonly boxShadow25vmin: { 'box-shadow_25vmin': true }
-  readonly boxShadow30vmin: { 'box-shadow_30vmin': true }
-  readonly boxShadow33p33vmin: { 'box-shadow_33\.33vmin': true }
-  readonly boxShadow40vmin: { 'box-shadow_40vmin': true }
   readonly boxShadow50vmin: { 'box-shadow_50vmin': true }
-  readonly boxShadow60vmin: { 'box-shadow_60vmin': true }
-  readonly boxShadow66p67vmin: { 'box-shadow_66\.67vmin': true }
-  readonly boxShadow70vmin: { 'box-shadow_70vmin': true }
   readonly boxShadow75vmin: { 'box-shadow_75vmin': true }
-  readonly boxShadow80vmin: { 'box-shadow_80vmin': true }
-  readonly boxShadow90vmin: { 'box-shadow_90vmin': true }
   readonly boxShadow100vmin: { 'box-shadow_100vmin': true }
   readonly boxShadow0vw: { 'box-shadow_0vw': true }
-  readonly boxShadow10vw: { 'box-shadow_10vw': true }
-  readonly boxShadow20vw: { 'box-shadow_20vw': true }
   readonly boxShadow25vw: { 'box-shadow_25vw': true }
-  readonly boxShadow30vw: { 'box-shadow_30vw': true }
-  readonly boxShadow33p33vw: { 'box-shadow_33\.33vw': true }
-  readonly boxShadow40vw: { 'box-shadow_40vw': true }
   readonly boxShadow50vw: { 'box-shadow_50vw': true }
-  readonly boxShadow60vw: { 'box-shadow_60vw': true }
-  readonly boxShadow66p67vw: { 'box-shadow_66\.67vw': true }
-  readonly boxShadow70vw: { 'box-shadow_70vw': true }
   readonly boxShadow75vw: { 'box-shadow_75vw': true }
-  readonly boxShadow80vw: { 'box-shadow_80vw': true }
-  readonly boxShadow90vw: { 'box-shadow_90vw': true }
   readonly boxShadow100vw: { 'box-shadow_100vw': true }
   readonly boxShadow0: { 'box-shadow_0': true }
-  readonly boxShadow0p5: { 'box-shadow_0\.5': true }
   readonly boxShadow1: { 'box-shadow_1': true }
-  readonly boxShadow1p5: { 'box-shadow_1\.5': true }
   readonly boxShadow2: { 'box-shadow_2': true }
   readonly boxShadow3: { 'box-shadow_3': true }
-  readonly boxShadow4: { 'box-shadow_4': true }
   readonly boxShadow5: { 'box-shadow_5': true }
   readonly boxShadow10: { 'box-shadow_10': true }
-  readonly boxShadow20: { 'box-shadow_20': true }
-  readonly boxShadow50: { 'box-shadow_50': true }
-  readonly boxShadow100: { 'box-shadow_100': true }
   readonly boxShadow0Pct: { 'box-shadow_0\%': true }
-  readonly boxShadow10Pct: { 'box-shadow_10\%': true }
-  readonly boxShadow20Pct: { 'box-shadow_20\%': true }
   readonly boxShadow25Pct: { 'box-shadow_25\%': true }
-  readonly boxShadow30Pct: { 'box-shadow_30\%': true }
-  readonly boxShadow33p33Pct: { 'box-shadow_33\.33\%': true }
-  readonly boxShadow40Pct: { 'box-shadow_40\%': true }
   readonly boxShadow50Pct: { 'box-shadow_50\%': true }
-  readonly boxShadow60Pct: { 'box-shadow_60\%': true }
-  readonly boxShadow66p67Pct: { 'box-shadow_66\.67\%': true }
-  readonly boxShadow70Pct: { 'box-shadow_70\%': true }
   readonly boxShadow75Pct: { 'box-shadow_75\%': true }
-  readonly boxShadow80Pct: { 'box-shadow_80\%': true }
-  readonly boxShadow90Pct: { 'box-shadow_90\%': true }
   readonly boxShadow100Pct: { 'box-shadow_100\%': true }
 
   // ==================== clear ====================
@@ -4036,100 +1908,16 @@ export interface CsstsAtoms {
   readonly colorXyz: { 'color_xyz': true }
   readonly colorXyzD50: { 'color_xyz-d50': true }
   readonly colorXyzD65: { 'color_xyz-d65': true }
-  readonly colorN360deg: { 'color_-360deg': true }
-  readonly colorN315deg: { 'color_-315deg': true }
-  readonly colorN270deg: { 'color_-270deg': true }
-  readonly colorN225deg: { 'color_-225deg': true }
-  readonly colorN180deg: { 'color_-180deg': true }
-  readonly colorN135deg: { 'color_-135deg': true }
-  readonly colorN90deg: { 'color_-90deg': true }
-  readonly colorN45deg: { 'color_-45deg': true }
-  readonly color0deg: { 'color_0deg': true }
-  readonly color45deg: { 'color_45deg': true }
-  readonly color90deg: { 'color_90deg': true }
-  readonly color135deg: { 'color_135deg': true }
-  readonly color180deg: { 'color_180deg': true }
-  readonly color225deg: { 'color_225deg': true }
-  readonly color270deg: { 'color_270deg': true }
-  readonly color315deg: { 'color_315deg': true }
-  readonly color360deg: { 'color_360deg': true }
-  readonly colorN360grad: { 'color_-360grad': true }
-  readonly colorN315grad: { 'color_-315grad': true }
-  readonly colorN270grad: { 'color_-270grad': true }
-  readonly colorN225grad: { 'color_-225grad': true }
-  readonly colorN180grad: { 'color_-180grad': true }
-  readonly colorN135grad: { 'color_-135grad': true }
-  readonly colorN90grad: { 'color_-90grad': true }
-  readonly colorN45grad: { 'color_-45grad': true }
-  readonly color0grad: { 'color_0grad': true }
-  readonly color45grad: { 'color_45grad': true }
-  readonly color90grad: { 'color_90grad': true }
-  readonly color135grad: { 'color_135grad': true }
-  readonly color180grad: { 'color_180grad': true }
-  readonly color225grad: { 'color_225grad': true }
-  readonly color270grad: { 'color_270grad': true }
-  readonly color315grad: { 'color_315grad': true }
-  readonly color360grad: { 'color_360grad': true }
-  readonly colorN360rad: { 'color_-360rad': true }
-  readonly colorN315rad: { 'color_-315rad': true }
-  readonly colorN270rad: { 'color_-270rad': true }
-  readonly colorN225rad: { 'color_-225rad': true }
-  readonly colorN180rad: { 'color_-180rad': true }
-  readonly colorN135rad: { 'color_-135rad': true }
-  readonly colorN90rad: { 'color_-90rad': true }
-  readonly colorN45rad: { 'color_-45rad': true }
-  readonly color0rad: { 'color_0rad': true }
-  readonly color45rad: { 'color_45rad': true }
-  readonly color90rad: { 'color_90rad': true }
-  readonly color135rad: { 'color_135rad': true }
-  readonly color180rad: { 'color_180rad': true }
-  readonly color225rad: { 'color_225rad': true }
-  readonly color270rad: { 'color_270rad': true }
-  readonly color315rad: { 'color_315rad': true }
-  readonly color360rad: { 'color_360rad': true }
-  readonly colorN360turn: { 'color_-360turn': true }
-  readonly colorN315turn: { 'color_-315turn': true }
-  readonly colorN270turn: { 'color_-270turn': true }
-  readonly colorN225turn: { 'color_-225turn': true }
-  readonly colorN180turn: { 'color_-180turn': true }
-  readonly colorN135turn: { 'color_-135turn': true }
-  readonly colorN90turn: { 'color_-90turn': true }
-  readonly colorN45turn: { 'color_-45turn': true }
-  readonly color0turn: { 'color_0turn': true }
-  readonly color45turn: { 'color_45turn': true }
-  readonly color90turn: { 'color_90turn': true }
-  readonly color135turn: { 'color_135turn': true }
-  readonly color180turn: { 'color_180turn': true }
-  readonly color225turn: { 'color_225turn': true }
-  readonly color270turn: { 'color_270turn': true }
-  readonly color315turn: { 'color_315turn': true }
-  readonly color360turn: { 'color_360turn': true }
   readonly color0: { 'color_0': true }
-  readonly color0p5: { 'color_0\.5': true }
   readonly color1: { 'color_1': true }
-  readonly color1p5: { 'color_1\.5': true }
   readonly color2: { 'color_2': true }
   readonly color3: { 'color_3': true }
-  readonly color4: { 'color_4': true }
   readonly color5: { 'color_5': true }
   readonly color10: { 'color_10': true }
-  readonly color20: { 'color_20': true }
-  readonly color50: { 'color_50': true }
-  readonly color100: { 'color_100': true }
   readonly color0Pct: { 'color_0\%': true }
-  readonly color10Pct: { 'color_10\%': true }
-  readonly color20Pct: { 'color_20\%': true }
   readonly color25Pct: { 'color_25\%': true }
-  readonly color30Pct: { 'color_30\%': true }
-  readonly color33p33Pct: { 'color_33\.33\%': true }
-  readonly color40Pct: { 'color_40\%': true }
   readonly color50Pct: { 'color_50\%': true }
-  readonly color60Pct: { 'color_60\%': true }
-  readonly color66p67Pct: { 'color_66\.67\%': true }
-  readonly color70Pct: { 'color_70\%': true }
   readonly color75Pct: { 'color_75\%': true }
-  readonly color80Pct: { 'color_80\%': true }
-  readonly color90Pct: { 'color_90\%': true }
   readonly color100Pct: { 'color_100\%': true }
 
   // ==================== cursor ====================
@@ -4179,17 +1967,11 @@ export interface CsstsAtoms {
   readonly cursorZoomIn: { 'cursor_zoom-in': true }
   readonly cursorZoomOut: { 'cursor_zoom-out': true }
   readonly cursor0: { 'cursor_0': true }
-  readonly cursor0p5: { 'cursor_0\.5': true }
   readonly cursor1: { 'cursor_1': true }
-  readonly cursor1p5: { 'cursor_1\.5': true }
   readonly cursor2: { 'cursor_2': true }
   readonly cursor3: { 'cursor_3': true }
-  readonly cursor4: { 'cursor_4': true }
   readonly cursor5: { 'cursor_5': true }
   readonly cursor10: { 'cursor_10': true }
-  readonly cursor20: { 'cursor_20': true }
-  readonly cursor50: { 'cursor_50': true }
-  readonly cursor100: { 'cursor_100': true }
 
   // ==================== display ====================
   readonly displayNmozBox: { 'display_-moz-box': true }
@@ -4263,421 +2045,175 @@ export interface CsstsAtoms {
   readonly fontSize1Q: { 'font-size_1Q': true }
   readonly fontSize2Q: { 'font-size_2Q': true }
   readonly fontSize4Q: { 'font-size_4Q': true }
-  readonly fontSize6Q: { 'font-size_6Q': true }
   readonly fontSize8Q: { 'font-size_8Q': true }
-  readonly fontSize10Q: { 'font-size_10Q': true }
-  readonly fontSize12Q: { 'font-size_12Q': true }
-  readonly fontSize16Q: { 'font-size_16Q': true }
-  readonly fontSize20Q: { 'font-size_20Q': true }
   readonly fontSize0cap: { 'font-size_0cap': true }
-  readonly fontSize0p25cap: { 'font-size_0\.25cap': true }
   readonly fontSize0p5cap: { 'font-size_0\.5cap': true }
-  readonly fontSize0p75cap: { 'font-size_0\.75cap': true }
   readonly fontSize1cap: { 'font-size_1cap': true }
-  readonly fontSize1p25cap: { 'font-size_1\.25cap': true }
   readonly fontSize1p5cap: { 'font-size_1\.5cap': true }
   readonly fontSize2cap: { 'font-size_2cap': true }
-  readonly fontSize2p5cap: { 'font-size_2\.5cap': true }
   readonly fontSize3cap: { 'font-size_3cap': true }
-  readonly fontSize4cap: { 'font-size_4cap': true }
-  readonly fontSize5cap: { 'font-size_5cap': true }
-  readonly fontSize6cap: { 'font-size_6cap': true }
-  readonly fontSize8cap: { 'font-size_8cap': true }
   readonly fontSize0ch: { 'font-size_0ch': true }
-  readonly fontSize0p25ch: { 'font-size_0\.25ch': true }
   readonly fontSize0p5ch: { 'font-size_0\.5ch': true }
-  readonly fontSize0p75ch: { 'font-size_0\.75ch': true }
   readonly fontSize1ch: { 'font-size_1ch': true }
-  readonly fontSize1p25ch: { 'font-size_1\.25ch': true }
   readonly fontSize1p5ch: { 'font-size_1\.5ch': true }
   readonly fontSize2ch: { 'font-size_2ch': true }
-  readonly fontSize2p5ch: { 'font-size_2\.5ch': true }
   readonly fontSize3ch: { 'font-size_3ch': true }
-  readonly fontSize4ch: { 'font-size_4ch': true }
-  readonly fontSize5ch: { 'font-size_5ch': true }
-  readonly fontSize6ch: { 'font-size_6ch': true }
-  readonly fontSize8ch: { 'font-size_8ch': true }
   readonly fontSize0cm: { 'font-size_0cm': true }
   readonly fontSize1cm: { 'font-size_1cm': true }
   readonly fontSize2cm: { 'font-size_2cm': true }
   readonly fontSize4cm: { 'font-size_4cm': true }
-  readonly fontSize6cm: { 'font-size_6cm': true }
   readonly fontSize8cm: { 'font-size_8cm': true }
-  readonly fontSize10cm: { 'font-size_10cm': true }
-  readonly fontSize12cm: { 'font-size_12cm': true }
-  readonly fontSize16cm: { 'font-size_16cm': true }
-  readonly fontSize20cm: { 'font-size_20cm': true }
   readonly fontSize0dvh: { 'font-size_0dvh': true }
-  readonly fontSize10dvh: { 'font-size_10dvh': true }
-  readonly fontSize20dvh: { 'font-size_20dvh': true }
   readonly fontSize25dvh: { 'font-size_25dvh': true }
-  readonly fontSize30dvh: { 'font-size_30dvh': true }
-  readonly fontSize33p33dvh: { 'font-size_33\.33dvh': true }
-  readonly fontSize40dvh: { 'font-size_40dvh': true }
   readonly fontSize50dvh: { 'font-size_50dvh': true }
-  readonly fontSize60dvh: { 'font-size_60dvh': true }
-  readonly fontSize66p67dvh: { 'font-size_66\.67dvh': true }
-  readonly fontSize70dvh: { 'font-size_70dvh': true }
   readonly fontSize75dvh: { 'font-size_75dvh': true }
-  readonly fontSize80dvh: { 'font-size_80dvh': true }
-  readonly fontSize90dvh: { 'font-size_90dvh': true }
   readonly fontSize100dvh: { 'font-size_100dvh': true }
   readonly fontSize0dvw: { 'font-size_0dvw': true }
-  readonly fontSize10dvw: { 'font-size_10dvw': true }
-  readonly fontSize20dvw: { 'font-size_20dvw': true }
   readonly fontSize25dvw: { 'font-size_25dvw': true }
-  readonly fontSize30dvw: { 'font-size_30dvw': true }
-  readonly fontSize33p33dvw: { 'font-size_33\.33dvw': true }
-  readonly fontSize40dvw: { 'font-size_40dvw': true }
   readonly fontSize50dvw: { 'font-size_50dvw': true }
-  readonly fontSize60dvw: { 'font-size_60dvw': true }
-  readonly fontSize66p67dvw: { 'font-size_66\.67dvw': true }
-  readonly fontSize70dvw: { 'font-size_70dvw': true }
   readonly fontSize75dvw: { 'font-size_75dvw': true }
-  readonly fontSize80dvw: { 'font-size_80dvw': true }
-  readonly fontSize90dvw: { 'font-size_90dvw': true }
   readonly fontSize100dvw: { 'font-size_100dvw': true }
   readonly fontSize0em: { 'font-size_0em': true }
-  readonly fontSize0p25em: { 'font-size_0\.25em': true }
   readonly fontSize0p5em: { 'font-size_0\.5em': true }
-  readonly fontSize0p75em: { 'font-size_0\.75em': true }
   readonly fontSize1em: { 'font-size_1em': true }
-  readonly fontSize1p25em: { 'font-size_1\.25em': true }
   readonly fontSize1p5em: { 'font-size_1\.5em': true }
   readonly fontSize2em: { 'font-size_2em': true }
-  readonly fontSize2p5em: { 'font-size_2\.5em': true }
   readonly fontSize3em: { 'font-size_3em': true }
-  readonly fontSize4em: { 'font-size_4em': true }
-  readonly fontSize5em: { 'font-size_5em': true }
-  readonly fontSize6em: { 'font-size_6em': true }
-  readonly fontSize8em: { 'font-size_8em': true }
   readonly fontSize0ex: { 'font-size_0ex': true }
-  readonly fontSize0p25ex: { 'font-size_0\.25ex': true }
   readonly fontSize0p5ex: { 'font-size_0\.5ex': true }
-  readonly fontSize0p75ex: { 'font-size_0\.75ex': true }
   readonly fontSize1ex: { 'font-size_1ex': true }
-  readonly fontSize1p25ex: { 'font-size_1\.25ex': true }
   readonly fontSize1p5ex: { 'font-size_1\.5ex': true }
   readonly fontSize2ex: { 'font-size_2ex': true }
-  readonly fontSize2p5ex: { 'font-size_2\.5ex': true }
   readonly fontSize3ex: { 'font-size_3ex': true }
-  readonly fontSize4ex: { 'font-size_4ex': true }
-  readonly fontSize5ex: { 'font-size_5ex': true }
-  readonly fontSize6ex: { 'font-size_6ex': true }
-  readonly fontSize8ex: { 'font-size_8ex': true }
   readonly fontSize0ic: { 'font-size_0ic': true }
-  readonly fontSize0p25ic: { 'font-size_0\.25ic': true }
   readonly fontSize0p5ic: { 'font-size_0\.5ic': true }
-  readonly fontSize0p75ic: { 'font-size_0\.75ic': true }
   readonly fontSize1ic: { 'font-size_1ic': true }
-  readonly fontSize1p25ic: { 'font-size_1\.25ic': true }
   readonly fontSize1p5ic: { 'font-size_1\.5ic': true }
   readonly fontSize2ic: { 'font-size_2ic': true }
-  readonly fontSize2p5ic: { 'font-size_2\.5ic': true }
   readonly fontSize3ic: { 'font-size_3ic': true }
-  readonly fontSize4ic: { 'font-size_4ic': true }
-  readonly fontSize5ic: { 'font-size_5ic': true }
-  readonly fontSize6ic: { 'font-size_6ic': true }
-  readonly fontSize8ic: { 'font-size_8ic': true }
   readonly fontSize0in: { 'font-size_0in': true }
   readonly fontSize1in: { 'font-size_1in': true }
   readonly fontSize2in: { 'font-size_2in': true }
   readonly fontSize4in: { 'font-size_4in': true }
-  readonly fontSize6in: { 'font-size_6in': true }
   readonly fontSize8in: { 'font-size_8in': true }
-  readonly fontSize10in: { 'font-size_10in': true }
-  readonly fontSize12in: { 'font-size_12in': true }
-  readonly fontSize16in: { 'font-size_16in': true }
-  readonly fontSize20in: { 'font-size_20in': true }
   readonly fontSize0lh: { 'font-size_0lh': true }
-  readonly fontSize0p25lh: { 'font-size_0\.25lh': true }
   readonly fontSize0p5lh: { 'font-size_0\.5lh': true }
-  readonly fontSize0p75lh: { 'font-size_0\.75lh': true }
   readonly fontSize1lh: { 'font-size_1lh': true }
-  readonly fontSize1p25lh: { 'font-size_1\.25lh': true }
   readonly fontSize1p5lh: { 'font-size_1\.5lh': true }
   readonly fontSize2lh: { 'font-size_2lh': true }
-  readonly fontSize2p5lh: { 'font-size_2\.5lh': true }
   readonly fontSize3lh: { 'font-size_3lh': true }
-  readonly fontSize4lh: { 'font-size_4lh': true }
-  readonly fontSize5lh: { 'font-size_5lh': true }
-  readonly fontSize6lh: { 'font-size_6lh': true }
-  readonly fontSize8lh: { 'font-size_8lh': true }
   readonly fontSize0lvh: { 'font-size_0lvh': true }
-  readonly fontSize10lvh: { 'font-size_10lvh': true }
-  readonly fontSize20lvh: { 'font-size_20lvh': true }
   readonly fontSize25lvh: { 'font-size_25lvh': true }
-  readonly fontSize30lvh: { 'font-size_30lvh': true }
-  readonly fontSize33p33lvh: { 'font-size_33\.33lvh': true }
-  readonly fontSize40lvh: { 'font-size_40lvh': true }
   readonly fontSize50lvh: { 'font-size_50lvh': true }
-  readonly fontSize60lvh: { 'font-size_60lvh': true }
-  readonly fontSize66p67lvh: { 'font-size_66\.67lvh': true }
-  readonly fontSize70lvh: { 'font-size_70lvh': true }
   readonly fontSize75lvh: { 'font-size_75lvh': true }
-  readonly fontSize80lvh: { 'font-size_80lvh': true }
-  readonly fontSize90lvh: { 'font-size_90lvh': true }
   readonly fontSize100lvh: { 'font-size_100lvh': true }
   readonly fontSize0lvw: { 'font-size_0lvw': true }
-  readonly fontSize10lvw: { 'font-size_10lvw': true }
-  readonly fontSize20lvw: { 'font-size_20lvw': true }
   readonly fontSize25lvw: { 'font-size_25lvw': true }
-  readonly fontSize30lvw: { 'font-size_30lvw': true }
-  readonly fontSize33p33lvw: { 'font-size_33\.33lvw': true }
-  readonly fontSize40lvw: { 'font-size_40lvw': true }
   readonly fontSize50lvw: { 'font-size_50lvw': true }
-  readonly fontSize60lvw: { 'font-size_60lvw': true }
-  readonly fontSize66p67lvw: { 'font-size_66\.67lvw': true }
-  readonly fontSize70lvw: { 'font-size_70lvw': true }
   readonly fontSize75lvw: { 'font-size_75lvw': true }
-  readonly fontSize80lvw: { 'font-size_80lvw': true }
-  readonly fontSize90lvw: { 'font-size_90lvw': true }
   readonly fontSize100lvw: { 'font-size_100lvw': true }
   readonly fontSize0mm: { 'font-size_0mm': true }
   readonly fontSize1mm: { 'font-size_1mm': true }
   readonly fontSize2mm: { 'font-size_2mm': true }
   readonly fontSize4mm: { 'font-size_4mm': true }
-  readonly fontSize6mm: { 'font-size_6mm': true }
   readonly fontSize8mm: { 'font-size_8mm': true }
-  readonly fontSize10mm: { 'font-size_10mm': true }
-  readonly fontSize12mm: { 'font-size_12mm': true }
-  readonly fontSize16mm: { 'font-size_16mm': true }
-  readonly fontSize20mm: { 'font-size_20mm': true }
   readonly fontSize0pc: { 'font-size_0pc': true }
   readonly fontSize1pc: { 'font-size_1pc': true }
   readonly fontSize2pc: { 'font-size_2pc': true }
   readonly fontSize4pc: { 'font-size_4pc': true }
-  readonly fontSize6pc: { 'font-size_6pc': true }
   readonly fontSize8pc: { 'font-size_8pc': true }
-  readonly fontSize10pc: { 'font-size_10pc': true }
-  readonly fontSize12pc: { 'font-size_12pc': true }
-  readonly fontSize16pc: { 'font-size_16pc': true }
-  readonly fontSize20pc: { 'font-size_20pc': true }
   readonly fontSize0pt: { 'font-size_0pt': true }
   readonly fontSize1pt: { 'font-size_1pt': true }
   readonly fontSize2pt: { 'font-size_2pt': true }
   readonly fontSize4pt: { 'font-size_4pt': true }
-  readonly fontSize6pt: { 'font-size_6pt': true }
   readonly fontSize8pt: { 'font-size_8pt': true }
-  readonly fontSize10pt: { 'font-size_10pt': true }
-  readonly fontSize12pt: { 'font-size_12pt': true }
-  readonly fontSize16pt: { 'font-size_16pt': true }
-  readonly fontSize20pt: { 'font-size_20pt': true }
-  readonly fontSizeN384px: { 'font-size_-384px': true }
-  readonly fontSizeN320px: { 'font-size_-320px': true }
-  readonly fontSizeN256px: { 'font-size_-256px': true }
-  readonly fontSizeN224px: { 'font-size_-224px': true }
-  readonly fontSizeN192px: { 'font-size_-192px': true }
-  readonly fontSizeN160px: { 'font-size_-160px': true }
-  readonly fontSizeN128px: { 'font-size_-128px': true }
   readonly fontSizeN96px: { 'font-size_-96px': true }
   readonly fontSizeN80px: { 'font-size_-80px': true }
   readonly fontSizeN64px: { 'font-size_-64px': true }
-  readonly fontSizeN56px: { 'font-size_-56px': true }
   readonly fontSizeN48px: { 'font-size_-48px': true }
   readonly fontSizeN40px: { 'font-size_-40px': true }
   readonly fontSizeN32px: { 'font-size_-32px': true }
-  readonly fontSizeN28px: { 'font-size_-28px': true }
   readonly fontSizeN24px: { 'font-size_-24px': true }
   readonly fontSizeN20px: { 'font-size_-20px': true }
   readonly fontSizeN16px: { 'font-size_-16px': true }
-  readonly fontSizeN14px: { 'font-size_-14px': true }
   readonly fontSizeN12px: { 'font-size_-12px': true }
   readonly fontSizeN10px: { 'font-size_-10px': true }
   readonly fontSizeN8px: { 'font-size_-8px': true }
   readonly fontSizeN6px: { 'font-size_-6px': true }
   readonly fontSizeN4px: { 'font-size_-4px': true }
   readonly fontSizeN2px: { 'font-size_-2px': true }
-  readonly fontSizeN1px: { 'font-size_-1px': true }
   readonly fontSize0px: { 'font-size_0px': true }
-  readonly fontSize1px: { 'font-size_1px': true }
   readonly fontSize2px: { 'font-size_2px': true }
   readonly fontSize4px: { 'font-size_4px': true }
   readonly fontSize6px: { 'font-size_6px': true }
   readonly fontSize8px: { 'font-size_8px': true }
   readonly fontSize10px: { 'font-size_10px': true }
   readonly fontSize12px: { 'font-size_12px': true }
-  readonly fontSize14px: { 'font-size_14px': true }
   readonly fontSize16px: { 'font-size_16px': true }
   readonly fontSize20px: { 'font-size_20px': true }
   readonly fontSize24px: { 'font-size_24px': true }
-  readonly fontSize28px: { 'font-size_28px': true }
   readonly fontSize32px: { 'font-size_32px': true }
   readonly fontSize40px: { 'font-size_40px': true }
   readonly fontSize48px: { 'font-size_48px': true }
-  readonly fontSize56px: { 'font-size_56px': true }
   readonly fontSize64px: { 'font-size_64px': true }
   readonly fontSize80px: { 'font-size_80px': true }
   readonly fontSize96px: { 'font-size_96px': true }
-  readonly fontSize128px: { 'font-size_128px': true }
-  readonly fontSize160px: { 'font-size_160px': true }
-  readonly fontSize192px: { 'font-size_192px': true }
-  readonly fontSize224px: { 'font-size_224px': true }
-  readonly fontSize256px: { 'font-size_256px': true }
-  readonly fontSize320px: { 'font-size_320px': true }
-  readonly fontSize384px: { 'font-size_384px': true }
   readonly fontSize0rem: { 'font-size_0rem': true }
-  readonly fontSize0p25rem: { 'font-size_0\.25rem': true }
   readonly fontSize0p5rem: { 'font-size_0\.5rem': true }
-  readonly fontSize0p75rem: { 'font-size_0\.75rem': true }
   readonly fontSize1rem: { 'font-size_1rem': true }
-  readonly fontSize1p25rem: { 'font-size_1\.25rem': true }
   readonly fontSize1p5rem: { 'font-size_1\.5rem': true }
   readonly fontSize2rem: { 'font-size_2rem': true }
-  readonly fontSize2p5rem: { 'font-size_2\.5rem': true }
   readonly fontSize3rem: { 'font-size_3rem': true }
-  readonly fontSize4rem: { 'font-size_4rem': true }
-  readonly fontSize5rem: { 'font-size_5rem': true }
-  readonly fontSize6rem: { 'font-size_6rem': true }
-  readonly fontSize8rem: { 'font-size_8rem': true }
   readonly fontSize0rlh: { 'font-size_0rlh': true }
-  readonly fontSize0p25rlh: { 'font-size_0\.25rlh': true }
   readonly fontSize0p5rlh: { 'font-size_0\.5rlh': true }
-  readonly fontSize0p75rlh: { 'font-size_0\.75rlh': true }
   readonly fontSize1rlh: { 'font-size_1rlh': true }
-  readonly fontSize1p25rlh: { 'font-size_1\.25rlh': true }
   readonly fontSize1p5rlh: { 'font-size_1\.5rlh': true }
   readonly fontSize2rlh: { 'font-size_2rlh': true }
-  readonly fontSize2p5rlh: { 'font-size_2\.5rlh': true }
   readonly fontSize3rlh: { 'font-size_3rlh': true }
-  readonly fontSize4rlh: { 'font-size_4rlh': true }
-  readonly fontSize5rlh: { 'font-size_5rlh': true }
-  readonly fontSize6rlh: { 'font-size_6rlh': true }
-  readonly fontSize8rlh: { 'font-size_8rlh': true }
   readonly fontSize0svh: { 'font-size_0svh': true }
-  readonly fontSize10svh: { 'font-size_10svh': true }
-  readonly fontSize20svh: { 'font-size_20svh': true }
   readonly fontSize25svh: { 'font-size_25svh': true }
-  readonly fontSize30svh: { 'font-size_30svh': true }
-  readonly fontSize33p33svh: { 'font-size_33\.33svh': true }
-  readonly fontSize40svh: { 'font-size_40svh': true }
   readonly fontSize50svh: { 'font-size_50svh': true }
-  readonly fontSize60svh: { 'font-size_60svh': true }
-  readonly fontSize66p67svh: { 'font-size_66\.67svh': true }
-  readonly fontSize70svh: { 'font-size_70svh': true }
   readonly fontSize75svh: { 'font-size_75svh': true }
-  readonly fontSize80svh: { 'font-size_80svh': true }
-  readonly fontSize90svh: { 'font-size_90svh': true }
   readonly fontSize100svh: { 'font-size_100svh': true }
   readonly fontSize0svw: { 'font-size_0svw': true }
-  readonly fontSize10svw: { 'font-size_10svw': true }
-  readonly fontSize20svw: { 'font-size_20svw': true }
   readonly fontSize25svw: { 'font-size_25svw': true }
-  readonly fontSize30svw: { 'font-size_30svw': true }
-  readonly fontSize33p33svw: { 'font-size_33\.33svw': true }
-  readonly fontSize40svw: { 'font-size_40svw': true }
   readonly fontSize50svw: { 'font-size_50svw': true }
-  readonly fontSize60svw: { 'font-size_60svw': true }
-  readonly fontSize66p67svw: { 'font-size_66\.67svw': true }
-  readonly fontSize70svw: { 'font-size_70svw': true }
   readonly fontSize75svw: { 'font-size_75svw': true }
-  readonly fontSize80svw: { 'font-size_80svw': true }
-  readonly fontSize90svw: { 'font-size_90svw': true }
   readonly fontSize100svw: { 'font-size_100svw': true }
   readonly fontSize0vb: { 'font-size_0vb': true }
-  readonly fontSize10vb: { 'font-size_10vb': true }
-  readonly fontSize20vb: { 'font-size_20vb': true }
   readonly fontSize25vb: { 'font-size_25vb': true }
-  readonly fontSize30vb: { 'font-size_30vb': true }
-  readonly fontSize33p33vb: { 'font-size_33\.33vb': true }
-  readonly fontSize40vb: { 'font-size_40vb': true }
   readonly fontSize50vb: { 'font-size_50vb': true }
-  readonly fontSize60vb: { 'font-size_60vb': true }
-  readonly fontSize66p67vb: { 'font-size_66\.67vb': true }
-  readonly fontSize70vb: { 'font-size_70vb': true }
   readonly fontSize75vb: { 'font-size_75vb': true }
-  readonly fontSize80vb: { 'font-size_80vb': true }
-  readonly fontSize90vb: { 'font-size_90vb': true }
   readonly fontSize100vb: { 'font-size_100vb': true }
   readonly fontSize0vh: { 'font-size_0vh': true }
-  readonly fontSize10vh: { 'font-size_10vh': true }
-  readonly fontSize20vh: { 'font-size_20vh': true }
   readonly fontSize25vh: { 'font-size_25vh': true }
-  readonly fontSize30vh: { 'font-size_30vh': true }
-  readonly fontSize33p33vh: { 'font-size_33\.33vh': true }
-  readonly fontSize40vh: { 'font-size_40vh': true }
   readonly fontSize50vh: { 'font-size_50vh': true }
-  readonly fontSize60vh: { 'font-size_60vh': true }
-  readonly fontSize66p67vh: { 'font-size_66\.67vh': true }
-  readonly fontSize70vh: { 'font-size_70vh': true }
   readonly fontSize75vh: { 'font-size_75vh': true }
-  readonly fontSize80vh: { 'font-size_80vh': true }
-  readonly fontSize90vh: { 'font-size_90vh': true }
   readonly fontSize100vh: { 'font-size_100vh': true }
   readonly fontSize0vi: { 'font-size_0vi': true }
-  readonly fontSize10vi: { 'font-size_10vi': true }
-  readonly fontSize20vi: { 'font-size_20vi': true }
   readonly fontSize25vi: { 'font-size_25vi': true }
-  readonly fontSize30vi: { 'font-size_30vi': true }
-  readonly fontSize33p33vi: { 'font-size_33\.33vi': true }
-  readonly fontSize40vi: { 'font-size_40vi': true }
   readonly fontSize50vi: { 'font-size_50vi': true }
-  readonly fontSize60vi: { 'font-size_60vi': true }
-  readonly fontSize66p67vi: { 'font-size_66\.67vi': true }
-  readonly fontSize70vi: { 'font-size_70vi': true }
   readonly fontSize75vi: { 'font-size_75vi': true }
-  readonly fontSize80vi: { 'font-size_80vi': true }
-  readonly fontSize90vi: { 'font-size_90vi': true }
   readonly fontSize100vi: { 'font-size_100vi': true }
   readonly fontSize0vmax: { 'font-size_0vmax': true }
-  readonly fontSize10vmax: { 'font-size_10vmax': true }
-  readonly fontSize20vmax: { 'font-size_20vmax': true }
   readonly fontSize25vmax: { 'font-size_25vmax': true }
-  readonly fontSize30vmax: { 'font-size_30vmax': true }
-  readonly fontSize33p33vmax: { 'font-size_33\.33vmax': true }
-  readonly fontSize40vmax: { 'font-size_40vmax': true }
   readonly fontSize50vmax: { 'font-size_50vmax': true }
-  readonly fontSize60vmax: { 'font-size_60vmax': true }
-  readonly fontSize66p67vmax: { 'font-size_66\.67vmax': true }
-  readonly fontSize70vmax: { 'font-size_70vmax': true }
   readonly fontSize75vmax: { 'font-size_75vmax': true }
-  readonly fontSize80vmax: { 'font-size_80vmax': true }
-  readonly fontSize90vmax: { 'font-size_90vmax': true }
   readonly fontSize100vmax: { 'font-size_100vmax': true }
   readonly fontSize0vmin: { 'font-size_0vmin': true }
-  readonly fontSize10vmin: { 'font-size_10vmin': true }
-  readonly fontSize20vmin: { 'font-size_20vmin': true }
   readonly fontSize25vmin: { 'font-size_25vmin': true }
-  readonly fontSize30vmin: { 'font-size_30vmin': true }
-  readonly fontSize33p33vmin: { 'font-size_33\.33vmin': true }
-  readonly fontSize40vmin: { 'font-size_40vmin': true }
   readonly fontSize50vmin: { 'font-size_50vmin': true }
-  readonly fontSize60vmin: { 'font-size_60vmin': true }
-  readonly fontSize66p67vmin: { 'font-size_66\.67vmin': true }
-  readonly fontSize70vmin: { 'font-size_70vmin': true }
   readonly fontSize75vmin: { 'font-size_75vmin': true }
-  readonly fontSize80vmin: { 'font-size_80vmin': true }
-  readonly fontSize90vmin: { 'font-size_90vmin': true }
   readonly fontSize100vmin: { 'font-size_100vmin': true }
   readonly fontSize0vw: { 'font-size_0vw': true }
-  readonly fontSize10vw: { 'font-size_10vw': true }
-  readonly fontSize20vw: { 'font-size_20vw': true }
   readonly fontSize25vw: { 'font-size_25vw': true }
-  readonly fontSize30vw: { 'font-size_30vw': true }
-  readonly fontSize33p33vw: { 'font-size_33\.33vw': true }
-  readonly fontSize40vw: { 'font-size_40vw': true }
   readonly fontSize50vw: { 'font-size_50vw': true }
-  readonly fontSize60vw: { 'font-size_60vw': true }
-  readonly fontSize66p67vw: { 'font-size_66\.67vw': true }
-  readonly fontSize70vw: { 'font-size_70vw': true }
   readonly fontSize75vw: { 'font-size_75vw': true }
-  readonly fontSize80vw: { 'font-size_80vw': true }
-  readonly fontSize90vw: { 'font-size_90vw': true }
   readonly fontSize100vw: { 'font-size_100vw': true }
   readonly fontSize0Pct: { 'font-size_0\%': true }
-  readonly fontSize10Pct: { 'font-size_10\%': true }
-  readonly fontSize20Pct: { 'font-size_20\%': true }
   readonly fontSize25Pct: { 'font-size_25\%': true }
-  readonly fontSize30Pct: { 'font-size_30\%': true }
-  readonly fontSize33p33Pct: { 'font-size_33\.33\%': true }
-  readonly fontSize40Pct: { 'font-size_40\%': true }
   readonly fontSize50Pct: { 'font-size_50\%': true }
-  readonly fontSize60Pct: { 'font-size_60\%': true }
-  readonly fontSize66p67Pct: { 'font-size_66\.67\%': true }
-  readonly fontSize70Pct: { 'font-size_70\%': true }
   readonly fontSize75Pct: { 'font-size_75\%': true }
-  readonly fontSize80Pct: { 'font-size_80\%': true }
-  readonly fontSize90Pct: { 'font-size_90\%': true }
   readonly fontSize100Pct: { 'font-size_100\%': true }
 
   // ==================== font-weight ====================
@@ -4686,17 +2222,11 @@ export interface CsstsAtoms {
   readonly fontWeightLighter: { 'font-weight_lighter': true }
   readonly fontWeightNormal: { 'font-weight_normal': true }
   readonly fontWeight0: { 'font-weight_0': true }
-  readonly fontWeight0p5: { 'font-weight_0\.5': true }
   readonly fontWeight1: { 'font-weight_1': true }
-  readonly fontWeight1p5: { 'font-weight_1\.5': true }
   readonly fontWeight2: { 'font-weight_2': true }
   readonly fontWeight3: { 'font-weight_3': true }
-  readonly fontWeight4: { 'font-weight_4': true }
   readonly fontWeight5: { 'font-weight_5': true }
   readonly fontWeight10: { 'font-weight_10': true }
-  readonly fontWeight20: { 'font-weight_20': true }
-  readonly fontWeight50: { 'font-weight_50': true }
-  readonly fontWeight100: { 'font-weight_100': true }
 
   // ==================== grid-template-columns ====================
   readonly gridTemplateColumnsAuto: { 'grid-template-columns_auto': true }
@@ -4706,443 +2236,179 @@ export interface CsstsAtoms {
   readonly gridTemplateColumnsMinContent: { 'grid-template-columns_min-content': true }
   readonly gridTemplateColumnsNone: { 'grid-template-columns_none': true }
   readonly gridTemplateColumnsSubgrid: { 'grid-template-columns_subgrid': true }
-  readonly gridTemplateColumns1fr: { 'grid-template-columns_1fr': true }
-  readonly gridTemplateColumns2fr: { 'grid-template-columns_2fr': true }
-  readonly gridTemplateColumns3fr: { 'grid-template-columns_3fr': true }
-  readonly gridTemplateColumns4fr: { 'grid-template-columns_4fr': true }
-  readonly gridTemplateColumns5fr: { 'grid-template-columns_5fr': true }
-  readonly gridTemplateColumns6fr: { 'grid-template-columns_6fr': true }
-  readonly gridTemplateColumns0: { 'grid-template-columns_0': true }
-  readonly gridTemplateColumns0p5: { 'grid-template-columns_0\.5': true }
-  readonly gridTemplateColumns1: { 'grid-template-columns_1': true }
-  readonly gridTemplateColumns1p5: { 'grid-template-columns_1\.5': true }
-  readonly gridTemplateColumns2: { 'grid-template-columns_2': true }
-  readonly gridTemplateColumns3: { 'grid-template-columns_3': true }
-  readonly gridTemplateColumns4: { 'grid-template-columns_4': true }
-  readonly gridTemplateColumns5: { 'grid-template-columns_5': true }
-  readonly gridTemplateColumns10: { 'grid-template-columns_10': true }
-  readonly gridTemplateColumns20: { 'grid-template-columns_20': true }
-  readonly gridTemplateColumns50: { 'grid-template-columns_50': true }
-  readonly gridTemplateColumns100: { 'grid-template-columns_100': true }
   readonly gridTemplateColumns0Q: { 'grid-template-columns_0Q': true }
   readonly gridTemplateColumns1Q: { 'grid-template-columns_1Q': true }
   readonly gridTemplateColumns2Q: { 'grid-template-columns_2Q': true }
   readonly gridTemplateColumns4Q: { 'grid-template-columns_4Q': true }
-  readonly gridTemplateColumns6Q: { 'grid-template-columns_6Q': true }
   readonly gridTemplateColumns8Q: { 'grid-template-columns_8Q': true }
-  readonly gridTemplateColumns10Q: { 'grid-template-columns_10Q': true }
-  readonly gridTemplateColumns12Q: { 'grid-template-columns_12Q': true }
-  readonly gridTemplateColumns16Q: { 'grid-template-columns_16Q': true }
-  readonly gridTemplateColumns20Q: { 'grid-template-columns_20Q': true }
   readonly gridTemplateColumns0cap: { 'grid-template-columns_0cap': true }
-  readonly gridTemplateColumns0p25cap: { 'grid-template-columns_0\.25cap': true }
   readonly gridTemplateColumns0p5cap: { 'grid-template-columns_0\.5cap': true }
-  readonly gridTemplateColumns0p75cap: { 'grid-template-columns_0\.75cap': true }
   readonly gridTemplateColumns1cap: { 'grid-template-columns_1cap': true }
-  readonly gridTemplateColumns1p25cap: { 'grid-template-columns_1\.25cap': true }
   readonly gridTemplateColumns1p5cap: { 'grid-template-columns_1\.5cap': true }
   readonly gridTemplateColumns2cap: { 'grid-template-columns_2cap': true }
-  readonly gridTemplateColumns2p5cap: { 'grid-template-columns_2\.5cap': true }
   readonly gridTemplateColumns3cap: { 'grid-template-columns_3cap': true }
-  readonly gridTemplateColumns4cap: { 'grid-template-columns_4cap': true }
-  readonly gridTemplateColumns5cap: { 'grid-template-columns_5cap': true }
-  readonly gridTemplateColumns6cap: { 'grid-template-columns_6cap': true }
-  readonly gridTemplateColumns8cap: { 'grid-template-columns_8cap': true }
   readonly gridTemplateColumns0ch: { 'grid-template-columns_0ch': true }
-  readonly gridTemplateColumns0p25ch: { 'grid-template-columns_0\.25ch': true }
   readonly gridTemplateColumns0p5ch: { 'grid-template-columns_0\.5ch': true }
-  readonly gridTemplateColumns0p75ch: { 'grid-template-columns_0\.75ch': true }
   readonly gridTemplateColumns1ch: { 'grid-template-columns_1ch': true }
-  readonly gridTemplateColumns1p25ch: { 'grid-template-columns_1\.25ch': true }
   readonly gridTemplateColumns1p5ch: { 'grid-template-columns_1\.5ch': true }
   readonly gridTemplateColumns2ch: { 'grid-template-columns_2ch': true }
-  readonly gridTemplateColumns2p5ch: { 'grid-template-columns_2\.5ch': true }
   readonly gridTemplateColumns3ch: { 'grid-template-columns_3ch': true }
-  readonly gridTemplateColumns4ch: { 'grid-template-columns_4ch': true }
-  readonly gridTemplateColumns5ch: { 'grid-template-columns_5ch': true }
-  readonly gridTemplateColumns6ch: { 'grid-template-columns_6ch': true }
-  readonly gridTemplateColumns8ch: { 'grid-template-columns_8ch': true }
   readonly gridTemplateColumns0cm: { 'grid-template-columns_0cm': true }
   readonly gridTemplateColumns1cm: { 'grid-template-columns_1cm': true }
   readonly gridTemplateColumns2cm: { 'grid-template-columns_2cm': true }
   readonly gridTemplateColumns4cm: { 'grid-template-columns_4cm': true }
-  readonly gridTemplateColumns6cm: { 'grid-template-columns_6cm': true }
   readonly gridTemplateColumns8cm: { 'grid-template-columns_8cm': true }
-  readonly gridTemplateColumns10cm: { 'grid-template-columns_10cm': true }
-  readonly gridTemplateColumns12cm: { 'grid-template-columns_12cm': true }
-  readonly gridTemplateColumns16cm: { 'grid-template-columns_16cm': true }
-  readonly gridTemplateColumns20cm: { 'grid-template-columns_20cm': true }
   readonly gridTemplateColumns0dvh: { 'grid-template-columns_0dvh': true }
-  readonly gridTemplateColumns10dvh: { 'grid-template-columns_10dvh': true }
-  readonly gridTemplateColumns20dvh: { 'grid-template-columns_20dvh': true }
   readonly gridTemplateColumns25dvh: { 'grid-template-columns_25dvh': true }
-  readonly gridTemplateColumns30dvh: { 'grid-template-columns_30dvh': true }
-  readonly gridTemplateColumns33p33dvh: { 'grid-template-columns_33\.33dvh': true }
-  readonly gridTemplateColumns40dvh: { 'grid-template-columns_40dvh': true }
   readonly gridTemplateColumns50dvh: { 'grid-template-columns_50dvh': true }
-  readonly gridTemplateColumns60dvh: { 'grid-template-columns_60dvh': true }
-  readonly gridTemplateColumns66p67dvh: { 'grid-template-columns_66\.67dvh': true }
-  readonly gridTemplateColumns70dvh: { 'grid-template-columns_70dvh': true }
   readonly gridTemplateColumns75dvh: { 'grid-template-columns_75dvh': true }
-  readonly gridTemplateColumns80dvh: { 'grid-template-columns_80dvh': true }
-  readonly gridTemplateColumns90dvh: { 'grid-template-columns_90dvh': true }
   readonly gridTemplateColumns100dvh: { 'grid-template-columns_100dvh': true }
   readonly gridTemplateColumns0dvw: { 'grid-template-columns_0dvw': true }
-  readonly gridTemplateColumns10dvw: { 'grid-template-columns_10dvw': true }
-  readonly gridTemplateColumns20dvw: { 'grid-template-columns_20dvw': true }
   readonly gridTemplateColumns25dvw: { 'grid-template-columns_25dvw': true }
-  readonly gridTemplateColumns30dvw: { 'grid-template-columns_30dvw': true }
-  readonly gridTemplateColumns33p33dvw: { 'grid-template-columns_33\.33dvw': true }
-  readonly gridTemplateColumns40dvw: { 'grid-template-columns_40dvw': true }
   readonly gridTemplateColumns50dvw: { 'grid-template-columns_50dvw': true }
-  readonly gridTemplateColumns60dvw: { 'grid-template-columns_60dvw': true }
-  readonly gridTemplateColumns66p67dvw: { 'grid-template-columns_66\.67dvw': true }
-  readonly gridTemplateColumns70dvw: { 'grid-template-columns_70dvw': true }
   readonly gridTemplateColumns75dvw: { 'grid-template-columns_75dvw': true }
-  readonly gridTemplateColumns80dvw: { 'grid-template-columns_80dvw': true }
-  readonly gridTemplateColumns90dvw: { 'grid-template-columns_90dvw': true }
   readonly gridTemplateColumns100dvw: { 'grid-template-columns_100dvw': true }
   readonly gridTemplateColumns0em: { 'grid-template-columns_0em': true }
-  readonly gridTemplateColumns0p25em: { 'grid-template-columns_0\.25em': true }
   readonly gridTemplateColumns0p5em: { 'grid-template-columns_0\.5em': true }
-  readonly gridTemplateColumns0p75em: { 'grid-template-columns_0\.75em': true }
   readonly gridTemplateColumns1em: { 'grid-template-columns_1em': true }
-  readonly gridTemplateColumns1p25em: { 'grid-template-columns_1\.25em': true }
   readonly gridTemplateColumns1p5em: { 'grid-template-columns_1\.5em': true }
   readonly gridTemplateColumns2em: { 'grid-template-columns_2em': true }
-  readonly gridTemplateColumns2p5em: { 'grid-template-columns_2\.5em': true }
   readonly gridTemplateColumns3em: { 'grid-template-columns_3em': true }
-  readonly gridTemplateColumns4em: { 'grid-template-columns_4em': true }
-  readonly gridTemplateColumns5em: { 'grid-template-columns_5em': true }
-  readonly gridTemplateColumns6em: { 'grid-template-columns_6em': true }
-  readonly gridTemplateColumns8em: { 'grid-template-columns_8em': true }
   readonly gridTemplateColumns0ex: { 'grid-template-columns_0ex': true }
-  readonly gridTemplateColumns0p25ex: { 'grid-template-columns_0\.25ex': true }
   readonly gridTemplateColumns0p5ex: { 'grid-template-columns_0\.5ex': true }
-  readonly gridTemplateColumns0p75ex: { 'grid-template-columns_0\.75ex': true }
   readonly gridTemplateColumns1ex: { 'grid-template-columns_1ex': true }
-  readonly gridTemplateColumns1p25ex: { 'grid-template-columns_1\.25ex': true }
   readonly gridTemplateColumns1p5ex: { 'grid-template-columns_1\.5ex': true }
   readonly gridTemplateColumns2ex: { 'grid-template-columns_2ex': true }
-  readonly gridTemplateColumns2p5ex: { 'grid-template-columns_2\.5ex': true }
   readonly gridTemplateColumns3ex: { 'grid-template-columns_3ex': true }
-  readonly gridTemplateColumns4ex: { 'grid-template-columns_4ex': true }
-  readonly gridTemplateColumns5ex: { 'grid-template-columns_5ex': true }
-  readonly gridTemplateColumns6ex: { 'grid-template-columns_6ex': true }
-  readonly gridTemplateColumns8ex: { 'grid-template-columns_8ex': true }
   readonly gridTemplateColumns0ic: { 'grid-template-columns_0ic': true }
-  readonly gridTemplateColumns0p25ic: { 'grid-template-columns_0\.25ic': true }
   readonly gridTemplateColumns0p5ic: { 'grid-template-columns_0\.5ic': true }
-  readonly gridTemplateColumns0p75ic: { 'grid-template-columns_0\.75ic': true }
   readonly gridTemplateColumns1ic: { 'grid-template-columns_1ic': true }
-  readonly gridTemplateColumns1p25ic: { 'grid-template-columns_1\.25ic': true }
   readonly gridTemplateColumns1p5ic: { 'grid-template-columns_1\.5ic': true }
   readonly gridTemplateColumns2ic: { 'grid-template-columns_2ic': true }
-  readonly gridTemplateColumns2p5ic: { 'grid-template-columns_2\.5ic': true }
   readonly gridTemplateColumns3ic: { 'grid-template-columns_3ic': true }
-  readonly gridTemplateColumns4ic: { 'grid-template-columns_4ic': true }
-  readonly gridTemplateColumns5ic: { 'grid-template-columns_5ic': true }
-  readonly gridTemplateColumns6ic: { 'grid-template-columns_6ic': true }
-  readonly gridTemplateColumns8ic: { 'grid-template-columns_8ic': true }
   readonly gridTemplateColumns0in: { 'grid-template-columns_0in': true }
   readonly gridTemplateColumns1in: { 'grid-template-columns_1in': true }
   readonly gridTemplateColumns2in: { 'grid-template-columns_2in': true }
   readonly gridTemplateColumns4in: { 'grid-template-columns_4in': true }
-  readonly gridTemplateColumns6in: { 'grid-template-columns_6in': true }
   readonly gridTemplateColumns8in: { 'grid-template-columns_8in': true }
-  readonly gridTemplateColumns10in: { 'grid-template-columns_10in': true }
-  readonly gridTemplateColumns12in: { 'grid-template-columns_12in': true }
-  readonly gridTemplateColumns16in: { 'grid-template-columns_16in': true }
-  readonly gridTemplateColumns20in: { 'grid-template-columns_20in': true }
   readonly gridTemplateColumns0lh: { 'grid-template-columns_0lh': true }
-  readonly gridTemplateColumns0p25lh: { 'grid-template-columns_0\.25lh': true }
   readonly gridTemplateColumns0p5lh: { 'grid-template-columns_0\.5lh': true }
-  readonly gridTemplateColumns0p75lh: { 'grid-template-columns_0\.75lh': true }
   readonly gridTemplateColumns1lh: { 'grid-template-columns_1lh': true }
-  readonly gridTemplateColumns1p25lh: { 'grid-template-columns_1\.25lh': true }
   readonly gridTemplateColumns1p5lh: { 'grid-template-columns_1\.5lh': true }
   readonly gridTemplateColumns2lh: { 'grid-template-columns_2lh': true }
-  readonly gridTemplateColumns2p5lh: { 'grid-template-columns_2\.5lh': true }
   readonly gridTemplateColumns3lh: { 'grid-template-columns_3lh': true }
-  readonly gridTemplateColumns4lh: { 'grid-template-columns_4lh': true }
-  readonly gridTemplateColumns5lh: { 'grid-template-columns_5lh': true }
-  readonly gridTemplateColumns6lh: { 'grid-template-columns_6lh': true }
-  readonly gridTemplateColumns8lh: { 'grid-template-columns_8lh': true }
   readonly gridTemplateColumns0lvh: { 'grid-template-columns_0lvh': true }
-  readonly gridTemplateColumns10lvh: { 'grid-template-columns_10lvh': true }
-  readonly gridTemplateColumns20lvh: { 'grid-template-columns_20lvh': true }
   readonly gridTemplateColumns25lvh: { 'grid-template-columns_25lvh': true }
-  readonly gridTemplateColumns30lvh: { 'grid-template-columns_30lvh': true }
-  readonly gridTemplateColumns33p33lvh: { 'grid-template-columns_33\.33lvh': true }
-  readonly gridTemplateColumns40lvh: { 'grid-template-columns_40lvh': true }
   readonly gridTemplateColumns50lvh: { 'grid-template-columns_50lvh': true }
-  readonly gridTemplateColumns60lvh: { 'grid-template-columns_60lvh': true }
-  readonly gridTemplateColumns66p67lvh: { 'grid-template-columns_66\.67lvh': true }
-  readonly gridTemplateColumns70lvh: { 'grid-template-columns_70lvh': true }
   readonly gridTemplateColumns75lvh: { 'grid-template-columns_75lvh': true }
-  readonly gridTemplateColumns80lvh: { 'grid-template-columns_80lvh': true }
-  readonly gridTemplateColumns90lvh: { 'grid-template-columns_90lvh': true }
   readonly gridTemplateColumns100lvh: { 'grid-template-columns_100lvh': true }
   readonly gridTemplateColumns0lvw: { 'grid-template-columns_0lvw': true }
-  readonly gridTemplateColumns10lvw: { 'grid-template-columns_10lvw': true }
-  readonly gridTemplateColumns20lvw: { 'grid-template-columns_20lvw': true }
   readonly gridTemplateColumns25lvw: { 'grid-template-columns_25lvw': true }
-  readonly gridTemplateColumns30lvw: { 'grid-template-columns_30lvw': true }
-  readonly gridTemplateColumns33p33lvw: { 'grid-template-columns_33\.33lvw': true }
-  readonly gridTemplateColumns40lvw: { 'grid-template-columns_40lvw': true }
   readonly gridTemplateColumns50lvw: { 'grid-template-columns_50lvw': true }
-  readonly gridTemplateColumns60lvw: { 'grid-template-columns_60lvw': true }
-  readonly gridTemplateColumns66p67lvw: { 'grid-template-columns_66\.67lvw': true }
-  readonly gridTemplateColumns70lvw: { 'grid-template-columns_70lvw': true }
   readonly gridTemplateColumns75lvw: { 'grid-template-columns_75lvw': true }
-  readonly gridTemplateColumns80lvw: { 'grid-template-columns_80lvw': true }
-  readonly gridTemplateColumns90lvw: { 'grid-template-columns_90lvw': true }
   readonly gridTemplateColumns100lvw: { 'grid-template-columns_100lvw': true }
   readonly gridTemplateColumns0mm: { 'grid-template-columns_0mm': true }
   readonly gridTemplateColumns1mm: { 'grid-template-columns_1mm': true }
   readonly gridTemplateColumns2mm: { 'grid-template-columns_2mm': true }
   readonly gridTemplateColumns4mm: { 'grid-template-columns_4mm': true }
-  readonly gridTemplateColumns6mm: { 'grid-template-columns_6mm': true }
   readonly gridTemplateColumns8mm: { 'grid-template-columns_8mm': true }
-  readonly gridTemplateColumns10mm: { 'grid-template-columns_10mm': true }
-  readonly gridTemplateColumns12mm: { 'grid-template-columns_12mm': true }
-  readonly gridTemplateColumns16mm: { 'grid-template-columns_16mm': true }
-  readonly gridTemplateColumns20mm: { 'grid-template-columns_20mm': true }
   readonly gridTemplateColumns0pc: { 'grid-template-columns_0pc': true }
   readonly gridTemplateColumns1pc: { 'grid-template-columns_1pc': true }
   readonly gridTemplateColumns2pc: { 'grid-template-columns_2pc': true }
   readonly gridTemplateColumns4pc: { 'grid-template-columns_4pc': true }
-  readonly gridTemplateColumns6pc: { 'grid-template-columns_6pc': true }
   readonly gridTemplateColumns8pc: { 'grid-template-columns_8pc': true }
-  readonly gridTemplateColumns10pc: { 'grid-template-columns_10pc': true }
-  readonly gridTemplateColumns12pc: { 'grid-template-columns_12pc': true }
-  readonly gridTemplateColumns16pc: { 'grid-template-columns_16pc': true }
-  readonly gridTemplateColumns20pc: { 'grid-template-columns_20pc': true }
   readonly gridTemplateColumns0pt: { 'grid-template-columns_0pt': true }
   readonly gridTemplateColumns1pt: { 'grid-template-columns_1pt': true }
   readonly gridTemplateColumns2pt: { 'grid-template-columns_2pt': true }
   readonly gridTemplateColumns4pt: { 'grid-template-columns_4pt': true }
-  readonly gridTemplateColumns6pt: { 'grid-template-columns_6pt': true }
   readonly gridTemplateColumns8pt: { 'grid-template-columns_8pt': true }
-  readonly gridTemplateColumns10pt: { 'grid-template-columns_10pt': true }
-  readonly gridTemplateColumns12pt: { 'grid-template-columns_12pt': true }
-  readonly gridTemplateColumns16pt: { 'grid-template-columns_16pt': true }
-  readonly gridTemplateColumns20pt: { 'grid-template-columns_20pt': true }
-  readonly gridTemplateColumnsN384px: { 'grid-template-columns_-384px': true }
-  readonly gridTemplateColumnsN320px: { 'grid-template-columns_-320px': true }
-  readonly gridTemplateColumnsN256px: { 'grid-template-columns_-256px': true }
-  readonly gridTemplateColumnsN224px: { 'grid-template-columns_-224px': true }
-  readonly gridTemplateColumnsN192px: { 'grid-template-columns_-192px': true }
-  readonly gridTemplateColumnsN160px: { 'grid-template-columns_-160px': true }
-  readonly gridTemplateColumnsN128px: { 'grid-template-columns_-128px': true }
   readonly gridTemplateColumnsN96px: { 'grid-template-columns_-96px': true }
   readonly gridTemplateColumnsN80px: { 'grid-template-columns_-80px': true }
   readonly gridTemplateColumnsN64px: { 'grid-template-columns_-64px': true }
-  readonly gridTemplateColumnsN56px: { 'grid-template-columns_-56px': true }
   readonly gridTemplateColumnsN48px: { 'grid-template-columns_-48px': true }
   readonly gridTemplateColumnsN40px: { 'grid-template-columns_-40px': true }
   readonly gridTemplateColumnsN32px: { 'grid-template-columns_-32px': true }
-  readonly gridTemplateColumnsN28px: { 'grid-template-columns_-28px': true }
   readonly gridTemplateColumnsN24px: { 'grid-template-columns_-24px': true }
   readonly gridTemplateColumnsN20px: { 'grid-template-columns_-20px': true }
   readonly gridTemplateColumnsN16px: { 'grid-template-columns_-16px': true }
-  readonly gridTemplateColumnsN14px: { 'grid-template-columns_-14px': true }
   readonly gridTemplateColumnsN12px: { 'grid-template-columns_-12px': true }
   readonly gridTemplateColumnsN10px: { 'grid-template-columns_-10px': true }
   readonly gridTemplateColumnsN8px: { 'grid-template-columns_-8px': true }
   readonly gridTemplateColumnsN6px: { 'grid-template-columns_-6px': true }
   readonly gridTemplateColumnsN4px: { 'grid-template-columns_-4px': true }
   readonly gridTemplateColumnsN2px: { 'grid-template-columns_-2px': true }
-  readonly gridTemplateColumnsN1px: { 'grid-template-columns_-1px': true }
   readonly gridTemplateColumns0px: { 'grid-template-columns_0px': true }
-  readonly gridTemplateColumns1px: { 'grid-template-columns_1px': true }
   readonly gridTemplateColumns2px: { 'grid-template-columns_2px': true }
   readonly gridTemplateColumns4px: { 'grid-template-columns_4px': true }
   readonly gridTemplateColumns6px: { 'grid-template-columns_6px': true }
   readonly gridTemplateColumns8px: { 'grid-template-columns_8px': true }
   readonly gridTemplateColumns10px: { 'grid-template-columns_10px': true }
   readonly gridTemplateColumns12px: { 'grid-template-columns_12px': true }
-  readonly gridTemplateColumns14px: { 'grid-template-columns_14px': true }
   readonly gridTemplateColumns16px: { 'grid-template-columns_16px': true }
   readonly gridTemplateColumns20px: { 'grid-template-columns_20px': true }
   readonly gridTemplateColumns24px: { 'grid-template-columns_24px': true }
-  readonly gridTemplateColumns28px: { 'grid-template-columns_28px': true }
   readonly gridTemplateColumns32px: { 'grid-template-columns_32px': true }
   readonly gridTemplateColumns40px: { 'grid-template-columns_40px': true }
   readonly gridTemplateColumns48px: { 'grid-template-columns_48px': true }
-  readonly gridTemplateColumns56px: { 'grid-template-columns_56px': true }
   readonly gridTemplateColumns64px: { 'grid-template-columns_64px': true }
   readonly gridTemplateColumns80px: { 'grid-template-columns_80px': true }
   readonly gridTemplateColumns96px: { 'grid-template-columns_96px': true }
-  readonly gridTemplateColumns128px: { 'grid-template-columns_128px': true }
-  readonly gridTemplateColumns160px: { 'grid-template-columns_160px': true }
-  readonly gridTemplateColumns192px: { 'grid-template-columns_192px': true }
-  readonly gridTemplateColumns224px: { 'grid-template-columns_224px': true }
-  readonly gridTemplateColumns256px: { 'grid-template-columns_256px': true }
-  readonly gridTemplateColumns320px: { 'grid-template-columns_320px': true }
-  readonly gridTemplateColumns384px: { 'grid-template-columns_384px': true }
   readonly gridTemplateColumns0rem: { 'grid-template-columns_0rem': true }
-  readonly gridTemplateColumns0p25rem: { 'grid-template-columns_0\.25rem': true }
   readonly gridTemplateColumns0p5rem: { 'grid-template-columns_0\.5rem': true }
-  readonly gridTemplateColumns0p75rem: { 'grid-template-columns_0\.75rem': true }
   readonly gridTemplateColumns1rem: { 'grid-template-columns_1rem': true }
-  readonly gridTemplateColumns1p25rem: { 'grid-template-columns_1\.25rem': true }
   readonly gridTemplateColumns1p5rem: { 'grid-template-columns_1\.5rem': true }
   readonly gridTemplateColumns2rem: { 'grid-template-columns_2rem': true }
-  readonly gridTemplateColumns2p5rem: { 'grid-template-columns_2\.5rem': true }
   readonly gridTemplateColumns3rem: { 'grid-template-columns_3rem': true }
-  readonly gridTemplateColumns4rem: { 'grid-template-columns_4rem': true }
-  readonly gridTemplateColumns5rem: { 'grid-template-columns_5rem': true }
-  readonly gridTemplateColumns6rem: { 'grid-template-columns_6rem': true }
-  readonly gridTemplateColumns8rem: { 'grid-template-columns_8rem': true }
   readonly gridTemplateColumns0rlh: { 'grid-template-columns_0rlh': true }
-  readonly gridTemplateColumns0p25rlh: { 'grid-template-columns_0\.25rlh': true }
   readonly gridTemplateColumns0p5rlh: { 'grid-template-columns_0\.5rlh': true }
-  readonly gridTemplateColumns0p75rlh: { 'grid-template-columns_0\.75rlh': true }
   readonly gridTemplateColumns1rlh: { 'grid-template-columns_1rlh': true }
-  readonly gridTemplateColumns1p25rlh: { 'grid-template-columns_1\.25rlh': true }
   readonly gridTemplateColumns1p5rlh: { 'grid-template-columns_1\.5rlh': true }
   readonly gridTemplateColumns2rlh: { 'grid-template-columns_2rlh': true }
-  readonly gridTemplateColumns2p5rlh: { 'grid-template-columns_2\.5rlh': true }
   readonly gridTemplateColumns3rlh: { 'grid-template-columns_3rlh': true }
-  readonly gridTemplateColumns4rlh: { 'grid-template-columns_4rlh': true }
-  readonly gridTemplateColumns5rlh: { 'grid-template-columns_5rlh': true }
-  readonly gridTemplateColumns6rlh: { 'grid-template-columns_6rlh': true }
-  readonly gridTemplateColumns8rlh: { 'grid-template-columns_8rlh': true }
   readonly gridTemplateColumns0svh: { 'grid-template-columns_0svh': true }
-  readonly gridTemplateColumns10svh: { 'grid-template-columns_10svh': true }
-  readonly gridTemplateColumns20svh: { 'grid-template-columns_20svh': true }
   readonly gridTemplateColumns25svh: { 'grid-template-columns_25svh': true }
-  readonly gridTemplateColumns30svh: { 'grid-template-columns_30svh': true }
-  readonly gridTemplateColumns33p33svh: { 'grid-template-columns_33\.33svh': true }
-  readonly gridTemplateColumns40svh: { 'grid-template-columns_40svh': true }
   readonly gridTemplateColumns50svh: { 'grid-template-columns_50svh': true }
-  readonly gridTemplateColumns60svh: { 'grid-template-columns_60svh': true }
-  readonly gridTemplateColumns66p67svh: { 'grid-template-columns_66\.67svh': true }
-  readonly gridTemplateColumns70svh: { 'grid-template-columns_70svh': true }
   readonly gridTemplateColumns75svh: { 'grid-template-columns_75svh': true }
-  readonly gridTemplateColumns80svh: { 'grid-template-columns_80svh': true }
-  readonly gridTemplateColumns90svh: { 'grid-template-columns_90svh': true }
   readonly gridTemplateColumns100svh: { 'grid-template-columns_100svh': true }
   readonly gridTemplateColumns0svw: { 'grid-template-columns_0svw': true }
-  readonly gridTemplateColumns10svw: { 'grid-template-columns_10svw': true }
-  readonly gridTemplateColumns20svw: { 'grid-template-columns_20svw': true }
   readonly gridTemplateColumns25svw: { 'grid-template-columns_25svw': true }
-  readonly gridTemplateColumns30svw: { 'grid-template-columns_30svw': true }
-  readonly gridTemplateColumns33p33svw: { 'grid-template-columns_33\.33svw': true }
-  readonly gridTemplateColumns40svw: { 'grid-template-columns_40svw': true }
   readonly gridTemplateColumns50svw: { 'grid-template-columns_50svw': true }
-  readonly gridTemplateColumns60svw: { 'grid-template-columns_60svw': true }
-  readonly gridTemplateColumns66p67svw: { 'grid-template-columns_66\.67svw': true }
-  readonly gridTemplateColumns70svw: { 'grid-template-columns_70svw': true }
   readonly gridTemplateColumns75svw: { 'grid-template-columns_75svw': true }
-  readonly gridTemplateColumns80svw: { 'grid-template-columns_80svw': true }
-  readonly gridTemplateColumns90svw: { 'grid-template-columns_90svw': true }
   readonly gridTemplateColumns100svw: { 'grid-template-columns_100svw': true }
   readonly gridTemplateColumns0vb: { 'grid-template-columns_0vb': true }
-  readonly gridTemplateColumns10vb: { 'grid-template-columns_10vb': true }
-  readonly gridTemplateColumns20vb: { 'grid-template-columns_20vb': true }
   readonly gridTemplateColumns25vb: { 'grid-template-columns_25vb': true }
-  readonly gridTemplateColumns30vb: { 'grid-template-columns_30vb': true }
-  readonly gridTemplateColumns33p33vb: { 'grid-template-columns_33\.33vb': true }
-  readonly gridTemplateColumns40vb: { 'grid-template-columns_40vb': true }
   readonly gridTemplateColumns50vb: { 'grid-template-columns_50vb': true }
-  readonly gridTemplateColumns60vb: { 'grid-template-columns_60vb': true }
-  readonly gridTemplateColumns66p67vb: { 'grid-template-columns_66\.67vb': true }
-  readonly gridTemplateColumns70vb: { 'grid-template-columns_70vb': true }
   readonly gridTemplateColumns75vb: { 'grid-template-columns_75vb': true }
-  readonly gridTemplateColumns80vb: { 'grid-template-columns_80vb': true }
-  readonly gridTemplateColumns90vb: { 'grid-template-columns_90vb': true }
   readonly gridTemplateColumns100vb: { 'grid-template-columns_100vb': true }
   readonly gridTemplateColumns0vh: { 'grid-template-columns_0vh': true }
-  readonly gridTemplateColumns10vh: { 'grid-template-columns_10vh': true }
-  readonly gridTemplateColumns20vh: { 'grid-template-columns_20vh': true }
   readonly gridTemplateColumns25vh: { 'grid-template-columns_25vh': true }
-  readonly gridTemplateColumns30vh: { 'grid-template-columns_30vh': true }
-  readonly gridTemplateColumns33p33vh: { 'grid-template-columns_33\.33vh': true }
-  readonly gridTemplateColumns40vh: { 'grid-template-columns_40vh': true }
   readonly gridTemplateColumns50vh: { 'grid-template-columns_50vh': true }
-  readonly gridTemplateColumns60vh: { 'grid-template-columns_60vh': true }
-  readonly gridTemplateColumns66p67vh: { 'grid-template-columns_66\.67vh': true }
-  readonly gridTemplateColumns70vh: { 'grid-template-columns_70vh': true }
   readonly gridTemplateColumns75vh: { 'grid-template-columns_75vh': true }
-  readonly gridTemplateColumns80vh: { 'grid-template-columns_80vh': true }
-  readonly gridTemplateColumns90vh: { 'grid-template-columns_90vh': true }
   readonly gridTemplateColumns100vh: { 'grid-template-columns_100vh': true }
   readonly gridTemplateColumns0vi: { 'grid-template-columns_0vi': true }
-  readonly gridTemplateColumns10vi: { 'grid-template-columns_10vi': true }
-  readonly gridTemplateColumns20vi: { 'grid-template-columns_20vi': true }
   readonly gridTemplateColumns25vi: { 'grid-template-columns_25vi': true }
-  readonly gridTemplateColumns30vi: { 'grid-template-columns_30vi': true }
-  readonly gridTemplateColumns33p33vi: { 'grid-template-columns_33\.33vi': true }
-  readonly gridTemplateColumns40vi: { 'grid-template-columns_40vi': true }
   readonly gridTemplateColumns50vi: { 'grid-template-columns_50vi': true }
-  readonly gridTemplateColumns60vi: { 'grid-template-columns_60vi': true }
-  readonly gridTemplateColumns66p67vi: { 'grid-template-columns_66\.67vi': true }
-  readonly gridTemplateColumns70vi: { 'grid-template-columns_70vi': true }
   readonly gridTemplateColumns75vi: { 'grid-template-columns_75vi': true }
-  readonly gridTemplateColumns80vi: { 'grid-template-columns_80vi': true }
-  readonly gridTemplateColumns90vi: { 'grid-template-columns_90vi': true }
   readonly gridTemplateColumns100vi: { 'grid-template-columns_100vi': true }
   readonly gridTemplateColumns0vmax: { 'grid-template-columns_0vmax': true }
-  readonly gridTemplateColumns10vmax: { 'grid-template-columns_10vmax': true }
-  readonly gridTemplateColumns20vmax: { 'grid-template-columns_20vmax': true }
   readonly gridTemplateColumns25vmax: { 'grid-template-columns_25vmax': true }
-  readonly gridTemplateColumns30vmax: { 'grid-template-columns_30vmax': true }
-  readonly gridTemplateColumns33p33vmax: { 'grid-template-columns_33\.33vmax': true }
-  readonly gridTemplateColumns40vmax: { 'grid-template-columns_40vmax': true }
   readonly gridTemplateColumns50vmax: { 'grid-template-columns_50vmax': true }
-  readonly gridTemplateColumns60vmax: { 'grid-template-columns_60vmax': true }
-  readonly gridTemplateColumns66p67vmax: { 'grid-template-columns_66\.67vmax': true }
-  readonly gridTemplateColumns70vmax: { 'grid-template-columns_70vmax': true }
   readonly gridTemplateColumns75vmax: { 'grid-template-columns_75vmax': true }
-  readonly gridTemplateColumns80vmax: { 'grid-template-columns_80vmax': true }
-  readonly gridTemplateColumns90vmax: { 'grid-template-columns_90vmax': true }
   readonly gridTemplateColumns100vmax: { 'grid-template-columns_100vmax': true }
   readonly gridTemplateColumns0vmin: { 'grid-template-columns_0vmin': true }
-  readonly gridTemplateColumns10vmin: { 'grid-template-columns_10vmin': true }
-  readonly gridTemplateColumns20vmin: { 'grid-template-columns_20vmin': true }
   readonly gridTemplateColumns25vmin: { 'grid-template-columns_25vmin': true }
-  readonly gridTemplateColumns30vmin: { 'grid-template-columns_30vmin': true }
-  readonly gridTemplateColumns33p33vmin: { 'grid-template-columns_33\.33vmin': true }
-  readonly gridTemplateColumns40vmin: { 'grid-template-columns_40vmin': true }
   readonly gridTemplateColumns50vmin: { 'grid-template-columns_50vmin': true }
-  readonly gridTemplateColumns60vmin: { 'grid-template-columns_60vmin': true }
-  readonly gridTemplateColumns66p67vmin: { 'grid-template-columns_66\.67vmin': true }
-  readonly gridTemplateColumns70vmin: { 'grid-template-columns_70vmin': true }
   readonly gridTemplateColumns75vmin: { 'grid-template-columns_75vmin': true }
-  readonly gridTemplateColumns80vmin: { 'grid-template-columns_80vmin': true }
-  readonly gridTemplateColumns90vmin: { 'grid-template-columns_90vmin': true }
   readonly gridTemplateColumns100vmin: { 'grid-template-columns_100vmin': true }
   readonly gridTemplateColumns0vw: { 'grid-template-columns_0vw': true }
-  readonly gridTemplateColumns10vw: { 'grid-template-columns_10vw': true }
-  readonly gridTemplateColumns20vw: { 'grid-template-columns_20vw': true }
   readonly gridTemplateColumns25vw: { 'grid-template-columns_25vw': true }
-  readonly gridTemplateColumns30vw: { 'grid-template-columns_30vw': true }
-  readonly gridTemplateColumns33p33vw: { 'grid-template-columns_33\.33vw': true }
-  readonly gridTemplateColumns40vw: { 'grid-template-columns_40vw': true }
   readonly gridTemplateColumns50vw: { 'grid-template-columns_50vw': true }
-  readonly gridTemplateColumns60vw: { 'grid-template-columns_60vw': true }
-  readonly gridTemplateColumns66p67vw: { 'grid-template-columns_66\.67vw': true }
-  readonly gridTemplateColumns70vw: { 'grid-template-columns_70vw': true }
   readonly gridTemplateColumns75vw: { 'grid-template-columns_75vw': true }
-  readonly gridTemplateColumns80vw: { 'grid-template-columns_80vw': true }
-  readonly gridTemplateColumns90vw: { 'grid-template-columns_90vw': true }
   readonly gridTemplateColumns100vw: { 'grid-template-columns_100vw': true }
   readonly gridTemplateColumns0Pct: { 'grid-template-columns_0\%': true }
-  readonly gridTemplateColumns10Pct: { 'grid-template-columns_10\%': true }
-  readonly gridTemplateColumns20Pct: { 'grid-template-columns_20\%': true }
   readonly gridTemplateColumns25Pct: { 'grid-template-columns_25\%': true }
-  readonly gridTemplateColumns30Pct: { 'grid-template-columns_30\%': true }
-  readonly gridTemplateColumns33p33Pct: { 'grid-template-columns_33\.33\%': true }
-  readonly gridTemplateColumns40Pct: { 'grid-template-columns_40\%': true }
   readonly gridTemplateColumns50Pct: { 'grid-template-columns_50\%': true }
-  readonly gridTemplateColumns60Pct: { 'grid-template-columns_60\%': true }
-  readonly gridTemplateColumns66p67Pct: { 'grid-template-columns_66\.67\%': true }
-  readonly gridTemplateColumns70Pct: { 'grid-template-columns_70\%': true }
   readonly gridTemplateColumns75Pct: { 'grid-template-columns_75\%': true }
-  readonly gridTemplateColumns80Pct: { 'grid-template-columns_80\%': true }
-  readonly gridTemplateColumns90Pct: { 'grid-template-columns_90\%': true }
   readonly gridTemplateColumns100Pct: { 'grid-template-columns_100\%': true }
 
   // ==================== grid-template-rows ====================
@@ -5153,443 +2419,179 @@ export interface CsstsAtoms {
   readonly gridTemplateRowsMinContent: { 'grid-template-rows_min-content': true }
   readonly gridTemplateRowsNone: { 'grid-template-rows_none': true }
   readonly gridTemplateRowsSubgrid: { 'grid-template-rows_subgrid': true }
-  readonly gridTemplateRows1fr: { 'grid-template-rows_1fr': true }
-  readonly gridTemplateRows2fr: { 'grid-template-rows_2fr': true }
-  readonly gridTemplateRows3fr: { 'grid-template-rows_3fr': true }
-  readonly gridTemplateRows4fr: { 'grid-template-rows_4fr': true }
-  readonly gridTemplateRows5fr: { 'grid-template-rows_5fr': true }
-  readonly gridTemplateRows6fr: { 'grid-template-rows_6fr': true }
-  readonly gridTemplateRows0: { 'grid-template-rows_0': true }
-  readonly gridTemplateRows0p5: { 'grid-template-rows_0\.5': true }
-  readonly gridTemplateRows1: { 'grid-template-rows_1': true }
-  readonly gridTemplateRows1p5: { 'grid-template-rows_1\.5': true }
-  readonly gridTemplateRows2: { 'grid-template-rows_2': true }
-  readonly gridTemplateRows3: { 'grid-template-rows_3': true }
-  readonly gridTemplateRows4: { 'grid-template-rows_4': true }
-  readonly gridTemplateRows5: { 'grid-template-rows_5': true }
-  readonly gridTemplateRows10: { 'grid-template-rows_10': true }
-  readonly gridTemplateRows20: { 'grid-template-rows_20': true }
-  readonly gridTemplateRows50: { 'grid-template-rows_50': true }
-  readonly gridTemplateRows100: { 'grid-template-rows_100': true }
   readonly gridTemplateRows0Q: { 'grid-template-rows_0Q': true }
   readonly gridTemplateRows1Q: { 'grid-template-rows_1Q': true }
   readonly gridTemplateRows2Q: { 'grid-template-rows_2Q': true }
   readonly gridTemplateRows4Q: { 'grid-template-rows_4Q': true }
-  readonly gridTemplateRows6Q: { 'grid-template-rows_6Q': true }
   readonly gridTemplateRows8Q: { 'grid-template-rows_8Q': true }
-  readonly gridTemplateRows10Q: { 'grid-template-rows_10Q': true }
-  readonly gridTemplateRows12Q: { 'grid-template-rows_12Q': true }
-  readonly gridTemplateRows16Q: { 'grid-template-rows_16Q': true }
-  readonly gridTemplateRows20Q: { 'grid-template-rows_20Q': true }
   readonly gridTemplateRows0cap: { 'grid-template-rows_0cap': true }
-  readonly gridTemplateRows0p25cap: { 'grid-template-rows_0\.25cap': true }
   readonly gridTemplateRows0p5cap: { 'grid-template-rows_0\.5cap': true }
-  readonly gridTemplateRows0p75cap: { 'grid-template-rows_0\.75cap': true }
   readonly gridTemplateRows1cap: { 'grid-template-rows_1cap': true }
-  readonly gridTemplateRows1p25cap: { 'grid-template-rows_1\.25cap': true }
   readonly gridTemplateRows1p5cap: { 'grid-template-rows_1\.5cap': true }
   readonly gridTemplateRows2cap: { 'grid-template-rows_2cap': true }
-  readonly gridTemplateRows2p5cap: { 'grid-template-rows_2\.5cap': true }
   readonly gridTemplateRows3cap: { 'grid-template-rows_3cap': true }
-  readonly gridTemplateRows4cap: { 'grid-template-rows_4cap': true }
-  readonly gridTemplateRows5cap: { 'grid-template-rows_5cap': true }
-  readonly gridTemplateRows6cap: { 'grid-template-rows_6cap': true }
-  readonly gridTemplateRows8cap: { 'grid-template-rows_8cap': true }
   readonly gridTemplateRows0ch: { 'grid-template-rows_0ch': true }
-  readonly gridTemplateRows0p25ch: { 'grid-template-rows_0\.25ch': true }
   readonly gridTemplateRows0p5ch: { 'grid-template-rows_0\.5ch': true }
-  readonly gridTemplateRows0p75ch: { 'grid-template-rows_0\.75ch': true }
   readonly gridTemplateRows1ch: { 'grid-template-rows_1ch': true }
-  readonly gridTemplateRows1p25ch: { 'grid-template-rows_1\.25ch': true }
   readonly gridTemplateRows1p5ch: { 'grid-template-rows_1\.5ch': true }
   readonly gridTemplateRows2ch: { 'grid-template-rows_2ch': true }
-  readonly gridTemplateRows2p5ch: { 'grid-template-rows_2\.5ch': true }
   readonly gridTemplateRows3ch: { 'grid-template-rows_3ch': true }
-  readonly gridTemplateRows4ch: { 'grid-template-rows_4ch': true }
-  readonly gridTemplateRows5ch: { 'grid-template-rows_5ch': true }
-  readonly gridTemplateRows6ch: { 'grid-template-rows_6ch': true }
-  readonly gridTemplateRows8ch: { 'grid-template-rows_8ch': true }
   readonly gridTemplateRows0cm: { 'grid-template-rows_0cm': true }
   readonly gridTemplateRows1cm: { 'grid-template-rows_1cm': true }
   readonly gridTemplateRows2cm: { 'grid-template-rows_2cm': true }
   readonly gridTemplateRows4cm: { 'grid-template-rows_4cm': true }
-  readonly gridTemplateRows6cm: { 'grid-template-rows_6cm': true }
   readonly gridTemplateRows8cm: { 'grid-template-rows_8cm': true }
-  readonly gridTemplateRows10cm: { 'grid-template-rows_10cm': true }
-  readonly gridTemplateRows12cm: { 'grid-template-rows_12cm': true }
-  readonly gridTemplateRows16cm: { 'grid-template-rows_16cm': true }
-  readonly gridTemplateRows20cm: { 'grid-template-rows_20cm': true }
   readonly gridTemplateRows0dvh: { 'grid-template-rows_0dvh': true }
-  readonly gridTemplateRows10dvh: { 'grid-template-rows_10dvh': true }
-  readonly gridTemplateRows20dvh: { 'grid-template-rows_20dvh': true }
   readonly gridTemplateRows25dvh: { 'grid-template-rows_25dvh': true }
-  readonly gridTemplateRows30dvh: { 'grid-template-rows_30dvh': true }
-  readonly gridTemplateRows33p33dvh: { 'grid-template-rows_33\.33dvh': true }
-  readonly gridTemplateRows40dvh: { 'grid-template-rows_40dvh': true }
   readonly gridTemplateRows50dvh: { 'grid-template-rows_50dvh': true }
-  readonly gridTemplateRows60dvh: { 'grid-template-rows_60dvh': true }
-  readonly gridTemplateRows66p67dvh: { 'grid-template-rows_66\.67dvh': true }
-  readonly gridTemplateRows70dvh: { 'grid-template-rows_70dvh': true }
   readonly gridTemplateRows75dvh: { 'grid-template-rows_75dvh': true }
-  readonly gridTemplateRows80dvh: { 'grid-template-rows_80dvh': true }
-  readonly gridTemplateRows90dvh: { 'grid-template-rows_90dvh': true }
   readonly gridTemplateRows100dvh: { 'grid-template-rows_100dvh': true }
   readonly gridTemplateRows0dvw: { 'grid-template-rows_0dvw': true }
-  readonly gridTemplateRows10dvw: { 'grid-template-rows_10dvw': true }
-  readonly gridTemplateRows20dvw: { 'grid-template-rows_20dvw': true }
   readonly gridTemplateRows25dvw: { 'grid-template-rows_25dvw': true }
-  readonly gridTemplateRows30dvw: { 'grid-template-rows_30dvw': true }
-  readonly gridTemplateRows33p33dvw: { 'grid-template-rows_33\.33dvw': true }
-  readonly gridTemplateRows40dvw: { 'grid-template-rows_40dvw': true }
   readonly gridTemplateRows50dvw: { 'grid-template-rows_50dvw': true }
-  readonly gridTemplateRows60dvw: { 'grid-template-rows_60dvw': true }
-  readonly gridTemplateRows66p67dvw: { 'grid-template-rows_66\.67dvw': true }
-  readonly gridTemplateRows70dvw: { 'grid-template-rows_70dvw': true }
   readonly gridTemplateRows75dvw: { 'grid-template-rows_75dvw': true }
-  readonly gridTemplateRows80dvw: { 'grid-template-rows_80dvw': true }
-  readonly gridTemplateRows90dvw: { 'grid-template-rows_90dvw': true }
   readonly gridTemplateRows100dvw: { 'grid-template-rows_100dvw': true }
   readonly gridTemplateRows0em: { 'grid-template-rows_0em': true }
-  readonly gridTemplateRows0p25em: { 'grid-template-rows_0\.25em': true }
   readonly gridTemplateRows0p5em: { 'grid-template-rows_0\.5em': true }
-  readonly gridTemplateRows0p75em: { 'grid-template-rows_0\.75em': true }
   readonly gridTemplateRows1em: { 'grid-template-rows_1em': true }
-  readonly gridTemplateRows1p25em: { 'grid-template-rows_1\.25em': true }
   readonly gridTemplateRows1p5em: { 'grid-template-rows_1\.5em': true }
   readonly gridTemplateRows2em: { 'grid-template-rows_2em': true }
-  readonly gridTemplateRows2p5em: { 'grid-template-rows_2\.5em': true }
   readonly gridTemplateRows3em: { 'grid-template-rows_3em': true }
-  readonly gridTemplateRows4em: { 'grid-template-rows_4em': true }
-  readonly gridTemplateRows5em: { 'grid-template-rows_5em': true }
-  readonly gridTemplateRows6em: { 'grid-template-rows_6em': true }
-  readonly gridTemplateRows8em: { 'grid-template-rows_8em': true }
   readonly gridTemplateRows0ex: { 'grid-template-rows_0ex': true }
-  readonly gridTemplateRows0p25ex: { 'grid-template-rows_0\.25ex': true }
   readonly gridTemplateRows0p5ex: { 'grid-template-rows_0\.5ex': true }
-  readonly gridTemplateRows0p75ex: { 'grid-template-rows_0\.75ex': true }
   readonly gridTemplateRows1ex: { 'grid-template-rows_1ex': true }
-  readonly gridTemplateRows1p25ex: { 'grid-template-rows_1\.25ex': true }
   readonly gridTemplateRows1p5ex: { 'grid-template-rows_1\.5ex': true }
   readonly gridTemplateRows2ex: { 'grid-template-rows_2ex': true }
-  readonly gridTemplateRows2p5ex: { 'grid-template-rows_2\.5ex': true }
   readonly gridTemplateRows3ex: { 'grid-template-rows_3ex': true }
-  readonly gridTemplateRows4ex: { 'grid-template-rows_4ex': true }
-  readonly gridTemplateRows5ex: { 'grid-template-rows_5ex': true }
-  readonly gridTemplateRows6ex: { 'grid-template-rows_6ex': true }
-  readonly gridTemplateRows8ex: { 'grid-template-rows_8ex': true }
   readonly gridTemplateRows0ic: { 'grid-template-rows_0ic': true }
-  readonly gridTemplateRows0p25ic: { 'grid-template-rows_0\.25ic': true }
   readonly gridTemplateRows0p5ic: { 'grid-template-rows_0\.5ic': true }
-  readonly gridTemplateRows0p75ic: { 'grid-template-rows_0\.75ic': true }
   readonly gridTemplateRows1ic: { 'grid-template-rows_1ic': true }
-  readonly gridTemplateRows1p25ic: { 'grid-template-rows_1\.25ic': true }
   readonly gridTemplateRows1p5ic: { 'grid-template-rows_1\.5ic': true }
   readonly gridTemplateRows2ic: { 'grid-template-rows_2ic': true }
-  readonly gridTemplateRows2p5ic: { 'grid-template-rows_2\.5ic': true }
   readonly gridTemplateRows3ic: { 'grid-template-rows_3ic': true }
-  readonly gridTemplateRows4ic: { 'grid-template-rows_4ic': true }
-  readonly gridTemplateRows5ic: { 'grid-template-rows_5ic': true }
-  readonly gridTemplateRows6ic: { 'grid-template-rows_6ic': true }
-  readonly gridTemplateRows8ic: { 'grid-template-rows_8ic': true }
   readonly gridTemplateRows0in: { 'grid-template-rows_0in': true }
   readonly gridTemplateRows1in: { 'grid-template-rows_1in': true }
   readonly gridTemplateRows2in: { 'grid-template-rows_2in': true }
   readonly gridTemplateRows4in: { 'grid-template-rows_4in': true }
-  readonly gridTemplateRows6in: { 'grid-template-rows_6in': true }
   readonly gridTemplateRows8in: { 'grid-template-rows_8in': true }
-  readonly gridTemplateRows10in: { 'grid-template-rows_10in': true }
-  readonly gridTemplateRows12in: { 'grid-template-rows_12in': true }
-  readonly gridTemplateRows16in: { 'grid-template-rows_16in': true }
-  readonly gridTemplateRows20in: { 'grid-template-rows_20in': true }
   readonly gridTemplateRows0lh: { 'grid-template-rows_0lh': true }
-  readonly gridTemplateRows0p25lh: { 'grid-template-rows_0\.25lh': true }
   readonly gridTemplateRows0p5lh: { 'grid-template-rows_0\.5lh': true }
-  readonly gridTemplateRows0p75lh: { 'grid-template-rows_0\.75lh': true }
   readonly gridTemplateRows1lh: { 'grid-template-rows_1lh': true }
-  readonly gridTemplateRows1p25lh: { 'grid-template-rows_1\.25lh': true }
   readonly gridTemplateRows1p5lh: { 'grid-template-rows_1\.5lh': true }
   readonly gridTemplateRows2lh: { 'grid-template-rows_2lh': true }
-  readonly gridTemplateRows2p5lh: { 'grid-template-rows_2\.5lh': true }
   readonly gridTemplateRows3lh: { 'grid-template-rows_3lh': true }
-  readonly gridTemplateRows4lh: { 'grid-template-rows_4lh': true }
-  readonly gridTemplateRows5lh: { 'grid-template-rows_5lh': true }
-  readonly gridTemplateRows6lh: { 'grid-template-rows_6lh': true }
-  readonly gridTemplateRows8lh: { 'grid-template-rows_8lh': true }
   readonly gridTemplateRows0lvh: { 'grid-template-rows_0lvh': true }
-  readonly gridTemplateRows10lvh: { 'grid-template-rows_10lvh': true }
-  readonly gridTemplateRows20lvh: { 'grid-template-rows_20lvh': true }
   readonly gridTemplateRows25lvh: { 'grid-template-rows_25lvh': true }
-  readonly gridTemplateRows30lvh: { 'grid-template-rows_30lvh': true }
-  readonly gridTemplateRows33p33lvh: { 'grid-template-rows_33\.33lvh': true }
-  readonly gridTemplateRows40lvh: { 'grid-template-rows_40lvh': true }
   readonly gridTemplateRows50lvh: { 'grid-template-rows_50lvh': true }
-  readonly gridTemplateRows60lvh: { 'grid-template-rows_60lvh': true }
-  readonly gridTemplateRows66p67lvh: { 'grid-template-rows_66\.67lvh': true }
-  readonly gridTemplateRows70lvh: { 'grid-template-rows_70lvh': true }
   readonly gridTemplateRows75lvh: { 'grid-template-rows_75lvh': true }
-  readonly gridTemplateRows80lvh: { 'grid-template-rows_80lvh': true }
-  readonly gridTemplateRows90lvh: { 'grid-template-rows_90lvh': true }
   readonly gridTemplateRows100lvh: { 'grid-template-rows_100lvh': true }
   readonly gridTemplateRows0lvw: { 'grid-template-rows_0lvw': true }
-  readonly gridTemplateRows10lvw: { 'grid-template-rows_10lvw': true }
-  readonly gridTemplateRows20lvw: { 'grid-template-rows_20lvw': true }
   readonly gridTemplateRows25lvw: { 'grid-template-rows_25lvw': true }
-  readonly gridTemplateRows30lvw: { 'grid-template-rows_30lvw': true }
-  readonly gridTemplateRows33p33lvw: { 'grid-template-rows_33\.33lvw': true }
-  readonly gridTemplateRows40lvw: { 'grid-template-rows_40lvw': true }
   readonly gridTemplateRows50lvw: { 'grid-template-rows_50lvw': true }
-  readonly gridTemplateRows60lvw: { 'grid-template-rows_60lvw': true }
-  readonly gridTemplateRows66p67lvw: { 'grid-template-rows_66\.67lvw': true }
-  readonly gridTemplateRows70lvw: { 'grid-template-rows_70lvw': true }
   readonly gridTemplateRows75lvw: { 'grid-template-rows_75lvw': true }
-  readonly gridTemplateRows80lvw: { 'grid-template-rows_80lvw': true }
-  readonly gridTemplateRows90lvw: { 'grid-template-rows_90lvw': true }
   readonly gridTemplateRows100lvw: { 'grid-template-rows_100lvw': true }
   readonly gridTemplateRows0mm: { 'grid-template-rows_0mm': true }
   readonly gridTemplateRows1mm: { 'grid-template-rows_1mm': true }
   readonly gridTemplateRows2mm: { 'grid-template-rows_2mm': true }
   readonly gridTemplateRows4mm: { 'grid-template-rows_4mm': true }
-  readonly gridTemplateRows6mm: { 'grid-template-rows_6mm': true }
   readonly gridTemplateRows8mm: { 'grid-template-rows_8mm': true }
-  readonly gridTemplateRows10mm: { 'grid-template-rows_10mm': true }
-  readonly gridTemplateRows12mm: { 'grid-template-rows_12mm': true }
-  readonly gridTemplateRows16mm: { 'grid-template-rows_16mm': true }
-  readonly gridTemplateRows20mm: { 'grid-template-rows_20mm': true }
   readonly gridTemplateRows0pc: { 'grid-template-rows_0pc': true }
   readonly gridTemplateRows1pc: { 'grid-template-rows_1pc': true }
   readonly gridTemplateRows2pc: { 'grid-template-rows_2pc': true }
   readonly gridTemplateRows4pc: { 'grid-template-rows_4pc': true }
-  readonly gridTemplateRows6pc: { 'grid-template-rows_6pc': true }
   readonly gridTemplateRows8pc: { 'grid-template-rows_8pc': true }
-  readonly gridTemplateRows10pc: { 'grid-template-rows_10pc': true }
-  readonly gridTemplateRows12pc: { 'grid-template-rows_12pc': true }
-  readonly gridTemplateRows16pc: { 'grid-template-rows_16pc': true }
-  readonly gridTemplateRows20pc: { 'grid-template-rows_20pc': true }
   readonly gridTemplateRows0pt: { 'grid-template-rows_0pt': true }
   readonly gridTemplateRows1pt: { 'grid-template-rows_1pt': true }
   readonly gridTemplateRows2pt: { 'grid-template-rows_2pt': true }
   readonly gridTemplateRows4pt: { 'grid-template-rows_4pt': true }
-  readonly gridTemplateRows6pt: { 'grid-template-rows_6pt': true }
   readonly gridTemplateRows8pt: { 'grid-template-rows_8pt': true }
-  readonly gridTemplateRows10pt: { 'grid-template-rows_10pt': true }
-  readonly gridTemplateRows12pt: { 'grid-template-rows_12pt': true }
-  readonly gridTemplateRows16pt: { 'grid-template-rows_16pt': true }
-  readonly gridTemplateRows20pt: { 'grid-template-rows_20pt': true }
-  readonly gridTemplateRowsN384px: { 'grid-template-rows_-384px': true }
-  readonly gridTemplateRowsN320px: { 'grid-template-rows_-320px': true }
-  readonly gridTemplateRowsN256px: { 'grid-template-rows_-256px': true }
-  readonly gridTemplateRowsN224px: { 'grid-template-rows_-224px': true }
-  readonly gridTemplateRowsN192px: { 'grid-template-rows_-192px': true }
-  readonly gridTemplateRowsN160px: { 'grid-template-rows_-160px': true }
-  readonly gridTemplateRowsN128px: { 'grid-template-rows_-128px': true }
   readonly gridTemplateRowsN96px: { 'grid-template-rows_-96px': true }
   readonly gridTemplateRowsN80px: { 'grid-template-rows_-80px': true }
   readonly gridTemplateRowsN64px: { 'grid-template-rows_-64px': true }
-  readonly gridTemplateRowsN56px: { 'grid-template-rows_-56px': true }
   readonly gridTemplateRowsN48px: { 'grid-template-rows_-48px': true }
   readonly gridTemplateRowsN40px: { 'grid-template-rows_-40px': true }
   readonly gridTemplateRowsN32px: { 'grid-template-rows_-32px': true }
-  readonly gridTemplateRowsN28px: { 'grid-template-rows_-28px': true }
   readonly gridTemplateRowsN24px: { 'grid-template-rows_-24px': true }
   readonly gridTemplateRowsN20px: { 'grid-template-rows_-20px': true }
   readonly gridTemplateRowsN16px: { 'grid-template-rows_-16px': true }
-  readonly gridTemplateRowsN14px: { 'grid-template-rows_-14px': true }
   readonly gridTemplateRowsN12px: { 'grid-template-rows_-12px': true }
   readonly gridTemplateRowsN10px: { 'grid-template-rows_-10px': true }
   readonly gridTemplateRowsN8px: { 'grid-template-rows_-8px': true }
   readonly gridTemplateRowsN6px: { 'grid-template-rows_-6px': true }
   readonly gridTemplateRowsN4px: { 'grid-template-rows_-4px': true }
   readonly gridTemplateRowsN2px: { 'grid-template-rows_-2px': true }
-  readonly gridTemplateRowsN1px: { 'grid-template-rows_-1px': true }
   readonly gridTemplateRows0px: { 'grid-template-rows_0px': true }
-  readonly gridTemplateRows1px: { 'grid-template-rows_1px': true }
   readonly gridTemplateRows2px: { 'grid-template-rows_2px': true }
   readonly gridTemplateRows4px: { 'grid-template-rows_4px': true }
   readonly gridTemplateRows6px: { 'grid-template-rows_6px': true }
   readonly gridTemplateRows8px: { 'grid-template-rows_8px': true }
   readonly gridTemplateRows10px: { 'grid-template-rows_10px': true }
   readonly gridTemplateRows12px: { 'grid-template-rows_12px': true }
-  readonly gridTemplateRows14px: { 'grid-template-rows_14px': true }
   readonly gridTemplateRows16px: { 'grid-template-rows_16px': true }
   readonly gridTemplateRows20px: { 'grid-template-rows_20px': true }
   readonly gridTemplateRows24px: { 'grid-template-rows_24px': true }
-  readonly gridTemplateRows28px: { 'grid-template-rows_28px': true }
   readonly gridTemplateRows32px: { 'grid-template-rows_32px': true }
   readonly gridTemplateRows40px: { 'grid-template-rows_40px': true }
   readonly gridTemplateRows48px: { 'grid-template-rows_48px': true }
-  readonly gridTemplateRows56px: { 'grid-template-rows_56px': true }
   readonly gridTemplateRows64px: { 'grid-template-rows_64px': true }
   readonly gridTemplateRows80px: { 'grid-template-rows_80px': true }
   readonly gridTemplateRows96px: { 'grid-template-rows_96px': true }
-  readonly gridTemplateRows128px: { 'grid-template-rows_128px': true }
-  readonly gridTemplateRows160px: { 'grid-template-rows_160px': true }
-  readonly gridTemplateRows192px: { 'grid-template-rows_192px': true }
-  readonly gridTemplateRows224px: { 'grid-template-rows_224px': true }
-  readonly gridTemplateRows256px: { 'grid-template-rows_256px': true }
-  readonly gridTemplateRows320px: { 'grid-template-rows_320px': true }
-  readonly gridTemplateRows384px: { 'grid-template-rows_384px': true }
   readonly gridTemplateRows0rem: { 'grid-template-rows_0rem': true }
-  readonly gridTemplateRows0p25rem: { 'grid-template-rows_0\.25rem': true }
   readonly gridTemplateRows0p5rem: { 'grid-template-rows_0\.5rem': true }
-  readonly gridTemplateRows0p75rem: { 'grid-template-rows_0\.75rem': true }
   readonly gridTemplateRows1rem: { 'grid-template-rows_1rem': true }
-  readonly gridTemplateRows1p25rem: { 'grid-template-rows_1\.25rem': true }
   readonly gridTemplateRows1p5rem: { 'grid-template-rows_1\.5rem': true }
   readonly gridTemplateRows2rem: { 'grid-template-rows_2rem': true }
-  readonly gridTemplateRows2p5rem: { 'grid-template-rows_2\.5rem': true }
   readonly gridTemplateRows3rem: { 'grid-template-rows_3rem': true }
-  readonly gridTemplateRows4rem: { 'grid-template-rows_4rem': true }
-  readonly gridTemplateRows5rem: { 'grid-template-rows_5rem': true }
-  readonly gridTemplateRows6rem: { 'grid-template-rows_6rem': true }
-  readonly gridTemplateRows8rem: { 'grid-template-rows_8rem': true }
   readonly gridTemplateRows0rlh: { 'grid-template-rows_0rlh': true }
-  readonly gridTemplateRows0p25rlh: { 'grid-template-rows_0\.25rlh': true }
   readonly gridTemplateRows0p5rlh: { 'grid-template-rows_0\.5rlh': true }
-  readonly gridTemplateRows0p75rlh: { 'grid-template-rows_0\.75rlh': true }
   readonly gridTemplateRows1rlh: { 'grid-template-rows_1rlh': true }
-  readonly gridTemplateRows1p25rlh: { 'grid-template-rows_1\.25rlh': true }
   readonly gridTemplateRows1p5rlh: { 'grid-template-rows_1\.5rlh': true }
   readonly gridTemplateRows2rlh: { 'grid-template-rows_2rlh': true }
-  readonly gridTemplateRows2p5rlh: { 'grid-template-rows_2\.5rlh': true }
   readonly gridTemplateRows3rlh: { 'grid-template-rows_3rlh': true }
-  readonly gridTemplateRows4rlh: { 'grid-template-rows_4rlh': true }
-  readonly gridTemplateRows5rlh: { 'grid-template-rows_5rlh': true }
-  readonly gridTemplateRows6rlh: { 'grid-template-rows_6rlh': true }
-  readonly gridTemplateRows8rlh: { 'grid-template-rows_8rlh': true }
   readonly gridTemplateRows0svh: { 'grid-template-rows_0svh': true }
-  readonly gridTemplateRows10svh: { 'grid-template-rows_10svh': true }
-  readonly gridTemplateRows20svh: { 'grid-template-rows_20svh': true }
   readonly gridTemplateRows25svh: { 'grid-template-rows_25svh': true }
-  readonly gridTemplateRows30svh: { 'grid-template-rows_30svh': true }
-  readonly gridTemplateRows33p33svh: { 'grid-template-rows_33\.33svh': true }
-  readonly gridTemplateRows40svh: { 'grid-template-rows_40svh': true }
   readonly gridTemplateRows50svh: { 'grid-template-rows_50svh': true }
-  readonly gridTemplateRows60svh: { 'grid-template-rows_60svh': true }
-  readonly gridTemplateRows66p67svh: { 'grid-template-rows_66\.67svh': true }
-  readonly gridTemplateRows70svh: { 'grid-template-rows_70svh': true }
   readonly gridTemplateRows75svh: { 'grid-template-rows_75svh': true }
-  readonly gridTemplateRows80svh: { 'grid-template-rows_80svh': true }
-  readonly gridTemplateRows90svh: { 'grid-template-rows_90svh': true }
   readonly gridTemplateRows100svh: { 'grid-template-rows_100svh': true }
   readonly gridTemplateRows0svw: { 'grid-template-rows_0svw': true }
-  readonly gridTemplateRows10svw: { 'grid-template-rows_10svw': true }
-  readonly gridTemplateRows20svw: { 'grid-template-rows_20svw': true }
   readonly gridTemplateRows25svw: { 'grid-template-rows_25svw': true }
-  readonly gridTemplateRows30svw: { 'grid-template-rows_30svw': true }
-  readonly gridTemplateRows33p33svw: { 'grid-template-rows_33\.33svw': true }
-  readonly gridTemplateRows40svw: { 'grid-template-rows_40svw': true }
   readonly gridTemplateRows50svw: { 'grid-template-rows_50svw': true }
-  readonly gridTemplateRows60svw: { 'grid-template-rows_60svw': true }
-  readonly gridTemplateRows66p67svw: { 'grid-template-rows_66\.67svw': true }
-  readonly gridTemplateRows70svw: { 'grid-template-rows_70svw': true }
   readonly gridTemplateRows75svw: { 'grid-template-rows_75svw': true }
-  readonly gridTemplateRows80svw: { 'grid-template-rows_80svw': true }
-  readonly gridTemplateRows90svw: { 'grid-template-rows_90svw': true }
   readonly gridTemplateRows100svw: { 'grid-template-rows_100svw': true }
   readonly gridTemplateRows0vb: { 'grid-template-rows_0vb': true }
-  readonly gridTemplateRows10vb: { 'grid-template-rows_10vb': true }
-  readonly gridTemplateRows20vb: { 'grid-template-rows_20vb': true }
   readonly gridTemplateRows25vb: { 'grid-template-rows_25vb': true }
-  readonly gridTemplateRows30vb: { 'grid-template-rows_30vb': true }
-  readonly gridTemplateRows33p33vb: { 'grid-template-rows_33\.33vb': true }
-  readonly gridTemplateRows40vb: { 'grid-template-rows_40vb': true }
   readonly gridTemplateRows50vb: { 'grid-template-rows_50vb': true }
-  readonly gridTemplateRows60vb: { 'grid-template-rows_60vb': true }
-  readonly gridTemplateRows66p67vb: { 'grid-template-rows_66\.67vb': true }
-  readonly gridTemplateRows70vb: { 'grid-template-rows_70vb': true }
   readonly gridTemplateRows75vb: { 'grid-template-rows_75vb': true }
-  readonly gridTemplateRows80vb: { 'grid-template-rows_80vb': true }
-  readonly gridTemplateRows90vb: { 'grid-template-rows_90vb': true }
   readonly gridTemplateRows100vb: { 'grid-template-rows_100vb': true }
   readonly gridTemplateRows0vh: { 'grid-template-rows_0vh': true }
-  readonly gridTemplateRows10vh: { 'grid-template-rows_10vh': true }
-  readonly gridTemplateRows20vh: { 'grid-template-rows_20vh': true }
   readonly gridTemplateRows25vh: { 'grid-template-rows_25vh': true }
-  readonly gridTemplateRows30vh: { 'grid-template-rows_30vh': true }
-  readonly gridTemplateRows33p33vh: { 'grid-template-rows_33\.33vh': true }
-  readonly gridTemplateRows40vh: { 'grid-template-rows_40vh': true }
   readonly gridTemplateRows50vh: { 'grid-template-rows_50vh': true }
-  readonly gridTemplateRows60vh: { 'grid-template-rows_60vh': true }
-  readonly gridTemplateRows66p67vh: { 'grid-template-rows_66\.67vh': true }
-  readonly gridTemplateRows70vh: { 'grid-template-rows_70vh': true }
   readonly gridTemplateRows75vh: { 'grid-template-rows_75vh': true }
-  readonly gridTemplateRows80vh: { 'grid-template-rows_80vh': true }
-  readonly gridTemplateRows90vh: { 'grid-template-rows_90vh': true }
   readonly gridTemplateRows100vh: { 'grid-template-rows_100vh': true }
   readonly gridTemplateRows0vi: { 'grid-template-rows_0vi': true }
-  readonly gridTemplateRows10vi: { 'grid-template-rows_10vi': true }
-  readonly gridTemplateRows20vi: { 'grid-template-rows_20vi': true }
   readonly gridTemplateRows25vi: { 'grid-template-rows_25vi': true }
-  readonly gridTemplateRows30vi: { 'grid-template-rows_30vi': true }
-  readonly gridTemplateRows33p33vi: { 'grid-template-rows_33\.33vi': true }
-  readonly gridTemplateRows40vi: { 'grid-template-rows_40vi': true }
   readonly gridTemplateRows50vi: { 'grid-template-rows_50vi': true }
-  readonly gridTemplateRows60vi: { 'grid-template-rows_60vi': true }
-  readonly gridTemplateRows66p67vi: { 'grid-template-rows_66\.67vi': true }
-  readonly gridTemplateRows70vi: { 'grid-template-rows_70vi': true }
   readonly gridTemplateRows75vi: { 'grid-template-rows_75vi': true }
-  readonly gridTemplateRows80vi: { 'grid-template-rows_80vi': true }
-  readonly gridTemplateRows90vi: { 'grid-template-rows_90vi': true }
   readonly gridTemplateRows100vi: { 'grid-template-rows_100vi': true }
   readonly gridTemplateRows0vmax: { 'grid-template-rows_0vmax': true }
-  readonly gridTemplateRows10vmax: { 'grid-template-rows_10vmax': true }
-  readonly gridTemplateRows20vmax: { 'grid-template-rows_20vmax': true }
   readonly gridTemplateRows25vmax: { 'grid-template-rows_25vmax': true }
-  readonly gridTemplateRows30vmax: { 'grid-template-rows_30vmax': true }
-  readonly gridTemplateRows33p33vmax: { 'grid-template-rows_33\.33vmax': true }
-  readonly gridTemplateRows40vmax: { 'grid-template-rows_40vmax': true }
   readonly gridTemplateRows50vmax: { 'grid-template-rows_50vmax': true }
-  readonly gridTemplateRows60vmax: { 'grid-template-rows_60vmax': true }
-  readonly gridTemplateRows66p67vmax: { 'grid-template-rows_66\.67vmax': true }
-  readonly gridTemplateRows70vmax: { 'grid-template-rows_70vmax': true }
   readonly gridTemplateRows75vmax: { 'grid-template-rows_75vmax': true }
-  readonly gridTemplateRows80vmax: { 'grid-template-rows_80vmax': true }
-  readonly gridTemplateRows90vmax: { 'grid-template-rows_90vmax': true }
   readonly gridTemplateRows100vmax: { 'grid-template-rows_100vmax': true }
   readonly gridTemplateRows0vmin: { 'grid-template-rows_0vmin': true }
-  readonly gridTemplateRows10vmin: { 'grid-template-rows_10vmin': true }
-  readonly gridTemplateRows20vmin: { 'grid-template-rows_20vmin': true }
   readonly gridTemplateRows25vmin: { 'grid-template-rows_25vmin': true }
-  readonly gridTemplateRows30vmin: { 'grid-template-rows_30vmin': true }
-  readonly gridTemplateRows33p33vmin: { 'grid-template-rows_33\.33vmin': true }
-  readonly gridTemplateRows40vmin: { 'grid-template-rows_40vmin': true }
   readonly gridTemplateRows50vmin: { 'grid-template-rows_50vmin': true }
-  readonly gridTemplateRows60vmin: { 'grid-template-rows_60vmin': true }
-  readonly gridTemplateRows66p67vmin: { 'grid-template-rows_66\.67vmin': true }
-  readonly gridTemplateRows70vmin: { 'grid-template-rows_70vmin': true }
   readonly gridTemplateRows75vmin: { 'grid-template-rows_75vmin': true }
-  readonly gridTemplateRows80vmin: { 'grid-template-rows_80vmin': true }
-  readonly gridTemplateRows90vmin: { 'grid-template-rows_90vmin': true }
   readonly gridTemplateRows100vmin: { 'grid-template-rows_100vmin': true }
   readonly gridTemplateRows0vw: { 'grid-template-rows_0vw': true }
-  readonly gridTemplateRows10vw: { 'grid-template-rows_10vw': true }
-  readonly gridTemplateRows20vw: { 'grid-template-rows_20vw': true }
   readonly gridTemplateRows25vw: { 'grid-template-rows_25vw': true }
-  readonly gridTemplateRows30vw: { 'grid-template-rows_30vw': true }
-  readonly gridTemplateRows33p33vw: { 'grid-template-rows_33\.33vw': true }
-  readonly gridTemplateRows40vw: { 'grid-template-rows_40vw': true }
   readonly gridTemplateRows50vw: { 'grid-template-rows_50vw': true }
-  readonly gridTemplateRows60vw: { 'grid-template-rows_60vw': true }
-  readonly gridTemplateRows66p67vw: { 'grid-template-rows_66\.67vw': true }
-  readonly gridTemplateRows70vw: { 'grid-template-rows_70vw': true }
   readonly gridTemplateRows75vw: { 'grid-template-rows_75vw': true }
-  readonly gridTemplateRows80vw: { 'grid-template-rows_80vw': true }
-  readonly gridTemplateRows90vw: { 'grid-template-rows_90vw': true }
   readonly gridTemplateRows100vw: { 'grid-template-rows_100vw': true }
   readonly gridTemplateRows0Pct: { 'grid-template-rows_0\%': true }
-  readonly gridTemplateRows10Pct: { 'grid-template-rows_10\%': true }
-  readonly gridTemplateRows20Pct: { 'grid-template-rows_20\%': true }
   readonly gridTemplateRows25Pct: { 'grid-template-rows_25\%': true }
-  readonly gridTemplateRows30Pct: { 'grid-template-rows_30\%': true }
-  readonly gridTemplateRows33p33Pct: { 'grid-template-rows_33\.33\%': true }
-  readonly gridTemplateRows40Pct: { 'grid-template-rows_40\%': true }
   readonly gridTemplateRows50Pct: { 'grid-template-rows_50\%': true }
-  readonly gridTemplateRows60Pct: { 'grid-template-rows_60\%': true }
-  readonly gridTemplateRows66p67Pct: { 'grid-template-rows_66\.67\%': true }
-  readonly gridTemplateRows70Pct: { 'grid-template-rows_70\%': true }
   readonly gridTemplateRows75Pct: { 'grid-template-rows_75\%': true }
-  readonly gridTemplateRows80Pct: { 'grid-template-rows_80\%': true }
-  readonly gridTemplateRows90Pct: { 'grid-template-rows_90\%': true }
   readonly gridTemplateRows100Pct: { 'grid-template-rows_100\%': true }
 
   // ==================== height ====================
@@ -5612,421 +2614,175 @@ export interface CsstsAtoms {
   readonly height1Q: { 'height_1Q': true }
   readonly height2Q: { 'height_2Q': true }
   readonly height4Q: { 'height_4Q': true }
-  readonly height6Q: { 'height_6Q': true }
   readonly height8Q: { 'height_8Q': true }
-  readonly height10Q: { 'height_10Q': true }
-  readonly height12Q: { 'height_12Q': true }
-  readonly height16Q: { 'height_16Q': true }
-  readonly height20Q: { 'height_20Q': true }
   readonly height0cap: { 'height_0cap': true }
-  readonly height0p25cap: { 'height_0\.25cap': true }
   readonly height0p5cap: { 'height_0\.5cap': true }
-  readonly height0p75cap: { 'height_0\.75cap': true }
   readonly height1cap: { 'height_1cap': true }
-  readonly height1p25cap: { 'height_1\.25cap': true }
   readonly height1p5cap: { 'height_1\.5cap': true }
   readonly height2cap: { 'height_2cap': true }
-  readonly height2p5cap: { 'height_2\.5cap': true }
   readonly height3cap: { 'height_3cap': true }
-  readonly height4cap: { 'height_4cap': true }
-  readonly height5cap: { 'height_5cap': true }
-  readonly height6cap: { 'height_6cap': true }
-  readonly height8cap: { 'height_8cap': true }
   readonly height0ch: { 'height_0ch': true }
-  readonly height0p25ch: { 'height_0\.25ch': true }
   readonly height0p5ch: { 'height_0\.5ch': true }
-  readonly height0p75ch: { 'height_0\.75ch': true }
   readonly height1ch: { 'height_1ch': true }
-  readonly height1p25ch: { 'height_1\.25ch': true }
   readonly height1p5ch: { 'height_1\.5ch': true }
   readonly height2ch: { 'height_2ch': true }
-  readonly height2p5ch: { 'height_2\.5ch': true }
   readonly height3ch: { 'height_3ch': true }
-  readonly height4ch: { 'height_4ch': true }
-  readonly height5ch: { 'height_5ch': true }
-  readonly height6ch: { 'height_6ch': true }
-  readonly height8ch: { 'height_8ch': true }
   readonly height0cm: { 'height_0cm': true }
   readonly height1cm: { 'height_1cm': true }
   readonly height2cm: { 'height_2cm': true }
   readonly height4cm: { 'height_4cm': true }
-  readonly height6cm: { 'height_6cm': true }
   readonly height8cm: { 'height_8cm': true }
-  readonly height10cm: { 'height_10cm': true }
-  readonly height12cm: { 'height_12cm': true }
-  readonly height16cm: { 'height_16cm': true }
-  readonly height20cm: { 'height_20cm': true }
   readonly height0dvh: { 'height_0dvh': true }
-  readonly height10dvh: { 'height_10dvh': true }
-  readonly height20dvh: { 'height_20dvh': true }
   readonly height25dvh: { 'height_25dvh': true }
-  readonly height30dvh: { 'height_30dvh': true }
-  readonly height33p33dvh: { 'height_33\.33dvh': true }
-  readonly height40dvh: { 'height_40dvh': true }
   readonly height50dvh: { 'height_50dvh': true }
-  readonly height60dvh: { 'height_60dvh': true }
-  readonly height66p67dvh: { 'height_66\.67dvh': true }
-  readonly height70dvh: { 'height_70dvh': true }
   readonly height75dvh: { 'height_75dvh': true }
-  readonly height80dvh: { 'height_80dvh': true }
-  readonly height90dvh: { 'height_90dvh': true }
   readonly height100dvh: { 'height_100dvh': true }
   readonly height0dvw: { 'height_0dvw': true }
-  readonly height10dvw: { 'height_10dvw': true }
-  readonly height20dvw: { 'height_20dvw': true }
   readonly height25dvw: { 'height_25dvw': true }
-  readonly height30dvw: { 'height_30dvw': true }
-  readonly height33p33dvw: { 'height_33\.33dvw': true }
-  readonly height40dvw: { 'height_40dvw': true }
   readonly height50dvw: { 'height_50dvw': true }
-  readonly height60dvw: { 'height_60dvw': true }
-  readonly height66p67dvw: { 'height_66\.67dvw': true }
-  readonly height70dvw: { 'height_70dvw': true }
   readonly height75dvw: { 'height_75dvw': true }
-  readonly height80dvw: { 'height_80dvw': true }
-  readonly height90dvw: { 'height_90dvw': true }
   readonly height100dvw: { 'height_100dvw': true }
   readonly height0em: { 'height_0em': true }
-  readonly height0p25em: { 'height_0\.25em': true }
   readonly height0p5em: { 'height_0\.5em': true }
-  readonly height0p75em: { 'height_0\.75em': true }
   readonly height1em: { 'height_1em': true }
-  readonly height1p25em: { 'height_1\.25em': true }
   readonly height1p5em: { 'height_1\.5em': true }
   readonly height2em: { 'height_2em': true }
-  readonly height2p5em: { 'height_2\.5em': true }
   readonly height3em: { 'height_3em': true }
-  readonly height4em: { 'height_4em': true }
-  readonly height5em: { 'height_5em': true }
-  readonly height6em: { 'height_6em': true }
-  readonly height8em: { 'height_8em': true }
   readonly height0ex: { 'height_0ex': true }
-  readonly height0p25ex: { 'height_0\.25ex': true }
   readonly height0p5ex: { 'height_0\.5ex': true }
-  readonly height0p75ex: { 'height_0\.75ex': true }
   readonly height1ex: { 'height_1ex': true }
-  readonly height1p25ex: { 'height_1\.25ex': true }
   readonly height1p5ex: { 'height_1\.5ex': true }
   readonly height2ex: { 'height_2ex': true }
-  readonly height2p5ex: { 'height_2\.5ex': true }
   readonly height3ex: { 'height_3ex': true }
-  readonly height4ex: { 'height_4ex': true }
-  readonly height5ex: { 'height_5ex': true }
-  readonly height6ex: { 'height_6ex': true }
-  readonly height8ex: { 'height_8ex': true }
   readonly height0ic: { 'height_0ic': true }
-  readonly height0p25ic: { 'height_0\.25ic': true }
   readonly height0p5ic: { 'height_0\.5ic': true }
-  readonly height0p75ic: { 'height_0\.75ic': true }
   readonly height1ic: { 'height_1ic': true }
-  readonly height1p25ic: { 'height_1\.25ic': true }
   readonly height1p5ic: { 'height_1\.5ic': true }
   readonly height2ic: { 'height_2ic': true }
-  readonly height2p5ic: { 'height_2\.5ic': true }
   readonly height3ic: { 'height_3ic': true }
-  readonly height4ic: { 'height_4ic': true }
-  readonly height5ic: { 'height_5ic': true }
-  readonly height6ic: { 'height_6ic': true }
-  readonly height8ic: { 'height_8ic': true }
   readonly height0in: { 'height_0in': true }
   readonly height1in: { 'height_1in': true }
   readonly height2in: { 'height_2in': true }
   readonly height4in: { 'height_4in': true }
-  readonly height6in: { 'height_6in': true }
   readonly height8in: { 'height_8in': true }
-  readonly height10in: { 'height_10in': true }
-  readonly height12in: { 'height_12in': true }
-  readonly height16in: { 'height_16in': true }
-  readonly height20in: { 'height_20in': true }
   readonly height0lh: { 'height_0lh': true }
-  readonly height0p25lh: { 'height_0\.25lh': true }
   readonly height0p5lh: { 'height_0\.5lh': true }
-  readonly height0p75lh: { 'height_0\.75lh': true }
   readonly height1lh: { 'height_1lh': true }
-  readonly height1p25lh: { 'height_1\.25lh': true }
   readonly height1p5lh: { 'height_1\.5lh': true }
   readonly height2lh: { 'height_2lh': true }
-  readonly height2p5lh: { 'height_2\.5lh': true }
   readonly height3lh: { 'height_3lh': true }
-  readonly height4lh: { 'height_4lh': true }
-  readonly height5lh: { 'height_5lh': true }
-  readonly height6lh: { 'height_6lh': true }
-  readonly height8lh: { 'height_8lh': true }
   readonly height0lvh: { 'height_0lvh': true }
-  readonly height10lvh: { 'height_10lvh': true }
-  readonly height20lvh: { 'height_20lvh': true }
   readonly height25lvh: { 'height_25lvh': true }
-  readonly height30lvh: { 'height_30lvh': true }
-  readonly height33p33lvh: { 'height_33\.33lvh': true }
-  readonly height40lvh: { 'height_40lvh': true }
   readonly height50lvh: { 'height_50lvh': true }
-  readonly height60lvh: { 'height_60lvh': true }
-  readonly height66p67lvh: { 'height_66\.67lvh': true }
-  readonly height70lvh: { 'height_70lvh': true }
   readonly height75lvh: { 'height_75lvh': true }
-  readonly height80lvh: { 'height_80lvh': true }
-  readonly height90lvh: { 'height_90lvh': true }
   readonly height100lvh: { 'height_100lvh': true }
   readonly height0lvw: { 'height_0lvw': true }
-  readonly height10lvw: { 'height_10lvw': true }
-  readonly height20lvw: { 'height_20lvw': true }
   readonly height25lvw: { 'height_25lvw': true }
-  readonly height30lvw: { 'height_30lvw': true }
-  readonly height33p33lvw: { 'height_33\.33lvw': true }
-  readonly height40lvw: { 'height_40lvw': true }
   readonly height50lvw: { 'height_50lvw': true }
-  readonly height60lvw: { 'height_60lvw': true }
-  readonly height66p67lvw: { 'height_66\.67lvw': true }
-  readonly height70lvw: { 'height_70lvw': true }
   readonly height75lvw: { 'height_75lvw': true }
-  readonly height80lvw: { 'height_80lvw': true }
-  readonly height90lvw: { 'height_90lvw': true }
   readonly height100lvw: { 'height_100lvw': true }
   readonly height0mm: { 'height_0mm': true }
   readonly height1mm: { 'height_1mm': true }
   readonly height2mm: { 'height_2mm': true }
   readonly height4mm: { 'height_4mm': true }
-  readonly height6mm: { 'height_6mm': true }
   readonly height8mm: { 'height_8mm': true }
-  readonly height10mm: { 'height_10mm': true }
-  readonly height12mm: { 'height_12mm': true }
-  readonly height16mm: { 'height_16mm': true }
-  readonly height20mm: { 'height_20mm': true }
   readonly height0pc: { 'height_0pc': true }
   readonly height1pc: { 'height_1pc': true }
   readonly height2pc: { 'height_2pc': true }
   readonly height4pc: { 'height_4pc': true }
-  readonly height6pc: { 'height_6pc': true }
   readonly height8pc: { 'height_8pc': true }
-  readonly height10pc: { 'height_10pc': true }
-  readonly height12pc: { 'height_12pc': true }
-  readonly height16pc: { 'height_16pc': true }
-  readonly height20pc: { 'height_20pc': true }
   readonly height0pt: { 'height_0pt': true }
   readonly height1pt: { 'height_1pt': true }
   readonly height2pt: { 'height_2pt': true }
   readonly height4pt: { 'height_4pt': true }
-  readonly height6pt: { 'height_6pt': true }
   readonly height8pt: { 'height_8pt': true }
-  readonly height10pt: { 'height_10pt': true }
-  readonly height12pt: { 'height_12pt': true }
-  readonly height16pt: { 'height_16pt': true }
-  readonly height20pt: { 'height_20pt': true }
-  readonly heightN384px: { 'height_-384px': true }
-  readonly heightN320px: { 'height_-320px': true }
-  readonly heightN256px: { 'height_-256px': true }
-  readonly heightN224px: { 'height_-224px': true }
-  readonly heightN192px: { 'height_-192px': true }
-  readonly heightN160px: { 'height_-160px': true }
-  readonly heightN128px: { 'height_-128px': true }
   readonly heightN96px: { 'height_-96px': true }
   readonly heightN80px: { 'height_-80px': true }
   readonly heightN64px: { 'height_-64px': true }
-  readonly heightN56px: { 'height_-56px': true }
   readonly heightN48px: { 'height_-48px': true }
   readonly heightN40px: { 'height_-40px': true }
   readonly heightN32px: { 'height_-32px': true }
-  readonly heightN28px: { 'height_-28px': true }
   readonly heightN24px: { 'height_-24px': true }
   readonly heightN20px: { 'height_-20px': true }
   readonly heightN16px: { 'height_-16px': true }
-  readonly heightN14px: { 'height_-14px': true }
   readonly heightN12px: { 'height_-12px': true }
   readonly heightN10px: { 'height_-10px': true }
   readonly heightN8px: { 'height_-8px': true }
   readonly heightN6px: { 'height_-6px': true }
   readonly heightN4px: { 'height_-4px': true }
   readonly heightN2px: { 'height_-2px': true }
-  readonly heightN1px: { 'height_-1px': true }
   readonly height0px: { 'height_0px': true }
-  readonly height1px: { 'height_1px': true }
   readonly height2px: { 'height_2px': true }
   readonly height4px: { 'height_4px': true }
   readonly height6px: { 'height_6px': true }
   readonly height8px: { 'height_8px': true }
   readonly height10px: { 'height_10px': true }
   readonly height12px: { 'height_12px': true }
-  readonly height14px: { 'height_14px': true }
   readonly height16px: { 'height_16px': true }
   readonly height20px: { 'height_20px': true }
   readonly height24px: { 'height_24px': true }
-  readonly height28px: { 'height_28px': true }
   readonly height32px: { 'height_32px': true }
   readonly height40px: { 'height_40px': true }
   readonly height48px: { 'height_48px': true }
-  readonly height56px: { 'height_56px': true }
   readonly height64px: { 'height_64px': true }
   readonly height80px: { 'height_80px': true }
   readonly height96px: { 'height_96px': true }
-  readonly height128px: { 'height_128px': true }
-  readonly height160px: { 'height_160px': true }
-  readonly height192px: { 'height_192px': true }
-  readonly height224px: { 'height_224px': true }
-  readonly height256px: { 'height_256px': true }
-  readonly height320px: { 'height_320px': true }
-  readonly height384px: { 'height_384px': true }
   readonly height0rem: { 'height_0rem': true }
-  readonly height0p25rem: { 'height_0\.25rem': true }
   readonly height0p5rem: { 'height_0\.5rem': true }
-  readonly height0p75rem: { 'height_0\.75rem': true }
   readonly height1rem: { 'height_1rem': true }
-  readonly height1p25rem: { 'height_1\.25rem': true }
   readonly height1p5rem: { 'height_1\.5rem': true }
   readonly height2rem: { 'height_2rem': true }
-  readonly height2p5rem: { 'height_2\.5rem': true }
   readonly height3rem: { 'height_3rem': true }
-  readonly height4rem: { 'height_4rem': true }
-  readonly height5rem: { 'height_5rem': true }
-  readonly height6rem: { 'height_6rem': true }
-  readonly height8rem: { 'height_8rem': true }
   readonly height0rlh: { 'height_0rlh': true }
-  readonly height0p25rlh: { 'height_0\.25rlh': true }
   readonly height0p5rlh: { 'height_0\.5rlh': true }
-  readonly height0p75rlh: { 'height_0\.75rlh': true }
   readonly height1rlh: { 'height_1rlh': true }
-  readonly height1p25rlh: { 'height_1\.25rlh': true }
   readonly height1p5rlh: { 'height_1\.5rlh': true }
   readonly height2rlh: { 'height_2rlh': true }
-  readonly height2p5rlh: { 'height_2\.5rlh': true }
   readonly height3rlh: { 'height_3rlh': true }
-  readonly height4rlh: { 'height_4rlh': true }
-  readonly height5rlh: { 'height_5rlh': true }
-  readonly height6rlh: { 'height_6rlh': true }
-  readonly height8rlh: { 'height_8rlh': true }
   readonly height0svh: { 'height_0svh': true }
-  readonly height10svh: { 'height_10svh': true }
-  readonly height20svh: { 'height_20svh': true }
   readonly height25svh: { 'height_25svh': true }
-  readonly height30svh: { 'height_30svh': true }
-  readonly height33p33svh: { 'height_33\.33svh': true }
-  readonly height40svh: { 'height_40svh': true }
   readonly height50svh: { 'height_50svh': true }
-  readonly height60svh: { 'height_60svh': true }
-  readonly height66p67svh: { 'height_66\.67svh': true }
-  readonly height70svh: { 'height_70svh': true }
   readonly height75svh: { 'height_75svh': true }
-  readonly height80svh: { 'height_80svh': true }
-  readonly height90svh: { 'height_90svh': true }
   readonly height100svh: { 'height_100svh': true }
   readonly height0svw: { 'height_0svw': true }
-  readonly height10svw: { 'height_10svw': true }
-  readonly height20svw: { 'height_20svw': true }
   readonly height25svw: { 'height_25svw': true }
-  readonly height30svw: { 'height_30svw': true }
-  readonly height33p33svw: { 'height_33\.33svw': true }
-  readonly height40svw: { 'height_40svw': true }
   readonly height50svw: { 'height_50svw': true }
-  readonly height60svw: { 'height_60svw': true }
-  readonly height66p67svw: { 'height_66\.67svw': true }
-  readonly height70svw: { 'height_70svw': true }
   readonly height75svw: { 'height_75svw': true }
-  readonly height80svw: { 'height_80svw': true }
-  readonly height90svw: { 'height_90svw': true }
   readonly height100svw: { 'height_100svw': true }
   readonly height0vb: { 'height_0vb': true }
-  readonly height10vb: { 'height_10vb': true }
-  readonly height20vb: { 'height_20vb': true }
   readonly height25vb: { 'height_25vb': true }
-  readonly height30vb: { 'height_30vb': true }
-  readonly height33p33vb: { 'height_33\.33vb': true }
-  readonly height40vb: { 'height_40vb': true }
   readonly height50vb: { 'height_50vb': true }
-  readonly height60vb: { 'height_60vb': true }
-  readonly height66p67vb: { 'height_66\.67vb': true }
-  readonly height70vb: { 'height_70vb': true }
   readonly height75vb: { 'height_75vb': true }
-  readonly height80vb: { 'height_80vb': true }
-  readonly height90vb: { 'height_90vb': true }
   readonly height100vb: { 'height_100vb': true }
   readonly height0vh: { 'height_0vh': true }
-  readonly height10vh: { 'height_10vh': true }
-  readonly height20vh: { 'height_20vh': true }
   readonly height25vh: { 'height_25vh': true }
-  readonly height30vh: { 'height_30vh': true }
-  readonly height33p33vh: { 'height_33\.33vh': true }
-  readonly height40vh: { 'height_40vh': true }
   readonly height50vh: { 'height_50vh': true }
-  readonly height60vh: { 'height_60vh': true }
-  readonly height66p67vh: { 'height_66\.67vh': true }
-  readonly height70vh: { 'height_70vh': true }
   readonly height75vh: { 'height_75vh': true }
-  readonly height80vh: { 'height_80vh': true }
-  readonly height90vh: { 'height_90vh': true }
   readonly height100vh: { 'height_100vh': true }
   readonly height0vi: { 'height_0vi': true }
-  readonly height10vi: { 'height_10vi': true }
-  readonly height20vi: { 'height_20vi': true }
   readonly height25vi: { 'height_25vi': true }
-  readonly height30vi: { 'height_30vi': true }
-  readonly height33p33vi: { 'height_33\.33vi': true }
-  readonly height40vi: { 'height_40vi': true }
   readonly height50vi: { 'height_50vi': true }
-  readonly height60vi: { 'height_60vi': true }
-  readonly height66p67vi: { 'height_66\.67vi': true }
-  readonly height70vi: { 'height_70vi': true }
   readonly height75vi: { 'height_75vi': true }
-  readonly height80vi: { 'height_80vi': true }
-  readonly height90vi: { 'height_90vi': true }
   readonly height100vi: { 'height_100vi': true }
   readonly height0vmax: { 'height_0vmax': true }
-  readonly height10vmax: { 'height_10vmax': true }
-  readonly height20vmax: { 'height_20vmax': true }
   readonly height25vmax: { 'height_25vmax': true }
-  readonly height30vmax: { 'height_30vmax': true }
-  readonly height33p33vmax: { 'height_33\.33vmax': true }
-  readonly height40vmax: { 'height_40vmax': true }
   readonly height50vmax: { 'height_50vmax': true }
-  readonly height60vmax: { 'height_60vmax': true }
-  readonly height66p67vmax: { 'height_66\.67vmax': true }
-  readonly height70vmax: { 'height_70vmax': true }
   readonly height75vmax: { 'height_75vmax': true }
-  readonly height80vmax: { 'height_80vmax': true }
-  readonly height90vmax: { 'height_90vmax': true }
   readonly height100vmax: { 'height_100vmax': true }
   readonly height0vmin: { 'height_0vmin': true }
-  readonly height10vmin: { 'height_10vmin': true }
-  readonly height20vmin: { 'height_20vmin': true }
   readonly height25vmin: { 'height_25vmin': true }
-  readonly height30vmin: { 'height_30vmin': true }
-  readonly height33p33vmin: { 'height_33\.33vmin': true }
-  readonly height40vmin: { 'height_40vmin': true }
   readonly height50vmin: { 'height_50vmin': true }
-  readonly height60vmin: { 'height_60vmin': true }
-  readonly height66p67vmin: { 'height_66\.67vmin': true }
-  readonly height70vmin: { 'height_70vmin': true }
   readonly height75vmin: { 'height_75vmin': true }
-  readonly height80vmin: { 'height_80vmin': true }
-  readonly height90vmin: { 'height_90vmin': true }
   readonly height100vmin: { 'height_100vmin': true }
   readonly height0vw: { 'height_0vw': true }
-  readonly height10vw: { 'height_10vw': true }
-  readonly height20vw: { 'height_20vw': true }
   readonly height25vw: { 'height_25vw': true }
-  readonly height30vw: { 'height_30vw': true }
-  readonly height33p33vw: { 'height_33\.33vw': true }
-  readonly height40vw: { 'height_40vw': true }
   readonly height50vw: { 'height_50vw': true }
-  readonly height60vw: { 'height_60vw': true }
-  readonly height66p67vw: { 'height_66\.67vw': true }
-  readonly height70vw: { 'height_70vw': true }
   readonly height75vw: { 'height_75vw': true }
-  readonly height80vw: { 'height_80vw': true }
-  readonly height90vw: { 'height_90vw': true }
   readonly height100vw: { 'height_100vw': true }
   readonly height0Pct: { 'height_0\%': true }
-  readonly height10Pct: { 'height_10\%': true }
-  readonly height20Pct: { 'height_20\%': true }
   readonly height25Pct: { 'height_25\%': true }
-  readonly height30Pct: { 'height_30\%': true }
-  readonly height33p33Pct: { 'height_33\.33\%': true }
-  readonly height40Pct: { 'height_40\%': true }
   readonly height50Pct: { 'height_50\%': true }
-  readonly height60Pct: { 'height_60\%': true }
-  readonly height66p67Pct: { 'height_66\.67\%': true }
-  readonly height70Pct: { 'height_70\%': true }
   readonly height75Pct: { 'height_75\%': true }
-  readonly height80Pct: { 'height_80\%': true }
-  readonly height90Pct: { 'height_90\%': true }
   readonly height100Pct: { 'height_100\%': true }
 
   // ==================== justify-content ====================
@@ -6051,421 +2807,175 @@ export interface CsstsAtoms {
   readonly left1Q: { 'left_1Q': true }
   readonly left2Q: { 'left_2Q': true }
   readonly left4Q: { 'left_4Q': true }
-  readonly left6Q: { 'left_6Q': true }
   readonly left8Q: { 'left_8Q': true }
-  readonly left10Q: { 'left_10Q': true }
-  readonly left12Q: { 'left_12Q': true }
-  readonly left16Q: { 'left_16Q': true }
-  readonly left20Q: { 'left_20Q': true }
   readonly left0cap: { 'left_0cap': true }
-  readonly left0p25cap: { 'left_0\.25cap': true }
   readonly left0p5cap: { 'left_0\.5cap': true }
-  readonly left0p75cap: { 'left_0\.75cap': true }
   readonly left1cap: { 'left_1cap': true }
-  readonly left1p25cap: { 'left_1\.25cap': true }
   readonly left1p5cap: { 'left_1\.5cap': true }
   readonly left2cap: { 'left_2cap': true }
-  readonly left2p5cap: { 'left_2\.5cap': true }
   readonly left3cap: { 'left_3cap': true }
-  readonly left4cap: { 'left_4cap': true }
-  readonly left5cap: { 'left_5cap': true }
-  readonly left6cap: { 'left_6cap': true }
-  readonly left8cap: { 'left_8cap': true }
   readonly left0ch: { 'left_0ch': true }
-  readonly left0p25ch: { 'left_0\.25ch': true }
   readonly left0p5ch: { 'left_0\.5ch': true }
-  readonly left0p75ch: { 'left_0\.75ch': true }
   readonly left1ch: { 'left_1ch': true }
-  readonly left1p25ch: { 'left_1\.25ch': true }
   readonly left1p5ch: { 'left_1\.5ch': true }
   readonly left2ch: { 'left_2ch': true }
-  readonly left2p5ch: { 'left_2\.5ch': true }
   readonly left3ch: { 'left_3ch': true }
-  readonly left4ch: { 'left_4ch': true }
-  readonly left5ch: { 'left_5ch': true }
-  readonly left6ch: { 'left_6ch': true }
-  readonly left8ch: { 'left_8ch': true }
   readonly left0cm: { 'left_0cm': true }
   readonly left1cm: { 'left_1cm': true }
   readonly left2cm: { 'left_2cm': true }
   readonly left4cm: { 'left_4cm': true }
-  readonly left6cm: { 'left_6cm': true }
   readonly left8cm: { 'left_8cm': true }
-  readonly left10cm: { 'left_10cm': true }
-  readonly left12cm: { 'left_12cm': true }
-  readonly left16cm: { 'left_16cm': true }
-  readonly left20cm: { 'left_20cm': true }
   readonly left0dvh: { 'left_0dvh': true }
-  readonly left10dvh: { 'left_10dvh': true }
-  readonly left20dvh: { 'left_20dvh': true }
   readonly left25dvh: { 'left_25dvh': true }
-  readonly left30dvh: { 'left_30dvh': true }
-  readonly left33p33dvh: { 'left_33\.33dvh': true }
-  readonly left40dvh: { 'left_40dvh': true }
   readonly left50dvh: { 'left_50dvh': true }
-  readonly left60dvh: { 'left_60dvh': true }
-  readonly left66p67dvh: { 'left_66\.67dvh': true }
-  readonly left70dvh: { 'left_70dvh': true }
   readonly left75dvh: { 'left_75dvh': true }
-  readonly left80dvh: { 'left_80dvh': true }
-  readonly left90dvh: { 'left_90dvh': true }
   readonly left100dvh: { 'left_100dvh': true }
   readonly left0dvw: { 'left_0dvw': true }
-  readonly left10dvw: { 'left_10dvw': true }
-  readonly left20dvw: { 'left_20dvw': true }
   readonly left25dvw: { 'left_25dvw': true }
-  readonly left30dvw: { 'left_30dvw': true }
-  readonly left33p33dvw: { 'left_33\.33dvw': true }
-  readonly left40dvw: { 'left_40dvw': true }
   readonly left50dvw: { 'left_50dvw': true }
-  readonly left60dvw: { 'left_60dvw': true }
-  readonly left66p67dvw: { 'left_66\.67dvw': true }
-  readonly left70dvw: { 'left_70dvw': true }
   readonly left75dvw: { 'left_75dvw': true }
-  readonly left80dvw: { 'left_80dvw': true }
-  readonly left90dvw: { 'left_90dvw': true }
   readonly left100dvw: { 'left_100dvw': true }
   readonly left0em: { 'left_0em': true }
-  readonly left0p25em: { 'left_0\.25em': true }
   readonly left0p5em: { 'left_0\.5em': true }
-  readonly left0p75em: { 'left_0\.75em': true }
   readonly left1em: { 'left_1em': true }
-  readonly left1p25em: { 'left_1\.25em': true }
   readonly left1p5em: { 'left_1\.5em': true }
   readonly left2em: { 'left_2em': true }
-  readonly left2p5em: { 'left_2\.5em': true }
   readonly left3em: { 'left_3em': true }
-  readonly left4em: { 'left_4em': true }
-  readonly left5em: { 'left_5em': true }
-  readonly left6em: { 'left_6em': true }
-  readonly left8em: { 'left_8em': true }
   readonly left0ex: { 'left_0ex': true }
-  readonly left0p25ex: { 'left_0\.25ex': true }
   readonly left0p5ex: { 'left_0\.5ex': true }
-  readonly left0p75ex: { 'left_0\.75ex': true }
   readonly left1ex: { 'left_1ex': true }
-  readonly left1p25ex: { 'left_1\.25ex': true }
   readonly left1p5ex: { 'left_1\.5ex': true }
   readonly left2ex: { 'left_2ex': true }
-  readonly left2p5ex: { 'left_2\.5ex': true }
   readonly left3ex: { 'left_3ex': true }
-  readonly left4ex: { 'left_4ex': true }
-  readonly left5ex: { 'left_5ex': true }
-  readonly left6ex: { 'left_6ex': true }
-  readonly left8ex: { 'left_8ex': true }
   readonly left0ic: { 'left_0ic': true }
-  readonly left0p25ic: { 'left_0\.25ic': true }
   readonly left0p5ic: { 'left_0\.5ic': true }
-  readonly left0p75ic: { 'left_0\.75ic': true }
   readonly left1ic: { 'left_1ic': true }
-  readonly left1p25ic: { 'left_1\.25ic': true }
   readonly left1p5ic: { 'left_1\.5ic': true }
   readonly left2ic: { 'left_2ic': true }
-  readonly left2p5ic: { 'left_2\.5ic': true }
   readonly left3ic: { 'left_3ic': true }
-  readonly left4ic: { 'left_4ic': true }
-  readonly left5ic: { 'left_5ic': true }
-  readonly left6ic: { 'left_6ic': true }
-  readonly left8ic: { 'left_8ic': true }
   readonly left0in: { 'left_0in': true }
   readonly left1in: { 'left_1in': true }
   readonly left2in: { 'left_2in': true }
   readonly left4in: { 'left_4in': true }
-  readonly left6in: { 'left_6in': true }
   readonly left8in: { 'left_8in': true }
-  readonly left10in: { 'left_10in': true }
-  readonly left12in: { 'left_12in': true }
-  readonly left16in: { 'left_16in': true }
-  readonly left20in: { 'left_20in': true }
   readonly left0lh: { 'left_0lh': true }
-  readonly left0p25lh: { 'left_0\.25lh': true }
   readonly left0p5lh: { 'left_0\.5lh': true }
-  readonly left0p75lh: { 'left_0\.75lh': true }
   readonly left1lh: { 'left_1lh': true }
-  readonly left1p25lh: { 'left_1\.25lh': true }
   readonly left1p5lh: { 'left_1\.5lh': true }
   readonly left2lh: { 'left_2lh': true }
-  readonly left2p5lh: { 'left_2\.5lh': true }
   readonly left3lh: { 'left_3lh': true }
-  readonly left4lh: { 'left_4lh': true }
-  readonly left5lh: { 'left_5lh': true }
-  readonly left6lh: { 'left_6lh': true }
-  readonly left8lh: { 'left_8lh': true }
   readonly left0lvh: { 'left_0lvh': true }
-  readonly left10lvh: { 'left_10lvh': true }
-  readonly left20lvh: { 'left_20lvh': true }
   readonly left25lvh: { 'left_25lvh': true }
-  readonly left30lvh: { 'left_30lvh': true }
-  readonly left33p33lvh: { 'left_33\.33lvh': true }
-  readonly left40lvh: { 'left_40lvh': true }
   readonly left50lvh: { 'left_50lvh': true }
-  readonly left60lvh: { 'left_60lvh': true }
-  readonly left66p67lvh: { 'left_66\.67lvh': true }
-  readonly left70lvh: { 'left_70lvh': true }
   readonly left75lvh: { 'left_75lvh': true }
-  readonly left80lvh: { 'left_80lvh': true }
-  readonly left90lvh: { 'left_90lvh': true }
   readonly left100lvh: { 'left_100lvh': true }
   readonly left0lvw: { 'left_0lvw': true }
-  readonly left10lvw: { 'left_10lvw': true }
-  readonly left20lvw: { 'left_20lvw': true }
   readonly left25lvw: { 'left_25lvw': true }
-  readonly left30lvw: { 'left_30lvw': true }
-  readonly left33p33lvw: { 'left_33\.33lvw': true }
-  readonly left40lvw: { 'left_40lvw': true }
   readonly left50lvw: { 'left_50lvw': true }
-  readonly left60lvw: { 'left_60lvw': true }
-  readonly left66p67lvw: { 'left_66\.67lvw': true }
-  readonly left70lvw: { 'left_70lvw': true }
   readonly left75lvw: { 'left_75lvw': true }
-  readonly left80lvw: { 'left_80lvw': true }
-  readonly left90lvw: { 'left_90lvw': true }
   readonly left100lvw: { 'left_100lvw': true }
   readonly left0mm: { 'left_0mm': true }
   readonly left1mm: { 'left_1mm': true }
   readonly left2mm: { 'left_2mm': true }
   readonly left4mm: { 'left_4mm': true }
-  readonly left6mm: { 'left_6mm': true }
   readonly left8mm: { 'left_8mm': true }
-  readonly left10mm: { 'left_10mm': true }
-  readonly left12mm: { 'left_12mm': true }
-  readonly left16mm: { 'left_16mm': true }
-  readonly left20mm: { 'left_20mm': true }
   readonly left0pc: { 'left_0pc': true }
   readonly left1pc: { 'left_1pc': true }
   readonly left2pc: { 'left_2pc': true }
   readonly left4pc: { 'left_4pc': true }
-  readonly left6pc: { 'left_6pc': true }
   readonly left8pc: { 'left_8pc': true }
-  readonly left10pc: { 'left_10pc': true }
-  readonly left12pc: { 'left_12pc': true }
-  readonly left16pc: { 'left_16pc': true }
-  readonly left20pc: { 'left_20pc': true }
   readonly left0pt: { 'left_0pt': true }
   readonly left1pt: { 'left_1pt': true }
   readonly left2pt: { 'left_2pt': true }
   readonly left4pt: { 'left_4pt': true }
-  readonly left6pt: { 'left_6pt': true }
   readonly left8pt: { 'left_8pt': true }
-  readonly left10pt: { 'left_10pt': true }
-  readonly left12pt: { 'left_12pt': true }
-  readonly left16pt: { 'left_16pt': true }
-  readonly left20pt: { 'left_20pt': true }
-  readonly leftN384px: { 'left_-384px': true }
-  readonly leftN320px: { 'left_-320px': true }
-  readonly leftN256px: { 'left_-256px': true }
-  readonly leftN224px: { 'left_-224px': true }
-  readonly leftN192px: { 'left_-192px': true }
-  readonly leftN160px: { 'left_-160px': true }
-  readonly leftN128px: { 'left_-128px': true }
   readonly leftN96px: { 'left_-96px': true }
   readonly leftN80px: { 'left_-80px': true }
   readonly leftN64px: { 'left_-64px': true }
-  readonly leftN56px: { 'left_-56px': true }
   readonly leftN48px: { 'left_-48px': true }
   readonly leftN40px: { 'left_-40px': true }
   readonly leftN32px: { 'left_-32px': true }
-  readonly leftN28px: { 'left_-28px': true }
   readonly leftN24px: { 'left_-24px': true }
   readonly leftN20px: { 'left_-20px': true }
   readonly leftN16px: { 'left_-16px': true }
-  readonly leftN14px: { 'left_-14px': true }
   readonly leftN12px: { 'left_-12px': true }
   readonly leftN10px: { 'left_-10px': true }
   readonly leftN8px: { 'left_-8px': true }
   readonly leftN6px: { 'left_-6px': true }
   readonly leftN4px: { 'left_-4px': true }
   readonly leftN2px: { 'left_-2px': true }
-  readonly leftN1px: { 'left_-1px': true }
   readonly left0px: { 'left_0px': true }
-  readonly left1px: { 'left_1px': true }
   readonly left2px: { 'left_2px': true }
   readonly left4px: { 'left_4px': true }
   readonly left6px: { 'left_6px': true }
   readonly left8px: { 'left_8px': true }
   readonly left10px: { 'left_10px': true }
   readonly left12px: { 'left_12px': true }
-  readonly left14px: { 'left_14px': true }
   readonly left16px: { 'left_16px': true }
   readonly left20px: { 'left_20px': true }
   readonly left24px: { 'left_24px': true }
-  readonly left28px: { 'left_28px': true }
   readonly left32px: { 'left_32px': true }
   readonly left40px: { 'left_40px': true }
   readonly left48px: { 'left_48px': true }
-  readonly left56px: { 'left_56px': true }
   readonly left64px: { 'left_64px': true }
   readonly left80px: { 'left_80px': true }
   readonly left96px: { 'left_96px': true }
-  readonly left128px: { 'left_128px': true }
-  readonly left160px: { 'left_160px': true }
-  readonly left192px: { 'left_192px': true }
-  readonly left224px: { 'left_224px': true }
-  readonly left256px: { 'left_256px': true }
-  readonly left320px: { 'left_320px': true }
-  readonly left384px: { 'left_384px': true }
   readonly left0rem: { 'left_0rem': true }
-  readonly left0p25rem: { 'left_0\.25rem': true }
   readonly left0p5rem: { 'left_0\.5rem': true }
-  readonly left0p75rem: { 'left_0\.75rem': true }
   readonly left1rem: { 'left_1rem': true }
-  readonly left1p25rem: { 'left_1\.25rem': true }
   readonly left1p5rem: { 'left_1\.5rem': true }
   readonly left2rem: { 'left_2rem': true }
-  readonly left2p5rem: { 'left_2\.5rem': true }
   readonly left3rem: { 'left_3rem': true }
-  readonly left4rem: { 'left_4rem': true }
-  readonly left5rem: { 'left_5rem': true }
-  readonly left6rem: { 'left_6rem': true }
-  readonly left8rem: { 'left_8rem': true }
   readonly left0rlh: { 'left_0rlh': true }
-  readonly left0p25rlh: { 'left_0\.25rlh': true }
   readonly left0p5rlh: { 'left_0\.5rlh': true }
-  readonly left0p75rlh: { 'left_0\.75rlh': true }
   readonly left1rlh: { 'left_1rlh': true }
-  readonly left1p25rlh: { 'left_1\.25rlh': true }
   readonly left1p5rlh: { 'left_1\.5rlh': true }
   readonly left2rlh: { 'left_2rlh': true }
-  readonly left2p5rlh: { 'left_2\.5rlh': true }
   readonly left3rlh: { 'left_3rlh': true }
-  readonly left4rlh: { 'left_4rlh': true }
-  readonly left5rlh: { 'left_5rlh': true }
-  readonly left6rlh: { 'left_6rlh': true }
-  readonly left8rlh: { 'left_8rlh': true }
   readonly left0svh: { 'left_0svh': true }
-  readonly left10svh: { 'left_10svh': true }
-  readonly left20svh: { 'left_20svh': true }
   readonly left25svh: { 'left_25svh': true }
-  readonly left30svh: { 'left_30svh': true }
-  readonly left33p33svh: { 'left_33\.33svh': true }
-  readonly left40svh: { 'left_40svh': true }
   readonly left50svh: { 'left_50svh': true }
-  readonly left60svh: { 'left_60svh': true }
-  readonly left66p67svh: { 'left_66\.67svh': true }
-  readonly left70svh: { 'left_70svh': true }
   readonly left75svh: { 'left_75svh': true }
-  readonly left80svh: { 'left_80svh': true }
-  readonly left90svh: { 'left_90svh': true }
   readonly left100svh: { 'left_100svh': true }
   readonly left0svw: { 'left_0svw': true }
-  readonly left10svw: { 'left_10svw': true }
-  readonly left20svw: { 'left_20svw': true }
   readonly left25svw: { 'left_25svw': true }
-  readonly left30svw: { 'left_30svw': true }
-  readonly left33p33svw: { 'left_33\.33svw': true }
-  readonly left40svw: { 'left_40svw': true }
   readonly left50svw: { 'left_50svw': true }
-  readonly left60svw: { 'left_60svw': true }
-  readonly left66p67svw: { 'left_66\.67svw': true }
-  readonly left70svw: { 'left_70svw': true }
   readonly left75svw: { 'left_75svw': true }
-  readonly left80svw: { 'left_80svw': true }
-  readonly left90svw: { 'left_90svw': true }
   readonly left100svw: { 'left_100svw': true }
   readonly left0vb: { 'left_0vb': true }
-  readonly left10vb: { 'left_10vb': true }
-  readonly left20vb: { 'left_20vb': true }
   readonly left25vb: { 'left_25vb': true }
-  readonly left30vb: { 'left_30vb': true }
-  readonly left33p33vb: { 'left_33\.33vb': true }
-  readonly left40vb: { 'left_40vb': true }
   readonly left50vb: { 'left_50vb': true }
-  readonly left60vb: { 'left_60vb': true }
-  readonly left66p67vb: { 'left_66\.67vb': true }
-  readonly left70vb: { 'left_70vb': true }
   readonly left75vb: { 'left_75vb': true }
-  readonly left80vb: { 'left_80vb': true }
-  readonly left90vb: { 'left_90vb': true }
   readonly left100vb: { 'left_100vb': true }
   readonly left0vh: { 'left_0vh': true }
-  readonly left10vh: { 'left_10vh': true }
-  readonly left20vh: { 'left_20vh': true }
   readonly left25vh: { 'left_25vh': true }
-  readonly left30vh: { 'left_30vh': true }
-  readonly left33p33vh: { 'left_33\.33vh': true }
-  readonly left40vh: { 'left_40vh': true }
   readonly left50vh: { 'left_50vh': true }
-  readonly left60vh: { 'left_60vh': true }
-  readonly left66p67vh: { 'left_66\.67vh': true }
-  readonly left70vh: { 'left_70vh': true }
   readonly left75vh: { 'left_75vh': true }
-  readonly left80vh: { 'left_80vh': true }
-  readonly left90vh: { 'left_90vh': true }
   readonly left100vh: { 'left_100vh': true }
   readonly left0vi: { 'left_0vi': true }
-  readonly left10vi: { 'left_10vi': true }
-  readonly left20vi: { 'left_20vi': true }
   readonly left25vi: { 'left_25vi': true }
-  readonly left30vi: { 'left_30vi': true }
-  readonly left33p33vi: { 'left_33\.33vi': true }
-  readonly left40vi: { 'left_40vi': true }
   readonly left50vi: { 'left_50vi': true }
-  readonly left60vi: { 'left_60vi': true }
-  readonly left66p67vi: { 'left_66\.67vi': true }
-  readonly left70vi: { 'left_70vi': true }
   readonly left75vi: { 'left_75vi': true }
-  readonly left80vi: { 'left_80vi': true }
-  readonly left90vi: { 'left_90vi': true }
   readonly left100vi: { 'left_100vi': true }
   readonly left0vmax: { 'left_0vmax': true }
-  readonly left10vmax: { 'left_10vmax': true }
-  readonly left20vmax: { 'left_20vmax': true }
   readonly left25vmax: { 'left_25vmax': true }
-  readonly left30vmax: { 'left_30vmax': true }
-  readonly left33p33vmax: { 'left_33\.33vmax': true }
-  readonly left40vmax: { 'left_40vmax': true }
   readonly left50vmax: { 'left_50vmax': true }
-  readonly left60vmax: { 'left_60vmax': true }
-  readonly left66p67vmax: { 'left_66\.67vmax': true }
-  readonly left70vmax: { 'left_70vmax': true }
   readonly left75vmax: { 'left_75vmax': true }
-  readonly left80vmax: { 'left_80vmax': true }
-  readonly left90vmax: { 'left_90vmax': true }
   readonly left100vmax: { 'left_100vmax': true }
   readonly left0vmin: { 'left_0vmin': true }
-  readonly left10vmin: { 'left_10vmin': true }
-  readonly left20vmin: { 'left_20vmin': true }
   readonly left25vmin: { 'left_25vmin': true }
-  readonly left30vmin: { 'left_30vmin': true }
-  readonly left33p33vmin: { 'left_33\.33vmin': true }
-  readonly left40vmin: { 'left_40vmin': true }
   readonly left50vmin: { 'left_50vmin': true }
-  readonly left60vmin: { 'left_60vmin': true }
-  readonly left66p67vmin: { 'left_66\.67vmin': true }
-  readonly left70vmin: { 'left_70vmin': true }
   readonly left75vmin: { 'left_75vmin': true }
-  readonly left80vmin: { 'left_80vmin': true }
-  readonly left90vmin: { 'left_90vmin': true }
   readonly left100vmin: { 'left_100vmin': true }
   readonly left0vw: { 'left_0vw': true }
-  readonly left10vw: { 'left_10vw': true }
-  readonly left20vw: { 'left_20vw': true }
   readonly left25vw: { 'left_25vw': true }
-  readonly left30vw: { 'left_30vw': true }
-  readonly left33p33vw: { 'left_33\.33vw': true }
-  readonly left40vw: { 'left_40vw': true }
   readonly left50vw: { 'left_50vw': true }
-  readonly left60vw: { 'left_60vw': true }
-  readonly left66p67vw: { 'left_66\.67vw': true }
-  readonly left70vw: { 'left_70vw': true }
   readonly left75vw: { 'left_75vw': true }
-  readonly left80vw: { 'left_80vw': true }
-  readonly left90vw: { 'left_90vw': true }
   readonly left100vw: { 'left_100vw': true }
   readonly left0Pct: { 'left_0\%': true }
-  readonly left10Pct: { 'left_10\%': true }
-  readonly left20Pct: { 'left_20\%': true }
   readonly left25Pct: { 'left_25\%': true }
-  readonly left30Pct: { 'left_30\%': true }
-  readonly left33p33Pct: { 'left_33\.33\%': true }
-  readonly left40Pct: { 'left_40\%': true }
   readonly left50Pct: { 'left_50\%': true }
-  readonly left60Pct: { 'left_60\%': true }
-  readonly left66p67Pct: { 'left_66\.67\%': true }
-  readonly left70Pct: { 'left_70\%': true }
   readonly left75Pct: { 'left_75\%': true }
-  readonly left80Pct: { 'left_80\%': true }
-  readonly left90Pct: { 'left_90\%': true }
   readonly left100Pct: { 'left_100\%': true }
 
   // ==================== line-height ====================
@@ -6474,433 +2984,181 @@ export interface CsstsAtoms {
   readonly lineHeight1Q: { 'line-height_1Q': true }
   readonly lineHeight2Q: { 'line-height_2Q': true }
   readonly lineHeight4Q: { 'line-height_4Q': true }
-  readonly lineHeight6Q: { 'line-height_6Q': true }
   readonly lineHeight8Q: { 'line-height_8Q': true }
-  readonly lineHeight10Q: { 'line-height_10Q': true }
-  readonly lineHeight12Q: { 'line-height_12Q': true }
-  readonly lineHeight16Q: { 'line-height_16Q': true }
-  readonly lineHeight20Q: { 'line-height_20Q': true }
   readonly lineHeight0cap: { 'line-height_0cap': true }
-  readonly lineHeight0p25cap: { 'line-height_0\.25cap': true }
   readonly lineHeight0p5cap: { 'line-height_0\.5cap': true }
-  readonly lineHeight0p75cap: { 'line-height_0\.75cap': true }
   readonly lineHeight1cap: { 'line-height_1cap': true }
-  readonly lineHeight1p25cap: { 'line-height_1\.25cap': true }
   readonly lineHeight1p5cap: { 'line-height_1\.5cap': true }
   readonly lineHeight2cap: { 'line-height_2cap': true }
-  readonly lineHeight2p5cap: { 'line-height_2\.5cap': true }
   readonly lineHeight3cap: { 'line-height_3cap': true }
-  readonly lineHeight4cap: { 'line-height_4cap': true }
-  readonly lineHeight5cap: { 'line-height_5cap': true }
-  readonly lineHeight6cap: { 'line-height_6cap': true }
-  readonly lineHeight8cap: { 'line-height_8cap': true }
   readonly lineHeight0ch: { 'line-height_0ch': true }
-  readonly lineHeight0p25ch: { 'line-height_0\.25ch': true }
   readonly lineHeight0p5ch: { 'line-height_0\.5ch': true }
-  readonly lineHeight0p75ch: { 'line-height_0\.75ch': true }
   readonly lineHeight1ch: { 'line-height_1ch': true }
-  readonly lineHeight1p25ch: { 'line-height_1\.25ch': true }
   readonly lineHeight1p5ch: { 'line-height_1\.5ch': true }
   readonly lineHeight2ch: { 'line-height_2ch': true }
-  readonly lineHeight2p5ch: { 'line-height_2\.5ch': true }
   readonly lineHeight3ch: { 'line-height_3ch': true }
-  readonly lineHeight4ch: { 'line-height_4ch': true }
-  readonly lineHeight5ch: { 'line-height_5ch': true }
-  readonly lineHeight6ch: { 'line-height_6ch': true }
-  readonly lineHeight8ch: { 'line-height_8ch': true }
   readonly lineHeight0cm: { 'line-height_0cm': true }
   readonly lineHeight1cm: { 'line-height_1cm': true }
   readonly lineHeight2cm: { 'line-height_2cm': true }
   readonly lineHeight4cm: { 'line-height_4cm': true }
-  readonly lineHeight6cm: { 'line-height_6cm': true }
   readonly lineHeight8cm: { 'line-height_8cm': true }
-  readonly lineHeight10cm: { 'line-height_10cm': true }
-  readonly lineHeight12cm: { 'line-height_12cm': true }
-  readonly lineHeight16cm: { 'line-height_16cm': true }
-  readonly lineHeight20cm: { 'line-height_20cm': true }
   readonly lineHeight0dvh: { 'line-height_0dvh': true }
-  readonly lineHeight10dvh: { 'line-height_10dvh': true }
-  readonly lineHeight20dvh: { 'line-height_20dvh': true }
   readonly lineHeight25dvh: { 'line-height_25dvh': true }
-  readonly lineHeight30dvh: { 'line-height_30dvh': true }
-  readonly lineHeight33p33dvh: { 'line-height_33\.33dvh': true }
-  readonly lineHeight40dvh: { 'line-height_40dvh': true }
   readonly lineHeight50dvh: { 'line-height_50dvh': true }
-  readonly lineHeight60dvh: { 'line-height_60dvh': true }
-  readonly lineHeight66p67dvh: { 'line-height_66\.67dvh': true }
-  readonly lineHeight70dvh: { 'line-height_70dvh': true }
   readonly lineHeight75dvh: { 'line-height_75dvh': true }
-  readonly lineHeight80dvh: { 'line-height_80dvh': true }
-  readonly lineHeight90dvh: { 'line-height_90dvh': true }
   readonly lineHeight100dvh: { 'line-height_100dvh': true }
   readonly lineHeight0dvw: { 'line-height_0dvw': true }
-  readonly lineHeight10dvw: { 'line-height_10dvw': true }
-  readonly lineHeight20dvw: { 'line-height_20dvw': true }
   readonly lineHeight25dvw: { 'line-height_25dvw': true }
-  readonly lineHeight30dvw: { 'line-height_30dvw': true }
-  readonly lineHeight33p33dvw: { 'line-height_33\.33dvw': true }
-  readonly lineHeight40dvw: { 'line-height_40dvw': true }
   readonly lineHeight50dvw: { 'line-height_50dvw': true }
-  readonly lineHeight60dvw: { 'line-height_60dvw': true }
-  readonly lineHeight66p67dvw: { 'line-height_66\.67dvw': true }
-  readonly lineHeight70dvw: { 'line-height_70dvw': true }
   readonly lineHeight75dvw: { 'line-height_75dvw': true }
-  readonly lineHeight80dvw: { 'line-height_80dvw': true }
-  readonly lineHeight90dvw: { 'line-height_90dvw': true }
   readonly lineHeight100dvw: { 'line-height_100dvw': true }
   readonly lineHeight0em: { 'line-height_0em': true }
-  readonly lineHeight0p25em: { 'line-height_0\.25em': true }
   readonly lineHeight0p5em: { 'line-height_0\.5em': true }
-  readonly lineHeight0p75em: { 'line-height_0\.75em': true }
   readonly lineHeight1em: { 'line-height_1em': true }
-  readonly lineHeight1p25em: { 'line-height_1\.25em': true }
   readonly lineHeight1p5em: { 'line-height_1\.5em': true }
   readonly lineHeight2em: { 'line-height_2em': true }
-  readonly lineHeight2p5em: { 'line-height_2\.5em': true }
   readonly lineHeight3em: { 'line-height_3em': true }
-  readonly lineHeight4em: { 'line-height_4em': true }
-  readonly lineHeight5em: { 'line-height_5em': true }
-  readonly lineHeight6em: { 'line-height_6em': true }
-  readonly lineHeight8em: { 'line-height_8em': true }
   readonly lineHeight0ex: { 'line-height_0ex': true }
-  readonly lineHeight0p25ex: { 'line-height_0\.25ex': true }
   readonly lineHeight0p5ex: { 'line-height_0\.5ex': true }
-  readonly lineHeight0p75ex: { 'line-height_0\.75ex': true }
   readonly lineHeight1ex: { 'line-height_1ex': true }
-  readonly lineHeight1p25ex: { 'line-height_1\.25ex': true }
   readonly lineHeight1p5ex: { 'line-height_1\.5ex': true }
   readonly lineHeight2ex: { 'line-height_2ex': true }
-  readonly lineHeight2p5ex: { 'line-height_2\.5ex': true }
   readonly lineHeight3ex: { 'line-height_3ex': true }
-  readonly lineHeight4ex: { 'line-height_4ex': true }
-  readonly lineHeight5ex: { 'line-height_5ex': true }
-  readonly lineHeight6ex: { 'line-height_6ex': true }
-  readonly lineHeight8ex: { 'line-height_8ex': true }
   readonly lineHeight0ic: { 'line-height_0ic': true }
-  readonly lineHeight0p25ic: { 'line-height_0\.25ic': true }
   readonly lineHeight0p5ic: { 'line-height_0\.5ic': true }
-  readonly lineHeight0p75ic: { 'line-height_0\.75ic': true }
   readonly lineHeight1ic: { 'line-height_1ic': true }
-  readonly lineHeight1p25ic: { 'line-height_1\.25ic': true }
   readonly lineHeight1p5ic: { 'line-height_1\.5ic': true }
   readonly lineHeight2ic: { 'line-height_2ic': true }
-  readonly lineHeight2p5ic: { 'line-height_2\.5ic': true }
   readonly lineHeight3ic: { 'line-height_3ic': true }
-  readonly lineHeight4ic: { 'line-height_4ic': true }
-  readonly lineHeight5ic: { 'line-height_5ic': true }
-  readonly lineHeight6ic: { 'line-height_6ic': true }
-  readonly lineHeight8ic: { 'line-height_8ic': true }
   readonly lineHeight0in: { 'line-height_0in': true }
   readonly lineHeight1in: { 'line-height_1in': true }
   readonly lineHeight2in: { 'line-height_2in': true }
   readonly lineHeight4in: { 'line-height_4in': true }
-  readonly lineHeight6in: { 'line-height_6in': true }
   readonly lineHeight8in: { 'line-height_8in': true }
-  readonly lineHeight10in: { 'line-height_10in': true }
-  readonly lineHeight12in: { 'line-height_12in': true }
-  readonly lineHeight16in: { 'line-height_16in': true }
-  readonly lineHeight20in: { 'line-height_20in': true }
   readonly lineHeight0lh: { 'line-height_0lh': true }
-  readonly lineHeight0p25lh: { 'line-height_0\.25lh': true }
   readonly lineHeight0p5lh: { 'line-height_0\.5lh': true }
-  readonly lineHeight0p75lh: { 'line-height_0\.75lh': true }
   readonly lineHeight1lh: { 'line-height_1lh': true }
-  readonly lineHeight1p25lh: { 'line-height_1\.25lh': true }
   readonly lineHeight1p5lh: { 'line-height_1\.5lh': true }
   readonly lineHeight2lh: { 'line-height_2lh': true }
-  readonly lineHeight2p5lh: { 'line-height_2\.5lh': true }
   readonly lineHeight3lh: { 'line-height_3lh': true }
-  readonly lineHeight4lh: { 'line-height_4lh': true }
-  readonly lineHeight5lh: { 'line-height_5lh': true }
-  readonly lineHeight6lh: { 'line-height_6lh': true }
-  readonly lineHeight8lh: { 'line-height_8lh': true }
   readonly lineHeight0lvh: { 'line-height_0lvh': true }
-  readonly lineHeight10lvh: { 'line-height_10lvh': true }
-  readonly lineHeight20lvh: { 'line-height_20lvh': true }
   readonly lineHeight25lvh: { 'line-height_25lvh': true }
-  readonly lineHeight30lvh: { 'line-height_30lvh': true }
-  readonly lineHeight33p33lvh: { 'line-height_33\.33lvh': true }
-  readonly lineHeight40lvh: { 'line-height_40lvh': true }
   readonly lineHeight50lvh: { 'line-height_50lvh': true }
-  readonly lineHeight60lvh: { 'line-height_60lvh': true }
-  readonly lineHeight66p67lvh: { 'line-height_66\.67lvh': true }
-  readonly lineHeight70lvh: { 'line-height_70lvh': true }
   readonly lineHeight75lvh: { 'line-height_75lvh': true }
-  readonly lineHeight80lvh: { 'line-height_80lvh': true }
-  readonly lineHeight90lvh: { 'line-height_90lvh': true }
   readonly lineHeight100lvh: { 'line-height_100lvh': true }
   readonly lineHeight0lvw: { 'line-height_0lvw': true }
-  readonly lineHeight10lvw: { 'line-height_10lvw': true }
-  readonly lineHeight20lvw: { 'line-height_20lvw': true }
   readonly lineHeight25lvw: { 'line-height_25lvw': true }
-  readonly lineHeight30lvw: { 'line-height_30lvw': true }
-  readonly lineHeight33p33lvw: { 'line-height_33\.33lvw': true }
-  readonly lineHeight40lvw: { 'line-height_40lvw': true }
   readonly lineHeight50lvw: { 'line-height_50lvw': true }
-  readonly lineHeight60lvw: { 'line-height_60lvw': true }
-  readonly lineHeight66p67lvw: { 'line-height_66\.67lvw': true }
-  readonly lineHeight70lvw: { 'line-height_70lvw': true }
   readonly lineHeight75lvw: { 'line-height_75lvw': true }
-  readonly lineHeight80lvw: { 'line-height_80lvw': true }
-  readonly lineHeight90lvw: { 'line-height_90lvw': true }
   readonly lineHeight100lvw: { 'line-height_100lvw': true }
   readonly lineHeight0mm: { 'line-height_0mm': true }
   readonly lineHeight1mm: { 'line-height_1mm': true }
   readonly lineHeight2mm: { 'line-height_2mm': true }
   readonly lineHeight4mm: { 'line-height_4mm': true }
-  readonly lineHeight6mm: { 'line-height_6mm': true }
   readonly lineHeight8mm: { 'line-height_8mm': true }
-  readonly lineHeight10mm: { 'line-height_10mm': true }
-  readonly lineHeight12mm: { 'line-height_12mm': true }
-  readonly lineHeight16mm: { 'line-height_16mm': true }
-  readonly lineHeight20mm: { 'line-height_20mm': true }
   readonly lineHeight0pc: { 'line-height_0pc': true }
   readonly lineHeight1pc: { 'line-height_1pc': true }
   readonly lineHeight2pc: { 'line-height_2pc': true }
   readonly lineHeight4pc: { 'line-height_4pc': true }
-  readonly lineHeight6pc: { 'line-height_6pc': true }
   readonly lineHeight8pc: { 'line-height_8pc': true }
-  readonly lineHeight10pc: { 'line-height_10pc': true }
-  readonly lineHeight12pc: { 'line-height_12pc': true }
-  readonly lineHeight16pc: { 'line-height_16pc': true }
-  readonly lineHeight20pc: { 'line-height_20pc': true }
   readonly lineHeight0pt: { 'line-height_0pt': true }
   readonly lineHeight1pt: { 'line-height_1pt': true }
   readonly lineHeight2pt: { 'line-height_2pt': true }
   readonly lineHeight4pt: { 'line-height_4pt': true }
-  readonly lineHeight6pt: { 'line-height_6pt': true }
   readonly lineHeight8pt: { 'line-height_8pt': true }
-  readonly lineHeight10pt: { 'line-height_10pt': true }
-  readonly lineHeight12pt: { 'line-height_12pt': true }
-  readonly lineHeight16pt: { 'line-height_16pt': true }
-  readonly lineHeight20pt: { 'line-height_20pt': true }
-  readonly lineHeightN384px: { 'line-height_-384px': true }
-  readonly lineHeightN320px: { 'line-height_-320px': true }
-  readonly lineHeightN256px: { 'line-height_-256px': true }
-  readonly lineHeightN224px: { 'line-height_-224px': true }
-  readonly lineHeightN192px: { 'line-height_-192px': true }
-  readonly lineHeightN160px: { 'line-height_-160px': true }
-  readonly lineHeightN128px: { 'line-height_-128px': true }
   readonly lineHeightN96px: { 'line-height_-96px': true }
   readonly lineHeightN80px: { 'line-height_-80px': true }
   readonly lineHeightN64px: { 'line-height_-64px': true }
-  readonly lineHeightN56px: { 'line-height_-56px': true }
   readonly lineHeightN48px: { 'line-height_-48px': true }
   readonly lineHeightN40px: { 'line-height_-40px': true }
   readonly lineHeightN32px: { 'line-height_-32px': true }
-  readonly lineHeightN28px: { 'line-height_-28px': true }
   readonly lineHeightN24px: { 'line-height_-24px': true }
   readonly lineHeightN20px: { 'line-height_-20px': true }
   readonly lineHeightN16px: { 'line-height_-16px': true }
-  readonly lineHeightN14px: { 'line-height_-14px': true }
   readonly lineHeightN12px: { 'line-height_-12px': true }
   readonly lineHeightN10px: { 'line-height_-10px': true }
   readonly lineHeightN8px: { 'line-height_-8px': true }
   readonly lineHeightN6px: { 'line-height_-6px': true }
   readonly lineHeightN4px: { 'line-height_-4px': true }
   readonly lineHeightN2px: { 'line-height_-2px': true }
-  readonly lineHeightN1px: { 'line-height_-1px': true }
   readonly lineHeight0px: { 'line-height_0px': true }
-  readonly lineHeight1px: { 'line-height_1px': true }
   readonly lineHeight2px: { 'line-height_2px': true }
   readonly lineHeight4px: { 'line-height_4px': true }
   readonly lineHeight6px: { 'line-height_6px': true }
   readonly lineHeight8px: { 'line-height_8px': true }
   readonly lineHeight10px: { 'line-height_10px': true }
   readonly lineHeight12px: { 'line-height_12px': true }
-  readonly lineHeight14px: { 'line-height_14px': true }
   readonly lineHeight16px: { 'line-height_16px': true }
   readonly lineHeight20px: { 'line-height_20px': true }
   readonly lineHeight24px: { 'line-height_24px': true }
-  readonly lineHeight28px: { 'line-height_28px': true }
   readonly lineHeight32px: { 'line-height_32px': true }
   readonly lineHeight40px: { 'line-height_40px': true }
   readonly lineHeight48px: { 'line-height_48px': true }
-  readonly lineHeight56px: { 'line-height_56px': true }
   readonly lineHeight64px: { 'line-height_64px': true }
   readonly lineHeight80px: { 'line-height_80px': true }
   readonly lineHeight96px: { 'line-height_96px': true }
-  readonly lineHeight128px: { 'line-height_128px': true }
-  readonly lineHeight160px: { 'line-height_160px': true }
-  readonly lineHeight192px: { 'line-height_192px': true }
-  readonly lineHeight224px: { 'line-height_224px': true }
-  readonly lineHeight256px: { 'line-height_256px': true }
-  readonly lineHeight320px: { 'line-height_320px': true }
-  readonly lineHeight384px: { 'line-height_384px': true }
   readonly lineHeight0rem: { 'line-height_0rem': true }
-  readonly lineHeight0p25rem: { 'line-height_0\.25rem': true }
   readonly lineHeight0p5rem: { 'line-height_0\.5rem': true }
-  readonly lineHeight0p75rem: { 'line-height_0\.75rem': true }
   readonly lineHeight1rem: { 'line-height_1rem': true }
-  readonly lineHeight1p25rem: { 'line-height_1\.25rem': true }
   readonly lineHeight1p5rem: { 'line-height_1\.5rem': true }
   readonly lineHeight2rem: { 'line-height_2rem': true }
-  readonly lineHeight2p5rem: { 'line-height_2\.5rem': true }
   readonly lineHeight3rem: { 'line-height_3rem': true }
-  readonly lineHeight4rem: { 'line-height_4rem': true }
-  readonly lineHeight5rem: { 'line-height_5rem': true }
-  readonly lineHeight6rem: { 'line-height_6rem': true }
-  readonly lineHeight8rem: { 'line-height_8rem': true }
   readonly lineHeight0rlh: { 'line-height_0rlh': true }
-  readonly lineHeight0p25rlh: { 'line-height_0\.25rlh': true }
   readonly lineHeight0p5rlh: { 'line-height_0\.5rlh': true }
-  readonly lineHeight0p75rlh: { 'line-height_0\.75rlh': true }
   readonly lineHeight1rlh: { 'line-height_1rlh': true }
-  readonly lineHeight1p25rlh: { 'line-height_1\.25rlh': true }
   readonly lineHeight1p5rlh: { 'line-height_1\.5rlh': true }
   readonly lineHeight2rlh: { 'line-height_2rlh': true }
-  readonly lineHeight2p5rlh: { 'line-height_2\.5rlh': true }
   readonly lineHeight3rlh: { 'line-height_3rlh': true }
-  readonly lineHeight4rlh: { 'line-height_4rlh': true }
-  readonly lineHeight5rlh: { 'line-height_5rlh': true }
-  readonly lineHeight6rlh: { 'line-height_6rlh': true }
-  readonly lineHeight8rlh: { 'line-height_8rlh': true }
   readonly lineHeight0svh: { 'line-height_0svh': true }
-  readonly lineHeight10svh: { 'line-height_10svh': true }
-  readonly lineHeight20svh: { 'line-height_20svh': true }
   readonly lineHeight25svh: { 'line-height_25svh': true }
-  readonly lineHeight30svh: { 'line-height_30svh': true }
-  readonly lineHeight33p33svh: { 'line-height_33\.33svh': true }
-  readonly lineHeight40svh: { 'line-height_40svh': true }
   readonly lineHeight50svh: { 'line-height_50svh': true }
-  readonly lineHeight60svh: { 'line-height_60svh': true }
-  readonly lineHeight66p67svh: { 'line-height_66\.67svh': true }
-  readonly lineHeight70svh: { 'line-height_70svh': true }
   readonly lineHeight75svh: { 'line-height_75svh': true }
-  readonly lineHeight80svh: { 'line-height_80svh': true }
-  readonly lineHeight90svh: { 'line-height_90svh': true }
   readonly lineHeight100svh: { 'line-height_100svh': true }
   readonly lineHeight0svw: { 'line-height_0svw': true }
-  readonly lineHeight10svw: { 'line-height_10svw': true }
-  readonly lineHeight20svw: { 'line-height_20svw': true }
   readonly lineHeight25svw: { 'line-height_25svw': true }
-  readonly lineHeight30svw: { 'line-height_30svw': true }
-  readonly lineHeight33p33svw: { 'line-height_33\.33svw': true }
-  readonly lineHeight40svw: { 'line-height_40svw': true }
   readonly lineHeight50svw: { 'line-height_50svw': true }
-  readonly lineHeight60svw: { 'line-height_60svw': true }
-  readonly lineHeight66p67svw: { 'line-height_66\.67svw': true }
-  readonly lineHeight70svw: { 'line-height_70svw': true }
   readonly lineHeight75svw: { 'line-height_75svw': true }
-  readonly lineHeight80svw: { 'line-height_80svw': true }
-  readonly lineHeight90svw: { 'line-height_90svw': true }
   readonly lineHeight100svw: { 'line-height_100svw': true }
   readonly lineHeight0vb: { 'line-height_0vb': true }
-  readonly lineHeight10vb: { 'line-height_10vb': true }
-  readonly lineHeight20vb: { 'line-height_20vb': true }
   readonly lineHeight25vb: { 'line-height_25vb': true }
-  readonly lineHeight30vb: { 'line-height_30vb': true }
-  readonly lineHeight33p33vb: { 'line-height_33\.33vb': true }
-  readonly lineHeight40vb: { 'line-height_40vb': true }
   readonly lineHeight50vb: { 'line-height_50vb': true }
-  readonly lineHeight60vb: { 'line-height_60vb': true }
-  readonly lineHeight66p67vb: { 'line-height_66\.67vb': true }
-  readonly lineHeight70vb: { 'line-height_70vb': true }
   readonly lineHeight75vb: { 'line-height_75vb': true }
-  readonly lineHeight80vb: { 'line-height_80vb': true }
-  readonly lineHeight90vb: { 'line-height_90vb': true }
   readonly lineHeight100vb: { 'line-height_100vb': true }
   readonly lineHeight0vh: { 'line-height_0vh': true }
-  readonly lineHeight10vh: { 'line-height_10vh': true }
-  readonly lineHeight20vh: { 'line-height_20vh': true }
   readonly lineHeight25vh: { 'line-height_25vh': true }
-  readonly lineHeight30vh: { 'line-height_30vh': true }
-  readonly lineHeight33p33vh: { 'line-height_33\.33vh': true }
-  readonly lineHeight40vh: { 'line-height_40vh': true }
   readonly lineHeight50vh: { 'line-height_50vh': true }
-  readonly lineHeight60vh: { 'line-height_60vh': true }
-  readonly lineHeight66p67vh: { 'line-height_66\.67vh': true }
-  readonly lineHeight70vh: { 'line-height_70vh': true }
   readonly lineHeight75vh: { 'line-height_75vh': true }
-  readonly lineHeight80vh: { 'line-height_80vh': true }
-  readonly lineHeight90vh: { 'line-height_90vh': true }
   readonly lineHeight100vh: { 'line-height_100vh': true }
   readonly lineHeight0vi: { 'line-height_0vi': true }
-  readonly lineHeight10vi: { 'line-height_10vi': true }
-  readonly lineHeight20vi: { 'line-height_20vi': true }
   readonly lineHeight25vi: { 'line-height_25vi': true }
-  readonly lineHeight30vi: { 'line-height_30vi': true }
-  readonly lineHeight33p33vi: { 'line-height_33\.33vi': true }
-  readonly lineHeight40vi: { 'line-height_40vi': true }
   readonly lineHeight50vi: { 'line-height_50vi': true }
-  readonly lineHeight60vi: { 'line-height_60vi': true }
-  readonly lineHeight66p67vi: { 'line-height_66\.67vi': true }
-  readonly lineHeight70vi: { 'line-height_70vi': true }
   readonly lineHeight75vi: { 'line-height_75vi': true }
-  readonly lineHeight80vi: { 'line-height_80vi': true }
-  readonly lineHeight90vi: { 'line-height_90vi': true }
   readonly lineHeight100vi: { 'line-height_100vi': true }
   readonly lineHeight0vmax: { 'line-height_0vmax': true }
-  readonly lineHeight10vmax: { 'line-height_10vmax': true }
-  readonly lineHeight20vmax: { 'line-height_20vmax': true }
   readonly lineHeight25vmax: { 'line-height_25vmax': true }
-  readonly lineHeight30vmax: { 'line-height_30vmax': true }
-  readonly lineHeight33p33vmax: { 'line-height_33\.33vmax': true }
-  readonly lineHeight40vmax: { 'line-height_40vmax': true }
   readonly lineHeight50vmax: { 'line-height_50vmax': true }
-  readonly lineHeight60vmax: { 'line-height_60vmax': true }
-  readonly lineHeight66p67vmax: { 'line-height_66\.67vmax': true }
-  readonly lineHeight70vmax: { 'line-height_70vmax': true }
   readonly lineHeight75vmax: { 'line-height_75vmax': true }
-  readonly lineHeight80vmax: { 'line-height_80vmax': true }
-  readonly lineHeight90vmax: { 'line-height_90vmax': true }
   readonly lineHeight100vmax: { 'line-height_100vmax': true }
   readonly lineHeight0vmin: { 'line-height_0vmin': true }
-  readonly lineHeight10vmin: { 'line-height_10vmin': true }
-  readonly lineHeight20vmin: { 'line-height_20vmin': true }
   readonly lineHeight25vmin: { 'line-height_25vmin': true }
-  readonly lineHeight30vmin: { 'line-height_30vmin': true }
-  readonly lineHeight33p33vmin: { 'line-height_33\.33vmin': true }
-  readonly lineHeight40vmin: { 'line-height_40vmin': true }
   readonly lineHeight50vmin: { 'line-height_50vmin': true }
-  readonly lineHeight60vmin: { 'line-height_60vmin': true }
-  readonly lineHeight66p67vmin: { 'line-height_66\.67vmin': true }
-  readonly lineHeight70vmin: { 'line-height_70vmin': true }
   readonly lineHeight75vmin: { 'line-height_75vmin': true }
-  readonly lineHeight80vmin: { 'line-height_80vmin': true }
-  readonly lineHeight90vmin: { 'line-height_90vmin': true }
   readonly lineHeight100vmin: { 'line-height_100vmin': true }
   readonly lineHeight0vw: { 'line-height_0vw': true }
-  readonly lineHeight10vw: { 'line-height_10vw': true }
-  readonly lineHeight20vw: { 'line-height_20vw': true }
   readonly lineHeight25vw: { 'line-height_25vw': true }
-  readonly lineHeight30vw: { 'line-height_30vw': true }
-  readonly lineHeight33p33vw: { 'line-height_33\.33vw': true }
-  readonly lineHeight40vw: { 'line-height_40vw': true }
   readonly lineHeight50vw: { 'line-height_50vw': true }
-  readonly lineHeight60vw: { 'line-height_60vw': true }
-  readonly lineHeight66p67vw: { 'line-height_66\.67vw': true }
-  readonly lineHeight70vw: { 'line-height_70vw': true }
   readonly lineHeight75vw: { 'line-height_75vw': true }
-  readonly lineHeight80vw: { 'line-height_80vw': true }
-  readonly lineHeight90vw: { 'line-height_90vw': true }
   readonly lineHeight100vw: { 'line-height_100vw': true }
   readonly lineHeight0: { 'line-height_0': true }
-  readonly lineHeight0p5: { 'line-height_0\.5': true }
   readonly lineHeight1: { 'line-height_1': true }
-  readonly lineHeight1p5: { 'line-height_1\.5': true }
   readonly lineHeight2: { 'line-height_2': true }
   readonly lineHeight3: { 'line-height_3': true }
-  readonly lineHeight4: { 'line-height_4': true }
   readonly lineHeight5: { 'line-height_5': true }
   readonly lineHeight10: { 'line-height_10': true }
-  readonly lineHeight20: { 'line-height_20': true }
-  readonly lineHeight50: { 'line-height_50': true }
-  readonly lineHeight100: { 'line-height_100': true }
   readonly lineHeight0Pct: { 'line-height_0\%': true }
-  readonly lineHeight10Pct: { 'line-height_10\%': true }
-  readonly lineHeight20Pct: { 'line-height_20\%': true }
   readonly lineHeight25Pct: { 'line-height_25\%': true }
-  readonly lineHeight30Pct: { 'line-height_30\%': true }
-  readonly lineHeight33p33Pct: { 'line-height_33\.33\%': true }
-  readonly lineHeight40Pct: { 'line-height_40\%': true }
   readonly lineHeight50Pct: { 'line-height_50\%': true }
-  readonly lineHeight60Pct: { 'line-height_60\%': true }
-  readonly lineHeight66p67Pct: { 'line-height_66\.67\%': true }
-  readonly lineHeight70Pct: { 'line-height_70\%': true }
   readonly lineHeight75Pct: { 'line-height_75\%': true }
-  readonly lineHeight80Pct: { 'line-height_80\%': true }
-  readonly lineHeight90Pct: { 'line-height_90\%': true }
   readonly lineHeight100Pct: { 'line-height_100\%': true }
 
   // ==================== margin ====================
@@ -6909,421 +3167,175 @@ export interface CsstsAtoms {
   readonly margin1Q: { 'margin_1Q': true }
   readonly margin2Q: { 'margin_2Q': true }
   readonly margin4Q: { 'margin_4Q': true }
-  readonly margin6Q: { 'margin_6Q': true }
   readonly margin8Q: { 'margin_8Q': true }
-  readonly margin10Q: { 'margin_10Q': true }
-  readonly margin12Q: { 'margin_12Q': true }
-  readonly margin16Q: { 'margin_16Q': true }
-  readonly margin20Q: { 'margin_20Q': true }
   readonly margin0cap: { 'margin_0cap': true }
-  readonly margin0p25cap: { 'margin_0\.25cap': true }
   readonly margin0p5cap: { 'margin_0\.5cap': true }
-  readonly margin0p75cap: { 'margin_0\.75cap': true }
   readonly margin1cap: { 'margin_1cap': true }
-  readonly margin1p25cap: { 'margin_1\.25cap': true }
   readonly margin1p5cap: { 'margin_1\.5cap': true }
   readonly margin2cap: { 'margin_2cap': true }
-  readonly margin2p5cap: { 'margin_2\.5cap': true }
   readonly margin3cap: { 'margin_3cap': true }
-  readonly margin4cap: { 'margin_4cap': true }
-  readonly margin5cap: { 'margin_5cap': true }
-  readonly margin6cap: { 'margin_6cap': true }
-  readonly margin8cap: { 'margin_8cap': true }
   readonly margin0ch: { 'margin_0ch': true }
-  readonly margin0p25ch: { 'margin_0\.25ch': true }
   readonly margin0p5ch: { 'margin_0\.5ch': true }
-  readonly margin0p75ch: { 'margin_0\.75ch': true }
   readonly margin1ch: { 'margin_1ch': true }
-  readonly margin1p25ch: { 'margin_1\.25ch': true }
   readonly margin1p5ch: { 'margin_1\.5ch': true }
   readonly margin2ch: { 'margin_2ch': true }
-  readonly margin2p5ch: { 'margin_2\.5ch': true }
   readonly margin3ch: { 'margin_3ch': true }
-  readonly margin4ch: { 'margin_4ch': true }
-  readonly margin5ch: { 'margin_5ch': true }
-  readonly margin6ch: { 'margin_6ch': true }
-  readonly margin8ch: { 'margin_8ch': true }
   readonly margin0cm: { 'margin_0cm': true }
   readonly margin1cm: { 'margin_1cm': true }
   readonly margin2cm: { 'margin_2cm': true }
   readonly margin4cm: { 'margin_4cm': true }
-  readonly margin6cm: { 'margin_6cm': true }
   readonly margin8cm: { 'margin_8cm': true }
-  readonly margin10cm: { 'margin_10cm': true }
-  readonly margin12cm: { 'margin_12cm': true }
-  readonly margin16cm: { 'margin_16cm': true }
-  readonly margin20cm: { 'margin_20cm': true }
   readonly margin0dvh: { 'margin_0dvh': true }
-  readonly margin10dvh: { 'margin_10dvh': true }
-  readonly margin20dvh: { 'margin_20dvh': true }
   readonly margin25dvh: { 'margin_25dvh': true }
-  readonly margin30dvh: { 'margin_30dvh': true }
-  readonly margin33p33dvh: { 'margin_33\.33dvh': true }
-  readonly margin40dvh: { 'margin_40dvh': true }
   readonly margin50dvh: { 'margin_50dvh': true }
-  readonly margin60dvh: { 'margin_60dvh': true }
-  readonly margin66p67dvh: { 'margin_66\.67dvh': true }
-  readonly margin70dvh: { 'margin_70dvh': true }
   readonly margin75dvh: { 'margin_75dvh': true }
-  readonly margin80dvh: { 'margin_80dvh': true }
-  readonly margin90dvh: { 'margin_90dvh': true }
   readonly margin100dvh: { 'margin_100dvh': true }
   readonly margin0dvw: { 'margin_0dvw': true }
-  readonly margin10dvw: { 'margin_10dvw': true }
-  readonly margin20dvw: { 'margin_20dvw': true }
   readonly margin25dvw: { 'margin_25dvw': true }
-  readonly margin30dvw: { 'margin_30dvw': true }
-  readonly margin33p33dvw: { 'margin_33\.33dvw': true }
-  readonly margin40dvw: { 'margin_40dvw': true }
   readonly margin50dvw: { 'margin_50dvw': true }
-  readonly margin60dvw: { 'margin_60dvw': true }
-  readonly margin66p67dvw: { 'margin_66\.67dvw': true }
-  readonly margin70dvw: { 'margin_70dvw': true }
   readonly margin75dvw: { 'margin_75dvw': true }
-  readonly margin80dvw: { 'margin_80dvw': true }
-  readonly margin90dvw: { 'margin_90dvw': true }
   readonly margin100dvw: { 'margin_100dvw': true }
   readonly margin0em: { 'margin_0em': true }
-  readonly margin0p25em: { 'margin_0\.25em': true }
   readonly margin0p5em: { 'margin_0\.5em': true }
-  readonly margin0p75em: { 'margin_0\.75em': true }
   readonly margin1em: { 'margin_1em': true }
-  readonly margin1p25em: { 'margin_1\.25em': true }
   readonly margin1p5em: { 'margin_1\.5em': true }
   readonly margin2em: { 'margin_2em': true }
-  readonly margin2p5em: { 'margin_2\.5em': true }
   readonly margin3em: { 'margin_3em': true }
-  readonly margin4em: { 'margin_4em': true }
-  readonly margin5em: { 'margin_5em': true }
-  readonly margin6em: { 'margin_6em': true }
-  readonly margin8em: { 'margin_8em': true }
   readonly margin0ex: { 'margin_0ex': true }
-  readonly margin0p25ex: { 'margin_0\.25ex': true }
   readonly margin0p5ex: { 'margin_0\.5ex': true }
-  readonly margin0p75ex: { 'margin_0\.75ex': true }
   readonly margin1ex: { 'margin_1ex': true }
-  readonly margin1p25ex: { 'margin_1\.25ex': true }
   readonly margin1p5ex: { 'margin_1\.5ex': true }
   readonly margin2ex: { 'margin_2ex': true }
-  readonly margin2p5ex: { 'margin_2\.5ex': true }
   readonly margin3ex: { 'margin_3ex': true }
-  readonly margin4ex: { 'margin_4ex': true }
-  readonly margin5ex: { 'margin_5ex': true }
-  readonly margin6ex: { 'margin_6ex': true }
-  readonly margin8ex: { 'margin_8ex': true }
   readonly margin0ic: { 'margin_0ic': true }
-  readonly margin0p25ic: { 'margin_0\.25ic': true }
   readonly margin0p5ic: { 'margin_0\.5ic': true }
-  readonly margin0p75ic: { 'margin_0\.75ic': true }
   readonly margin1ic: { 'margin_1ic': true }
-  readonly margin1p25ic: { 'margin_1\.25ic': true }
   readonly margin1p5ic: { 'margin_1\.5ic': true }
   readonly margin2ic: { 'margin_2ic': true }
-  readonly margin2p5ic: { 'margin_2\.5ic': true }
   readonly margin3ic: { 'margin_3ic': true }
-  readonly margin4ic: { 'margin_4ic': true }
-  readonly margin5ic: { 'margin_5ic': true }
-  readonly margin6ic: { 'margin_6ic': true }
-  readonly margin8ic: { 'margin_8ic': true }
   readonly margin0in: { 'margin_0in': true }
   readonly margin1in: { 'margin_1in': true }
   readonly margin2in: { 'margin_2in': true }
   readonly margin4in: { 'margin_4in': true }
-  readonly margin6in: { 'margin_6in': true }
   readonly margin8in: { 'margin_8in': true }
-  readonly margin10in: { 'margin_10in': true }
-  readonly margin12in: { 'margin_12in': true }
-  readonly margin16in: { 'margin_16in': true }
-  readonly margin20in: { 'margin_20in': true }
   readonly margin0lh: { 'margin_0lh': true }
-  readonly margin0p25lh: { 'margin_0\.25lh': true }
   readonly margin0p5lh: { 'margin_0\.5lh': true }
-  readonly margin0p75lh: { 'margin_0\.75lh': true }
   readonly margin1lh: { 'margin_1lh': true }
-  readonly margin1p25lh: { 'margin_1\.25lh': true }
   readonly margin1p5lh: { 'margin_1\.5lh': true }
   readonly margin2lh: { 'margin_2lh': true }
-  readonly margin2p5lh: { 'margin_2\.5lh': true }
   readonly margin3lh: { 'margin_3lh': true }
-  readonly margin4lh: { 'margin_4lh': true }
-  readonly margin5lh: { 'margin_5lh': true }
-  readonly margin6lh: { 'margin_6lh': true }
-  readonly margin8lh: { 'margin_8lh': true }
   readonly margin0lvh: { 'margin_0lvh': true }
-  readonly margin10lvh: { 'margin_10lvh': true }
-  readonly margin20lvh: { 'margin_20lvh': true }
   readonly margin25lvh: { 'margin_25lvh': true }
-  readonly margin30lvh: { 'margin_30lvh': true }
-  readonly margin33p33lvh: { 'margin_33\.33lvh': true }
-  readonly margin40lvh: { 'margin_40lvh': true }
   readonly margin50lvh: { 'margin_50lvh': true }
-  readonly margin60lvh: { 'margin_60lvh': true }
-  readonly margin66p67lvh: { 'margin_66\.67lvh': true }
-  readonly margin70lvh: { 'margin_70lvh': true }
   readonly margin75lvh: { 'margin_75lvh': true }
-  readonly margin80lvh: { 'margin_80lvh': true }
-  readonly margin90lvh: { 'margin_90lvh': true }
   readonly margin100lvh: { 'margin_100lvh': true }
   readonly margin0lvw: { 'margin_0lvw': true }
-  readonly margin10lvw: { 'margin_10lvw': true }
-  readonly margin20lvw: { 'margin_20lvw': true }
   readonly margin25lvw: { 'margin_25lvw': true }
-  readonly margin30lvw: { 'margin_30lvw': true }
-  readonly margin33p33lvw: { 'margin_33\.33lvw': true }
-  readonly margin40lvw: { 'margin_40lvw': true }
   readonly margin50lvw: { 'margin_50lvw': true }
-  readonly margin60lvw: { 'margin_60lvw': true }
-  readonly margin66p67lvw: { 'margin_66\.67lvw': true }
-  readonly margin70lvw: { 'margin_70lvw': true }
   readonly margin75lvw: { 'margin_75lvw': true }
-  readonly margin80lvw: { 'margin_80lvw': true }
-  readonly margin90lvw: { 'margin_90lvw': true }
   readonly margin100lvw: { 'margin_100lvw': true }
   readonly margin0mm: { 'margin_0mm': true }
   readonly margin1mm: { 'margin_1mm': true }
   readonly margin2mm: { 'margin_2mm': true }
   readonly margin4mm: { 'margin_4mm': true }
-  readonly margin6mm: { 'margin_6mm': true }
   readonly margin8mm: { 'margin_8mm': true }
-  readonly margin10mm: { 'margin_10mm': true }
-  readonly margin12mm: { 'margin_12mm': true }
-  readonly margin16mm: { 'margin_16mm': true }
-  readonly margin20mm: { 'margin_20mm': true }
   readonly margin0pc: { 'margin_0pc': true }
   readonly margin1pc: { 'margin_1pc': true }
   readonly margin2pc: { 'margin_2pc': true }
   readonly margin4pc: { 'margin_4pc': true }
-  readonly margin6pc: { 'margin_6pc': true }
   readonly margin8pc: { 'margin_8pc': true }
-  readonly margin10pc: { 'margin_10pc': true }
-  readonly margin12pc: { 'margin_12pc': true }
-  readonly margin16pc: { 'margin_16pc': true }
-  readonly margin20pc: { 'margin_20pc': true }
   readonly margin0pt: { 'margin_0pt': true }
   readonly margin1pt: { 'margin_1pt': true }
   readonly margin2pt: { 'margin_2pt': true }
   readonly margin4pt: { 'margin_4pt': true }
-  readonly margin6pt: { 'margin_6pt': true }
   readonly margin8pt: { 'margin_8pt': true }
-  readonly margin10pt: { 'margin_10pt': true }
-  readonly margin12pt: { 'margin_12pt': true }
-  readonly margin16pt: { 'margin_16pt': true }
-  readonly margin20pt: { 'margin_20pt': true }
-  readonly marginN384px: { 'margin_-384px': true }
-  readonly marginN320px: { 'margin_-320px': true }
-  readonly marginN256px: { 'margin_-256px': true }
-  readonly marginN224px: { 'margin_-224px': true }
-  readonly marginN192px: { 'margin_-192px': true }
-  readonly marginN160px: { 'margin_-160px': true }
-  readonly marginN128px: { 'margin_-128px': true }
   readonly marginN96px: { 'margin_-96px': true }
   readonly marginN80px: { 'margin_-80px': true }
   readonly marginN64px: { 'margin_-64px': true }
-  readonly marginN56px: { 'margin_-56px': true }
   readonly marginN48px: { 'margin_-48px': true }
   readonly marginN40px: { 'margin_-40px': true }
   readonly marginN32px: { 'margin_-32px': true }
-  readonly marginN28px: { 'margin_-28px': true }
   readonly marginN24px: { 'margin_-24px': true }
   readonly marginN20px: { 'margin_-20px': true }
   readonly marginN16px: { 'margin_-16px': true }
-  readonly marginN14px: { 'margin_-14px': true }
   readonly marginN12px: { 'margin_-12px': true }
   readonly marginN10px: { 'margin_-10px': true }
   readonly marginN8px: { 'margin_-8px': true }
   readonly marginN6px: { 'margin_-6px': true }
   readonly marginN4px: { 'margin_-4px': true }
   readonly marginN2px: { 'margin_-2px': true }
-  readonly marginN1px: { 'margin_-1px': true }
   readonly margin0px: { 'margin_0px': true }
-  readonly margin1px: { 'margin_1px': true }
   readonly margin2px: { 'margin_2px': true }
   readonly margin4px: { 'margin_4px': true }
   readonly margin6px: { 'margin_6px': true }
   readonly margin8px: { 'margin_8px': true }
   readonly margin10px: { 'margin_10px': true }
   readonly margin12px: { 'margin_12px': true }
-  readonly margin14px: { 'margin_14px': true }
   readonly margin16px: { 'margin_16px': true }
   readonly margin20px: { 'margin_20px': true }
   readonly margin24px: { 'margin_24px': true }
-  readonly margin28px: { 'margin_28px': true }
   readonly margin32px: { 'margin_32px': true }
   readonly margin40px: { 'margin_40px': true }
   readonly margin48px: { 'margin_48px': true }
-  readonly margin56px: { 'margin_56px': true }
   readonly margin64px: { 'margin_64px': true }
   readonly margin80px: { 'margin_80px': true }
   readonly margin96px: { 'margin_96px': true }
-  readonly margin128px: { 'margin_128px': true }
-  readonly margin160px: { 'margin_160px': true }
-  readonly margin192px: { 'margin_192px': true }
-  readonly margin224px: { 'margin_224px': true }
-  readonly margin256px: { 'margin_256px': true }
-  readonly margin320px: { 'margin_320px': true }
-  readonly margin384px: { 'margin_384px': true }
   readonly margin0rem: { 'margin_0rem': true }
-  readonly margin0p25rem: { 'margin_0\.25rem': true }
   readonly margin0p5rem: { 'margin_0\.5rem': true }
-  readonly margin0p75rem: { 'margin_0\.75rem': true }
   readonly margin1rem: { 'margin_1rem': true }
-  readonly margin1p25rem: { 'margin_1\.25rem': true }
   readonly margin1p5rem: { 'margin_1\.5rem': true }
   readonly margin2rem: { 'margin_2rem': true }
-  readonly margin2p5rem: { 'margin_2\.5rem': true }
   readonly margin3rem: { 'margin_3rem': true }
-  readonly margin4rem: { 'margin_4rem': true }
-  readonly margin5rem: { 'margin_5rem': true }
-  readonly margin6rem: { 'margin_6rem': true }
-  readonly margin8rem: { 'margin_8rem': true }
   readonly margin0rlh: { 'margin_0rlh': true }
-  readonly margin0p25rlh: { 'margin_0\.25rlh': true }
   readonly margin0p5rlh: { 'margin_0\.5rlh': true }
-  readonly margin0p75rlh: { 'margin_0\.75rlh': true }
   readonly margin1rlh: { 'margin_1rlh': true }
-  readonly margin1p25rlh: { 'margin_1\.25rlh': true }
   readonly margin1p5rlh: { 'margin_1\.5rlh': true }
   readonly margin2rlh: { 'margin_2rlh': true }
-  readonly margin2p5rlh: { 'margin_2\.5rlh': true }
   readonly margin3rlh: { 'margin_3rlh': true }
-  readonly margin4rlh: { 'margin_4rlh': true }
-  readonly margin5rlh: { 'margin_5rlh': true }
-  readonly margin6rlh: { 'margin_6rlh': true }
-  readonly margin8rlh: { 'margin_8rlh': true }
   readonly margin0svh: { 'margin_0svh': true }
-  readonly margin10svh: { 'margin_10svh': true }
-  readonly margin20svh: { 'margin_20svh': true }
   readonly margin25svh: { 'margin_25svh': true }
-  readonly margin30svh: { 'margin_30svh': true }
-  readonly margin33p33svh: { 'margin_33\.33svh': true }
-  readonly margin40svh: { 'margin_40svh': true }
   readonly margin50svh: { 'margin_50svh': true }
-  readonly margin60svh: { 'margin_60svh': true }
-  readonly margin66p67svh: { 'margin_66\.67svh': true }
-  readonly margin70svh: { 'margin_70svh': true }
   readonly margin75svh: { 'margin_75svh': true }
-  readonly margin80svh: { 'margin_80svh': true }
-  readonly margin90svh: { 'margin_90svh': true }
   readonly margin100svh: { 'margin_100svh': true }
   readonly margin0svw: { 'margin_0svw': true }
-  readonly margin10svw: { 'margin_10svw': true }
-  readonly margin20svw: { 'margin_20svw': true }
   readonly margin25svw: { 'margin_25svw': true }
-  readonly margin30svw: { 'margin_30svw': true }
-  readonly margin33p33svw: { 'margin_33\.33svw': true }
-  readonly margin40svw: { 'margin_40svw': true }
   readonly margin50svw: { 'margin_50svw': true }
-  readonly margin60svw: { 'margin_60svw': true }
-  readonly margin66p67svw: { 'margin_66\.67svw': true }
-  readonly margin70svw: { 'margin_70svw': true }
   readonly margin75svw: { 'margin_75svw': true }
-  readonly margin80svw: { 'margin_80svw': true }
-  readonly margin90svw: { 'margin_90svw': true }
   readonly margin100svw: { 'margin_100svw': true }
   readonly margin0vb: { 'margin_0vb': true }
-  readonly margin10vb: { 'margin_10vb': true }
-  readonly margin20vb: { 'margin_20vb': true }
   readonly margin25vb: { 'margin_25vb': true }
-  readonly margin30vb: { 'margin_30vb': true }
-  readonly margin33p33vb: { 'margin_33\.33vb': true }
-  readonly margin40vb: { 'margin_40vb': true }
   readonly margin50vb: { 'margin_50vb': true }
-  readonly margin60vb: { 'margin_60vb': true }
-  readonly margin66p67vb: { 'margin_66\.67vb': true }
-  readonly margin70vb: { 'margin_70vb': true }
   readonly margin75vb: { 'margin_75vb': true }
-  readonly margin80vb: { 'margin_80vb': true }
-  readonly margin90vb: { 'margin_90vb': true }
   readonly margin100vb: { 'margin_100vb': true }
   readonly margin0vh: { 'margin_0vh': true }
-  readonly margin10vh: { 'margin_10vh': true }
-  readonly margin20vh: { 'margin_20vh': true }
   readonly margin25vh: { 'margin_25vh': true }
-  readonly margin30vh: { 'margin_30vh': true }
-  readonly margin33p33vh: { 'margin_33\.33vh': true }
-  readonly margin40vh: { 'margin_40vh': true }
   readonly margin50vh: { 'margin_50vh': true }
-  readonly margin60vh: { 'margin_60vh': true }
-  readonly margin66p67vh: { 'margin_66\.67vh': true }
-  readonly margin70vh: { 'margin_70vh': true }
   readonly margin75vh: { 'margin_75vh': true }
-  readonly margin80vh: { 'margin_80vh': true }
-  readonly margin90vh: { 'margin_90vh': true }
   readonly margin100vh: { 'margin_100vh': true }
   readonly margin0vi: { 'margin_0vi': true }
-  readonly margin10vi: { 'margin_10vi': true }
-  readonly margin20vi: { 'margin_20vi': true }
   readonly margin25vi: { 'margin_25vi': true }
-  readonly margin30vi: { 'margin_30vi': true }
-  readonly margin33p33vi: { 'margin_33\.33vi': true }
-  readonly margin40vi: { 'margin_40vi': true }
   readonly margin50vi: { 'margin_50vi': true }
-  readonly margin60vi: { 'margin_60vi': true }
-  readonly margin66p67vi: { 'margin_66\.67vi': true }
-  readonly margin70vi: { 'margin_70vi': true }
   readonly margin75vi: { 'margin_75vi': true }
-  readonly margin80vi: { 'margin_80vi': true }
-  readonly margin90vi: { 'margin_90vi': true }
   readonly margin100vi: { 'margin_100vi': true }
   readonly margin0vmax: { 'margin_0vmax': true }
-  readonly margin10vmax: { 'margin_10vmax': true }
-  readonly margin20vmax: { 'margin_20vmax': true }
   readonly margin25vmax: { 'margin_25vmax': true }
-  readonly margin30vmax: { 'margin_30vmax': true }
-  readonly margin33p33vmax: { 'margin_33\.33vmax': true }
-  readonly margin40vmax: { 'margin_40vmax': true }
   readonly margin50vmax: { 'margin_50vmax': true }
-  readonly margin60vmax: { 'margin_60vmax': true }
-  readonly margin66p67vmax: { 'margin_66\.67vmax': true }
-  readonly margin70vmax: { 'margin_70vmax': true }
   readonly margin75vmax: { 'margin_75vmax': true }
-  readonly margin80vmax: { 'margin_80vmax': true }
-  readonly margin90vmax: { 'margin_90vmax': true }
   readonly margin100vmax: { 'margin_100vmax': true }
   readonly margin0vmin: { 'margin_0vmin': true }
-  readonly margin10vmin: { 'margin_10vmin': true }
-  readonly margin20vmin: { 'margin_20vmin': true }
   readonly margin25vmin: { 'margin_25vmin': true }
-  readonly margin30vmin: { 'margin_30vmin': true }
-  readonly margin33p33vmin: { 'margin_33\.33vmin': true }
-  readonly margin40vmin: { 'margin_40vmin': true }
   readonly margin50vmin: { 'margin_50vmin': true }
-  readonly margin60vmin: { 'margin_60vmin': true }
-  readonly margin66p67vmin: { 'margin_66\.67vmin': true }
-  readonly margin70vmin: { 'margin_70vmin': true }
   readonly margin75vmin: { 'margin_75vmin': true }
-  readonly margin80vmin: { 'margin_80vmin': true }
-  readonly margin90vmin: { 'margin_90vmin': true }
   readonly margin100vmin: { 'margin_100vmin': true }
   readonly margin0vw: { 'margin_0vw': true }
-  readonly margin10vw: { 'margin_10vw': true }
-  readonly margin20vw: { 'margin_20vw': true }
   readonly margin25vw: { 'margin_25vw': true }
-  readonly margin30vw: { 'margin_30vw': true }
-  readonly margin33p33vw: { 'margin_33\.33vw': true }
-  readonly margin40vw: { 'margin_40vw': true }
   readonly margin50vw: { 'margin_50vw': true }
-  readonly margin60vw: { 'margin_60vw': true }
-  readonly margin66p67vw: { 'margin_66\.67vw': true }
-  readonly margin70vw: { 'margin_70vw': true }
   readonly margin75vw: { 'margin_75vw': true }
-  readonly margin80vw: { 'margin_80vw': true }
-  readonly margin90vw: { 'margin_90vw': true }
   readonly margin100vw: { 'margin_100vw': true }
   readonly margin0Pct: { 'margin_0\%': true }
-  readonly margin10Pct: { 'margin_10\%': true }
-  readonly margin20Pct: { 'margin_20\%': true }
   readonly margin25Pct: { 'margin_25\%': true }
-  readonly margin30Pct: { 'margin_30\%': true }
-  readonly margin33p33Pct: { 'margin_33\.33\%': true }
-  readonly margin40Pct: { 'margin_40\%': true }
   readonly margin50Pct: { 'margin_50\%': true }
-  readonly margin60Pct: { 'margin_60\%': true }
-  readonly margin66p67Pct: { 'margin_66\.67\%': true }
-  readonly margin70Pct: { 'margin_70\%': true }
   readonly margin75Pct: { 'margin_75\%': true }
-  readonly margin80Pct: { 'margin_80\%': true }
-  readonly margin90Pct: { 'margin_90\%': true }
   readonly margin100Pct: { 'margin_100\%': true }
 
   // ==================== max-height ====================
@@ -7346,421 +3358,175 @@ export interface CsstsAtoms {
   readonly maxHeight1Q: { 'max-height_1Q': true }
   readonly maxHeight2Q: { 'max-height_2Q': true }
   readonly maxHeight4Q: { 'max-height_4Q': true }
-  readonly maxHeight6Q: { 'max-height_6Q': true }
   readonly maxHeight8Q: { 'max-height_8Q': true }
-  readonly maxHeight10Q: { 'max-height_10Q': true }
-  readonly maxHeight12Q: { 'max-height_12Q': true }
-  readonly maxHeight16Q: { 'max-height_16Q': true }
-  readonly maxHeight20Q: { 'max-height_20Q': true }
   readonly maxHeight0cap: { 'max-height_0cap': true }
-  readonly maxHeight0p25cap: { 'max-height_0\.25cap': true }
   readonly maxHeight0p5cap: { 'max-height_0\.5cap': true }
-  readonly maxHeight0p75cap: { 'max-height_0\.75cap': true }
   readonly maxHeight1cap: { 'max-height_1cap': true }
-  readonly maxHeight1p25cap: { 'max-height_1\.25cap': true }
   readonly maxHeight1p5cap: { 'max-height_1\.5cap': true }
   readonly maxHeight2cap: { 'max-height_2cap': true }
-  readonly maxHeight2p5cap: { 'max-height_2\.5cap': true }
   readonly maxHeight3cap: { 'max-height_3cap': true }
-  readonly maxHeight4cap: { 'max-height_4cap': true }
-  readonly maxHeight5cap: { 'max-height_5cap': true }
-  readonly maxHeight6cap: { 'max-height_6cap': true }
-  readonly maxHeight8cap: { 'max-height_8cap': true }
   readonly maxHeight0ch: { 'max-height_0ch': true }
-  readonly maxHeight0p25ch: { 'max-height_0\.25ch': true }
   readonly maxHeight0p5ch: { 'max-height_0\.5ch': true }
-  readonly maxHeight0p75ch: { 'max-height_0\.75ch': true }
   readonly maxHeight1ch: { 'max-height_1ch': true }
-  readonly maxHeight1p25ch: { 'max-height_1\.25ch': true }
   readonly maxHeight1p5ch: { 'max-height_1\.5ch': true }
   readonly maxHeight2ch: { 'max-height_2ch': true }
-  readonly maxHeight2p5ch: { 'max-height_2\.5ch': true }
   readonly maxHeight3ch: { 'max-height_3ch': true }
-  readonly maxHeight4ch: { 'max-height_4ch': true }
-  readonly maxHeight5ch: { 'max-height_5ch': true }
-  readonly maxHeight6ch: { 'max-height_6ch': true }
-  readonly maxHeight8ch: { 'max-height_8ch': true }
   readonly maxHeight0cm: { 'max-height_0cm': true }
   readonly maxHeight1cm: { 'max-height_1cm': true }
   readonly maxHeight2cm: { 'max-height_2cm': true }
   readonly maxHeight4cm: { 'max-height_4cm': true }
-  readonly maxHeight6cm: { 'max-height_6cm': true }
   readonly maxHeight8cm: { 'max-height_8cm': true }
-  readonly maxHeight10cm: { 'max-height_10cm': true }
-  readonly maxHeight12cm: { 'max-height_12cm': true }
-  readonly maxHeight16cm: { 'max-height_16cm': true }
-  readonly maxHeight20cm: { 'max-height_20cm': true }
   readonly maxHeight0dvh: { 'max-height_0dvh': true }
-  readonly maxHeight10dvh: { 'max-height_10dvh': true }
-  readonly maxHeight20dvh: { 'max-height_20dvh': true }
   readonly maxHeight25dvh: { 'max-height_25dvh': true }
-  readonly maxHeight30dvh: { 'max-height_30dvh': true }
-  readonly maxHeight33p33dvh: { 'max-height_33\.33dvh': true }
-  readonly maxHeight40dvh: { 'max-height_40dvh': true }
   readonly maxHeight50dvh: { 'max-height_50dvh': true }
-  readonly maxHeight60dvh: { 'max-height_60dvh': true }
-  readonly maxHeight66p67dvh: { 'max-height_66\.67dvh': true }
-  readonly maxHeight70dvh: { 'max-height_70dvh': true }
   readonly maxHeight75dvh: { 'max-height_75dvh': true }
-  readonly maxHeight80dvh: { 'max-height_80dvh': true }
-  readonly maxHeight90dvh: { 'max-height_90dvh': true }
   readonly maxHeight100dvh: { 'max-height_100dvh': true }
   readonly maxHeight0dvw: { 'max-height_0dvw': true }
-  readonly maxHeight10dvw: { 'max-height_10dvw': true }
-  readonly maxHeight20dvw: { 'max-height_20dvw': true }
   readonly maxHeight25dvw: { 'max-height_25dvw': true }
-  readonly maxHeight30dvw: { 'max-height_30dvw': true }
-  readonly maxHeight33p33dvw: { 'max-height_33\.33dvw': true }
-  readonly maxHeight40dvw: { 'max-height_40dvw': true }
   readonly maxHeight50dvw: { 'max-height_50dvw': true }
-  readonly maxHeight60dvw: { 'max-height_60dvw': true }
-  readonly maxHeight66p67dvw: { 'max-height_66\.67dvw': true }
-  readonly maxHeight70dvw: { 'max-height_70dvw': true }
   readonly maxHeight75dvw: { 'max-height_75dvw': true }
-  readonly maxHeight80dvw: { 'max-height_80dvw': true }
-  readonly maxHeight90dvw: { 'max-height_90dvw': true }
   readonly maxHeight100dvw: { 'max-height_100dvw': true }
   readonly maxHeight0em: { 'max-height_0em': true }
-  readonly maxHeight0p25em: { 'max-height_0\.25em': true }
   readonly maxHeight0p5em: { 'max-height_0\.5em': true }
-  readonly maxHeight0p75em: { 'max-height_0\.75em': true }
   readonly maxHeight1em: { 'max-height_1em': true }
-  readonly maxHeight1p25em: { 'max-height_1\.25em': true }
   readonly maxHeight1p5em: { 'max-height_1\.5em': true }
   readonly maxHeight2em: { 'max-height_2em': true }
-  readonly maxHeight2p5em: { 'max-height_2\.5em': true }
   readonly maxHeight3em: { 'max-height_3em': true }
-  readonly maxHeight4em: { 'max-height_4em': true }
-  readonly maxHeight5em: { 'max-height_5em': true }
-  readonly maxHeight6em: { 'max-height_6em': true }
-  readonly maxHeight8em: { 'max-height_8em': true }
   readonly maxHeight0ex: { 'max-height_0ex': true }
-  readonly maxHeight0p25ex: { 'max-height_0\.25ex': true }
   readonly maxHeight0p5ex: { 'max-height_0\.5ex': true }
-  readonly maxHeight0p75ex: { 'max-height_0\.75ex': true }
   readonly maxHeight1ex: { 'max-height_1ex': true }
-  readonly maxHeight1p25ex: { 'max-height_1\.25ex': true }
   readonly maxHeight1p5ex: { 'max-height_1\.5ex': true }
   readonly maxHeight2ex: { 'max-height_2ex': true }
-  readonly maxHeight2p5ex: { 'max-height_2\.5ex': true }
   readonly maxHeight3ex: { 'max-height_3ex': true }
-  readonly maxHeight4ex: { 'max-height_4ex': true }
-  readonly maxHeight5ex: { 'max-height_5ex': true }
-  readonly maxHeight6ex: { 'max-height_6ex': true }
-  readonly maxHeight8ex: { 'max-height_8ex': true }
   readonly maxHeight0ic: { 'max-height_0ic': true }
-  readonly maxHeight0p25ic: { 'max-height_0\.25ic': true }
   readonly maxHeight0p5ic: { 'max-height_0\.5ic': true }
-  readonly maxHeight0p75ic: { 'max-height_0\.75ic': true }
   readonly maxHeight1ic: { 'max-height_1ic': true }
-  readonly maxHeight1p25ic: { 'max-height_1\.25ic': true }
   readonly maxHeight1p5ic: { 'max-height_1\.5ic': true }
   readonly maxHeight2ic: { 'max-height_2ic': true }
-  readonly maxHeight2p5ic: { 'max-height_2\.5ic': true }
   readonly maxHeight3ic: { 'max-height_3ic': true }
-  readonly maxHeight4ic: { 'max-height_4ic': true }
-  readonly maxHeight5ic: { 'max-height_5ic': true }
-  readonly maxHeight6ic: { 'max-height_6ic': true }
-  readonly maxHeight8ic: { 'max-height_8ic': true }
   readonly maxHeight0in: { 'max-height_0in': true }
   readonly maxHeight1in: { 'max-height_1in': true }
   readonly maxHeight2in: { 'max-height_2in': true }
   readonly maxHeight4in: { 'max-height_4in': true }
-  readonly maxHeight6in: { 'max-height_6in': true }
   readonly maxHeight8in: { 'max-height_8in': true }
-  readonly maxHeight10in: { 'max-height_10in': true }
-  readonly maxHeight12in: { 'max-height_12in': true }
-  readonly maxHeight16in: { 'max-height_16in': true }
-  readonly maxHeight20in: { 'max-height_20in': true }
   readonly maxHeight0lh: { 'max-height_0lh': true }
-  readonly maxHeight0p25lh: { 'max-height_0\.25lh': true }
   readonly maxHeight0p5lh: { 'max-height_0\.5lh': true }
-  readonly maxHeight0p75lh: { 'max-height_0\.75lh': true }
   readonly maxHeight1lh: { 'max-height_1lh': true }
-  readonly maxHeight1p25lh: { 'max-height_1\.25lh': true }
   readonly maxHeight1p5lh: { 'max-height_1\.5lh': true }
   readonly maxHeight2lh: { 'max-height_2lh': true }
-  readonly maxHeight2p5lh: { 'max-height_2\.5lh': true }
   readonly maxHeight3lh: { 'max-height_3lh': true }
-  readonly maxHeight4lh: { 'max-height_4lh': true }
-  readonly maxHeight5lh: { 'max-height_5lh': true }
-  readonly maxHeight6lh: { 'max-height_6lh': true }
-  readonly maxHeight8lh: { 'max-height_8lh': true }
   readonly maxHeight0lvh: { 'max-height_0lvh': true }
-  readonly maxHeight10lvh: { 'max-height_10lvh': true }
-  readonly maxHeight20lvh: { 'max-height_20lvh': true }
   readonly maxHeight25lvh: { 'max-height_25lvh': true }
-  readonly maxHeight30lvh: { 'max-height_30lvh': true }
-  readonly maxHeight33p33lvh: { 'max-height_33\.33lvh': true }
-  readonly maxHeight40lvh: { 'max-height_40lvh': true }
   readonly maxHeight50lvh: { 'max-height_50lvh': true }
-  readonly maxHeight60lvh: { 'max-height_60lvh': true }
-  readonly maxHeight66p67lvh: { 'max-height_66\.67lvh': true }
-  readonly maxHeight70lvh: { 'max-height_70lvh': true }
   readonly maxHeight75lvh: { 'max-height_75lvh': true }
-  readonly maxHeight80lvh: { 'max-height_80lvh': true }
-  readonly maxHeight90lvh: { 'max-height_90lvh': true }
   readonly maxHeight100lvh: { 'max-height_100lvh': true }
   readonly maxHeight0lvw: { 'max-height_0lvw': true }
-  readonly maxHeight10lvw: { 'max-height_10lvw': true }
-  readonly maxHeight20lvw: { 'max-height_20lvw': true }
   readonly maxHeight25lvw: { 'max-height_25lvw': true }
-  readonly maxHeight30lvw: { 'max-height_30lvw': true }
-  readonly maxHeight33p33lvw: { 'max-height_33\.33lvw': true }
-  readonly maxHeight40lvw: { 'max-height_40lvw': true }
   readonly maxHeight50lvw: { 'max-height_50lvw': true }
-  readonly maxHeight60lvw: { 'max-height_60lvw': true }
-  readonly maxHeight66p67lvw: { 'max-height_66\.67lvw': true }
-  readonly maxHeight70lvw: { 'max-height_70lvw': true }
   readonly maxHeight75lvw: { 'max-height_75lvw': true }
-  readonly maxHeight80lvw: { 'max-height_80lvw': true }
-  readonly maxHeight90lvw: { 'max-height_90lvw': true }
   readonly maxHeight100lvw: { 'max-height_100lvw': true }
   readonly maxHeight0mm: { 'max-height_0mm': true }
   readonly maxHeight1mm: { 'max-height_1mm': true }
   readonly maxHeight2mm: { 'max-height_2mm': true }
   readonly maxHeight4mm: { 'max-height_4mm': true }
-  readonly maxHeight6mm: { 'max-height_6mm': true }
   readonly maxHeight8mm: { 'max-height_8mm': true }
-  readonly maxHeight10mm: { 'max-height_10mm': true }
-  readonly maxHeight12mm: { 'max-height_12mm': true }
-  readonly maxHeight16mm: { 'max-height_16mm': true }
-  readonly maxHeight20mm: { 'max-height_20mm': true }
   readonly maxHeight0pc: { 'max-height_0pc': true }
   readonly maxHeight1pc: { 'max-height_1pc': true }
   readonly maxHeight2pc: { 'max-height_2pc': true }
   readonly maxHeight4pc: { 'max-height_4pc': true }
-  readonly maxHeight6pc: { 'max-height_6pc': true }
   readonly maxHeight8pc: { 'max-height_8pc': true }
-  readonly maxHeight10pc: { 'max-height_10pc': true }
-  readonly maxHeight12pc: { 'max-height_12pc': true }
-  readonly maxHeight16pc: { 'max-height_16pc': true }
-  readonly maxHeight20pc: { 'max-height_20pc': true }
   readonly maxHeight0pt: { 'max-height_0pt': true }
   readonly maxHeight1pt: { 'max-height_1pt': true }
   readonly maxHeight2pt: { 'max-height_2pt': true }
   readonly maxHeight4pt: { 'max-height_4pt': true }
-  readonly maxHeight6pt: { 'max-height_6pt': true }
   readonly maxHeight8pt: { 'max-height_8pt': true }
-  readonly maxHeight10pt: { 'max-height_10pt': true }
-  readonly maxHeight12pt: { 'max-height_12pt': true }
-  readonly maxHeight16pt: { 'max-height_16pt': true }
-  readonly maxHeight20pt: { 'max-height_20pt': true }
-  readonly maxHeightN384px: { 'max-height_-384px': true }
-  readonly maxHeightN320px: { 'max-height_-320px': true }
-  readonly maxHeightN256px: { 'max-height_-256px': true }
-  readonly maxHeightN224px: { 'max-height_-224px': true }
-  readonly maxHeightN192px: { 'max-height_-192px': true }
-  readonly maxHeightN160px: { 'max-height_-160px': true }
-  readonly maxHeightN128px: { 'max-height_-128px': true }
   readonly maxHeightN96px: { 'max-height_-96px': true }
   readonly maxHeightN80px: { 'max-height_-80px': true }
   readonly maxHeightN64px: { 'max-height_-64px': true }
-  readonly maxHeightN56px: { 'max-height_-56px': true }
   readonly maxHeightN48px: { 'max-height_-48px': true }
   readonly maxHeightN40px: { 'max-height_-40px': true }
   readonly maxHeightN32px: { 'max-height_-32px': true }
-  readonly maxHeightN28px: { 'max-height_-28px': true }
   readonly maxHeightN24px: { 'max-height_-24px': true }
   readonly maxHeightN20px: { 'max-height_-20px': true }
   readonly maxHeightN16px: { 'max-height_-16px': true }
-  readonly maxHeightN14px: { 'max-height_-14px': true }
   readonly maxHeightN12px: { 'max-height_-12px': true }
   readonly maxHeightN10px: { 'max-height_-10px': true }
   readonly maxHeightN8px: { 'max-height_-8px': true }
   readonly maxHeightN6px: { 'max-height_-6px': true }
   readonly maxHeightN4px: { 'max-height_-4px': true }
   readonly maxHeightN2px: { 'max-height_-2px': true }
-  readonly maxHeightN1px: { 'max-height_-1px': true }
   readonly maxHeight0px: { 'max-height_0px': true }
-  readonly maxHeight1px: { 'max-height_1px': true }
   readonly maxHeight2px: { 'max-height_2px': true }
   readonly maxHeight4px: { 'max-height_4px': true }
   readonly maxHeight6px: { 'max-height_6px': true }
   readonly maxHeight8px: { 'max-height_8px': true }
   readonly maxHeight10px: { 'max-height_10px': true }
   readonly maxHeight12px: { 'max-height_12px': true }
-  readonly maxHeight14px: { 'max-height_14px': true }
   readonly maxHeight16px: { 'max-height_16px': true }
   readonly maxHeight20px: { 'max-height_20px': true }
   readonly maxHeight24px: { 'max-height_24px': true }
-  readonly maxHeight28px: { 'max-height_28px': true }
   readonly maxHeight32px: { 'max-height_32px': true }
   readonly maxHeight40px: { 'max-height_40px': true }
   readonly maxHeight48px: { 'max-height_48px': true }
-  readonly maxHeight56px: { 'max-height_56px': true }
   readonly maxHeight64px: { 'max-height_64px': true }
   readonly maxHeight80px: { 'max-height_80px': true }
   readonly maxHeight96px: { 'max-height_96px': true }
-  readonly maxHeight128px: { 'max-height_128px': true }
-  readonly maxHeight160px: { 'max-height_160px': true }
-  readonly maxHeight192px: { 'max-height_192px': true }
-  readonly maxHeight224px: { 'max-height_224px': true }
-  readonly maxHeight256px: { 'max-height_256px': true }
-  readonly maxHeight320px: { 'max-height_320px': true }
-  readonly maxHeight384px: { 'max-height_384px': true }
   readonly maxHeight0rem: { 'max-height_0rem': true }
-  readonly maxHeight0p25rem: { 'max-height_0\.25rem': true }
   readonly maxHeight0p5rem: { 'max-height_0\.5rem': true }
-  readonly maxHeight0p75rem: { 'max-height_0\.75rem': true }
   readonly maxHeight1rem: { 'max-height_1rem': true }
-  readonly maxHeight1p25rem: { 'max-height_1\.25rem': true }
   readonly maxHeight1p5rem: { 'max-height_1\.5rem': true }
   readonly maxHeight2rem: { 'max-height_2rem': true }
-  readonly maxHeight2p5rem: { 'max-height_2\.5rem': true }
   readonly maxHeight3rem: { 'max-height_3rem': true }
-  readonly maxHeight4rem: { 'max-height_4rem': true }
-  readonly maxHeight5rem: { 'max-height_5rem': true }
-  readonly maxHeight6rem: { 'max-height_6rem': true }
-  readonly maxHeight8rem: { 'max-height_8rem': true }
   readonly maxHeight0rlh: { 'max-height_0rlh': true }
-  readonly maxHeight0p25rlh: { 'max-height_0\.25rlh': true }
   readonly maxHeight0p5rlh: { 'max-height_0\.5rlh': true }
-  readonly maxHeight0p75rlh: { 'max-height_0\.75rlh': true }
   readonly maxHeight1rlh: { 'max-height_1rlh': true }
-  readonly maxHeight1p25rlh: { 'max-height_1\.25rlh': true }
   readonly maxHeight1p5rlh: { 'max-height_1\.5rlh': true }
   readonly maxHeight2rlh: { 'max-height_2rlh': true }
-  readonly maxHeight2p5rlh: { 'max-height_2\.5rlh': true }
   readonly maxHeight3rlh: { 'max-height_3rlh': true }
-  readonly maxHeight4rlh: { 'max-height_4rlh': true }
-  readonly maxHeight5rlh: { 'max-height_5rlh': true }
-  readonly maxHeight6rlh: { 'max-height_6rlh': true }
-  readonly maxHeight8rlh: { 'max-height_8rlh': true }
   readonly maxHeight0svh: { 'max-height_0svh': true }
-  readonly maxHeight10svh: { 'max-height_10svh': true }
-  readonly maxHeight20svh: { 'max-height_20svh': true }
   readonly maxHeight25svh: { 'max-height_25svh': true }
-  readonly maxHeight30svh: { 'max-height_30svh': true }
-  readonly maxHeight33p33svh: { 'max-height_33\.33svh': true }
-  readonly maxHeight40svh: { 'max-height_40svh': true }
   readonly maxHeight50svh: { 'max-height_50svh': true }
-  readonly maxHeight60svh: { 'max-height_60svh': true }
-  readonly maxHeight66p67svh: { 'max-height_66\.67svh': true }
-  readonly maxHeight70svh: { 'max-height_70svh': true }
   readonly maxHeight75svh: { 'max-height_75svh': true }
-  readonly maxHeight80svh: { 'max-height_80svh': true }
-  readonly maxHeight90svh: { 'max-height_90svh': true }
   readonly maxHeight100svh: { 'max-height_100svh': true }
   readonly maxHeight0svw: { 'max-height_0svw': true }
-  readonly maxHeight10svw: { 'max-height_10svw': true }
-  readonly maxHeight20svw: { 'max-height_20svw': true }
   readonly maxHeight25svw: { 'max-height_25svw': true }
-  readonly maxHeight30svw: { 'max-height_30svw': true }
-  readonly maxHeight33p33svw: { 'max-height_33\.33svw': true }
-  readonly maxHeight40svw: { 'max-height_40svw': true }
   readonly maxHeight50svw: { 'max-height_50svw': true }
-  readonly maxHeight60svw: { 'max-height_60svw': true }
-  readonly maxHeight66p67svw: { 'max-height_66\.67svw': true }
-  readonly maxHeight70svw: { 'max-height_70svw': true }
   readonly maxHeight75svw: { 'max-height_75svw': true }
-  readonly maxHeight80svw: { 'max-height_80svw': true }
-  readonly maxHeight90svw: { 'max-height_90svw': true }
   readonly maxHeight100svw: { 'max-height_100svw': true }
   readonly maxHeight0vb: { 'max-height_0vb': true }
-  readonly maxHeight10vb: { 'max-height_10vb': true }
-  readonly maxHeight20vb: { 'max-height_20vb': true }
   readonly maxHeight25vb: { 'max-height_25vb': true }
-  readonly maxHeight30vb: { 'max-height_30vb': true }
-  readonly maxHeight33p33vb: { 'max-height_33\.33vb': true }
-  readonly maxHeight40vb: { 'max-height_40vb': true }
   readonly maxHeight50vb: { 'max-height_50vb': true }
-  readonly maxHeight60vb: { 'max-height_60vb': true }
-  readonly maxHeight66p67vb: { 'max-height_66\.67vb': true }
-  readonly maxHeight70vb: { 'max-height_70vb': true }
   readonly maxHeight75vb: { 'max-height_75vb': true }
-  readonly maxHeight80vb: { 'max-height_80vb': true }
-  readonly maxHeight90vb: { 'max-height_90vb': true }
   readonly maxHeight100vb: { 'max-height_100vb': true }
   readonly maxHeight0vh: { 'max-height_0vh': true }
-  readonly maxHeight10vh: { 'max-height_10vh': true }
-  readonly maxHeight20vh: { 'max-height_20vh': true }
   readonly maxHeight25vh: { 'max-height_25vh': true }
-  readonly maxHeight30vh: { 'max-height_30vh': true }
-  readonly maxHeight33p33vh: { 'max-height_33\.33vh': true }
-  readonly maxHeight40vh: { 'max-height_40vh': true }
   readonly maxHeight50vh: { 'max-height_50vh': true }
-  readonly maxHeight60vh: { 'max-height_60vh': true }
-  readonly maxHeight66p67vh: { 'max-height_66\.67vh': true }
-  readonly maxHeight70vh: { 'max-height_70vh': true }
   readonly maxHeight75vh: { 'max-height_75vh': true }
-  readonly maxHeight80vh: { 'max-height_80vh': true }
-  readonly maxHeight90vh: { 'max-height_90vh': true }
   readonly maxHeight100vh: { 'max-height_100vh': true }
   readonly maxHeight0vi: { 'max-height_0vi': true }
-  readonly maxHeight10vi: { 'max-height_10vi': true }
-  readonly maxHeight20vi: { 'max-height_20vi': true }
   readonly maxHeight25vi: { 'max-height_25vi': true }
-  readonly maxHeight30vi: { 'max-height_30vi': true }
-  readonly maxHeight33p33vi: { 'max-height_33\.33vi': true }
-  readonly maxHeight40vi: { 'max-height_40vi': true }
   readonly maxHeight50vi: { 'max-height_50vi': true }
-  readonly maxHeight60vi: { 'max-height_60vi': true }
-  readonly maxHeight66p67vi: { 'max-height_66\.67vi': true }
-  readonly maxHeight70vi: { 'max-height_70vi': true }
   readonly maxHeight75vi: { 'max-height_75vi': true }
-  readonly maxHeight80vi: { 'max-height_80vi': true }
-  readonly maxHeight90vi: { 'max-height_90vi': true }
   readonly maxHeight100vi: { 'max-height_100vi': true }
   readonly maxHeight0vmax: { 'max-height_0vmax': true }
-  readonly maxHeight10vmax: { 'max-height_10vmax': true }
-  readonly maxHeight20vmax: { 'max-height_20vmax': true }
   readonly maxHeight25vmax: { 'max-height_25vmax': true }
-  readonly maxHeight30vmax: { 'max-height_30vmax': true }
-  readonly maxHeight33p33vmax: { 'max-height_33\.33vmax': true }
-  readonly maxHeight40vmax: { 'max-height_40vmax': true }
   readonly maxHeight50vmax: { 'max-height_50vmax': true }
-  readonly maxHeight60vmax: { 'max-height_60vmax': true }
-  readonly maxHeight66p67vmax: { 'max-height_66\.67vmax': true }
-  readonly maxHeight70vmax: { 'max-height_70vmax': true }
   readonly maxHeight75vmax: { 'max-height_75vmax': true }
-  readonly maxHeight80vmax: { 'max-height_80vmax': true }
-  readonly maxHeight90vmax: { 'max-height_90vmax': true }
   readonly maxHeight100vmax: { 'max-height_100vmax': true }
   readonly maxHeight0vmin: { 'max-height_0vmin': true }
-  readonly maxHeight10vmin: { 'max-height_10vmin': true }
-  readonly maxHeight20vmin: { 'max-height_20vmin': true }
   readonly maxHeight25vmin: { 'max-height_25vmin': true }
-  readonly maxHeight30vmin: { 'max-height_30vmin': true }
-  readonly maxHeight33p33vmin: { 'max-height_33\.33vmin': true }
-  readonly maxHeight40vmin: { 'max-height_40vmin': true }
   readonly maxHeight50vmin: { 'max-height_50vmin': true }
-  readonly maxHeight60vmin: { 'max-height_60vmin': true }
-  readonly maxHeight66p67vmin: { 'max-height_66\.67vmin': true }
-  readonly maxHeight70vmin: { 'max-height_70vmin': true }
   readonly maxHeight75vmin: { 'max-height_75vmin': true }
-  readonly maxHeight80vmin: { 'max-height_80vmin': true }
-  readonly maxHeight90vmin: { 'max-height_90vmin': true }
   readonly maxHeight100vmin: { 'max-height_100vmin': true }
   readonly maxHeight0vw: { 'max-height_0vw': true }
-  readonly maxHeight10vw: { 'max-height_10vw': true }
-  readonly maxHeight20vw: { 'max-height_20vw': true }
   readonly maxHeight25vw: { 'max-height_25vw': true }
-  readonly maxHeight30vw: { 'max-height_30vw': true }
-  readonly maxHeight33p33vw: { 'max-height_33\.33vw': true }
-  readonly maxHeight40vw: { 'max-height_40vw': true }
   readonly maxHeight50vw: { 'max-height_50vw': true }
-  readonly maxHeight60vw: { 'max-height_60vw': true }
-  readonly maxHeight66p67vw: { 'max-height_66\.67vw': true }
-  readonly maxHeight70vw: { 'max-height_70vw': true }
   readonly maxHeight75vw: { 'max-height_75vw': true }
-  readonly maxHeight80vw: { 'max-height_80vw': true }
-  readonly maxHeight90vw: { 'max-height_90vw': true }
   readonly maxHeight100vw: { 'max-height_100vw': true }
   readonly maxHeight0Pct: { 'max-height_0\%': true }
-  readonly maxHeight10Pct: { 'max-height_10\%': true }
-  readonly maxHeight20Pct: { 'max-height_20\%': true }
   readonly maxHeight25Pct: { 'max-height_25\%': true }
-  readonly maxHeight30Pct: { 'max-height_30\%': true }
-  readonly maxHeight33p33Pct: { 'max-height_33\.33\%': true }
-  readonly maxHeight40Pct: { 'max-height_40\%': true }
   readonly maxHeight50Pct: { 'max-height_50\%': true }
-  readonly maxHeight60Pct: { 'max-height_60\%': true }
-  readonly maxHeight66p67Pct: { 'max-height_66\.67\%': true }
-  readonly maxHeight70Pct: { 'max-height_70\%': true }
   readonly maxHeight75Pct: { 'max-height_75\%': true }
-  readonly maxHeight80Pct: { 'max-height_80\%': true }
-  readonly maxHeight90Pct: { 'max-height_90\%': true }
   readonly maxHeight100Pct: { 'max-height_100\%': true }
 
   // ==================== max-width ====================
@@ -7783,421 +3549,175 @@ export interface CsstsAtoms {
   readonly maxWidth1Q: { 'max-width_1Q': true }
   readonly maxWidth2Q: { 'max-width_2Q': true }
   readonly maxWidth4Q: { 'max-width_4Q': true }
-  readonly maxWidth6Q: { 'max-width_6Q': true }
   readonly maxWidth8Q: { 'max-width_8Q': true }
-  readonly maxWidth10Q: { 'max-width_10Q': true }
-  readonly maxWidth12Q: { 'max-width_12Q': true }
-  readonly maxWidth16Q: { 'max-width_16Q': true }
-  readonly maxWidth20Q: { 'max-width_20Q': true }
   readonly maxWidth0cap: { 'max-width_0cap': true }
-  readonly maxWidth0p25cap: { 'max-width_0\.25cap': true }
   readonly maxWidth0p5cap: { 'max-width_0\.5cap': true }
-  readonly maxWidth0p75cap: { 'max-width_0\.75cap': true }
   readonly maxWidth1cap: { 'max-width_1cap': true }
-  readonly maxWidth1p25cap: { 'max-width_1\.25cap': true }
   readonly maxWidth1p5cap: { 'max-width_1\.5cap': true }
   readonly maxWidth2cap: { 'max-width_2cap': true }
-  readonly maxWidth2p5cap: { 'max-width_2\.5cap': true }
   readonly maxWidth3cap: { 'max-width_3cap': true }
-  readonly maxWidth4cap: { 'max-width_4cap': true }
-  readonly maxWidth5cap: { 'max-width_5cap': true }
-  readonly maxWidth6cap: { 'max-width_6cap': true }
-  readonly maxWidth8cap: { 'max-width_8cap': true }
   readonly maxWidth0ch: { 'max-width_0ch': true }
-  readonly maxWidth0p25ch: { 'max-width_0\.25ch': true }
   readonly maxWidth0p5ch: { 'max-width_0\.5ch': true }
-  readonly maxWidth0p75ch: { 'max-width_0\.75ch': true }
   readonly maxWidth1ch: { 'max-width_1ch': true }
-  readonly maxWidth1p25ch: { 'max-width_1\.25ch': true }
   readonly maxWidth1p5ch: { 'max-width_1\.5ch': true }
   readonly maxWidth2ch: { 'max-width_2ch': true }
-  readonly maxWidth2p5ch: { 'max-width_2\.5ch': true }
   readonly maxWidth3ch: { 'max-width_3ch': true }
-  readonly maxWidth4ch: { 'max-width_4ch': true }
-  readonly maxWidth5ch: { 'max-width_5ch': true }
-  readonly maxWidth6ch: { 'max-width_6ch': true }
-  readonly maxWidth8ch: { 'max-width_8ch': true }
   readonly maxWidth0cm: { 'max-width_0cm': true }
   readonly maxWidth1cm: { 'max-width_1cm': true }
   readonly maxWidth2cm: { 'max-width_2cm': true }
   readonly maxWidth4cm: { 'max-width_4cm': true }
-  readonly maxWidth6cm: { 'max-width_6cm': true }
   readonly maxWidth8cm: { 'max-width_8cm': true }
-  readonly maxWidth10cm: { 'max-width_10cm': true }
-  readonly maxWidth12cm: { 'max-width_12cm': true }
-  readonly maxWidth16cm: { 'max-width_16cm': true }
-  readonly maxWidth20cm: { 'max-width_20cm': true }
   readonly maxWidth0dvh: { 'max-width_0dvh': true }
-  readonly maxWidth10dvh: { 'max-width_10dvh': true }
-  readonly maxWidth20dvh: { 'max-width_20dvh': true }
   readonly maxWidth25dvh: { 'max-width_25dvh': true }
-  readonly maxWidth30dvh: { 'max-width_30dvh': true }
-  readonly maxWidth33p33dvh: { 'max-width_33\.33dvh': true }
-  readonly maxWidth40dvh: { 'max-width_40dvh': true }
   readonly maxWidth50dvh: { 'max-width_50dvh': true }
-  readonly maxWidth60dvh: { 'max-width_60dvh': true }
-  readonly maxWidth66p67dvh: { 'max-width_66\.67dvh': true }
-  readonly maxWidth70dvh: { 'max-width_70dvh': true }
   readonly maxWidth75dvh: { 'max-width_75dvh': true }
-  readonly maxWidth80dvh: { 'max-width_80dvh': true }
-  readonly maxWidth90dvh: { 'max-width_90dvh': true }
   readonly maxWidth100dvh: { 'max-width_100dvh': true }
   readonly maxWidth0dvw: { 'max-width_0dvw': true }
-  readonly maxWidth10dvw: { 'max-width_10dvw': true }
-  readonly maxWidth20dvw: { 'max-width_20dvw': true }
   readonly maxWidth25dvw: { 'max-width_25dvw': true }
-  readonly maxWidth30dvw: { 'max-width_30dvw': true }
-  readonly maxWidth33p33dvw: { 'max-width_33\.33dvw': true }
-  readonly maxWidth40dvw: { 'max-width_40dvw': true }
   readonly maxWidth50dvw: { 'max-width_50dvw': true }
-  readonly maxWidth60dvw: { 'max-width_60dvw': true }
-  readonly maxWidth66p67dvw: { 'max-width_66\.67dvw': true }
-  readonly maxWidth70dvw: { 'max-width_70dvw': true }
   readonly maxWidth75dvw: { 'max-width_75dvw': true }
-  readonly maxWidth80dvw: { 'max-width_80dvw': true }
-  readonly maxWidth90dvw: { 'max-width_90dvw': true }
   readonly maxWidth100dvw: { 'max-width_100dvw': true }
   readonly maxWidth0em: { 'max-width_0em': true }
-  readonly maxWidth0p25em: { 'max-width_0\.25em': true }
   readonly maxWidth0p5em: { 'max-width_0\.5em': true }
-  readonly maxWidth0p75em: { 'max-width_0\.75em': true }
   readonly maxWidth1em: { 'max-width_1em': true }
-  readonly maxWidth1p25em: { 'max-width_1\.25em': true }
   readonly maxWidth1p5em: { 'max-width_1\.5em': true }
   readonly maxWidth2em: { 'max-width_2em': true }
-  readonly maxWidth2p5em: { 'max-width_2\.5em': true }
   readonly maxWidth3em: { 'max-width_3em': true }
-  readonly maxWidth4em: { 'max-width_4em': true }
-  readonly maxWidth5em: { 'max-width_5em': true }
-  readonly maxWidth6em: { 'max-width_6em': true }
-  readonly maxWidth8em: { 'max-width_8em': true }
   readonly maxWidth0ex: { 'max-width_0ex': true }
-  readonly maxWidth0p25ex: { 'max-width_0\.25ex': true }
   readonly maxWidth0p5ex: { 'max-width_0\.5ex': true }
-  readonly maxWidth0p75ex: { 'max-width_0\.75ex': true }
   readonly maxWidth1ex: { 'max-width_1ex': true }
-  readonly maxWidth1p25ex: { 'max-width_1\.25ex': true }
   readonly maxWidth1p5ex: { 'max-width_1\.5ex': true }
   readonly maxWidth2ex: { 'max-width_2ex': true }
-  readonly maxWidth2p5ex: { 'max-width_2\.5ex': true }
   readonly maxWidth3ex: { 'max-width_3ex': true }
-  readonly maxWidth4ex: { 'max-width_4ex': true }
-  readonly maxWidth5ex: { 'max-width_5ex': true }
-  readonly maxWidth6ex: { 'max-width_6ex': true }
-  readonly maxWidth8ex: { 'max-width_8ex': true }
   readonly maxWidth0ic: { 'max-width_0ic': true }
-  readonly maxWidth0p25ic: { 'max-width_0\.25ic': true }
   readonly maxWidth0p5ic: { 'max-width_0\.5ic': true }
-  readonly maxWidth0p75ic: { 'max-width_0\.75ic': true }
   readonly maxWidth1ic: { 'max-width_1ic': true }
-  readonly maxWidth1p25ic: { 'max-width_1\.25ic': true }
   readonly maxWidth1p5ic: { 'max-width_1\.5ic': true }
   readonly maxWidth2ic: { 'max-width_2ic': true }
-  readonly maxWidth2p5ic: { 'max-width_2\.5ic': true }
   readonly maxWidth3ic: { 'max-width_3ic': true }
-  readonly maxWidth4ic: { 'max-width_4ic': true }
-  readonly maxWidth5ic: { 'max-width_5ic': true }
-  readonly maxWidth6ic: { 'max-width_6ic': true }
-  readonly maxWidth8ic: { 'max-width_8ic': true }
   readonly maxWidth0in: { 'max-width_0in': true }
   readonly maxWidth1in: { 'max-width_1in': true }
   readonly maxWidth2in: { 'max-width_2in': true }
   readonly maxWidth4in: { 'max-width_4in': true }
-  readonly maxWidth6in: { 'max-width_6in': true }
   readonly maxWidth8in: { 'max-width_8in': true }
-  readonly maxWidth10in: { 'max-width_10in': true }
-  readonly maxWidth12in: { 'max-width_12in': true }
-  readonly maxWidth16in: { 'max-width_16in': true }
-  readonly maxWidth20in: { 'max-width_20in': true }
   readonly maxWidth0lh: { 'max-width_0lh': true }
-  readonly maxWidth0p25lh: { 'max-width_0\.25lh': true }
   readonly maxWidth0p5lh: { 'max-width_0\.5lh': true }
-  readonly maxWidth0p75lh: { 'max-width_0\.75lh': true }
   readonly maxWidth1lh: { 'max-width_1lh': true }
-  readonly maxWidth1p25lh: { 'max-width_1\.25lh': true }
   readonly maxWidth1p5lh: { 'max-width_1\.5lh': true }
   readonly maxWidth2lh: { 'max-width_2lh': true }
-  readonly maxWidth2p5lh: { 'max-width_2\.5lh': true }
   readonly maxWidth3lh: { 'max-width_3lh': true }
-  readonly maxWidth4lh: { 'max-width_4lh': true }
-  readonly maxWidth5lh: { 'max-width_5lh': true }
-  readonly maxWidth6lh: { 'max-width_6lh': true }
-  readonly maxWidth8lh: { 'max-width_8lh': true }
   readonly maxWidth0lvh: { 'max-width_0lvh': true }
-  readonly maxWidth10lvh: { 'max-width_10lvh': true }
-  readonly maxWidth20lvh: { 'max-width_20lvh': true }
   readonly maxWidth25lvh: { 'max-width_25lvh': true }
-  readonly maxWidth30lvh: { 'max-width_30lvh': true }
-  readonly maxWidth33p33lvh: { 'max-width_33\.33lvh': true }
-  readonly maxWidth40lvh: { 'max-width_40lvh': true }
   readonly maxWidth50lvh: { 'max-width_50lvh': true }
-  readonly maxWidth60lvh: { 'max-width_60lvh': true }
-  readonly maxWidth66p67lvh: { 'max-width_66\.67lvh': true }
-  readonly maxWidth70lvh: { 'max-width_70lvh': true }
   readonly maxWidth75lvh: { 'max-width_75lvh': true }
-  readonly maxWidth80lvh: { 'max-width_80lvh': true }
-  readonly maxWidth90lvh: { 'max-width_90lvh': true }
   readonly maxWidth100lvh: { 'max-width_100lvh': true }
   readonly maxWidth0lvw: { 'max-width_0lvw': true }
-  readonly maxWidth10lvw: { 'max-width_10lvw': true }
-  readonly maxWidth20lvw: { 'max-width_20lvw': true }
   readonly maxWidth25lvw: { 'max-width_25lvw': true }
-  readonly maxWidth30lvw: { 'max-width_30lvw': true }
-  readonly maxWidth33p33lvw: { 'max-width_33\.33lvw': true }
-  readonly maxWidth40lvw: { 'max-width_40lvw': true }
   readonly maxWidth50lvw: { 'max-width_50lvw': true }
-  readonly maxWidth60lvw: { 'max-width_60lvw': true }
-  readonly maxWidth66p67lvw: { 'max-width_66\.67lvw': true }
-  readonly maxWidth70lvw: { 'max-width_70lvw': true }
   readonly maxWidth75lvw: { 'max-width_75lvw': true }
-  readonly maxWidth80lvw: { 'max-width_80lvw': true }
-  readonly maxWidth90lvw: { 'max-width_90lvw': true }
   readonly maxWidth100lvw: { 'max-width_100lvw': true }
   readonly maxWidth0mm: { 'max-width_0mm': true }
   readonly maxWidth1mm: { 'max-width_1mm': true }
   readonly maxWidth2mm: { 'max-width_2mm': true }
   readonly maxWidth4mm: { 'max-width_4mm': true }
-  readonly maxWidth6mm: { 'max-width_6mm': true }
   readonly maxWidth8mm: { 'max-width_8mm': true }
-  readonly maxWidth10mm: { 'max-width_10mm': true }
-  readonly maxWidth12mm: { 'max-width_12mm': true }
-  readonly maxWidth16mm: { 'max-width_16mm': true }
-  readonly maxWidth20mm: { 'max-width_20mm': true }
   readonly maxWidth0pc: { 'max-width_0pc': true }
   readonly maxWidth1pc: { 'max-width_1pc': true }
   readonly maxWidth2pc: { 'max-width_2pc': true }
   readonly maxWidth4pc: { 'max-width_4pc': true }
-  readonly maxWidth6pc: { 'max-width_6pc': true }
   readonly maxWidth8pc: { 'max-width_8pc': true }
-  readonly maxWidth10pc: { 'max-width_10pc': true }
-  readonly maxWidth12pc: { 'max-width_12pc': true }
-  readonly maxWidth16pc: { 'max-width_16pc': true }
-  readonly maxWidth20pc: { 'max-width_20pc': true }
   readonly maxWidth0pt: { 'max-width_0pt': true }
   readonly maxWidth1pt: { 'max-width_1pt': true }
   readonly maxWidth2pt: { 'max-width_2pt': true }
   readonly maxWidth4pt: { 'max-width_4pt': true }
-  readonly maxWidth6pt: { 'max-width_6pt': true }
   readonly maxWidth8pt: { 'max-width_8pt': true }
-  readonly maxWidth10pt: { 'max-width_10pt': true }
-  readonly maxWidth12pt: { 'max-width_12pt': true }
-  readonly maxWidth16pt: { 'max-width_16pt': true }
-  readonly maxWidth20pt: { 'max-width_20pt': true }
-  readonly maxWidthN384px: { 'max-width_-384px': true }
-  readonly maxWidthN320px: { 'max-width_-320px': true }
-  readonly maxWidthN256px: { 'max-width_-256px': true }
-  readonly maxWidthN224px: { 'max-width_-224px': true }
-  readonly maxWidthN192px: { 'max-width_-192px': true }
-  readonly maxWidthN160px: { 'max-width_-160px': true }
-  readonly maxWidthN128px: { 'max-width_-128px': true }
   readonly maxWidthN96px: { 'max-width_-96px': true }
   readonly maxWidthN80px: { 'max-width_-80px': true }
   readonly maxWidthN64px: { 'max-width_-64px': true }
-  readonly maxWidthN56px: { 'max-width_-56px': true }
   readonly maxWidthN48px: { 'max-width_-48px': true }
   readonly maxWidthN40px: { 'max-width_-40px': true }
   readonly maxWidthN32px: { 'max-width_-32px': true }
-  readonly maxWidthN28px: { 'max-width_-28px': true }
   readonly maxWidthN24px: { 'max-width_-24px': true }
   readonly maxWidthN20px: { 'max-width_-20px': true }
   readonly maxWidthN16px: { 'max-width_-16px': true }
-  readonly maxWidthN14px: { 'max-width_-14px': true }
   readonly maxWidthN12px: { 'max-width_-12px': true }
   readonly maxWidthN10px: { 'max-width_-10px': true }
   readonly maxWidthN8px: { 'max-width_-8px': true }
   readonly maxWidthN6px: { 'max-width_-6px': true }
   readonly maxWidthN4px: { 'max-width_-4px': true }
   readonly maxWidthN2px: { 'max-width_-2px': true }
-  readonly maxWidthN1px: { 'max-width_-1px': true }
   readonly maxWidth0px: { 'max-width_0px': true }
-  readonly maxWidth1px: { 'max-width_1px': true }
   readonly maxWidth2px: { 'max-width_2px': true }
   readonly maxWidth4px: { 'max-width_4px': true }
   readonly maxWidth6px: { 'max-width_6px': true }
   readonly maxWidth8px: { 'max-width_8px': true }
   readonly maxWidth10px: { 'max-width_10px': true }
   readonly maxWidth12px: { 'max-width_12px': true }
-  readonly maxWidth14px: { 'max-width_14px': true }
   readonly maxWidth16px: { 'max-width_16px': true }
   readonly maxWidth20px: { 'max-width_20px': true }
   readonly maxWidth24px: { 'max-width_24px': true }
-  readonly maxWidth28px: { 'max-width_28px': true }
   readonly maxWidth32px: { 'max-width_32px': true }
   readonly maxWidth40px: { 'max-width_40px': true }
   readonly maxWidth48px: { 'max-width_48px': true }
-  readonly maxWidth56px: { 'max-width_56px': true }
   readonly maxWidth64px: { 'max-width_64px': true }
   readonly maxWidth80px: { 'max-width_80px': true }
   readonly maxWidth96px: { 'max-width_96px': true }
-  readonly maxWidth128px: { 'max-width_128px': true }
-  readonly maxWidth160px: { 'max-width_160px': true }
-  readonly maxWidth192px: { 'max-width_192px': true }
-  readonly maxWidth224px: { 'max-width_224px': true }
-  readonly maxWidth256px: { 'max-width_256px': true }
-  readonly maxWidth320px: { 'max-width_320px': true }
-  readonly maxWidth384px: { 'max-width_384px': true }
   readonly maxWidth0rem: { 'max-width_0rem': true }
-  readonly maxWidth0p25rem: { 'max-width_0\.25rem': true }
   readonly maxWidth0p5rem: { 'max-width_0\.5rem': true }
-  readonly maxWidth0p75rem: { 'max-width_0\.75rem': true }
   readonly maxWidth1rem: { 'max-width_1rem': true }
-  readonly maxWidth1p25rem: { 'max-width_1\.25rem': true }
   readonly maxWidth1p5rem: { 'max-width_1\.5rem': true }
   readonly maxWidth2rem: { 'max-width_2rem': true }
-  readonly maxWidth2p5rem: { 'max-width_2\.5rem': true }
   readonly maxWidth3rem: { 'max-width_3rem': true }
-  readonly maxWidth4rem: { 'max-width_4rem': true }
-  readonly maxWidth5rem: { 'max-width_5rem': true }
-  readonly maxWidth6rem: { 'max-width_6rem': true }
-  readonly maxWidth8rem: { 'max-width_8rem': true }
   readonly maxWidth0rlh: { 'max-width_0rlh': true }
-  readonly maxWidth0p25rlh: { 'max-width_0\.25rlh': true }
   readonly maxWidth0p5rlh: { 'max-width_0\.5rlh': true }
-  readonly maxWidth0p75rlh: { 'max-width_0\.75rlh': true }
   readonly maxWidth1rlh: { 'max-width_1rlh': true }
-  readonly maxWidth1p25rlh: { 'max-width_1\.25rlh': true }
   readonly maxWidth1p5rlh: { 'max-width_1\.5rlh': true }
   readonly maxWidth2rlh: { 'max-width_2rlh': true }
-  readonly maxWidth2p5rlh: { 'max-width_2\.5rlh': true }
   readonly maxWidth3rlh: { 'max-width_3rlh': true }
-  readonly maxWidth4rlh: { 'max-width_4rlh': true }
-  readonly maxWidth5rlh: { 'max-width_5rlh': true }
-  readonly maxWidth6rlh: { 'max-width_6rlh': true }
-  readonly maxWidth8rlh: { 'max-width_8rlh': true }
   readonly maxWidth0svh: { 'max-width_0svh': true }
-  readonly maxWidth10svh: { 'max-width_10svh': true }
-  readonly maxWidth20svh: { 'max-width_20svh': true }
   readonly maxWidth25svh: { 'max-width_25svh': true }
-  readonly maxWidth30svh: { 'max-width_30svh': true }
-  readonly maxWidth33p33svh: { 'max-width_33\.33svh': true }
-  readonly maxWidth40svh: { 'max-width_40svh': true }
   readonly maxWidth50svh: { 'max-width_50svh': true }
-  readonly maxWidth60svh: { 'max-width_60svh': true }
-  readonly maxWidth66p67svh: { 'max-width_66\.67svh': true }
-  readonly maxWidth70svh: { 'max-width_70svh': true }
   readonly maxWidth75svh: { 'max-width_75svh': true }
-  readonly maxWidth80svh: { 'max-width_80svh': true }
-  readonly maxWidth90svh: { 'max-width_90svh': true }
   readonly maxWidth100svh: { 'max-width_100svh': true }
   readonly maxWidth0svw: { 'max-width_0svw': true }
-  readonly maxWidth10svw: { 'max-width_10svw': true }
-  readonly maxWidth20svw: { 'max-width_20svw': true }
   readonly maxWidth25svw: { 'max-width_25svw': true }
-  readonly maxWidth30svw: { 'max-width_30svw': true }
-  readonly maxWidth33p33svw: { 'max-width_33\.33svw': true }
-  readonly maxWidth40svw: { 'max-width_40svw': true }
   readonly maxWidth50svw: { 'max-width_50svw': true }
-  readonly maxWidth60svw: { 'max-width_60svw': true }
-  readonly maxWidth66p67svw: { 'max-width_66\.67svw': true }
-  readonly maxWidth70svw: { 'max-width_70svw': true }
   readonly maxWidth75svw: { 'max-width_75svw': true }
-  readonly maxWidth80svw: { 'max-width_80svw': true }
-  readonly maxWidth90svw: { 'max-width_90svw': true }
   readonly maxWidth100svw: { 'max-width_100svw': true }
   readonly maxWidth0vb: { 'max-width_0vb': true }
-  readonly maxWidth10vb: { 'max-width_10vb': true }
-  readonly maxWidth20vb: { 'max-width_20vb': true }
   readonly maxWidth25vb: { 'max-width_25vb': true }
-  readonly maxWidth30vb: { 'max-width_30vb': true }
-  readonly maxWidth33p33vb: { 'max-width_33\.33vb': true }
-  readonly maxWidth40vb: { 'max-width_40vb': true }
   readonly maxWidth50vb: { 'max-width_50vb': true }
-  readonly maxWidth60vb: { 'max-width_60vb': true }
-  readonly maxWidth66p67vb: { 'max-width_66\.67vb': true }
-  readonly maxWidth70vb: { 'max-width_70vb': true }
   readonly maxWidth75vb: { 'max-width_75vb': true }
-  readonly maxWidth80vb: { 'max-width_80vb': true }
-  readonly maxWidth90vb: { 'max-width_90vb': true }
   readonly maxWidth100vb: { 'max-width_100vb': true }
   readonly maxWidth0vh: { 'max-width_0vh': true }
-  readonly maxWidth10vh: { 'max-width_10vh': true }
-  readonly maxWidth20vh: { 'max-width_20vh': true }
   readonly maxWidth25vh: { 'max-width_25vh': true }
-  readonly maxWidth30vh: { 'max-width_30vh': true }
-  readonly maxWidth33p33vh: { 'max-width_33\.33vh': true }
-  readonly maxWidth40vh: { 'max-width_40vh': true }
   readonly maxWidth50vh: { 'max-width_50vh': true }
-  readonly maxWidth60vh: { 'max-width_60vh': true }
-  readonly maxWidth66p67vh: { 'max-width_66\.67vh': true }
-  readonly maxWidth70vh: { 'max-width_70vh': true }
   readonly maxWidth75vh: { 'max-width_75vh': true }
-  readonly maxWidth80vh: { 'max-width_80vh': true }
-  readonly maxWidth90vh: { 'max-width_90vh': true }
   readonly maxWidth100vh: { 'max-width_100vh': true }
   readonly maxWidth0vi: { 'max-width_0vi': true }
-  readonly maxWidth10vi: { 'max-width_10vi': true }
-  readonly maxWidth20vi: { 'max-width_20vi': true }
   readonly maxWidth25vi: { 'max-width_25vi': true }
-  readonly maxWidth30vi: { 'max-width_30vi': true }
-  readonly maxWidth33p33vi: { 'max-width_33\.33vi': true }
-  readonly maxWidth40vi: { 'max-width_40vi': true }
   readonly maxWidth50vi: { 'max-width_50vi': true }
-  readonly maxWidth60vi: { 'max-width_60vi': true }
-  readonly maxWidth66p67vi: { 'max-width_66\.67vi': true }
-  readonly maxWidth70vi: { 'max-width_70vi': true }
   readonly maxWidth75vi: { 'max-width_75vi': true }
-  readonly maxWidth80vi: { 'max-width_80vi': true }
-  readonly maxWidth90vi: { 'max-width_90vi': true }
   readonly maxWidth100vi: { 'max-width_100vi': true }
   readonly maxWidth0vmax: { 'max-width_0vmax': true }
-  readonly maxWidth10vmax: { 'max-width_10vmax': true }
-  readonly maxWidth20vmax: { 'max-width_20vmax': true }
   readonly maxWidth25vmax: { 'max-width_25vmax': true }
-  readonly maxWidth30vmax: { 'max-width_30vmax': true }
-  readonly maxWidth33p33vmax: { 'max-width_33\.33vmax': true }
-  readonly maxWidth40vmax: { 'max-width_40vmax': true }
   readonly maxWidth50vmax: { 'max-width_50vmax': true }
-  readonly maxWidth60vmax: { 'max-width_60vmax': true }
-  readonly maxWidth66p67vmax: { 'max-width_66\.67vmax': true }
-  readonly maxWidth70vmax: { 'max-width_70vmax': true }
   readonly maxWidth75vmax: { 'max-width_75vmax': true }
-  readonly maxWidth80vmax: { 'max-width_80vmax': true }
-  readonly maxWidth90vmax: { 'max-width_90vmax': true }
   readonly maxWidth100vmax: { 'max-width_100vmax': true }
   readonly maxWidth0vmin: { 'max-width_0vmin': true }
-  readonly maxWidth10vmin: { 'max-width_10vmin': true }
-  readonly maxWidth20vmin: { 'max-width_20vmin': true }
   readonly maxWidth25vmin: { 'max-width_25vmin': true }
-  readonly maxWidth30vmin: { 'max-width_30vmin': true }
-  readonly maxWidth33p33vmin: { 'max-width_33\.33vmin': true }
-  readonly maxWidth40vmin: { 'max-width_40vmin': true }
   readonly maxWidth50vmin: { 'max-width_50vmin': true }
-  readonly maxWidth60vmin: { 'max-width_60vmin': true }
-  readonly maxWidth66p67vmin: { 'max-width_66\.67vmin': true }
-  readonly maxWidth70vmin: { 'max-width_70vmin': true }
   readonly maxWidth75vmin: { 'max-width_75vmin': true }
-  readonly maxWidth80vmin: { 'max-width_80vmin': true }
-  readonly maxWidth90vmin: { 'max-width_90vmin': true }
   readonly maxWidth100vmin: { 'max-width_100vmin': true }
   readonly maxWidth0vw: { 'max-width_0vw': true }
-  readonly maxWidth10vw: { 'max-width_10vw': true }
-  readonly maxWidth20vw: { 'max-width_20vw': true }
   readonly maxWidth25vw: { 'max-width_25vw': true }
-  readonly maxWidth30vw: { 'max-width_30vw': true }
-  readonly maxWidth33p33vw: { 'max-width_33\.33vw': true }
-  readonly maxWidth40vw: { 'max-width_40vw': true }
   readonly maxWidth50vw: { 'max-width_50vw': true }
-  readonly maxWidth60vw: { 'max-width_60vw': true }
-  readonly maxWidth66p67vw: { 'max-width_66\.67vw': true }
-  readonly maxWidth70vw: { 'max-width_70vw': true }
   readonly maxWidth75vw: { 'max-width_75vw': true }
-  readonly maxWidth80vw: { 'max-width_80vw': true }
-  readonly maxWidth90vw: { 'max-width_90vw': true }
   readonly maxWidth100vw: { 'max-width_100vw': true }
   readonly maxWidth0Pct: { 'max-width_0\%': true }
-  readonly maxWidth10Pct: { 'max-width_10\%': true }
-  readonly maxWidth20Pct: { 'max-width_20\%': true }
   readonly maxWidth25Pct: { 'max-width_25\%': true }
-  readonly maxWidth30Pct: { 'max-width_30\%': true }
-  readonly maxWidth33p33Pct: { 'max-width_33\.33\%': true }
-  readonly maxWidth40Pct: { 'max-width_40\%': true }
   readonly maxWidth50Pct: { 'max-width_50\%': true }
-  readonly maxWidth60Pct: { 'max-width_60\%': true }
-  readonly maxWidth66p67Pct: { 'max-width_66\.67\%': true }
-  readonly maxWidth70Pct: { 'max-width_70\%': true }
   readonly maxWidth75Pct: { 'max-width_75\%': true }
-  readonly maxWidth80Pct: { 'max-width_80\%': true }
-  readonly maxWidth90Pct: { 'max-width_90\%': true }
   readonly maxWidth100Pct: { 'max-width_100\%': true }
 
   // ==================== min-height ====================
@@ -8220,421 +3740,175 @@ export interface CsstsAtoms {
   readonly minHeight1Q: { 'min-height_1Q': true }
   readonly minHeight2Q: { 'min-height_2Q': true }
   readonly minHeight4Q: { 'min-height_4Q': true }
-  readonly minHeight6Q: { 'min-height_6Q': true }
   readonly minHeight8Q: { 'min-height_8Q': true }
-  readonly minHeight10Q: { 'min-height_10Q': true }
-  readonly minHeight12Q: { 'min-height_12Q': true }
-  readonly minHeight16Q: { 'min-height_16Q': true }
-  readonly minHeight20Q: { 'min-height_20Q': true }
   readonly minHeight0cap: { 'min-height_0cap': true }
-  readonly minHeight0p25cap: { 'min-height_0\.25cap': true }
   readonly minHeight0p5cap: { 'min-height_0\.5cap': true }
-  readonly minHeight0p75cap: { 'min-height_0\.75cap': true }
   readonly minHeight1cap: { 'min-height_1cap': true }
-  readonly minHeight1p25cap: { 'min-height_1\.25cap': true }
   readonly minHeight1p5cap: { 'min-height_1\.5cap': true }
   readonly minHeight2cap: { 'min-height_2cap': true }
-  readonly minHeight2p5cap: { 'min-height_2\.5cap': true }
   readonly minHeight3cap: { 'min-height_3cap': true }
-  readonly minHeight4cap: { 'min-height_4cap': true }
-  readonly minHeight5cap: { 'min-height_5cap': true }
-  readonly minHeight6cap: { 'min-height_6cap': true }
-  readonly minHeight8cap: { 'min-height_8cap': true }
   readonly minHeight0ch: { 'min-height_0ch': true }
-  readonly minHeight0p25ch: { 'min-height_0\.25ch': true }
   readonly minHeight0p5ch: { 'min-height_0\.5ch': true }
-  readonly minHeight0p75ch: { 'min-height_0\.75ch': true }
   readonly minHeight1ch: { 'min-height_1ch': true }
-  readonly minHeight1p25ch: { 'min-height_1\.25ch': true }
   readonly minHeight1p5ch: { 'min-height_1\.5ch': true }
   readonly minHeight2ch: { 'min-height_2ch': true }
-  readonly minHeight2p5ch: { 'min-height_2\.5ch': true }
   readonly minHeight3ch: { 'min-height_3ch': true }
-  readonly minHeight4ch: { 'min-height_4ch': true }
-  readonly minHeight5ch: { 'min-height_5ch': true }
-  readonly minHeight6ch: { 'min-height_6ch': true }
-  readonly minHeight8ch: { 'min-height_8ch': true }
   readonly minHeight0cm: { 'min-height_0cm': true }
   readonly minHeight1cm: { 'min-height_1cm': true }
   readonly minHeight2cm: { 'min-height_2cm': true }
   readonly minHeight4cm: { 'min-height_4cm': true }
-  readonly minHeight6cm: { 'min-height_6cm': true }
   readonly minHeight8cm: { 'min-height_8cm': true }
-  readonly minHeight10cm: { 'min-height_10cm': true }
-  readonly minHeight12cm: { 'min-height_12cm': true }
-  readonly minHeight16cm: { 'min-height_16cm': true }
-  readonly minHeight20cm: { 'min-height_20cm': true }
   readonly minHeight0dvh: { 'min-height_0dvh': true }
-  readonly minHeight10dvh: { 'min-height_10dvh': true }
-  readonly minHeight20dvh: { 'min-height_20dvh': true }
   readonly minHeight25dvh: { 'min-height_25dvh': true }
-  readonly minHeight30dvh: { 'min-height_30dvh': true }
-  readonly minHeight33p33dvh: { 'min-height_33\.33dvh': true }
-  readonly minHeight40dvh: { 'min-height_40dvh': true }
   readonly minHeight50dvh: { 'min-height_50dvh': true }
-  readonly minHeight60dvh: { 'min-height_60dvh': true }
-  readonly minHeight66p67dvh: { 'min-height_66\.67dvh': true }
-  readonly minHeight70dvh: { 'min-height_70dvh': true }
   readonly minHeight75dvh: { 'min-height_75dvh': true }
-  readonly minHeight80dvh: { 'min-height_80dvh': true }
-  readonly minHeight90dvh: { 'min-height_90dvh': true }
   readonly minHeight100dvh: { 'min-height_100dvh': true }
   readonly minHeight0dvw: { 'min-height_0dvw': true }
-  readonly minHeight10dvw: { 'min-height_10dvw': true }
-  readonly minHeight20dvw: { 'min-height_20dvw': true }
   readonly minHeight25dvw: { 'min-height_25dvw': true }
-  readonly minHeight30dvw: { 'min-height_30dvw': true }
-  readonly minHeight33p33dvw: { 'min-height_33\.33dvw': true }
-  readonly minHeight40dvw: { 'min-height_40dvw': true }
   readonly minHeight50dvw: { 'min-height_50dvw': true }
-  readonly minHeight60dvw: { 'min-height_60dvw': true }
-  readonly minHeight66p67dvw: { 'min-height_66\.67dvw': true }
-  readonly minHeight70dvw: { 'min-height_70dvw': true }
   readonly minHeight75dvw: { 'min-height_75dvw': true }
-  readonly minHeight80dvw: { 'min-height_80dvw': true }
-  readonly minHeight90dvw: { 'min-height_90dvw': true }
   readonly minHeight100dvw: { 'min-height_100dvw': true }
   readonly minHeight0em: { 'min-height_0em': true }
-  readonly minHeight0p25em: { 'min-height_0\.25em': true }
   readonly minHeight0p5em: { 'min-height_0\.5em': true }
-  readonly minHeight0p75em: { 'min-height_0\.75em': true }
   readonly minHeight1em: { 'min-height_1em': true }
-  readonly minHeight1p25em: { 'min-height_1\.25em': true }
   readonly minHeight1p5em: { 'min-height_1\.5em': true }
   readonly minHeight2em: { 'min-height_2em': true }
-  readonly minHeight2p5em: { 'min-height_2\.5em': true }
   readonly minHeight3em: { 'min-height_3em': true }
-  readonly minHeight4em: { 'min-height_4em': true }
-  readonly minHeight5em: { 'min-height_5em': true }
-  readonly minHeight6em: { 'min-height_6em': true }
-  readonly minHeight8em: { 'min-height_8em': true }
   readonly minHeight0ex: { 'min-height_0ex': true }
-  readonly minHeight0p25ex: { 'min-height_0\.25ex': true }
   readonly minHeight0p5ex: { 'min-height_0\.5ex': true }
-  readonly minHeight0p75ex: { 'min-height_0\.75ex': true }
   readonly minHeight1ex: { 'min-height_1ex': true }
-  readonly minHeight1p25ex: { 'min-height_1\.25ex': true }
   readonly minHeight1p5ex: { 'min-height_1\.5ex': true }
   readonly minHeight2ex: { 'min-height_2ex': true }
-  readonly minHeight2p5ex: { 'min-height_2\.5ex': true }
   readonly minHeight3ex: { 'min-height_3ex': true }
-  readonly minHeight4ex: { 'min-height_4ex': true }
-  readonly minHeight5ex: { 'min-height_5ex': true }
-  readonly minHeight6ex: { 'min-height_6ex': true }
-  readonly minHeight8ex: { 'min-height_8ex': true }
   readonly minHeight0ic: { 'min-height_0ic': true }
-  readonly minHeight0p25ic: { 'min-height_0\.25ic': true }
   readonly minHeight0p5ic: { 'min-height_0\.5ic': true }
-  readonly minHeight0p75ic: { 'min-height_0\.75ic': true }
   readonly minHeight1ic: { 'min-height_1ic': true }
-  readonly minHeight1p25ic: { 'min-height_1\.25ic': true }
   readonly minHeight1p5ic: { 'min-height_1\.5ic': true }
   readonly minHeight2ic: { 'min-height_2ic': true }
-  readonly minHeight2p5ic: { 'min-height_2\.5ic': true }
   readonly minHeight3ic: { 'min-height_3ic': true }
-  readonly minHeight4ic: { 'min-height_4ic': true }
-  readonly minHeight5ic: { 'min-height_5ic': true }
-  readonly minHeight6ic: { 'min-height_6ic': true }
-  readonly minHeight8ic: { 'min-height_8ic': true }
   readonly minHeight0in: { 'min-height_0in': true }
   readonly minHeight1in: { 'min-height_1in': true }
   readonly minHeight2in: { 'min-height_2in': true }
   readonly minHeight4in: { 'min-height_4in': true }
-  readonly minHeight6in: { 'min-height_6in': true }
   readonly minHeight8in: { 'min-height_8in': true }
-  readonly minHeight10in: { 'min-height_10in': true }
-  readonly minHeight12in: { 'min-height_12in': true }
-  readonly minHeight16in: { 'min-height_16in': true }
-  readonly minHeight20in: { 'min-height_20in': true }
   readonly minHeight0lh: { 'min-height_0lh': true }
-  readonly minHeight0p25lh: { 'min-height_0\.25lh': true }
   readonly minHeight0p5lh: { 'min-height_0\.5lh': true }
-  readonly minHeight0p75lh: { 'min-height_0\.75lh': true }
   readonly minHeight1lh: { 'min-height_1lh': true }
-  readonly minHeight1p25lh: { 'min-height_1\.25lh': true }
   readonly minHeight1p5lh: { 'min-height_1\.5lh': true }
   readonly minHeight2lh: { 'min-height_2lh': true }
-  readonly minHeight2p5lh: { 'min-height_2\.5lh': true }
   readonly minHeight3lh: { 'min-height_3lh': true }
-  readonly minHeight4lh: { 'min-height_4lh': true }
-  readonly minHeight5lh: { 'min-height_5lh': true }
-  readonly minHeight6lh: { 'min-height_6lh': true }
-  readonly minHeight8lh: { 'min-height_8lh': true }
   readonly minHeight0lvh: { 'min-height_0lvh': true }
-  readonly minHeight10lvh: { 'min-height_10lvh': true }
-  readonly minHeight20lvh: { 'min-height_20lvh': true }
   readonly minHeight25lvh: { 'min-height_25lvh': true }
-  readonly minHeight30lvh: { 'min-height_30lvh': true }
-  readonly minHeight33p33lvh: { 'min-height_33\.33lvh': true }
-  readonly minHeight40lvh: { 'min-height_40lvh': true }
   readonly minHeight50lvh: { 'min-height_50lvh': true }
-  readonly minHeight60lvh: { 'min-height_60lvh': true }
-  readonly minHeight66p67lvh: { 'min-height_66\.67lvh': true }
-  readonly minHeight70lvh: { 'min-height_70lvh': true }
   readonly minHeight75lvh: { 'min-height_75lvh': true }
-  readonly minHeight80lvh: { 'min-height_80lvh': true }
-  readonly minHeight90lvh: { 'min-height_90lvh': true }
   readonly minHeight100lvh: { 'min-height_100lvh': true }
   readonly minHeight0lvw: { 'min-height_0lvw': true }
-  readonly minHeight10lvw: { 'min-height_10lvw': true }
-  readonly minHeight20lvw: { 'min-height_20lvw': true }
   readonly minHeight25lvw: { 'min-height_25lvw': true }
-  readonly minHeight30lvw: { 'min-height_30lvw': true }
-  readonly minHeight33p33lvw: { 'min-height_33\.33lvw': true }
-  readonly minHeight40lvw: { 'min-height_40lvw': true }
   readonly minHeight50lvw: { 'min-height_50lvw': true }
-  readonly minHeight60lvw: { 'min-height_60lvw': true }
-  readonly minHeight66p67lvw: { 'min-height_66\.67lvw': true }
-  readonly minHeight70lvw: { 'min-height_70lvw': true }
   readonly minHeight75lvw: { 'min-height_75lvw': true }
-  readonly minHeight80lvw: { 'min-height_80lvw': true }
-  readonly minHeight90lvw: { 'min-height_90lvw': true }
   readonly minHeight100lvw: { 'min-height_100lvw': true }
   readonly minHeight0mm: { 'min-height_0mm': true }
   readonly minHeight1mm: { 'min-height_1mm': true }
   readonly minHeight2mm: { 'min-height_2mm': true }
   readonly minHeight4mm: { 'min-height_4mm': true }
-  readonly minHeight6mm: { 'min-height_6mm': true }
   readonly minHeight8mm: { 'min-height_8mm': true }
-  readonly minHeight10mm: { 'min-height_10mm': true }
-  readonly minHeight12mm: { 'min-height_12mm': true }
-  readonly minHeight16mm: { 'min-height_16mm': true }
-  readonly minHeight20mm: { 'min-height_20mm': true }
   readonly minHeight0pc: { 'min-height_0pc': true }
   readonly minHeight1pc: { 'min-height_1pc': true }
   readonly minHeight2pc: { 'min-height_2pc': true }
   readonly minHeight4pc: { 'min-height_4pc': true }
-  readonly minHeight6pc: { 'min-height_6pc': true }
   readonly minHeight8pc: { 'min-height_8pc': true }
-  readonly minHeight10pc: { 'min-height_10pc': true }
-  readonly minHeight12pc: { 'min-height_12pc': true }
-  readonly minHeight16pc: { 'min-height_16pc': true }
-  readonly minHeight20pc: { 'min-height_20pc': true }
   readonly minHeight0pt: { 'min-height_0pt': true }
   readonly minHeight1pt: { 'min-height_1pt': true }
   readonly minHeight2pt: { 'min-height_2pt': true }
   readonly minHeight4pt: { 'min-height_4pt': true }
-  readonly minHeight6pt: { 'min-height_6pt': true }
   readonly minHeight8pt: { 'min-height_8pt': true }
-  readonly minHeight10pt: { 'min-height_10pt': true }
-  readonly minHeight12pt: { 'min-height_12pt': true }
-  readonly minHeight16pt: { 'min-height_16pt': true }
-  readonly minHeight20pt: { 'min-height_20pt': true }
-  readonly minHeightN384px: { 'min-height_-384px': true }
-  readonly minHeightN320px: { 'min-height_-320px': true }
-  readonly minHeightN256px: { 'min-height_-256px': true }
-  readonly minHeightN224px: { 'min-height_-224px': true }
-  readonly minHeightN192px: { 'min-height_-192px': true }
-  readonly minHeightN160px: { 'min-height_-160px': true }
-  readonly minHeightN128px: { 'min-height_-128px': true }
   readonly minHeightN96px: { 'min-height_-96px': true }
   readonly minHeightN80px: { 'min-height_-80px': true }
   readonly minHeightN64px: { 'min-height_-64px': true }
-  readonly minHeightN56px: { 'min-height_-56px': true }
   readonly minHeightN48px: { 'min-height_-48px': true }
   readonly minHeightN40px: { 'min-height_-40px': true }
   readonly minHeightN32px: { 'min-height_-32px': true }
-  readonly minHeightN28px: { 'min-height_-28px': true }
   readonly minHeightN24px: { 'min-height_-24px': true }
   readonly minHeightN20px: { 'min-height_-20px': true }
   readonly minHeightN16px: { 'min-height_-16px': true }
-  readonly minHeightN14px: { 'min-height_-14px': true }
   readonly minHeightN12px: { 'min-height_-12px': true }
   readonly minHeightN10px: { 'min-height_-10px': true }
   readonly minHeightN8px: { 'min-height_-8px': true }
   readonly minHeightN6px: { 'min-height_-6px': true }
   readonly minHeightN4px: { 'min-height_-4px': true }
   readonly minHeightN2px: { 'min-height_-2px': true }
-  readonly minHeightN1px: { 'min-height_-1px': true }
   readonly minHeight0px: { 'min-height_0px': true }
-  readonly minHeight1px: { 'min-height_1px': true }
   readonly minHeight2px: { 'min-height_2px': true }
   readonly minHeight4px: { 'min-height_4px': true }
   readonly minHeight6px: { 'min-height_6px': true }
   readonly minHeight8px: { 'min-height_8px': true }
   readonly minHeight10px: { 'min-height_10px': true }
   readonly minHeight12px: { 'min-height_12px': true }
-  readonly minHeight14px: { 'min-height_14px': true }
   readonly minHeight16px: { 'min-height_16px': true }
   readonly minHeight20px: { 'min-height_20px': true }
   readonly minHeight24px: { 'min-height_24px': true }
-  readonly minHeight28px: { 'min-height_28px': true }
   readonly minHeight32px: { 'min-height_32px': true }
   readonly minHeight40px: { 'min-height_40px': true }
   readonly minHeight48px: { 'min-height_48px': true }
-  readonly minHeight56px: { 'min-height_56px': true }
   readonly minHeight64px: { 'min-height_64px': true }
   readonly minHeight80px: { 'min-height_80px': true }
   readonly minHeight96px: { 'min-height_96px': true }
-  readonly minHeight128px: { 'min-height_128px': true }
-  readonly minHeight160px: { 'min-height_160px': true }
-  readonly minHeight192px: { 'min-height_192px': true }
-  readonly minHeight224px: { 'min-height_224px': true }
-  readonly minHeight256px: { 'min-height_256px': true }
-  readonly minHeight320px: { 'min-height_320px': true }
-  readonly minHeight384px: { 'min-height_384px': true }
   readonly minHeight0rem: { 'min-height_0rem': true }
-  readonly minHeight0p25rem: { 'min-height_0\.25rem': true }
   readonly minHeight0p5rem: { 'min-height_0\.5rem': true }
-  readonly minHeight0p75rem: { 'min-height_0\.75rem': true }
   readonly minHeight1rem: { 'min-height_1rem': true }
-  readonly minHeight1p25rem: { 'min-height_1\.25rem': true }
   readonly minHeight1p5rem: { 'min-height_1\.5rem': true }
   readonly minHeight2rem: { 'min-height_2rem': true }
-  readonly minHeight2p5rem: { 'min-height_2\.5rem': true }
   readonly minHeight3rem: { 'min-height_3rem': true }
-  readonly minHeight4rem: { 'min-height_4rem': true }
-  readonly minHeight5rem: { 'min-height_5rem': true }
-  readonly minHeight6rem: { 'min-height_6rem': true }
-  readonly minHeight8rem: { 'min-height_8rem': true }
   readonly minHeight0rlh: { 'min-height_0rlh': true }
-  readonly minHeight0p25rlh: { 'min-height_0\.25rlh': true }
   readonly minHeight0p5rlh: { 'min-height_0\.5rlh': true }
-  readonly minHeight0p75rlh: { 'min-height_0\.75rlh': true }
   readonly minHeight1rlh: { 'min-height_1rlh': true }
-  readonly minHeight1p25rlh: { 'min-height_1\.25rlh': true }
   readonly minHeight1p5rlh: { 'min-height_1\.5rlh': true }
   readonly minHeight2rlh: { 'min-height_2rlh': true }
-  readonly minHeight2p5rlh: { 'min-height_2\.5rlh': true }
   readonly minHeight3rlh: { 'min-height_3rlh': true }
-  readonly minHeight4rlh: { 'min-height_4rlh': true }
-  readonly minHeight5rlh: { 'min-height_5rlh': true }
-  readonly minHeight6rlh: { 'min-height_6rlh': true }
-  readonly minHeight8rlh: { 'min-height_8rlh': true }
   readonly minHeight0svh: { 'min-height_0svh': true }
-  readonly minHeight10svh: { 'min-height_10svh': true }
-  readonly minHeight20svh: { 'min-height_20svh': true }
   readonly minHeight25svh: { 'min-height_25svh': true }
-  readonly minHeight30svh: { 'min-height_30svh': true }
-  readonly minHeight33p33svh: { 'min-height_33\.33svh': true }
-  readonly minHeight40svh: { 'min-height_40svh': true }
   readonly minHeight50svh: { 'min-height_50svh': true }
-  readonly minHeight60svh: { 'min-height_60svh': true }
-  readonly minHeight66p67svh: { 'min-height_66\.67svh': true }
-  readonly minHeight70svh: { 'min-height_70svh': true }
   readonly minHeight75svh: { 'min-height_75svh': true }
-  readonly minHeight80svh: { 'min-height_80svh': true }
-  readonly minHeight90svh: { 'min-height_90svh': true }
   readonly minHeight100svh: { 'min-height_100svh': true }
   readonly minHeight0svw: { 'min-height_0svw': true }
-  readonly minHeight10svw: { 'min-height_10svw': true }
-  readonly minHeight20svw: { 'min-height_20svw': true }
   readonly minHeight25svw: { 'min-height_25svw': true }
-  readonly minHeight30svw: { 'min-height_30svw': true }
-  readonly minHeight33p33svw: { 'min-height_33\.33svw': true }
-  readonly minHeight40svw: { 'min-height_40svw': true }
   readonly minHeight50svw: { 'min-height_50svw': true }
-  readonly minHeight60svw: { 'min-height_60svw': true }
-  readonly minHeight66p67svw: { 'min-height_66\.67svw': true }
-  readonly minHeight70svw: { 'min-height_70svw': true }
   readonly minHeight75svw: { 'min-height_75svw': true }
-  readonly minHeight80svw: { 'min-height_80svw': true }
-  readonly minHeight90svw: { 'min-height_90svw': true }
   readonly minHeight100svw: { 'min-height_100svw': true }
   readonly minHeight0vb: { 'min-height_0vb': true }
-  readonly minHeight10vb: { 'min-height_10vb': true }
-  readonly minHeight20vb: { 'min-height_20vb': true }
   readonly minHeight25vb: { 'min-height_25vb': true }
-  readonly minHeight30vb: { 'min-height_30vb': true }
-  readonly minHeight33p33vb: { 'min-height_33\.33vb': true }
-  readonly minHeight40vb: { 'min-height_40vb': true }
   readonly minHeight50vb: { 'min-height_50vb': true }
-  readonly minHeight60vb: { 'min-height_60vb': true }
-  readonly minHeight66p67vb: { 'min-height_66\.67vb': true }
-  readonly minHeight70vb: { 'min-height_70vb': true }
   readonly minHeight75vb: { 'min-height_75vb': true }
-  readonly minHeight80vb: { 'min-height_80vb': true }
-  readonly minHeight90vb: { 'min-height_90vb': true }
   readonly minHeight100vb: { 'min-height_100vb': true }
   readonly minHeight0vh: { 'min-height_0vh': true }
-  readonly minHeight10vh: { 'min-height_10vh': true }
-  readonly minHeight20vh: { 'min-height_20vh': true }
   readonly minHeight25vh: { 'min-height_25vh': true }
-  readonly minHeight30vh: { 'min-height_30vh': true }
-  readonly minHeight33p33vh: { 'min-height_33\.33vh': true }
-  readonly minHeight40vh: { 'min-height_40vh': true }
   readonly minHeight50vh: { 'min-height_50vh': true }
-  readonly minHeight60vh: { 'min-height_60vh': true }
-  readonly minHeight66p67vh: { 'min-height_66\.67vh': true }
-  readonly minHeight70vh: { 'min-height_70vh': true }
   readonly minHeight75vh: { 'min-height_75vh': true }
-  readonly minHeight80vh: { 'min-height_80vh': true }
-  readonly minHeight90vh: { 'min-height_90vh': true }
   readonly minHeight100vh: { 'min-height_100vh': true }
   readonly minHeight0vi: { 'min-height_0vi': true }
-  readonly minHeight10vi: { 'min-height_10vi': true }
-  readonly minHeight20vi: { 'min-height_20vi': true }
   readonly minHeight25vi: { 'min-height_25vi': true }
-  readonly minHeight30vi: { 'min-height_30vi': true }
-  readonly minHeight33p33vi: { 'min-height_33\.33vi': true }
-  readonly minHeight40vi: { 'min-height_40vi': true }
   readonly minHeight50vi: { 'min-height_50vi': true }
-  readonly minHeight60vi: { 'min-height_60vi': true }
-  readonly minHeight66p67vi: { 'min-height_66\.67vi': true }
-  readonly minHeight70vi: { 'min-height_70vi': true }
   readonly minHeight75vi: { 'min-height_75vi': true }
-  readonly minHeight80vi: { 'min-height_80vi': true }
-  readonly minHeight90vi: { 'min-height_90vi': true }
   readonly minHeight100vi: { 'min-height_100vi': true }
   readonly minHeight0vmax: { 'min-height_0vmax': true }
-  readonly minHeight10vmax: { 'min-height_10vmax': true }
-  readonly minHeight20vmax: { 'min-height_20vmax': true }
   readonly minHeight25vmax: { 'min-height_25vmax': true }
-  readonly minHeight30vmax: { 'min-height_30vmax': true }
-  readonly minHeight33p33vmax: { 'min-height_33\.33vmax': true }
-  readonly minHeight40vmax: { 'min-height_40vmax': true }
   readonly minHeight50vmax: { 'min-height_50vmax': true }
-  readonly minHeight60vmax: { 'min-height_60vmax': true }
-  readonly minHeight66p67vmax: { 'min-height_66\.67vmax': true }
-  readonly minHeight70vmax: { 'min-height_70vmax': true }
   readonly minHeight75vmax: { 'min-height_75vmax': true }
-  readonly minHeight80vmax: { 'min-height_80vmax': true }
-  readonly minHeight90vmax: { 'min-height_90vmax': true }
   readonly minHeight100vmax: { 'min-height_100vmax': true }
   readonly minHeight0vmin: { 'min-height_0vmin': true }
-  readonly minHeight10vmin: { 'min-height_10vmin': true }
-  readonly minHeight20vmin: { 'min-height_20vmin': true }
   readonly minHeight25vmin: { 'min-height_25vmin': true }
-  readonly minHeight30vmin: { 'min-height_30vmin': true }
-  readonly minHeight33p33vmin: { 'min-height_33\.33vmin': true }
-  readonly minHeight40vmin: { 'min-height_40vmin': true }
   readonly minHeight50vmin: { 'min-height_50vmin': true }
-  readonly minHeight60vmin: { 'min-height_60vmin': true }
-  readonly minHeight66p67vmin: { 'min-height_66\.67vmin': true }
-  readonly minHeight70vmin: { 'min-height_70vmin': true }
   readonly minHeight75vmin: { 'min-height_75vmin': true }
-  readonly minHeight80vmin: { 'min-height_80vmin': true }
-  readonly minHeight90vmin: { 'min-height_90vmin': true }
   readonly minHeight100vmin: { 'min-height_100vmin': true }
   readonly minHeight0vw: { 'min-height_0vw': true }
-  readonly minHeight10vw: { 'min-height_10vw': true }
-  readonly minHeight20vw: { 'min-height_20vw': true }
   readonly minHeight25vw: { 'min-height_25vw': true }
-  readonly minHeight30vw: { 'min-height_30vw': true }
-  readonly minHeight33p33vw: { 'min-height_33\.33vw': true }
-  readonly minHeight40vw: { 'min-height_40vw': true }
   readonly minHeight50vw: { 'min-height_50vw': true }
-  readonly minHeight60vw: { 'min-height_60vw': true }
-  readonly minHeight66p67vw: { 'min-height_66\.67vw': true }
-  readonly minHeight70vw: { 'min-height_70vw': true }
   readonly minHeight75vw: { 'min-height_75vw': true }
-  readonly minHeight80vw: { 'min-height_80vw': true }
-  readonly minHeight90vw: { 'min-height_90vw': true }
   readonly minHeight100vw: { 'min-height_100vw': true }
   readonly minHeight0Pct: { 'min-height_0\%': true }
-  readonly minHeight10Pct: { 'min-height_10\%': true }
-  readonly minHeight20Pct: { 'min-height_20\%': true }
   readonly minHeight25Pct: { 'min-height_25\%': true }
-  readonly minHeight30Pct: { 'min-height_30\%': true }
-  readonly minHeight33p33Pct: { 'min-height_33\.33\%': true }
-  readonly minHeight40Pct: { 'min-height_40\%': true }
   readonly minHeight50Pct: { 'min-height_50\%': true }
-  readonly minHeight60Pct: { 'min-height_60\%': true }
-  readonly minHeight66p67Pct: { 'min-height_66\.67\%': true }
-  readonly minHeight70Pct: { 'min-height_70\%': true }
   readonly minHeight75Pct: { 'min-height_75\%': true }
-  readonly minHeight80Pct: { 'min-height_80\%': true }
-  readonly minHeight90Pct: { 'min-height_90\%': true }
   readonly minHeight100Pct: { 'min-height_100\%': true }
 
   // ==================== min-width ====================
@@ -8657,450 +3931,188 @@ export interface CsstsAtoms {
   readonly minWidth1Q: { 'min-width_1Q': true }
   readonly minWidth2Q: { 'min-width_2Q': true }
   readonly minWidth4Q: { 'min-width_4Q': true }
-  readonly minWidth6Q: { 'min-width_6Q': true }
   readonly minWidth8Q: { 'min-width_8Q': true }
-  readonly minWidth10Q: { 'min-width_10Q': true }
-  readonly minWidth12Q: { 'min-width_12Q': true }
-  readonly minWidth16Q: { 'min-width_16Q': true }
-  readonly minWidth20Q: { 'min-width_20Q': true }
   readonly minWidth0cap: { 'min-width_0cap': true }
-  readonly minWidth0p25cap: { 'min-width_0\.25cap': true }
   readonly minWidth0p5cap: { 'min-width_0\.5cap': true }
-  readonly minWidth0p75cap: { 'min-width_0\.75cap': true }
   readonly minWidth1cap: { 'min-width_1cap': true }
-  readonly minWidth1p25cap: { 'min-width_1\.25cap': true }
   readonly minWidth1p5cap: { 'min-width_1\.5cap': true }
   readonly minWidth2cap: { 'min-width_2cap': true }
-  readonly minWidth2p5cap: { 'min-width_2\.5cap': true }
   readonly minWidth3cap: { 'min-width_3cap': true }
-  readonly minWidth4cap: { 'min-width_4cap': true }
-  readonly minWidth5cap: { 'min-width_5cap': true }
-  readonly minWidth6cap: { 'min-width_6cap': true }
-  readonly minWidth8cap: { 'min-width_8cap': true }
   readonly minWidth0ch: { 'min-width_0ch': true }
-  readonly minWidth0p25ch: { 'min-width_0\.25ch': true }
   readonly minWidth0p5ch: { 'min-width_0\.5ch': true }
-  readonly minWidth0p75ch: { 'min-width_0\.75ch': true }
   readonly minWidth1ch: { 'min-width_1ch': true }
-  readonly minWidth1p25ch: { 'min-width_1\.25ch': true }
   readonly minWidth1p5ch: { 'min-width_1\.5ch': true }
   readonly minWidth2ch: { 'min-width_2ch': true }
-  readonly minWidth2p5ch: { 'min-width_2\.5ch': true }
   readonly minWidth3ch: { 'min-width_3ch': true }
-  readonly minWidth4ch: { 'min-width_4ch': true }
-  readonly minWidth5ch: { 'min-width_5ch': true }
-  readonly minWidth6ch: { 'min-width_6ch': true }
-  readonly minWidth8ch: { 'min-width_8ch': true }
   readonly minWidth0cm: { 'min-width_0cm': true }
   readonly minWidth1cm: { 'min-width_1cm': true }
   readonly minWidth2cm: { 'min-width_2cm': true }
   readonly minWidth4cm: { 'min-width_4cm': true }
-  readonly minWidth6cm: { 'min-width_6cm': true }
   readonly minWidth8cm: { 'min-width_8cm': true }
-  readonly minWidth10cm: { 'min-width_10cm': true }
-  readonly minWidth12cm: { 'min-width_12cm': true }
-  readonly minWidth16cm: { 'min-width_16cm': true }
-  readonly minWidth20cm: { 'min-width_20cm': true }
   readonly minWidth0dvh: { 'min-width_0dvh': true }
-  readonly minWidth10dvh: { 'min-width_10dvh': true }
-  readonly minWidth20dvh: { 'min-width_20dvh': true }
   readonly minWidth25dvh: { 'min-width_25dvh': true }
-  readonly minWidth30dvh: { 'min-width_30dvh': true }
-  readonly minWidth33p33dvh: { 'min-width_33\.33dvh': true }
-  readonly minWidth40dvh: { 'min-width_40dvh': true }
   readonly minWidth50dvh: { 'min-width_50dvh': true }
-  readonly minWidth60dvh: { 'min-width_60dvh': true }
-  readonly minWidth66p67dvh: { 'min-width_66\.67dvh': true }
-  readonly minWidth70dvh: { 'min-width_70dvh': true }
   readonly minWidth75dvh: { 'min-width_75dvh': true }
-  readonly minWidth80dvh: { 'min-width_80dvh': true }
-  readonly minWidth90dvh: { 'min-width_90dvh': true }
   readonly minWidth100dvh: { 'min-width_100dvh': true }
   readonly minWidth0dvw: { 'min-width_0dvw': true }
-  readonly minWidth10dvw: { 'min-width_10dvw': true }
-  readonly minWidth20dvw: { 'min-width_20dvw': true }
   readonly minWidth25dvw: { 'min-width_25dvw': true }
-  readonly minWidth30dvw: { 'min-width_30dvw': true }
-  readonly minWidth33p33dvw: { 'min-width_33\.33dvw': true }
-  readonly minWidth40dvw: { 'min-width_40dvw': true }
   readonly minWidth50dvw: { 'min-width_50dvw': true }
-  readonly minWidth60dvw: { 'min-width_60dvw': true }
-  readonly minWidth66p67dvw: { 'min-width_66\.67dvw': true }
-  readonly minWidth70dvw: { 'min-width_70dvw': true }
   readonly minWidth75dvw: { 'min-width_75dvw': true }
-  readonly minWidth80dvw: { 'min-width_80dvw': true }
-  readonly minWidth90dvw: { 'min-width_90dvw': true }
   readonly minWidth100dvw: { 'min-width_100dvw': true }
   readonly minWidth0em: { 'min-width_0em': true }
-  readonly minWidth0p25em: { 'min-width_0\.25em': true }
   readonly minWidth0p5em: { 'min-width_0\.5em': true }
-  readonly minWidth0p75em: { 'min-width_0\.75em': true }
   readonly minWidth1em: { 'min-width_1em': true }
-  readonly minWidth1p25em: { 'min-width_1\.25em': true }
   readonly minWidth1p5em: { 'min-width_1\.5em': true }
   readonly minWidth2em: { 'min-width_2em': true }
-  readonly minWidth2p5em: { 'min-width_2\.5em': true }
   readonly minWidth3em: { 'min-width_3em': true }
-  readonly minWidth4em: { 'min-width_4em': true }
-  readonly minWidth5em: { 'min-width_5em': true }
-  readonly minWidth6em: { 'min-width_6em': true }
-  readonly minWidth8em: { 'min-width_8em': true }
   readonly minWidth0ex: { 'min-width_0ex': true }
-  readonly minWidth0p25ex: { 'min-width_0\.25ex': true }
   readonly minWidth0p5ex: { 'min-width_0\.5ex': true }
-  readonly minWidth0p75ex: { 'min-width_0\.75ex': true }
   readonly minWidth1ex: { 'min-width_1ex': true }
-  readonly minWidth1p25ex: { 'min-width_1\.25ex': true }
   readonly minWidth1p5ex: { 'min-width_1\.5ex': true }
   readonly minWidth2ex: { 'min-width_2ex': true }
-  readonly minWidth2p5ex: { 'min-width_2\.5ex': true }
   readonly minWidth3ex: { 'min-width_3ex': true }
-  readonly minWidth4ex: { 'min-width_4ex': true }
-  readonly minWidth5ex: { 'min-width_5ex': true }
-  readonly minWidth6ex: { 'min-width_6ex': true }
-  readonly minWidth8ex: { 'min-width_8ex': true }
   readonly minWidth0ic: { 'min-width_0ic': true }
-  readonly minWidth0p25ic: { 'min-width_0\.25ic': true }
   readonly minWidth0p5ic: { 'min-width_0\.5ic': true }
-  readonly minWidth0p75ic: { 'min-width_0\.75ic': true }
   readonly minWidth1ic: { 'min-width_1ic': true }
-  readonly minWidth1p25ic: { 'min-width_1\.25ic': true }
   readonly minWidth1p5ic: { 'min-width_1\.5ic': true }
   readonly minWidth2ic: { 'min-width_2ic': true }
-  readonly minWidth2p5ic: { 'min-width_2\.5ic': true }
   readonly minWidth3ic: { 'min-width_3ic': true }
-  readonly minWidth4ic: { 'min-width_4ic': true }
-  readonly minWidth5ic: { 'min-width_5ic': true }
-  readonly minWidth6ic: { 'min-width_6ic': true }
-  readonly minWidth8ic: { 'min-width_8ic': true }
   readonly minWidth0in: { 'min-width_0in': true }
   readonly minWidth1in: { 'min-width_1in': true }
   readonly minWidth2in: { 'min-width_2in': true }
   readonly minWidth4in: { 'min-width_4in': true }
-  readonly minWidth6in: { 'min-width_6in': true }
   readonly minWidth8in: { 'min-width_8in': true }
-  readonly minWidth10in: { 'min-width_10in': true }
-  readonly minWidth12in: { 'min-width_12in': true }
-  readonly minWidth16in: { 'min-width_16in': true }
-  readonly minWidth20in: { 'min-width_20in': true }
   readonly minWidth0lh: { 'min-width_0lh': true }
-  readonly minWidth0p25lh: { 'min-width_0\.25lh': true }
   readonly minWidth0p5lh: { 'min-width_0\.5lh': true }
-  readonly minWidth0p75lh: { 'min-width_0\.75lh': true }
   readonly minWidth1lh: { 'min-width_1lh': true }
-  readonly minWidth1p25lh: { 'min-width_1\.25lh': true }
   readonly minWidth1p5lh: { 'min-width_1\.5lh': true }
   readonly minWidth2lh: { 'min-width_2lh': true }
-  readonly minWidth2p5lh: { 'min-width_2\.5lh': true }
   readonly minWidth3lh: { 'min-width_3lh': true }
-  readonly minWidth4lh: { 'min-width_4lh': true }
-  readonly minWidth5lh: { 'min-width_5lh': true }
-  readonly minWidth6lh: { 'min-width_6lh': true }
-  readonly minWidth8lh: { 'min-width_8lh': true }
   readonly minWidth0lvh: { 'min-width_0lvh': true }
-  readonly minWidth10lvh: { 'min-width_10lvh': true }
-  readonly minWidth20lvh: { 'min-width_20lvh': true }
   readonly minWidth25lvh: { 'min-width_25lvh': true }
-  readonly minWidth30lvh: { 'min-width_30lvh': true }
-  readonly minWidth33p33lvh: { 'min-width_33\.33lvh': true }
-  readonly minWidth40lvh: { 'min-width_40lvh': true }
   readonly minWidth50lvh: { 'min-width_50lvh': true }
-  readonly minWidth60lvh: { 'min-width_60lvh': true }
-  readonly minWidth66p67lvh: { 'min-width_66\.67lvh': true }
-  readonly minWidth70lvh: { 'min-width_70lvh': true }
   readonly minWidth75lvh: { 'min-width_75lvh': true }
-  readonly minWidth80lvh: { 'min-width_80lvh': true }
-  readonly minWidth90lvh: { 'min-width_90lvh': true }
   readonly minWidth100lvh: { 'min-width_100lvh': true }
   readonly minWidth0lvw: { 'min-width_0lvw': true }
-  readonly minWidth10lvw: { 'min-width_10lvw': true }
-  readonly minWidth20lvw: { 'min-width_20lvw': true }
   readonly minWidth25lvw: { 'min-width_25lvw': true }
-  readonly minWidth30lvw: { 'min-width_30lvw': true }
-  readonly minWidth33p33lvw: { 'min-width_33\.33lvw': true }
-  readonly minWidth40lvw: { 'min-width_40lvw': true }
   readonly minWidth50lvw: { 'min-width_50lvw': true }
-  readonly minWidth60lvw: { 'min-width_60lvw': true }
-  readonly minWidth66p67lvw: { 'min-width_66\.67lvw': true }
-  readonly minWidth70lvw: { 'min-width_70lvw': true }
   readonly minWidth75lvw: { 'min-width_75lvw': true }
-  readonly minWidth80lvw: { 'min-width_80lvw': true }
-  readonly minWidth90lvw: { 'min-width_90lvw': true }
   readonly minWidth100lvw: { 'min-width_100lvw': true }
   readonly minWidth0mm: { 'min-width_0mm': true }
   readonly minWidth1mm: { 'min-width_1mm': true }
   readonly minWidth2mm: { 'min-width_2mm': true }
   readonly minWidth4mm: { 'min-width_4mm': true }
-  readonly minWidth6mm: { 'min-width_6mm': true }
   readonly minWidth8mm: { 'min-width_8mm': true }
-  readonly minWidth10mm: { 'min-width_10mm': true }
-  readonly minWidth12mm: { 'min-width_12mm': true }
-  readonly minWidth16mm: { 'min-width_16mm': true }
-  readonly minWidth20mm: { 'min-width_20mm': true }
   readonly minWidth0pc: { 'min-width_0pc': true }
   readonly minWidth1pc: { 'min-width_1pc': true }
   readonly minWidth2pc: { 'min-width_2pc': true }
   readonly minWidth4pc: { 'min-width_4pc': true }
-  readonly minWidth6pc: { 'min-width_6pc': true }
   readonly minWidth8pc: { 'min-width_8pc': true }
-  readonly minWidth10pc: { 'min-width_10pc': true }
-  readonly minWidth12pc: { 'min-width_12pc': true }
-  readonly minWidth16pc: { 'min-width_16pc': true }
-  readonly minWidth20pc: { 'min-width_20pc': true }
   readonly minWidth0pt: { 'min-width_0pt': true }
   readonly minWidth1pt: { 'min-width_1pt': true }
   readonly minWidth2pt: { 'min-width_2pt': true }
   readonly minWidth4pt: { 'min-width_4pt': true }
-  readonly minWidth6pt: { 'min-width_6pt': true }
   readonly minWidth8pt: { 'min-width_8pt': true }
-  readonly minWidth10pt: { 'min-width_10pt': true }
-  readonly minWidth12pt: { 'min-width_12pt': true }
-  readonly minWidth16pt: { 'min-width_16pt': true }
-  readonly minWidth20pt: { 'min-width_20pt': true }
-  readonly minWidthN384px: { 'min-width_-384px': true }
-  readonly minWidthN320px: { 'min-width_-320px': true }
-  readonly minWidthN256px: { 'min-width_-256px': true }
-  readonly minWidthN224px: { 'min-width_-224px': true }
-  readonly minWidthN192px: { 'min-width_-192px': true }
-  readonly minWidthN160px: { 'min-width_-160px': true }
-  readonly minWidthN128px: { 'min-width_-128px': true }
   readonly minWidthN96px: { 'min-width_-96px': true }
   readonly minWidthN80px: { 'min-width_-80px': true }
   readonly minWidthN64px: { 'min-width_-64px': true }
-  readonly minWidthN56px: { 'min-width_-56px': true }
   readonly minWidthN48px: { 'min-width_-48px': true }
   readonly minWidthN40px: { 'min-width_-40px': true }
   readonly minWidthN32px: { 'min-width_-32px': true }
-  readonly minWidthN28px: { 'min-width_-28px': true }
   readonly minWidthN24px: { 'min-width_-24px': true }
   readonly minWidthN20px: { 'min-width_-20px': true }
   readonly minWidthN16px: { 'min-width_-16px': true }
-  readonly minWidthN14px: { 'min-width_-14px': true }
   readonly minWidthN12px: { 'min-width_-12px': true }
   readonly minWidthN10px: { 'min-width_-10px': true }
   readonly minWidthN8px: { 'min-width_-8px': true }
   readonly minWidthN6px: { 'min-width_-6px': true }
   readonly minWidthN4px: { 'min-width_-4px': true }
   readonly minWidthN2px: { 'min-width_-2px': true }
-  readonly minWidthN1px: { 'min-width_-1px': true }
   readonly minWidth0px: { 'min-width_0px': true }
-  readonly minWidth1px: { 'min-width_1px': true }
   readonly minWidth2px: { 'min-width_2px': true }
   readonly minWidth4px: { 'min-width_4px': true }
   readonly minWidth6px: { 'min-width_6px': true }
   readonly minWidth8px: { 'min-width_8px': true }
   readonly minWidth10px: { 'min-width_10px': true }
   readonly minWidth12px: { 'min-width_12px': true }
-  readonly minWidth14px: { 'min-width_14px': true }
   readonly minWidth16px: { 'min-width_16px': true }
   readonly minWidth20px: { 'min-width_20px': true }
   readonly minWidth24px: { 'min-width_24px': true }
-  readonly minWidth28px: { 'min-width_28px': true }
   readonly minWidth32px: { 'min-width_32px': true }
   readonly minWidth40px: { 'min-width_40px': true }
   readonly minWidth48px: { 'min-width_48px': true }
-  readonly minWidth56px: { 'min-width_56px': true }
   readonly minWidth64px: { 'min-width_64px': true }
   readonly minWidth80px: { 'min-width_80px': true }
   readonly minWidth96px: { 'min-width_96px': true }
-  readonly minWidth128px: { 'min-width_128px': true }
-  readonly minWidth160px: { 'min-width_160px': true }
-  readonly minWidth192px: { 'min-width_192px': true }
-  readonly minWidth224px: { 'min-width_224px': true }
-  readonly minWidth256px: { 'min-width_256px': true }
-  readonly minWidth320px: { 'min-width_320px': true }
-  readonly minWidth384px: { 'min-width_384px': true }
   readonly minWidth0rem: { 'min-width_0rem': true }
-  readonly minWidth0p25rem: { 'min-width_0\.25rem': true }
   readonly minWidth0p5rem: { 'min-width_0\.5rem': true }
-  readonly minWidth0p75rem: { 'min-width_0\.75rem': true }
   readonly minWidth1rem: { 'min-width_1rem': true }
-  readonly minWidth1p25rem: { 'min-width_1\.25rem': true }
   readonly minWidth1p5rem: { 'min-width_1\.5rem': true }
   readonly minWidth2rem: { 'min-width_2rem': true }
-  readonly minWidth2p5rem: { 'min-width_2\.5rem': true }
   readonly minWidth3rem: { 'min-width_3rem': true }
-  readonly minWidth4rem: { 'min-width_4rem': true }
-  readonly minWidth5rem: { 'min-width_5rem': true }
-  readonly minWidth6rem: { 'min-width_6rem': true }
-  readonly minWidth8rem: { 'min-width_8rem': true }
   readonly minWidth0rlh: { 'min-width_0rlh': true }
-  readonly minWidth0p25rlh: { 'min-width_0\.25rlh': true }
   readonly minWidth0p5rlh: { 'min-width_0\.5rlh': true }
-  readonly minWidth0p75rlh: { 'min-width_0\.75rlh': true }
   readonly minWidth1rlh: { 'min-width_1rlh': true }
-  readonly minWidth1p25rlh: { 'min-width_1\.25rlh': true }
   readonly minWidth1p5rlh: { 'min-width_1\.5rlh': true }
   readonly minWidth2rlh: { 'min-width_2rlh': true }
-  readonly minWidth2p5rlh: { 'min-width_2\.5rlh': true }
   readonly minWidth3rlh: { 'min-width_3rlh': true }
-  readonly minWidth4rlh: { 'min-width_4rlh': true }
-  readonly minWidth5rlh: { 'min-width_5rlh': true }
-  readonly minWidth6rlh: { 'min-width_6rlh': true }
-  readonly minWidth8rlh: { 'min-width_8rlh': true }
   readonly minWidth0svh: { 'min-width_0svh': true }
-  readonly minWidth10svh: { 'min-width_10svh': true }
-  readonly minWidth20svh: { 'min-width_20svh': true }
   readonly minWidth25svh: { 'min-width_25svh': true }
-  readonly minWidth30svh: { 'min-width_30svh': true }
-  readonly minWidth33p33svh: { 'min-width_33\.33svh': true }
-  readonly minWidth40svh: { 'min-width_40svh': true }
   readonly minWidth50svh: { 'min-width_50svh': true }
-  readonly minWidth60svh: { 'min-width_60svh': true }
-  readonly minWidth66p67svh: { 'min-width_66\.67svh': true }
-  readonly minWidth70svh: { 'min-width_70svh': true }
   readonly minWidth75svh: { 'min-width_75svh': true }
-  readonly minWidth80svh: { 'min-width_80svh': true }
-  readonly minWidth90svh: { 'min-width_90svh': true }
   readonly minWidth100svh: { 'min-width_100svh': true }
   readonly minWidth0svw: { 'min-width_0svw': true }
-  readonly minWidth10svw: { 'min-width_10svw': true }
-  readonly minWidth20svw: { 'min-width_20svw': true }
   readonly minWidth25svw: { 'min-width_25svw': true }
-  readonly minWidth30svw: { 'min-width_30svw': true }
-  readonly minWidth33p33svw: { 'min-width_33\.33svw': true }
-  readonly minWidth40svw: { 'min-width_40svw': true }
   readonly minWidth50svw: { 'min-width_50svw': true }
-  readonly minWidth60svw: { 'min-width_60svw': true }
-  readonly minWidth66p67svw: { 'min-width_66\.67svw': true }
-  readonly minWidth70svw: { 'min-width_70svw': true }
   readonly minWidth75svw: { 'min-width_75svw': true }
-  readonly minWidth80svw: { 'min-width_80svw': true }
-  readonly minWidth90svw: { 'min-width_90svw': true }
   readonly minWidth100svw: { 'min-width_100svw': true }
   readonly minWidth0vb: { 'min-width_0vb': true }
-  readonly minWidth10vb: { 'min-width_10vb': true }
-  readonly minWidth20vb: { 'min-width_20vb': true }
   readonly minWidth25vb: { 'min-width_25vb': true }
-  readonly minWidth30vb: { 'min-width_30vb': true }
-  readonly minWidth33p33vb: { 'min-width_33\.33vb': true }
-  readonly minWidth40vb: { 'min-width_40vb': true }
   readonly minWidth50vb: { 'min-width_50vb': true }
-  readonly minWidth60vb: { 'min-width_60vb': true }
-  readonly minWidth66p67vb: { 'min-width_66\.67vb': true }
-  readonly minWidth70vb: { 'min-width_70vb': true }
   readonly minWidth75vb: { 'min-width_75vb': true }
-  readonly minWidth80vb: { 'min-width_80vb': true }
-  readonly minWidth90vb: { 'min-width_90vb': true }
   readonly minWidth100vb: { 'min-width_100vb': true }
   readonly minWidth0vh: { 'min-width_0vh': true }
-  readonly minWidth10vh: { 'min-width_10vh': true }
-  readonly minWidth20vh: { 'min-width_20vh': true }
   readonly minWidth25vh: { 'min-width_25vh': true }
-  readonly minWidth30vh: { 'min-width_30vh': true }
-  readonly minWidth33p33vh: { 'min-width_33\.33vh': true }
-  readonly minWidth40vh: { 'min-width_40vh': true }
   readonly minWidth50vh: { 'min-width_50vh': true }
-  readonly minWidth60vh: { 'min-width_60vh': true }
-  readonly minWidth66p67vh: { 'min-width_66\.67vh': true }
-  readonly minWidth70vh: { 'min-width_70vh': true }
   readonly minWidth75vh: { 'min-width_75vh': true }
-  readonly minWidth80vh: { 'min-width_80vh': true }
-  readonly minWidth90vh: { 'min-width_90vh': true }
   readonly minWidth100vh: { 'min-width_100vh': true }
   readonly minWidth0vi: { 'min-width_0vi': true }
-  readonly minWidth10vi: { 'min-width_10vi': true }
-  readonly minWidth20vi: { 'min-width_20vi': true }
   readonly minWidth25vi: { 'min-width_25vi': true }
-  readonly minWidth30vi: { 'min-width_30vi': true }
-  readonly minWidth33p33vi: { 'min-width_33\.33vi': true }
-  readonly minWidth40vi: { 'min-width_40vi': true }
   readonly minWidth50vi: { 'min-width_50vi': true }
-  readonly minWidth60vi: { 'min-width_60vi': true }
-  readonly minWidth66p67vi: { 'min-width_66\.67vi': true }
-  readonly minWidth70vi: { 'min-width_70vi': true }
   readonly minWidth75vi: { 'min-width_75vi': true }
-  readonly minWidth80vi: { 'min-width_80vi': true }
-  readonly minWidth90vi: { 'min-width_90vi': true }
   readonly minWidth100vi: { 'min-width_100vi': true }
   readonly minWidth0vmax: { 'min-width_0vmax': true }
-  readonly minWidth10vmax: { 'min-width_10vmax': true }
-  readonly minWidth20vmax: { 'min-width_20vmax': true }
   readonly minWidth25vmax: { 'min-width_25vmax': true }
-  readonly minWidth30vmax: { 'min-width_30vmax': true }
-  readonly minWidth33p33vmax: { 'min-width_33\.33vmax': true }
-  readonly minWidth40vmax: { 'min-width_40vmax': true }
   readonly minWidth50vmax: { 'min-width_50vmax': true }
-  readonly minWidth60vmax: { 'min-width_60vmax': true }
-  readonly minWidth66p67vmax: { 'min-width_66\.67vmax': true }
-  readonly minWidth70vmax: { 'min-width_70vmax': true }
   readonly minWidth75vmax: { 'min-width_75vmax': true }
-  readonly minWidth80vmax: { 'min-width_80vmax': true }
-  readonly minWidth90vmax: { 'min-width_90vmax': true }
   readonly minWidth100vmax: { 'min-width_100vmax': true }
   readonly minWidth0vmin: { 'min-width_0vmin': true }
-  readonly minWidth10vmin: { 'min-width_10vmin': true }
-  readonly minWidth20vmin: { 'min-width_20vmin': true }
   readonly minWidth25vmin: { 'min-width_25vmin': true }
-  readonly minWidth30vmin: { 'min-width_30vmin': true }
-  readonly minWidth33p33vmin: { 'min-width_33\.33vmin': true }
-  readonly minWidth40vmin: { 'min-width_40vmin': true }
   readonly minWidth50vmin: { 'min-width_50vmin': true }
-  readonly minWidth60vmin: { 'min-width_60vmin': true }
-  readonly minWidth66p67vmin: { 'min-width_66\.67vmin': true }
-  readonly minWidth70vmin: { 'min-width_70vmin': true }
   readonly minWidth75vmin: { 'min-width_75vmin': true }
-  readonly minWidth80vmin: { 'min-width_80vmin': true }
-  readonly minWidth90vmin: { 'min-width_90vmin': true }
   readonly minWidth100vmin: { 'min-width_100vmin': true }
   readonly minWidth0vw: { 'min-width_0vw': true }
-  readonly minWidth10vw: { 'min-width_10vw': true }
-  readonly minWidth20vw: { 'min-width_20vw': true }
   readonly minWidth25vw: { 'min-width_25vw': true }
-  readonly minWidth30vw: { 'min-width_30vw': true }
-  readonly minWidth33p33vw: { 'min-width_33\.33vw': true }
-  readonly minWidth40vw: { 'min-width_40vw': true }
   readonly minWidth50vw: { 'min-width_50vw': true }
-  readonly minWidth60vw: { 'min-width_60vw': true }
-  readonly minWidth66p67vw: { 'min-width_66\.67vw': true }
-  readonly minWidth70vw: { 'min-width_70vw': true }
   readonly minWidth75vw: { 'min-width_75vw': true }
-  readonly minWidth80vw: { 'min-width_80vw': true }
-  readonly minWidth90vw: { 'min-width_90vw': true }
   readonly minWidth100vw: { 'min-width_100vw': true }
   readonly minWidth0Pct: { 'min-width_0\%': true }
-  readonly minWidth10Pct: { 'min-width_10\%': true }
-  readonly minWidth20Pct: { 'min-width_20\%': true }
   readonly minWidth25Pct: { 'min-width_25\%': true }
-  readonly minWidth30Pct: { 'min-width_30\%': true }
-  readonly minWidth33p33Pct: { 'min-width_33\.33\%': true }
-  readonly minWidth40Pct: { 'min-width_40\%': true }
   readonly minWidth50Pct: { 'min-width_50\%': true }
-  readonly minWidth60Pct: { 'min-width_60\%': true }
-  readonly minWidth66p67Pct: { 'min-width_66\.67\%': true }
-  readonly minWidth70Pct: { 'min-width_70\%': true }
   readonly minWidth75Pct: { 'min-width_75\%': true }
-  readonly minWidth80Pct: { 'min-width_80\%': true }
-  readonly minWidth90Pct: { 'min-width_90\%': true }
   readonly minWidth100Pct: { 'min-width_100\%': true }
 
   // ==================== opacity ====================
   readonly opacity0: { 'opacity_0': true }
-  readonly opacity0p5: { 'opacity_0\.5': true }
   readonly opacity1: { 'opacity_1': true }
-  readonly opacity1p5: { 'opacity_1\.5': true }
   readonly opacity2: { 'opacity_2': true }
   readonly opacity3: { 'opacity_3': true }
-  readonly opacity4: { 'opacity_4': true }
   readonly opacity5: { 'opacity_5': true }
   readonly opacity10: { 'opacity_10': true }
-  readonly opacity20: { 'opacity_20': true }
-  readonly opacity50: { 'opacity_50': true }
-  readonly opacity100: { 'opacity_100': true }
   readonly opacity0Pct: { 'opacity_0\%': true }
-  readonly opacity10Pct: { 'opacity_10\%': true }
-  readonly opacity20Pct: { 'opacity_20\%': true }
   readonly opacity25Pct: { 'opacity_25\%': true }
-  readonly opacity30Pct: { 'opacity_30\%': true }
-  readonly opacity33p33Pct: { 'opacity_33\.33\%': true }
-  readonly opacity40Pct: { 'opacity_40\%': true }
   readonly opacity50Pct: { 'opacity_50\%': true }
-  readonly opacity60Pct: { 'opacity_60\%': true }
-  readonly opacity66p67Pct: { 'opacity_66\.67\%': true }
-  readonly opacity70Pct: { 'opacity_70\%': true }
   readonly opacity75Pct: { 'opacity_75\%': true }
-  readonly opacity80Pct: { 'opacity_80\%': true }
-  readonly opacity90Pct: { 'opacity_90\%': true }
   readonly opacity100Pct: { 'opacity_100\%': true }
 
   // ==================== overflow ====================
@@ -9120,421 +4132,175 @@ export interface CsstsAtoms {
   readonly padding1Q: { 'padding_1Q': true }
   readonly padding2Q: { 'padding_2Q': true }
   readonly padding4Q: { 'padding_4Q': true }
-  readonly padding6Q: { 'padding_6Q': true }
   readonly padding8Q: { 'padding_8Q': true }
-  readonly padding10Q: { 'padding_10Q': true }
-  readonly padding12Q: { 'padding_12Q': true }
-  readonly padding16Q: { 'padding_16Q': true }
-  readonly padding20Q: { 'padding_20Q': true }
   readonly padding0cap: { 'padding_0cap': true }
-  readonly padding0p25cap: { 'padding_0\.25cap': true }
   readonly padding0p5cap: { 'padding_0\.5cap': true }
-  readonly padding0p75cap: { 'padding_0\.75cap': true }
   readonly padding1cap: { 'padding_1cap': true }
-  readonly padding1p25cap: { 'padding_1\.25cap': true }
   readonly padding1p5cap: { 'padding_1\.5cap': true }
   readonly padding2cap: { 'padding_2cap': true }
-  readonly padding2p5cap: { 'padding_2\.5cap': true }
   readonly padding3cap: { 'padding_3cap': true }
-  readonly padding4cap: { 'padding_4cap': true }
-  readonly padding5cap: { 'padding_5cap': true }
-  readonly padding6cap: { 'padding_6cap': true }
-  readonly padding8cap: { 'padding_8cap': true }
   readonly padding0ch: { 'padding_0ch': true }
-  readonly padding0p25ch: { 'padding_0\.25ch': true }
   readonly padding0p5ch: { 'padding_0\.5ch': true }
-  readonly padding0p75ch: { 'padding_0\.75ch': true }
   readonly padding1ch: { 'padding_1ch': true }
-  readonly padding1p25ch: { 'padding_1\.25ch': true }
   readonly padding1p5ch: { 'padding_1\.5ch': true }
   readonly padding2ch: { 'padding_2ch': true }
-  readonly padding2p5ch: { 'padding_2\.5ch': true }
   readonly padding3ch: { 'padding_3ch': true }
-  readonly padding4ch: { 'padding_4ch': true }
-  readonly padding5ch: { 'padding_5ch': true }
-  readonly padding6ch: { 'padding_6ch': true }
-  readonly padding8ch: { 'padding_8ch': true }
   readonly padding0cm: { 'padding_0cm': true }
   readonly padding1cm: { 'padding_1cm': true }
   readonly padding2cm: { 'padding_2cm': true }
   readonly padding4cm: { 'padding_4cm': true }
-  readonly padding6cm: { 'padding_6cm': true }
   readonly padding8cm: { 'padding_8cm': true }
-  readonly padding10cm: { 'padding_10cm': true }
-  readonly padding12cm: { 'padding_12cm': true }
-  readonly padding16cm: { 'padding_16cm': true }
-  readonly padding20cm: { 'padding_20cm': true }
   readonly padding0dvh: { 'padding_0dvh': true }
-  readonly padding10dvh: { 'padding_10dvh': true }
-  readonly padding20dvh: { 'padding_20dvh': true }
   readonly padding25dvh: { 'padding_25dvh': true }
-  readonly padding30dvh: { 'padding_30dvh': true }
-  readonly padding33p33dvh: { 'padding_33\.33dvh': true }
-  readonly padding40dvh: { 'padding_40dvh': true }
   readonly padding50dvh: { 'padding_50dvh': true }
-  readonly padding60dvh: { 'padding_60dvh': true }
-  readonly padding66p67dvh: { 'padding_66\.67dvh': true }
-  readonly padding70dvh: { 'padding_70dvh': true }
   readonly padding75dvh: { 'padding_75dvh': true }
-  readonly padding80dvh: { 'padding_80dvh': true }
-  readonly padding90dvh: { 'padding_90dvh': true }
   readonly padding100dvh: { 'padding_100dvh': true }
   readonly padding0dvw: { 'padding_0dvw': true }
-  readonly padding10dvw: { 'padding_10dvw': true }
-  readonly padding20dvw: { 'padding_20dvw': true }
   readonly padding25dvw: { 'padding_25dvw': true }
-  readonly padding30dvw: { 'padding_30dvw': true }
-  readonly padding33p33dvw: { 'padding_33\.33dvw': true }
-  readonly padding40dvw: { 'padding_40dvw': true }
   readonly padding50dvw: { 'padding_50dvw': true }
-  readonly padding60dvw: { 'padding_60dvw': true }
-  readonly padding66p67dvw: { 'padding_66\.67dvw': true }
-  readonly padding70dvw: { 'padding_70dvw': true }
   readonly padding75dvw: { 'padding_75dvw': true }
-  readonly padding80dvw: { 'padding_80dvw': true }
-  readonly padding90dvw: { 'padding_90dvw': true }
   readonly padding100dvw: { 'padding_100dvw': true }
   readonly padding0em: { 'padding_0em': true }
-  readonly padding0p25em: { 'padding_0\.25em': true }
   readonly padding0p5em: { 'padding_0\.5em': true }
-  readonly padding0p75em: { 'padding_0\.75em': true }
   readonly padding1em: { 'padding_1em': true }
-  readonly padding1p25em: { 'padding_1\.25em': true }
   readonly padding1p5em: { 'padding_1\.5em': true }
   readonly padding2em: { 'padding_2em': true }
-  readonly padding2p5em: { 'padding_2\.5em': true }
   readonly padding3em: { 'padding_3em': true }
-  readonly padding4em: { 'padding_4em': true }
-  readonly padding5em: { 'padding_5em': true }
-  readonly padding6em: { 'padding_6em': true }
-  readonly padding8em: { 'padding_8em': true }
   readonly padding0ex: { 'padding_0ex': true }
-  readonly padding0p25ex: { 'padding_0\.25ex': true }
   readonly padding0p5ex: { 'padding_0\.5ex': true }
-  readonly padding0p75ex: { 'padding_0\.75ex': true }
   readonly padding1ex: { 'padding_1ex': true }
-  readonly padding1p25ex: { 'padding_1\.25ex': true }
   readonly padding1p5ex: { 'padding_1\.5ex': true }
   readonly padding2ex: { 'padding_2ex': true }
-  readonly padding2p5ex: { 'padding_2\.5ex': true }
   readonly padding3ex: { 'padding_3ex': true }
-  readonly padding4ex: { 'padding_4ex': true }
-  readonly padding5ex: { 'padding_5ex': true }
-  readonly padding6ex: { 'padding_6ex': true }
-  readonly padding8ex: { 'padding_8ex': true }
   readonly padding0ic: { 'padding_0ic': true }
-  readonly padding0p25ic: { 'padding_0\.25ic': true }
   readonly padding0p5ic: { 'padding_0\.5ic': true }
-  readonly padding0p75ic: { 'padding_0\.75ic': true }
   readonly padding1ic: { 'padding_1ic': true }
-  readonly padding1p25ic: { 'padding_1\.25ic': true }
   readonly padding1p5ic: { 'padding_1\.5ic': true }
   readonly padding2ic: { 'padding_2ic': true }
-  readonly padding2p5ic: { 'padding_2\.5ic': true }
   readonly padding3ic: { 'padding_3ic': true }
-  readonly padding4ic: { 'padding_4ic': true }
-  readonly padding5ic: { 'padding_5ic': true }
-  readonly padding6ic: { 'padding_6ic': true }
-  readonly padding8ic: { 'padding_8ic': true }
   readonly padding0in: { 'padding_0in': true }
   readonly padding1in: { 'padding_1in': true }
   readonly padding2in: { 'padding_2in': true }
   readonly padding4in: { 'padding_4in': true }
-  readonly padding6in: { 'padding_6in': true }
   readonly padding8in: { 'padding_8in': true }
-  readonly padding10in: { 'padding_10in': true }
-  readonly padding12in: { 'padding_12in': true }
-  readonly padding16in: { 'padding_16in': true }
-  readonly padding20in: { 'padding_20in': true }
   readonly padding0lh: { 'padding_0lh': true }
-  readonly padding0p25lh: { 'padding_0\.25lh': true }
   readonly padding0p5lh: { 'padding_0\.5lh': true }
-  readonly padding0p75lh: { 'padding_0\.75lh': true }
   readonly padding1lh: { 'padding_1lh': true }
-  readonly padding1p25lh: { 'padding_1\.25lh': true }
   readonly padding1p5lh: { 'padding_1\.5lh': true }
   readonly padding2lh: { 'padding_2lh': true }
-  readonly padding2p5lh: { 'padding_2\.5lh': true }
   readonly padding3lh: { 'padding_3lh': true }
-  readonly padding4lh: { 'padding_4lh': true }
-  readonly padding5lh: { 'padding_5lh': true }
-  readonly padding6lh: { 'padding_6lh': true }
-  readonly padding8lh: { 'padding_8lh': true }
   readonly padding0lvh: { 'padding_0lvh': true }
-  readonly padding10lvh: { 'padding_10lvh': true }
-  readonly padding20lvh: { 'padding_20lvh': true }
   readonly padding25lvh: { 'padding_25lvh': true }
-  readonly padding30lvh: { 'padding_30lvh': true }
-  readonly padding33p33lvh: { 'padding_33\.33lvh': true }
-  readonly padding40lvh: { 'padding_40lvh': true }
   readonly padding50lvh: { 'padding_50lvh': true }
-  readonly padding60lvh: { 'padding_60lvh': true }
-  readonly padding66p67lvh: { 'padding_66\.67lvh': true }
-  readonly padding70lvh: { 'padding_70lvh': true }
   readonly padding75lvh: { 'padding_75lvh': true }
-  readonly padding80lvh: { 'padding_80lvh': true }
-  readonly padding90lvh: { 'padding_90lvh': true }
   readonly padding100lvh: { 'padding_100lvh': true }
   readonly padding0lvw: { 'padding_0lvw': true }
-  readonly padding10lvw: { 'padding_10lvw': true }
-  readonly padding20lvw: { 'padding_20lvw': true }
   readonly padding25lvw: { 'padding_25lvw': true }
-  readonly padding30lvw: { 'padding_30lvw': true }
-  readonly padding33p33lvw: { 'padding_33\.33lvw': true }
-  readonly padding40lvw: { 'padding_40lvw': true }
   readonly padding50lvw: { 'padding_50lvw': true }
-  readonly padding60lvw: { 'padding_60lvw': true }
-  readonly padding66p67lvw: { 'padding_66\.67lvw': true }
-  readonly padding70lvw: { 'padding_70lvw': true }
   readonly padding75lvw: { 'padding_75lvw': true }
-  readonly padding80lvw: { 'padding_80lvw': true }
-  readonly padding90lvw: { 'padding_90lvw': true }
   readonly padding100lvw: { 'padding_100lvw': true }
   readonly padding0mm: { 'padding_0mm': true }
   readonly padding1mm: { 'padding_1mm': true }
   readonly padding2mm: { 'padding_2mm': true }
   readonly padding4mm: { 'padding_4mm': true }
-  readonly padding6mm: { 'padding_6mm': true }
   readonly padding8mm: { 'padding_8mm': true }
-  readonly padding10mm: { 'padding_10mm': true }
-  readonly padding12mm: { 'padding_12mm': true }
-  readonly padding16mm: { 'padding_16mm': true }
-  readonly padding20mm: { 'padding_20mm': true }
   readonly padding0pc: { 'padding_0pc': true }
   readonly padding1pc: { 'padding_1pc': true }
   readonly padding2pc: { 'padding_2pc': true }
   readonly padding4pc: { 'padding_4pc': true }
-  readonly padding6pc: { 'padding_6pc': true }
   readonly padding8pc: { 'padding_8pc': true }
-  readonly padding10pc: { 'padding_10pc': true }
-  readonly padding12pc: { 'padding_12pc': true }
-  readonly padding16pc: { 'padding_16pc': true }
-  readonly padding20pc: { 'padding_20pc': true }
   readonly padding0pt: { 'padding_0pt': true }
   readonly padding1pt: { 'padding_1pt': true }
   readonly padding2pt: { 'padding_2pt': true }
   readonly padding4pt: { 'padding_4pt': true }
-  readonly padding6pt: { 'padding_6pt': true }
   readonly padding8pt: { 'padding_8pt': true }
-  readonly padding10pt: { 'padding_10pt': true }
-  readonly padding12pt: { 'padding_12pt': true }
-  readonly padding16pt: { 'padding_16pt': true }
-  readonly padding20pt: { 'padding_20pt': true }
-  readonly paddingN384px: { 'padding_-384px': true }
-  readonly paddingN320px: { 'padding_-320px': true }
-  readonly paddingN256px: { 'padding_-256px': true }
-  readonly paddingN224px: { 'padding_-224px': true }
-  readonly paddingN192px: { 'padding_-192px': true }
-  readonly paddingN160px: { 'padding_-160px': true }
-  readonly paddingN128px: { 'padding_-128px': true }
   readonly paddingN96px: { 'padding_-96px': true }
   readonly paddingN80px: { 'padding_-80px': true }
   readonly paddingN64px: { 'padding_-64px': true }
-  readonly paddingN56px: { 'padding_-56px': true }
   readonly paddingN48px: { 'padding_-48px': true }
   readonly paddingN40px: { 'padding_-40px': true }
   readonly paddingN32px: { 'padding_-32px': true }
-  readonly paddingN28px: { 'padding_-28px': true }
   readonly paddingN24px: { 'padding_-24px': true }
   readonly paddingN20px: { 'padding_-20px': true }
   readonly paddingN16px: { 'padding_-16px': true }
-  readonly paddingN14px: { 'padding_-14px': true }
   readonly paddingN12px: { 'padding_-12px': true }
   readonly paddingN10px: { 'padding_-10px': true }
   readonly paddingN8px: { 'padding_-8px': true }
   readonly paddingN6px: { 'padding_-6px': true }
   readonly paddingN4px: { 'padding_-4px': true }
   readonly paddingN2px: { 'padding_-2px': true }
-  readonly paddingN1px: { 'padding_-1px': true }
   readonly padding0px: { 'padding_0px': true }
-  readonly padding1px: { 'padding_1px': true }
   readonly padding2px: { 'padding_2px': true }
   readonly padding4px: { 'padding_4px': true }
   readonly padding6px: { 'padding_6px': true }
   readonly padding8px: { 'padding_8px': true }
   readonly padding10px: { 'padding_10px': true }
   readonly padding12px: { 'padding_12px': true }
-  readonly padding14px: { 'padding_14px': true }
   readonly padding16px: { 'padding_16px': true }
   readonly padding20px: { 'padding_20px': true }
   readonly padding24px: { 'padding_24px': true }
-  readonly padding28px: { 'padding_28px': true }
   readonly padding32px: { 'padding_32px': true }
   readonly padding40px: { 'padding_40px': true }
   readonly padding48px: { 'padding_48px': true }
-  readonly padding56px: { 'padding_56px': true }
   readonly padding64px: { 'padding_64px': true }
   readonly padding80px: { 'padding_80px': true }
   readonly padding96px: { 'padding_96px': true }
-  readonly padding128px: { 'padding_128px': true }
-  readonly padding160px: { 'padding_160px': true }
-  readonly padding192px: { 'padding_192px': true }
-  readonly padding224px: { 'padding_224px': true }
-  readonly padding256px: { 'padding_256px': true }
-  readonly padding320px: { 'padding_320px': true }
-  readonly padding384px: { 'padding_384px': true }
   readonly padding0rem: { 'padding_0rem': true }
-  readonly padding0p25rem: { 'padding_0\.25rem': true }
   readonly padding0p5rem: { 'padding_0\.5rem': true }
-  readonly padding0p75rem: { 'padding_0\.75rem': true }
   readonly padding1rem: { 'padding_1rem': true }
-  readonly padding1p25rem: { 'padding_1\.25rem': true }
   readonly padding1p5rem: { 'padding_1\.5rem': true }
   readonly padding2rem: { 'padding_2rem': true }
-  readonly padding2p5rem: { 'padding_2\.5rem': true }
   readonly padding3rem: { 'padding_3rem': true }
-  readonly padding4rem: { 'padding_4rem': true }
-  readonly padding5rem: { 'padding_5rem': true }
-  readonly padding6rem: { 'padding_6rem': true }
-  readonly padding8rem: { 'padding_8rem': true }
   readonly padding0rlh: { 'padding_0rlh': true }
-  readonly padding0p25rlh: { 'padding_0\.25rlh': true }
   readonly padding0p5rlh: { 'padding_0\.5rlh': true }
-  readonly padding0p75rlh: { 'padding_0\.75rlh': true }
   readonly padding1rlh: { 'padding_1rlh': true }
-  readonly padding1p25rlh: { 'padding_1\.25rlh': true }
   readonly padding1p5rlh: { 'padding_1\.5rlh': true }
   readonly padding2rlh: { 'padding_2rlh': true }
-  readonly padding2p5rlh: { 'padding_2\.5rlh': true }
   readonly padding3rlh: { 'padding_3rlh': true }
-  readonly padding4rlh: { 'padding_4rlh': true }
-  readonly padding5rlh: { 'padding_5rlh': true }
-  readonly padding6rlh: { 'padding_6rlh': true }
-  readonly padding8rlh: { 'padding_8rlh': true }
   readonly padding0svh: { 'padding_0svh': true }
-  readonly padding10svh: { 'padding_10svh': true }
-  readonly padding20svh: { 'padding_20svh': true }
   readonly padding25svh: { 'padding_25svh': true }
-  readonly padding30svh: { 'padding_30svh': true }
-  readonly padding33p33svh: { 'padding_33\.33svh': true }
-  readonly padding40svh: { 'padding_40svh': true }
   readonly padding50svh: { 'padding_50svh': true }
-  readonly padding60svh: { 'padding_60svh': true }
-  readonly padding66p67svh: { 'padding_66\.67svh': true }
-  readonly padding70svh: { 'padding_70svh': true }
   readonly padding75svh: { 'padding_75svh': true }
-  readonly padding80svh: { 'padding_80svh': true }
-  readonly padding90svh: { 'padding_90svh': true }
   readonly padding100svh: { 'padding_100svh': true }
   readonly padding0svw: { 'padding_0svw': true }
-  readonly padding10svw: { 'padding_10svw': true }
-  readonly padding20svw: { 'padding_20svw': true }
   readonly padding25svw: { 'padding_25svw': true }
-  readonly padding30svw: { 'padding_30svw': true }
-  readonly padding33p33svw: { 'padding_33\.33svw': true }
-  readonly padding40svw: { 'padding_40svw': true }
   readonly padding50svw: { 'padding_50svw': true }
-  readonly padding60svw: { 'padding_60svw': true }
-  readonly padding66p67svw: { 'padding_66\.67svw': true }
-  readonly padding70svw: { 'padding_70svw': true }
   readonly padding75svw: { 'padding_75svw': true }
-  readonly padding80svw: { 'padding_80svw': true }
-  readonly padding90svw: { 'padding_90svw': true }
   readonly padding100svw: { 'padding_100svw': true }
   readonly padding0vb: { 'padding_0vb': true }
-  readonly padding10vb: { 'padding_10vb': true }
-  readonly padding20vb: { 'padding_20vb': true }
   readonly padding25vb: { 'padding_25vb': true }
-  readonly padding30vb: { 'padding_30vb': true }
-  readonly padding33p33vb: { 'padding_33\.33vb': true }
-  readonly padding40vb: { 'padding_40vb': true }
   readonly padding50vb: { 'padding_50vb': true }
-  readonly padding60vb: { 'padding_60vb': true }
-  readonly padding66p67vb: { 'padding_66\.67vb': true }
-  readonly padding70vb: { 'padding_70vb': true }
   readonly padding75vb: { 'padding_75vb': true }
-  readonly padding80vb: { 'padding_80vb': true }
-  readonly padding90vb: { 'padding_90vb': true }
   readonly padding100vb: { 'padding_100vb': true }
   readonly padding0vh: { 'padding_0vh': true }
-  readonly padding10vh: { 'padding_10vh': true }
-  readonly padding20vh: { 'padding_20vh': true }
   readonly padding25vh: { 'padding_25vh': true }
-  readonly padding30vh: { 'padding_30vh': true }
-  readonly padding33p33vh: { 'padding_33\.33vh': true }
-  readonly padding40vh: { 'padding_40vh': true }
   readonly padding50vh: { 'padding_50vh': true }
-  readonly padding60vh: { 'padding_60vh': true }
-  readonly padding66p67vh: { 'padding_66\.67vh': true }
-  readonly padding70vh: { 'padding_70vh': true }
   readonly padding75vh: { 'padding_75vh': true }
-  readonly padding80vh: { 'padding_80vh': true }
-  readonly padding90vh: { 'padding_90vh': true }
   readonly padding100vh: { 'padding_100vh': true }
   readonly padding0vi: { 'padding_0vi': true }
-  readonly padding10vi: { 'padding_10vi': true }
-  readonly padding20vi: { 'padding_20vi': true }
   readonly padding25vi: { 'padding_25vi': true }
-  readonly padding30vi: { 'padding_30vi': true }
-  readonly padding33p33vi: { 'padding_33\.33vi': true }
-  readonly padding40vi: { 'padding_40vi': true }
   readonly padding50vi: { 'padding_50vi': true }
-  readonly padding60vi: { 'padding_60vi': true }
-  readonly padding66p67vi: { 'padding_66\.67vi': true }
-  readonly padding70vi: { 'padding_70vi': true }
   readonly padding75vi: { 'padding_75vi': true }
-  readonly padding80vi: { 'padding_80vi': true }
-  readonly padding90vi: { 'padding_90vi': true }
   readonly padding100vi: { 'padding_100vi': true }
   readonly padding0vmax: { 'padding_0vmax': true }
-  readonly padding10vmax: { 'padding_10vmax': true }
-  readonly padding20vmax: { 'padding_20vmax': true }
   readonly padding25vmax: { 'padding_25vmax': true }
-  readonly padding30vmax: { 'padding_30vmax': true }
-  readonly padding33p33vmax: { 'padding_33\.33vmax': true }
-  readonly padding40vmax: { 'padding_40vmax': true }
   readonly padding50vmax: { 'padding_50vmax': true }
-  readonly padding60vmax: { 'padding_60vmax': true }
-  readonly padding66p67vmax: { 'padding_66\.67vmax': true }
-  readonly padding70vmax: { 'padding_70vmax': true }
   readonly padding75vmax: { 'padding_75vmax': true }
-  readonly padding80vmax: { 'padding_80vmax': true }
-  readonly padding90vmax: { 'padding_90vmax': true }
   readonly padding100vmax: { 'padding_100vmax': true }
   readonly padding0vmin: { 'padding_0vmin': true }
-  readonly padding10vmin: { 'padding_10vmin': true }
-  readonly padding20vmin: { 'padding_20vmin': true }
   readonly padding25vmin: { 'padding_25vmin': true }
-  readonly padding30vmin: { 'padding_30vmin': true }
-  readonly padding33p33vmin: { 'padding_33\.33vmin': true }
-  readonly padding40vmin: { 'padding_40vmin': true }
   readonly padding50vmin: { 'padding_50vmin': true }
-  readonly padding60vmin: { 'padding_60vmin': true }
-  readonly padding66p67vmin: { 'padding_66\.67vmin': true }
-  readonly padding70vmin: { 'padding_70vmin': true }
   readonly padding75vmin: { 'padding_75vmin': true }
-  readonly padding80vmin: { 'padding_80vmin': true }
-  readonly padding90vmin: { 'padding_90vmin': true }
   readonly padding100vmin: { 'padding_100vmin': true }
   readonly padding0vw: { 'padding_0vw': true }
-  readonly padding10vw: { 'padding_10vw': true }
-  readonly padding20vw: { 'padding_20vw': true }
   readonly padding25vw: { 'padding_25vw': true }
-  readonly padding30vw: { 'padding_30vw': true }
-  readonly padding33p33vw: { 'padding_33\.33vw': true }
-  readonly padding40vw: { 'padding_40vw': true }
   readonly padding50vw: { 'padding_50vw': true }
-  readonly padding60vw: { 'padding_60vw': true }
-  readonly padding66p67vw: { 'padding_66\.67vw': true }
-  readonly padding70vw: { 'padding_70vw': true }
   readonly padding75vw: { 'padding_75vw': true }
-  readonly padding80vw: { 'padding_80vw': true }
-  readonly padding90vw: { 'padding_90vw': true }
   readonly padding100vw: { 'padding_100vw': true }
   readonly padding0Pct: { 'padding_0\%': true }
-  readonly padding10Pct: { 'padding_10\%': true }
-  readonly padding20Pct: { 'padding_20\%': true }
   readonly padding25Pct: { 'padding_25\%': true }
-  readonly padding30Pct: { 'padding_30\%': true }
-  readonly padding33p33Pct: { 'padding_33\.33\%': true }
-  readonly padding40Pct: { 'padding_40\%': true }
   readonly padding50Pct: { 'padding_50\%': true }
-  readonly padding60Pct: { 'padding_60\%': true }
-  readonly padding66p67Pct: { 'padding_66\.67\%': true }
-  readonly padding70Pct: { 'padding_70\%': true }
   readonly padding75Pct: { 'padding_75\%': true }
-  readonly padding80Pct: { 'padding_80\%': true }
-  readonly padding90Pct: { 'padding_90\%': true }
   readonly padding100Pct: { 'padding_100\%': true }
 
   // ==================== position ====================
@@ -9551,421 +4317,175 @@ export interface CsstsAtoms {
   readonly right1Q: { 'right_1Q': true }
   readonly right2Q: { 'right_2Q': true }
   readonly right4Q: { 'right_4Q': true }
-  readonly right6Q: { 'right_6Q': true }
   readonly right8Q: { 'right_8Q': true }
-  readonly right10Q: { 'right_10Q': true }
-  readonly right12Q: { 'right_12Q': true }
-  readonly right16Q: { 'right_16Q': true }
-  readonly right20Q: { 'right_20Q': true }
   readonly right0cap: { 'right_0cap': true }
-  readonly right0p25cap: { 'right_0\.25cap': true }
   readonly right0p5cap: { 'right_0\.5cap': true }
-  readonly right0p75cap: { 'right_0\.75cap': true }
   readonly right1cap: { 'right_1cap': true }
-  readonly right1p25cap: { 'right_1\.25cap': true }
   readonly right1p5cap: { 'right_1\.5cap': true }
   readonly right2cap: { 'right_2cap': true }
-  readonly right2p5cap: { 'right_2\.5cap': true }
   readonly right3cap: { 'right_3cap': true }
-  readonly right4cap: { 'right_4cap': true }
-  readonly right5cap: { 'right_5cap': true }
-  readonly right6cap: { 'right_6cap': true }
-  readonly right8cap: { 'right_8cap': true }
   readonly right0ch: { 'right_0ch': true }
-  readonly right0p25ch: { 'right_0\.25ch': true }
   readonly right0p5ch: { 'right_0\.5ch': true }
-  readonly right0p75ch: { 'right_0\.75ch': true }
   readonly right1ch: { 'right_1ch': true }
-  readonly right1p25ch: { 'right_1\.25ch': true }
   readonly right1p5ch: { 'right_1\.5ch': true }
   readonly right2ch: { 'right_2ch': true }
-  readonly right2p5ch: { 'right_2\.5ch': true }
   readonly right3ch: { 'right_3ch': true }
-  readonly right4ch: { 'right_4ch': true }
-  readonly right5ch: { 'right_5ch': true }
-  readonly right6ch: { 'right_6ch': true }
-  readonly right8ch: { 'right_8ch': true }
   readonly right0cm: { 'right_0cm': true }
   readonly right1cm: { 'right_1cm': true }
   readonly right2cm: { 'right_2cm': true }
   readonly right4cm: { 'right_4cm': true }
-  readonly right6cm: { 'right_6cm': true }
   readonly right8cm: { 'right_8cm': true }
-  readonly right10cm: { 'right_10cm': true }
-  readonly right12cm: { 'right_12cm': true }
-  readonly right16cm: { 'right_16cm': true }
-  readonly right20cm: { 'right_20cm': true }
   readonly right0dvh: { 'right_0dvh': true }
-  readonly right10dvh: { 'right_10dvh': true }
-  readonly right20dvh: { 'right_20dvh': true }
   readonly right25dvh: { 'right_25dvh': true }
-  readonly right30dvh: { 'right_30dvh': true }
-  readonly right33p33dvh: { 'right_33\.33dvh': true }
-  readonly right40dvh: { 'right_40dvh': true }
   readonly right50dvh: { 'right_50dvh': true }
-  readonly right60dvh: { 'right_60dvh': true }
-  readonly right66p67dvh: { 'right_66\.67dvh': true }
-  readonly right70dvh: { 'right_70dvh': true }
   readonly right75dvh: { 'right_75dvh': true }
-  readonly right80dvh: { 'right_80dvh': true }
-  readonly right90dvh: { 'right_90dvh': true }
   readonly right100dvh: { 'right_100dvh': true }
   readonly right0dvw: { 'right_0dvw': true }
-  readonly right10dvw: { 'right_10dvw': true }
-  readonly right20dvw: { 'right_20dvw': true }
   readonly right25dvw: { 'right_25dvw': true }
-  readonly right30dvw: { 'right_30dvw': true }
-  readonly right33p33dvw: { 'right_33\.33dvw': true }
-  readonly right40dvw: { 'right_40dvw': true }
   readonly right50dvw: { 'right_50dvw': true }
-  readonly right60dvw: { 'right_60dvw': true }
-  readonly right66p67dvw: { 'right_66\.67dvw': true }
-  readonly right70dvw: { 'right_70dvw': true }
   readonly right75dvw: { 'right_75dvw': true }
-  readonly right80dvw: { 'right_80dvw': true }
-  readonly right90dvw: { 'right_90dvw': true }
   readonly right100dvw: { 'right_100dvw': true }
   readonly right0em: { 'right_0em': true }
-  readonly right0p25em: { 'right_0\.25em': true }
   readonly right0p5em: { 'right_0\.5em': true }
-  readonly right0p75em: { 'right_0\.75em': true }
   readonly right1em: { 'right_1em': true }
-  readonly right1p25em: { 'right_1\.25em': true }
   readonly right1p5em: { 'right_1\.5em': true }
   readonly right2em: { 'right_2em': true }
-  readonly right2p5em: { 'right_2\.5em': true }
   readonly right3em: { 'right_3em': true }
-  readonly right4em: { 'right_4em': true }
-  readonly right5em: { 'right_5em': true }
-  readonly right6em: { 'right_6em': true }
-  readonly right8em: { 'right_8em': true }
   readonly right0ex: { 'right_0ex': true }
-  readonly right0p25ex: { 'right_0\.25ex': true }
   readonly right0p5ex: { 'right_0\.5ex': true }
-  readonly right0p75ex: { 'right_0\.75ex': true }
   readonly right1ex: { 'right_1ex': true }
-  readonly right1p25ex: { 'right_1\.25ex': true }
   readonly right1p5ex: { 'right_1\.5ex': true }
   readonly right2ex: { 'right_2ex': true }
-  readonly right2p5ex: { 'right_2\.5ex': true }
   readonly right3ex: { 'right_3ex': true }
-  readonly right4ex: { 'right_4ex': true }
-  readonly right5ex: { 'right_5ex': true }
-  readonly right6ex: { 'right_6ex': true }
-  readonly right8ex: { 'right_8ex': true }
   readonly right0ic: { 'right_0ic': true }
-  readonly right0p25ic: { 'right_0\.25ic': true }
   readonly right0p5ic: { 'right_0\.5ic': true }
-  readonly right0p75ic: { 'right_0\.75ic': true }
   readonly right1ic: { 'right_1ic': true }
-  readonly right1p25ic: { 'right_1\.25ic': true }
   readonly right1p5ic: { 'right_1\.5ic': true }
   readonly right2ic: { 'right_2ic': true }
-  readonly right2p5ic: { 'right_2\.5ic': true }
   readonly right3ic: { 'right_3ic': true }
-  readonly right4ic: { 'right_4ic': true }
-  readonly right5ic: { 'right_5ic': true }
-  readonly right6ic: { 'right_6ic': true }
-  readonly right8ic: { 'right_8ic': true }
   readonly right0in: { 'right_0in': true }
   readonly right1in: { 'right_1in': true }
   readonly right2in: { 'right_2in': true }
   readonly right4in: { 'right_4in': true }
-  readonly right6in: { 'right_6in': true }
   readonly right8in: { 'right_8in': true }
-  readonly right10in: { 'right_10in': true }
-  readonly right12in: { 'right_12in': true }
-  readonly right16in: { 'right_16in': true }
-  readonly right20in: { 'right_20in': true }
   readonly right0lh: { 'right_0lh': true }
-  readonly right0p25lh: { 'right_0\.25lh': true }
   readonly right0p5lh: { 'right_0\.5lh': true }
-  readonly right0p75lh: { 'right_0\.75lh': true }
   readonly right1lh: { 'right_1lh': true }
-  readonly right1p25lh: { 'right_1\.25lh': true }
   readonly right1p5lh: { 'right_1\.5lh': true }
   readonly right2lh: { 'right_2lh': true }
-  readonly right2p5lh: { 'right_2\.5lh': true }
   readonly right3lh: { 'right_3lh': true }
-  readonly right4lh: { 'right_4lh': true }
-  readonly right5lh: { 'right_5lh': true }
-  readonly right6lh: { 'right_6lh': true }
-  readonly right8lh: { 'right_8lh': true }
   readonly right0lvh: { 'right_0lvh': true }
-  readonly right10lvh: { 'right_10lvh': true }
-  readonly right20lvh: { 'right_20lvh': true }
   readonly right25lvh: { 'right_25lvh': true }
-  readonly right30lvh: { 'right_30lvh': true }
-  readonly right33p33lvh: { 'right_33\.33lvh': true }
-  readonly right40lvh: { 'right_40lvh': true }
   readonly right50lvh: { 'right_50lvh': true }
-  readonly right60lvh: { 'right_60lvh': true }
-  readonly right66p67lvh: { 'right_66\.67lvh': true }
-  readonly right70lvh: { 'right_70lvh': true }
   readonly right75lvh: { 'right_75lvh': true }
-  readonly right80lvh: { 'right_80lvh': true }
-  readonly right90lvh: { 'right_90lvh': true }
   readonly right100lvh: { 'right_100lvh': true }
   readonly right0lvw: { 'right_0lvw': true }
-  readonly right10lvw: { 'right_10lvw': true }
-  readonly right20lvw: { 'right_20lvw': true }
   readonly right25lvw: { 'right_25lvw': true }
-  readonly right30lvw: { 'right_30lvw': true }
-  readonly right33p33lvw: { 'right_33\.33lvw': true }
-  readonly right40lvw: { 'right_40lvw': true }
   readonly right50lvw: { 'right_50lvw': true }
-  readonly right60lvw: { 'right_60lvw': true }
-  readonly right66p67lvw: { 'right_66\.67lvw': true }
-  readonly right70lvw: { 'right_70lvw': true }
   readonly right75lvw: { 'right_75lvw': true }
-  readonly right80lvw: { 'right_80lvw': true }
-  readonly right90lvw: { 'right_90lvw': true }
   readonly right100lvw: { 'right_100lvw': true }
   readonly right0mm: { 'right_0mm': true }
   readonly right1mm: { 'right_1mm': true }
   readonly right2mm: { 'right_2mm': true }
   readonly right4mm: { 'right_4mm': true }
-  readonly right6mm: { 'right_6mm': true }
   readonly right8mm: { 'right_8mm': true }
-  readonly right10mm: { 'right_10mm': true }
-  readonly right12mm: { 'right_12mm': true }
-  readonly right16mm: { 'right_16mm': true }
-  readonly right20mm: { 'right_20mm': true }
   readonly right0pc: { 'right_0pc': true }
   readonly right1pc: { 'right_1pc': true }
   readonly right2pc: { 'right_2pc': true }
   readonly right4pc: { 'right_4pc': true }
-  readonly right6pc: { 'right_6pc': true }
   readonly right8pc: { 'right_8pc': true }
-  readonly right10pc: { 'right_10pc': true }
-  readonly right12pc: { 'right_12pc': true }
-  readonly right16pc: { 'right_16pc': true }
-  readonly right20pc: { 'right_20pc': true }
   readonly right0pt: { 'right_0pt': true }
   readonly right1pt: { 'right_1pt': true }
   readonly right2pt: { 'right_2pt': true }
   readonly right4pt: { 'right_4pt': true }
-  readonly right6pt: { 'right_6pt': true }
   readonly right8pt: { 'right_8pt': true }
-  readonly right10pt: { 'right_10pt': true }
-  readonly right12pt: { 'right_12pt': true }
-  readonly right16pt: { 'right_16pt': true }
-  readonly right20pt: { 'right_20pt': true }
-  readonly rightN384px: { 'right_-384px': true }
-  readonly rightN320px: { 'right_-320px': true }
-  readonly rightN256px: { 'right_-256px': true }
-  readonly rightN224px: { 'right_-224px': true }
-  readonly rightN192px: { 'right_-192px': true }
-  readonly rightN160px: { 'right_-160px': true }
-  readonly rightN128px: { 'right_-128px': true }
   readonly rightN96px: { 'right_-96px': true }
   readonly rightN80px: { 'right_-80px': true }
   readonly rightN64px: { 'right_-64px': true }
-  readonly rightN56px: { 'right_-56px': true }
   readonly rightN48px: { 'right_-48px': true }
   readonly rightN40px: { 'right_-40px': true }
   readonly rightN32px: { 'right_-32px': true }
-  readonly rightN28px: { 'right_-28px': true }
   readonly rightN24px: { 'right_-24px': true }
   readonly rightN20px: { 'right_-20px': true }
   readonly rightN16px: { 'right_-16px': true }
-  readonly rightN14px: { 'right_-14px': true }
   readonly rightN12px: { 'right_-12px': true }
   readonly rightN10px: { 'right_-10px': true }
   readonly rightN8px: { 'right_-8px': true }
   readonly rightN6px: { 'right_-6px': true }
   readonly rightN4px: { 'right_-4px': true }
   readonly rightN2px: { 'right_-2px': true }
-  readonly rightN1px: { 'right_-1px': true }
   readonly right0px: { 'right_0px': true }
-  readonly right1px: { 'right_1px': true }
   readonly right2px: { 'right_2px': true }
   readonly right4px: { 'right_4px': true }
   readonly right6px: { 'right_6px': true }
   readonly right8px: { 'right_8px': true }
   readonly right10px: { 'right_10px': true }
   readonly right12px: { 'right_12px': true }
-  readonly right14px: { 'right_14px': true }
   readonly right16px: { 'right_16px': true }
   readonly right20px: { 'right_20px': true }
   readonly right24px: { 'right_24px': true }
-  readonly right28px: { 'right_28px': true }
   readonly right32px: { 'right_32px': true }
   readonly right40px: { 'right_40px': true }
   readonly right48px: { 'right_48px': true }
-  readonly right56px: { 'right_56px': true }
   readonly right64px: { 'right_64px': true }
   readonly right80px: { 'right_80px': true }
   readonly right96px: { 'right_96px': true }
-  readonly right128px: { 'right_128px': true }
-  readonly right160px: { 'right_160px': true }
-  readonly right192px: { 'right_192px': true }
-  readonly right224px: { 'right_224px': true }
-  readonly right256px: { 'right_256px': true }
-  readonly right320px: { 'right_320px': true }
-  readonly right384px: { 'right_384px': true }
   readonly right0rem: { 'right_0rem': true }
-  readonly right0p25rem: { 'right_0\.25rem': true }
   readonly right0p5rem: { 'right_0\.5rem': true }
-  readonly right0p75rem: { 'right_0\.75rem': true }
   readonly right1rem: { 'right_1rem': true }
-  readonly right1p25rem: { 'right_1\.25rem': true }
   readonly right1p5rem: { 'right_1\.5rem': true }
   readonly right2rem: { 'right_2rem': true }
-  readonly right2p5rem: { 'right_2\.5rem': true }
   readonly right3rem: { 'right_3rem': true }
-  readonly right4rem: { 'right_4rem': true }
-  readonly right5rem: { 'right_5rem': true }
-  readonly right6rem: { 'right_6rem': true }
-  readonly right8rem: { 'right_8rem': true }
   readonly right0rlh: { 'right_0rlh': true }
-  readonly right0p25rlh: { 'right_0\.25rlh': true }
   readonly right0p5rlh: { 'right_0\.5rlh': true }
-  readonly right0p75rlh: { 'right_0\.75rlh': true }
   readonly right1rlh: { 'right_1rlh': true }
-  readonly right1p25rlh: { 'right_1\.25rlh': true }
   readonly right1p5rlh: { 'right_1\.5rlh': true }
   readonly right2rlh: { 'right_2rlh': true }
-  readonly right2p5rlh: { 'right_2\.5rlh': true }
   readonly right3rlh: { 'right_3rlh': true }
-  readonly right4rlh: { 'right_4rlh': true }
-  readonly right5rlh: { 'right_5rlh': true }
-  readonly right6rlh: { 'right_6rlh': true }
-  readonly right8rlh: { 'right_8rlh': true }
   readonly right0svh: { 'right_0svh': true }
-  readonly right10svh: { 'right_10svh': true }
-  readonly right20svh: { 'right_20svh': true }
   readonly right25svh: { 'right_25svh': true }
-  readonly right30svh: { 'right_30svh': true }
-  readonly right33p33svh: { 'right_33\.33svh': true }
-  readonly right40svh: { 'right_40svh': true }
   readonly right50svh: { 'right_50svh': true }
-  readonly right60svh: { 'right_60svh': true }
-  readonly right66p67svh: { 'right_66\.67svh': true }
-  readonly right70svh: { 'right_70svh': true }
   readonly right75svh: { 'right_75svh': true }
-  readonly right80svh: { 'right_80svh': true }
-  readonly right90svh: { 'right_90svh': true }
   readonly right100svh: { 'right_100svh': true }
   readonly right0svw: { 'right_0svw': true }
-  readonly right10svw: { 'right_10svw': true }
-  readonly right20svw: { 'right_20svw': true }
   readonly right25svw: { 'right_25svw': true }
-  readonly right30svw: { 'right_30svw': true }
-  readonly right33p33svw: { 'right_33\.33svw': true }
-  readonly right40svw: { 'right_40svw': true }
   readonly right50svw: { 'right_50svw': true }
-  readonly right60svw: { 'right_60svw': true }
-  readonly right66p67svw: { 'right_66\.67svw': true }
-  readonly right70svw: { 'right_70svw': true }
   readonly right75svw: { 'right_75svw': true }
-  readonly right80svw: { 'right_80svw': true }
-  readonly right90svw: { 'right_90svw': true }
   readonly right100svw: { 'right_100svw': true }
   readonly right0vb: { 'right_0vb': true }
-  readonly right10vb: { 'right_10vb': true }
-  readonly right20vb: { 'right_20vb': true }
   readonly right25vb: { 'right_25vb': true }
-  readonly right30vb: { 'right_30vb': true }
-  readonly right33p33vb: { 'right_33\.33vb': true }
-  readonly right40vb: { 'right_40vb': true }
   readonly right50vb: { 'right_50vb': true }
-  readonly right60vb: { 'right_60vb': true }
-  readonly right66p67vb: { 'right_66\.67vb': true }
-  readonly right70vb: { 'right_70vb': true }
   readonly right75vb: { 'right_75vb': true }
-  readonly right80vb: { 'right_80vb': true }
-  readonly right90vb: { 'right_90vb': true }
   readonly right100vb: { 'right_100vb': true }
   readonly right0vh: { 'right_0vh': true }
-  readonly right10vh: { 'right_10vh': true }
-  readonly right20vh: { 'right_20vh': true }
   readonly right25vh: { 'right_25vh': true }
-  readonly right30vh: { 'right_30vh': true }
-  readonly right33p33vh: { 'right_33\.33vh': true }
-  readonly right40vh: { 'right_40vh': true }
   readonly right50vh: { 'right_50vh': true }
-  readonly right60vh: { 'right_60vh': true }
-  readonly right66p67vh: { 'right_66\.67vh': true }
-  readonly right70vh: { 'right_70vh': true }
   readonly right75vh: { 'right_75vh': true }
-  readonly right80vh: { 'right_80vh': true }
-  readonly right90vh: { 'right_90vh': true }
   readonly right100vh: { 'right_100vh': true }
   readonly right0vi: { 'right_0vi': true }
-  readonly right10vi: { 'right_10vi': true }
-  readonly right20vi: { 'right_20vi': true }
   readonly right25vi: { 'right_25vi': true }
-  readonly right30vi: { 'right_30vi': true }
-  readonly right33p33vi: { 'right_33\.33vi': true }
-  readonly right40vi: { 'right_40vi': true }
   readonly right50vi: { 'right_50vi': true }
-  readonly right60vi: { 'right_60vi': true }
-  readonly right66p67vi: { 'right_66\.67vi': true }
-  readonly right70vi: { 'right_70vi': true }
   readonly right75vi: { 'right_75vi': true }
-  readonly right80vi: { 'right_80vi': true }
-  readonly right90vi: { 'right_90vi': true }
   readonly right100vi: { 'right_100vi': true }
   readonly right0vmax: { 'right_0vmax': true }
-  readonly right10vmax: { 'right_10vmax': true }
-  readonly right20vmax: { 'right_20vmax': true }
   readonly right25vmax: { 'right_25vmax': true }
-  readonly right30vmax: { 'right_30vmax': true }
-  readonly right33p33vmax: { 'right_33\.33vmax': true }
-  readonly right40vmax: { 'right_40vmax': true }
   readonly right50vmax: { 'right_50vmax': true }
-  readonly right60vmax: { 'right_60vmax': true }
-  readonly right66p67vmax: { 'right_66\.67vmax': true }
-  readonly right70vmax: { 'right_70vmax': true }
   readonly right75vmax: { 'right_75vmax': true }
-  readonly right80vmax: { 'right_80vmax': true }
-  readonly right90vmax: { 'right_90vmax': true }
   readonly right100vmax: { 'right_100vmax': true }
   readonly right0vmin: { 'right_0vmin': true }
-  readonly right10vmin: { 'right_10vmin': true }
-  readonly right20vmin: { 'right_20vmin': true }
   readonly right25vmin: { 'right_25vmin': true }
-  readonly right30vmin: { 'right_30vmin': true }
-  readonly right33p33vmin: { 'right_33\.33vmin': true }
-  readonly right40vmin: { 'right_40vmin': true }
   readonly right50vmin: { 'right_50vmin': true }
-  readonly right60vmin: { 'right_60vmin': true }
-  readonly right66p67vmin: { 'right_66\.67vmin': true }
-  readonly right70vmin: { 'right_70vmin': true }
   readonly right75vmin: { 'right_75vmin': true }
-  readonly right80vmin: { 'right_80vmin': true }
-  readonly right90vmin: { 'right_90vmin': true }
   readonly right100vmin: { 'right_100vmin': true }
   readonly right0vw: { 'right_0vw': true }
-  readonly right10vw: { 'right_10vw': true }
-  readonly right20vw: { 'right_20vw': true }
   readonly right25vw: { 'right_25vw': true }
-  readonly right30vw: { 'right_30vw': true }
-  readonly right33p33vw: { 'right_33\.33vw': true }
-  readonly right40vw: { 'right_40vw': true }
   readonly right50vw: { 'right_50vw': true }
-  readonly right60vw: { 'right_60vw': true }
-  readonly right66p67vw: { 'right_66\.67vw': true }
-  readonly right70vw: { 'right_70vw': true }
   readonly right75vw: { 'right_75vw': true }
-  readonly right80vw: { 'right_80vw': true }
-  readonly right90vw: { 'right_90vw': true }
   readonly right100vw: { 'right_100vw': true }
   readonly right0Pct: { 'right_0\%': true }
-  readonly right10Pct: { 'right_10\%': true }
-  readonly right20Pct: { 'right_20\%': true }
   readonly right25Pct: { 'right_25\%': true }
-  readonly right30Pct: { 'right_30\%': true }
-  readonly right33p33Pct: { 'right_33\.33\%': true }
-  readonly right40Pct: { 'right_40\%': true }
   readonly right50Pct: { 'right_50\%': true }
-  readonly right60Pct: { 'right_60\%': true }
-  readonly right66p67Pct: { 'right_66\.67\%': true }
-  readonly right70Pct: { 'right_70\%': true }
   readonly right75Pct: { 'right_75\%': true }
-  readonly right80Pct: { 'right_80\%': true }
-  readonly right90Pct: { 'right_90\%': true }
   readonly right100Pct: { 'right_100\%': true }
 
   // ==================== rotate ====================
@@ -9973,115 +4493,25 @@ export interface CsstsAtoms {
   readonly rotateX: { 'rotate_x': true }
   readonly rotateY: { 'rotate_y': true }
   readonly rotateZ: { 'rotate_z': true }
-  readonly rotateN360deg: { 'rotate_-360deg': true }
-  readonly rotateN315deg: { 'rotate_-315deg': true }
-  readonly rotateN270deg: { 'rotate_-270deg': true }
-  readonly rotateN225deg: { 'rotate_-225deg': true }
-  readonly rotateN180deg: { 'rotate_-180deg': true }
-  readonly rotateN135deg: { 'rotate_-135deg': true }
-  readonly rotateN90deg: { 'rotate_-90deg': true }
-  readonly rotateN45deg: { 'rotate_-45deg': true }
-  readonly rotate0deg: { 'rotate_0deg': true }
-  readonly rotate45deg: { 'rotate_45deg': true }
-  readonly rotate90deg: { 'rotate_90deg': true }
-  readonly rotate135deg: { 'rotate_135deg': true }
-  readonly rotate180deg: { 'rotate_180deg': true }
-  readonly rotate225deg: { 'rotate_225deg': true }
-  readonly rotate270deg: { 'rotate_270deg': true }
-  readonly rotate315deg: { 'rotate_315deg': true }
-  readonly rotate360deg: { 'rotate_360deg': true }
-  readonly rotateN360grad: { 'rotate_-360grad': true }
-  readonly rotateN315grad: { 'rotate_-315grad': true }
-  readonly rotateN270grad: { 'rotate_-270grad': true }
-  readonly rotateN225grad: { 'rotate_-225grad': true }
-  readonly rotateN180grad: { 'rotate_-180grad': true }
-  readonly rotateN135grad: { 'rotate_-135grad': true }
-  readonly rotateN90grad: { 'rotate_-90grad': true }
-  readonly rotateN45grad: { 'rotate_-45grad': true }
-  readonly rotate0grad: { 'rotate_0grad': true }
-  readonly rotate45grad: { 'rotate_45grad': true }
-  readonly rotate90grad: { 'rotate_90grad': true }
-  readonly rotate135grad: { 'rotate_135grad': true }
-  readonly rotate180grad: { 'rotate_180grad': true }
-  readonly rotate225grad: { 'rotate_225grad': true }
-  readonly rotate270grad: { 'rotate_270grad': true }
-  readonly rotate315grad: { 'rotate_315grad': true }
-  readonly rotate360grad: { 'rotate_360grad': true }
-  readonly rotateN360rad: { 'rotate_-360rad': true }
-  readonly rotateN315rad: { 'rotate_-315rad': true }
-  readonly rotateN270rad: { 'rotate_-270rad': true }
-  readonly rotateN225rad: { 'rotate_-225rad': true }
-  readonly rotateN180rad: { 'rotate_-180rad': true }
-  readonly rotateN135rad: { 'rotate_-135rad': true }
-  readonly rotateN90rad: { 'rotate_-90rad': true }
-  readonly rotateN45rad: { 'rotate_-45rad': true }
-  readonly rotate0rad: { 'rotate_0rad': true }
-  readonly rotate45rad: { 'rotate_45rad': true }
-  readonly rotate90rad: { 'rotate_90rad': true }
-  readonly rotate135rad: { 'rotate_135rad': true }
-  readonly rotate180rad: { 'rotate_180rad': true }
-  readonly rotate225rad: { 'rotate_225rad': true }
-  readonly rotate270rad: { 'rotate_270rad': true }
-  readonly rotate315rad: { 'rotate_315rad': true }
-  readonly rotate360rad: { 'rotate_360rad': true }
-  readonly rotateN360turn: { 'rotate_-360turn': true }
-  readonly rotateN315turn: { 'rotate_-315turn': true }
-  readonly rotateN270turn: { 'rotate_-270turn': true }
-  readonly rotateN225turn: { 'rotate_-225turn': true }
-  readonly rotateN180turn: { 'rotate_-180turn': true }
-  readonly rotateN135turn: { 'rotate_-135turn': true }
-  readonly rotateN90turn: { 'rotate_-90turn': true }
-  readonly rotateN45turn: { 'rotate_-45turn': true }
-  readonly rotate0turn: { 'rotate_0turn': true }
-  readonly rotate45turn: { 'rotate_45turn': true }
-  readonly rotate90turn: { 'rotate_90turn': true }
-  readonly rotate135turn: { 'rotate_135turn': true }
-  readonly rotate180turn: { 'rotate_180turn': true }
-  readonly rotate225turn: { 'rotate_225turn': true }
-  readonly rotate270turn: { 'rotate_270turn': true }
-  readonly rotate315turn: { 'rotate_315turn': true }
-  readonly rotate360turn: { 'rotate_360turn': true }
   readonly rotate0: { 'rotate_0': true }
-  readonly rotate0p5: { 'rotate_0\.5': true }
   readonly rotate1: { 'rotate_1': true }
-  readonly rotate1p5: { 'rotate_1\.5': true }
   readonly rotate2: { 'rotate_2': true }
   readonly rotate3: { 'rotate_3': true }
-  readonly rotate4: { 'rotate_4': true }
   readonly rotate5: { 'rotate_5': true }
   readonly rotate10: { 'rotate_10': true }
-  readonly rotate20: { 'rotate_20': true }
-  readonly rotate50: { 'rotate_50': true }
-  readonly rotate100: { 'rotate_100': true }
 
   // ==================== scale ====================
   readonly scaleNone: { 'scale_none': true }
   readonly scale0: { 'scale_0': true }
-  readonly scale0p5: { 'scale_0\.5': true }
   readonly scale1: { 'scale_1': true }
-  readonly scale1p5: { 'scale_1\.5': true }
   readonly scale2: { 'scale_2': true }
   readonly scale3: { 'scale_3': true }
-  readonly scale4: { 'scale_4': true }
   readonly scale5: { 'scale_5': true }
   readonly scale10: { 'scale_10': true }
-  readonly scale20: { 'scale_20': true }
-  readonly scale50: { 'scale_50': true }
-  readonly scale100: { 'scale_100': true }
   readonly scale0Pct: { 'scale_0\%': true }
-  readonly scale10Pct: { 'scale_10\%': true }
-  readonly scale20Pct: { 'scale_20\%': true }
   readonly scale25Pct: { 'scale_25\%': true }
-  readonly scale30Pct: { 'scale_30\%': true }
-  readonly scale33p33Pct: { 'scale_33\.33\%': true }
-  readonly scale40Pct: { 'scale_40\%': true }
   readonly scale50Pct: { 'scale_50\%': true }
-  readonly scale60Pct: { 'scale_60\%': true }
-  readonly scale66p67Pct: { 'scale_66\.67\%': true }
-  readonly scale70Pct: { 'scale_70\%': true }
   readonly scale75Pct: { 'scale_75\%': true }
-  readonly scale80Pct: { 'scale_80\%': true }
-  readonly scale90Pct: { 'scale_90\%': true }
   readonly scale100Pct: { 'scale_100\%': true }
 
   // ==================== text-align ====================
@@ -10181,505 +4611,185 @@ export interface CsstsAtoms {
   readonly textShadowXyz: { 'text-shadow_xyz': true }
   readonly textShadowXyzD50: { 'text-shadow_xyz-d50': true }
   readonly textShadowXyzD65: { 'text-shadow_xyz-d65': true }
-  readonly textShadowN360deg: { 'text-shadow_-360deg': true }
-  readonly textShadowN315deg: { 'text-shadow_-315deg': true }
-  readonly textShadowN270deg: { 'text-shadow_-270deg': true }
-  readonly textShadowN225deg: { 'text-shadow_-225deg': true }
-  readonly textShadowN180deg: { 'text-shadow_-180deg': true }
-  readonly textShadowN135deg: { 'text-shadow_-135deg': true }
-  readonly textShadowN90deg: { 'text-shadow_-90deg': true }
-  readonly textShadowN45deg: { 'text-shadow_-45deg': true }
-  readonly textShadow0deg: { 'text-shadow_0deg': true }
-  readonly textShadow45deg: { 'text-shadow_45deg': true }
-  readonly textShadow90deg: { 'text-shadow_90deg': true }
-  readonly textShadow135deg: { 'text-shadow_135deg': true }
-  readonly textShadow180deg: { 'text-shadow_180deg': true }
-  readonly textShadow225deg: { 'text-shadow_225deg': true }
-  readonly textShadow270deg: { 'text-shadow_270deg': true }
-  readonly textShadow315deg: { 'text-shadow_315deg': true }
-  readonly textShadow360deg: { 'text-shadow_360deg': true }
-  readonly textShadowN360grad: { 'text-shadow_-360grad': true }
-  readonly textShadowN315grad: { 'text-shadow_-315grad': true }
-  readonly textShadowN270grad: { 'text-shadow_-270grad': true }
-  readonly textShadowN225grad: { 'text-shadow_-225grad': true }
-  readonly textShadowN180grad: { 'text-shadow_-180grad': true }
-  readonly textShadowN135grad: { 'text-shadow_-135grad': true }
-  readonly textShadowN90grad: { 'text-shadow_-90grad': true }
-  readonly textShadowN45grad: { 'text-shadow_-45grad': true }
-  readonly textShadow0grad: { 'text-shadow_0grad': true }
-  readonly textShadow45grad: { 'text-shadow_45grad': true }
-  readonly textShadow90grad: { 'text-shadow_90grad': true }
-  readonly textShadow135grad: { 'text-shadow_135grad': true }
-  readonly textShadow180grad: { 'text-shadow_180grad': true }
-  readonly textShadow225grad: { 'text-shadow_225grad': true }
-  readonly textShadow270grad: { 'text-shadow_270grad': true }
-  readonly textShadow315grad: { 'text-shadow_315grad': true }
-  readonly textShadow360grad: { 'text-shadow_360grad': true }
-  readonly textShadowN360rad: { 'text-shadow_-360rad': true }
-  readonly textShadowN315rad: { 'text-shadow_-315rad': true }
-  readonly textShadowN270rad: { 'text-shadow_-270rad': true }
-  readonly textShadowN225rad: { 'text-shadow_-225rad': true }
-  readonly textShadowN180rad: { 'text-shadow_-180rad': true }
-  readonly textShadowN135rad: { 'text-shadow_-135rad': true }
-  readonly textShadowN90rad: { 'text-shadow_-90rad': true }
-  readonly textShadowN45rad: { 'text-shadow_-45rad': true }
-  readonly textShadow0rad: { 'text-shadow_0rad': true }
-  readonly textShadow45rad: { 'text-shadow_45rad': true }
-  readonly textShadow90rad: { 'text-shadow_90rad': true }
-  readonly textShadow135rad: { 'text-shadow_135rad': true }
-  readonly textShadow180rad: { 'text-shadow_180rad': true }
-  readonly textShadow225rad: { 'text-shadow_225rad': true }
-  readonly textShadow270rad: { 'text-shadow_270rad': true }
-  readonly textShadow315rad: { 'text-shadow_315rad': true }
-  readonly textShadow360rad: { 'text-shadow_360rad': true }
-  readonly textShadowN360turn: { 'text-shadow_-360turn': true }
-  readonly textShadowN315turn: { 'text-shadow_-315turn': true }
-  readonly textShadowN270turn: { 'text-shadow_-270turn': true }
-  readonly textShadowN225turn: { 'text-shadow_-225turn': true }
-  readonly textShadowN180turn: { 'text-shadow_-180turn': true }
-  readonly textShadowN135turn: { 'text-shadow_-135turn': true }
-  readonly textShadowN90turn: { 'text-shadow_-90turn': true }
-  readonly textShadowN45turn: { 'text-shadow_-45turn': true }
-  readonly textShadow0turn: { 'text-shadow_0turn': true }
-  readonly textShadow45turn: { 'text-shadow_45turn': true }
-  readonly textShadow90turn: { 'text-shadow_90turn': true }
-  readonly textShadow135turn: { 'text-shadow_135turn': true }
-  readonly textShadow180turn: { 'text-shadow_180turn': true }
-  readonly textShadow225turn: { 'text-shadow_225turn': true }
-  readonly textShadow270turn: { 'text-shadow_270turn': true }
-  readonly textShadow315turn: { 'text-shadow_315turn': true }
-  readonly textShadow360turn: { 'text-shadow_360turn': true }
   readonly textShadow0Q: { 'text-shadow_0Q': true }
   readonly textShadow1Q: { 'text-shadow_1Q': true }
   readonly textShadow2Q: { 'text-shadow_2Q': true }
   readonly textShadow4Q: { 'text-shadow_4Q': true }
-  readonly textShadow6Q: { 'text-shadow_6Q': true }
   readonly textShadow8Q: { 'text-shadow_8Q': true }
-  readonly textShadow10Q: { 'text-shadow_10Q': true }
-  readonly textShadow12Q: { 'text-shadow_12Q': true }
-  readonly textShadow16Q: { 'text-shadow_16Q': true }
-  readonly textShadow20Q: { 'text-shadow_20Q': true }
   readonly textShadow0cap: { 'text-shadow_0cap': true }
-  readonly textShadow0p25cap: { 'text-shadow_0\.25cap': true }
   readonly textShadow0p5cap: { 'text-shadow_0\.5cap': true }
-  readonly textShadow0p75cap: { 'text-shadow_0\.75cap': true }
   readonly textShadow1cap: { 'text-shadow_1cap': true }
-  readonly textShadow1p25cap: { 'text-shadow_1\.25cap': true }
   readonly textShadow1p5cap: { 'text-shadow_1\.5cap': true }
   readonly textShadow2cap: { 'text-shadow_2cap': true }
-  readonly textShadow2p5cap: { 'text-shadow_2\.5cap': true }
   readonly textShadow3cap: { 'text-shadow_3cap': true }
-  readonly textShadow4cap: { 'text-shadow_4cap': true }
-  readonly textShadow5cap: { 'text-shadow_5cap': true }
-  readonly textShadow6cap: { 'text-shadow_6cap': true }
-  readonly textShadow8cap: { 'text-shadow_8cap': true }
   readonly textShadow0ch: { 'text-shadow_0ch': true }
-  readonly textShadow0p25ch: { 'text-shadow_0\.25ch': true }
   readonly textShadow0p5ch: { 'text-shadow_0\.5ch': true }
-  readonly textShadow0p75ch: { 'text-shadow_0\.75ch': true }
   readonly textShadow1ch: { 'text-shadow_1ch': true }
-  readonly textShadow1p25ch: { 'text-shadow_1\.25ch': true }
   readonly textShadow1p5ch: { 'text-shadow_1\.5ch': true }
   readonly textShadow2ch: { 'text-shadow_2ch': true }
-  readonly textShadow2p5ch: { 'text-shadow_2\.5ch': true }
   readonly textShadow3ch: { 'text-shadow_3ch': true }
-  readonly textShadow4ch: { 'text-shadow_4ch': true }
-  readonly textShadow5ch: { 'text-shadow_5ch': true }
-  readonly textShadow6ch: { 'text-shadow_6ch': true }
-  readonly textShadow8ch: { 'text-shadow_8ch': true }
   readonly textShadow0cm: { 'text-shadow_0cm': true }
   readonly textShadow1cm: { 'text-shadow_1cm': true }
   readonly textShadow2cm: { 'text-shadow_2cm': true }
   readonly textShadow4cm: { 'text-shadow_4cm': true }
-  readonly textShadow6cm: { 'text-shadow_6cm': true }
   readonly textShadow8cm: { 'text-shadow_8cm': true }
-  readonly textShadow10cm: { 'text-shadow_10cm': true }
-  readonly textShadow12cm: { 'text-shadow_12cm': true }
-  readonly textShadow16cm: { 'text-shadow_16cm': true }
-  readonly textShadow20cm: { 'text-shadow_20cm': true }
   readonly textShadow0dvh: { 'text-shadow_0dvh': true }
-  readonly textShadow10dvh: { 'text-shadow_10dvh': true }
-  readonly textShadow20dvh: { 'text-shadow_20dvh': true }
   readonly textShadow25dvh: { 'text-shadow_25dvh': true }
-  readonly textShadow30dvh: { 'text-shadow_30dvh': true }
-  readonly textShadow33p33dvh: { 'text-shadow_33\.33dvh': true }
-  readonly textShadow40dvh: { 'text-shadow_40dvh': true }
   readonly textShadow50dvh: { 'text-shadow_50dvh': true }
-  readonly textShadow60dvh: { 'text-shadow_60dvh': true }
-  readonly textShadow66p67dvh: { 'text-shadow_66\.67dvh': true }
-  readonly textShadow70dvh: { 'text-shadow_70dvh': true }
   readonly textShadow75dvh: { 'text-shadow_75dvh': true }
-  readonly textShadow80dvh: { 'text-shadow_80dvh': true }
-  readonly textShadow90dvh: { 'text-shadow_90dvh': true }
   readonly textShadow100dvh: { 'text-shadow_100dvh': true }
   readonly textShadow0dvw: { 'text-shadow_0dvw': true }
-  readonly textShadow10dvw: { 'text-shadow_10dvw': true }
-  readonly textShadow20dvw: { 'text-shadow_20dvw': true }
   readonly textShadow25dvw: { 'text-shadow_25dvw': true }
-  readonly textShadow30dvw: { 'text-shadow_30dvw': true }
-  readonly textShadow33p33dvw: { 'text-shadow_33\.33dvw': true }
-  readonly textShadow40dvw: { 'text-shadow_40dvw': true }
   readonly textShadow50dvw: { 'text-shadow_50dvw': true }
-  readonly textShadow60dvw: { 'text-shadow_60dvw': true }
-  readonly textShadow66p67dvw: { 'text-shadow_66\.67dvw': true }
-  readonly textShadow70dvw: { 'text-shadow_70dvw': true }
   readonly textShadow75dvw: { 'text-shadow_75dvw': true }
-  readonly textShadow80dvw: { 'text-shadow_80dvw': true }
-  readonly textShadow90dvw: { 'text-shadow_90dvw': true }
   readonly textShadow100dvw: { 'text-shadow_100dvw': true }
   readonly textShadow0em: { 'text-shadow_0em': true }
-  readonly textShadow0p25em: { 'text-shadow_0\.25em': true }
   readonly textShadow0p5em: { 'text-shadow_0\.5em': true }
-  readonly textShadow0p75em: { 'text-shadow_0\.75em': true }
   readonly textShadow1em: { 'text-shadow_1em': true }
-  readonly textShadow1p25em: { 'text-shadow_1\.25em': true }
   readonly textShadow1p5em: { 'text-shadow_1\.5em': true }
   readonly textShadow2em: { 'text-shadow_2em': true }
-  readonly textShadow2p5em: { 'text-shadow_2\.5em': true }
   readonly textShadow3em: { 'text-shadow_3em': true }
-  readonly textShadow4em: { 'text-shadow_4em': true }
-  readonly textShadow5em: { 'text-shadow_5em': true }
-  readonly textShadow6em: { 'text-shadow_6em': true }
-  readonly textShadow8em: { 'text-shadow_8em': true }
   readonly textShadow0ex: { 'text-shadow_0ex': true }
-  readonly textShadow0p25ex: { 'text-shadow_0\.25ex': true }
   readonly textShadow0p5ex: { 'text-shadow_0\.5ex': true }
-  readonly textShadow0p75ex: { 'text-shadow_0\.75ex': true }
   readonly textShadow1ex: { 'text-shadow_1ex': true }
-  readonly textShadow1p25ex: { 'text-shadow_1\.25ex': true }
   readonly textShadow1p5ex: { 'text-shadow_1\.5ex': true }
   readonly textShadow2ex: { 'text-shadow_2ex': true }
-  readonly textShadow2p5ex: { 'text-shadow_2\.5ex': true }
   readonly textShadow3ex: { 'text-shadow_3ex': true }
-  readonly textShadow4ex: { 'text-shadow_4ex': true }
-  readonly textShadow5ex: { 'text-shadow_5ex': true }
-  readonly textShadow6ex: { 'text-shadow_6ex': true }
-  readonly textShadow8ex: { 'text-shadow_8ex': true }
   readonly textShadow0ic: { 'text-shadow_0ic': true }
-  readonly textShadow0p25ic: { 'text-shadow_0\.25ic': true }
   readonly textShadow0p5ic: { 'text-shadow_0\.5ic': true }
-  readonly textShadow0p75ic: { 'text-shadow_0\.75ic': true }
   readonly textShadow1ic: { 'text-shadow_1ic': true }
-  readonly textShadow1p25ic: { 'text-shadow_1\.25ic': true }
   readonly textShadow1p5ic: { 'text-shadow_1\.5ic': true }
   readonly textShadow2ic: { 'text-shadow_2ic': true }
-  readonly textShadow2p5ic: { 'text-shadow_2\.5ic': true }
   readonly textShadow3ic: { 'text-shadow_3ic': true }
-  readonly textShadow4ic: { 'text-shadow_4ic': true }
-  readonly textShadow5ic: { 'text-shadow_5ic': true }
-  readonly textShadow6ic: { 'text-shadow_6ic': true }
-  readonly textShadow8ic: { 'text-shadow_8ic': true }
   readonly textShadow0in: { 'text-shadow_0in': true }
   readonly textShadow1in: { 'text-shadow_1in': true }
   readonly textShadow2in: { 'text-shadow_2in': true }
   readonly textShadow4in: { 'text-shadow_4in': true }
-  readonly textShadow6in: { 'text-shadow_6in': true }
   readonly textShadow8in: { 'text-shadow_8in': true }
-  readonly textShadow10in: { 'text-shadow_10in': true }
-  readonly textShadow12in: { 'text-shadow_12in': true }
-  readonly textShadow16in: { 'text-shadow_16in': true }
-  readonly textShadow20in: { 'text-shadow_20in': true }
   readonly textShadow0lh: { 'text-shadow_0lh': true }
-  readonly textShadow0p25lh: { 'text-shadow_0\.25lh': true }
   readonly textShadow0p5lh: { 'text-shadow_0\.5lh': true }
-  readonly textShadow0p75lh: { 'text-shadow_0\.75lh': true }
   readonly textShadow1lh: { 'text-shadow_1lh': true }
-  readonly textShadow1p25lh: { 'text-shadow_1\.25lh': true }
   readonly textShadow1p5lh: { 'text-shadow_1\.5lh': true }
   readonly textShadow2lh: { 'text-shadow_2lh': true }
-  readonly textShadow2p5lh: { 'text-shadow_2\.5lh': true }
   readonly textShadow3lh: { 'text-shadow_3lh': true }
-  readonly textShadow4lh: { 'text-shadow_4lh': true }
-  readonly textShadow5lh: { 'text-shadow_5lh': true }
-  readonly textShadow6lh: { 'text-shadow_6lh': true }
-  readonly textShadow8lh: { 'text-shadow_8lh': true }
   readonly textShadow0lvh: { 'text-shadow_0lvh': true }
-  readonly textShadow10lvh: { 'text-shadow_10lvh': true }
-  readonly textShadow20lvh: { 'text-shadow_20lvh': true }
   readonly textShadow25lvh: { 'text-shadow_25lvh': true }
-  readonly textShadow30lvh: { 'text-shadow_30lvh': true }
-  readonly textShadow33p33lvh: { 'text-shadow_33\.33lvh': true }
-  readonly textShadow40lvh: { 'text-shadow_40lvh': true }
   readonly textShadow50lvh: { 'text-shadow_50lvh': true }
-  readonly textShadow60lvh: { 'text-shadow_60lvh': true }
-  readonly textShadow66p67lvh: { 'text-shadow_66\.67lvh': true }
-  readonly textShadow70lvh: { 'text-shadow_70lvh': true }
   readonly textShadow75lvh: { 'text-shadow_75lvh': true }
-  readonly textShadow80lvh: { 'text-shadow_80lvh': true }
-  readonly textShadow90lvh: { 'text-shadow_90lvh': true }
   readonly textShadow100lvh: { 'text-shadow_100lvh': true }
   readonly textShadow0lvw: { 'text-shadow_0lvw': true }
-  readonly textShadow10lvw: { 'text-shadow_10lvw': true }
-  readonly textShadow20lvw: { 'text-shadow_20lvw': true }
   readonly textShadow25lvw: { 'text-shadow_25lvw': true }
-  readonly textShadow30lvw: { 'text-shadow_30lvw': true }
-  readonly textShadow33p33lvw: { 'text-shadow_33\.33lvw': true }
-  readonly textShadow40lvw: { 'text-shadow_40lvw': true }
   readonly textShadow50lvw: { 'text-shadow_50lvw': true }
-  readonly textShadow60lvw: { 'text-shadow_60lvw': true }
-  readonly textShadow66p67lvw: { 'text-shadow_66\.67lvw': true }
-  readonly textShadow70lvw: { 'text-shadow_70lvw': true }
   readonly textShadow75lvw: { 'text-shadow_75lvw': true }
-  readonly textShadow80lvw: { 'text-shadow_80lvw': true }
-  readonly textShadow90lvw: { 'text-shadow_90lvw': true }
   readonly textShadow100lvw: { 'text-shadow_100lvw': true }
   readonly textShadow0mm: { 'text-shadow_0mm': true }
   readonly textShadow1mm: { 'text-shadow_1mm': true }
   readonly textShadow2mm: { 'text-shadow_2mm': true }
   readonly textShadow4mm: { 'text-shadow_4mm': true }
-  readonly textShadow6mm: { 'text-shadow_6mm': true }
   readonly textShadow8mm: { 'text-shadow_8mm': true }
-  readonly textShadow10mm: { 'text-shadow_10mm': true }
-  readonly textShadow12mm: { 'text-shadow_12mm': true }
-  readonly textShadow16mm: { 'text-shadow_16mm': true }
-  readonly textShadow20mm: { 'text-shadow_20mm': true }
   readonly textShadow0pc: { 'text-shadow_0pc': true }
   readonly textShadow1pc: { 'text-shadow_1pc': true }
   readonly textShadow2pc: { 'text-shadow_2pc': true }
   readonly textShadow4pc: { 'text-shadow_4pc': true }
-  readonly textShadow6pc: { 'text-shadow_6pc': true }
   readonly textShadow8pc: { 'text-shadow_8pc': true }
-  readonly textShadow10pc: { 'text-shadow_10pc': true }
-  readonly textShadow12pc: { 'text-shadow_12pc': true }
-  readonly textShadow16pc: { 'text-shadow_16pc': true }
-  readonly textShadow20pc: { 'text-shadow_20pc': true }
   readonly textShadow0pt: { 'text-shadow_0pt': true }
   readonly textShadow1pt: { 'text-shadow_1pt': true }
   readonly textShadow2pt: { 'text-shadow_2pt': true }
   readonly textShadow4pt: { 'text-shadow_4pt': true }
-  readonly textShadow6pt: { 'text-shadow_6pt': true }
   readonly textShadow8pt: { 'text-shadow_8pt': true }
-  readonly textShadow10pt: { 'text-shadow_10pt': true }
-  readonly textShadow12pt: { 'text-shadow_12pt': true }
-  readonly textShadow16pt: { 'text-shadow_16pt': true }
-  readonly textShadow20pt: { 'text-shadow_20pt': true }
-  readonly textShadowN384px: { 'text-shadow_-384px': true }
-  readonly textShadowN320px: { 'text-shadow_-320px': true }
-  readonly textShadowN256px: { 'text-shadow_-256px': true }
-  readonly textShadowN224px: { 'text-shadow_-224px': true }
-  readonly textShadowN192px: { 'text-shadow_-192px': true }
-  readonly textShadowN160px: { 'text-shadow_-160px': true }
-  readonly textShadowN128px: { 'text-shadow_-128px': true }
   readonly textShadowN96px: { 'text-shadow_-96px': true }
   readonly textShadowN80px: { 'text-shadow_-80px': true }
   readonly textShadowN64px: { 'text-shadow_-64px': true }
-  readonly textShadowN56px: { 'text-shadow_-56px': true }
   readonly textShadowN48px: { 'text-shadow_-48px': true }
   readonly textShadowN40px: { 'text-shadow_-40px': true }
   readonly textShadowN32px: { 'text-shadow_-32px': true }
-  readonly textShadowN28px: { 'text-shadow_-28px': true }
   readonly textShadowN24px: { 'text-shadow_-24px': true }
   readonly textShadowN20px: { 'text-shadow_-20px': true }
   readonly textShadowN16px: { 'text-shadow_-16px': true }
-  readonly textShadowN14px: { 'text-shadow_-14px': true }
   readonly textShadowN12px: { 'text-shadow_-12px': true }
   readonly textShadowN10px: { 'text-shadow_-10px': true }
   readonly textShadowN8px: { 'text-shadow_-8px': true }
   readonly textShadowN6px: { 'text-shadow_-6px': true }
   readonly textShadowN4px: { 'text-shadow_-4px': true }
   readonly textShadowN2px: { 'text-shadow_-2px': true }
-  readonly textShadowN1px: { 'text-shadow_-1px': true }
   readonly textShadow0px: { 'text-shadow_0px': true }
-  readonly textShadow1px: { 'text-shadow_1px': true }
   readonly textShadow2px: { 'text-shadow_2px': true }
   readonly textShadow4px: { 'text-shadow_4px': true }
   readonly textShadow6px: { 'text-shadow_6px': true }
   readonly textShadow8px: { 'text-shadow_8px': true }
   readonly textShadow10px: { 'text-shadow_10px': true }
   readonly textShadow12px: { 'text-shadow_12px': true }
-  readonly textShadow14px: { 'text-shadow_14px': true }
   readonly textShadow16px: { 'text-shadow_16px': true }
   readonly textShadow20px: { 'text-shadow_20px': true }
   readonly textShadow24px: { 'text-shadow_24px': true }
-  readonly textShadow28px: { 'text-shadow_28px': true }
   readonly textShadow32px: { 'text-shadow_32px': true }
   readonly textShadow40px: { 'text-shadow_40px': true }
   readonly textShadow48px: { 'text-shadow_48px': true }
-  readonly textShadow56px: { 'text-shadow_56px': true }
   readonly textShadow64px: { 'text-shadow_64px': true }
   readonly textShadow80px: { 'text-shadow_80px': true }
   readonly textShadow96px: { 'text-shadow_96px': true }
-  readonly textShadow128px: { 'text-shadow_128px': true }
-  readonly textShadow160px: { 'text-shadow_160px': true }
-  readonly textShadow192px: { 'text-shadow_192px': true }
-  readonly textShadow224px: { 'text-shadow_224px': true }
-  readonly textShadow256px: { 'text-shadow_256px': true }
-  readonly textShadow320px: { 'text-shadow_320px': true }
-  readonly textShadow384px: { 'text-shadow_384px': true }
   readonly textShadow0rem: { 'text-shadow_0rem': true }
-  readonly textShadow0p25rem: { 'text-shadow_0\.25rem': true }
   readonly textShadow0p5rem: { 'text-shadow_0\.5rem': true }
-  readonly textShadow0p75rem: { 'text-shadow_0\.75rem': true }
   readonly textShadow1rem: { 'text-shadow_1rem': true }
-  readonly textShadow1p25rem: { 'text-shadow_1\.25rem': true }
   readonly textShadow1p5rem: { 'text-shadow_1\.5rem': true }
   readonly textShadow2rem: { 'text-shadow_2rem': true }
-  readonly textShadow2p5rem: { 'text-shadow_2\.5rem': true }
   readonly textShadow3rem: { 'text-shadow_3rem': true }
-  readonly textShadow4rem: { 'text-shadow_4rem': true }
-  readonly textShadow5rem: { 'text-shadow_5rem': true }
-  readonly textShadow6rem: { 'text-shadow_6rem': true }
-  readonly textShadow8rem: { 'text-shadow_8rem': true }
   readonly textShadow0rlh: { 'text-shadow_0rlh': true }
-  readonly textShadow0p25rlh: { 'text-shadow_0\.25rlh': true }
   readonly textShadow0p5rlh: { 'text-shadow_0\.5rlh': true }
-  readonly textShadow0p75rlh: { 'text-shadow_0\.75rlh': true }
   readonly textShadow1rlh: { 'text-shadow_1rlh': true }
-  readonly textShadow1p25rlh: { 'text-shadow_1\.25rlh': true }
   readonly textShadow1p5rlh: { 'text-shadow_1\.5rlh': true }
   readonly textShadow2rlh: { 'text-shadow_2rlh': true }
-  readonly textShadow2p5rlh: { 'text-shadow_2\.5rlh': true }
   readonly textShadow3rlh: { 'text-shadow_3rlh': true }
-  readonly textShadow4rlh: { 'text-shadow_4rlh': true }
-  readonly textShadow5rlh: { 'text-shadow_5rlh': true }
-  readonly textShadow6rlh: { 'text-shadow_6rlh': true }
-  readonly textShadow8rlh: { 'text-shadow_8rlh': true }
   readonly textShadow0svh: { 'text-shadow_0svh': true }
-  readonly textShadow10svh: { 'text-shadow_10svh': true }
-  readonly textShadow20svh: { 'text-shadow_20svh': true }
   readonly textShadow25svh: { 'text-shadow_25svh': true }
-  readonly textShadow30svh: { 'text-shadow_30svh': true }
-  readonly textShadow33p33svh: { 'text-shadow_33\.33svh': true }
-  readonly textShadow40svh: { 'text-shadow_40svh': true }
   readonly textShadow50svh: { 'text-shadow_50svh': true }
-  readonly textShadow60svh: { 'text-shadow_60svh': true }
-  readonly textShadow66p67svh: { 'text-shadow_66\.67svh': true }
-  readonly textShadow70svh: { 'text-shadow_70svh': true }
   readonly textShadow75svh: { 'text-shadow_75svh': true }
-  readonly textShadow80svh: { 'text-shadow_80svh': true }
-  readonly textShadow90svh: { 'text-shadow_90svh': true }
   readonly textShadow100svh: { 'text-shadow_100svh': true }
   readonly textShadow0svw: { 'text-shadow_0svw': true }
-  readonly textShadow10svw: { 'text-shadow_10svw': true }
-  readonly textShadow20svw: { 'text-shadow_20svw': true }
   readonly textShadow25svw: { 'text-shadow_25svw': true }
-  readonly textShadow30svw: { 'text-shadow_30svw': true }
-  readonly textShadow33p33svw: { 'text-shadow_33\.33svw': true }
-  readonly textShadow40svw: { 'text-shadow_40svw': true }
   readonly textShadow50svw: { 'text-shadow_50svw': true }
-  readonly textShadow60svw: { 'text-shadow_60svw': true }
-  readonly textShadow66p67svw: { 'text-shadow_66\.67svw': true }
-  readonly textShadow70svw: { 'text-shadow_70svw': true }
   readonly textShadow75svw: { 'text-shadow_75svw': true }
-  readonly textShadow80svw: { 'text-shadow_80svw': true }
-  readonly textShadow90svw: { 'text-shadow_90svw': true }
   readonly textShadow100svw: { 'text-shadow_100svw': true }
   readonly textShadow0vb: { 'text-shadow_0vb': true }
-  readonly textShadow10vb: { 'text-shadow_10vb': true }
-  readonly textShadow20vb: { 'text-shadow_20vb': true }
   readonly textShadow25vb: { 'text-shadow_25vb': true }
-  readonly textShadow30vb: { 'text-shadow_30vb': true }
-  readonly textShadow33p33vb: { 'text-shadow_33\.33vb': true }
-  readonly textShadow40vb: { 'text-shadow_40vb': true }
   readonly textShadow50vb: { 'text-shadow_50vb': true }
-  readonly textShadow60vb: { 'text-shadow_60vb': true }
-  readonly textShadow66p67vb: { 'text-shadow_66\.67vb': true }
-  readonly textShadow70vb: { 'text-shadow_70vb': true }
   readonly textShadow75vb: { 'text-shadow_75vb': true }
-  readonly textShadow80vb: { 'text-shadow_80vb': true }
-  readonly textShadow90vb: { 'text-shadow_90vb': true }
   readonly textShadow100vb: { 'text-shadow_100vb': true }
   readonly textShadow0vh: { 'text-shadow_0vh': true }
-  readonly textShadow10vh: { 'text-shadow_10vh': true }
-  readonly textShadow20vh: { 'text-shadow_20vh': true }
   readonly textShadow25vh: { 'text-shadow_25vh': true }
-  readonly textShadow30vh: { 'text-shadow_30vh': true }
-  readonly textShadow33p33vh: { 'text-shadow_33\.33vh': true }
-  readonly textShadow40vh: { 'text-shadow_40vh': true }
   readonly textShadow50vh: { 'text-shadow_50vh': true }
-  readonly textShadow60vh: { 'text-shadow_60vh': true }
-  readonly textShadow66p67vh: { 'text-shadow_66\.67vh': true }
-  readonly textShadow70vh: { 'text-shadow_70vh': true }
   readonly textShadow75vh: { 'text-shadow_75vh': true }
-  readonly textShadow80vh: { 'text-shadow_80vh': true }
-  readonly textShadow90vh: { 'text-shadow_90vh': true }
   readonly textShadow100vh: { 'text-shadow_100vh': true }
   readonly textShadow0vi: { 'text-shadow_0vi': true }
-  readonly textShadow10vi: { 'text-shadow_10vi': true }
-  readonly textShadow20vi: { 'text-shadow_20vi': true }
   readonly textShadow25vi: { 'text-shadow_25vi': true }
-  readonly textShadow30vi: { 'text-shadow_30vi': true }
-  readonly textShadow33p33vi: { 'text-shadow_33\.33vi': true }
-  readonly textShadow40vi: { 'text-shadow_40vi': true }
   readonly textShadow50vi: { 'text-shadow_50vi': true }
-  readonly textShadow60vi: { 'text-shadow_60vi': true }
-  readonly textShadow66p67vi: { 'text-shadow_66\.67vi': true }
-  readonly textShadow70vi: { 'text-shadow_70vi': true }
   readonly textShadow75vi: { 'text-shadow_75vi': true }
-  readonly textShadow80vi: { 'text-shadow_80vi': true }
-  readonly textShadow90vi: { 'text-shadow_90vi': true }
   readonly textShadow100vi: { 'text-shadow_100vi': true }
   readonly textShadow0vmax: { 'text-shadow_0vmax': true }
-  readonly textShadow10vmax: { 'text-shadow_10vmax': true }
-  readonly textShadow20vmax: { 'text-shadow_20vmax': true }
   readonly textShadow25vmax: { 'text-shadow_25vmax': true }
-  readonly textShadow30vmax: { 'text-shadow_30vmax': true }
-  readonly textShadow33p33vmax: { 'text-shadow_33\.33vmax': true }
-  readonly textShadow40vmax: { 'text-shadow_40vmax': true }
   readonly textShadow50vmax: { 'text-shadow_50vmax': true }
-  readonly textShadow60vmax: { 'text-shadow_60vmax': true }
-  readonly textShadow66p67vmax: { 'text-shadow_66\.67vmax': true }
-  readonly textShadow70vmax: { 'text-shadow_70vmax': true }
   readonly textShadow75vmax: { 'text-shadow_75vmax': true }
-  readonly textShadow80vmax: { 'text-shadow_80vmax': true }
-  readonly textShadow90vmax: { 'text-shadow_90vmax': true }
   readonly textShadow100vmax: { 'text-shadow_100vmax': true }
   readonly textShadow0vmin: { 'text-shadow_0vmin': true }
-  readonly textShadow10vmin: { 'text-shadow_10vmin': true }
-  readonly textShadow20vmin: { 'text-shadow_20vmin': true }
   readonly textShadow25vmin: { 'text-shadow_25vmin': true }
-  readonly textShadow30vmin: { 'text-shadow_30vmin': true }
-  readonly textShadow33p33vmin: { 'text-shadow_33\.33vmin': true }
-  readonly textShadow40vmin: { 'text-shadow_40vmin': true }
   readonly textShadow50vmin: { 'text-shadow_50vmin': true }
-  readonly textShadow60vmin: { 'text-shadow_60vmin': true }
-  readonly textShadow66p67vmin: { 'text-shadow_66\.67vmin': true }
-  readonly textShadow70vmin: { 'text-shadow_70vmin': true }
   readonly textShadow75vmin: { 'text-shadow_75vmin': true }
-  readonly textShadow80vmin: { 'text-shadow_80vmin': true }
-  readonly textShadow90vmin: { 'text-shadow_90vmin': true }
   readonly textShadow100vmin: { 'text-shadow_100vmin': true }
   readonly textShadow0vw: { 'text-shadow_0vw': true }
-  readonly textShadow10vw: { 'text-shadow_10vw': true }
-  readonly textShadow20vw: { 'text-shadow_20vw': true }
   readonly textShadow25vw: { 'text-shadow_25vw': true }
-  readonly textShadow30vw: { 'text-shadow_30vw': true }
-  readonly textShadow33p33vw: { 'text-shadow_33\.33vw': true }
-  readonly textShadow40vw: { 'text-shadow_40vw': true }
   readonly textShadow50vw: { 'text-shadow_50vw': true }
-  readonly textShadow60vw: { 'text-shadow_60vw': true }
-  readonly textShadow66p67vw: { 'text-shadow_66\.67vw': true }
-  readonly textShadow70vw: { 'text-shadow_70vw': true }
   readonly textShadow75vw: { 'text-shadow_75vw': true }
-  readonly textShadow80vw: { 'text-shadow_80vw': true }
-  readonly textShadow90vw: { 'text-shadow_90vw': true }
   readonly textShadow100vw: { 'text-shadow_100vw': true }
   readonly textShadow0: { 'text-shadow_0': true }
-  readonly textShadow0p5: { 'text-shadow_0\.5': true }
   readonly textShadow1: { 'text-shadow_1': true }
-  readonly textShadow1p5: { 'text-shadow_1\.5': true }
   readonly textShadow2: { 'text-shadow_2': true }
   readonly textShadow3: { 'text-shadow_3': true }
-  readonly textShadow4: { 'text-shadow_4': true }
   readonly textShadow5: { 'text-shadow_5': true }
   readonly textShadow10: { 'text-shadow_10': true }
-  readonly textShadow20: { 'text-shadow_20': true }
-  readonly textShadow50: { 'text-shadow_50': true }
-  readonly textShadow100: { 'text-shadow_100': true }
   readonly textShadow0Pct: { 'text-shadow_0\%': true }
-  readonly textShadow10Pct: { 'text-shadow_10\%': true }
-  readonly textShadow20Pct: { 'text-shadow_20\%': true }
   readonly textShadow25Pct: { 'text-shadow_25\%': true }
-  readonly textShadow30Pct: { 'text-shadow_30\%': true }
-  readonly textShadow33p33Pct: { 'text-shadow_33\.33\%': true }
-  readonly textShadow40Pct: { 'text-shadow_40\%': true }
   readonly textShadow50Pct: { 'text-shadow_50\%': true }
-  readonly textShadow60Pct: { 'text-shadow_60\%': true }
-  readonly textShadow66p67Pct: { 'text-shadow_66\.67\%': true }
-  readonly textShadow70Pct: { 'text-shadow_70\%': true }
   readonly textShadow75Pct: { 'text-shadow_75\%': true }
-  readonly textShadow80Pct: { 'text-shadow_80\%': true }
-  readonly textShadow90Pct: { 'text-shadow_90\%': true }
   readonly textShadow100Pct: { 'text-shadow_100\%': true }
 
   // ==================== top ====================
@@ -10688,924 +4798,358 @@ export interface CsstsAtoms {
   readonly top1Q: { 'top_1Q': true }
   readonly top2Q: { 'top_2Q': true }
   readonly top4Q: { 'top_4Q': true }
-  readonly top6Q: { 'top_6Q': true }
   readonly top8Q: { 'top_8Q': true }
-  readonly top10Q: { 'top_10Q': true }
-  readonly top12Q: { 'top_12Q': true }
-  readonly top16Q: { 'top_16Q': true }
-  readonly top20Q: { 'top_20Q': true }
   readonly top0cap: { 'top_0cap': true }
-  readonly top0p25cap: { 'top_0\.25cap': true }
   readonly top0p5cap: { 'top_0\.5cap': true }
-  readonly top0p75cap: { 'top_0\.75cap': true }
   readonly top1cap: { 'top_1cap': true }
-  readonly top1p25cap: { 'top_1\.25cap': true }
   readonly top1p5cap: { 'top_1\.5cap': true }
   readonly top2cap: { 'top_2cap': true }
-  readonly top2p5cap: { 'top_2\.5cap': true }
   readonly top3cap: { 'top_3cap': true }
-  readonly top4cap: { 'top_4cap': true }
-  readonly top5cap: { 'top_5cap': true }
-  readonly top6cap: { 'top_6cap': true }
-  readonly top8cap: { 'top_8cap': true }
   readonly top0ch: { 'top_0ch': true }
-  readonly top0p25ch: { 'top_0\.25ch': true }
   readonly top0p5ch: { 'top_0\.5ch': true }
-  readonly top0p75ch: { 'top_0\.75ch': true }
   readonly top1ch: { 'top_1ch': true }
-  readonly top1p25ch: { 'top_1\.25ch': true }
   readonly top1p5ch: { 'top_1\.5ch': true }
   readonly top2ch: { 'top_2ch': true }
-  readonly top2p5ch: { 'top_2\.5ch': true }
   readonly top3ch: { 'top_3ch': true }
-  readonly top4ch: { 'top_4ch': true }
-  readonly top5ch: { 'top_5ch': true }
-  readonly top6ch: { 'top_6ch': true }
-  readonly top8ch: { 'top_8ch': true }
   readonly top0cm: { 'top_0cm': true }
   readonly top1cm: { 'top_1cm': true }
   readonly top2cm: { 'top_2cm': true }
   readonly top4cm: { 'top_4cm': true }
-  readonly top6cm: { 'top_6cm': true }
   readonly top8cm: { 'top_8cm': true }
-  readonly top10cm: { 'top_10cm': true }
-  readonly top12cm: { 'top_12cm': true }
-  readonly top16cm: { 'top_16cm': true }
-  readonly top20cm: { 'top_20cm': true }
   readonly top0dvh: { 'top_0dvh': true }
-  readonly top10dvh: { 'top_10dvh': true }
-  readonly top20dvh: { 'top_20dvh': true }
   readonly top25dvh: { 'top_25dvh': true }
-  readonly top30dvh: { 'top_30dvh': true }
-  readonly top33p33dvh: { 'top_33\.33dvh': true }
-  readonly top40dvh: { 'top_40dvh': true }
   readonly top50dvh: { 'top_50dvh': true }
-  readonly top60dvh: { 'top_60dvh': true }
-  readonly top66p67dvh: { 'top_66\.67dvh': true }
-  readonly top70dvh: { 'top_70dvh': true }
   readonly top75dvh: { 'top_75dvh': true }
-  readonly top80dvh: { 'top_80dvh': true }
-  readonly top90dvh: { 'top_90dvh': true }
   readonly top100dvh: { 'top_100dvh': true }
   readonly top0dvw: { 'top_0dvw': true }
-  readonly top10dvw: { 'top_10dvw': true }
-  readonly top20dvw: { 'top_20dvw': true }
   readonly top25dvw: { 'top_25dvw': true }
-  readonly top30dvw: { 'top_30dvw': true }
-  readonly top33p33dvw: { 'top_33\.33dvw': true }
-  readonly top40dvw: { 'top_40dvw': true }
   readonly top50dvw: { 'top_50dvw': true }
-  readonly top60dvw: { 'top_60dvw': true }
-  readonly top66p67dvw: { 'top_66\.67dvw': true }
-  readonly top70dvw: { 'top_70dvw': true }
   readonly top75dvw: { 'top_75dvw': true }
-  readonly top80dvw: { 'top_80dvw': true }
-  readonly top90dvw: { 'top_90dvw': true }
   readonly top100dvw: { 'top_100dvw': true }
   readonly top0em: { 'top_0em': true }
-  readonly top0p25em: { 'top_0\.25em': true }
   readonly top0p5em: { 'top_0\.5em': true }
-  readonly top0p75em: { 'top_0\.75em': true }
   readonly top1em: { 'top_1em': true }
-  readonly top1p25em: { 'top_1\.25em': true }
   readonly top1p5em: { 'top_1\.5em': true }
   readonly top2em: { 'top_2em': true }
-  readonly top2p5em: { 'top_2\.5em': true }
   readonly top3em: { 'top_3em': true }
-  readonly top4em: { 'top_4em': true }
-  readonly top5em: { 'top_5em': true }
-  readonly top6em: { 'top_6em': true }
-  readonly top8em: { 'top_8em': true }
   readonly top0ex: { 'top_0ex': true }
-  readonly top0p25ex: { 'top_0\.25ex': true }
   readonly top0p5ex: { 'top_0\.5ex': true }
-  readonly top0p75ex: { 'top_0\.75ex': true }
   readonly top1ex: { 'top_1ex': true }
-  readonly top1p25ex: { 'top_1\.25ex': true }
   readonly top1p5ex: { 'top_1\.5ex': true }
   readonly top2ex: { 'top_2ex': true }
-  readonly top2p5ex: { 'top_2\.5ex': true }
   readonly top3ex: { 'top_3ex': true }
-  readonly top4ex: { 'top_4ex': true }
-  readonly top5ex: { 'top_5ex': true }
-  readonly top6ex: { 'top_6ex': true }
-  readonly top8ex: { 'top_8ex': true }
   readonly top0ic: { 'top_0ic': true }
-  readonly top0p25ic: { 'top_0\.25ic': true }
   readonly top0p5ic: { 'top_0\.5ic': true }
-  readonly top0p75ic: { 'top_0\.75ic': true }
   readonly top1ic: { 'top_1ic': true }
-  readonly top1p25ic: { 'top_1\.25ic': true }
   readonly top1p5ic: { 'top_1\.5ic': true }
   readonly top2ic: { 'top_2ic': true }
-  readonly top2p5ic: { 'top_2\.5ic': true }
   readonly top3ic: { 'top_3ic': true }
-  readonly top4ic: { 'top_4ic': true }
-  readonly top5ic: { 'top_5ic': true }
-  readonly top6ic: { 'top_6ic': true }
-  readonly top8ic: { 'top_8ic': true }
   readonly top0in: { 'top_0in': true }
   readonly top1in: { 'top_1in': true }
   readonly top2in: { 'top_2in': true }
   readonly top4in: { 'top_4in': true }
-  readonly top6in: { 'top_6in': true }
   readonly top8in: { 'top_8in': true }
-  readonly top10in: { 'top_10in': true }
-  readonly top12in: { 'top_12in': true }
-  readonly top16in: { 'top_16in': true }
-  readonly top20in: { 'top_20in': true }
   readonly top0lh: { 'top_0lh': true }
-  readonly top0p25lh: { 'top_0\.25lh': true }
   readonly top0p5lh: { 'top_0\.5lh': true }
-  readonly top0p75lh: { 'top_0\.75lh': true }
   readonly top1lh: { 'top_1lh': true }
-  readonly top1p25lh: { 'top_1\.25lh': true }
   readonly top1p5lh: { 'top_1\.5lh': true }
   readonly top2lh: { 'top_2lh': true }
-  readonly top2p5lh: { 'top_2\.5lh': true }
   readonly top3lh: { 'top_3lh': true }
-  readonly top4lh: { 'top_4lh': true }
-  readonly top5lh: { 'top_5lh': true }
-  readonly top6lh: { 'top_6lh': true }
-  readonly top8lh: { 'top_8lh': true }
   readonly top0lvh: { 'top_0lvh': true }
-  readonly top10lvh: { 'top_10lvh': true }
-  readonly top20lvh: { 'top_20lvh': true }
   readonly top25lvh: { 'top_25lvh': true }
-  readonly top30lvh: { 'top_30lvh': true }
-  readonly top33p33lvh: { 'top_33\.33lvh': true }
-  readonly top40lvh: { 'top_40lvh': true }
   readonly top50lvh: { 'top_50lvh': true }
-  readonly top60lvh: { 'top_60lvh': true }
-  readonly top66p67lvh: { 'top_66\.67lvh': true }
-  readonly top70lvh: { 'top_70lvh': true }
   readonly top75lvh: { 'top_75lvh': true }
-  readonly top80lvh: { 'top_80lvh': true }
-  readonly top90lvh: { 'top_90lvh': true }
   readonly top100lvh: { 'top_100lvh': true }
   readonly top0lvw: { 'top_0lvw': true }
-  readonly top10lvw: { 'top_10lvw': true }
-  readonly top20lvw: { 'top_20lvw': true }
   readonly top25lvw: { 'top_25lvw': true }
-  readonly top30lvw: { 'top_30lvw': true }
-  readonly top33p33lvw: { 'top_33\.33lvw': true }
-  readonly top40lvw: { 'top_40lvw': true }
   readonly top50lvw: { 'top_50lvw': true }
-  readonly top60lvw: { 'top_60lvw': true }
-  readonly top66p67lvw: { 'top_66\.67lvw': true }
-  readonly top70lvw: { 'top_70lvw': true }
   readonly top75lvw: { 'top_75lvw': true }
-  readonly top80lvw: { 'top_80lvw': true }
-  readonly top90lvw: { 'top_90lvw': true }
   readonly top100lvw: { 'top_100lvw': true }
   readonly top0mm: { 'top_0mm': true }
   readonly top1mm: { 'top_1mm': true }
   readonly top2mm: { 'top_2mm': true }
   readonly top4mm: { 'top_4mm': true }
-  readonly top6mm: { 'top_6mm': true }
   readonly top8mm: { 'top_8mm': true }
-  readonly top10mm: { 'top_10mm': true }
-  readonly top12mm: { 'top_12mm': true }
-  readonly top16mm: { 'top_16mm': true }
-  readonly top20mm: { 'top_20mm': true }
   readonly top0pc: { 'top_0pc': true }
   readonly top1pc: { 'top_1pc': true }
   readonly top2pc: { 'top_2pc': true }
   readonly top4pc: { 'top_4pc': true }
-  readonly top6pc: { 'top_6pc': true }
   readonly top8pc: { 'top_8pc': true }
-  readonly top10pc: { 'top_10pc': true }
-  readonly top12pc: { 'top_12pc': true }
-  readonly top16pc: { 'top_16pc': true }
-  readonly top20pc: { 'top_20pc': true }
   readonly top0pt: { 'top_0pt': true }
   readonly top1pt: { 'top_1pt': true }
   readonly top2pt: { 'top_2pt': true }
   readonly top4pt: { 'top_4pt': true }
-  readonly top6pt: { 'top_6pt': true }
   readonly top8pt: { 'top_8pt': true }
-  readonly top10pt: { 'top_10pt': true }
-  readonly top12pt: { 'top_12pt': true }
-  readonly top16pt: { 'top_16pt': true }
-  readonly top20pt: { 'top_20pt': true }
-  readonly topN384px: { 'top_-384px': true }
-  readonly topN320px: { 'top_-320px': true }
-  readonly topN256px: { 'top_-256px': true }
-  readonly topN224px: { 'top_-224px': true }
-  readonly topN192px: { 'top_-192px': true }
-  readonly topN160px: { 'top_-160px': true }
-  readonly topN128px: { 'top_-128px': true }
   readonly topN96px: { 'top_-96px': true }
   readonly topN80px: { 'top_-80px': true }
   readonly topN64px: { 'top_-64px': true }
-  readonly topN56px: { 'top_-56px': true }
   readonly topN48px: { 'top_-48px': true }
   readonly topN40px: { 'top_-40px': true }
   readonly topN32px: { 'top_-32px': true }
-  readonly topN28px: { 'top_-28px': true }
   readonly topN24px: { 'top_-24px': true }
   readonly topN20px: { 'top_-20px': true }
   readonly topN16px: { 'top_-16px': true }
-  readonly topN14px: { 'top_-14px': true }
   readonly topN12px: { 'top_-12px': true }
   readonly topN10px: { 'top_-10px': true }
   readonly topN8px: { 'top_-8px': true }
   readonly topN6px: { 'top_-6px': true }
   readonly topN4px: { 'top_-4px': true }
   readonly topN2px: { 'top_-2px': true }
-  readonly topN1px: { 'top_-1px': true }
   readonly top0px: { 'top_0px': true }
-  readonly top1px: { 'top_1px': true }
   readonly top2px: { 'top_2px': true }
   readonly top4px: { 'top_4px': true }
   readonly top6px: { 'top_6px': true }
   readonly top8px: { 'top_8px': true }
   readonly top10px: { 'top_10px': true }
   readonly top12px: { 'top_12px': true }
-  readonly top14px: { 'top_14px': true }
   readonly top16px: { 'top_16px': true }
   readonly top20px: { 'top_20px': true }
   readonly top24px: { 'top_24px': true }
-  readonly top28px: { 'top_28px': true }
   readonly top32px: { 'top_32px': true }
   readonly top40px: { 'top_40px': true }
   readonly top48px: { 'top_48px': true }
-  readonly top56px: { 'top_56px': true }
   readonly top64px: { 'top_64px': true }
   readonly top80px: { 'top_80px': true }
   readonly top96px: { 'top_96px': true }
-  readonly top128px: { 'top_128px': true }
-  readonly top160px: { 'top_160px': true }
-  readonly top192px: { 'top_192px': true }
-  readonly top224px: { 'top_224px': true }
-  readonly top256px: { 'top_256px': true }
-  readonly top320px: { 'top_320px': true }
-  readonly top384px: { 'top_384px': true }
   readonly top0rem: { 'top_0rem': true }
-  readonly top0p25rem: { 'top_0\.25rem': true }
   readonly top0p5rem: { 'top_0\.5rem': true }
-  readonly top0p75rem: { 'top_0\.75rem': true }
   readonly top1rem: { 'top_1rem': true }
-  readonly top1p25rem: { 'top_1\.25rem': true }
   readonly top1p5rem: { 'top_1\.5rem': true }
   readonly top2rem: { 'top_2rem': true }
-  readonly top2p5rem: { 'top_2\.5rem': true }
   readonly top3rem: { 'top_3rem': true }
-  readonly top4rem: { 'top_4rem': true }
-  readonly top5rem: { 'top_5rem': true }
-  readonly top6rem: { 'top_6rem': true }
-  readonly top8rem: { 'top_8rem': true }
   readonly top0rlh: { 'top_0rlh': true }
-  readonly top0p25rlh: { 'top_0\.25rlh': true }
   readonly top0p5rlh: { 'top_0\.5rlh': true }
-  readonly top0p75rlh: { 'top_0\.75rlh': true }
   readonly top1rlh: { 'top_1rlh': true }
-  readonly top1p25rlh: { 'top_1\.25rlh': true }
   readonly top1p5rlh: { 'top_1\.5rlh': true }
   readonly top2rlh: { 'top_2rlh': true }
-  readonly top2p5rlh: { 'top_2\.5rlh': true }
   readonly top3rlh: { 'top_3rlh': true }
-  readonly top4rlh: { 'top_4rlh': true }
-  readonly top5rlh: { 'top_5rlh': true }
-  readonly top6rlh: { 'top_6rlh': true }
-  readonly top8rlh: { 'top_8rlh': true }
   readonly top0svh: { 'top_0svh': true }
-  readonly top10svh: { 'top_10svh': true }
-  readonly top20svh: { 'top_20svh': true }
   readonly top25svh: { 'top_25svh': true }
-  readonly top30svh: { 'top_30svh': true }
-  readonly top33p33svh: { 'top_33\.33svh': true }
-  readonly top40svh: { 'top_40svh': true }
   readonly top50svh: { 'top_50svh': true }
-  readonly top60svh: { 'top_60svh': true }
-  readonly top66p67svh: { 'top_66\.67svh': true }
-  readonly top70svh: { 'top_70svh': true }
   readonly top75svh: { 'top_75svh': true }
-  readonly top80svh: { 'top_80svh': true }
-  readonly top90svh: { 'top_90svh': true }
   readonly top100svh: { 'top_100svh': true }
   readonly top0svw: { 'top_0svw': true }
-  readonly top10svw: { 'top_10svw': true }
-  readonly top20svw: { 'top_20svw': true }
   readonly top25svw: { 'top_25svw': true }
-  readonly top30svw: { 'top_30svw': true }
-  readonly top33p33svw: { 'top_33\.33svw': true }
-  readonly top40svw: { 'top_40svw': true }
   readonly top50svw: { 'top_50svw': true }
-  readonly top60svw: { 'top_60svw': true }
-  readonly top66p67svw: { 'top_66\.67svw': true }
-  readonly top70svw: { 'top_70svw': true }
   readonly top75svw: { 'top_75svw': true }
-  readonly top80svw: { 'top_80svw': true }
-  readonly top90svw: { 'top_90svw': true }
   readonly top100svw: { 'top_100svw': true }
   readonly top0vb: { 'top_0vb': true }
-  readonly top10vb: { 'top_10vb': true }
-  readonly top20vb: { 'top_20vb': true }
   readonly top25vb: { 'top_25vb': true }
-  readonly top30vb: { 'top_30vb': true }
-  readonly top33p33vb: { 'top_33\.33vb': true }
-  readonly top40vb: { 'top_40vb': true }
   readonly top50vb: { 'top_50vb': true }
-  readonly top60vb: { 'top_60vb': true }
-  readonly top66p67vb: { 'top_66\.67vb': true }
-  readonly top70vb: { 'top_70vb': true }
   readonly top75vb: { 'top_75vb': true }
-  readonly top80vb: { 'top_80vb': true }
-  readonly top90vb: { 'top_90vb': true }
   readonly top100vb: { 'top_100vb': true }
   readonly top0vh: { 'top_0vh': true }
-  readonly top10vh: { 'top_10vh': true }
-  readonly top20vh: { 'top_20vh': true }
   readonly top25vh: { 'top_25vh': true }
-  readonly top30vh: { 'top_30vh': true }
-  readonly top33p33vh: { 'top_33\.33vh': true }
-  readonly top40vh: { 'top_40vh': true }
   readonly top50vh: { 'top_50vh': true }
-  readonly top60vh: { 'top_60vh': true }
-  readonly top66p67vh: { 'top_66\.67vh': true }
-  readonly top70vh: { 'top_70vh': true }
   readonly top75vh: { 'top_75vh': true }
-  readonly top80vh: { 'top_80vh': true }
-  readonly top90vh: { 'top_90vh': true }
   readonly top100vh: { 'top_100vh': true }
   readonly top0vi: { 'top_0vi': true }
-  readonly top10vi: { 'top_10vi': true }
-  readonly top20vi: { 'top_20vi': true }
   readonly top25vi: { 'top_25vi': true }
-  readonly top30vi: { 'top_30vi': true }
-  readonly top33p33vi: { 'top_33\.33vi': true }
-  readonly top40vi: { 'top_40vi': true }
   readonly top50vi: { 'top_50vi': true }
-  readonly top60vi: { 'top_60vi': true }
-  readonly top66p67vi: { 'top_66\.67vi': true }
-  readonly top70vi: { 'top_70vi': true }
   readonly top75vi: { 'top_75vi': true }
-  readonly top80vi: { 'top_80vi': true }
-  readonly top90vi: { 'top_90vi': true }
   readonly top100vi: { 'top_100vi': true }
   readonly top0vmax: { 'top_0vmax': true }
-  readonly top10vmax: { 'top_10vmax': true }
-  readonly top20vmax: { 'top_20vmax': true }
   readonly top25vmax: { 'top_25vmax': true }
-  readonly top30vmax: { 'top_30vmax': true }
-  readonly top33p33vmax: { 'top_33\.33vmax': true }
-  readonly top40vmax: { 'top_40vmax': true }
   readonly top50vmax: { 'top_50vmax': true }
-  readonly top60vmax: { 'top_60vmax': true }
-  readonly top66p67vmax: { 'top_66\.67vmax': true }
-  readonly top70vmax: { 'top_70vmax': true }
   readonly top75vmax: { 'top_75vmax': true }
-  readonly top80vmax: { 'top_80vmax': true }
-  readonly top90vmax: { 'top_90vmax': true }
   readonly top100vmax: { 'top_100vmax': true }
   readonly top0vmin: { 'top_0vmin': true }
-  readonly top10vmin: { 'top_10vmin': true }
-  readonly top20vmin: { 'top_20vmin': true }
   readonly top25vmin: { 'top_25vmin': true }
-  readonly top30vmin: { 'top_30vmin': true }
-  readonly top33p33vmin: { 'top_33\.33vmin': true }
-  readonly top40vmin: { 'top_40vmin': true }
   readonly top50vmin: { 'top_50vmin': true }
-  readonly top60vmin: { 'top_60vmin': true }
-  readonly top66p67vmin: { 'top_66\.67vmin': true }
-  readonly top70vmin: { 'top_70vmin': true }
   readonly top75vmin: { 'top_75vmin': true }
-  readonly top80vmin: { 'top_80vmin': true }
-  readonly top90vmin: { 'top_90vmin': true }
   readonly top100vmin: { 'top_100vmin': true }
   readonly top0vw: { 'top_0vw': true }
-  readonly top10vw: { 'top_10vw': true }
-  readonly top20vw: { 'top_20vw': true }
   readonly top25vw: { 'top_25vw': true }
-  readonly top30vw: { 'top_30vw': true }
-  readonly top33p33vw: { 'top_33\.33vw': true }
-  readonly top40vw: { 'top_40vw': true }
   readonly top50vw: { 'top_50vw': true }
-  readonly top60vw: { 'top_60vw': true }
-  readonly top66p67vw: { 'top_66\.67vw': true }
-  readonly top70vw: { 'top_70vw': true }
   readonly top75vw: { 'top_75vw': true }
-  readonly top80vw: { 'top_80vw': true }
-  readonly top90vw: { 'top_90vw': true }
   readonly top100vw: { 'top_100vw': true }
   readonly top0Pct: { 'top_0\%': true }
-  readonly top10Pct: { 'top_10\%': true }
-  readonly top20Pct: { 'top_20\%': true }
   readonly top25Pct: { 'top_25\%': true }
-  readonly top30Pct: { 'top_30\%': true }
-  readonly top33p33Pct: { 'top_33\.33\%': true }
-  readonly top40Pct: { 'top_40\%': true }
   readonly top50Pct: { 'top_50\%': true }
-  readonly top60Pct: { 'top_60\%': true }
-  readonly top66p67Pct: { 'top_66\.67\%': true }
-  readonly top70Pct: { 'top_70\%': true }
   readonly top75Pct: { 'top_75\%': true }
-  readonly top80Pct: { 'top_80\%': true }
-  readonly top90Pct: { 'top_90\%': true }
   readonly top100Pct: { 'top_100\%': true }
 
   // ==================== transform ====================
   readonly transformNone: { 'transform_none': true }
-  readonly transformN360deg: { 'transform_-360deg': true }
-  readonly transformN315deg: { 'transform_-315deg': true }
-  readonly transformN270deg: { 'transform_-270deg': true }
-  readonly transformN225deg: { 'transform_-225deg': true }
-  readonly transformN180deg: { 'transform_-180deg': true }
-  readonly transformN135deg: { 'transform_-135deg': true }
-  readonly transformN90deg: { 'transform_-90deg': true }
-  readonly transformN45deg: { 'transform_-45deg': true }
-  readonly transform0deg: { 'transform_0deg': true }
-  readonly transform45deg: { 'transform_45deg': true }
-  readonly transform90deg: { 'transform_90deg': true }
-  readonly transform135deg: { 'transform_135deg': true }
-  readonly transform180deg: { 'transform_180deg': true }
-  readonly transform225deg: { 'transform_225deg': true }
-  readonly transform270deg: { 'transform_270deg': true }
-  readonly transform315deg: { 'transform_315deg': true }
-  readonly transform360deg: { 'transform_360deg': true }
-  readonly transformN360grad: { 'transform_-360grad': true }
-  readonly transformN315grad: { 'transform_-315grad': true }
-  readonly transformN270grad: { 'transform_-270grad': true }
-  readonly transformN225grad: { 'transform_-225grad': true }
-  readonly transformN180grad: { 'transform_-180grad': true }
-  readonly transformN135grad: { 'transform_-135grad': true }
-  readonly transformN90grad: { 'transform_-90grad': true }
-  readonly transformN45grad: { 'transform_-45grad': true }
-  readonly transform0grad: { 'transform_0grad': true }
-  readonly transform45grad: { 'transform_45grad': true }
-  readonly transform90grad: { 'transform_90grad': true }
-  readonly transform135grad: { 'transform_135grad': true }
-  readonly transform180grad: { 'transform_180grad': true }
-  readonly transform225grad: { 'transform_225grad': true }
-  readonly transform270grad: { 'transform_270grad': true }
-  readonly transform315grad: { 'transform_315grad': true }
-  readonly transform360grad: { 'transform_360grad': true }
-  readonly transformN360rad: { 'transform_-360rad': true }
-  readonly transformN315rad: { 'transform_-315rad': true }
-  readonly transformN270rad: { 'transform_-270rad': true }
-  readonly transformN225rad: { 'transform_-225rad': true }
-  readonly transformN180rad: { 'transform_-180rad': true }
-  readonly transformN135rad: { 'transform_-135rad': true }
-  readonly transformN90rad: { 'transform_-90rad': true }
-  readonly transformN45rad: { 'transform_-45rad': true }
-  readonly transform0rad: { 'transform_0rad': true }
-  readonly transform45rad: { 'transform_45rad': true }
-  readonly transform90rad: { 'transform_90rad': true }
-  readonly transform135rad: { 'transform_135rad': true }
-  readonly transform180rad: { 'transform_180rad': true }
-  readonly transform225rad: { 'transform_225rad': true }
-  readonly transform270rad: { 'transform_270rad': true }
-  readonly transform315rad: { 'transform_315rad': true }
-  readonly transform360rad: { 'transform_360rad': true }
-  readonly transformN360turn: { 'transform_-360turn': true }
-  readonly transformN315turn: { 'transform_-315turn': true }
-  readonly transformN270turn: { 'transform_-270turn': true }
-  readonly transformN225turn: { 'transform_-225turn': true }
-  readonly transformN180turn: { 'transform_-180turn': true }
-  readonly transformN135turn: { 'transform_-135turn': true }
-  readonly transformN90turn: { 'transform_-90turn': true }
-  readonly transformN45turn: { 'transform_-45turn': true }
-  readonly transform0turn: { 'transform_0turn': true }
-  readonly transform45turn: { 'transform_45turn': true }
-  readonly transform90turn: { 'transform_90turn': true }
-  readonly transform135turn: { 'transform_135turn': true }
-  readonly transform180turn: { 'transform_180turn': true }
-  readonly transform225turn: { 'transform_225turn': true }
-  readonly transform270turn: { 'transform_270turn': true }
-  readonly transform315turn: { 'transform_315turn': true }
-  readonly transform360turn: { 'transform_360turn': true }
   readonly transform0Q: { 'transform_0Q': true }
   readonly transform1Q: { 'transform_1Q': true }
   readonly transform2Q: { 'transform_2Q': true }
   readonly transform4Q: { 'transform_4Q': true }
-  readonly transform6Q: { 'transform_6Q': true }
   readonly transform8Q: { 'transform_8Q': true }
-  readonly transform10Q: { 'transform_10Q': true }
-  readonly transform12Q: { 'transform_12Q': true }
-  readonly transform16Q: { 'transform_16Q': true }
-  readonly transform20Q: { 'transform_20Q': true }
   readonly transform0cap: { 'transform_0cap': true }
-  readonly transform0p25cap: { 'transform_0\.25cap': true }
   readonly transform0p5cap: { 'transform_0\.5cap': true }
-  readonly transform0p75cap: { 'transform_0\.75cap': true }
   readonly transform1cap: { 'transform_1cap': true }
-  readonly transform1p25cap: { 'transform_1\.25cap': true }
   readonly transform1p5cap: { 'transform_1\.5cap': true }
   readonly transform2cap: { 'transform_2cap': true }
-  readonly transform2p5cap: { 'transform_2\.5cap': true }
   readonly transform3cap: { 'transform_3cap': true }
-  readonly transform4cap: { 'transform_4cap': true }
-  readonly transform5cap: { 'transform_5cap': true }
-  readonly transform6cap: { 'transform_6cap': true }
-  readonly transform8cap: { 'transform_8cap': true }
   readonly transform0ch: { 'transform_0ch': true }
-  readonly transform0p25ch: { 'transform_0\.25ch': true }
   readonly transform0p5ch: { 'transform_0\.5ch': true }
-  readonly transform0p75ch: { 'transform_0\.75ch': true }
   readonly transform1ch: { 'transform_1ch': true }
-  readonly transform1p25ch: { 'transform_1\.25ch': true }
   readonly transform1p5ch: { 'transform_1\.5ch': true }
   readonly transform2ch: { 'transform_2ch': true }
-  readonly transform2p5ch: { 'transform_2\.5ch': true }
   readonly transform3ch: { 'transform_3ch': true }
-  readonly transform4ch: { 'transform_4ch': true }
-  readonly transform5ch: { 'transform_5ch': true }
-  readonly transform6ch: { 'transform_6ch': true }
-  readonly transform8ch: { 'transform_8ch': true }
   readonly transform0cm: { 'transform_0cm': true }
   readonly transform1cm: { 'transform_1cm': true }
   readonly transform2cm: { 'transform_2cm': true }
   readonly transform4cm: { 'transform_4cm': true }
-  readonly transform6cm: { 'transform_6cm': true }
   readonly transform8cm: { 'transform_8cm': true }
-  readonly transform10cm: { 'transform_10cm': true }
-  readonly transform12cm: { 'transform_12cm': true }
-  readonly transform16cm: { 'transform_16cm': true }
-  readonly transform20cm: { 'transform_20cm': true }
   readonly transform0dvh: { 'transform_0dvh': true }
-  readonly transform10dvh: { 'transform_10dvh': true }
-  readonly transform20dvh: { 'transform_20dvh': true }
   readonly transform25dvh: { 'transform_25dvh': true }
-  readonly transform30dvh: { 'transform_30dvh': true }
-  readonly transform33p33dvh: { 'transform_33\.33dvh': true }
-  readonly transform40dvh: { 'transform_40dvh': true }
   readonly transform50dvh: { 'transform_50dvh': true }
-  readonly transform60dvh: { 'transform_60dvh': true }
-  readonly transform66p67dvh: { 'transform_66\.67dvh': true }
-  readonly transform70dvh: { 'transform_70dvh': true }
   readonly transform75dvh: { 'transform_75dvh': true }
-  readonly transform80dvh: { 'transform_80dvh': true }
-  readonly transform90dvh: { 'transform_90dvh': true }
   readonly transform100dvh: { 'transform_100dvh': true }
   readonly transform0dvw: { 'transform_0dvw': true }
-  readonly transform10dvw: { 'transform_10dvw': true }
-  readonly transform20dvw: { 'transform_20dvw': true }
   readonly transform25dvw: { 'transform_25dvw': true }
-  readonly transform30dvw: { 'transform_30dvw': true }
-  readonly transform33p33dvw: { 'transform_33\.33dvw': true }
-  readonly transform40dvw: { 'transform_40dvw': true }
   readonly transform50dvw: { 'transform_50dvw': true }
-  readonly transform60dvw: { 'transform_60dvw': true }
-  readonly transform66p67dvw: { 'transform_66\.67dvw': true }
-  readonly transform70dvw: { 'transform_70dvw': true }
   readonly transform75dvw: { 'transform_75dvw': true }
-  readonly transform80dvw: { 'transform_80dvw': true }
-  readonly transform90dvw: { 'transform_90dvw': true }
   readonly transform100dvw: { 'transform_100dvw': true }
   readonly transform0em: { 'transform_0em': true }
-  readonly transform0p25em: { 'transform_0\.25em': true }
   readonly transform0p5em: { 'transform_0\.5em': true }
-  readonly transform0p75em: { 'transform_0\.75em': true }
   readonly transform1em: { 'transform_1em': true }
-  readonly transform1p25em: { 'transform_1\.25em': true }
   readonly transform1p5em: { 'transform_1\.5em': true }
   readonly transform2em: { 'transform_2em': true }
-  readonly transform2p5em: { 'transform_2\.5em': true }
   readonly transform3em: { 'transform_3em': true }
-  readonly transform4em: { 'transform_4em': true }
-  readonly transform5em: { 'transform_5em': true }
-  readonly transform6em: { 'transform_6em': true }
-  readonly transform8em: { 'transform_8em': true }
   readonly transform0ex: { 'transform_0ex': true }
-  readonly transform0p25ex: { 'transform_0\.25ex': true }
   readonly transform0p5ex: { 'transform_0\.5ex': true }
-  readonly transform0p75ex: { 'transform_0\.75ex': true }
   readonly transform1ex: { 'transform_1ex': true }
-  readonly transform1p25ex: { 'transform_1\.25ex': true }
   readonly transform1p5ex: { 'transform_1\.5ex': true }
   readonly transform2ex: { 'transform_2ex': true }
-  readonly transform2p5ex: { 'transform_2\.5ex': true }
   readonly transform3ex: { 'transform_3ex': true }
-  readonly transform4ex: { 'transform_4ex': true }
-  readonly transform5ex: { 'transform_5ex': true }
-  readonly transform6ex: { 'transform_6ex': true }
-  readonly transform8ex: { 'transform_8ex': true }
   readonly transform0ic: { 'transform_0ic': true }
-  readonly transform0p25ic: { 'transform_0\.25ic': true }
   readonly transform0p5ic: { 'transform_0\.5ic': true }
-  readonly transform0p75ic: { 'transform_0\.75ic': true }
   readonly transform1ic: { 'transform_1ic': true }
-  readonly transform1p25ic: { 'transform_1\.25ic': true }
   readonly transform1p5ic: { 'transform_1\.5ic': true }
   readonly transform2ic: { 'transform_2ic': true }
-  readonly transform2p5ic: { 'transform_2\.5ic': true }
   readonly transform3ic: { 'transform_3ic': true }
-  readonly transform4ic: { 'transform_4ic': true }
-  readonly transform5ic: { 'transform_5ic': true }
-  readonly transform6ic: { 'transform_6ic': true }
-  readonly transform8ic: { 'transform_8ic': true }
   readonly transform0in: { 'transform_0in': true }
   readonly transform1in: { 'transform_1in': true }
   readonly transform2in: { 'transform_2in': true }
   readonly transform4in: { 'transform_4in': true }
-  readonly transform6in: { 'transform_6in': true }
   readonly transform8in: { 'transform_8in': true }
-  readonly transform10in: { 'transform_10in': true }
-  readonly transform12in: { 'transform_12in': true }
-  readonly transform16in: { 'transform_16in': true }
-  readonly transform20in: { 'transform_20in': true }
   readonly transform0lh: { 'transform_0lh': true }
-  readonly transform0p25lh: { 'transform_0\.25lh': true }
   readonly transform0p5lh: { 'transform_0\.5lh': true }
-  readonly transform0p75lh: { 'transform_0\.75lh': true }
   readonly transform1lh: { 'transform_1lh': true }
-  readonly transform1p25lh: { 'transform_1\.25lh': true }
   readonly transform1p5lh: { 'transform_1\.5lh': true }
   readonly transform2lh: { 'transform_2lh': true }
-  readonly transform2p5lh: { 'transform_2\.5lh': true }
   readonly transform3lh: { 'transform_3lh': true }
-  readonly transform4lh: { 'transform_4lh': true }
-  readonly transform5lh: { 'transform_5lh': true }
-  readonly transform6lh: { 'transform_6lh': true }
-  readonly transform8lh: { 'transform_8lh': true }
   readonly transform0lvh: { 'transform_0lvh': true }
-  readonly transform10lvh: { 'transform_10lvh': true }
-  readonly transform20lvh: { 'transform_20lvh': true }
   readonly transform25lvh: { 'transform_25lvh': true }
-  readonly transform30lvh: { 'transform_30lvh': true }
-  readonly transform33p33lvh: { 'transform_33\.33lvh': true }
-  readonly transform40lvh: { 'transform_40lvh': true }
   readonly transform50lvh: { 'transform_50lvh': true }
-  readonly transform60lvh: { 'transform_60lvh': true }
-  readonly transform66p67lvh: { 'transform_66\.67lvh': true }
-  readonly transform70lvh: { 'transform_70lvh': true }
   readonly transform75lvh: { 'transform_75lvh': true }
-  readonly transform80lvh: { 'transform_80lvh': true }
-  readonly transform90lvh: { 'transform_90lvh': true }
   readonly transform100lvh: { 'transform_100lvh': true }
   readonly transform0lvw: { 'transform_0lvw': true }
-  readonly transform10lvw: { 'transform_10lvw': true }
-  readonly transform20lvw: { 'transform_20lvw': true }
   readonly transform25lvw: { 'transform_25lvw': true }
-  readonly transform30lvw: { 'transform_30lvw': true }
-  readonly transform33p33lvw: { 'transform_33\.33lvw': true }
-  readonly transform40lvw: { 'transform_40lvw': true }
   readonly transform50lvw: { 'transform_50lvw': true }
-  readonly transform60lvw: { 'transform_60lvw': true }
-  readonly transform66p67lvw: { 'transform_66\.67lvw': true }
-  readonly transform70lvw: { 'transform_70lvw': true }
   readonly transform75lvw: { 'transform_75lvw': true }
-  readonly transform80lvw: { 'transform_80lvw': true }
-  readonly transform90lvw: { 'transform_90lvw': true }
   readonly transform100lvw: { 'transform_100lvw': true }
   readonly transform0mm: { 'transform_0mm': true }
   readonly transform1mm: { 'transform_1mm': true }
   readonly transform2mm: { 'transform_2mm': true }
   readonly transform4mm: { 'transform_4mm': true }
-  readonly transform6mm: { 'transform_6mm': true }
   readonly transform8mm: { 'transform_8mm': true }
-  readonly transform10mm: { 'transform_10mm': true }
-  readonly transform12mm: { 'transform_12mm': true }
-  readonly transform16mm: { 'transform_16mm': true }
-  readonly transform20mm: { 'transform_20mm': true }
   readonly transform0pc: { 'transform_0pc': true }
   readonly transform1pc: { 'transform_1pc': true }
   readonly transform2pc: { 'transform_2pc': true }
   readonly transform4pc: { 'transform_4pc': true }
-  readonly transform6pc: { 'transform_6pc': true }
   readonly transform8pc: { 'transform_8pc': true }
-  readonly transform10pc: { 'transform_10pc': true }
-  readonly transform12pc: { 'transform_12pc': true }
-  readonly transform16pc: { 'transform_16pc': true }
-  readonly transform20pc: { 'transform_20pc': true }
   readonly transform0pt: { 'transform_0pt': true }
   readonly transform1pt: { 'transform_1pt': true }
   readonly transform2pt: { 'transform_2pt': true }
   readonly transform4pt: { 'transform_4pt': true }
-  readonly transform6pt: { 'transform_6pt': true }
   readonly transform8pt: { 'transform_8pt': true }
-  readonly transform10pt: { 'transform_10pt': true }
-  readonly transform12pt: { 'transform_12pt': true }
-  readonly transform16pt: { 'transform_16pt': true }
-  readonly transform20pt: { 'transform_20pt': true }
-  readonly transformN384px: { 'transform_-384px': true }
-  readonly transformN320px: { 'transform_-320px': true }
-  readonly transformN256px: { 'transform_-256px': true }
-  readonly transformN224px: { 'transform_-224px': true }
-  readonly transformN192px: { 'transform_-192px': true }
-  readonly transformN160px: { 'transform_-160px': true }
-  readonly transformN128px: { 'transform_-128px': true }
   readonly transformN96px: { 'transform_-96px': true }
   readonly transformN80px: { 'transform_-80px': true }
   readonly transformN64px: { 'transform_-64px': true }
-  readonly transformN56px: { 'transform_-56px': true }
   readonly transformN48px: { 'transform_-48px': true }
   readonly transformN40px: { 'transform_-40px': true }
   readonly transformN32px: { 'transform_-32px': true }
-  readonly transformN28px: { 'transform_-28px': true }
   readonly transformN24px: { 'transform_-24px': true }
   readonly transformN20px: { 'transform_-20px': true }
   readonly transformN16px: { 'transform_-16px': true }
-  readonly transformN14px: { 'transform_-14px': true }
   readonly transformN12px: { 'transform_-12px': true }
   readonly transformN10px: { 'transform_-10px': true }
   readonly transformN8px: { 'transform_-8px': true }
   readonly transformN6px: { 'transform_-6px': true }
   readonly transformN4px: { 'transform_-4px': true }
   readonly transformN2px: { 'transform_-2px': true }
-  readonly transformN1px: { 'transform_-1px': true }
   readonly transform0px: { 'transform_0px': true }
-  readonly transform1px: { 'transform_1px': true }
   readonly transform2px: { 'transform_2px': true }
   readonly transform4px: { 'transform_4px': true }
   readonly transform6px: { 'transform_6px': true }
   readonly transform8px: { 'transform_8px': true }
   readonly transform10px: { 'transform_10px': true }
   readonly transform12px: { 'transform_12px': true }
-  readonly transform14px: { 'transform_14px': true }
   readonly transform16px: { 'transform_16px': true }
   readonly transform20px: { 'transform_20px': true }
   readonly transform24px: { 'transform_24px': true }
-  readonly transform28px: { 'transform_28px': true }
   readonly transform32px: { 'transform_32px': true }
   readonly transform40px: { 'transform_40px': true }
   readonly transform48px: { 'transform_48px': true }
-  readonly transform56px: { 'transform_56px': true }
   readonly transform64px: { 'transform_64px': true }
   readonly transform80px: { 'transform_80px': true }
   readonly transform96px: { 'transform_96px': true }
-  readonly transform128px: { 'transform_128px': true }
-  readonly transform160px: { 'transform_160px': true }
-  readonly transform192px: { 'transform_192px': true }
-  readonly transform224px: { 'transform_224px': true }
-  readonly transform256px: { 'transform_256px': true }
-  readonly transform320px: { 'transform_320px': true }
-  readonly transform384px: { 'transform_384px': true }
   readonly transform0rem: { 'transform_0rem': true }
-  readonly transform0p25rem: { 'transform_0\.25rem': true }
   readonly transform0p5rem: { 'transform_0\.5rem': true }
-  readonly transform0p75rem: { 'transform_0\.75rem': true }
   readonly transform1rem: { 'transform_1rem': true }
-  readonly transform1p25rem: { 'transform_1\.25rem': true }
   readonly transform1p5rem: { 'transform_1\.5rem': true }
   readonly transform2rem: { 'transform_2rem': true }
-  readonly transform2p5rem: { 'transform_2\.5rem': true }
   readonly transform3rem: { 'transform_3rem': true }
-  readonly transform4rem: { 'transform_4rem': true }
-  readonly transform5rem: { 'transform_5rem': true }
-  readonly transform6rem: { 'transform_6rem': true }
-  readonly transform8rem: { 'transform_8rem': true }
   readonly transform0rlh: { 'transform_0rlh': true }
-  readonly transform0p25rlh: { 'transform_0\.25rlh': true }
   readonly transform0p5rlh: { 'transform_0\.5rlh': true }
-  readonly transform0p75rlh: { 'transform_0\.75rlh': true }
   readonly transform1rlh: { 'transform_1rlh': true }
-  readonly transform1p25rlh: { 'transform_1\.25rlh': true }
   readonly transform1p5rlh: { 'transform_1\.5rlh': true }
   readonly transform2rlh: { 'transform_2rlh': true }
-  readonly transform2p5rlh: { 'transform_2\.5rlh': true }
   readonly transform3rlh: { 'transform_3rlh': true }
-  readonly transform4rlh: { 'transform_4rlh': true }
-  readonly transform5rlh: { 'transform_5rlh': true }
-  readonly transform6rlh: { 'transform_6rlh': true }
-  readonly transform8rlh: { 'transform_8rlh': true }
   readonly transform0svh: { 'transform_0svh': true }
-  readonly transform10svh: { 'transform_10svh': true }
-  readonly transform20svh: { 'transform_20svh': true }
   readonly transform25svh: { 'transform_25svh': true }
-  readonly transform30svh: { 'transform_30svh': true }
-  readonly transform33p33svh: { 'transform_33\.33svh': true }
-  readonly transform40svh: { 'transform_40svh': true }
   readonly transform50svh: { 'transform_50svh': true }
-  readonly transform60svh: { 'transform_60svh': true }
-  readonly transform66p67svh: { 'transform_66\.67svh': true }
-  readonly transform70svh: { 'transform_70svh': true }
   readonly transform75svh: { 'transform_75svh': true }
-  readonly transform80svh: { 'transform_80svh': true }
-  readonly transform90svh: { 'transform_90svh': true }
   readonly transform100svh: { 'transform_100svh': true }
   readonly transform0svw: { 'transform_0svw': true }
-  readonly transform10svw: { 'transform_10svw': true }
-  readonly transform20svw: { 'transform_20svw': true }
   readonly transform25svw: { 'transform_25svw': true }
-  readonly transform30svw: { 'transform_30svw': true }
-  readonly transform33p33svw: { 'transform_33\.33svw': true }
-  readonly transform40svw: { 'transform_40svw': true }
   readonly transform50svw: { 'transform_50svw': true }
-  readonly transform60svw: { 'transform_60svw': true }
-  readonly transform66p67svw: { 'transform_66\.67svw': true }
-  readonly transform70svw: { 'transform_70svw': true }
   readonly transform75svw: { 'transform_75svw': true }
-  readonly transform80svw: { 'transform_80svw': true }
-  readonly transform90svw: { 'transform_90svw': true }
   readonly transform100svw: { 'transform_100svw': true }
   readonly transform0vb: { 'transform_0vb': true }
-  readonly transform10vb: { 'transform_10vb': true }
-  readonly transform20vb: { 'transform_20vb': true }
   readonly transform25vb: { 'transform_25vb': true }
-  readonly transform30vb: { 'transform_30vb': true }
-  readonly transform33p33vb: { 'transform_33\.33vb': true }
-  readonly transform40vb: { 'transform_40vb': true }
   readonly transform50vb: { 'transform_50vb': true }
-  readonly transform60vb: { 'transform_60vb': true }
-  readonly transform66p67vb: { 'transform_66\.67vb': true }
-  readonly transform70vb: { 'transform_70vb': true }
   readonly transform75vb: { 'transform_75vb': true }
-  readonly transform80vb: { 'transform_80vb': true }
-  readonly transform90vb: { 'transform_90vb': true }
   readonly transform100vb: { 'transform_100vb': true }
   readonly transform0vh: { 'transform_0vh': true }
-  readonly transform10vh: { 'transform_10vh': true }
-  readonly transform20vh: { 'transform_20vh': true }
   readonly transform25vh: { 'transform_25vh': true }
-  readonly transform30vh: { 'transform_30vh': true }
-  readonly transform33p33vh: { 'transform_33\.33vh': true }
-  readonly transform40vh: { 'transform_40vh': true }
   readonly transform50vh: { 'transform_50vh': true }
-  readonly transform60vh: { 'transform_60vh': true }
-  readonly transform66p67vh: { 'transform_66\.67vh': true }
-  readonly transform70vh: { 'transform_70vh': true }
   readonly transform75vh: { 'transform_75vh': true }
-  readonly transform80vh: { 'transform_80vh': true }
-  readonly transform90vh: { 'transform_90vh': true }
   readonly transform100vh: { 'transform_100vh': true }
   readonly transform0vi: { 'transform_0vi': true }
-  readonly transform10vi: { 'transform_10vi': true }
-  readonly transform20vi: { 'transform_20vi': true }
   readonly transform25vi: { 'transform_25vi': true }
-  readonly transform30vi: { 'transform_30vi': true }
-  readonly transform33p33vi: { 'transform_33\.33vi': true }
-  readonly transform40vi: { 'transform_40vi': true }
   readonly transform50vi: { 'transform_50vi': true }
-  readonly transform60vi: { 'transform_60vi': true }
-  readonly transform66p67vi: { 'transform_66\.67vi': true }
-  readonly transform70vi: { 'transform_70vi': true }
   readonly transform75vi: { 'transform_75vi': true }
-  readonly transform80vi: { 'transform_80vi': true }
-  readonly transform90vi: { 'transform_90vi': true }
   readonly transform100vi: { 'transform_100vi': true }
   readonly transform0vmax: { 'transform_0vmax': true }
-  readonly transform10vmax: { 'transform_10vmax': true }
-  readonly transform20vmax: { 'transform_20vmax': true }
   readonly transform25vmax: { 'transform_25vmax': true }
-  readonly transform30vmax: { 'transform_30vmax': true }
-  readonly transform33p33vmax: { 'transform_33\.33vmax': true }
-  readonly transform40vmax: { 'transform_40vmax': true }
   readonly transform50vmax: { 'transform_50vmax': true }
-  readonly transform60vmax: { 'transform_60vmax': true }
-  readonly transform66p67vmax: { 'transform_66\.67vmax': true }
-  readonly transform70vmax: { 'transform_70vmax': true }
   readonly transform75vmax: { 'transform_75vmax': true }
-  readonly transform80vmax: { 'transform_80vmax': true }
-  readonly transform90vmax: { 'transform_90vmax': true }
   readonly transform100vmax: { 'transform_100vmax': true }
   readonly transform0vmin: { 'transform_0vmin': true }
-  readonly transform10vmin: { 'transform_10vmin': true }
-  readonly transform20vmin: { 'transform_20vmin': true }
   readonly transform25vmin: { 'transform_25vmin': true }
-  readonly transform30vmin: { 'transform_30vmin': true }
-  readonly transform33p33vmin: { 'transform_33\.33vmin': true }
-  readonly transform40vmin: { 'transform_40vmin': true }
   readonly transform50vmin: { 'transform_50vmin': true }
-  readonly transform60vmin: { 'transform_60vmin': true }
-  readonly transform66p67vmin: { 'transform_66\.67vmin': true }
-  readonly transform70vmin: { 'transform_70vmin': true }
   readonly transform75vmin: { 'transform_75vmin': true }
-  readonly transform80vmin: { 'transform_80vmin': true }
-  readonly transform90vmin: { 'transform_90vmin': true }
   readonly transform100vmin: { 'transform_100vmin': true }
   readonly transform0vw: { 'transform_0vw': true }
-  readonly transform10vw: { 'transform_10vw': true }
-  readonly transform20vw: { 'transform_20vw': true }
   readonly transform25vw: { 'transform_25vw': true }
-  readonly transform30vw: { 'transform_30vw': true }
-  readonly transform33p33vw: { 'transform_33\.33vw': true }
-  readonly transform40vw: { 'transform_40vw': true }
   readonly transform50vw: { 'transform_50vw': true }
-  readonly transform60vw: { 'transform_60vw': true }
-  readonly transform66p67vw: { 'transform_66\.67vw': true }
-  readonly transform70vw: { 'transform_70vw': true }
   readonly transform75vw: { 'transform_75vw': true }
-  readonly transform80vw: { 'transform_80vw': true }
-  readonly transform90vw: { 'transform_90vw': true }
   readonly transform100vw: { 'transform_100vw': true }
   readonly transform0: { 'transform_0': true }
-  readonly transform0p5: { 'transform_0\.5': true }
   readonly transform1: { 'transform_1': true }
-  readonly transform1p5: { 'transform_1\.5': true }
   readonly transform2: { 'transform_2': true }
   readonly transform3: { 'transform_3': true }
-  readonly transform4: { 'transform_4': true }
   readonly transform5: { 'transform_5': true }
   readonly transform10: { 'transform_10': true }
-  readonly transform20: { 'transform_20': true }
-  readonly transform50: { 'transform_50': true }
-  readonly transform100: { 'transform_100': true }
   readonly transform0Pct: { 'transform_0\%': true }
-  readonly transform10Pct: { 'transform_10\%': true }
-  readonly transform20Pct: { 'transform_20\%': true }
   readonly transform25Pct: { 'transform_25\%': true }
-  readonly transform30Pct: { 'transform_30\%': true }
-  readonly transform33p33Pct: { 'transform_33\.33\%': true }
-  readonly transform40Pct: { 'transform_40\%': true }
   readonly transform50Pct: { 'transform_50\%': true }
-  readonly transform60Pct: { 'transform_60\%': true }
-  readonly transform66p67Pct: { 'transform_66\.67\%': true }
-  readonly transform70Pct: { 'transform_70\%': true }
   readonly transform75Pct: { 'transform_75\%': true }
-  readonly transform80Pct: { 'transform_80\%': true }
-  readonly transform90Pct: { 'transform_90\%': true }
   readonly transform100Pct: { 'transform_100\%': true }
 
   // ==================== transition ====================
@@ -11627,31 +5171,11 @@ export interface CsstsAtoms {
   readonly transitionStepEnd: { 'transition_step-end': true }
   readonly transitionStepStart: { 'transition_step-start': true }
   readonly transition0: { 'transition_0': true }
-  readonly transition0p5: { 'transition_0\.5': true }
   readonly transition1: { 'transition_1': true }
-  readonly transition1p5: { 'transition_1\.5': true }
   readonly transition2: { 'transition_2': true }
   readonly transition3: { 'transition_3': true }
-  readonly transition4: { 'transition_4': true }
   readonly transition5: { 'transition_5': true }
   readonly transition10: { 'transition_10': true }
-  readonly transition20: { 'transition_20': true }
-  readonly transition50: { 'transition_50': true }
-  readonly transition100: { 'transition_100': true }
-  readonly transition0ms: { 'transition_0ms': true }
-  readonly transition100ms: { 'transition_100ms': true }
-  readonly transition150ms: { 'transition_150ms': true }
-  readonly transition200ms: { 'transition_200ms': true }
-  readonly transition300ms: { 'transition_300ms': true }
-  readonly transition500ms: { 'transition_500ms': true }
-  readonly transition1000ms: { 'transition_1000ms': true }
-  readonly transition0s: { 'transition_0s': true }
-  readonly transition100s: { 'transition_100s': true }
-  readonly transition150s: { 'transition_150s': true }
-  readonly transition200s: { 'transition_200s': true }
-  readonly transition300s: { 'transition_300s': true }
-  readonly transition500s: { 'transition_500s': true }
-  readonly transition1000s: { 'transition_1000s': true }
 
   // ==================== translate ====================
   readonly translateNone: { 'translate_none': true }
@@ -11659,421 +5183,175 @@ export interface CsstsAtoms {
   readonly translate1Q: { 'translate_1Q': true }
   readonly translate2Q: { 'translate_2Q': true }
   readonly translate4Q: { 'translate_4Q': true }
-  readonly translate6Q: { 'translate_6Q': true }
   readonly translate8Q: { 'translate_8Q': true }
-  readonly translate10Q: { 'translate_10Q': true }
-  readonly translate12Q: { 'translate_12Q': true }
-  readonly translate16Q: { 'translate_16Q': true }
-  readonly translate20Q: { 'translate_20Q': true }
   readonly translate0cap: { 'translate_0cap': true }
-  readonly translate0p25cap: { 'translate_0\.25cap': true }
   readonly translate0p5cap: { 'translate_0\.5cap': true }
-  readonly translate0p75cap: { 'translate_0\.75cap': true }
   readonly translate1cap: { 'translate_1cap': true }
-  readonly translate1p25cap: { 'translate_1\.25cap': true }
   readonly translate1p5cap: { 'translate_1\.5cap': true }
   readonly translate2cap: { 'translate_2cap': true }
-  readonly translate2p5cap: { 'translate_2\.5cap': true }
   readonly translate3cap: { 'translate_3cap': true }
-  readonly translate4cap: { 'translate_4cap': true }
-  readonly translate5cap: { 'translate_5cap': true }
-  readonly translate6cap: { 'translate_6cap': true }
-  readonly translate8cap: { 'translate_8cap': true }
   readonly translate0ch: { 'translate_0ch': true }
-  readonly translate0p25ch: { 'translate_0\.25ch': true }
   readonly translate0p5ch: { 'translate_0\.5ch': true }
-  readonly translate0p75ch: { 'translate_0\.75ch': true }
   readonly translate1ch: { 'translate_1ch': true }
-  readonly translate1p25ch: { 'translate_1\.25ch': true }
   readonly translate1p5ch: { 'translate_1\.5ch': true }
   readonly translate2ch: { 'translate_2ch': true }
-  readonly translate2p5ch: { 'translate_2\.5ch': true }
   readonly translate3ch: { 'translate_3ch': true }
-  readonly translate4ch: { 'translate_4ch': true }
-  readonly translate5ch: { 'translate_5ch': true }
-  readonly translate6ch: { 'translate_6ch': true }
-  readonly translate8ch: { 'translate_8ch': true }
   readonly translate0cm: { 'translate_0cm': true }
   readonly translate1cm: { 'translate_1cm': true }
   readonly translate2cm: { 'translate_2cm': true }
   readonly translate4cm: { 'translate_4cm': true }
-  readonly translate6cm: { 'translate_6cm': true }
   readonly translate8cm: { 'translate_8cm': true }
-  readonly translate10cm: { 'translate_10cm': true }
-  readonly translate12cm: { 'translate_12cm': true }
-  readonly translate16cm: { 'translate_16cm': true }
-  readonly translate20cm: { 'translate_20cm': true }
   readonly translate0dvh: { 'translate_0dvh': true }
-  readonly translate10dvh: { 'translate_10dvh': true }
-  readonly translate20dvh: { 'translate_20dvh': true }
   readonly translate25dvh: { 'translate_25dvh': true }
-  readonly translate30dvh: { 'translate_30dvh': true }
-  readonly translate33p33dvh: { 'translate_33\.33dvh': true }
-  readonly translate40dvh: { 'translate_40dvh': true }
   readonly translate50dvh: { 'translate_50dvh': true }
-  readonly translate60dvh: { 'translate_60dvh': true }
-  readonly translate66p67dvh: { 'translate_66\.67dvh': true }
-  readonly translate70dvh: { 'translate_70dvh': true }
   readonly translate75dvh: { 'translate_75dvh': true }
-  readonly translate80dvh: { 'translate_80dvh': true }
-  readonly translate90dvh: { 'translate_90dvh': true }
   readonly translate100dvh: { 'translate_100dvh': true }
   readonly translate0dvw: { 'translate_0dvw': true }
-  readonly translate10dvw: { 'translate_10dvw': true }
-  readonly translate20dvw: { 'translate_20dvw': true }
   readonly translate25dvw: { 'translate_25dvw': true }
-  readonly translate30dvw: { 'translate_30dvw': true }
-  readonly translate33p33dvw: { 'translate_33\.33dvw': true }
-  readonly translate40dvw: { 'translate_40dvw': true }
   readonly translate50dvw: { 'translate_50dvw': true }
-  readonly translate60dvw: { 'translate_60dvw': true }
-  readonly translate66p67dvw: { 'translate_66\.67dvw': true }
-  readonly translate70dvw: { 'translate_70dvw': true }
   readonly translate75dvw: { 'translate_75dvw': true }
-  readonly translate80dvw: { 'translate_80dvw': true }
-  readonly translate90dvw: { 'translate_90dvw': true }
   readonly translate100dvw: { 'translate_100dvw': true }
   readonly translate0em: { 'translate_0em': true }
-  readonly translate0p25em: { 'translate_0\.25em': true }
   readonly translate0p5em: { 'translate_0\.5em': true }
-  readonly translate0p75em: { 'translate_0\.75em': true }
   readonly translate1em: { 'translate_1em': true }
-  readonly translate1p25em: { 'translate_1\.25em': true }
   readonly translate1p5em: { 'translate_1\.5em': true }
   readonly translate2em: { 'translate_2em': true }
-  readonly translate2p5em: { 'translate_2\.5em': true }
   readonly translate3em: { 'translate_3em': true }
-  readonly translate4em: { 'translate_4em': true }
-  readonly translate5em: { 'translate_5em': true }
-  readonly translate6em: { 'translate_6em': true }
-  readonly translate8em: { 'translate_8em': true }
   readonly translate0ex: { 'translate_0ex': true }
-  readonly translate0p25ex: { 'translate_0\.25ex': true }
   readonly translate0p5ex: { 'translate_0\.5ex': true }
-  readonly translate0p75ex: { 'translate_0\.75ex': true }
   readonly translate1ex: { 'translate_1ex': true }
-  readonly translate1p25ex: { 'translate_1\.25ex': true }
   readonly translate1p5ex: { 'translate_1\.5ex': true }
   readonly translate2ex: { 'translate_2ex': true }
-  readonly translate2p5ex: { 'translate_2\.5ex': true }
   readonly translate3ex: { 'translate_3ex': true }
-  readonly translate4ex: { 'translate_4ex': true }
-  readonly translate5ex: { 'translate_5ex': true }
-  readonly translate6ex: { 'translate_6ex': true }
-  readonly translate8ex: { 'translate_8ex': true }
   readonly translate0ic: { 'translate_0ic': true }
-  readonly translate0p25ic: { 'translate_0\.25ic': true }
   readonly translate0p5ic: { 'translate_0\.5ic': true }
-  readonly translate0p75ic: { 'translate_0\.75ic': true }
   readonly translate1ic: { 'translate_1ic': true }
-  readonly translate1p25ic: { 'translate_1\.25ic': true }
   readonly translate1p5ic: { 'translate_1\.5ic': true }
   readonly translate2ic: { 'translate_2ic': true }
-  readonly translate2p5ic: { 'translate_2\.5ic': true }
   readonly translate3ic: { 'translate_3ic': true }
-  readonly translate4ic: { 'translate_4ic': true }
-  readonly translate5ic: { 'translate_5ic': true }
-  readonly translate6ic: { 'translate_6ic': true }
-  readonly translate8ic: { 'translate_8ic': true }
   readonly translate0in: { 'translate_0in': true }
   readonly translate1in: { 'translate_1in': true }
   readonly translate2in: { 'translate_2in': true }
   readonly translate4in: { 'translate_4in': true }
-  readonly translate6in: { 'translate_6in': true }
   readonly translate8in: { 'translate_8in': true }
-  readonly translate10in: { 'translate_10in': true }
-  readonly translate12in: { 'translate_12in': true }
-  readonly translate16in: { 'translate_16in': true }
-  readonly translate20in: { 'translate_20in': true }
   readonly translate0lh: { 'translate_0lh': true }
-  readonly translate0p25lh: { 'translate_0\.25lh': true }
   readonly translate0p5lh: { 'translate_0\.5lh': true }
-  readonly translate0p75lh: { 'translate_0\.75lh': true }
   readonly translate1lh: { 'translate_1lh': true }
-  readonly translate1p25lh: { 'translate_1\.25lh': true }
   readonly translate1p5lh: { 'translate_1\.5lh': true }
   readonly translate2lh: { 'translate_2lh': true }
-  readonly translate2p5lh: { 'translate_2\.5lh': true }
   readonly translate3lh: { 'translate_3lh': true }
-  readonly translate4lh: { 'translate_4lh': true }
-  readonly translate5lh: { 'translate_5lh': true }
-  readonly translate6lh: { 'translate_6lh': true }
-  readonly translate8lh: { 'translate_8lh': true }
   readonly translate0lvh: { 'translate_0lvh': true }
-  readonly translate10lvh: { 'translate_10lvh': true }
-  readonly translate20lvh: { 'translate_20lvh': true }
   readonly translate25lvh: { 'translate_25lvh': true }
-  readonly translate30lvh: { 'translate_30lvh': true }
-  readonly translate33p33lvh: { 'translate_33\.33lvh': true }
-  readonly translate40lvh: { 'translate_40lvh': true }
   readonly translate50lvh: { 'translate_50lvh': true }
-  readonly translate60lvh: { 'translate_60lvh': true }
-  readonly translate66p67lvh: { 'translate_66\.67lvh': true }
-  readonly translate70lvh: { 'translate_70lvh': true }
   readonly translate75lvh: { 'translate_75lvh': true }
-  readonly translate80lvh: { 'translate_80lvh': true }
-  readonly translate90lvh: { 'translate_90lvh': true }
   readonly translate100lvh: { 'translate_100lvh': true }
   readonly translate0lvw: { 'translate_0lvw': true }
-  readonly translate10lvw: { 'translate_10lvw': true }
-  readonly translate20lvw: { 'translate_20lvw': true }
   readonly translate25lvw: { 'translate_25lvw': true }
-  readonly translate30lvw: { 'translate_30lvw': true }
-  readonly translate33p33lvw: { 'translate_33\.33lvw': true }
-  readonly translate40lvw: { 'translate_40lvw': true }
   readonly translate50lvw: { 'translate_50lvw': true }
-  readonly translate60lvw: { 'translate_60lvw': true }
-  readonly translate66p67lvw: { 'translate_66\.67lvw': true }
-  readonly translate70lvw: { 'translate_70lvw': true }
   readonly translate75lvw: { 'translate_75lvw': true }
-  readonly translate80lvw: { 'translate_80lvw': true }
-  readonly translate90lvw: { 'translate_90lvw': true }
   readonly translate100lvw: { 'translate_100lvw': true }
   readonly translate0mm: { 'translate_0mm': true }
   readonly translate1mm: { 'translate_1mm': true }
   readonly translate2mm: { 'translate_2mm': true }
   readonly translate4mm: { 'translate_4mm': true }
-  readonly translate6mm: { 'translate_6mm': true }
   readonly translate8mm: { 'translate_8mm': true }
-  readonly translate10mm: { 'translate_10mm': true }
-  readonly translate12mm: { 'translate_12mm': true }
-  readonly translate16mm: { 'translate_16mm': true }
-  readonly translate20mm: { 'translate_20mm': true }
   readonly translate0pc: { 'translate_0pc': true }
   readonly translate1pc: { 'translate_1pc': true }
   readonly translate2pc: { 'translate_2pc': true }
   readonly translate4pc: { 'translate_4pc': true }
-  readonly translate6pc: { 'translate_6pc': true }
   readonly translate8pc: { 'translate_8pc': true }
-  readonly translate10pc: { 'translate_10pc': true }
-  readonly translate12pc: { 'translate_12pc': true }
-  readonly translate16pc: { 'translate_16pc': true }
-  readonly translate20pc: { 'translate_20pc': true }
   readonly translate0pt: { 'translate_0pt': true }
   readonly translate1pt: { 'translate_1pt': true }
   readonly translate2pt: { 'translate_2pt': true }
   readonly translate4pt: { 'translate_4pt': true }
-  readonly translate6pt: { 'translate_6pt': true }
   readonly translate8pt: { 'translate_8pt': true }
-  readonly translate10pt: { 'translate_10pt': true }
-  readonly translate12pt: { 'translate_12pt': true }
-  readonly translate16pt: { 'translate_16pt': true }
-  readonly translate20pt: { 'translate_20pt': true }
-  readonly translateN384px: { 'translate_-384px': true }
-  readonly translateN320px: { 'translate_-320px': true }
-  readonly translateN256px: { 'translate_-256px': true }
-  readonly translateN224px: { 'translate_-224px': true }
-  readonly translateN192px: { 'translate_-192px': true }
-  readonly translateN160px: { 'translate_-160px': true }
-  readonly translateN128px: { 'translate_-128px': true }
   readonly translateN96px: { 'translate_-96px': true }
   readonly translateN80px: { 'translate_-80px': true }
   readonly translateN64px: { 'translate_-64px': true }
-  readonly translateN56px: { 'translate_-56px': true }
   readonly translateN48px: { 'translate_-48px': true }
   readonly translateN40px: { 'translate_-40px': true }
   readonly translateN32px: { 'translate_-32px': true }
-  readonly translateN28px: { 'translate_-28px': true }
   readonly translateN24px: { 'translate_-24px': true }
   readonly translateN20px: { 'translate_-20px': true }
   readonly translateN16px: { 'translate_-16px': true }
-  readonly translateN14px: { 'translate_-14px': true }
   readonly translateN12px: { 'translate_-12px': true }
   readonly translateN10px: { 'translate_-10px': true }
   readonly translateN8px: { 'translate_-8px': true }
   readonly translateN6px: { 'translate_-6px': true }
   readonly translateN4px: { 'translate_-4px': true }
   readonly translateN2px: { 'translate_-2px': true }
-  readonly translateN1px: { 'translate_-1px': true }
   readonly translate0px: { 'translate_0px': true }
-  readonly translate1px: { 'translate_1px': true }
   readonly translate2px: { 'translate_2px': true }
   readonly translate4px: { 'translate_4px': true }
   readonly translate6px: { 'translate_6px': true }
   readonly translate8px: { 'translate_8px': true }
   readonly translate10px: { 'translate_10px': true }
   readonly translate12px: { 'translate_12px': true }
-  readonly translate14px: { 'translate_14px': true }
   readonly translate16px: { 'translate_16px': true }
   readonly translate20px: { 'translate_20px': true }
   readonly translate24px: { 'translate_24px': true }
-  readonly translate28px: { 'translate_28px': true }
   readonly translate32px: { 'translate_32px': true }
   readonly translate40px: { 'translate_40px': true }
   readonly translate48px: { 'translate_48px': true }
-  readonly translate56px: { 'translate_56px': true }
   readonly translate64px: { 'translate_64px': true }
   readonly translate80px: { 'translate_80px': true }
   readonly translate96px: { 'translate_96px': true }
-  readonly translate128px: { 'translate_128px': true }
-  readonly translate160px: { 'translate_160px': true }
-  readonly translate192px: { 'translate_192px': true }
-  readonly translate224px: { 'translate_224px': true }
-  readonly translate256px: { 'translate_256px': true }
-  readonly translate320px: { 'translate_320px': true }
-  readonly translate384px: { 'translate_384px': true }
   readonly translate0rem: { 'translate_0rem': true }
-  readonly translate0p25rem: { 'translate_0\.25rem': true }
   readonly translate0p5rem: { 'translate_0\.5rem': true }
-  readonly translate0p75rem: { 'translate_0\.75rem': true }
   readonly translate1rem: { 'translate_1rem': true }
-  readonly translate1p25rem: { 'translate_1\.25rem': true }
   readonly translate1p5rem: { 'translate_1\.5rem': true }
   readonly translate2rem: { 'translate_2rem': true }
-  readonly translate2p5rem: { 'translate_2\.5rem': true }
   readonly translate3rem: { 'translate_3rem': true }
-  readonly translate4rem: { 'translate_4rem': true }
-  readonly translate5rem: { 'translate_5rem': true }
-  readonly translate6rem: { 'translate_6rem': true }
-  readonly translate8rem: { 'translate_8rem': true }
   readonly translate0rlh: { 'translate_0rlh': true }
-  readonly translate0p25rlh: { 'translate_0\.25rlh': true }
   readonly translate0p5rlh: { 'translate_0\.5rlh': true }
-  readonly translate0p75rlh: { 'translate_0\.75rlh': true }
   readonly translate1rlh: { 'translate_1rlh': true }
-  readonly translate1p25rlh: { 'translate_1\.25rlh': true }
   readonly translate1p5rlh: { 'translate_1\.5rlh': true }
   readonly translate2rlh: { 'translate_2rlh': true }
-  readonly translate2p5rlh: { 'translate_2\.5rlh': true }
   readonly translate3rlh: { 'translate_3rlh': true }
-  readonly translate4rlh: { 'translate_4rlh': true }
-  readonly translate5rlh: { 'translate_5rlh': true }
-  readonly translate6rlh: { 'translate_6rlh': true }
-  readonly translate8rlh: { 'translate_8rlh': true }
   readonly translate0svh: { 'translate_0svh': true }
-  readonly translate10svh: { 'translate_10svh': true }
-  readonly translate20svh: { 'translate_20svh': true }
   readonly translate25svh: { 'translate_25svh': true }
-  readonly translate30svh: { 'translate_30svh': true }
-  readonly translate33p33svh: { 'translate_33\.33svh': true }
-  readonly translate40svh: { 'translate_40svh': true }
   readonly translate50svh: { 'translate_50svh': true }
-  readonly translate60svh: { 'translate_60svh': true }
-  readonly translate66p67svh: { 'translate_66\.67svh': true }
-  readonly translate70svh: { 'translate_70svh': true }
   readonly translate75svh: { 'translate_75svh': true }
-  readonly translate80svh: { 'translate_80svh': true }
-  readonly translate90svh: { 'translate_90svh': true }
   readonly translate100svh: { 'translate_100svh': true }
   readonly translate0svw: { 'translate_0svw': true }
-  readonly translate10svw: { 'translate_10svw': true }
-  readonly translate20svw: { 'translate_20svw': true }
   readonly translate25svw: { 'translate_25svw': true }
-  readonly translate30svw: { 'translate_30svw': true }
-  readonly translate33p33svw: { 'translate_33\.33svw': true }
-  readonly translate40svw: { 'translate_40svw': true }
   readonly translate50svw: { 'translate_50svw': true }
-  readonly translate60svw: { 'translate_60svw': true }
-  readonly translate66p67svw: { 'translate_66\.67svw': true }
-  readonly translate70svw: { 'translate_70svw': true }
   readonly translate75svw: { 'translate_75svw': true }
-  readonly translate80svw: { 'translate_80svw': true }
-  readonly translate90svw: { 'translate_90svw': true }
   readonly translate100svw: { 'translate_100svw': true }
   readonly translate0vb: { 'translate_0vb': true }
-  readonly translate10vb: { 'translate_10vb': true }
-  readonly translate20vb: { 'translate_20vb': true }
   readonly translate25vb: { 'translate_25vb': true }
-  readonly translate30vb: { 'translate_30vb': true }
-  readonly translate33p33vb: { 'translate_33\.33vb': true }
-  readonly translate40vb: { 'translate_40vb': true }
   readonly translate50vb: { 'translate_50vb': true }
-  readonly translate60vb: { 'translate_60vb': true }
-  readonly translate66p67vb: { 'translate_66\.67vb': true }
-  readonly translate70vb: { 'translate_70vb': true }
   readonly translate75vb: { 'translate_75vb': true }
-  readonly translate80vb: { 'translate_80vb': true }
-  readonly translate90vb: { 'translate_90vb': true }
   readonly translate100vb: { 'translate_100vb': true }
   readonly translate0vh: { 'translate_0vh': true }
-  readonly translate10vh: { 'translate_10vh': true }
-  readonly translate20vh: { 'translate_20vh': true }
   readonly translate25vh: { 'translate_25vh': true }
-  readonly translate30vh: { 'translate_30vh': true }
-  readonly translate33p33vh: { 'translate_33\.33vh': true }
-  readonly translate40vh: { 'translate_40vh': true }
   readonly translate50vh: { 'translate_50vh': true }
-  readonly translate60vh: { 'translate_60vh': true }
-  readonly translate66p67vh: { 'translate_66\.67vh': true }
-  readonly translate70vh: { 'translate_70vh': true }
   readonly translate75vh: { 'translate_75vh': true }
-  readonly translate80vh: { 'translate_80vh': true }
-  readonly translate90vh: { 'translate_90vh': true }
   readonly translate100vh: { 'translate_100vh': true }
   readonly translate0vi: { 'translate_0vi': true }
-  readonly translate10vi: { 'translate_10vi': true }
-  readonly translate20vi: { 'translate_20vi': true }
   readonly translate25vi: { 'translate_25vi': true }
-  readonly translate30vi: { 'translate_30vi': true }
-  readonly translate33p33vi: { 'translate_33\.33vi': true }
-  readonly translate40vi: { 'translate_40vi': true }
   readonly translate50vi: { 'translate_50vi': true }
-  readonly translate60vi: { 'translate_60vi': true }
-  readonly translate66p67vi: { 'translate_66\.67vi': true }
-  readonly translate70vi: { 'translate_70vi': true }
   readonly translate75vi: { 'translate_75vi': true }
-  readonly translate80vi: { 'translate_80vi': true }
-  readonly translate90vi: { 'translate_90vi': true }
   readonly translate100vi: { 'translate_100vi': true }
   readonly translate0vmax: { 'translate_0vmax': true }
-  readonly translate10vmax: { 'translate_10vmax': true }
-  readonly translate20vmax: { 'translate_20vmax': true }
   readonly translate25vmax: { 'translate_25vmax': true }
-  readonly translate30vmax: { 'translate_30vmax': true }
-  readonly translate33p33vmax: { 'translate_33\.33vmax': true }
-  readonly translate40vmax: { 'translate_40vmax': true }
   readonly translate50vmax: { 'translate_50vmax': true }
-  readonly translate60vmax: { 'translate_60vmax': true }
-  readonly translate66p67vmax: { 'translate_66\.67vmax': true }
-  readonly translate70vmax: { 'translate_70vmax': true }
   readonly translate75vmax: { 'translate_75vmax': true }
-  readonly translate80vmax: { 'translate_80vmax': true }
-  readonly translate90vmax: { 'translate_90vmax': true }
   readonly translate100vmax: { 'translate_100vmax': true }
   readonly translate0vmin: { 'translate_0vmin': true }
-  readonly translate10vmin: { 'translate_10vmin': true }
-  readonly translate20vmin: { 'translate_20vmin': true }
   readonly translate25vmin: { 'translate_25vmin': true }
-  readonly translate30vmin: { 'translate_30vmin': true }
-  readonly translate33p33vmin: { 'translate_33\.33vmin': true }
-  readonly translate40vmin: { 'translate_40vmin': true }
   readonly translate50vmin: { 'translate_50vmin': true }
-  readonly translate60vmin: { 'translate_60vmin': true }
-  readonly translate66p67vmin: { 'translate_66\.67vmin': true }
-  readonly translate70vmin: { 'translate_70vmin': true }
   readonly translate75vmin: { 'translate_75vmin': true }
-  readonly translate80vmin: { 'translate_80vmin': true }
-  readonly translate90vmin: { 'translate_90vmin': true }
   readonly translate100vmin: { 'translate_100vmin': true }
   readonly translate0vw: { 'translate_0vw': true }
-  readonly translate10vw: { 'translate_10vw': true }
-  readonly translate20vw: { 'translate_20vw': true }
   readonly translate25vw: { 'translate_25vw': true }
-  readonly translate30vw: { 'translate_30vw': true }
-  readonly translate33p33vw: { 'translate_33\.33vw': true }
-  readonly translate40vw: { 'translate_40vw': true }
   readonly translate50vw: { 'translate_50vw': true }
-  readonly translate60vw: { 'translate_60vw': true }
-  readonly translate66p67vw: { 'translate_66\.67vw': true }
-  readonly translate70vw: { 'translate_70vw': true }
   readonly translate75vw: { 'translate_75vw': true }
-  readonly translate80vw: { 'translate_80vw': true }
-  readonly translate90vw: { 'translate_90vw': true }
   readonly translate100vw: { 'translate_100vw': true }
   readonly translate0Pct: { 'translate_0\%': true }
-  readonly translate10Pct: { 'translate_10\%': true }
-  readonly translate20Pct: { 'translate_20\%': true }
   readonly translate25Pct: { 'translate_25\%': true }
-  readonly translate30Pct: { 'translate_30\%': true }
-  readonly translate33p33Pct: { 'translate_33\.33\%': true }
-  readonly translate40Pct: { 'translate_40\%': true }
   readonly translate50Pct: { 'translate_50\%': true }
-  readonly translate60Pct: { 'translate_60\%': true }
-  readonly translate66p67Pct: { 'translate_66\.67\%': true }
-  readonly translate70Pct: { 'translate_70\%': true }
   readonly translate75Pct: { 'translate_75\%': true }
-  readonly translate80Pct: { 'translate_80\%': true }
-  readonly translate90Pct: { 'translate_90\%': true }
   readonly translate100Pct: { 'translate_100\%': true }
 
   // ==================== width ====================
@@ -12096,437 +5374,179 @@ export interface CsstsAtoms {
   readonly width1Q: { 'width_1Q': true }
   readonly width2Q: { 'width_2Q': true }
   readonly width4Q: { 'width_4Q': true }
-  readonly width6Q: { 'width_6Q': true }
   readonly width8Q: { 'width_8Q': true }
-  readonly width10Q: { 'width_10Q': true }
-  readonly width12Q: { 'width_12Q': true }
-  readonly width16Q: { 'width_16Q': true }
-  readonly width20Q: { 'width_20Q': true }
   readonly width0cap: { 'width_0cap': true }
-  readonly width0p25cap: { 'width_0\.25cap': true }
   readonly width0p5cap: { 'width_0\.5cap': true }
-  readonly width0p75cap: { 'width_0\.75cap': true }
   readonly width1cap: { 'width_1cap': true }
-  readonly width1p25cap: { 'width_1\.25cap': true }
   readonly width1p5cap: { 'width_1\.5cap': true }
   readonly width2cap: { 'width_2cap': true }
-  readonly width2p5cap: { 'width_2\.5cap': true }
   readonly width3cap: { 'width_3cap': true }
-  readonly width4cap: { 'width_4cap': true }
-  readonly width5cap: { 'width_5cap': true }
-  readonly width6cap: { 'width_6cap': true }
-  readonly width8cap: { 'width_8cap': true }
   readonly width0ch: { 'width_0ch': true }
-  readonly width0p25ch: { 'width_0\.25ch': true }
   readonly width0p5ch: { 'width_0\.5ch': true }
-  readonly width0p75ch: { 'width_0\.75ch': true }
   readonly width1ch: { 'width_1ch': true }
-  readonly width1p25ch: { 'width_1\.25ch': true }
   readonly width1p5ch: { 'width_1\.5ch': true }
   readonly width2ch: { 'width_2ch': true }
-  readonly width2p5ch: { 'width_2\.5ch': true }
   readonly width3ch: { 'width_3ch': true }
-  readonly width4ch: { 'width_4ch': true }
-  readonly width5ch: { 'width_5ch': true }
-  readonly width6ch: { 'width_6ch': true }
-  readonly width8ch: { 'width_8ch': true }
   readonly width0cm: { 'width_0cm': true }
   readonly width1cm: { 'width_1cm': true }
   readonly width2cm: { 'width_2cm': true }
   readonly width4cm: { 'width_4cm': true }
-  readonly width6cm: { 'width_6cm': true }
   readonly width8cm: { 'width_8cm': true }
-  readonly width10cm: { 'width_10cm': true }
-  readonly width12cm: { 'width_12cm': true }
-  readonly width16cm: { 'width_16cm': true }
-  readonly width20cm: { 'width_20cm': true }
   readonly width0dvh: { 'width_0dvh': true }
-  readonly width10dvh: { 'width_10dvh': true }
-  readonly width20dvh: { 'width_20dvh': true }
   readonly width25dvh: { 'width_25dvh': true }
-  readonly width30dvh: { 'width_30dvh': true }
-  readonly width33p33dvh: { 'width_33\.33dvh': true }
-  readonly width40dvh: { 'width_40dvh': true }
   readonly width50dvh: { 'width_50dvh': true }
-  readonly width60dvh: { 'width_60dvh': true }
-  readonly width66p67dvh: { 'width_66\.67dvh': true }
-  readonly width70dvh: { 'width_70dvh': true }
   readonly width75dvh: { 'width_75dvh': true }
-  readonly width80dvh: { 'width_80dvh': true }
-  readonly width90dvh: { 'width_90dvh': true }
   readonly width100dvh: { 'width_100dvh': true }
   readonly width0dvw: { 'width_0dvw': true }
-  readonly width10dvw: { 'width_10dvw': true }
-  readonly width20dvw: { 'width_20dvw': true }
   readonly width25dvw: { 'width_25dvw': true }
-  readonly width30dvw: { 'width_30dvw': true }
-  readonly width33p33dvw: { 'width_33\.33dvw': true }
-  readonly width40dvw: { 'width_40dvw': true }
   readonly width50dvw: { 'width_50dvw': true }
-  readonly width60dvw: { 'width_60dvw': true }
-  readonly width66p67dvw: { 'width_66\.67dvw': true }
-  readonly width70dvw: { 'width_70dvw': true }
   readonly width75dvw: { 'width_75dvw': true }
-  readonly width80dvw: { 'width_80dvw': true }
-  readonly width90dvw: { 'width_90dvw': true }
   readonly width100dvw: { 'width_100dvw': true }
   readonly width0em: { 'width_0em': true }
-  readonly width0p25em: { 'width_0\.25em': true }
   readonly width0p5em: { 'width_0\.5em': true }
-  readonly width0p75em: { 'width_0\.75em': true }
   readonly width1em: { 'width_1em': true }
-  readonly width1p25em: { 'width_1\.25em': true }
   readonly width1p5em: { 'width_1\.5em': true }
   readonly width2em: { 'width_2em': true }
-  readonly width2p5em: { 'width_2\.5em': true }
   readonly width3em: { 'width_3em': true }
-  readonly width4em: { 'width_4em': true }
-  readonly width5em: { 'width_5em': true }
-  readonly width6em: { 'width_6em': true }
-  readonly width8em: { 'width_8em': true }
   readonly width0ex: { 'width_0ex': true }
-  readonly width0p25ex: { 'width_0\.25ex': true }
   readonly width0p5ex: { 'width_0\.5ex': true }
-  readonly width0p75ex: { 'width_0\.75ex': true }
   readonly width1ex: { 'width_1ex': true }
-  readonly width1p25ex: { 'width_1\.25ex': true }
   readonly width1p5ex: { 'width_1\.5ex': true }
   readonly width2ex: { 'width_2ex': true }
-  readonly width2p5ex: { 'width_2\.5ex': true }
   readonly width3ex: { 'width_3ex': true }
-  readonly width4ex: { 'width_4ex': true }
-  readonly width5ex: { 'width_5ex': true }
-  readonly width6ex: { 'width_6ex': true }
-  readonly width8ex: { 'width_8ex': true }
   readonly width0ic: { 'width_0ic': true }
-  readonly width0p25ic: { 'width_0\.25ic': true }
   readonly width0p5ic: { 'width_0\.5ic': true }
-  readonly width0p75ic: { 'width_0\.75ic': true }
   readonly width1ic: { 'width_1ic': true }
-  readonly width1p25ic: { 'width_1\.25ic': true }
   readonly width1p5ic: { 'width_1\.5ic': true }
   readonly width2ic: { 'width_2ic': true }
-  readonly width2p5ic: { 'width_2\.5ic': true }
   readonly width3ic: { 'width_3ic': true }
-  readonly width4ic: { 'width_4ic': true }
-  readonly width5ic: { 'width_5ic': true }
-  readonly width6ic: { 'width_6ic': true }
-  readonly width8ic: { 'width_8ic': true }
   readonly width0in: { 'width_0in': true }
   readonly width1in: { 'width_1in': true }
   readonly width2in: { 'width_2in': true }
   readonly width4in: { 'width_4in': true }
-  readonly width6in: { 'width_6in': true }
   readonly width8in: { 'width_8in': true }
-  readonly width10in: { 'width_10in': true }
-  readonly width12in: { 'width_12in': true }
-  readonly width16in: { 'width_16in': true }
-  readonly width20in: { 'width_20in': true }
   readonly width0lh: { 'width_0lh': true }
-  readonly width0p25lh: { 'width_0\.25lh': true }
   readonly width0p5lh: { 'width_0\.5lh': true }
-  readonly width0p75lh: { 'width_0\.75lh': true }
   readonly width1lh: { 'width_1lh': true }
-  readonly width1p25lh: { 'width_1\.25lh': true }
   readonly width1p5lh: { 'width_1\.5lh': true }
   readonly width2lh: { 'width_2lh': true }
-  readonly width2p5lh: { 'width_2\.5lh': true }
   readonly width3lh: { 'width_3lh': true }
-  readonly width4lh: { 'width_4lh': true }
-  readonly width5lh: { 'width_5lh': true }
-  readonly width6lh: { 'width_6lh': true }
-  readonly width8lh: { 'width_8lh': true }
   readonly width0lvh: { 'width_0lvh': true }
-  readonly width10lvh: { 'width_10lvh': true }
-  readonly width20lvh: { 'width_20lvh': true }
   readonly width25lvh: { 'width_25lvh': true }
-  readonly width30lvh: { 'width_30lvh': true }
-  readonly width33p33lvh: { 'width_33\.33lvh': true }
-  readonly width40lvh: { 'width_40lvh': true }
   readonly width50lvh: { 'width_50lvh': true }
-  readonly width60lvh: { 'width_60lvh': true }
-  readonly width66p67lvh: { 'width_66\.67lvh': true }
-  readonly width70lvh: { 'width_70lvh': true }
   readonly width75lvh: { 'width_75lvh': true }
-  readonly width80lvh: { 'width_80lvh': true }
-  readonly width90lvh: { 'width_90lvh': true }
   readonly width100lvh: { 'width_100lvh': true }
   readonly width0lvw: { 'width_0lvw': true }
-  readonly width10lvw: { 'width_10lvw': true }
-  readonly width20lvw: { 'width_20lvw': true }
   readonly width25lvw: { 'width_25lvw': true }
-  readonly width30lvw: { 'width_30lvw': true }
-  readonly width33p33lvw: { 'width_33\.33lvw': true }
-  readonly width40lvw: { 'width_40lvw': true }
   readonly width50lvw: { 'width_50lvw': true }
-  readonly width60lvw: { 'width_60lvw': true }
-  readonly width66p67lvw: { 'width_66\.67lvw': true }
-  readonly width70lvw: { 'width_70lvw': true }
   readonly width75lvw: { 'width_75lvw': true }
-  readonly width80lvw: { 'width_80lvw': true }
-  readonly width90lvw: { 'width_90lvw': true }
   readonly width100lvw: { 'width_100lvw': true }
   readonly width0mm: { 'width_0mm': true }
   readonly width1mm: { 'width_1mm': true }
   readonly width2mm: { 'width_2mm': true }
   readonly width4mm: { 'width_4mm': true }
-  readonly width6mm: { 'width_6mm': true }
   readonly width8mm: { 'width_8mm': true }
-  readonly width10mm: { 'width_10mm': true }
-  readonly width12mm: { 'width_12mm': true }
-  readonly width16mm: { 'width_16mm': true }
-  readonly width20mm: { 'width_20mm': true }
   readonly width0pc: { 'width_0pc': true }
   readonly width1pc: { 'width_1pc': true }
   readonly width2pc: { 'width_2pc': true }
   readonly width4pc: { 'width_4pc': true }
-  readonly width6pc: { 'width_6pc': true }
   readonly width8pc: { 'width_8pc': true }
-  readonly width10pc: { 'width_10pc': true }
-  readonly width12pc: { 'width_12pc': true }
-  readonly width16pc: { 'width_16pc': true }
-  readonly width20pc: { 'width_20pc': true }
   readonly width0pt: { 'width_0pt': true }
   readonly width1pt: { 'width_1pt': true }
   readonly width2pt: { 'width_2pt': true }
   readonly width4pt: { 'width_4pt': true }
-  readonly width6pt: { 'width_6pt': true }
   readonly width8pt: { 'width_8pt': true }
-  readonly width10pt: { 'width_10pt': true }
-  readonly width12pt: { 'width_12pt': true }
-  readonly width16pt: { 'width_16pt': true }
-  readonly width20pt: { 'width_20pt': true }
-  readonly widthN384px: { 'width_-384px': true }
-  readonly widthN320px: { 'width_-320px': true }
-  readonly widthN256px: { 'width_-256px': true }
-  readonly widthN224px: { 'width_-224px': true }
-  readonly widthN192px: { 'width_-192px': true }
-  readonly widthN160px: { 'width_-160px': true }
-  readonly widthN128px: { 'width_-128px': true }
   readonly widthN96px: { 'width_-96px': true }
   readonly widthN80px: { 'width_-80px': true }
   readonly widthN64px: { 'width_-64px': true }
-  readonly widthN56px: { 'width_-56px': true }
   readonly widthN48px: { 'width_-48px': true }
   readonly widthN40px: { 'width_-40px': true }
   readonly widthN32px: { 'width_-32px': true }
-  readonly widthN28px: { 'width_-28px': true }
   readonly widthN24px: { 'width_-24px': true }
   readonly widthN20px: { 'width_-20px': true }
   readonly widthN16px: { 'width_-16px': true }
-  readonly widthN14px: { 'width_-14px': true }
   readonly widthN12px: { 'width_-12px': true }
   readonly widthN10px: { 'width_-10px': true }
   readonly widthN8px: { 'width_-8px': true }
   readonly widthN6px: { 'width_-6px': true }
   readonly widthN4px: { 'width_-4px': true }
   readonly widthN2px: { 'width_-2px': true }
-  readonly widthN1px: { 'width_-1px': true }
   readonly width0px: { 'width_0px': true }
-  readonly width1px: { 'width_1px': true }
   readonly width2px: { 'width_2px': true }
   readonly width4px: { 'width_4px': true }
   readonly width6px: { 'width_6px': true }
   readonly width8px: { 'width_8px': true }
   readonly width10px: { 'width_10px': true }
   readonly width12px: { 'width_12px': true }
-  readonly width14px: { 'width_14px': true }
   readonly width16px: { 'width_16px': true }
   readonly width20px: { 'width_20px': true }
   readonly width24px: { 'width_24px': true }
-  readonly width28px: { 'width_28px': true }
   readonly width32px: { 'width_32px': true }
   readonly width40px: { 'width_40px': true }
   readonly width48px: { 'width_48px': true }
-  readonly width56px: { 'width_56px': true }
   readonly width64px: { 'width_64px': true }
   readonly width80px: { 'width_80px': true }
   readonly width96px: { 'width_96px': true }
-  readonly width128px: { 'width_128px': true }
-  readonly width160px: { 'width_160px': true }
-  readonly width192px: { 'width_192px': true }
-  readonly width224px: { 'width_224px': true }
-  readonly width256px: { 'width_256px': true }
-  readonly width320px: { 'width_320px': true }
-  readonly width384px: { 'width_384px': true }
   readonly width0rem: { 'width_0rem': true }
-  readonly width0p25rem: { 'width_0\.25rem': true }
   readonly width0p5rem: { 'width_0\.5rem': true }
-  readonly width0p75rem: { 'width_0\.75rem': true }
   readonly width1rem: { 'width_1rem': true }
-  readonly width1p25rem: { 'width_1\.25rem': true }
   readonly width1p5rem: { 'width_1\.5rem': true }
   readonly width2rem: { 'width_2rem': true }
-  readonly width2p5rem: { 'width_2\.5rem': true }
   readonly width3rem: { 'width_3rem': true }
-  readonly width4rem: { 'width_4rem': true }
-  readonly width5rem: { 'width_5rem': true }
-  readonly width6rem: { 'width_6rem': true }
-  readonly width8rem: { 'width_8rem': true }
   readonly width0rlh: { 'width_0rlh': true }
-  readonly width0p25rlh: { 'width_0\.25rlh': true }
   readonly width0p5rlh: { 'width_0\.5rlh': true }
-  readonly width0p75rlh: { 'width_0\.75rlh': true }
   readonly width1rlh: { 'width_1rlh': true }
-  readonly width1p25rlh: { 'width_1\.25rlh': true }
   readonly width1p5rlh: { 'width_1\.5rlh': true }
   readonly width2rlh: { 'width_2rlh': true }
-  readonly width2p5rlh: { 'width_2\.5rlh': true }
   readonly width3rlh: { 'width_3rlh': true }
-  readonly width4rlh: { 'width_4rlh': true }
-  readonly width5rlh: { 'width_5rlh': true }
-  readonly width6rlh: { 'width_6rlh': true }
-  readonly width8rlh: { 'width_8rlh': true }
   readonly width0svh: { 'width_0svh': true }
-  readonly width10svh: { 'width_10svh': true }
-  readonly width20svh: { 'width_20svh': true }
   readonly width25svh: { 'width_25svh': true }
-  readonly width30svh: { 'width_30svh': true }
-  readonly width33p33svh: { 'width_33\.33svh': true }
-  readonly width40svh: { 'width_40svh': true }
   readonly width50svh: { 'width_50svh': true }
-  readonly width60svh: { 'width_60svh': true }
-  readonly width66p67svh: { 'width_66\.67svh': true }
-  readonly width70svh: { 'width_70svh': true }
   readonly width75svh: { 'width_75svh': true }
-  readonly width80svh: { 'width_80svh': true }
-  readonly width90svh: { 'width_90svh': true }
   readonly width100svh: { 'width_100svh': true }
   readonly width0svw: { 'width_0svw': true }
-  readonly width10svw: { 'width_10svw': true }
-  readonly width20svw: { 'width_20svw': true }
   readonly width25svw: { 'width_25svw': true }
-  readonly width30svw: { 'width_30svw': true }
-  readonly width33p33svw: { 'width_33\.33svw': true }
-  readonly width40svw: { 'width_40svw': true }
   readonly width50svw: { 'width_50svw': true }
-  readonly width60svw: { 'width_60svw': true }
-  readonly width66p67svw: { 'width_66\.67svw': true }
-  readonly width70svw: { 'width_70svw': true }
   readonly width75svw: { 'width_75svw': true }
-  readonly width80svw: { 'width_80svw': true }
-  readonly width90svw: { 'width_90svw': true }
   readonly width100svw: { 'width_100svw': true }
   readonly width0vb: { 'width_0vb': true }
-  readonly width10vb: { 'width_10vb': true }
-  readonly width20vb: { 'width_20vb': true }
   readonly width25vb: { 'width_25vb': true }
-  readonly width30vb: { 'width_30vb': true }
-  readonly width33p33vb: { 'width_33\.33vb': true }
-  readonly width40vb: { 'width_40vb': true }
   readonly width50vb: { 'width_50vb': true }
-  readonly width60vb: { 'width_60vb': true }
-  readonly width66p67vb: { 'width_66\.67vb': true }
-  readonly width70vb: { 'width_70vb': true }
   readonly width75vb: { 'width_75vb': true }
-  readonly width80vb: { 'width_80vb': true }
-  readonly width90vb: { 'width_90vb': true }
   readonly width100vb: { 'width_100vb': true }
   readonly width0vh: { 'width_0vh': true }
-  readonly width10vh: { 'width_10vh': true }
-  readonly width20vh: { 'width_20vh': true }
   readonly width25vh: { 'width_25vh': true }
-  readonly width30vh: { 'width_30vh': true }
-  readonly width33p33vh: { 'width_33\.33vh': true }
-  readonly width40vh: { 'width_40vh': true }
   readonly width50vh: { 'width_50vh': true }
-  readonly width60vh: { 'width_60vh': true }
-  readonly width66p67vh: { 'width_66\.67vh': true }
-  readonly width70vh: { 'width_70vh': true }
   readonly width75vh: { 'width_75vh': true }
-  readonly width80vh: { 'width_80vh': true }
-  readonly width90vh: { 'width_90vh': true }
   readonly width100vh: { 'width_100vh': true }
   readonly width0vi: { 'width_0vi': true }
-  readonly width10vi: { 'width_10vi': true }
-  readonly width20vi: { 'width_20vi': true }
   readonly width25vi: { 'width_25vi': true }
-  readonly width30vi: { 'width_30vi': true }
-  readonly width33p33vi: { 'width_33\.33vi': true }
-  readonly width40vi: { 'width_40vi': true }
   readonly width50vi: { 'width_50vi': true }
-  readonly width60vi: { 'width_60vi': true }
-  readonly width66p67vi: { 'width_66\.67vi': true }
-  readonly width70vi: { 'width_70vi': true }
   readonly width75vi: { 'width_75vi': true }
-  readonly width80vi: { 'width_80vi': true }
-  readonly width90vi: { 'width_90vi': true }
   readonly width100vi: { 'width_100vi': true }
   readonly width0vmax: { 'width_0vmax': true }
-  readonly width10vmax: { 'width_10vmax': true }
-  readonly width20vmax: { 'width_20vmax': true }
   readonly width25vmax: { 'width_25vmax': true }
-  readonly width30vmax: { 'width_30vmax': true }
-  readonly width33p33vmax: { 'width_33\.33vmax': true }
-  readonly width40vmax: { 'width_40vmax': true }
   readonly width50vmax: { 'width_50vmax': true }
-  readonly width60vmax: { 'width_60vmax': true }
-  readonly width66p67vmax: { 'width_66\.67vmax': true }
-  readonly width70vmax: { 'width_70vmax': true }
   readonly width75vmax: { 'width_75vmax': true }
-  readonly width80vmax: { 'width_80vmax': true }
-  readonly width90vmax: { 'width_90vmax': true }
   readonly width100vmax: { 'width_100vmax': true }
   readonly width0vmin: { 'width_0vmin': true }
-  readonly width10vmin: { 'width_10vmin': true }
-  readonly width20vmin: { 'width_20vmin': true }
   readonly width25vmin: { 'width_25vmin': true }
-  readonly width30vmin: { 'width_30vmin': true }
-  readonly width33p33vmin: { 'width_33\.33vmin': true }
-  readonly width40vmin: { 'width_40vmin': true }
   readonly width50vmin: { 'width_50vmin': true }
-  readonly width60vmin: { 'width_60vmin': true }
-  readonly width66p67vmin: { 'width_66\.67vmin': true }
-  readonly width70vmin: { 'width_70vmin': true }
   readonly width75vmin: { 'width_75vmin': true }
-  readonly width80vmin: { 'width_80vmin': true }
-  readonly width90vmin: { 'width_90vmin': true }
   readonly width100vmin: { 'width_100vmin': true }
   readonly width0vw: { 'width_0vw': true }
-  readonly width10vw: { 'width_10vw': true }
-  readonly width20vw: { 'width_20vw': true }
   readonly width25vw: { 'width_25vw': true }
-  readonly width30vw: { 'width_30vw': true }
-  readonly width33p33vw: { 'width_33\.33vw': true }
-  readonly width40vw: { 'width_40vw': true }
   readonly width50vw: { 'width_50vw': true }
-  readonly width60vw: { 'width_60vw': true }
-  readonly width66p67vw: { 'width_66\.67vw': true }
-  readonly width70vw: { 'width_70vw': true }
   readonly width75vw: { 'width_75vw': true }
-  readonly width80vw: { 'width_80vw': true }
-  readonly width90vw: { 'width_90vw': true }
   readonly width100vw: { 'width_100vw': true }
   readonly width0Pct: { 'width_0\%': true }
-  readonly width10Pct: { 'width_10\%': true }
-  readonly width20Pct: { 'width_20\%': true }
   readonly width25Pct: { 'width_25\%': true }
-  readonly width30Pct: { 'width_30\%': true }
-  readonly width33p33Pct: { 'width_33\.33\%': true }
-  readonly width40Pct: { 'width_40\%': true }
   readonly width50Pct: { 'width_50\%': true }
-  readonly width60Pct: { 'width_60\%': true }
-  readonly width66p67Pct: { 'width_66\.67\%': true }
-  readonly width70Pct: { 'width_70\%': true }
   readonly width75Pct: { 'width_75\%': true }
-  readonly width80Pct: { 'width_80\%': true }
-  readonly width90Pct: { 'width_90\%': true }
   readonly width100Pct: { 'width_100\%': true }
 
   // ==================== z-index ====================
   readonly zIndexAuto: { 'z-index_auto': true }
-  readonly zIndex0: { 'z-index_0': true }
-  readonly zIndex0p5: { 'z-index_0\.5': true }
-  readonly zIndex1: { 'z-index_1': true }
-  readonly zIndex1p5: { 'z-index_1\.5': true }
-  readonly zIndex2: { 'z-index_2': true }
-  readonly zIndex3: { 'z-index_3': true }
-  readonly zIndex4: { 'z-index_4': true }
-  readonly zIndex5: { 'z-index_5': true }
-  readonly zIndex10: { 'z-index_10': true }
-  readonly zIndex20: { 'z-index_20': true }
-  readonly zIndex50: { 'z-index_50': true }
-  readonly zIndex100: { 'z-index_100': true }
 
   // ==================== state ====================
   readonly isDisabled: { 'is-disabled': true }
