@@ -236,6 +236,44 @@ export type CustomPropertyValue = string | Record<string, string>;
 
 // ==================== CSSTS 配置类 ====================
 
+/** CsstsConfig 构造函数参数类型 */
+export interface CsstsConfigOptions {
+    // 属性配置
+    includeProperties?: CssPropertyCamelName[];
+    excludeProperties?: CssPropertyCamelName[];
+    
+    // 数值类型配置
+    includeNumberTypes?: NumberTypeName[];
+    excludeNumberTypes?: NumberTypeName[];
+    
+    // 单位分类配置
+    includeUnitCategories?: UnitCategoryName[];
+    excludeUnitCategories?: UnitCategoryName[];
+    
+    // 单位配置
+    includeUnits?: UnitType[];
+    excludeUnits?: UnitType[];
+    
+    // 关键字/颜色配置
+    includeKeywords?: KeywordValue[];
+    excludeKeywords?: KeywordValue[];
+    includeColors?: AllColorValue[];
+    excludeColors?: AllColorValue[];
+    
+    // 伪类/伪元素配置
+    includePseudoClasses?: PseudoClassName[];
+    excludePseudoClasses?: PseudoClassName[];
+    includePseudoElements?: PseudoElementName[];
+    excludePseudoElements?: PseudoElementName[];
+    
+    // 其他配置
+    customProperties?: Record<string, CustomPropertyValue>;
+    progressiveRanges?: ProgressiveRange[];
+    unitCategories?: UnitsConfigValue<UnitCategoryName>;
+    pseudoClassStyles?: Partial<PseudoClassStylesConfig>;
+    pseudoElementStyles?: Partial<PseudoElementStylesConfig>;
+}
+
 /** CSSTS 配置 */
 export class CsstsConfig {
     // ==================== 属性配置 ====================
@@ -252,7 +290,7 @@ export class CsstsConfig {
      * 仅当 includeProperties 为空时生效
      * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
      */
-    excludeProperties: CssPropertyCamelName[] = [...RARE_PROPERTIES];
+    excludeProperties: CssPropertyCamelName[];
 
     // ==================== 数值类型配置 ====================
 
@@ -267,7 +305,7 @@ export class CsstsConfig {
      * 排除的数值类型列表（黑名单）
      * 仅当 includeNumberTypes 为空时生效
      */
-    excludeNumberTypes: NumberTypeName[] = [];
+    excludeNumberTypes: NumberTypeName[];
 
     // ==================== 单位分类配置 ====================
 
@@ -282,7 +320,7 @@ export class CsstsConfig {
      * 排除的单位分类列表（黑名单）
      * 仅当 includeUnitCategories 为空时生效
      */
-    excludeUnitCategories: UnitCategoryName[] = [];
+    excludeUnitCategories: UnitCategoryName[];
 
     // ==================== 单位配置 ====================
 
@@ -297,7 +335,7 @@ export class CsstsConfig {
      * 排除的单位列表（黑名单）
      * 仅当 includeUnits 为空时生效
      */
-    excludeUnits: UnitType[] = [];
+    excludeUnits: UnitType[];
 
     // ==================== 关键字/颜色配置 ====================
 
@@ -308,7 +346,7 @@ export class CsstsConfig {
     includeKeywords?: KeywordValue[];
 
     /** 排除的关键字列表（黑名单） */
-    excludeKeywords: KeywordValue[] = [];
+    excludeKeywords: KeywordValue[];
 
     /**
      * 支持的颜色列表（白名单）
@@ -317,21 +355,21 @@ export class CsstsConfig {
     includeColors?: AllColorValue[];
 
     /** 排除的颜色列表（黑名单） */
-    excludeColors: AllColorValue[] = [];
+    excludeColors: AllColorValue[];
 
     // ==================== 其他配置 ====================
 
     /** 自定义属性 */
-    customProperties: Record<string, CustomPropertyValue> = {};
+    customProperties: Record<string, CustomPropertyValue>;
 
     /** 渐进步长策略（不设置则使用默认策略） */
-    progressiveRanges: ProgressiveRange[] = DEFAULT_PROGRESSIVE_RANGES;
+    progressiveRanges: ProgressiveRange[];
 
     /** 单位分类配置（覆盖 DEFAULT_UNIT_CATEGORY_CONFIGS） */
-    unitCategories: UnitsConfigValue<UnitCategoryName> = {};
+    unitCategories: UnitsConfigValue<UnitCategoryName>;
 
     /** 属性级别配置 */
-    properties = new CssPropertyConfigMap();
+    properties: CssPropertyConfigMap;
 
     // ==================== 伪类/伪元素配置 ====================
 
@@ -342,7 +380,7 @@ export class CsstsConfig {
     includePseudoClasses?: PseudoClassName[];
 
     /** 排除的伪类列表（黑名单） */
-    excludePseudoClasses: PseudoClassName[] = [];
+    excludePseudoClasses: PseudoClassName[];
 
     /**
      * 支持的伪元素列表（白名单）
@@ -351,13 +389,93 @@ export class CsstsConfig {
     includePseudoElements?: PseudoElementName[];
 
     /** 排除的伪元素列表（黑名单） */
-    excludePseudoElements: PseudoElementName[] = [];
+    excludePseudoElements: PseudoElementName[];
 
     /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
-    pseudoClassStyles = new PseudoClassStylesConfig();
+    pseudoClassStyles: PseudoClassStylesConfig;
 
     /** 伪元素样式配置 */
-    pseudoElementStyles = new PseudoElementStylesConfig();
+    pseudoElementStyles: PseudoElementStylesConfig;
+
+    /**
+     * 创建 CSSTS 配置实例
+     * 
+     * @param options 可选的配置对象，用于覆盖默认值
+     * 
+     * @example
+     * // 使用默认配置
+     * const config = new CsstsConfig();
+     * 
+     * @example
+     * // 只生成指定属性
+     * const config = new CsstsConfig({
+     *   includeProperties: ['width', 'height', 'margin', 'padding'],
+     * });
+     * 
+     * @example
+     * // 只使用 px 和百分比单位
+     * const config = new CsstsConfig({
+     *   includeUnitCategories: ['px', 'percentage'],
+     * });
+     * 
+     * @example
+     * // 自定义单位分类配置
+     * const config = new CsstsConfig({
+     *   unitCategories: {
+     *     px: { presets: [0, 4, 8, 16, 32, 64] },
+     *     percentage: { presets: [0, 25, 50, 75, 100] },
+     *   },
+     * });
+     */
+    constructor(options: CsstsConfigOptions = {}) {
+        // 属性配置
+        this.includeProperties = options.includeProperties;
+        this.excludeProperties = options.excludeProperties ?? [...RARE_PROPERTIES];
+        
+        // 数值类型配置
+        this.includeNumberTypes = options.includeNumberTypes;
+        this.excludeNumberTypes = options.excludeNumberTypes ?? [];
+        
+        // 单位分类配置
+        this.includeUnitCategories = options.includeUnitCategories;
+        this.excludeUnitCategories = options.excludeUnitCategories ?? [];
+        
+        // 单位配置
+        this.includeUnits = options.includeUnits;
+        this.excludeUnits = options.excludeUnits ?? [];
+        
+        // 关键字/颜色配置
+        this.includeKeywords = options.includeKeywords;
+        this.excludeKeywords = options.excludeKeywords ?? [];
+        this.includeColors = options.includeColors;
+        this.excludeColors = options.excludeColors ?? [];
+        
+        // 伪类/伪元素配置
+        this.includePseudoClasses = options.includePseudoClasses;
+        this.excludePseudoClasses = options.excludePseudoClasses ?? [];
+        this.includePseudoElements = options.includePseudoElements;
+        this.excludePseudoElements = options.excludePseudoElements ?? [];
+        
+        // 其他配置
+        this.customProperties = options.customProperties ?? {};
+        this.progressiveRanges = options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES;
+        this.unitCategories = options.unitCategories ?? {};
+        this.properties = new CssPropertyConfigMap();
+        
+        // 伪类/伪元素样式配置
+        this.pseudoClassStyles = Object.assign(new PseudoClassStylesConfig(), options.pseudoClassStyles);
+        this.pseudoElementStyles = Object.assign(new PseudoElementStylesConfig(), options.pseudoElementStyles);
+    }
+
+    /**
+     * 创建配置实例的静态工厂方法
+     * 
+     * @param options 可选的配置对象
+     * @returns CsstsConfig 实例
+     */
+    static create(options: CsstsConfigOptions = {}): CsstsConfig {
+        return new CsstsConfig(options);
+    }
 }
 
 // ==================== 伪类/伪元素样式类型 ====================

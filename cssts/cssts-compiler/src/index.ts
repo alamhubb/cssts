@@ -32,7 +32,7 @@ export {
 // Generator (从 cssts-types 移入)
 export {
   // 配置类型
-  CsstsConfig,
+  CsstsConfig as LegacyCsstsConfig,
   type PropertyConfig,
   type UnitValueConfig as UnitConfig,
   type UnitType,
@@ -52,3 +52,29 @@ export {
   type GeneratorOptions,
   generateDtsAsync,
 } from './generator/index.js'
+
+// CSS Types - 新的配置系统
+export {
+  // 主配置类
+  CsstsConfig,
+  type CsstsConfigOptions,
+  // 配置工具函数
+  shouldInclude,
+  getEffectiveList,
+  normalizeUnitsConfig,
+  normalizeUnitCategoriesConfig,
+  // 单位配置类型
+  type UnitValueConfig,
+  type UnitCategoryConfig,
+  type UnitsConfigValue,
+  type ProgressiveRange,
+  type StepConfig,
+  // 默认配置
+  DEFAULT_UNIT_CATEGORY_CONFIGS,
+  DEFAULT_PROGRESSIVE_RANGES,
+  // 伪类/伪元素样式配置
+  PseudoClassStylesConfig,
+  PseudoElementStylesConfig,
+  type PseudoStyleValue,
+  type CustomPropertyValue,
+} from './css-types/cssts-config.js'
