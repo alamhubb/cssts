@@ -4,8 +4,8 @@
  * 提供配置相关的辅助函数
  */
 
-import type { UnitCategoryName } from '../config/units';
-import type { UnitValueConfig, UnitsConfigValue, UnitCategoryConfig } from '../config/value-config';
+import type { UnitCategoryName, UnitsConfigValue, UnitCategoryConfig } from '../config/units';
+import type { UnitValueConfig } from '../config/value-config';
 
 /**
  * 判断一个值是否应该被包含

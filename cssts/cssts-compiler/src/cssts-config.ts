@@ -16,16 +16,17 @@ import {
     type ProgressiveRange,
     type StepConfig,
     type UnitValueConfig,
+} from './config/units';
+import {
     type UnitsConfigValue,
     type UnitCategoryConfig,
-    type CustomPropertyValue,
     type NumberTypeConfigItem,
     type UnitCategoryConfigItem,
     type UnitConfigItem,
     type NumberTypeExcludeItem,
     type UnitCategoryExcludeItem,
     type UnitExcludeItem,
-} from './config/value-config';
+} from './config/units';
 import {
     PseudoClassStylesConfig,
     PseudoElementStylesConfig,
@@ -54,6 +55,11 @@ export {
     PseudoClassStylesConfig,
     PseudoElementStylesConfig,
 };
+
+// ==================== 类型定义 ====================
+
+/** 自定义属性值类型 */
+export type CustomPropertyValue = string | Record<string, string>;
 
 // ==================== 系统级别默认配置 ====================
 

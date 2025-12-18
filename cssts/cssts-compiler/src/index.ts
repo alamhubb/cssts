@@ -33,12 +33,7 @@ export {
 export {
   // 主配置类
   CsstsConfig,
-  // 单位配置类型
-  type UnitValueConfig,
-  type UnitCategoryConfig,
-  type UnitsConfigValue,
-  type ProgressiveRange,
-  type StepConfig,
+
   // 默认配置
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
@@ -95,7 +90,22 @@ export {
   type PseudoElementName,
 } from './config/pseudo.js'
 
-export type { UnitType, NumberTypeName, UnitCategoryName } from './config/units.js'
+export type {
+  UnitType,
+  NumberTypeName,
+  UnitCategoryName,
+  ProgressiveRange,
+  StepConfig,
+  UnitValueConfig,
+  UnitCategoryConfig,
+  UnitsConfigValue,
+  NumberTypeConfigItem,
+  UnitCategoryConfigItem,
+  UnitConfigItem,
+  NumberTypeExcludeItem,
+  UnitCategoryExcludeItem,
+  UnitExcludeItem,
+} from './config/units.js'
 export type { KeywordValue } from './config/keywords.js'
 export type { AllColorValue, SystemColorValue } from './config/colors.js'
 
