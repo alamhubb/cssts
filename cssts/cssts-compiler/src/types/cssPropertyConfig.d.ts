@@ -13,4 +13,8 @@ export type CSSPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
 
 // ==================== 联合类型 ====================
 
+// 单个属性或属性集合
 export type CSSProperty = CSSPropertyName | CSSPropertiesType;
+
+// 单个或多个属性
+export type CSSProperties = CSSProperty | CSSProperty[];

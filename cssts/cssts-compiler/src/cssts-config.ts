@@ -10,9 +10,9 @@
 // ==================== 类型定义 ====================
 
 import {ProgressiveRange} from "./types/value.ts";
-import {CSSPropertyName} from "./data/propertyName.ts";
 import {CSSPropertiesType} from "./types/cssProperties";
-import {CSSProperty} from "./types/cssPropertyConfig";
+import {CSSProperties, CSSProperty} from "./types/cssPropertyConfig";
+import {CSSPropertyName} from "./data/property-data.ts";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -140,14 +140,14 @@ export class CsstsConfig {
      *   height: { numberTypes: ['length'] }
      * }
      */
-    properties?: CSSProperty | CSSProperty[];
+    properties?: CSSProperties
 
     /**
      * 排除的属性列表（黑名单）
      * 仅当 properties 为空时生效
      * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
      */
-    excludeProperties: CssPropertyCamelName[];
+    excludeProperties?: CSSProperties
 
     // ==================== 数值类型配置 ====================
 
