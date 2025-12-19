@@ -9,7 +9,7 @@
 
 // ==================== 类型定义 ====================
 
-import {ProgressiveRange} from "./types/value.ts";
+import {ProgressiveRange, UnitCategoryConfig} from "./types/value.ts";
 import {
     NumberTypeConfigItem,
     NumberTypeExcludeItem,
@@ -18,6 +18,10 @@ import {
 } from "./types/config.ts";
 import {CssPseudoClassName, CssPseudoElementName} from "./types/cssPseudoClassElement";
 import {CssPseudoClassConfig, CssPseudoElementConfig} from "./types/pseudoStyles";
+import {CssNumberCategoryName, CssNumberTypeName, CssNumberUnitName} from "./types/numberTypes";
+import {CssProperties} from "./types/cssPropertyConfig";
+import {UnitType} from "./laji/cssts-data.ts";
+import {CssAllColorName, CssAllKeywordName} from "./types/cssKeywords";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -38,7 +42,7 @@ export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
 ];
 
 /** 默认数值类型列表 - 包含所有常用数值类型 */
-export const DEFAULT_NUMBER_TYPES: NumberTypeName[] = [
+export const DEFAULT_NUMBER_TYPES: CssNumberTypeName[] = [
     'length',
     'angle',
     'time',
@@ -56,7 +60,7 @@ export const DEFAULT_NUMBER_TYPES: NumberTypeName[] = [
  * 基于分类配置数值，同一分类下的所有单位共享相同的数值范围
  * 使用 presets 模式可以精确控制生成的数值
  */
-export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategoryConfig> = {
+export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<CssNumberCategoryName, UnitCategoryConfig> = {
     // pixel 单位分类 - Tailwind spacing scale
     pixel: {
         negative: true,
@@ -145,14 +149,14 @@ export class CsstsConfig {
      *   height: { numberTypes: ['length'] }
      * }
      */
-    properties?: CSSProperties
+    properties?: CssProperties
 
     /**
      * 排除的属性列表（黑名单）
      * 仅当 properties 为空时生效
      * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
      */
-    excludeProperties?: CSSProperties
+    excludeProperties?: CssProperties
 
     // ==================== 数值类型配置 ====================
 
@@ -167,7 +171,7 @@ export class CsstsConfig {
      *   { time: { px: { px: { step: 4 } } } }
      * ]
      */
-    numberTypes?: NumberTypeConfigItem<NumberTypeName>[];
+    numberTypes?: NumberTypeConfigItem<CssNumberTypeName>[];
 
     /**
      * 排除的数值类型列表（黑名单）
@@ -181,7 +185,7 @@ export class CsstsConfig {
      *   { length: { pixel: ['px'] } }      // 排除 length 类型中 pixel 分类下的 px
      * ]
      */
-    excludeNumberTypes: NumberTypeExcludeItem<NumberTypeName>[];
+    excludeNumberTypes: NumberTypeExcludeItem<CssNumberTypeName>[];
 
     // ==================== 单位分类配置 ====================
 
@@ -198,7 +202,7 @@ export class CsstsConfig {
      *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
      * ]
      */
-    unitCategories: UnitCategoryConfigItem<NumberCategoryName>[];
+    unitCategories: UnitCategoryConfigItem<CssNumberCategoryName>[];
 
     /**
      * 排除的单位分类列表（黑名单）
@@ -211,7 +215,7 @@ export class CsstsConfig {
      *   { pixel: ['px'] }           // 排除 pixel 分类下的 px 单位
      * ]
      */
-    excludeUnitCategories: UnitCategoryExcludeItem<NumberCategoryName>[];
+    excludeUnitCategories: UnitCategoryExcludeItem<CssNumberCategoryName>[];
 
     // ==================== 单位配置 ====================
 
@@ -227,7 +231,7 @@ export class CsstsConfig {
      *   { px: { step: 4, max: 500 } }  // px is the unit name, not category
      * ]
      */
-    units?: UnitConfigItem<NumberUnitName>[];
+    units?: UnitConfigItem<CssNumberUnitName>[];
 
     /**
      * 排除的单位列表（黑名单）
@@ -249,27 +253,27 @@ export class CsstsConfig {
      * 支持的关键字列表（白名单）
      * 如果配置了此项，则只生成这些关键字，忽略 excludeKeywords
      */
-    keywords?: AllKeywordName[];
+    keywords?: [];
 
     /**
      * 排除的关键字列表（黑名单）
      * 仅当 keywords 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludeKeywords: AllKeywordName[];
+    excludeKeywords: CssAllKeywordName[];
 
     /**
      * 支持的颜色列表（白名单）
      * 如果配置了此项，则只生成这些颜色，忽略 excludeColors
      */
-    colors?: AllColorName[];
+    colors?: CssAllColorName[];
 
     /**
      * 排除的颜色列表（黑名单）
      * 仅当 colors 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludeColors: AllColorName[];
+    excludeColors: CssAllColorName[];
 
     // ==================== 其他配置 ====================
 

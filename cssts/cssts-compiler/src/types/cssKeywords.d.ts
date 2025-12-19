@@ -14,7 +14,7 @@ export type CssKeywordName = typeof keywords[number];
 
 // ==================== Colors 类型 ====================
 
-export type CssColorName = typeof ALL_COLORS[number];
+export type CssAllColorName = typeof ALL_COLORS[number];
 
 // ==================== 所有 Keywords 和 Colors 类型 ====================
 
