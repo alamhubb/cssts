@@ -171,13 +171,13 @@ function extractColorsFromCsstree(): string[] {
   const lexer = (csstree as any).lexer;
   const colors = new Set<string>();
 
-  // 从 csstree 的 types 中查找 color 类型定义
-  const colorType = lexer.types['color'];
-  if (colorType && colorType.syntax) {
-    // 只提取 keywords，不提取 numberTypes
+  // 从 csstree 的 types 中查找 named-color 类型定义
+  // named-color 包含所有标准的 CSS 颜色名称
+  const namedColorType = lexer.types['named-color'];
+  if (namedColorType && namedColorType.syntax) {
     const keywords = new Set<string>();
     const numberTypes = new Set<string>();
-    extractFromSyntaxNode(colorType.syntax, keywords, numberTypes, lexer);
+    extractFromSyntaxNode(namedColorType.syntax, keywords, numberTypes, lexer);
     keywords.forEach(k => colors.add(k));
   }
 
@@ -209,7 +209,7 @@ function extractUnitsFromCsstree(): string[] {
 // ==================== 从配置文件读取伪类/伪元素标准 ====================
 
 function loadPseudoStandards(): { pseudoClasses: string[]; pseudoElements: string[] } {
-  const standardsPath = path.join(__dirname, 'pseudo-standards.json');
+  const standardsPath = path.join(__dirname, 'datajson', 'pseudo-standards.json');
   const standardsContent = fs.readFileSync(standardsPath, 'utf-8');
   const standards = JSON.parse(standardsContent);
   
