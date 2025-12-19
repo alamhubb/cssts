@@ -10,28 +10,28 @@ import type * as NumberTypes from '../data/propertyNumberTypes';
 // ==================== 属性类型 ====================
 
 export interface accentColorPropertyType {
-  keywords: typeof Keywords.ACCENTCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ACCENTCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ACCENT_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ACCENT_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface alignContentPropertyType {
-  keywords: typeof Keywords.ALIGNCONTENT_KEYWORDS[number][];
+  keywords: typeof Keywords.ALIGN_CONTENT_KEYWORDS[number][];
 }
 
 export interface alignItemsPropertyType {
-  keywords: typeof Keywords.ALIGNITEMS_KEYWORDS[number][];
+  keywords: typeof Keywords.ALIGN_ITEMS_KEYWORDS[number][];
 }
 
 export interface alignmentBaselinePropertyType {
-  keywords: typeof Keywords.ALIGNMENTBASELINE_KEYWORDS[number][];
+  keywords: typeof Keywords.ALIGNMENT_BASELINE_KEYWORDS[number][];
 }
 
 export interface alignSelfPropertyType {
-  keywords: typeof Keywords.ALIGNSELF_KEYWORDS[number][];
+  keywords: typeof Keywords.ALIGN_SELF_KEYWORDS[number][];
 }
 
 export interface alignTracksPropertyType {
-  keywords: typeof Keywords.ALIGNTRACKS_KEYWORDS[number][];
+  keywords: typeof Keywords.ALIGN_TRACKS_KEYWORDS[number][];
 }
 
 export interface allPropertyType {
@@ -39,11 +39,11 @@ export interface allPropertyType {
 }
 
 export interface anchorNamePropertyType {
-  keywords: typeof Keywords.ANCHORNAME_KEYWORDS[number][];
+  keywords: typeof Keywords.ANCHOR_NAME_KEYWORDS[number][];
 }
 
 export interface anchorScopePropertyType {
-  keywords: typeof Keywords.ANCHORSCOPE_KEYWORDS[number][];
+  keywords: typeof Keywords.ANCHOR_SCOPE_KEYWORDS[number][];
 }
 
 export interface animationPropertyType {
@@ -52,61 +52,61 @@ export interface animationPropertyType {
 }
 
 export interface animationCompositionPropertyType {
-  keywords: typeof Keywords.ANIMATIONCOMPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.ANIMATION_COMPOSITION_KEYWORDS[number][];
 }
 
 export interface animationDelayPropertyType {
-  numberTypes: typeof NumberTypes.ANIMATIONDELAY_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_DELAY_NUMBER_TYPES[number][];
 }
 
 export interface animationDirectionPropertyType {
-  keywords: typeof Keywords.ANIMATIONDIRECTION_KEYWORDS[number][];
+  keywords: typeof Keywords.ANIMATION_DIRECTION_KEYWORDS[number][];
 }
 
 export interface animationDurationPropertyType {
-  numberTypes: typeof NumberTypes.ANIMATIONDURATION_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_DURATION_NUMBER_TYPES[number][];
 }
 
 export interface animationFillModePropertyType {
-  keywords: typeof Keywords.ANIMATIONFILLMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.ANIMATION_FILL_MODE_KEYWORDS[number][];
 }
 
 export interface animationIterationCountPropertyType {
-  keywords: typeof Keywords.ANIMATIONITERATIONCOUNT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONITERATIONCOUNT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_ITERATION_COUNT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_ITERATION_COUNT_NUMBER_TYPES[number][];
 }
 
 export interface animationNamePropertyType {
-  keywords: typeof Keywords.ANIMATIONNAME_KEYWORDS[number][];
+  keywords: typeof Keywords.ANIMATION_NAME_KEYWORDS[number][];
 }
 
 export interface animationPlayStatePropertyType {
-  keywords: typeof Keywords.ANIMATIONPLAYSTATE_KEYWORDS[number][];
+  keywords: typeof Keywords.ANIMATION_PLAY_STATE_KEYWORDS[number][];
 }
 
 export interface animationRangePropertyType {
-  keywords: typeof Keywords.ANIMATIONRANGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONRANGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_RANGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_RANGE_NUMBER_TYPES[number][];
 }
 
 export interface animationRangeEndPropertyType {
-  keywords: typeof Keywords.ANIMATIONRANGEEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONRANGEEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_RANGE_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_RANGE_END_NUMBER_TYPES[number][];
 }
 
 export interface animationRangeStartPropertyType {
-  keywords: typeof Keywords.ANIMATIONRANGESTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONRANGESTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_RANGE_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_RANGE_START_NUMBER_TYPES[number][];
 }
 
 export interface animationTimelinePropertyType {
-  keywords: typeof Keywords.ANIMATIONTIMELINE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONTIMELINE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_TIMELINE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_TIMELINE_NUMBER_TYPES[number][];
 }
 
 export interface animationTimingFunctionPropertyType {
-  keywords: typeof Keywords.ANIMATIONTIMINGFUNCTION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ANIMATIONTIMINGFUNCTION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ANIMATION_TIMING_FUNCTION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ANIMATION_TIMING_FUNCTION_NUMBER_TYPES[number][];
 }
 
 export interface appearancePropertyType {
@@ -114,8 +114,8 @@ export interface appearancePropertyType {
 }
 
 export interface aspectRatioPropertyType {
-  keywords: typeof Keywords.ASPECTRATIO_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ASPECTRATIO_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ASPECT_RATIO_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ASPECT_RATIO_NUMBER_TYPES[number][];
 }
 
 export interface azimuthPropertyType {
@@ -124,12 +124,12 @@ export interface azimuthPropertyType {
 }
 
 export interface backdropFilterPropertyType {
-  keywords: typeof Keywords.BACKDROPFILTER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKDROPFILTER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKDROP_FILTER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKDROP_FILTER_NUMBER_TYPES[number][];
 }
 
 export interface backfaceVisibilityPropertyType {
-  keywords: typeof Keywords.BACKFACEVISIBILITY_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKFACE_VISIBILITY_KEYWORDS[number][];
 }
 
 export interface backgroundPropertyType {
@@ -138,63 +138,63 @@ export interface backgroundPropertyType {
 }
 
 export interface backgroundAttachmentPropertyType {
-  keywords: typeof Keywords.BACKGROUNDATTACHMENT_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKGROUND_ATTACHMENT_KEYWORDS[number][];
 }
 
 export interface backgroundBlendModePropertyType {
-  keywords: typeof Keywords.BACKGROUNDBLENDMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKGROUND_BLEND_MODE_KEYWORDS[number][];
 }
 
 export interface backgroundClipPropertyType {
-  keywords: typeof Keywords.BACKGROUNDCLIP_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKGROUND_CLIP_KEYWORDS[number][];
 }
 
 export interface backgroundColorPropertyType {
-  keywords: typeof Keywords.BACKGROUNDCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface backgroundImagePropertyType {
-  keywords: typeof Keywords.BACKGROUNDIMAGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDIMAGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_IMAGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_IMAGE_NUMBER_TYPES[number][];
 }
 
 export interface backgroundOriginPropertyType {
-  keywords: typeof Keywords.BACKGROUNDORIGIN_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKGROUND_ORIGIN_KEYWORDS[number][];
 }
 
 export interface backgroundPositionPropertyType {
-  keywords: typeof Keywords.BACKGROUNDPOSITION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDPOSITION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_POSITION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_POSITION_NUMBER_TYPES[number][];
 }
 
 export interface backgroundPositionXPropertyType {
-  keywords: typeof Keywords.BACKGROUNDPOSITIONX_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDPOSITIONX_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_POSITION_X_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_POSITION_X_NUMBER_TYPES[number][];
 }
 
 export interface backgroundPositionYPropertyType {
-  keywords: typeof Keywords.BACKGROUNDPOSITIONY_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDPOSITIONY_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_POSITION_Y_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_POSITION_Y_NUMBER_TYPES[number][];
 }
 
 export interface backgroundRepeatPropertyType {
-  keywords: typeof Keywords.BACKGROUNDREPEAT_KEYWORDS[number][];
+  keywords: typeof Keywords.BACKGROUND_REPEAT_KEYWORDS[number][];
 }
 
 export interface backgroundSizePropertyType {
-  keywords: typeof Keywords.BACKGROUNDSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BACKGROUNDSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BACKGROUND_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BACKGROUND_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface baselineShiftPropertyType {
-  keywords: typeof Keywords.BASELINESHIFT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BASELINESHIFT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BASELINE_SHIFT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BASELINE_SHIFT_NUMBER_TYPES[number][];
 }
 
 export interface blockSizePropertyType {
-  keywords: typeof Keywords.BLOCKSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BLOCKSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BLOCK_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BLOCK_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface borderPropertyType {
@@ -203,279 +203,279 @@ export interface borderPropertyType {
 }
 
 export interface borderBlockPropertyType {
-  keywords: typeof Keywords.BORDERBLOCK_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCK_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockColorPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockEndPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockEndColorPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKENDCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKENDCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_END_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_END_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockEndStylePropertyType {
-  keywords: typeof Keywords.BORDERBLOCKENDSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_END_STYLE_KEYWORDS[number][];
 }
 
 export interface borderBlockEndWidthPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKENDWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKENDWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_END_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_END_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockStartPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockStartColorPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKSTARTCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKSTARTCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_START_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_START_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockStartStylePropertyType {
-  keywords: typeof Keywords.BORDERBLOCKSTARTSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_START_STYLE_KEYWORDS[number][];
 }
 
 export interface borderBlockStartWidthPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKSTARTWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKSTARTWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_START_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_START_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderBlockStylePropertyType {
-  keywords: typeof Keywords.BORDERBLOCKSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_STYLE_KEYWORDS[number][];
 }
 
 export interface borderBlockWidthPropertyType {
-  keywords: typeof Keywords.BORDERBLOCKWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBLOCKWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BLOCK_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BLOCK_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderBottomPropertyType {
-  keywords: typeof Keywords.BORDERBOTTOM_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBOTTOM_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BOTTOM_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BOTTOM_NUMBER_TYPES[number][];
 }
 
 export interface borderBottomColorPropertyType {
-  keywords: typeof Keywords.BORDERBOTTOMCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBOTTOMCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BOTTOM_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BOTTOM_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderBottomLeftRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERBOTTOMLEFTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_BOTTOM_LEFT_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderBottomRightRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERBOTTOMRIGHTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_BOTTOM_RIGHT_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderBottomStylePropertyType {
-  keywords: typeof Keywords.BORDERBOTTOMSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_BOTTOM_STYLE_KEYWORDS[number][];
 }
 
 export interface borderBottomWidthPropertyType {
-  keywords: typeof Keywords.BORDERBOTTOMWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERBOTTOMWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_BOTTOM_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_BOTTOM_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderCollapsePropertyType {
-  keywords: typeof Keywords.BORDERCOLLAPSE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_COLLAPSE_KEYWORDS[number][];
 }
 
 export interface borderColorPropertyType {
-  keywords: typeof Keywords.BORDERCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderEndEndRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERENDENDRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_END_END_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderEndStartRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERENDSTARTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_END_START_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderImagePropertyType {
-  keywords: typeof Keywords.BORDERIMAGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERIMAGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_IMAGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_IMAGE_NUMBER_TYPES[number][];
 }
 
 export interface borderImageOutsetPropertyType {
-  numberTypes: typeof NumberTypes.BORDERIMAGEOUTSET_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_IMAGE_OUTSET_NUMBER_TYPES[number][];
 }
 
 export interface borderImageRepeatPropertyType {
-  keywords: typeof Keywords.BORDERIMAGEREPEAT_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_IMAGE_REPEAT_KEYWORDS[number][];
 }
 
 export interface borderImageSlicePropertyType {
-  keywords: typeof Keywords.BORDERIMAGESLICE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERIMAGESLICE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_IMAGE_SLICE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_IMAGE_SLICE_NUMBER_TYPES[number][];
 }
 
 export interface borderImageSourcePropertyType {
-  keywords: typeof Keywords.BORDERIMAGESOURCE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERIMAGESOURCE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_IMAGE_SOURCE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_IMAGE_SOURCE_NUMBER_TYPES[number][];
 }
 
 export interface borderImageWidthPropertyType {
-  keywords: typeof Keywords.BORDERIMAGEWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERIMAGEWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_IMAGE_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_IMAGE_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderInlinePropertyType {
-  keywords: typeof Keywords.BORDERINLINE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineColorPropertyType {
-  keywords: typeof Keywords.BORDERINLINECOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINECOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineEndPropertyType {
-  keywords: typeof Keywords.BORDERINLINEEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINEEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineEndColorPropertyType {
-  keywords: typeof Keywords.BORDERINLINEENDCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINEENDCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_END_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_END_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineEndStylePropertyType {
-  keywords: typeof Keywords.BORDERINLINEENDSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_INLINE_END_STYLE_KEYWORDS[number][];
 }
 
 export interface borderInlineEndWidthPropertyType {
-  keywords: typeof Keywords.BORDERINLINEENDWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINEENDWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_END_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_END_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineStartPropertyType {
-  keywords: typeof Keywords.BORDERINLINESTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINESTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineStartColorPropertyType {
-  keywords: typeof Keywords.BORDERINLINESTARTCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINESTARTCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_START_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_START_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineStartStylePropertyType {
-  keywords: typeof Keywords.BORDERINLINESTARTSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_INLINE_START_STYLE_KEYWORDS[number][];
 }
 
 export interface borderInlineStartWidthPropertyType {
-  keywords: typeof Keywords.BORDERINLINESTARTWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINESTARTWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_START_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_START_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderInlineStylePropertyType {
-  keywords: typeof Keywords.BORDERINLINESTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_INLINE_STYLE_KEYWORDS[number][];
 }
 
 export interface borderInlineWidthPropertyType {
-  keywords: typeof Keywords.BORDERINLINEWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERINLINEWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_INLINE_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_INLINE_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderLeftPropertyType {
-  keywords: typeof Keywords.BORDERLEFT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERLEFT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_LEFT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_LEFT_NUMBER_TYPES[number][];
 }
 
 export interface borderLeftColorPropertyType {
-  keywords: typeof Keywords.BORDERLEFTCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERLEFTCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_LEFT_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_LEFT_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderLeftStylePropertyType {
-  keywords: typeof Keywords.BORDERLEFTSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_LEFT_STYLE_KEYWORDS[number][];
 }
 
 export interface borderLeftWidthPropertyType {
-  keywords: typeof Keywords.BORDERLEFTWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERLEFTWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_LEFT_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_LEFT_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderRightPropertyType {
-  keywords: typeof Keywords.BORDERRIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERRIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_RIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_RIGHT_NUMBER_TYPES[number][];
 }
 
 export interface borderRightColorPropertyType {
-  keywords: typeof Keywords.BORDERRIGHTCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERRIGHTCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_RIGHT_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_RIGHT_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderRightStylePropertyType {
-  keywords: typeof Keywords.BORDERRIGHTSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_RIGHT_STYLE_KEYWORDS[number][];
 }
 
 export interface borderRightWidthPropertyType {
-  keywords: typeof Keywords.BORDERRIGHTWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERRIGHTWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_RIGHT_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_RIGHT_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderSpacingPropertyType {
-  numberTypes: typeof NumberTypes.BORDERSPACING_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_SPACING_NUMBER_TYPES[number][];
 }
 
 export interface borderStartEndRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERSTARTENDRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_START_END_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderStartStartRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERSTARTSTARTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_START_START_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderStylePropertyType {
-  keywords: typeof Keywords.BORDERSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_STYLE_KEYWORDS[number][];
 }
 
 export interface borderTopPropertyType {
-  keywords: typeof Keywords.BORDERTOP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERTOP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_TOP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_TOP_NUMBER_TYPES[number][];
 }
 
 export interface borderTopColorPropertyType {
-  keywords: typeof Keywords.BORDERTOPCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERTOPCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_TOP_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_TOP_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface borderTopLeftRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERTOPLEFTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_TOP_LEFT_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderTopRightRadiusPropertyType {
-  numberTypes: typeof NumberTypes.BORDERTOPRIGHTRADIUS_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BORDER_TOP_RIGHT_RADIUS_NUMBER_TYPES[number][];
 }
 
 export interface borderTopStylePropertyType {
-  keywords: typeof Keywords.BORDERTOPSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.BORDER_TOP_STYLE_KEYWORDS[number][];
 }
 
 export interface borderTopWidthPropertyType {
-  keywords: typeof Keywords.BORDERTOPWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERTOPWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_TOP_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_TOP_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface borderWidthPropertyType {
-  keywords: typeof Keywords.BORDERWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BORDERWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BORDER_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BORDER_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface bottomPropertyType {
@@ -484,64 +484,64 @@ export interface bottomPropertyType {
 }
 
 export interface boxAlignPropertyType {
-  keywords: typeof Keywords.BOXALIGN_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_ALIGN_KEYWORDS[number][];
 }
 
 export interface boxDecorationBreakPropertyType {
-  keywords: typeof Keywords.BOXDECORATIONBREAK_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_DECORATION_BREAK_KEYWORDS[number][];
 }
 
 export interface boxDirectionPropertyType {
-  keywords: typeof Keywords.BOXDIRECTION_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_DIRECTION_KEYWORDS[number][];
 }
 
 export interface boxFlexPropertyType {
-  numberTypes: typeof NumberTypes.BOXFLEX_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BOX_FLEX_NUMBER_TYPES[number][];
 }
 
 export interface boxFlexGroupPropertyType {
-  numberTypes: typeof NumberTypes.BOXFLEXGROUP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BOX_FLEX_GROUP_NUMBER_TYPES[number][];
 }
 
 export interface boxLinesPropertyType {
-  keywords: typeof Keywords.BOXLINES_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_LINES_KEYWORDS[number][];
 }
 
 export interface boxOrdinalGroupPropertyType {
-  numberTypes: typeof NumberTypes.BOXORDINALGROUP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.BOX_ORDINAL_GROUP_NUMBER_TYPES[number][];
 }
 
 export interface boxOrientPropertyType {
-  keywords: typeof Keywords.BOXORIENT_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_ORIENT_KEYWORDS[number][];
 }
 
 export interface boxPackPropertyType {
-  keywords: typeof Keywords.BOXPACK_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_PACK_KEYWORDS[number][];
 }
 
 export interface boxShadowPropertyType {
-  keywords: typeof Keywords.BOXSHADOW_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.BOXSHADOW_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.BOX_SHADOW_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.BOX_SHADOW_NUMBER_TYPES[number][];
 }
 
 export interface boxSizingPropertyType {
-  keywords: typeof Keywords.BOXSIZING_KEYWORDS[number][];
+  keywords: typeof Keywords.BOX_SIZING_KEYWORDS[number][];
 }
 
 export interface breakAfterPropertyType {
-  keywords: typeof Keywords.BREAKAFTER_KEYWORDS[number][];
+  keywords: typeof Keywords.BREAK_AFTER_KEYWORDS[number][];
 }
 
 export interface breakBeforePropertyType {
-  keywords: typeof Keywords.BREAKBEFORE_KEYWORDS[number][];
+  keywords: typeof Keywords.BREAK_BEFORE_KEYWORDS[number][];
 }
 
 export interface breakInsidePropertyType {
-  keywords: typeof Keywords.BREAKINSIDE_KEYWORDS[number][];
+  keywords: typeof Keywords.BREAK_INSIDE_KEYWORDS[number][];
 }
 
 export interface captionSidePropertyType {
-  keywords: typeof Keywords.CAPTIONSIDE_KEYWORDS[number][];
+  keywords: typeof Keywords.CAPTION_SIDE_KEYWORDS[number][];
 }
 
 export interface caretPropertyType {
@@ -550,12 +550,12 @@ export interface caretPropertyType {
 }
 
 export interface caretColorPropertyType {
-  keywords: typeof Keywords.CARETCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CARETCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CARET_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CARET_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface caretShapePropertyType {
-  keywords: typeof Keywords.CARETSHAPE_KEYWORDS[number][];
+  keywords: typeof Keywords.CARET_SHAPE_KEYWORDS[number][];
 }
 
 export interface clearPropertyType {
@@ -568,12 +568,12 @@ export interface clipPropertyType {
 }
 
 export interface clipPathPropertyType {
-  keywords: typeof Keywords.CLIPPATH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CLIPPATH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CLIP_PATH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CLIP_PATH_NUMBER_TYPES[number][];
 }
 
 export interface clipRulePropertyType {
-  keywords: typeof Keywords.CLIPRULE_KEYWORDS[number][];
+  keywords: typeof Keywords.CLIP_RULE_KEYWORDS[number][];
 }
 
 export interface colorPropertyType {
@@ -582,44 +582,44 @@ export interface colorPropertyType {
 }
 
 export interface colorInterpolationFiltersPropertyType {
-  keywords: typeof Keywords.COLORINTERPOLATIONFILTERS_KEYWORDS[number][];
+  keywords: typeof Keywords.COLOR_INTERPOLATION_FILTERS_KEYWORDS[number][];
 }
 
 export interface colorSchemePropertyType {
-  keywords: typeof Keywords.COLORSCHEME_KEYWORDS[number][];
+  keywords: typeof Keywords.COLOR_SCHEME_KEYWORDS[number][];
 }
 
 export interface columnCountPropertyType {
-  keywords: typeof Keywords.COLUMNCOUNT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNCOUNT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_COUNT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_COUNT_NUMBER_TYPES[number][];
 }
 
 export interface columnFillPropertyType {
-  keywords: typeof Keywords.COLUMNFILL_KEYWORDS[number][];
+  keywords: typeof Keywords.COLUMN_FILL_KEYWORDS[number][];
 }
 
 export interface columnGapPropertyType {
-  keywords: typeof Keywords.COLUMNGAP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNGAP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_GAP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_GAP_NUMBER_TYPES[number][];
 }
 
 export interface columnRulePropertyType {
-  keywords: typeof Keywords.COLUMNRULE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNRULE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_RULE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_RULE_NUMBER_TYPES[number][];
 }
 
 export interface columnRuleColorPropertyType {
-  keywords: typeof Keywords.COLUMNRULECOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNRULECOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_RULE_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_RULE_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface columnRuleStylePropertyType {
-  keywords: typeof Keywords.COLUMNRULESTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.COLUMN_RULE_STYLE_KEYWORDS[number][];
 }
 
 export interface columnRuleWidthPropertyType {
-  keywords: typeof Keywords.COLUMNRULEWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNRULEWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_RULE_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_RULE_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface columnsPropertyType {
@@ -628,12 +628,12 @@ export interface columnsPropertyType {
 }
 
 export interface columnSpanPropertyType {
-  keywords: typeof Keywords.COLUMNSPAN_KEYWORDS[number][];
+  keywords: typeof Keywords.COLUMN_SPAN_KEYWORDS[number][];
 }
 
 export interface columnWidthPropertyType {
-  keywords: typeof Keywords.COLUMNWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COLUMN_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMN_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface containPropertyType {
@@ -645,36 +645,36 @@ export interface containerPropertyType {
 }
 
 export interface containerNamePropertyType {
-  keywords: typeof Keywords.CONTAINERNAME_KEYWORDS[number][];
+  keywords: typeof Keywords.CONTAINER_NAME_KEYWORDS[number][];
 }
 
 export interface containerTypePropertyType {
-  keywords: typeof Keywords.CONTAINERTYPE_KEYWORDS[number][];
+  keywords: typeof Keywords.CONTAINER_TYPE_KEYWORDS[number][];
 }
 
 export interface containIntrinsicBlockSizePropertyType {
-  keywords: typeof Keywords.CONTAININTRINSICBLOCKSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CONTAININTRINSICBLOCKSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CONTAIN_INTRINSIC_BLOCK_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_BLOCK_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface containIntrinsicHeightPropertyType {
-  keywords: typeof Keywords.CONTAININTRINSICHEIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CONTAININTRINSICHEIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CONTAIN_INTRINSIC_HEIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_HEIGHT_NUMBER_TYPES[number][];
 }
 
 export interface containIntrinsicInlineSizePropertyType {
-  keywords: typeof Keywords.CONTAININTRINSICINLINESIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CONTAININTRINSICINLINESIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CONTAIN_INTRINSIC_INLINE_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_INLINE_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface containIntrinsicSizePropertyType {
-  keywords: typeof Keywords.CONTAININTRINSICSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CONTAININTRINSICSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CONTAIN_INTRINSIC_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface containIntrinsicWidthPropertyType {
-  keywords: typeof Keywords.CONTAININTRINSICWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CONTAININTRINSICWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CONTAIN_INTRINSIC_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface contentPropertyType {
@@ -683,22 +683,22 @@ export interface contentPropertyType {
 }
 
 export interface contentVisibilityPropertyType {
-  keywords: typeof Keywords.CONTENTVISIBILITY_KEYWORDS[number][];
+  keywords: typeof Keywords.CONTENT_VISIBILITY_KEYWORDS[number][];
 }
 
 export interface counterIncrementPropertyType {
-  keywords: typeof Keywords.COUNTERINCREMENT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COUNTERINCREMENT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COUNTER_INCREMENT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COUNTER_INCREMENT_NUMBER_TYPES[number][];
 }
 
 export interface counterResetPropertyType {
-  keywords: typeof Keywords.COUNTERRESET_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COUNTERRESET_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COUNTER_RESET_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COUNTER_RESET_NUMBER_TYPES[number][];
 }
 
 export interface counterSetPropertyType {
-  keywords: typeof Keywords.COUNTERSET_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COUNTERSET_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.COUNTER_SET_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COUNTER_SET_NUMBER_TYPES[number][];
 }
 
 export interface cuePropertyType {
@@ -707,13 +707,13 @@ export interface cuePropertyType {
 }
 
 export interface cueAfterPropertyType {
-  keywords: typeof Keywords.CUEAFTER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CUEAFTER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CUE_AFTER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CUE_AFTER_NUMBER_TYPES[number][];
 }
 
 export interface cueBeforePropertyType {
-  keywords: typeof Keywords.CUEBEFORE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.CUEBEFORE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.CUE_BEFORE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.CUE_BEFORE_NUMBER_TYPES[number][];
 }
 
 export interface cursorPropertyType {
@@ -742,15 +742,15 @@ export interface displayPropertyType {
 }
 
 export interface dominantBaselinePropertyType {
-  keywords: typeof Keywords.DOMINANTBASELINE_KEYWORDS[number][];
+  keywords: typeof Keywords.DOMINANT_BASELINE_KEYWORDS[number][];
 }
 
 export interface emptyCellsPropertyType {
-  keywords: typeof Keywords.EMPTYCELLS_KEYWORDS[number][];
+  keywords: typeof Keywords.EMPTY_CELLS_KEYWORDS[number][];
 }
 
 export interface fieldSizingPropertyType {
-  keywords: typeof Keywords.FIELDSIZING_KEYWORDS[number][];
+  keywords: typeof Keywords.FIELD_SIZING_KEYWORDS[number][];
 }
 
 export interface fillPropertyType {
@@ -759,11 +759,11 @@ export interface fillPropertyType {
 }
 
 export interface fillOpacityPropertyType {
-  numberTypes: typeof NumberTypes.FILLOPACITY_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.FILL_OPACITY_NUMBER_TYPES[number][];
 }
 
 export interface fillRulePropertyType {
-  keywords: typeof Keywords.FILLRULE_KEYWORDS[number][];
+  keywords: typeof Keywords.FILL_RULE_KEYWORDS[number][];
 }
 
 export interface filterPropertyType {
@@ -777,28 +777,28 @@ export interface flexPropertyType {
 }
 
 export interface flexBasisPropertyType {
-  keywords: typeof Keywords.FLEXBASIS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FLEXBASIS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FLEX_BASIS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FLEX_BASIS_NUMBER_TYPES[number][];
 }
 
 export interface flexDirectionPropertyType {
-  keywords: typeof Keywords.FLEXDIRECTION_KEYWORDS[number][];
+  keywords: typeof Keywords.FLEX_DIRECTION_KEYWORDS[number][];
 }
 
 export interface flexFlowPropertyType {
-  keywords: typeof Keywords.FLEXFLOW_KEYWORDS[number][];
+  keywords: typeof Keywords.FLEX_FLOW_KEYWORDS[number][];
 }
 
 export interface flexGrowPropertyType {
-  numberTypes: typeof NumberTypes.FLEXGROW_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.FLEX_GROW_NUMBER_TYPES[number][];
 }
 
 export interface flexShrinkPropertyType {
-  numberTypes: typeof NumberTypes.FLEXSHRINK_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.FLEX_SHRINK_NUMBER_TYPES[number][];
 }
 
 export interface flexWrapPropertyType {
-  keywords: typeof Keywords.FLEXWRAP_KEYWORDS[number][];
+  keywords: typeof Keywords.FLEX_WRAP_KEYWORDS[number][];
 }
 
 export interface floatPropertyType {
@@ -811,119 +811,119 @@ export interface fontPropertyType {
 }
 
 export interface fontFamilyPropertyType {
-  keywords: typeof Keywords.FONTFAMILY_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_FAMILY_KEYWORDS[number][];
 }
 
 export interface fontFeatureSettingsPropertyType {
-  keywords: typeof Keywords.FONTFEATURESETTINGS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTFEATURESETTINGS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_FEATURE_SETTINGS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_FEATURE_SETTINGS_NUMBER_TYPES[number][];
 }
 
 export interface fontKerningPropertyType {
-  keywords: typeof Keywords.FONTKERNING_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_KERNING_KEYWORDS[number][];
 }
 
 export interface fontLanguageOverridePropertyType {
-  keywords: typeof Keywords.FONTLANGUAGEOVERRIDE_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_LANGUAGE_OVERRIDE_KEYWORDS[number][];
 }
 
 export interface fontOpticalSizingPropertyType {
-  keywords: typeof Keywords.FONTOPTICALSIZING_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_OPTICAL_SIZING_KEYWORDS[number][];
 }
 
 export interface fontPalettePropertyType {
-  keywords: typeof Keywords.FONTPALETTE_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_PALETTE_KEYWORDS[number][];
 }
 
 export interface fontSizePropertyType {
-  keywords: typeof Keywords.FONTSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface fontSizeAdjustPropertyType {
-  keywords: typeof Keywords.FONTSIZEADJUST_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTSIZEADJUST_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_SIZE_ADJUST_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_SIZE_ADJUST_NUMBER_TYPES[number][];
 }
 
 export interface fontSmoothPropertyType {
-  keywords: typeof Keywords.FONTSMOOTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTSMOOTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_SMOOTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_SMOOTH_NUMBER_TYPES[number][];
 }
 
 export interface fontStretchPropertyType {
-  keywords: typeof Keywords.FONTSTRETCH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTSTRETCH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_STRETCH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_STRETCH_NUMBER_TYPES[number][];
 }
 
 export interface fontStylePropertyType {
-  keywords: typeof Keywords.FONTSTYLE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTSTYLE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_STYLE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_STYLE_NUMBER_TYPES[number][];
 }
 
 export interface fontSynthesisPropertyType {
-  keywords: typeof Keywords.FONTSYNTHESIS_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_SYNTHESIS_KEYWORDS[number][];
 }
 
 export interface fontSynthesisPositionPropertyType {
-  keywords: typeof Keywords.FONTSYNTHESISPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_SYNTHESIS_POSITION_KEYWORDS[number][];
 }
 
 export interface fontSynthesisSmallCapsPropertyType {
-  keywords: typeof Keywords.FONTSYNTHESISSMALLCAPS_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_SYNTHESIS_SMALL_CAPS_KEYWORDS[number][];
 }
 
 export interface fontSynthesisStylePropertyType {
-  keywords: typeof Keywords.FONTSYNTHESISSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_SYNTHESIS_STYLE_KEYWORDS[number][];
 }
 
 export interface fontSynthesisWeightPropertyType {
-  keywords: typeof Keywords.FONTSYNTHESISWEIGHT_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_SYNTHESIS_WEIGHT_KEYWORDS[number][];
 }
 
 export interface fontVariantPropertyType {
-  keywords: typeof Keywords.FONTVARIANT_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_KEYWORDS[number][];
 }
 
 export interface fontVariantAlternatesPropertyType {
-  keywords: typeof Keywords.FONTVARIANTALTERNATES_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_ALTERNATES_KEYWORDS[number][];
 }
 
 export interface fontVariantCapsPropertyType {
-  keywords: typeof Keywords.FONTVARIANTCAPS_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_CAPS_KEYWORDS[number][];
 }
 
 export interface fontVariantEastAsianPropertyType {
-  keywords: typeof Keywords.FONTVARIANTEASTASIAN_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_EAST_ASIAN_KEYWORDS[number][];
 }
 
 export interface fontVariantEmojiPropertyType {
-  keywords: typeof Keywords.FONTVARIANTEMOJI_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_EMOJI_KEYWORDS[number][];
 }
 
 export interface fontVariantLigaturesPropertyType {
-  keywords: typeof Keywords.FONTVARIANTLIGATURES_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_LIGATURES_KEYWORDS[number][];
 }
 
 export interface fontVariantNumericPropertyType {
-  keywords: typeof Keywords.FONTVARIANTNUMERIC_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_NUMERIC_KEYWORDS[number][];
 }
 
 export interface fontVariantPositionPropertyType {
-  keywords: typeof Keywords.FONTVARIANTPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.FONT_VARIANT_POSITION_KEYWORDS[number][];
 }
 
 export interface fontVariationSettingsPropertyType {
-  keywords: typeof Keywords.FONTVARIATIONSETTINGS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTVARIATIONSETTINGS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_VARIATION_SETTINGS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_VARIATION_SETTINGS_NUMBER_TYPES[number][];
 }
 
 export interface fontWeightPropertyType {
-  keywords: typeof Keywords.FONTWEIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.FONTWEIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.FONT_WEIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.FONT_WEIGHT_NUMBER_TYPES[number][];
 }
 
 export interface forcedColorAdjustPropertyType {
-  keywords: typeof Keywords.FORCEDCOLORADJUST_KEYWORDS[number][];
+  keywords: typeof Keywords.FORCED_COLOR_ADJUST_KEYWORDS[number][];
 }
 
 export interface gapPropertyType {
@@ -932,11 +932,11 @@ export interface gapPropertyType {
 }
 
 export interface glyphOrientationHorizontalPropertyType {
-  numberTypes: typeof NumberTypes.GLYPHORIENTATIONHORIZONTAL_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.GLYPH_ORIENTATION_HORIZONTAL_NUMBER_TYPES[number][];
 }
 
 export interface glyphOrientationVerticalPropertyType {
-  numberTypes: typeof NumberTypes.GLYPHORIENTATIONVERTICAL_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.GLYPH_ORIENTATION_VERTICAL_NUMBER_TYPES[number][];
 }
 
 export interface gridPropertyType {
@@ -945,87 +945,87 @@ export interface gridPropertyType {
 }
 
 export interface gridAreaPropertyType {
-  keywords: typeof Keywords.GRIDAREA_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDAREA_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_AREA_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_AREA_NUMBER_TYPES[number][];
 }
 
 export interface gridAutoColumnsPropertyType {
-  keywords: typeof Keywords.GRIDAUTOCOLUMNS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDAUTOCOLUMNS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_AUTO_COLUMNS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_AUTO_COLUMNS_NUMBER_TYPES[number][];
 }
 
 export interface gridAutoFlowPropertyType {
-  keywords: typeof Keywords.GRIDAUTOFLOW_KEYWORDS[number][];
+  keywords: typeof Keywords.GRID_AUTO_FLOW_KEYWORDS[number][];
 }
 
 export interface gridAutoRowsPropertyType {
-  keywords: typeof Keywords.GRIDAUTOROWS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDAUTOROWS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_AUTO_ROWS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_AUTO_ROWS_NUMBER_TYPES[number][];
 }
 
 export interface gridColumnPropertyType {
-  keywords: typeof Keywords.GRIDCOLUMN_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDCOLUMN_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_COLUMN_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_COLUMN_NUMBER_TYPES[number][];
 }
 
 export interface gridColumnEndPropertyType {
-  keywords: typeof Keywords.GRIDCOLUMNEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDCOLUMNEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_COLUMN_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_COLUMN_END_NUMBER_TYPES[number][];
 }
 
 export interface gridColumnGapPropertyType {
-  numberTypes: typeof NumberTypes.GRIDCOLUMNGAP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.GRID_COLUMN_GAP_NUMBER_TYPES[number][];
 }
 
 export interface gridColumnStartPropertyType {
-  keywords: typeof Keywords.GRIDCOLUMNSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDCOLUMNSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_COLUMN_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_COLUMN_START_NUMBER_TYPES[number][];
 }
 
 export interface gridGapPropertyType {
-  numberTypes: typeof NumberTypes.GRIDGAP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.GRID_GAP_NUMBER_TYPES[number][];
 }
 
 export interface gridRowPropertyType {
-  keywords: typeof Keywords.GRIDROW_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDROW_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_ROW_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_ROW_NUMBER_TYPES[number][];
 }
 
 export interface gridRowEndPropertyType {
-  keywords: typeof Keywords.GRIDROWEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDROWEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_ROW_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_ROW_END_NUMBER_TYPES[number][];
 }
 
 export interface gridRowGapPropertyType {
-  numberTypes: typeof NumberTypes.GRIDROWGAP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.GRID_ROW_GAP_NUMBER_TYPES[number][];
 }
 
 export interface gridRowStartPropertyType {
-  keywords: typeof Keywords.GRIDROWSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDROWSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_ROW_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_ROW_START_NUMBER_TYPES[number][];
 }
 
 export interface gridTemplatePropertyType {
-  keywords: typeof Keywords.GRIDTEMPLATE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDTEMPLATE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_TEMPLATE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_TEMPLATE_NUMBER_TYPES[number][];
 }
 
 export interface gridTemplateAreasPropertyType {
-  keywords: typeof Keywords.GRIDTEMPLATEAREAS_KEYWORDS[number][];
+  keywords: typeof Keywords.GRID_TEMPLATE_AREAS_KEYWORDS[number][];
 }
 
 export interface gridTemplateColumnsPropertyType {
-  keywords: typeof Keywords.GRIDTEMPLATECOLUMNS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDTEMPLATECOLUMNS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_TEMPLATE_COLUMNS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_TEMPLATE_COLUMNS_NUMBER_TYPES[number][];
 }
 
 export interface gridTemplateRowsPropertyType {
-  keywords: typeof Keywords.GRIDTEMPLATEROWS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.GRIDTEMPLATEROWS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.GRID_TEMPLATE_ROWS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.GRID_TEMPLATE_ROWS_NUMBER_TYPES[number][];
 }
 
 export interface hangingPunctuationPropertyType {
-  keywords: typeof Keywords.HANGINGPUNCTUATION_KEYWORDS[number][];
+  keywords: typeof Keywords.HANGING_PUNCTUATION_KEYWORDS[number][];
 }
 
 export interface heightPropertyType {
@@ -1034,12 +1034,12 @@ export interface heightPropertyType {
 }
 
 export interface hyphenateCharacterPropertyType {
-  keywords: typeof Keywords.HYPHENATECHARACTER_KEYWORDS[number][];
+  keywords: typeof Keywords.HYPHENATE_CHARACTER_KEYWORDS[number][];
 }
 
 export interface hyphenateLimitCharsPropertyType {
-  keywords: typeof Keywords.HYPHENATELIMITCHARS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.HYPHENATELIMITCHARS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.HYPHENATE_LIMIT_CHARS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.HYPHENATE_LIMIT_CHARS_NUMBER_TYPES[number][];
 }
 
 export interface hyphensPropertyType {
@@ -1047,39 +1047,39 @@ export interface hyphensPropertyType {
 }
 
 export interface imageOrientationPropertyType {
-  keywords: typeof Keywords.IMAGEORIENTATION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.IMAGEORIENTATION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.IMAGE_ORIENTATION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.IMAGE_ORIENTATION_NUMBER_TYPES[number][];
 }
 
 export interface imageRenderingPropertyType {
-  keywords: typeof Keywords.IMAGERENDERING_KEYWORDS[number][];
+  keywords: typeof Keywords.IMAGE_RENDERING_KEYWORDS[number][];
 }
 
 export interface imageResolutionPropertyType {
-  keywords: typeof Keywords.IMAGERESOLUTION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.IMAGERESOLUTION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.IMAGE_RESOLUTION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.IMAGE_RESOLUTION_NUMBER_TYPES[number][];
 }
 
 export interface imeModePropertyType {
-  keywords: typeof Keywords.IMEMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.IME_MODE_KEYWORDS[number][];
 }
 
 export interface initialLetterPropertyType {
-  keywords: typeof Keywords.INITIALLETTER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INITIALLETTER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INITIAL_LETTER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INITIAL_LETTER_NUMBER_TYPES[number][];
 }
 
 export interface initialLetterAlignPropertyType {
-  keywords: typeof Keywords.INITIALLETTERALIGN_KEYWORDS[number][];
+  keywords: typeof Keywords.INITIAL_LETTER_ALIGN_KEYWORDS[number][];
 }
 
 export interface inlineSizePropertyType {
-  keywords: typeof Keywords.INLINESIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INLINESIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INLINE_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INLINE_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface inputSecurityPropertyType {
-  keywords: typeof Keywords.INPUTSECURITY_KEYWORDS[number][];
+  keywords: typeof Keywords.INPUT_SECURITY_KEYWORDS[number][];
 }
 
 export interface insetPropertyType {
@@ -1088,37 +1088,37 @@ export interface insetPropertyType {
 }
 
 export interface insetBlockPropertyType {
-  keywords: typeof Keywords.INSETBLOCK_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETBLOCK_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_BLOCK_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface insetBlockEndPropertyType {
-  keywords: typeof Keywords.INSETBLOCKEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETBLOCKEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_BLOCK_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface insetBlockStartPropertyType {
-  keywords: typeof Keywords.INSETBLOCKSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETBLOCKSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_BLOCK_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface insetInlinePropertyType {
-  keywords: typeof Keywords.INSETINLINE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETINLINE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_INLINE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface insetInlineEndPropertyType {
-  keywords: typeof Keywords.INSETINLINEEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETINLINEEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_INLINE_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface insetInlineStartPropertyType {
-  keywords: typeof Keywords.INSETINLINESTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.INSETINLINESTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.INSET_INLINE_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.INSET_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface interpolateSizePropertyType {
-  keywords: typeof Keywords.INTERPOLATESIZE_KEYWORDS[number][];
+  keywords: typeof Keywords.INTERPOLATE_SIZE_KEYWORDS[number][];
 }
 
 export interface isolationPropertyType {
@@ -1126,19 +1126,19 @@ export interface isolationPropertyType {
 }
 
 export interface justifyContentPropertyType {
-  keywords: typeof Keywords.JUSTIFYCONTENT_KEYWORDS[number][];
+  keywords: typeof Keywords.JUSTIFY_CONTENT_KEYWORDS[number][];
 }
 
 export interface justifyItemsPropertyType {
-  keywords: typeof Keywords.JUSTIFYITEMS_KEYWORDS[number][];
+  keywords: typeof Keywords.JUSTIFY_ITEMS_KEYWORDS[number][];
 }
 
 export interface justifySelfPropertyType {
-  keywords: typeof Keywords.JUSTIFYSELF_KEYWORDS[number][];
+  keywords: typeof Keywords.JUSTIFY_SELF_KEYWORDS[number][];
 }
 
 export interface justifyTracksPropertyType {
-  keywords: typeof Keywords.JUSTIFYTRACKS_KEYWORDS[number][];
+  keywords: typeof Keywords.JUSTIFY_TRACKS_KEYWORDS[number][];
 }
 
 export interface kerningPropertyType {
@@ -1152,44 +1152,44 @@ export interface leftPropertyType {
 }
 
 export interface letterSpacingPropertyType {
-  keywords: typeof Keywords.LETTERSPACING_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.LETTERSPACING_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.LETTER_SPACING_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.LETTER_SPACING_NUMBER_TYPES[number][];
 }
 
 export interface lineBreakPropertyType {
-  keywords: typeof Keywords.LINEBREAK_KEYWORDS[number][];
+  keywords: typeof Keywords.LINE_BREAK_KEYWORDS[number][];
 }
 
 export interface lineClampPropertyType {
-  keywords: typeof Keywords.LINECLAMP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.LINECLAMP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.LINE_CLAMP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.LINE_CLAMP_NUMBER_TYPES[number][];
 }
 
 export interface lineHeightPropertyType {
-  keywords: typeof Keywords.LINEHEIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.LINEHEIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.LINE_HEIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.LINE_HEIGHT_NUMBER_TYPES[number][];
 }
 
 export interface lineHeightStepPropertyType {
-  numberTypes: typeof NumberTypes.LINEHEIGHTSTEP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.LINE_HEIGHT_STEP_NUMBER_TYPES[number][];
 }
 
 export interface listStylePropertyType {
-  keywords: typeof Keywords.LISTSTYLE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.LISTSTYLE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.LIST_STYLE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.LIST_STYLE_NUMBER_TYPES[number][];
 }
 
 export interface listStyleImagePropertyType {
-  keywords: typeof Keywords.LISTSTYLEIMAGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.LISTSTYLEIMAGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.LIST_STYLE_IMAGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.LIST_STYLE_IMAGE_NUMBER_TYPES[number][];
 }
 
 export interface listStylePositionPropertyType {
-  keywords: typeof Keywords.LISTSTYLEPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.LIST_STYLE_POSITION_KEYWORDS[number][];
 }
 
 export interface listStyleTypePropertyType {
-  keywords: typeof Keywords.LISTSTYLETYPE_KEYWORDS[number][];
+  keywords: typeof Keywords.LIST_STYLE_TYPE_KEYWORDS[number][];
 }
 
 export interface marginPropertyType {
@@ -1198,57 +1198,57 @@ export interface marginPropertyType {
 }
 
 export interface marginBlockPropertyType {
-  keywords: typeof Keywords.MARGINBLOCK_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINBLOCK_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_BLOCK_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface marginBlockEndPropertyType {
-  keywords: typeof Keywords.MARGINBLOCKEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINBLOCKEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_BLOCK_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface marginBlockStartPropertyType {
-  keywords: typeof Keywords.MARGINBLOCKSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINBLOCKSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_BLOCK_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface marginBottomPropertyType {
-  keywords: typeof Keywords.MARGINBOTTOM_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINBOTTOM_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_BOTTOM_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_BOTTOM_NUMBER_TYPES[number][];
 }
 
 export interface marginInlinePropertyType {
-  keywords: typeof Keywords.MARGININLINE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGININLINE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_INLINE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface marginInlineEndPropertyType {
-  keywords: typeof Keywords.MARGININLINEEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGININLINEEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_INLINE_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface marginInlineStartPropertyType {
-  keywords: typeof Keywords.MARGININLINESTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGININLINESTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_INLINE_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface marginLeftPropertyType {
-  keywords: typeof Keywords.MARGINLEFT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINLEFT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_LEFT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_LEFT_NUMBER_TYPES[number][];
 }
 
 export interface marginRightPropertyType {
-  keywords: typeof Keywords.MARGINRIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINRIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_RIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_RIGHT_NUMBER_TYPES[number][];
 }
 
 export interface marginTopPropertyType {
-  keywords: typeof Keywords.MARGINTOP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MARGINTOP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MARGIN_TOP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MARGIN_TOP_NUMBER_TYPES[number][];
 }
 
 export interface marginTrimPropertyType {
-  keywords: typeof Keywords.MARGINTRIM_KEYWORDS[number][];
+  keywords: typeof Keywords.MARGIN_TRIM_KEYWORDS[number][];
 }
 
 export interface markerPropertyType {
@@ -1256,15 +1256,15 @@ export interface markerPropertyType {
 }
 
 export interface markerEndPropertyType {
-  keywords: typeof Keywords.MARKEREND_KEYWORDS[number][];
+  keywords: typeof Keywords.MARKER_END_KEYWORDS[number][];
 }
 
 export interface markerMidPropertyType {
-  keywords: typeof Keywords.MARKERMID_KEYWORDS[number][];
+  keywords: typeof Keywords.MARKER_MID_KEYWORDS[number][];
 }
 
 export interface markerStartPropertyType {
-  keywords: typeof Keywords.MARKERSTART_KEYWORDS[number][];
+  keywords: typeof Keywords.MARKER_START_KEYWORDS[number][];
 }
 
 export interface maskPropertyType {
@@ -1273,149 +1273,149 @@ export interface maskPropertyType {
 }
 
 export interface maskBorderPropertyType {
-  keywords: typeof Keywords.MASKBORDER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKBORDER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_BORDER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_BORDER_NUMBER_TYPES[number][];
 }
 
 export interface maskBorderModePropertyType {
-  keywords: typeof Keywords.MASKBORDERMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_BORDER_MODE_KEYWORDS[number][];
 }
 
 export interface maskBorderOutsetPropertyType {
-  numberTypes: typeof NumberTypes.MASKBORDEROUTSET_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.MASK_BORDER_OUTSET_NUMBER_TYPES[number][];
 }
 
 export interface maskBorderRepeatPropertyType {
-  keywords: typeof Keywords.MASKBORDERREPEAT_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_BORDER_REPEAT_KEYWORDS[number][];
 }
 
 export interface maskBorderSlicePropertyType {
-  keywords: typeof Keywords.MASKBORDERSLICE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKBORDERSLICE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_BORDER_SLICE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_BORDER_SLICE_NUMBER_TYPES[number][];
 }
 
 export interface maskBorderSourcePropertyType {
-  keywords: typeof Keywords.MASKBORDERSOURCE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKBORDERSOURCE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_BORDER_SOURCE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_BORDER_SOURCE_NUMBER_TYPES[number][];
 }
 
 export interface maskBorderWidthPropertyType {
-  keywords: typeof Keywords.MASKBORDERWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKBORDERWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_BORDER_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_BORDER_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface maskClipPropertyType {
-  keywords: typeof Keywords.MASKCLIP_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_CLIP_KEYWORDS[number][];
 }
 
 export interface maskCompositePropertyType {
-  keywords: typeof Keywords.MASKCOMPOSITE_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_COMPOSITE_KEYWORDS[number][];
 }
 
 export interface maskImagePropertyType {
-  keywords: typeof Keywords.MASKIMAGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKIMAGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_IMAGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_IMAGE_NUMBER_TYPES[number][];
 }
 
 export interface maskModePropertyType {
-  keywords: typeof Keywords.MASKMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_MODE_KEYWORDS[number][];
 }
 
 export interface maskOriginPropertyType {
-  keywords: typeof Keywords.MASKORIGIN_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_ORIGIN_KEYWORDS[number][];
 }
 
 export interface maskPositionPropertyType {
-  keywords: typeof Keywords.MASKPOSITION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKPOSITION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_POSITION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_POSITION_NUMBER_TYPES[number][];
 }
 
 export interface maskRepeatPropertyType {
-  keywords: typeof Keywords.MASKREPEAT_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_REPEAT_KEYWORDS[number][];
 }
 
 export interface maskSizePropertyType {
-  keywords: typeof Keywords.MASKSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MASKSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MASK_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MASK_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface maskTypePropertyType {
-  keywords: typeof Keywords.MASKTYPE_KEYWORDS[number][];
+  keywords: typeof Keywords.MASK_TYPE_KEYWORDS[number][];
 }
 
 export interface masonryAutoFlowPropertyType {
-  keywords: typeof Keywords.MASONRYAUTOFLOW_KEYWORDS[number][];
+  keywords: typeof Keywords.MASONRY_AUTO_FLOW_KEYWORDS[number][];
 }
 
 export interface mathDepthPropertyType {
-  keywords: typeof Keywords.MATHDEPTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MATHDEPTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MATH_DEPTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MATH_DEPTH_NUMBER_TYPES[number][];
 }
 
 export interface mathShiftPropertyType {
-  keywords: typeof Keywords.MATHSHIFT_KEYWORDS[number][];
+  keywords: typeof Keywords.MATH_SHIFT_KEYWORDS[number][];
 }
 
 export interface mathStylePropertyType {
-  keywords: typeof Keywords.MATHSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.MATH_STYLE_KEYWORDS[number][];
 }
 
 export interface maxBlockSizePropertyType {
-  keywords: typeof Keywords.MAXBLOCKSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MAXBLOCKSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MAX_BLOCK_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MAX_BLOCK_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface maxHeightPropertyType {
-  keywords: typeof Keywords.MAXHEIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MAXHEIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MAX_HEIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MAX_HEIGHT_NUMBER_TYPES[number][];
 }
 
 export interface maxInlineSizePropertyType {
-  keywords: typeof Keywords.MAXINLINESIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MAXINLINESIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MAX_INLINE_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MAX_INLINE_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface maxLinesPropertyType {
-  keywords: typeof Keywords.MAXLINES_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MAXLINES_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MAX_LINES_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MAX_LINES_NUMBER_TYPES[number][];
 }
 
 export interface maxWidthPropertyType {
-  keywords: typeof Keywords.MAXWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MAXWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MAX_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MAX_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface minBlockSizePropertyType {
-  keywords: typeof Keywords.MINBLOCKSIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MINBLOCKSIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MIN_BLOCK_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MIN_BLOCK_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface minHeightPropertyType {
-  keywords: typeof Keywords.MINHEIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MINHEIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MIN_HEIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MIN_HEIGHT_NUMBER_TYPES[number][];
 }
 
 export interface minInlineSizePropertyType {
-  keywords: typeof Keywords.MININLINESIZE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MININLINESIZE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MIN_INLINE_SIZE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MIN_INLINE_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface minWidthPropertyType {
-  keywords: typeof Keywords.MINWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.MINWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.MIN_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.MIN_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface mixBlendModePropertyType {
-  keywords: typeof Keywords.MIXBLENDMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.MIX_BLEND_MODE_KEYWORDS[number][];
 }
 
 export interface objectFitPropertyType {
-  keywords: typeof Keywords.OBJECTFIT_KEYWORDS[number][];
+  keywords: typeof Keywords.OBJECT_FIT_KEYWORDS[number][];
 }
 
 export interface objectPositionPropertyType {
-  keywords: typeof Keywords.OBJECTPOSITION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OBJECTPOSITION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OBJECT_POSITION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OBJECT_POSITION_NUMBER_TYPES[number][];
 }
 
 export interface offsetPropertyType {
@@ -1424,27 +1424,27 @@ export interface offsetPropertyType {
 }
 
 export interface offsetAnchorPropertyType {
-  keywords: typeof Keywords.OFFSETANCHOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OFFSETANCHOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OFFSET_ANCHOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OFFSET_ANCHOR_NUMBER_TYPES[number][];
 }
 
 export interface offsetDistancePropertyType {
-  numberTypes: typeof NumberTypes.OFFSETDISTANCE_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.OFFSET_DISTANCE_NUMBER_TYPES[number][];
 }
 
 export interface offsetPathPropertyType {
-  keywords: typeof Keywords.OFFSETPATH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OFFSETPATH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OFFSET_PATH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OFFSET_PATH_NUMBER_TYPES[number][];
 }
 
 export interface offsetPositionPropertyType {
-  keywords: typeof Keywords.OFFSETPOSITION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OFFSETPOSITION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OFFSET_POSITION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OFFSET_POSITION_NUMBER_TYPES[number][];
 }
 
 export interface offsetRotatePropertyType {
-  keywords: typeof Keywords.OFFSETROTATE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OFFSETROTATE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OFFSET_ROTATE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OFFSET_ROTATE_NUMBER_TYPES[number][];
 }
 
 export interface opacityPropertyType {
@@ -1465,21 +1465,21 @@ export interface outlinePropertyType {
 }
 
 export interface outlineColorPropertyType {
-  keywords: typeof Keywords.OUTLINECOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OUTLINECOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OUTLINE_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OUTLINE_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface outlineOffsetPropertyType {
-  numberTypes: typeof NumberTypes.OUTLINEOFFSET_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.OUTLINE_OFFSET_NUMBER_TYPES[number][];
 }
 
 export interface outlineStylePropertyType {
-  keywords: typeof Keywords.OUTLINESTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.OUTLINE_STYLE_KEYWORDS[number][];
 }
 
 export interface outlineWidthPropertyType {
-  keywords: typeof Keywords.OUTLINEWIDTH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OUTLINEWIDTH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OUTLINE_WIDTH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OUTLINE_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface overflowPropertyType {
@@ -1487,36 +1487,36 @@ export interface overflowPropertyType {
 }
 
 export interface overflowAnchorPropertyType {
-  keywords: typeof Keywords.OVERFLOWANCHOR_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_ANCHOR_KEYWORDS[number][];
 }
 
 export interface overflowBlockPropertyType {
-  keywords: typeof Keywords.OVERFLOWBLOCK_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_BLOCK_KEYWORDS[number][];
 }
 
 export interface overflowClipBoxPropertyType {
-  keywords: typeof Keywords.OVERFLOWCLIPBOX_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_CLIP_BOX_KEYWORDS[number][];
 }
 
 export interface overflowClipMarginPropertyType {
-  keywords: typeof Keywords.OVERFLOWCLIPMARGIN_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.OVERFLOWCLIPMARGIN_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.OVERFLOW_CLIP_MARGIN_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.OVERFLOW_CLIP_MARGIN_NUMBER_TYPES[number][];
 }
 
 export interface overflowInlinePropertyType {
-  keywords: typeof Keywords.OVERFLOWINLINE_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_INLINE_KEYWORDS[number][];
 }
 
 export interface overflowWrapPropertyType {
-  keywords: typeof Keywords.OVERFLOWWRAP_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_WRAP_KEYWORDS[number][];
 }
 
 export interface overflowXPropertyType {
-  keywords: typeof Keywords.OVERFLOWX_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_X_KEYWORDS[number][];
 }
 
 export interface overflowYPropertyType {
-  keywords: typeof Keywords.OVERFLOWY_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERFLOW_Y_KEYWORDS[number][];
 }
 
 export interface overlayPropertyType {
@@ -1524,23 +1524,23 @@ export interface overlayPropertyType {
 }
 
 export interface overscrollBehaviorPropertyType {
-  keywords: typeof Keywords.OVERSCROLLBEHAVIOR_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERSCROLL_BEHAVIOR_KEYWORDS[number][];
 }
 
 export interface overscrollBehaviorBlockPropertyType {
-  keywords: typeof Keywords.OVERSCROLLBEHAVIORBLOCK_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERSCROLL_BEHAVIOR_BLOCK_KEYWORDS[number][];
 }
 
 export interface overscrollBehaviorInlinePropertyType {
-  keywords: typeof Keywords.OVERSCROLLBEHAVIORINLINE_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERSCROLL_BEHAVIOR_INLINE_KEYWORDS[number][];
 }
 
 export interface overscrollBehaviorXPropertyType {
-  keywords: typeof Keywords.OVERSCROLLBEHAVIORX_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERSCROLL_BEHAVIOR_X_KEYWORDS[number][];
 }
 
 export interface overscrollBehaviorYPropertyType {
-  keywords: typeof Keywords.OVERSCROLLBEHAVIORY_KEYWORDS[number][];
+  keywords: typeof Keywords.OVERSCROLL_BEHAVIOR_Y_KEYWORDS[number][];
 }
 
 export interface paddingPropertyType {
@@ -1548,43 +1548,43 @@ export interface paddingPropertyType {
 }
 
 export interface paddingBlockPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGBLOCK_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface paddingBlockEndPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGBLOCKEND_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface paddingBlockStartPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGBLOCKSTART_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface paddingBottomPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGBOTTOM_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_BOTTOM_NUMBER_TYPES[number][];
 }
 
 export interface paddingInlinePropertyType {
-  numberTypes: typeof NumberTypes.PADDINGINLINE_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface paddingInlineEndPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGINLINEEND_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface paddingInlineStartPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGINLINESTART_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface paddingLeftPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGLEFT_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_LEFT_NUMBER_TYPES[number][];
 }
 
 export interface paddingRightPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGRIGHT_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_RIGHT_NUMBER_TYPES[number][];
 }
 
 export interface paddingTopPropertyType {
-  numberTypes: typeof NumberTypes.PADDINGTOP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.PADDING_TOP_NUMBER_TYPES[number][];
 }
 
 export interface pagePropertyType {
@@ -1592,19 +1592,19 @@ export interface pagePropertyType {
 }
 
 export interface pageBreakAfterPropertyType {
-  keywords: typeof Keywords.PAGEBREAKAFTER_KEYWORDS[number][];
+  keywords: typeof Keywords.PAGE_BREAK_AFTER_KEYWORDS[number][];
 }
 
 export interface pageBreakBeforePropertyType {
-  keywords: typeof Keywords.PAGEBREAKBEFORE_KEYWORDS[number][];
+  keywords: typeof Keywords.PAGE_BREAK_BEFORE_KEYWORDS[number][];
 }
 
 export interface pageBreakInsidePropertyType {
-  keywords: typeof Keywords.PAGEBREAKINSIDE_KEYWORDS[number][];
+  keywords: typeof Keywords.PAGE_BREAK_INSIDE_KEYWORDS[number][];
 }
 
 export interface paintOrderPropertyType {
-  keywords: typeof Keywords.PAINTORDER_KEYWORDS[number][];
+  keywords: typeof Keywords.PAINT_ORDER_KEYWORDS[number][];
 }
 
 export interface pausePropertyType {
@@ -1613,13 +1613,13 @@ export interface pausePropertyType {
 }
 
 export interface pauseAfterPropertyType {
-  keywords: typeof Keywords.PAUSEAFTER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.PAUSEAFTER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.PAUSE_AFTER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.PAUSE_AFTER_NUMBER_TYPES[number][];
 }
 
 export interface pauseBeforePropertyType {
-  keywords: typeof Keywords.PAUSEBEFORE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.PAUSEBEFORE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.PAUSE_BEFORE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.PAUSE_BEFORE_NUMBER_TYPES[number][];
 }
 
 export interface perspectivePropertyType {
@@ -1628,24 +1628,24 @@ export interface perspectivePropertyType {
 }
 
 export interface perspectiveOriginPropertyType {
-  keywords: typeof Keywords.PERSPECTIVEORIGIN_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.PERSPECTIVEORIGIN_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.PERSPECTIVE_ORIGIN_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.PERSPECTIVE_ORIGIN_NUMBER_TYPES[number][];
 }
 
 export interface placeContentPropertyType {
-  keywords: typeof Keywords.PLACECONTENT_KEYWORDS[number][];
+  keywords: typeof Keywords.PLACE_CONTENT_KEYWORDS[number][];
 }
 
 export interface placeItemsPropertyType {
-  keywords: typeof Keywords.PLACEITEMS_KEYWORDS[number][];
+  keywords: typeof Keywords.PLACE_ITEMS_KEYWORDS[number][];
 }
 
 export interface placeSelfPropertyType {
-  keywords: typeof Keywords.PLACESELF_KEYWORDS[number][];
+  keywords: typeof Keywords.PLACE_SELF_KEYWORDS[number][];
 }
 
 export interface pointerEventsPropertyType {
-  keywords: typeof Keywords.POINTEREVENTS_KEYWORDS[number][];
+  keywords: typeof Keywords.POINTER_EVENTS_KEYWORDS[number][];
 }
 
 export interface positionPropertyType {
@@ -1653,31 +1653,31 @@ export interface positionPropertyType {
 }
 
 export interface positionAnchorPropertyType {
-  keywords: typeof Keywords.POSITIONANCHOR_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_ANCHOR_KEYWORDS[number][];
 }
 
 export interface positionAreaPropertyType {
-  keywords: typeof Keywords.POSITIONAREA_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_AREA_KEYWORDS[number][];
 }
 
 export interface positionTryPropertyType {
-  keywords: typeof Keywords.POSITIONTRY_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_TRY_KEYWORDS[number][];
 }
 
 export interface positionTryFallbacksPropertyType {
-  keywords: typeof Keywords.POSITIONTRYFALLBACKS_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_TRY_FALLBACKS_KEYWORDS[number][];
 }
 
 export interface positionTryOrderPropertyType {
-  keywords: typeof Keywords.POSITIONTRYORDER_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_TRY_ORDER_KEYWORDS[number][];
 }
 
 export interface positionVisibilityPropertyType {
-  keywords: typeof Keywords.POSITIONVISIBILITY_KEYWORDS[number][];
+  keywords: typeof Keywords.POSITION_VISIBILITY_KEYWORDS[number][];
 }
 
 export interface printColorAdjustPropertyType {
-  keywords: typeof Keywords.PRINTCOLORADJUST_KEYWORDS[number][];
+  keywords: typeof Keywords.PRINT_COLOR_ADJUST_KEYWORDS[number][];
 }
 
 export interface quotesPropertyType {
@@ -1698,13 +1698,13 @@ export interface restPropertyType {
 }
 
 export interface restAfterPropertyType {
-  keywords: typeof Keywords.RESTAFTER_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.RESTAFTER_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.REST_AFTER_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.REST_AFTER_NUMBER_TYPES[number][];
 }
 
 export interface restBeforePropertyType {
-  keywords: typeof Keywords.RESTBEFORE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.RESTBEFORE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.REST_BEFORE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.REST_BEFORE_NUMBER_TYPES[number][];
 }
 
 export interface rightPropertyType {
@@ -1718,20 +1718,20 @@ export interface rotatePropertyType {
 }
 
 export interface rowGapPropertyType {
-  keywords: typeof Keywords.ROWGAP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ROWGAP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.ROW_GAP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ROW_GAP_NUMBER_TYPES[number][];
 }
 
 export interface rubyAlignPropertyType {
-  keywords: typeof Keywords.RUBYALIGN_KEYWORDS[number][];
+  keywords: typeof Keywords.RUBY_ALIGN_KEYWORDS[number][];
 }
 
 export interface rubyMergePropertyType {
-  keywords: typeof Keywords.RUBYMERGE_KEYWORDS[number][];
+  keywords: typeof Keywords.RUBY_MERGE_KEYWORDS[number][];
 }
 
 export interface rubyPositionPropertyType {
-  keywords: typeof Keywords.RUBYPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.RUBY_POSITION_KEYWORDS[number][];
 }
 
 export interface rxPropertyType {
@@ -1748,188 +1748,188 @@ export interface scalePropertyType {
 }
 
 export interface scrollbarColorPropertyType {
-  keywords: typeof Keywords.SCROLLBARCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLBARCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLLBAR_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLLBAR_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface scrollbarGutterPropertyType {
-  keywords: typeof Keywords.SCROLLBARGUTTER_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLLBAR_GUTTER_KEYWORDS[number][];
 }
 
 export interface scrollbarWidthPropertyType {
-  keywords: typeof Keywords.SCROLLBARWIDTH_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLLBAR_WIDTH_KEYWORDS[number][];
 }
 
 export interface scrollBehaviorPropertyType {
-  keywords: typeof Keywords.SCROLLBEHAVIOR_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_BEHAVIOR_KEYWORDS[number][];
 }
 
 export interface scrollMarginPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGIN_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginBlockPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINBLOCK_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginBlockEndPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINBLOCKEND_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginBlockStartPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINBLOCKSTART_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginBottomPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINBOTTOM_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_BOTTOM_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginInlinePropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGININLINE_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginInlineEndPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGININLINEEND_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginInlineStartPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGININLINESTART_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginLeftPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINLEFT_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_LEFT_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginRightPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINRIGHT_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_RIGHT_NUMBER_TYPES[number][];
 }
 
 export interface scrollMarginTopPropertyType {
-  numberTypes: typeof NumberTypes.SCROLLMARGINTOP_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SCROLL_MARGIN_TOP_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingPropertyType {
-  keywords: typeof Keywords.SCROLLPADDING_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDING_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingBlockPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGBLOCK_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGBLOCK_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_BLOCK_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_BLOCK_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingBlockEndPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGBLOCKEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGBLOCKEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_BLOCK_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_BLOCK_END_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingBlockStartPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGBLOCKSTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGBLOCKSTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_BLOCK_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_BLOCK_START_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingBottomPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGBOTTOM_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGBOTTOM_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_BOTTOM_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_BOTTOM_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingInlinePropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGINLINE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGINLINE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_INLINE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_INLINE_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingInlineEndPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGINLINEEND_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGINLINEEND_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_INLINE_END_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_INLINE_END_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingInlineStartPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGINLINESTART_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGINLINESTART_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_INLINE_START_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_INLINE_START_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingLeftPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGLEFT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGLEFT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_LEFT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_LEFT_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingRightPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGRIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGRIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_RIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_RIGHT_NUMBER_TYPES[number][];
 }
 
 export interface scrollPaddingTopPropertyType {
-  keywords: typeof Keywords.SCROLLPADDINGTOP_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLPADDINGTOP_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_PADDING_TOP_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_PADDING_TOP_NUMBER_TYPES[number][];
 }
 
 export interface scrollSnapAlignPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPALIGN_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_ALIGN_KEYWORDS[number][];
 }
 
 export interface scrollSnapCoordinatePropertyType {
-  keywords: typeof Keywords.SCROLLSNAPCOORDINATE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLSNAPCOORDINATE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_COORDINATE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_SNAP_COORDINATE_NUMBER_TYPES[number][];
 }
 
 export interface scrollSnapDestinationPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPDESTINATION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLSNAPDESTINATION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_DESTINATION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_SNAP_DESTINATION_NUMBER_TYPES[number][];
 }
 
 export interface scrollSnapPointsXPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPPOINTSX_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLSNAPPOINTSX_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_POINTS_X_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_SNAP_POINTS_X_NUMBER_TYPES[number][];
 }
 
 export interface scrollSnapPointsYPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPPOINTSY_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLSNAPPOINTSY_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_POINTS_Y_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLL_SNAP_POINTS_Y_NUMBER_TYPES[number][];
 }
 
 export interface scrollSnapStopPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPSTOP_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_STOP_KEYWORDS[number][];
 }
 
 export interface scrollSnapTypePropertyType {
-  keywords: typeof Keywords.SCROLLSNAPTYPE_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_TYPE_KEYWORDS[number][];
 }
 
 export interface scrollSnapTypeXPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPTYPEX_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_TYPE_X_KEYWORDS[number][];
 }
 
 export interface scrollSnapTypeYPropertyType {
-  keywords: typeof Keywords.SCROLLSNAPTYPEY_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_SNAP_TYPE_Y_KEYWORDS[number][];
 }
 
 export interface scrollTimelinePropertyType {
-  keywords: typeof Keywords.SCROLLTIMELINE_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_TIMELINE_KEYWORDS[number][];
 }
 
 export interface scrollTimelineAxisPropertyType {
-  keywords: typeof Keywords.SCROLLTIMELINEAXIS_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_TIMELINE_AXIS_KEYWORDS[number][];
 }
 
 export interface scrollTimelineNamePropertyType {
-  keywords: typeof Keywords.SCROLLTIMELINENAME_KEYWORDS[number][];
+  keywords: typeof Keywords.SCROLL_TIMELINE_NAME_KEYWORDS[number][];
 }
 
 export interface shapeImageThresholdPropertyType {
-  numberTypes: typeof NumberTypes.SHAPEIMAGETHRESHOLD_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES[number][];
 }
 
 export interface shapeMarginPropertyType {
-  numberTypes: typeof NumberTypes.SHAPEMARGIN_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.SHAPE_MARGIN_NUMBER_TYPES[number][];
 }
 
 export interface shapeOutsidePropertyType {
-  keywords: typeof Keywords.SHAPEOUTSIDE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SHAPEOUTSIDE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.SHAPE_OUTSIDE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SHAPE_OUTSIDE_NUMBER_TYPES[number][];
 }
 
 export interface shapeRenderingPropertyType {
-  keywords: typeof Keywords.SHAPERENDERING_KEYWORDS[number][];
+  keywords: typeof Keywords.SHAPE_RENDERING_KEYWORDS[number][];
 }
 
 export interface speakPropertyType {
@@ -1937,7 +1937,7 @@ export interface speakPropertyType {
 }
 
 export interface speakAsPropertyType {
-  keywords: typeof Keywords.SPEAKAS_KEYWORDS[number][];
+  keywords: typeof Keywords.SPEAK_AS_KEYWORDS[number][];
 }
 
 export interface strokePropertyType {
@@ -1946,170 +1946,170 @@ export interface strokePropertyType {
 }
 
 export interface strokeDasharrayPropertyType {
-  keywords: typeof Keywords.STROKEDASHARRAY_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.STROKEDASHARRAY_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.STROKE_DASHARRAY_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.STROKE_DASHARRAY_NUMBER_TYPES[number][];
 }
 
 export interface strokeDashoffsetPropertyType {
-  numberTypes: typeof NumberTypes.STROKEDASHOFFSET_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.STROKE_DASHOFFSET_NUMBER_TYPES[number][];
 }
 
 export interface strokeLinecapPropertyType {
-  keywords: typeof Keywords.STROKELINECAP_KEYWORDS[number][];
+  keywords: typeof Keywords.STROKE_LINECAP_KEYWORDS[number][];
 }
 
 export interface strokeLinejoinPropertyType {
-  keywords: typeof Keywords.STROKELINEJOIN_KEYWORDS[number][];
+  keywords: typeof Keywords.STROKE_LINEJOIN_KEYWORDS[number][];
 }
 
 export interface strokeMiterlimitPropertyType {
-  numberTypes: typeof NumberTypes.STROKEMITERLIMIT_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.STROKE_MITERLIMIT_NUMBER_TYPES[number][];
 }
 
 export interface strokeOpacityPropertyType {
-  numberTypes: typeof NumberTypes.STROKEOPACITY_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.STROKE_OPACITY_NUMBER_TYPES[number][];
 }
 
 export interface strokeWidthPropertyType {
-  numberTypes: typeof NumberTypes.STROKEWIDTH_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.STROKE_WIDTH_NUMBER_TYPES[number][];
 }
 
 export interface tableLayoutPropertyType {
-  keywords: typeof Keywords.TABLELAYOUT_KEYWORDS[number][];
+  keywords: typeof Keywords.TABLE_LAYOUT_KEYWORDS[number][];
 }
 
 export interface tabSizePropertyType {
-  numberTypes: typeof NumberTypes.TABSIZE_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.TAB_SIZE_NUMBER_TYPES[number][];
 }
 
 export interface textAlignPropertyType {
-  keywords: typeof Keywords.TEXTALIGN_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_ALIGN_KEYWORDS[number][];
 }
 
 export interface textAlignLastPropertyType {
-  keywords: typeof Keywords.TEXTALIGNLAST_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_ALIGN_LAST_KEYWORDS[number][];
 }
 
 export interface textAnchorPropertyType {
-  keywords: typeof Keywords.TEXTANCHOR_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_ANCHOR_KEYWORDS[number][];
 }
 
 export interface textCombineUprightPropertyType {
-  keywords: typeof Keywords.TEXTCOMBINEUPRIGHT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTCOMBINEUPRIGHT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_COMBINE_UPRIGHT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_COMBINE_UPRIGHT_NUMBER_TYPES[number][];
 }
 
 export interface textDecorationPropertyType {
-  keywords: typeof Keywords.TEXTDECORATION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTDECORATION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_DECORATION_NUMBER_TYPES[number][];
 }
 
 export interface textDecorationColorPropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTDECORATIONCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_DECORATION_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface textDecorationLinePropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONLINE_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_LINE_KEYWORDS[number][];
 }
 
 export interface textDecorationSkipPropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONSKIP_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_SKIP_KEYWORDS[number][];
 }
 
 export interface textDecorationSkipInkPropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONSKIPINK_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_SKIP_INK_KEYWORDS[number][];
 }
 
 export interface textDecorationStylePropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_STYLE_KEYWORDS[number][];
 }
 
 export interface textDecorationThicknessPropertyType {
-  keywords: typeof Keywords.TEXTDECORATIONTHICKNESS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTDECORATIONTHICKNESS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_DECORATION_THICKNESS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_DECORATION_THICKNESS_NUMBER_TYPES[number][];
 }
 
 export interface textEmphasisPropertyType {
-  keywords: typeof Keywords.TEXTEMPHASIS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTEMPHASIS_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_EMPHASIS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_EMPHASIS_NUMBER_TYPES[number][];
 }
 
 export interface textEmphasisColorPropertyType {
-  keywords: typeof Keywords.TEXTEMPHASISCOLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTEMPHASISCOLOR_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_EMPHASIS_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_EMPHASIS_COLOR_NUMBER_TYPES[number][];
 }
 
 export interface textEmphasisPositionPropertyType {
-  keywords: typeof Keywords.TEXTEMPHASISPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_EMPHASIS_POSITION_KEYWORDS[number][];
 }
 
 export interface textEmphasisStylePropertyType {
-  keywords: typeof Keywords.TEXTEMPHASISSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_EMPHASIS_STYLE_KEYWORDS[number][];
 }
 
 export interface textIndentPropertyType {
-  keywords: typeof Keywords.TEXTINDENT_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTINDENT_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_INDENT_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_INDENT_NUMBER_TYPES[number][];
 }
 
 export interface textJustifyPropertyType {
-  keywords: typeof Keywords.TEXTJUSTIFY_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_JUSTIFY_KEYWORDS[number][];
 }
 
 export interface textOrientationPropertyType {
-  keywords: typeof Keywords.TEXTORIENTATION_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_ORIENTATION_KEYWORDS[number][];
 }
 
 export interface textOverflowPropertyType {
-  keywords: typeof Keywords.TEXTOVERFLOW_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_OVERFLOW_KEYWORDS[number][];
 }
 
 export interface textRenderingPropertyType {
-  keywords: typeof Keywords.TEXTRENDERING_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_RENDERING_KEYWORDS[number][];
 }
 
 export interface textShadowPropertyType {
-  keywords: typeof Keywords.TEXTSHADOW_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTSHADOW_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_SHADOW_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_SHADOW_NUMBER_TYPES[number][];
 }
 
 export interface textSizeAdjustPropertyType {
-  keywords: typeof Keywords.TEXTSIZEADJUST_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTSIZEADJUST_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_SIZE_ADJUST_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_SIZE_ADJUST_NUMBER_TYPES[number][];
 }
 
 export interface textSpacingTrimPropertyType {
-  keywords: typeof Keywords.TEXTSPACINGTRIM_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_SPACING_TRIM_KEYWORDS[number][];
 }
 
 export interface textTransformPropertyType {
-  keywords: typeof Keywords.TEXTTRANSFORM_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_TRANSFORM_KEYWORDS[number][];
 }
 
 export interface textUnderlineOffsetPropertyType {
-  keywords: typeof Keywords.TEXTUNDERLINEOFFSET_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TEXTUNDERLINEOFFSET_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TEXT_UNDERLINE_OFFSET_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TEXT_UNDERLINE_OFFSET_NUMBER_TYPES[number][];
 }
 
 export interface textUnderlinePositionPropertyType {
-  keywords: typeof Keywords.TEXTUNDERLINEPOSITION_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_UNDERLINE_POSITION_KEYWORDS[number][];
 }
 
 export interface textWrapPropertyType {
-  keywords: typeof Keywords.TEXTWRAP_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_WRAP_KEYWORDS[number][];
 }
 
 export interface textWrapModePropertyType {
-  keywords: typeof Keywords.TEXTWRAPMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_WRAP_MODE_KEYWORDS[number][];
 }
 
 export interface textWrapStylePropertyType {
-  keywords: typeof Keywords.TEXTWRAPSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.TEXT_WRAP_STYLE_KEYWORDS[number][];
 }
 
 export interface timelineScopePropertyType {
-  keywords: typeof Keywords.TIMELINESCOPE_KEYWORDS[number][];
+  keywords: typeof Keywords.TIMELINE_SCOPE_KEYWORDS[number][];
 }
 
 export interface topPropertyType {
@@ -2118,7 +2118,7 @@ export interface topPropertyType {
 }
 
 export interface touchActionPropertyType {
-  keywords: typeof Keywords.TOUCHACTION_KEYWORDS[number][];
+  keywords: typeof Keywords.TOUCH_ACTION_KEYWORDS[number][];
 }
 
 export interface transformPropertyType {
@@ -2127,16 +2127,16 @@ export interface transformPropertyType {
 }
 
 export interface transformBoxPropertyType {
-  keywords: typeof Keywords.TRANSFORMBOX_KEYWORDS[number][];
+  keywords: typeof Keywords.TRANSFORM_BOX_KEYWORDS[number][];
 }
 
 export interface transformOriginPropertyType {
-  keywords: typeof Keywords.TRANSFORMORIGIN_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TRANSFORMORIGIN_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TRANSFORM_ORIGIN_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TRANSFORM_ORIGIN_NUMBER_TYPES[number][];
 }
 
 export interface transformStylePropertyType {
-  keywords: typeof Keywords.TRANSFORMSTYLE_KEYWORDS[number][];
+  keywords: typeof Keywords.TRANSFORM_STYLE_KEYWORDS[number][];
 }
 
 export interface transitionPropertyType {
@@ -2145,24 +2145,24 @@ export interface transitionPropertyType {
 }
 
 export interface transitionBehaviorPropertyType {
-  keywords: typeof Keywords.TRANSITIONBEHAVIOR_KEYWORDS[number][];
+  keywords: typeof Keywords.TRANSITION_BEHAVIOR_KEYWORDS[number][];
 }
 
 export interface transitionDelayPropertyType {
-  numberTypes: typeof NumberTypes.TRANSITIONDELAY_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.TRANSITION_DELAY_NUMBER_TYPES[number][];
 }
 
 export interface transitionDurationPropertyType {
-  numberTypes: typeof NumberTypes.TRANSITIONDURATION_NUMBER_TYPES[number][];
+  numberTypes: typeof NumberTypes.TRANSITION_DURATION_NUMBER_TYPES[number][];
 }
 
 export interface transitionPropertyPropertyType {
-  keywords: typeof Keywords.TRANSITIONPROPERTY_KEYWORDS[number][];
+  keywords: typeof Keywords.TRANSITION_PROPERTY_KEYWORDS[number][];
 }
 
 export interface transitionTimingFunctionPropertyType {
-  keywords: typeof Keywords.TRANSITIONTIMINGFUNCTION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.TRANSITIONTIMINGFUNCTION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.TRANSITION_TIMING_FUNCTION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.TRANSITION_TIMING_FUNCTION_NUMBER_TYPES[number][];
 }
 
 export interface translatePropertyType {
@@ -2171,41 +2171,41 @@ export interface translatePropertyType {
 }
 
 export interface unicodeBidiPropertyType {
-  keywords: typeof Keywords.UNICODEBIDI_KEYWORDS[number][];
+  keywords: typeof Keywords.UNICODE_BIDI_KEYWORDS[number][];
 }
 
 export interface userSelectPropertyType {
-  keywords: typeof Keywords.USERSELECT_KEYWORDS[number][];
+  keywords: typeof Keywords.USER_SELECT_KEYWORDS[number][];
 }
 
 export interface vectorEffectPropertyType {
-  keywords: typeof Keywords.VECTOREFFECT_KEYWORDS[number][];
+  keywords: typeof Keywords.VECTOR_EFFECT_KEYWORDS[number][];
 }
 
 export interface verticalAlignPropertyType {
-  keywords: typeof Keywords.VERTICALALIGN_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VERTICALALIGN_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VERTICAL_ALIGN_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VERTICAL_ALIGN_NUMBER_TYPES[number][];
 }
 
 export interface viewTimelinePropertyType {
-  keywords: typeof Keywords.VIEWTIMELINE_KEYWORDS[number][];
+  keywords: typeof Keywords.VIEW_TIMELINE_KEYWORDS[number][];
 }
 
 export interface viewTimelineAxisPropertyType {
-  keywords: typeof Keywords.VIEWTIMELINEAXIS_KEYWORDS[number][];
+  keywords: typeof Keywords.VIEW_TIMELINE_AXIS_KEYWORDS[number][];
 }
 
 export interface viewTimelineInsetPropertyType {
-  keywords: typeof Keywords.VIEWTIMELINEINSET_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VIEWTIMELINEINSET_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VIEW_TIMELINE_INSET_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VIEW_TIMELINE_INSET_NUMBER_TYPES[number][];
 }
 
 export interface viewTimelineNamePropertyType {
-  keywords: typeof Keywords.VIEWTIMELINENAME_KEYWORDS[number][];
+  keywords: typeof Keywords.VIEW_TIMELINE_NAME_KEYWORDS[number][];
 }
 
 export interface viewTransitionNamePropertyType {
-  keywords: typeof Keywords.VIEWTRANSITIONNAME_KEYWORDS[number][];
+  keywords: typeof Keywords.VIEW_TRANSITION_NAME_KEYWORDS[number][];
 }
 
 export interface visibilityPropertyType {
@@ -2213,54 +2213,54 @@ export interface visibilityPropertyType {
 }
 
 export interface voiceBalancePropertyType {
-  keywords: typeof Keywords.VOICEBALANCE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICEBALANCE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_BALANCE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_BALANCE_NUMBER_TYPES[number][];
 }
 
 export interface voiceDurationPropertyType {
-  keywords: typeof Keywords.VOICEDURATION_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICEDURATION_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_DURATION_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_DURATION_NUMBER_TYPES[number][];
 }
 
 export interface voiceFamilyPropertyType {
-  keywords: typeof Keywords.VOICEFAMILY_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICEFAMILY_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_FAMILY_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_FAMILY_NUMBER_TYPES[number][];
 }
 
 export interface voicePitchPropertyType {
-  keywords: typeof Keywords.VOICEPITCH_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICEPITCH_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_PITCH_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_PITCH_NUMBER_TYPES[number][];
 }
 
 export interface voiceRangePropertyType {
-  keywords: typeof Keywords.VOICERANGE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICERANGE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_RANGE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_RANGE_NUMBER_TYPES[number][];
 }
 
 export interface voiceRatePropertyType {
-  keywords: typeof Keywords.VOICERATE_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICERATE_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_RATE_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_RATE_NUMBER_TYPES[number][];
 }
 
 export interface voiceStressPropertyType {
-  keywords: typeof Keywords.VOICESTRESS_KEYWORDS[number][];
+  keywords: typeof Keywords.VOICE_STRESS_KEYWORDS[number][];
 }
 
 export interface voiceVolumePropertyType {
-  keywords: typeof Keywords.VOICEVOLUME_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.VOICEVOLUME_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.VOICE_VOLUME_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.VOICE_VOLUME_NUMBER_TYPES[number][];
 }
 
 export interface whiteSpacePropertyType {
-  keywords: typeof Keywords.WHITESPACE_KEYWORDS[number][];
+  keywords: typeof Keywords.WHITE_SPACE_KEYWORDS[number][];
 }
 
 export interface whiteSpaceCollapsePropertyType {
-  keywords: typeof Keywords.WHITESPACECOLLAPSE_KEYWORDS[number][];
+  keywords: typeof Keywords.WHITE_SPACE_COLLAPSE_KEYWORDS[number][];
 }
 
 export interface whiteSpaceTrimPropertyType {
-  keywords: typeof Keywords.WHITESPACETRIM_KEYWORDS[number][];
+  keywords: typeof Keywords.WHITE_SPACE_TRIM_KEYWORDS[number][];
 }
 
 export interface widowsPropertyType {
@@ -2273,24 +2273,24 @@ export interface widthPropertyType {
 }
 
 export interface willChangePropertyType {
-  keywords: typeof Keywords.WILLCHANGE_KEYWORDS[number][];
+  keywords: typeof Keywords.WILL_CHANGE_KEYWORDS[number][];
 }
 
 export interface wordBreakPropertyType {
-  keywords: typeof Keywords.WORDBREAK_KEYWORDS[number][];
+  keywords: typeof Keywords.WORD_BREAK_KEYWORDS[number][];
 }
 
 export interface wordSpacingPropertyType {
-  keywords: typeof Keywords.WORDSPACING_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.WORDSPACING_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.WORD_SPACING_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.WORD_SPACING_NUMBER_TYPES[number][];
 }
 
 export interface wordWrapPropertyType {
-  keywords: typeof Keywords.WORDWRAP_KEYWORDS[number][];
+  keywords: typeof Keywords.WORD_WRAP_KEYWORDS[number][];
 }
 
 export interface writingModePropertyType {
-  keywords: typeof Keywords.WRITINGMODE_KEYWORDS[number][];
+  keywords: typeof Keywords.WRITING_MODE_KEYWORDS[number][];
 }
 
 export interface xPropertyType {
@@ -2302,8 +2302,8 @@ export interface yPropertyType {
 }
 
 export interface zIndexPropertyType {
-  keywords: typeof Keywords.ZINDEX_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.ZINDEX_NUMBER_TYPES[number][];
+  keywords: typeof Keywords.Z_INDEX_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.Z_INDEX_NUMBER_TYPES[number][];
 }
 
 export interface zoomPropertyType {
