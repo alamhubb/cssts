@@ -20,8 +20,10 @@ import {
     UnitCategoryConfigItem,
     UnitCategoryExcludeItem, UnitConfigItem, UnitExcludeItem
 } from "./types/config.ts";
-import {UnitType} from "./data/cssts-data.ts";
+import {PseudoElementName, UnitType} from "./data/cssts-data.ts";
 import {AllColorName, AllKeywordName} from "./types/cssKeywords";
+import {CssPseudoClassName, CssPseudoElementName} from "./types/cssPseudoClassElement";
+import {CssPseudoClassConfig, CssPseudoElementConfig} from "./types/pseudoStyles";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -289,35 +291,35 @@ export class CsstsConfig {
      * 支持的伪类列表（白名单）
      * 如果配置了此项，则只生成这些伪类，忽略 excludePseudoClasses
      */
-    pseudoClasses?: PseudoClassName[];
+    pseudoClasses?: CssPseudoClassName[];
 
     /**
      * 排除的伪类列表（黑名单）
      * 仅当 pseudoClasses 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludePseudoClasses: PseudoClassName[];
+    excludePseudoClasses: CssPseudoClassName[];
 
     /**
      * 支持的伪元素列表（白名单）
      * 如果配置了此项，则只生成这些伪元素，忽略 excludePseudoElements
      */
-    pseudoElements?: PseudoElementName[];
+    pseudoElements?: CssPseudoElementName[];
 
     /**
      * 排除的伪元素列表（黑名单）
      * 仅当 pseudoElements 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludePseudoElements: PseudoElementName[];
+    excludePseudoElements: CssPseudoElementName[];
 
     // ==================== 伪类/伪元素样式配置 ====================
 
     /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
-    pseudoClassesStyles: PseudoClassStylesConfig;
+    pseudoClassesConfig: CssPseudoClassConfig;
 
     /** 伪元素样式配置 */
-    pseudoElementsStyles: PseudoElementStylesConfig;
+    pseudoElementsConfig: CssPseudoElementConfig;
 
     /**
      * 创建 CSSTS 配置实例
@@ -383,8 +385,8 @@ export class CsstsConfig {
         this.excludePseudoElements = options.excludePseudoElements ?? [];
 
         // ==================== 伪类/伪元素样式配置 ====================
-        this.pseudoClassesStyles = new PseudoClassStylesConfig(options.pseudoClassesStyles);
-        this.pseudoElementsStyles = new PseudoElementStylesConfig(options.pseudoElementsStyles);
+        this.pseudoClassesConfig = options.pseudoClassesConfig
+        this.pseudoElementsConfig = options.pseudoElementsConfig
     }
 }
 

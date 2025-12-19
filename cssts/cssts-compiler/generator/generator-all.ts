@@ -316,6 +316,65 @@ function generateCssPseudoClassElementType(): string {
   return lines.join('\n');
 }
 
+function generatePseudoStylesType(pseudoClasses: string[], pseudoElements: string[]): string {
+  const lines: string[] = [
+    '/**',
+    ' * 伪类/伪元素样式类型定义（自动生成）',
+    ' *',
+    ' * 基于生成的 pseudoClasses.ts 和 pseudoElements.ts',
+    ' * 为伪类和伪元素提供类型安全的样式配置',
+    ' */',
+    '',
+    "import type { CSSPropertiesValueType } from './cssPropertiesValue';",
+    '',
+    '// ==================== 伪类样式类型 ====================',
+    '',
+    '/**',
+    ' * 伪类样式配置类型',
+    ' * 每个伪类可以配置 CSS 属性值',
+    ' */',
+    'export interface CssPseudoClassConfig {',
+  ];
+
+  // Group pseudo-classes by category
+  const categories: Record<string, string[]> = {
+    'user-action': ['hover', 'active', 'focus', 'focusVisible', 'focusWithin'],
+    'link': ['link', 'visited', 'anyLink', 'localLink', 'target', 'targetWithin'],
+    'form': ['enabled', 'disabled', 'readOnly', 'readWrite', 'placeholderShown', 'default', 'checked', 'indeterminate', 'valid', 'invalid', 'inRange', 'outOfRange', 'required', 'optional', 'userValid', 'userInvalid', 'autofill'],
+    'structural': ['root', 'empty', 'firstChild', 'lastChild', 'onlyChild', 'firstOfType', 'lastOfType', 'onlyOfType', 'nthChild', 'nthLastChild', 'nthOfType', 'nthLastOfType'],
+    'logical': ['not', 'is', 'where', 'has'],
+    'linguistic': ['lang', 'dir'],
+    'display': ['fullscreen', 'modal', 'pictureInPicture'],
+    'media': ['playing', 'paused', 'seeking', 'buffering', 'stalled', 'muted', 'volumeLocked'],
+    'web-components': ['defined', 'host', 'hostContext', 'scope'],
+    'other': ['blank'],
+  };
+
+  for (const [category, props] of Object.entries(categories)) {
+    lines.push(`  // ${category} 伪类`);
+    for (const prop of props) {
+      lines.push(`  ${prop}?: CSSPropertiesValueType;`);
+    }
+    lines.push('');
+  }
+
+  lines.push('}', '');
+  lines.push('// ==================== 伪元素样式类型 ====================', '');
+  lines.push('/**', ' * 伪元素样式配置类型', ' * 每个伪元素可以配置 CSS 属性值', ' */', 'export interface CssPseudoElementConfig {');
+
+  for (const pseudoElement of pseudoElements) {
+    const camelCase = pseudoElement
+      .split('-')
+      .map((part, i) => i === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1))
+      .join('');
+    lines.push(`  ${camelCase}?: CSSPropertiesValueType;`);
+  }
+
+  lines.push('}', '');
+
+  return lines.join('\n');
+}
+
 // ==================== CSS 属性配置类型生成 ====================
 
 function generateCssPropertyConfigType(): string {
@@ -381,6 +440,9 @@ function main() {
 
   fs.writeFileSync(path.join(typesDir, 'cssPseudoClassElement.d.ts'), generateCssPseudoClassElementType());
   console.log('✅ src/types/cssPseudoClassElement.d.ts');
+
+  fs.writeFileSync(path.join(typesDir, 'pseudoStyles.d.ts'), generatePseudoStylesType(pseudoClasses, pseudoElements));
+  console.log('✅ src/types/pseudoStyles.d.ts');
 
   // CSS Property Config
   fs.writeFileSync(path.join(typesDir, 'cssPropertyConfig.d.ts'), generateCssPropertyConfigType());
