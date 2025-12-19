@@ -13,6 +13,8 @@ import {ProgressiveRange} from "./types/value.ts";
 import {CSSPropertiesType} from "./types/cssProperties";
 import {CSSProperties, CSSProperty} from "./types/cssPropertyConfig";
 import {CSSPropertyName} from "./data/property-data.ts";
+import {NumberCategoryName, NumberTypeName} from "./types/numberTypes";
+import {NumberTypeConfigItem, NumberTypeExcludeItem, UnitCategoryConfigItem} from "./types/config.ts";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -193,7 +195,7 @@ export class CsstsConfig {
      *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
      * ]
      */
-    unitCategories: UnitCategoryConfigItem<UnitCategoryName>[];
+    unitCategories: UnitCategoryConfigItem<NumberCategoryName>[];
 
     /**
      * 排除的单位分类列表（黑名单）
