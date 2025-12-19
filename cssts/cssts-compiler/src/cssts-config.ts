@@ -21,6 +21,7 @@ import {
     UnitCategoryExcludeItem, UnitConfigItem, UnitExcludeItem
 } from "./types/config.ts";
 import {UnitType} from "./data/cssts-data.ts";
+import {AllColorName, AllKeywordName} from "./types/cssKeywords";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -252,27 +253,27 @@ export class CsstsConfig {
      * 支持的关键字列表（白名单）
      * 如果配置了此项，则只生成这些关键字，忽略 excludeKeywords
      */
-    keywords?: KeywordValue[];
+    keywords?: AllKeywordName[];
 
     /**
      * 排除的关键字列表（黑名单）
      * 仅当 keywords 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludeKeywords: KeywordValue[];
+    excludeKeywords: AllKeywordName[];
 
     /**
      * 支持的颜色列表（白名单）
      * 如果配置了此项，则只生成这些颜色，忽略 excludeColors
      */
-    colors?: AllColorValue[];
+    colors?: AllColorName[];
 
     /**
      * 排除的颜色列表（黑名单）
      * 仅当 colors 为空时生效
      * 只需要名字列表，不支持配置
      */
-    excludeColors: AllColorValue[];
+    excludeColors: AllColorName[];
 
     // ==================== 其他配置 ====================
 
