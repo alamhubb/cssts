@@ -14,7 +14,12 @@ import {CSSPropertiesType} from "./types/cssProperties";
 import {CSSProperties, CSSProperty} from "./types/cssPropertyConfig";
 import {CSSPropertyName} from "./data/property-data.ts";
 import {NumberCategoryName, NumberTypeName} from "./types/numberTypes";
-import {NumberTypeConfigItem, NumberTypeExcludeItem, UnitCategoryConfigItem} from "./types/config.ts";
+import {
+    NumberTypeConfigItem,
+    NumberTypeExcludeItem,
+    UnitCategoryConfigItem,
+    UnitCategoryExcludeItem
+} from "./types/config.ts";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -208,7 +213,7 @@ export class CsstsConfig {
      *   { pixel: ['px'] }           // 排除 pixel 分类下的 px 单位
      * ]
      */
-    excludeUnitCategories: UnitCategoryExcludeItem<UnitCategoryName>[];
+    excludeUnitCategories: UnitCategoryExcludeItem<NumberCategoryName>[];
 
     // ==================== 单位配置 ====================
 
