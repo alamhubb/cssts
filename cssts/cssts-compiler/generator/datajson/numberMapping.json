@@ -9,12 +9,11 @@
     "integer": ["unitless"],
     "resolution": ["resolution"],
     "flex": ["flex"],
-    "dimension": ["pixel", "fontRelative", "physical", "angle", "time", "frequency", "resolution", "flex", "percentage"],
-    "zero": ["unitless"],
     "ratio": ["unitless"],
     "decibel": ["unitless"],
     "semitones": ["unitless"]
   },
+
   "categories": {
     "percentage": ["%", "vw", "vh", "vmin", "vmax", "svw", "svh", "lvw", "lvh", "dvw", "dvh", "vi", "vb"],
     "pixel": ["px"],

@@ -5,9 +5,8 @@
  */
 
 import type * as Keywords from '../data/propertyKeywords';
-import type * as NumberTypes from '../data/propertyNumberTypes';
 
-// ==================== 属性值类型 ====================
+// ==================== 属性值映射 ====================
 
 // ==================== 属性值映射 ====================
 

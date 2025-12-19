@@ -53,8 +53,6 @@ const ACCEPTED_NUMBER_TYPES = new Set([
   'integer',
   'percentage',
   'ratio',
-  'dimension',
-  'zero',
 ]);
 
 const UNION_TYPE_MAP: Record<string, string[]> = {

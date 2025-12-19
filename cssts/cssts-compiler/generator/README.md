@@ -89,6 +89,84 @@ npx tsx generator/generator-config-type.ts
    生成 src/config/ 下的所有类型定义
 ```
 
+## NumberTypes 处理
+
+### 两种 NumberTypes 数据的区别
+
+项目中有两种不同用途的 numberTypes 数据：
+
+#### 1. 属性的 NumberTypes（`propertyNumberTypes.ts`）
+
+这是从 csstree 中提取的**属性可以接受的数值类型**：
+
+```typescript
+export const ALL_NUMBER_TYPES = [
+  'angle', 'decibel', 'flex', 'frequency', 'integer', 'length', 
+  'number', 'percentage', 'ratio', 'resolution', 'semitones', 'time'
+] as const;
+
+// 例如
+export const WIDTH_NUMBER_TYPES = ['length', 'percentage'] as const;
+export const ANIMATION_DELAY_NUMBER_TYPES = ['time'] as const;
+```
+
+**用途**：
+- 类型定义和验证
+- 确定属性支持哪些数值类型
+- 生成 TypeScript 类型提示
+
+#### 2. NumberTypes 到单位分类的映射（`numberMapping.json`）
+
+这是一个**配置文件**，定义每个 numberType 对应的单位分类：
+
+```json
+{
+  "numberTypes": {
+    "length": ["pixel", "fontRelative", "physical", "percentage"],
+    "angle": ["angle"],
+    "time": ["time"],
+    "number": ["unitless"],
+    "dimension": ["pixel", "fontRelative", "physical", "angle", "time", "frequency", "resolution", "flex", "percentage"]
+  },
+  "categories": {
+    "pixel": ["px"],
+    "fontRelative": ["em", "rem", "ch", "ex", "cap", "ic", "lh", "rlh"],
+    ...
+  }
+}
+```
+
+**用途**：
+- 原子类生成时查找单位
+- 定义单位分类和具体单位的映射关系
+- 支持自定义单位配置
+
+### 被认可的 NumberTypes
+
+脚本只提取以下被认可的 numberTypes：
+
+```typescript
+const ACCEPTED_NUMBER_TYPES = new Set([
+  // 从 units 中来的
+  'angle', 'decibel', 'flex', 'frequency', 'length', 'resolution', 'semitones', 'time',
+  // 纯数值类型
+  'number', 'integer', 'percentage', 'ratio',
+]);
+```
+
+**注意**：`dimension` 虽然在 csstree 中定义，但在实际属性中没有被使用，因此被排除。
+
+### 为什么排除 `zero`？
+
+虽然 csstree 中定义了 `zero` 类型，但它被排除的原因：
+
+1. **语义问题**：`zero` 在 csstree 中是一个特殊的、受限的类型，只在特定属性中被明确标记（如 `transform`）
+2. **通用性**：在 CSS 中，`0` 可以用于任何接受数值的属性（如 `height: 0`、`padding: 0`、`margin: 0`），不需要单位
+3. **实现简化**：`0` 通常可以用 `number` 类型表示，不需要单独的 `zero` 类型
+4. **csstree 限制**：csstree 中的 `zero` 定义不够通用，无法准确反映 CSS 的实际行为
+
+**结论**：在生成 numberTypes 时，我们不包含 `zero`，因为它不是一个通用的、可靠的数值类型分类。同时，`numberMapping.json` 中也不包含 `zero` 的映射，保持一致性。
+
 ## 联合类型处理
 
 ### 设计决策：展开联合类型

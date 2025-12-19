@@ -5,139 +5,14 @@
  * 提供用户配置接口
  */
 
-import type {AllColorValue} from './config/colors';
-import type {NumberTypeName, UnitType, UnitCategoryName} from './config/units';
-import type {KeywordValue} from './config/keywords';
-import {CssPropertyConfigMap, type CssPropertyCamelName} from './config/property-config';
-import type {PseudoClassName} from './config/pseudo';
-import type {PseudoElementName} from './config/pseudo';
-import {
-    type ProgressiveRange,
-    type StepConfig,
-    type UnitValueConfig,
-    type UnitCategoryConfig,
-} from './types/value';
-import {
-    type UnitsConfigValue,
-    type NumberTypeConfigItem,
-    type UnitCategoryConfigItem,
-    type UnitConfigItem,
-    type NumberTypeExcludeItem,
-    type UnitCategoryExcludeItem,
-    type UnitExcludeItem,
-} from './types/config';
-import {
-    PseudoClassStylesConfig,
-    PseudoElementStylesConfig,
-} from './config/pseudo-styles.js';
-
 // ==================== 重新导出配置相关类型和常量 ====================
-
-export type {
-    ProgressiveRange,
-    StepConfig,
-    UnitValueConfig,
-    UnitsConfigValue,
-    UnitCategoryConfig,
-    NumberTypeConfigItem,
-    UnitCategoryConfigItem,
-    UnitConfigItem,
-    NumberTypeExcludeItem,
-    UnitCategoryExcludeItem,
-    UnitExcludeItem,
-};
-
-export {
-    PseudoClassStylesConfig,
-    PseudoElementStylesConfig,
-};
 
 // ==================== 类型定义 ====================
 
+import {ProgressiveRange} from "./types/value.ts";
+
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
-
-
-// ==================== 合并所有核心属性 ====================
-export const cssDefaultProperties: CssPropertyCamelName[] = [
-    // ==================== 布局属性 ====================
-    'top',
-];
-
-
-/*export const cssDefaultProperties: CssPropertyCamelName[] = [
-    // ==================== 布局属性 ====================
-    'display',
-    'position',
-    'top',
-    'right',
-    'bottom',
-    'left',
-    'inset',
-    'zIndex',
-    'float',
-    'clear',
-
-    // ==================== Flexbox 属性 ====================
-    'flex',
-    'flexDirection',
-    'justifyContent',
-    'alignItems',
-    'gap',
-
-    // ==================== Grid 属性 ====================
-    'gridTemplateColumns',
-    'gridTemplateRows',
-
-    // ==================== 尺寸属性 ====================
-    'width',
-    'height',
-    'minWidth',
-    'maxWidth',
-    'minHeight',
-    'maxHeight',
-
-    // ==================== 间距属性 ====================
-    'margin',
-    'padding',
-
-    // ==================== 背景属性 ====================
-    'backgroundColor',
-    'backgroundImage',
-    'backgroundSize',
-
-    // ==================== 文本属性 ====================
-    'color',
-    'fontSize',
-    'fontWeight',
-    'lineHeight',
-    'textAlign',
-
-    // ==================== 边框属性 ====================
-    'border',
-    'borderColor',
-    'borderRadius',
-    'borderWidth',
-
-    // ==================== 阴影属性 ====================
-    'boxShadow',
-    'textShadow',
-
-    // ==================== 变换属性 ====================
-    'transform',
-    'rotate',
-    'scale',
-    'translate',
-
-    // ==================== 过渡属性 ====================
-    'transition',
-    'animation',
-
-    // ==================== 其他属性 ====================
-    'opacity',
-    'cursor',
-    'overflow',
-];*/
 
 
 // ==================== 系统级别默认配置 ====================

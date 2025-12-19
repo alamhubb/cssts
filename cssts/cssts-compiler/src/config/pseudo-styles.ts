@@ -10,9 +10,9 @@ import type { CssPropertyValueMap } from './keywords';
 /** 伪类样式配置类 */
 export class PseudoClassStylesConfig {
     // user-action 伪类
-    hover?: CssPropertyValueMap = { opacity: '0.9' };
-    active?: CssPropertyValueMap = { opacity: '0.6' };
-    focus?: CssPropertyValueMap = { opacity: '0.9' };
+    hover?: CssPropertyValueMap
+    active?: CssPropertyValueMap
+    focus?: CssPropertyValueMap
     focusVisible?: CssPropertyValueMap;
     focusWithin?: CssPropertyValueMap;
 
