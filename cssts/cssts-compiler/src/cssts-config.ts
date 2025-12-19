@@ -13,13 +13,14 @@ import {ProgressiveRange} from "./types/value.ts";
 import {CSSPropertiesType} from "./types/cssProperties";
 import {CSSProperties, CSSProperty} from "./types/cssPropertyConfig";
 import {CSSPropertyName} from "./data/property-data.ts";
-import {NumberCategoryName, NumberTypeName} from "./types/numberTypes";
+import {NumberCategoryName, NumberTypeName, NumberUnitName} from "./types/numberTypes";
 import {
     NumberTypeConfigItem,
     NumberTypeExcludeItem,
     UnitCategoryConfigItem,
-    UnitCategoryExcludeItem
+    UnitCategoryExcludeItem, UnitConfigItem, UnitExcludeItem
 } from "./types/config.ts";
+import {UnitType} from "./data/cssts-data.ts";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -229,7 +230,7 @@ export class CsstsConfig {
      *   { px: { step: 4, max: 500 } }  // px is the unit name, not category
      * ]
      */
-    units?: UnitConfigItem<UnitType>[];
+    units?: UnitConfigItem<NumberUnitName>[];
 
     /**
      * 排除的单位列表（黑名单）
