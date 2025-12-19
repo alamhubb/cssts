@@ -8,8 +8,6 @@ import type * as Keywords from '../data/propertyKeywords';
 
 // ==================== 属性值映射 ====================
 
-// ==================== 属性值映射 ====================
-
 export interface CSSPropertiesValueType {
   accentColor?: typeof Keywords.ACCENT_COLOR_KEYWORDS[number] | string;
   alignContent?: typeof Keywords.ALIGN_CONTENT_KEYWORDS[number] | string;
