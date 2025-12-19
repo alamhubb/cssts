@@ -12,6 +12,7 @@
 import {ProgressiveRange} from "./types/value.ts";
 import {CSSPropertyName} from "./data/propertyName.ts";
 import {CSSPropertiesType} from "./types/cssProperties";
+import {CSSProperty} from "./types/cssPropertyConfig";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -118,8 +119,6 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
 };
 
 
-
-
 // ==================== CSSTS 配置类 ====================
 
 /** CSSTS 配置 */
@@ -131,17 +130,17 @@ export class CsstsConfig {
      * 可以是属性名数组或属性配置对象
      * 如果配置了此项，则只生成这些属性的原子类，忽略 excludeProperties
      * 为空或 undefined 时使用 excludeProperties 逻辑
-     * 
+     *
      * @example
      * properties: ['width', 'height', 'margin']
-     * 
+     *
      * @example
      * properties: {
      *   width: { numberTypes: ['length'] },
      *   height: { numberTypes: ['length'] }
      * }
      */
-    properties?: CSSPropertyName[] | CSSPropertiesType;
+    properties?: CSSProperty | CSSProperty[];
 
     /**
      * 排除的属性列表（黑名单）
