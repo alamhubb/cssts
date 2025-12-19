@@ -1,0 +1,16 @@
+/**
+ * CSS Keywords 类型定义（自动生成）
+ *
+ * 包含所有 keywords 和 colors 的类型定义
+ */
+
+import type { keywords } from '../data/keywords';
+import type { allKeywords } from '../data/allKeywords';
+
+// ==================== Keywords 类型 ====================
+
+export type KeywordName = typeof keywords[number];
+
+// ==================== 所有 Keywords 和 Colors 类型 ====================
+
+export type AllKeywordName = typeof allKeywords[number];
