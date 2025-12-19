@@ -529,11 +529,9 @@ export const CSS_PROPERTY_NAME_MAP = {
   zoom: 'zoom',
 } as const;
 
-export type CSSPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
-
 // ==================== 反向映射 ====================
 
-export const CSS_PROPERTY_NAME_REVERSE_MAP: Record<string, CSSPropertyName> = {
+export const CSS_PROPERTY_NAME_REVERSE_MAP: Record<string, keyof typeof CSS_PROPERTY_NAME_MAP> = {
   'accent-color': 'accentColor',
   'align-content': 'alignContent',
   'align-items': 'alignItems',

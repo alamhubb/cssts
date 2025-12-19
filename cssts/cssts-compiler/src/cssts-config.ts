@@ -10,6 +10,8 @@
 // ==================== 类型定义 ====================
 
 import {ProgressiveRange} from "./types/value.ts";
+import {CSSPropertyName} from "./data/propertyName.ts";
+import {CSSPropertiesType} from "./types/cssProperties";
 
 /** 自定义属性值类型 */
 export type CustomPropertyValue = string | Record<string, string>;
@@ -115,6 +117,9 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
     },
 };
 
+
+
+
 // ==================== CSSTS 配置类 ====================
 
 /** CSSTS 配置 */
@@ -136,7 +141,7 @@ export class CsstsConfig {
      *   height: { numberTypes: ['length'] }
      * }
      */
-    properties?: CssPropertyCamelName[] | CssPropertyConfigMap;
+    properties?: CSSPropertyName[] | CSSPropertiesType;
 
     /**
      * 排除的属性列表（黑名单）
