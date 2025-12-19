@@ -215,15 +215,15 @@ function generateCSSKeywordsTypeFile(): string {
     '',
     '// ==================== Keywords 类型 ====================',
     '',
-    'export type KeywordName = typeof keywords[number];',
+    'export type CSSKeywordName = typeof keywords[number];',
     '',
     '// ==================== Colors 类型 ====================',
     '',
-    'export type AllColorName = typeof ALL_COLORS[number];',
+    'export type CSSColorName = typeof ALL_COLORS[number];',
     '',
     '// ==================== 所有 Keywords 和 Colors 类型 ====================',
     '',
-    'export type AllKeywordName = typeof allKeywords[number];',
+    'export type CSSAllKeywordName = typeof allKeywords[number];',
     '',
   ];
 

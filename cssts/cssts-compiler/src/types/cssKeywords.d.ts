@@ -10,12 +10,12 @@ import type { ALL_COLORS } from '../data/color';
 
 // ==================== Keywords 类型 ====================
 
-export type KeywordName = typeof keywords[number];
+export type CssKeywordName = typeof keywords[number];
 
 // ==================== Colors 类型 ====================
 
-export type AllColorName = typeof ALL_COLORS[number];
+export type CssColorName = typeof ALL_COLORS[number];
 
 // ==================== 所有 Keywords 和 Colors 类型 ====================
 
-export type AllKeywordName = typeof allKeywords[number];
+export type CssAllKeywordName = typeof allKeywords[number];

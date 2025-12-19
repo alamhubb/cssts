@@ -90,11 +90,11 @@ function generateCSSPseudoClassElementTypeFile(): string {
     '',
     '// ==================== 伪类名称 ====================',
     '',
-    'export type PseudoClassName = typeof pseudoClasses[number];',
+    'export type CssPseudoClassName = typeof pseudoClasses[number];',
     '',
     '// ==================== 伪元素名称 ====================',
     '',
-    'export type PseudoElementName = typeof pseudoElements[number];',
+    'export type CssPseudoElementName = typeof pseudoElements[number];',
     '',
   ];
 

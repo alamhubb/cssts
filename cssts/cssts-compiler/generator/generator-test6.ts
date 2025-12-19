@@ -38,15 +38,15 @@ function generateNumberTypesFile(): string {
     '',
     '// ==================== NumberTypes 名称 ====================',
     '',
-    'export type NumberTypeName = typeof ALL_NUMBER_TYPES[number];',
+    'export type CSSNumberTypeName = typeof ALL_NUMBER_TYPES[number];',
     '',
     '// ==================== Number Categories ====================',
     '',
-    'export type NumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];',
+    'export type CSSNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];',
     '',
     '// ==================== Units ====================',
     '',
-    'export type NumberUnitName = typeof ALL_UNITS[number];',
+    'export type CSSNumberUnitName = typeof ALL_UNITS[number];',
     '',
   ];
 

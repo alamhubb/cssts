@@ -9,12 +9,12 @@ import type { ALL_NUMBER_CATEGORIES, ALL_UNITS } from '../data/numberTypeCategor
 
 // ==================== NumberTypes 名称 ====================
 
-export type NumberTypeName = typeof ALL_NUMBER_TYPES[number];
+export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
 // ==================== Number Categories ====================
 
-export type NumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
+export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
 // ==================== Units ====================
 
-export type NumberUnitName = typeof ALL_UNITS[number];
+export type CssNumberUnitName = typeof ALL_UNITS[number];
