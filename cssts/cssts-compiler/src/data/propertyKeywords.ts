@@ -3,530 +3,909 @@
  *
  * 每个属性的 keywords 数组
  * 如果属性包含颜色，则使用 ALL_COLORS 引用
+ * 只包含有 keywords 的属性
  */
 
 import { ALL_COLORS } from './color';
 
-export const PROPERTY_KEYWORDS: Record<string, readonly string[]> = {
-  'accent-color': ALL_COLORS,
-  'align-content': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'],
-  'align-items': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'align-self': ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'align-tracks': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'],
-  'alignment-baseline': ['after-edge', 'alphabetic', 'auto', 'baseline', 'before-edge', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'text-after-edge', 'text-before-edge'],
-  'all': ['inherit', 'initial', 'revert', 'revert-layer', 'unset'],
-  'anchor-name': ALL_COLORS,
-  'anchor-scope': ALL_COLORS,
-  'animation': ALL_COLORS,
-  'animation-composition': ['accumulate', 'add', 'replace'],
-  'animation-delay': [],
-  'animation-direction': ['alternate', 'alternate-reverse', 'normal', 'reverse'],
-  'animation-duration': [],
-  'animation-fill-mode': ALL_COLORS,
-  'animation-iteration-count': ['infinite'],
-  'animation-name': ALL_COLORS,
-  'animation-play-state': ['paused', 'running'],
-  'animation-range': ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'],
-  'animation-range-end': ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'],
-  'animation-range-start': ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'],
-  'animation-timeline': ALL_COLORS,
-  'animation-timing-function': ['ease', 'ease-in', 'ease-in-out', 'ease-out', 'end', 'jump-both', 'jump-end', 'jump-none', 'jump-start', 'linear', 'start', 'step-end', 'step-start'],
-  'appearance': ALL_COLORS,
-  'aspect-ratio': ['auto'],
-  'azimuth': ['behind', 'center', 'center-left', 'center-right', 'far-left', 'far-right', 'left', 'left-side', 'leftwards', 'right', 'right-side', 'rightwards'],
-  'backdrop-filter': ALL_COLORS,
-  'backface-visibility': ['hidden', 'visible'],
-  'background': ALL_COLORS,
-  'background-attachment': ['fixed', 'local', 'scroll'],
-  'background-blend-mode': ALL_COLORS,
-  'background-clip': ['border', 'border-box', 'content-box', 'padding-box', 'text'],
-  'background-color': ALL_COLORS,
-  'background-image': ALL_COLORS,
-  'background-origin': ['border-box', 'content-box', 'padding-box'],
-  'background-position': ['bottom', 'center', 'left', 'right', 'top'],
-  'background-position-x': ['center', 'left', 'right', 'x-end', 'x-start'],
-  'background-position-y': ['bottom', 'center', 'top', 'y-end', 'y-start'],
-  'background-repeat': ['no-repeat', 'repeat', 'repeat-x', 'repeat-y', 'round', 'space'],
-  'background-size': ['auto', 'contain', 'cover'],
-  'baseline-shift': ['baseline', 'sub', 'super'],
-  'behavior': [],
-  'block-size': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'border': ALL_COLORS,
-  'border-block': ALL_COLORS,
-  'border-block-color': ALL_COLORS,
-  'border-block-end': ALL_COLORS,
-  'border-block-end-color': ALL_COLORS,
-  'border-block-end-style': ALL_COLORS,
-  'border-block-end-width': ['medium', 'thick', 'thin'],
-  'border-block-start': ALL_COLORS,
-  'border-block-start-color': ALL_COLORS,
-  'border-block-start-style': ALL_COLORS,
-  'border-block-start-width': ['medium', 'thick', 'thin'],
-  'border-block-style': ALL_COLORS,
-  'border-block-width': ['medium', 'thick', 'thin'],
-  'border-bottom': ALL_COLORS,
-  'border-bottom-color': ALL_COLORS,
-  'border-bottom-left-radius': [],
-  'border-bottom-right-radius': [],
-  'border-bottom-style': ALL_COLORS,
-  'border-bottom-width': ['medium', 'thick', 'thin'],
-  'border-collapse': ['collapse', 'separate'],
-  'border-color': ALL_COLORS,
-  'border-end-end-radius': [],
-  'border-end-start-radius': [],
-  'border-image': ALL_COLORS,
-  'border-image-outset': [],
-  'border-image-repeat': ['repeat', 'round', 'space', 'stretch'],
-  'border-image-slice': ['fill'],
-  'border-image-source': ALL_COLORS,
-  'border-image-width': ['auto'],
-  'border-inline': ALL_COLORS,
-  'border-inline-color': ALL_COLORS,
-  'border-inline-end': ALL_COLORS,
-  'border-inline-end-color': ALL_COLORS,
-  'border-inline-end-style': ALL_COLORS,
-  'border-inline-end-width': ['medium', 'thick', 'thin'],
-  'border-inline-start': ALL_COLORS,
-  'border-inline-start-color': ALL_COLORS,
-  'border-inline-start-style': ALL_COLORS,
-  'border-inline-start-width': ['medium', 'thick', 'thin'],
-  'border-inline-style': ALL_COLORS,
-  'border-inline-width': ['medium', 'thick', 'thin'],
-  'border-left': ALL_COLORS,
-  'border-left-color': ALL_COLORS,
-  'border-left-style': ALL_COLORS,
-  'border-left-width': ['medium', 'thick', 'thin'],
-  'border-radius': [],
-  'border-right': ALL_COLORS,
-  'border-right-color': ALL_COLORS,
-  'border-right-style': ALL_COLORS,
-  'border-right-width': ['medium', 'thick', 'thin'],
-  'border-spacing': [],
-  'border-start-end-radius': [],
-  'border-start-start-radius': [],
-  'border-style': ALL_COLORS,
-  'border-top': ALL_COLORS,
-  'border-top-color': ALL_COLORS,
-  'border-top-left-radius': [],
-  'border-top-right-radius': [],
-  'border-top-style': ALL_COLORS,
-  'border-top-width': ['medium', 'thick', 'thin'],
-  'border-width': ['medium', 'thick', 'thin'],
-  'bottom': ['auto'],
-  'box-align': ['baseline', 'center', 'end', 'start', 'stretch'],
-  'box-decoration-break': ['clone', 'slice'],
-  'box-direction': ['inherit', 'normal', 'reverse'],
-  'box-flex': [],
-  'box-flex-group': [],
-  'box-lines': ['multiple', 'single'],
-  'box-ordinal-group': [],
-  'box-orient': ['block-axis', 'horizontal', 'inherit', 'inline-axis', 'vertical'],
-  'box-pack': ['center', 'end', 'justify', 'start'],
-  'box-shadow': ALL_COLORS,
-  'box-sizing': ['border-box', 'content-box'],
-  'break-after': ['all', 'always', 'auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region', 'column', 'left', 'page', 'recto', 'region', 'right', 'verso'],
-  'break-before': ['all', 'always', 'auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region', 'column', 'left', 'page', 'recto', 'region', 'right', 'verso'],
-  'break-inside': ['auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region'],
-  'caption-side': ['block-end', 'block-start', 'bottom', 'inline-end', 'inline-start', 'top'],
-  'caret': ALL_COLORS,
-  'caret-color': ALL_COLORS,
-  'caret-shape': ['auto', 'bar', 'block', 'underscore'],
-  'clear': ALL_COLORS,
-  'clip': ['auto'],
-  'clip-path': ALL_COLORS,
-  'clip-rule': ['evenodd', 'nonzero'],
-  'color': ALL_COLORS,
-  'color-interpolation-filters': ['auto', 'linearRGB', 'sRGB'],
-  'color-scheme': ['dark', 'light', 'normal', 'only'],
-  'column-count': ['auto'],
-  'column-fill': ['auto', 'balance'],
-  'column-gap': ['normal'],
-  'column-rule': ALL_COLORS,
-  'column-rule-color': ALL_COLORS,
-  'column-rule-style': ALL_COLORS,
-  'column-rule-width': ['medium', 'thick', 'thin'],
-  'column-span': ALL_COLORS,
-  'column-width': ['auto'],
-  'columns': ['auto'],
-  'contain': ALL_COLORS,
-  'contain-intrinsic-block-size': ALL_COLORS,
-  'contain-intrinsic-height': ALL_COLORS,
-  'contain-intrinsic-inline-size': ALL_COLORS,
-  'contain-intrinsic-size': ALL_COLORS,
-  'contain-intrinsic-width': ALL_COLORS,
-  'container': ALL_COLORS,
-  'container-name': ALL_COLORS,
-  'container-type': ['inline-size', 'normal', 'size'],
-  'content': ALL_COLORS,
-  'content-visibility': ['auto', 'hidden', 'visible'],
-  'counter-increment': ALL_COLORS,
-  'counter-reset': ALL_COLORS,
-  'counter-set': ALL_COLORS,
-  'cue': ALL_COLORS,
-  'cue-after': ALL_COLORS,
-  'cue-before': ALL_COLORS,
-  'cursor': ALL_COLORS,
-  'cx': [],
-  'cy': [],
-  'd': ALL_COLORS,
-  'direction': ['ltr', 'rtl'],
-  'display': ALL_COLORS,
-  'dominant-baseline': ['alphabetic', 'auto', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'no-change', 'reset-size', 'text-after-edge', 'text-before-edge', 'use-script'],
-  'empty-cells': ['hide', 'show'],
-  'field-sizing': ['content', 'fixed'],
-  'fill': ALL_COLORS,
-  'fill-opacity': [],
-  'fill-rule': ['evenodd', 'nonzero'],
-  'filter': ALL_COLORS,
-  'flex': ALL_COLORS,
-  'flex-basis': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'content', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'flex-direction': ['column', 'column-reverse', 'row', 'row-reverse'],
-  'flex-flow': ['column', 'column-reverse', 'nowrap', 'row', 'row-reverse', 'wrap', 'wrap-reverse'],
-  'flex-grow': [],
-  'flex-shrink': [],
-  'flex-wrap': ['nowrap', 'wrap', 'wrap-reverse'],
-  'float': ALL_COLORS,
-  'font': ['-apple-system', '-apple-system-body', '-apple-system-caption1', '-apple-system-caption2', '-apple-system-footnote', '-apple-system-headline', '-apple-system-short-body', '-apple-system-short-caption1', '-apple-system-short-footnote', '-apple-system-short-headline', '-apple-system-short-subheadline', '-apple-system-subheadline', '-apple-system-tall-body', 'BlinkMacSystemFont', 'bold', 'bolder', 'caption', 'condensed', 'cursive', 'expanded', 'extra-condensed', 'extra-expanded', 'fangsong', 'fantasy', 'icon', 'italic', 'kai', 'large', 'larger', 'lighter', 'math', 'medium', 'menu', 'message-box', 'monospace', 'nastaliq', 'normal', 'oblique', 'sans-serif', 'semi-condensed', 'semi-expanded', 'serif', 'small', 'small-caps', 'small-caption', 'smaller', 'status-bar', 'system-ui', 'ui-monospace', 'ui-rounded', 'ui-sans-serif', 'ui-serif', 'ultra-condensed', 'ultra-expanded', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'],
-  'font-family': ['-apple-system', 'BlinkMacSystemFont', 'cursive', 'fangsong', 'fantasy', 'kai', 'math', 'monospace', 'nastaliq', 'sans-serif', 'serif', 'system-ui', 'ui-monospace', 'ui-rounded', 'ui-sans-serif', 'ui-serif'],
-  'font-feature-settings': ['normal', 'off', 'on'],
-  'font-kerning': ALL_COLORS,
-  'font-language-override': ['normal'],
-  'font-optical-sizing': ALL_COLORS,
-  'font-palette': ['dark', 'light', 'normal'],
-  'font-size': ['large', 'larger', 'medium', 'small', 'smaller', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'],
-  'font-size-adjust': ALL_COLORS,
-  'font-smooth': ['always', 'auto', 'large', 'medium', 'never', 'small', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'],
-  'font-stretch': ['condensed', 'expanded', 'extra-condensed', 'extra-expanded', 'normal', 'semi-condensed', 'semi-expanded', 'ultra-condensed', 'ultra-expanded'],
-  'font-style': ['italic', 'normal', 'oblique'],
-  'font-synthesis': ALL_COLORS,
-  'font-synthesis-position': ALL_COLORS,
-  'font-synthesis-small-caps': ALL_COLORS,
-  'font-synthesis-style': ALL_COLORS,
-  'font-synthesis-weight': ALL_COLORS,
-  'font-variant': ALL_COLORS,
-  'font-variant-alternates': ['historical-forms', 'normal'],
-  'font-variant-caps': ['all-petite-caps', 'all-small-caps', 'normal', 'petite-caps', 'small-caps', 'titling-caps', 'unicase'],
-  'font-variant-east-asian': ['full-width', 'jis04', 'jis78', 'jis83', 'jis90', 'normal', 'proportional-width', 'ruby', 'simplified', 'traditional'],
-  'font-variant-emoji': ['emoji', 'normal', 'text', 'unicode'],
-  'font-variant-ligatures': ALL_COLORS,
-  'font-variant-numeric': ['diagonal-fractions', 'lining-nums', 'normal', 'oldstyle-nums', 'ordinal', 'proportional-nums', 'slashed-zero', 'stacked-fractions', 'tabular-nums'],
-  'font-variant-position': ['normal', 'sub', 'super'],
-  'font-variation-settings': ['normal'],
-  'font-weight': ['bold', 'bolder', 'lighter', 'normal'],
-  'forced-color-adjust': ALL_COLORS,
-  'gap': ['normal'],
-  'glyph-orientation-horizontal': [],
-  'glyph-orientation-vertical': [],
-  'grid': ALL_COLORS,
-  'grid-area': ['auto', 'span'],
-  'grid-auto-columns': ['auto', 'max-content', 'min-content'],
-  'grid-auto-flow': ['column', 'dense', 'row'],
-  'grid-auto-rows': ['auto', 'max-content', 'min-content'],
-  'grid-column': ['auto', 'span'],
-  'grid-column-end': ['auto', 'span'],
-  'grid-column-gap': [],
-  'grid-column-start': ['auto', 'span'],
-  'grid-gap': [],
-  'grid-row': ['auto', 'span'],
-  'grid-row-end': ['auto', 'span'],
-  'grid-row-gap': [],
-  'grid-row-start': ['auto', 'span'],
-  'grid-template': ALL_COLORS,
-  'grid-template-areas': ALL_COLORS,
-  'grid-template-columns': ALL_COLORS,
-  'grid-template-rows': ALL_COLORS,
-  'hanging-punctuation': ALL_COLORS,
-  'height': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'hyphenate-character': ['auto'],
-  'hyphenate-limit-chars': ['auto'],
-  'hyphens': ALL_COLORS,
-  'image-orientation': ['flip', 'from-image'],
-  'image-rendering': ['-moz-crisp-edges', '-o-crisp-edges', '-webkit-optimize-contrast', 'auto', 'crisp-edges', 'optimize-contrast', 'optimizeQuality', 'optimizeSpeed', 'pixelated'],
-  'image-resolution': ['from-image', 'snap'],
-  'ime-mode': ['active', 'auto', 'disabled', 'inactive', 'normal'],
-  'initial-letter': ['normal'],
-  'initial-letter-align': ['alphabetic', 'auto', 'hanging', 'ideographic'],
-  'inline-size': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'input-security': ALL_COLORS,
-  'inset': ['auto'],
-  'inset-block': ['auto'],
-  'inset-block-end': ['auto'],
-  'inset-block-start': ['auto'],
-  'inset-inline': ['auto'],
-  'inset-inline-end': ['auto'],
-  'inset-inline-start': ['auto'],
-  'interpolate-size': ['allow-keywords', 'numeric-only'],
-  'isolation': ['auto', 'isolate'],
-  'justify-content': ['center', 'end', 'flex-end', 'flex-start', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'],
-  'justify-items': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'legacy', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'justify-self': ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'justify-tracks': ['center', 'end', 'flex-end', 'flex-start', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'],
-  'kerning': ['auto'],
-  'left': ['auto'],
-  'letter-spacing': ['normal'],
-  'line-break': ['anywhere', 'auto', 'loose', 'normal', 'strict'],
-  'line-clamp': ALL_COLORS,
-  'line-height': ['normal'],
-  'line-height-step': [],
-  'list-style': ALL_COLORS,
-  'list-style-image': ALL_COLORS,
-  'list-style-position': ['inside', 'outside'],
-  'list-style-type': ALL_COLORS,
-  'margin': ['auto'],
-  'margin-block': ['auto'],
-  'margin-block-end': ['auto'],
-  'margin-block-start': ['auto'],
-  'margin-bottom': ['auto'],
-  'margin-inline': ['auto'],
-  'margin-inline-end': ['auto'],
-  'margin-inline-start': ['auto'],
-  'margin-left': ['auto'],
-  'margin-right': ['auto'],
-  'margin-top': ['auto'],
-  'margin-trim': ALL_COLORS,
-  'marker': ALL_COLORS,
-  'marker-end': ALL_COLORS,
-  'marker-mid': ALL_COLORS,
-  'marker-start': ALL_COLORS,
-  'mask': ALL_COLORS,
-  'mask-border': ALL_COLORS,
-  'mask-border-mode': ['alpha', 'luminance'],
-  'mask-border-outset': [],
-  'mask-border-repeat': ['repeat', 'round', 'space', 'stretch'],
-  'mask-border-slice': ['fill'],
-  'mask-border-source': ALL_COLORS,
-  'mask-border-width': ['auto'],
-  'mask-clip': ['border-box', 'content-box', 'fill-box', 'margin-box', 'no-clip', 'padding-box', 'stroke-box', 'view-box'],
-  'mask-composite': ['add', 'exclude', 'intersect', 'subtract'],
-  'mask-image': ALL_COLORS,
-  'mask-mode': ['alpha', 'luminance', 'match-source'],
-  'mask-origin': ['border-box', 'content-box', 'fill-box', 'margin-box', 'padding-box', 'stroke-box', 'view-box'],
-  'mask-position': ['bottom', 'center', 'left', 'right', 'top'],
-  'mask-repeat': ['no-repeat', 'repeat', 'repeat-x', 'repeat-y', 'round', 'space'],
-  'mask-size': ['auto', 'contain', 'cover'],
-  'mask-type': ['alpha', 'luminance'],
-  'masonry-auto-flow': ['definite-first', 'next', 'ordered', 'pack'],
-  'math-depth': ['auto-add'],
-  'math-shift': ['compact', 'normal'],
-  'math-style': ['compact', 'normal'],
-  'max-block-size': ALL_COLORS,
-  'max-height': ALL_COLORS,
-  'max-inline-size': ALL_COLORS,
-  'max-lines': ALL_COLORS,
-  'max-width': ALL_COLORS,
-  'min-block-size': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'min-height': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'min-inline-size': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'min-width': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'mix-blend-mode': ALL_COLORS,
-  'object-fit': ALL_COLORS,
-  'object-position': ['bottom', 'center', 'left', 'right', 'top'],
-  'offset': ALL_COLORS,
-  'offset-anchor': ['auto', 'bottom', 'center', 'left', 'right', 'top'],
-  'offset-distance': [],
-  'offset-path': ALL_COLORS,
-  'offset-position': ['auto', 'bottom', 'center', 'left', 'normal', 'right', 'top'],
-  'offset-rotate': ['auto', 'reverse'],
-  'opacity': [],
-  'order': [],
-  'orphans': [],
-  'outline': ALL_COLORS,
-  'outline-color': ALL_COLORS,
-  'outline-offset': [],
-  'outline-style': ALL_COLORS,
-  'outline-width': ['medium', 'thick', 'thin'],
-  'overflow': ['-moz-hidden-unscrollable', '-moz-scrollbars-horizontal', '-moz-scrollbars-none', '-moz-scrollbars-vertical', 'auto', 'clip', 'hidden', 'overlay', 'scroll', 'visible'],
-  'overflow-anchor': ALL_COLORS,
-  'overflow-block': ['auto', 'clip', 'hidden', 'scroll', 'visible'],
-  'overflow-clip-box': ['content-box', 'padding-box'],
-  'overflow-clip-margin': ['border-box', 'content-box', 'padding-box'],
-  'overflow-inline': ['auto', 'clip', 'hidden', 'scroll', 'visible'],
-  'overflow-wrap': ['anywhere', 'break-word', 'normal'],
-  'overflow-x': ['auto', 'clip', 'hidden', 'scroll', 'visible'],
-  'overflow-y': ['auto', 'clip', 'hidden', 'scroll', 'visible'],
-  'overlay': ALL_COLORS,
-  'overscroll-behavior': ALL_COLORS,
-  'overscroll-behavior-block': ALL_COLORS,
-  'overscroll-behavior-inline': ALL_COLORS,
-  'overscroll-behavior-x': ALL_COLORS,
-  'overscroll-behavior-y': ALL_COLORS,
-  'padding': [],
-  'padding-block': [],
-  'padding-block-end': [],
-  'padding-block-start': [],
-  'padding-bottom': [],
-  'padding-inline': [],
-  'padding-inline-end': [],
-  'padding-inline-start': [],
-  'padding-left': [],
-  'padding-right': [],
-  'padding-top': [],
-  'page': ['auto'],
-  'page-break-after': ['always', 'auto', 'avoid', 'left', 'recto', 'right', 'verso'],
-  'page-break-before': ['always', 'auto', 'avoid', 'left', 'recto', 'right', 'verso'],
-  'page-break-inside': ['auto', 'avoid'],
-  'paint-order': ['fill', 'markers', 'normal', 'stroke'],
-  'pause': ALL_COLORS,
-  'pause-after': ALL_COLORS,
-  'pause-before': ALL_COLORS,
-  'perspective': ALL_COLORS,
-  'perspective-origin': ['bottom', 'center', 'left', 'right', 'top'],
-  'place-content': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'],
-  'place-items': ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'legacy', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'place-self': ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'],
-  'pointer-events': ALL_COLORS,
-  'position': ['-webkit-sticky', 'absolute', 'fixed', 'relative', 'static', 'sticky'],
-  'position-anchor': ['auto'],
-  'position-area': ALL_COLORS,
-  'position-try': ALL_COLORS,
-  'position-try-fallbacks': ALL_COLORS,
-  'position-try-order': ['most-block-size', 'most-height', 'most-inline-size', 'most-width', 'normal'],
-  'position-visibility': ['always', 'anchors-valid', 'anchors-visible', 'no-overflow'],
-  'print-color-adjust': ['economy', 'exact'],
-  'quotes': ALL_COLORS,
-  'r': [],
-  'resize': ALL_COLORS,
-  'rest': ALL_COLORS,
-  'rest-after': ALL_COLORS,
-  'rest-before': ALL_COLORS,
-  'right': ['auto'],
-  'rotate': ALL_COLORS,
-  'row-gap': ['normal'],
-  'ruby-align': ['center', 'space-around', 'space-between', 'start'],
-  'ruby-merge': ['auto', 'collapse', 'separate'],
-  'ruby-position': ['alternate', 'inter-character', 'over', 'under'],
-  'rx': [],
-  'ry': [],
-  'scale': ALL_COLORS,
-  'scroll-behavior': ['auto', 'smooth'],
-  'scroll-margin': [],
-  'scroll-margin-block': [],
-  'scroll-margin-block-end': [],
-  'scroll-margin-block-start': [],
-  'scroll-margin-bottom': [],
-  'scroll-margin-inline': [],
-  'scroll-margin-inline-end': [],
-  'scroll-margin-inline-start': [],
-  'scroll-margin-left': [],
-  'scroll-margin-right': [],
-  'scroll-margin-top': [],
-  'scroll-padding': ['auto'],
-  'scroll-padding-block': ['auto'],
-  'scroll-padding-block-end': ['auto'],
-  'scroll-padding-block-start': ['auto'],
-  'scroll-padding-bottom': ['auto'],
-  'scroll-padding-inline': ['auto'],
-  'scroll-padding-inline-end': ['auto'],
-  'scroll-padding-inline-start': ['auto'],
-  'scroll-padding-left': ['auto'],
-  'scroll-padding-right': ['auto'],
-  'scroll-padding-top': ['auto'],
-  'scroll-snap-align': ALL_COLORS,
-  'scroll-snap-coordinate': ALL_COLORS,
-  'scroll-snap-destination': ['bottom', 'center', 'left', 'right', 'top'],
-  'scroll-snap-points-x': ALL_COLORS,
-  'scroll-snap-points-y': ALL_COLORS,
-  'scroll-snap-stop': ['always', 'normal'],
-  'scroll-snap-type': ALL_COLORS,
-  'scroll-snap-type-x': ALL_COLORS,
-  'scroll-snap-type-y': ALL_COLORS,
-  'scroll-timeline': ALL_COLORS,
-  'scroll-timeline-axis': ['block', 'inline', 'x', 'y'],
-  'scroll-timeline-name': ALL_COLORS,
-  'scrollbar-color': ALL_COLORS,
-  'scrollbar-gutter': ['auto', 'both-edges', 'stable'],
-  'scrollbar-width': ALL_COLORS,
-  'shape-image-threshold': [],
-  'shape-margin': [],
-  'shape-outside': ALL_COLORS,
-  'shape-rendering': ['auto', 'crispEdges', 'geometricPrecision', 'optimizeSpeed'],
-  'speak': ['always', 'auto', 'never'],
-  'speak-as': ['digits', 'literal-punctuation', 'no-punctuation', 'normal', 'spell-out'],
-  'src': [],
-  'stroke': ALL_COLORS,
-  'stroke-dasharray': ALL_COLORS,
-  'stroke-dashoffset': [],
-  'stroke-linecap': ['butt', 'round', 'square'],
-  'stroke-linejoin': ['bevel', 'miter', 'round'],
-  'stroke-miterlimit': [],
-  'stroke-opacity': [],
-  'stroke-width': [],
-  'tab-size': [],
-  'table-layout': ['auto', 'fixed'],
-  'text-align': ['center', 'end', 'justify', 'left', 'match-parent', 'right', 'start'],
-  'text-align-last': ['auto', 'center', 'end', 'justify', 'left', 'right', 'start'],
-  'text-anchor': ['end', 'middle', 'start'],
-  'text-combine-upright': ALL_COLORS,
-  'text-decoration': ALL_COLORS,
-  'text-decoration-color': ALL_COLORS,
-  'text-decoration-line': ALL_COLORS,
-  'text-decoration-skip': ALL_COLORS,
-  'text-decoration-skip-ink': ALL_COLORS,
-  'text-decoration-style': ['dashed', 'dotted', 'double', 'solid', 'wavy'],
-  'text-decoration-thickness': ['auto', 'from-font'],
-  'text-emphasis': ALL_COLORS,
-  'text-emphasis-color': ALL_COLORS,
-  'text-emphasis-position': ['auto', 'left', 'over', 'right', 'under'],
-  'text-emphasis-style': ALL_COLORS,
-  'text-indent': ['each-line', 'hanging'],
-  'text-justify': ALL_COLORS,
-  'text-orientation': ['mixed', 'sideways', 'upright'],
-  'text-overflow': ['clip', 'ellipsis'],
-  'text-rendering': ['auto', 'geometricPrecision', 'optimizeLegibility', 'optimizeSpeed'],
-  'text-shadow': ALL_COLORS,
-  'text-size-adjust': ALL_COLORS,
-  'text-spacing-trim': ['auto', 'normal', 'space-all', 'space-first', 'trim-all', 'trim-both', 'trim-start'],
-  'text-transform': ALL_COLORS,
-  'text-underline-offset': ['auto'],
-  'text-underline-position': ['auto', 'from-font', 'left', 'right', 'under'],
-  'text-wrap': ['auto', 'balance', 'nowrap', 'pretty', 'stable', 'wrap'],
-  'text-wrap-mode': ['auto', 'nowrap', 'wrap'],
-  'text-wrap-style': ['auto', 'balance', 'pretty', 'stable'],
-  'timeline-scope': ALL_COLORS,
-  'top': ['auto'],
-  'touch-action': ALL_COLORS,
-  'transform': ALL_COLORS,
-  'transform-box': ['border-box', 'content-box', 'fill-box', 'stroke-box', 'view-box'],
-  'transform-origin': ['bottom', 'center', 'left', 'right', 'top'],
-  'transform-style': ['flat', 'preserve-3d'],
-  'transition': ALL_COLORS,
-  'transition-behavior': ['allow-discrete', 'normal'],
-  'transition-delay': [],
-  'transition-duration': [],
-  'transition-property': ALL_COLORS,
-  'transition-timing-function': ['ease', 'ease-in', 'ease-in-out', 'ease-out', 'end', 'jump-both', 'jump-end', 'jump-none', 'jump-start', 'linear', 'start', 'step-end', 'step-start'],
-  'translate': ALL_COLORS,
-  'unicode-bidi': ['-moz-isolate', '-moz-isolate-override', '-moz-plaintext', '-webkit-isolate', '-webkit-isolate-override', '-webkit-plaintext', 'bidi-override', 'embed', 'isolate', 'isolate-override', 'normal', 'plaintext'],
-  'unicode-range': [],
-  'user-select': ALL_COLORS,
-  'vector-effect': ALL_COLORS,
-  'vertical-align': ['baseline', 'bottom', 'middle', 'sub', 'super', 'text-bottom', 'text-top', 'top'],
-  'view-timeline': ALL_COLORS,
-  'view-timeline-axis': ['block', 'inline', 'x', 'y'],
-  'view-timeline-inset': ['auto'],
-  'view-timeline-name': ALL_COLORS,
-  'view-transition-name': ALL_COLORS,
-  'visibility': ['collapse', 'hidden', 'visible'],
-  'voice-balance': ['center', 'left', 'leftwards', 'right', 'rightwards'],
-  'voice-duration': ['auto'],
-  'voice-family': ['child', 'female', 'male', 'neutral', 'old', 'preserve', 'young'],
-  'voice-pitch': ['absolute', 'high', 'low', 'medium', 'x-high', 'x-low'],
-  'voice-range': ['absolute', 'high', 'low', 'medium', 'x-high', 'x-low'],
-  'voice-rate': ['fast', 'medium', 'normal', 'slow', 'x-fast', 'x-slow'],
-  'voice-stress': ALL_COLORS,
-  'voice-volume': ['loud', 'medium', 'silent', 'soft', 'x-loud', 'x-soft'],
-  'white-space': ALL_COLORS,
-  'white-space-collapse': ['break-spaces', 'collapse', 'discard', 'preserve', 'preserve-breaks', 'preserve-spaces'],
-  'white-space-trim': ALL_COLORS,
-  'widows': [],
-  'width': ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'],
-  'will-change': ['auto', 'contents', 'scroll-position'],
-  'word-break': ['auto-phrase', 'break-all', 'break-word', 'keep-all', 'normal'],
-  'word-spacing': ['normal'],
-  'word-wrap': ['break-word', 'normal'],
-  'writing-mode': ['horizontal-tb', 'lr', 'lr-tb', 'rl', 'rl-tb', 'sideways-lr', 'sideways-rl', 'tb', 'tb-rl', 'vertical-lr', 'vertical-rl'],
-  'x': [],
-  'y': [],
-  'z-index': ['auto'],
-  'zoom': ['normal', 'reset'],
+export const ACCENTCOLOR_KEYWORDS = ALL_COLORS;
+export const ALIGNCONTENT_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;
+export const ALIGNITEMS_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const ALIGNSELF_KEYWORDS = ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const ALIGNTRACKS_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;
+export const ALIGNMENTBASELINE_KEYWORDS = ['after-edge', 'alphabetic', 'auto', 'baseline', 'before-edge', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'text-after-edge', 'text-before-edge'] as const;
+export const ALL_KEYWORDS = ['inherit', 'initial', 'revert', 'revert-layer', 'unset'] as const;
+export const ANCHORNAME_KEYWORDS = ALL_COLORS;
+export const ANCHORSCOPE_KEYWORDS = ALL_COLORS;
+export const ANIMATION_KEYWORDS = ALL_COLORS;
+export const ANIMATIONCOMPOSITION_KEYWORDS = ['accumulate', 'add', 'replace'] as const;
+export const ANIMATIONDIRECTION_KEYWORDS = ['alternate', 'alternate-reverse', 'normal', 'reverse'] as const;
+export const ANIMATIONFILLMODE_KEYWORDS = ALL_COLORS;
+export const ANIMATIONITERATIONCOUNT_KEYWORDS = ['infinite'] as const;
+export const ANIMATIONNAME_KEYWORDS = ALL_COLORS;
+export const ANIMATIONPLAYSTATE_KEYWORDS = ['paused', 'running'] as const;
+export const ANIMATIONRANGE_KEYWORDS = ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'] as const;
+export const ANIMATIONRANGEEND_KEYWORDS = ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'] as const;
+export const ANIMATIONRANGESTART_KEYWORDS = ['contain', 'cover', 'entry', 'entry-crossing', 'exit', 'exit-crossing', 'normal'] as const;
+export const ANIMATIONTIMELINE_KEYWORDS = ALL_COLORS;
+export const ANIMATIONTIMINGFUNCTION_KEYWORDS = ['ease', 'ease-in', 'ease-in-out', 'ease-out', 'end', 'jump-both', 'jump-end', 'jump-none', 'jump-start', 'linear', 'start', 'step-end', 'step-start'] as const;
+export const APPEARANCE_KEYWORDS = ALL_COLORS;
+export const ASPECTRATIO_KEYWORDS = ['auto'] as const;
+export const AZIMUTH_KEYWORDS = ['behind', 'center', 'center-left', 'center-right', 'far-left', 'far-right', 'left', 'left-side', 'leftwards', 'right', 'right-side', 'rightwards'] as const;
+export const BACKDROPFILTER_KEYWORDS = ALL_COLORS;
+export const BACKFACEVISIBILITY_KEYWORDS = ['hidden', 'visible'] as const;
+export const BACKGROUND_KEYWORDS = ALL_COLORS;
+export const BACKGROUNDATTACHMENT_KEYWORDS = ['fixed', 'local', 'scroll'] as const;
+export const BACKGROUNDBLENDMODE_KEYWORDS = ALL_COLORS;
+export const BACKGROUNDCLIP_KEYWORDS = ['border', 'border-box', 'content-box', 'padding-box', 'text'] as const;
+export const BACKGROUNDCOLOR_KEYWORDS = ALL_COLORS;
+export const BACKGROUNDIMAGE_KEYWORDS = ALL_COLORS;
+export const BACKGROUNDORIGIN_KEYWORDS = ['border-box', 'content-box', 'padding-box'] as const;
+export const BACKGROUNDPOSITION_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const BACKGROUNDPOSITIONX_KEYWORDS = ['center', 'left', 'right', 'x-end', 'x-start'] as const;
+export const BACKGROUNDPOSITIONY_KEYWORDS = ['bottom', 'center', 'top', 'y-end', 'y-start'] as const;
+export const BACKGROUNDREPEAT_KEYWORDS = ['no-repeat', 'repeat', 'repeat-x', 'repeat-y', 'round', 'space'] as const;
+export const BACKGROUNDSIZE_KEYWORDS = ['auto', 'contain', 'cover'] as const;
+export const BASELINESHIFT_KEYWORDS = ['baseline', 'sub', 'super'] as const;
+export const BLOCKSIZE_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const BORDER_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCK_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKEND_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKENDCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKENDSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKENDWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERBLOCKSTART_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKSTARTCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKSTARTSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKSTARTWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERBLOCKSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERBLOCKWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERBOTTOM_KEYWORDS = ALL_COLORS;
+export const BORDERBOTTOMCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERBOTTOMSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERBOTTOMWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERCOLLAPSE_KEYWORDS = ['collapse', 'separate'] as const;
+export const BORDERCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERIMAGE_KEYWORDS = ALL_COLORS;
+export const BORDERIMAGEREPEAT_KEYWORDS = ['repeat', 'round', 'space', 'stretch'] as const;
+export const BORDERIMAGESLICE_KEYWORDS = ['fill'] as const;
+export const BORDERIMAGESOURCE_KEYWORDS = ALL_COLORS;
+export const BORDERIMAGEWIDTH_KEYWORDS = ['auto'] as const;
+export const BORDERINLINE_KEYWORDS = ALL_COLORS;
+export const BORDERINLINECOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERINLINEEND_KEYWORDS = ALL_COLORS;
+export const BORDERINLINEENDCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERINLINEENDSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERINLINEENDWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERINLINESTART_KEYWORDS = ALL_COLORS;
+export const BORDERINLINESTARTCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERINLINESTARTSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERINLINESTARTWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERINLINESTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERINLINEWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERLEFT_KEYWORDS = ALL_COLORS;
+export const BORDERLEFTCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERLEFTSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERLEFTWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERRIGHT_KEYWORDS = ALL_COLORS;
+export const BORDERRIGHTCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERRIGHTSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERRIGHTWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERTOP_KEYWORDS = ALL_COLORS;
+export const BORDERTOPCOLOR_KEYWORDS = ALL_COLORS;
+export const BORDERTOPSTYLE_KEYWORDS = ALL_COLORS;
+export const BORDERTOPWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BORDERWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const BOTTOM_KEYWORDS = ['auto'] as const;
+export const BOXALIGN_KEYWORDS = ['baseline', 'center', 'end', 'start', 'stretch'] as const;
+export const BOXDECORATIONBREAK_KEYWORDS = ['clone', 'slice'] as const;
+export const BOXDIRECTION_KEYWORDS = ['inherit', 'normal', 'reverse'] as const;
+export const BOXLINES_KEYWORDS = ['multiple', 'single'] as const;
+export const BOXORIENT_KEYWORDS = ['block-axis', 'horizontal', 'inherit', 'inline-axis', 'vertical'] as const;
+export const BOXPACK_KEYWORDS = ['center', 'end', 'justify', 'start'] as const;
+export const BOXSHADOW_KEYWORDS = ALL_COLORS;
+export const BOXSIZING_KEYWORDS = ['border-box', 'content-box'] as const;
+export const BREAKAFTER_KEYWORDS = ['all', 'always', 'auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region', 'column', 'left', 'page', 'recto', 'region', 'right', 'verso'] as const;
+export const BREAKBEFORE_KEYWORDS = ['all', 'always', 'auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region', 'column', 'left', 'page', 'recto', 'region', 'right', 'verso'] as const;
+export const BREAKINSIDE_KEYWORDS = ['auto', 'avoid', 'avoid-column', 'avoid-page', 'avoid-region'] as const;
+export const CAPTIONSIDE_KEYWORDS = ['block-end', 'block-start', 'bottom', 'inline-end', 'inline-start', 'top'] as const;
+export const CARET_KEYWORDS = ALL_COLORS;
+export const CARETCOLOR_KEYWORDS = ALL_COLORS;
+export const CARETSHAPE_KEYWORDS = ['auto', 'bar', 'block', 'underscore'] as const;
+export const CLEAR_KEYWORDS = ALL_COLORS;
+export const CLIP_KEYWORDS = ['auto'] as const;
+export const CLIPPATH_KEYWORDS = ALL_COLORS;
+export const CLIPRULE_KEYWORDS = ['evenodd', 'nonzero'] as const;
+export const COLOR_KEYWORDS = ALL_COLORS;
+export const COLORINTERPOLATIONFILTERS_KEYWORDS = ['auto', 'linearRGB', 'sRGB'] as const;
+export const COLORSCHEME_KEYWORDS = ['dark', 'light', 'normal', 'only'] as const;
+export const COLUMNCOUNT_KEYWORDS = ['auto'] as const;
+export const COLUMNFILL_KEYWORDS = ['auto', 'balance'] as const;
+export const COLUMNGAP_KEYWORDS = ['normal'] as const;
+export const COLUMNRULE_KEYWORDS = ALL_COLORS;
+export const COLUMNRULECOLOR_KEYWORDS = ALL_COLORS;
+export const COLUMNRULESTYLE_KEYWORDS = ALL_COLORS;
+export const COLUMNRULEWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const COLUMNSPAN_KEYWORDS = ALL_COLORS;
+export const COLUMNWIDTH_KEYWORDS = ['auto'] as const;
+export const COLUMNS_KEYWORDS = ['auto'] as const;
+export const CONTAIN_KEYWORDS = ALL_COLORS;
+export const CONTAININTRINSICBLOCKSIZE_KEYWORDS = ALL_COLORS;
+export const CONTAININTRINSICHEIGHT_KEYWORDS = ALL_COLORS;
+export const CONTAININTRINSICINLINESIZE_KEYWORDS = ALL_COLORS;
+export const CONTAININTRINSICSIZE_KEYWORDS = ALL_COLORS;
+export const CONTAININTRINSICWIDTH_KEYWORDS = ALL_COLORS;
+export const CONTAINER_KEYWORDS = ALL_COLORS;
+export const CONTAINERNAME_KEYWORDS = ALL_COLORS;
+export const CONTAINERTYPE_KEYWORDS = ['inline-size', 'normal', 'size'] as const;
+export const CONTENT_KEYWORDS = ALL_COLORS;
+export const CONTENTVISIBILITY_KEYWORDS = ['auto', 'hidden', 'visible'] as const;
+export const COUNTERINCREMENT_KEYWORDS = ALL_COLORS;
+export const COUNTERRESET_KEYWORDS = ALL_COLORS;
+export const COUNTERSET_KEYWORDS = ALL_COLORS;
+export const CUE_KEYWORDS = ALL_COLORS;
+export const CUEAFTER_KEYWORDS = ALL_COLORS;
+export const CUEBEFORE_KEYWORDS = ALL_COLORS;
+export const CURSOR_KEYWORDS = ALL_COLORS;
+export const D_KEYWORDS = ALL_COLORS;
+export const DIRECTION_KEYWORDS = ['ltr', 'rtl'] as const;
+export const DISPLAY_KEYWORDS = ALL_COLORS;
+export const DOMINANTBASELINE_KEYWORDS = ['alphabetic', 'auto', 'central', 'hanging', 'ideographic', 'mathematical', 'middle', 'no-change', 'reset-size', 'text-after-edge', 'text-before-edge', 'use-script'] as const;
+export const EMPTYCELLS_KEYWORDS = ['hide', 'show'] as const;
+export const FIELDSIZING_KEYWORDS = ['content', 'fixed'] as const;
+export const FILL_KEYWORDS = ALL_COLORS;
+export const FILLRULE_KEYWORDS = ['evenodd', 'nonzero'] as const;
+export const FILTER_KEYWORDS = ALL_COLORS;
+export const FLEX_KEYWORDS = ALL_COLORS;
+export const FLEXBASIS_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'content', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const FLEXDIRECTION_KEYWORDS = ['column', 'column-reverse', 'row', 'row-reverse'] as const;
+export const FLEXFLOW_KEYWORDS = ['column', 'column-reverse', 'nowrap', 'row', 'row-reverse', 'wrap', 'wrap-reverse'] as const;
+export const FLEXWRAP_KEYWORDS = ['nowrap', 'wrap', 'wrap-reverse'] as const;
+export const FLOAT_KEYWORDS = ALL_COLORS;
+export const FONT_KEYWORDS = ['-apple-system', '-apple-system-body', '-apple-system-caption1', '-apple-system-caption2', '-apple-system-footnote', '-apple-system-headline', '-apple-system-short-body', '-apple-system-short-caption1', '-apple-system-short-footnote', '-apple-system-short-headline', '-apple-system-short-subheadline', '-apple-system-subheadline', '-apple-system-tall-body', 'BlinkMacSystemFont', 'bold', 'bolder', 'caption', 'condensed', 'cursive', 'expanded', 'extra-condensed', 'extra-expanded', 'fangsong', 'fantasy', 'icon', 'italic', 'kai', 'large', 'larger', 'lighter', 'math', 'medium', 'menu', 'message-box', 'monospace', 'nastaliq', 'normal', 'oblique', 'sans-serif', 'semi-condensed', 'semi-expanded', 'serif', 'small', 'small-caps', 'small-caption', 'smaller', 'status-bar', 'system-ui', 'ui-monospace', 'ui-rounded', 'ui-sans-serif', 'ui-serif', 'ultra-condensed', 'ultra-expanded', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'] as const;
+export const FONTFAMILY_KEYWORDS = ['-apple-system', 'BlinkMacSystemFont', 'cursive', 'fangsong', 'fantasy', 'kai', 'math', 'monospace', 'nastaliq', 'sans-serif', 'serif', 'system-ui', 'ui-monospace', 'ui-rounded', 'ui-sans-serif', 'ui-serif'] as const;
+export const FONTFEATURESETTINGS_KEYWORDS = ['normal', 'off', 'on'] as const;
+export const FONTKERNING_KEYWORDS = ALL_COLORS;
+export const FONTLANGUAGEOVERRIDE_KEYWORDS = ['normal'] as const;
+export const FONTOPTICALSIZING_KEYWORDS = ALL_COLORS;
+export const FONTPALETTE_KEYWORDS = ['dark', 'light', 'normal'] as const;
+export const FONTSIZE_KEYWORDS = ['large', 'larger', 'medium', 'small', 'smaller', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'] as const;
+export const FONTSIZEADJUST_KEYWORDS = ALL_COLORS;
+export const FONTSMOOTH_KEYWORDS = ['always', 'auto', 'large', 'medium', 'never', 'small', 'x-large', 'x-small', 'xx-large', 'xx-small', 'xxx-large'] as const;
+export const FONTSTRETCH_KEYWORDS = ['condensed', 'expanded', 'extra-condensed', 'extra-expanded', 'normal', 'semi-condensed', 'semi-expanded', 'ultra-condensed', 'ultra-expanded'] as const;
+export const FONTSTYLE_KEYWORDS = ['italic', 'normal', 'oblique'] as const;
+export const FONTSYNTHESIS_KEYWORDS = ALL_COLORS;
+export const FONTSYNTHESISPOSITION_KEYWORDS = ALL_COLORS;
+export const FONTSYNTHESISSMALLCAPS_KEYWORDS = ALL_COLORS;
+export const FONTSYNTHESISSTYLE_KEYWORDS = ALL_COLORS;
+export const FONTSYNTHESISWEIGHT_KEYWORDS = ALL_COLORS;
+export const FONTVARIANT_KEYWORDS = ALL_COLORS;
+export const FONTVARIANTALTERNATES_KEYWORDS = ['historical-forms', 'normal'] as const;
+export const FONTVARIANTCAPS_KEYWORDS = ['all-petite-caps', 'all-small-caps', 'normal', 'petite-caps', 'small-caps', 'titling-caps', 'unicase'] as const;
+export const FONTVARIANTEASTASIAN_KEYWORDS = ['full-width', 'jis04', 'jis78', 'jis83', 'jis90', 'normal', 'proportional-width', 'ruby', 'simplified', 'traditional'] as const;
+export const FONTVARIANTEMOJI_KEYWORDS = ['emoji', 'normal', 'text', 'unicode'] as const;
+export const FONTVARIANTLIGATURES_KEYWORDS = ALL_COLORS;
+export const FONTVARIANTNUMERIC_KEYWORDS = ['diagonal-fractions', 'lining-nums', 'normal', 'oldstyle-nums', 'ordinal', 'proportional-nums', 'slashed-zero', 'stacked-fractions', 'tabular-nums'] as const;
+export const FONTVARIANTPOSITION_KEYWORDS = ['normal', 'sub', 'super'] as const;
+export const FONTVARIATIONSETTINGS_KEYWORDS = ['normal'] as const;
+export const FONTWEIGHT_KEYWORDS = ['bold', 'bolder', 'lighter', 'normal'] as const;
+export const FORCEDCOLORADJUST_KEYWORDS = ALL_COLORS;
+export const GAP_KEYWORDS = ['normal'] as const;
+export const GRID_KEYWORDS = ALL_COLORS;
+export const GRIDAREA_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDAUTOCOLUMNS_KEYWORDS = ['auto', 'max-content', 'min-content'] as const;
+export const GRIDAUTOFLOW_KEYWORDS = ['column', 'dense', 'row'] as const;
+export const GRIDAUTOROWS_KEYWORDS = ['auto', 'max-content', 'min-content'] as const;
+export const GRIDCOLUMN_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDCOLUMNEND_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDCOLUMNSTART_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDROW_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDROWEND_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDROWSTART_KEYWORDS = ['auto', 'span'] as const;
+export const GRIDTEMPLATE_KEYWORDS = ALL_COLORS;
+export const GRIDTEMPLATEAREAS_KEYWORDS = ALL_COLORS;
+export const GRIDTEMPLATECOLUMNS_KEYWORDS = ALL_COLORS;
+export const GRIDTEMPLATEROWS_KEYWORDS = ALL_COLORS;
+export const HANGINGPUNCTUATION_KEYWORDS = ALL_COLORS;
+export const HEIGHT_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const HYPHENATECHARACTER_KEYWORDS = ['auto'] as const;
+export const HYPHENATELIMITCHARS_KEYWORDS = ['auto'] as const;
+export const HYPHENS_KEYWORDS = ALL_COLORS;
+export const IMAGEORIENTATION_KEYWORDS = ['flip', 'from-image'] as const;
+export const IMAGERENDERING_KEYWORDS = ['-moz-crisp-edges', '-o-crisp-edges', '-webkit-optimize-contrast', 'auto', 'crisp-edges', 'optimize-contrast', 'optimizeQuality', 'optimizeSpeed', 'pixelated'] as const;
+export const IMAGERESOLUTION_KEYWORDS = ['from-image', 'snap'] as const;
+export const IMEMODE_KEYWORDS = ['active', 'auto', 'disabled', 'inactive', 'normal'] as const;
+export const INITIALLETTER_KEYWORDS = ['normal'] as const;
+export const INITIALLETTERALIGN_KEYWORDS = ['alphabetic', 'auto', 'hanging', 'ideographic'] as const;
+export const INLINESIZE_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const INPUTSECURITY_KEYWORDS = ALL_COLORS;
+export const INSET_KEYWORDS = ['auto'] as const;
+export const INSETBLOCK_KEYWORDS = ['auto'] as const;
+export const INSETBLOCKEND_KEYWORDS = ['auto'] as const;
+export const INSETBLOCKSTART_KEYWORDS = ['auto'] as const;
+export const INSETINLINE_KEYWORDS = ['auto'] as const;
+export const INSETINLINEEND_KEYWORDS = ['auto'] as const;
+export const INSETINLINESTART_KEYWORDS = ['auto'] as const;
+export const INTERPOLATESIZE_KEYWORDS = ['allow-keywords', 'numeric-only'] as const;
+export const ISOLATION_KEYWORDS = ['auto', 'isolate'] as const;
+export const JUSTIFYCONTENT_KEYWORDS = ['center', 'end', 'flex-end', 'flex-start', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;
+export const JUSTIFYITEMS_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'legacy', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const JUSTIFYSELF_KEYWORDS = ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const JUSTIFYTRACKS_KEYWORDS = ['center', 'end', 'flex-end', 'flex-start', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;
+export const KERNING_KEYWORDS = ['auto'] as const;
+export const LEFT_KEYWORDS = ['auto'] as const;
+export const LETTERSPACING_KEYWORDS = ['normal'] as const;
+export const LINEBREAK_KEYWORDS = ['anywhere', 'auto', 'loose', 'normal', 'strict'] as const;
+export const LINECLAMP_KEYWORDS = ALL_COLORS;
+export const LINEHEIGHT_KEYWORDS = ['normal'] as const;
+export const LISTSTYLE_KEYWORDS = ALL_COLORS;
+export const LISTSTYLEIMAGE_KEYWORDS = ALL_COLORS;
+export const LISTSTYLEPOSITION_KEYWORDS = ['inside', 'outside'] as const;
+export const LISTSTYLETYPE_KEYWORDS = ALL_COLORS;
+export const MARGIN_KEYWORDS = ['auto'] as const;
+export const MARGINBLOCK_KEYWORDS = ['auto'] as const;
+export const MARGINBLOCKEND_KEYWORDS = ['auto'] as const;
+export const MARGINBLOCKSTART_KEYWORDS = ['auto'] as const;
+export const MARGINBOTTOM_KEYWORDS = ['auto'] as const;
+export const MARGININLINE_KEYWORDS = ['auto'] as const;
+export const MARGININLINEEND_KEYWORDS = ['auto'] as const;
+export const MARGININLINESTART_KEYWORDS = ['auto'] as const;
+export const MARGINLEFT_KEYWORDS = ['auto'] as const;
+export const MARGINRIGHT_KEYWORDS = ['auto'] as const;
+export const MARGINTOP_KEYWORDS = ['auto'] as const;
+export const MARGINTRIM_KEYWORDS = ALL_COLORS;
+export const MARKER_KEYWORDS = ALL_COLORS;
+export const MARKEREND_KEYWORDS = ALL_COLORS;
+export const MARKERMID_KEYWORDS = ALL_COLORS;
+export const MARKERSTART_KEYWORDS = ALL_COLORS;
+export const MASK_KEYWORDS = ALL_COLORS;
+export const MASKBORDER_KEYWORDS = ALL_COLORS;
+export const MASKBORDERMODE_KEYWORDS = ['alpha', 'luminance'] as const;
+export const MASKBORDERREPEAT_KEYWORDS = ['repeat', 'round', 'space', 'stretch'] as const;
+export const MASKBORDERSLICE_KEYWORDS = ['fill'] as const;
+export const MASKBORDERSOURCE_KEYWORDS = ALL_COLORS;
+export const MASKBORDERWIDTH_KEYWORDS = ['auto'] as const;
+export const MASKCLIP_KEYWORDS = ['border-box', 'content-box', 'fill-box', 'margin-box', 'no-clip', 'padding-box', 'stroke-box', 'view-box'] as const;
+export const MASKCOMPOSITE_KEYWORDS = ['add', 'exclude', 'intersect', 'subtract'] as const;
+export const MASKIMAGE_KEYWORDS = ALL_COLORS;
+export const MASKMODE_KEYWORDS = ['alpha', 'luminance', 'match-source'] as const;
+export const MASKORIGIN_KEYWORDS = ['border-box', 'content-box', 'fill-box', 'margin-box', 'padding-box', 'stroke-box', 'view-box'] as const;
+export const MASKPOSITION_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const MASKREPEAT_KEYWORDS = ['no-repeat', 'repeat', 'repeat-x', 'repeat-y', 'round', 'space'] as const;
+export const MASKSIZE_KEYWORDS = ['auto', 'contain', 'cover'] as const;
+export const MASKTYPE_KEYWORDS = ['alpha', 'luminance'] as const;
+export const MASONRYAUTOFLOW_KEYWORDS = ['definite-first', 'next', 'ordered', 'pack'] as const;
+export const MATHDEPTH_KEYWORDS = ['auto-add'] as const;
+export const MATHSHIFT_KEYWORDS = ['compact', 'normal'] as const;
+export const MATHSTYLE_KEYWORDS = ['compact', 'normal'] as const;
+export const MAXBLOCKSIZE_KEYWORDS = ALL_COLORS;
+export const MAXHEIGHT_KEYWORDS = ALL_COLORS;
+export const MAXINLINESIZE_KEYWORDS = ALL_COLORS;
+export const MAXLINES_KEYWORDS = ALL_COLORS;
+export const MAXWIDTH_KEYWORDS = ALL_COLORS;
+export const MINBLOCKSIZE_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const MINHEIGHT_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const MININLINESIZE_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const MINWIDTH_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const MIXBLENDMODE_KEYWORDS = ALL_COLORS;
+export const OBJECTFIT_KEYWORDS = ALL_COLORS;
+export const OBJECTPOSITION_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const OFFSET_KEYWORDS = ALL_COLORS;
+export const OFFSETANCHOR_KEYWORDS = ['auto', 'bottom', 'center', 'left', 'right', 'top'] as const;
+export const OFFSETPATH_KEYWORDS = ALL_COLORS;
+export const OFFSETPOSITION_KEYWORDS = ['auto', 'bottom', 'center', 'left', 'normal', 'right', 'top'] as const;
+export const OFFSETROTATE_KEYWORDS = ['auto', 'reverse'] as const;
+export const OUTLINE_KEYWORDS = ALL_COLORS;
+export const OUTLINECOLOR_KEYWORDS = ALL_COLORS;
+export const OUTLINESTYLE_KEYWORDS = ALL_COLORS;
+export const OUTLINEWIDTH_KEYWORDS = ['medium', 'thick', 'thin'] as const;
+export const OVERFLOW_KEYWORDS = ['-moz-hidden-unscrollable', '-moz-scrollbars-horizontal', '-moz-scrollbars-none', '-moz-scrollbars-vertical', 'auto', 'clip', 'hidden', 'overlay', 'scroll', 'visible'] as const;
+export const OVERFLOWANCHOR_KEYWORDS = ALL_COLORS;
+export const OVERFLOWBLOCK_KEYWORDS = ['auto', 'clip', 'hidden', 'scroll', 'visible'] as const;
+export const OVERFLOWCLIPBOX_KEYWORDS = ['content-box', 'padding-box'] as const;
+export const OVERFLOWCLIPMARGIN_KEYWORDS = ['border-box', 'content-box', 'padding-box'] as const;
+export const OVERFLOWINLINE_KEYWORDS = ['auto', 'clip', 'hidden', 'scroll', 'visible'] as const;
+export const OVERFLOWWRAP_KEYWORDS = ['anywhere', 'break-word', 'normal'] as const;
+export const OVERFLOWX_KEYWORDS = ['auto', 'clip', 'hidden', 'scroll', 'visible'] as const;
+export const OVERFLOWY_KEYWORDS = ['auto', 'clip', 'hidden', 'scroll', 'visible'] as const;
+export const OVERLAY_KEYWORDS = ALL_COLORS;
+export const OVERSCROLLBEHAVIOR_KEYWORDS = ALL_COLORS;
+export const OVERSCROLLBEHAVIORBLOCK_KEYWORDS = ALL_COLORS;
+export const OVERSCROLLBEHAVIORINLINE_KEYWORDS = ALL_COLORS;
+export const OVERSCROLLBEHAVIORX_KEYWORDS = ALL_COLORS;
+export const OVERSCROLLBEHAVIORY_KEYWORDS = ALL_COLORS;
+export const PAGE_KEYWORDS = ['auto'] as const;
+export const PAGEBREAKAFTER_KEYWORDS = ['always', 'auto', 'avoid', 'left', 'recto', 'right', 'verso'] as const;
+export const PAGEBREAKBEFORE_KEYWORDS = ['always', 'auto', 'avoid', 'left', 'recto', 'right', 'verso'] as const;
+export const PAGEBREAKINSIDE_KEYWORDS = ['auto', 'avoid'] as const;
+export const PAINTORDER_KEYWORDS = ['fill', 'markers', 'normal', 'stroke'] as const;
+export const PAUSE_KEYWORDS = ALL_COLORS;
+export const PAUSEAFTER_KEYWORDS = ALL_COLORS;
+export const PAUSEBEFORE_KEYWORDS = ALL_COLORS;
+export const PERSPECTIVE_KEYWORDS = ALL_COLORS;
+export const PERSPECTIVEORIGIN_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const PLACECONTENT_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;
+export const PLACEITEMS_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'legacy', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const PLACESELF_KEYWORDS = ['auto', 'baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'left', 'normal', 'right', 'safe', 'self-end', 'self-start', 'start', 'stretch', 'unsafe'] as const;
+export const POINTEREVENTS_KEYWORDS = ALL_COLORS;
+export const POSITION_KEYWORDS = ['-webkit-sticky', 'absolute', 'fixed', 'relative', 'static', 'sticky'] as const;
+export const POSITIONANCHOR_KEYWORDS = ['auto'] as const;
+export const POSITIONAREA_KEYWORDS = ALL_COLORS;
+export const POSITIONTRY_KEYWORDS = ALL_COLORS;
+export const POSITIONTRYFALLBACKS_KEYWORDS = ALL_COLORS;
+export const POSITIONTRYORDER_KEYWORDS = ['most-block-size', 'most-height', 'most-inline-size', 'most-width', 'normal'] as const;
+export const POSITIONVISIBILITY_KEYWORDS = ['always', 'anchors-valid', 'anchors-visible', 'no-overflow'] as const;
+export const PRINTCOLORADJUST_KEYWORDS = ['economy', 'exact'] as const;
+export const QUOTES_KEYWORDS = ALL_COLORS;
+export const RESIZE_KEYWORDS = ALL_COLORS;
+export const REST_KEYWORDS = ALL_COLORS;
+export const RESTAFTER_KEYWORDS = ALL_COLORS;
+export const RESTBEFORE_KEYWORDS = ALL_COLORS;
+export const RIGHT_KEYWORDS = ['auto'] as const;
+export const ROTATE_KEYWORDS = ALL_COLORS;
+export const ROWGAP_KEYWORDS = ['normal'] as const;
+export const RUBYALIGN_KEYWORDS = ['center', 'space-around', 'space-between', 'start'] as const;
+export const RUBYMERGE_KEYWORDS = ['auto', 'collapse', 'separate'] as const;
+export const RUBYPOSITION_KEYWORDS = ['alternate', 'inter-character', 'over', 'under'] as const;
+export const SCALE_KEYWORDS = ALL_COLORS;
+export const SCROLLBEHAVIOR_KEYWORDS = ['auto', 'smooth'] as const;
+export const SCROLLPADDING_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGBLOCK_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGBLOCKEND_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGBLOCKSTART_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGBOTTOM_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGINLINE_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGINLINEEND_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGINLINESTART_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGLEFT_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGRIGHT_KEYWORDS = ['auto'] as const;
+export const SCROLLPADDINGTOP_KEYWORDS = ['auto'] as const;
+export const SCROLLSNAPALIGN_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPCOORDINATE_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPDESTINATION_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const SCROLLSNAPPOINTSX_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPPOINTSY_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPSTOP_KEYWORDS = ['always', 'normal'] as const;
+export const SCROLLSNAPTYPE_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPTYPEX_KEYWORDS = ALL_COLORS;
+export const SCROLLSNAPTYPEY_KEYWORDS = ALL_COLORS;
+export const SCROLLTIMELINE_KEYWORDS = ALL_COLORS;
+export const SCROLLTIMELINEAXIS_KEYWORDS = ['block', 'inline', 'x', 'y'] as const;
+export const SCROLLTIMELINENAME_KEYWORDS = ALL_COLORS;
+export const SCROLLBARCOLOR_KEYWORDS = ALL_COLORS;
+export const SCROLLBARGUTTER_KEYWORDS = ['auto', 'both-edges', 'stable'] as const;
+export const SCROLLBARWIDTH_KEYWORDS = ALL_COLORS;
+export const SHAPEOUTSIDE_KEYWORDS = ALL_COLORS;
+export const SHAPERENDERING_KEYWORDS = ['auto', 'crispEdges', 'geometricPrecision', 'optimizeSpeed'] as const;
+export const SPEAK_KEYWORDS = ['always', 'auto', 'never'] as const;
+export const SPEAKAS_KEYWORDS = ['digits', 'literal-punctuation', 'no-punctuation', 'normal', 'spell-out'] as const;
+export const STROKE_KEYWORDS = ALL_COLORS;
+export const STROKEDASHARRAY_KEYWORDS = ALL_COLORS;
+export const STROKELINECAP_KEYWORDS = ['butt', 'round', 'square'] as const;
+export const STROKELINEJOIN_KEYWORDS = ['bevel', 'miter', 'round'] as const;
+export const TABLELAYOUT_KEYWORDS = ['auto', 'fixed'] as const;
+export const TEXTALIGN_KEYWORDS = ['center', 'end', 'justify', 'left', 'match-parent', 'right', 'start'] as const;
+export const TEXTALIGNLAST_KEYWORDS = ['auto', 'center', 'end', 'justify', 'left', 'right', 'start'] as const;
+export const TEXTANCHOR_KEYWORDS = ['end', 'middle', 'start'] as const;
+export const TEXTCOMBINEUPRIGHT_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATION_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATIONCOLOR_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATIONLINE_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATIONSKIP_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATIONSKIPINK_KEYWORDS = ALL_COLORS;
+export const TEXTDECORATIONSTYLE_KEYWORDS = ['dashed', 'dotted', 'double', 'solid', 'wavy'] as const;
+export const TEXTDECORATIONTHICKNESS_KEYWORDS = ['auto', 'from-font'] as const;
+export const TEXTEMPHASIS_KEYWORDS = ALL_COLORS;
+export const TEXTEMPHASISCOLOR_KEYWORDS = ALL_COLORS;
+export const TEXTEMPHASISPOSITION_KEYWORDS = ['auto', 'left', 'over', 'right', 'under'] as const;
+export const TEXTEMPHASISSTYLE_KEYWORDS = ALL_COLORS;
+export const TEXTINDENT_KEYWORDS = ['each-line', 'hanging'] as const;
+export const TEXTJUSTIFY_KEYWORDS = ALL_COLORS;
+export const TEXTORIENTATION_KEYWORDS = ['mixed', 'sideways', 'upright'] as const;
+export const TEXTOVERFLOW_KEYWORDS = ['clip', 'ellipsis'] as const;
+export const TEXTRENDERING_KEYWORDS = ['auto', 'geometricPrecision', 'optimizeLegibility', 'optimizeSpeed'] as const;
+export const TEXTSHADOW_KEYWORDS = ALL_COLORS;
+export const TEXTSIZEADJUST_KEYWORDS = ALL_COLORS;
+export const TEXTSPACINGTRIM_KEYWORDS = ['auto', 'normal', 'space-all', 'space-first', 'trim-all', 'trim-both', 'trim-start'] as const;
+export const TEXTTRANSFORM_KEYWORDS = ALL_COLORS;
+export const TEXTUNDERLINEOFFSET_KEYWORDS = ['auto'] as const;
+export const TEXTUNDERLINEPOSITION_KEYWORDS = ['auto', 'from-font', 'left', 'right', 'under'] as const;
+export const TEXTWRAP_KEYWORDS = ['auto', 'balance', 'nowrap', 'pretty', 'stable', 'wrap'] as const;
+export const TEXTWRAPMODE_KEYWORDS = ['auto', 'nowrap', 'wrap'] as const;
+export const TEXTWRAPSTYLE_KEYWORDS = ['auto', 'balance', 'pretty', 'stable'] as const;
+export const TIMELINESCOPE_KEYWORDS = ALL_COLORS;
+export const TOP_KEYWORDS = ['auto'] as const;
+export const TOUCHACTION_KEYWORDS = ALL_COLORS;
+export const TRANSFORM_KEYWORDS = ALL_COLORS;
+export const TRANSFORMBOX_KEYWORDS = ['border-box', 'content-box', 'fill-box', 'stroke-box', 'view-box'] as const;
+export const TRANSFORMORIGIN_KEYWORDS = ['bottom', 'center', 'left', 'right', 'top'] as const;
+export const TRANSFORMSTYLE_KEYWORDS = ['flat', 'preserve-3d'] as const;
+export const TRANSITION_KEYWORDS = ALL_COLORS;
+export const TRANSITIONBEHAVIOR_KEYWORDS = ['allow-discrete', 'normal'] as const;
+export const TRANSITIONPROPERTY_KEYWORDS = ALL_COLORS;
+export const TRANSITIONTIMINGFUNCTION_KEYWORDS = ['ease', 'ease-in', 'ease-in-out', 'ease-out', 'end', 'jump-both', 'jump-end', 'jump-none', 'jump-start', 'linear', 'start', 'step-end', 'step-start'] as const;
+export const TRANSLATE_KEYWORDS = ALL_COLORS;
+export const UNICODEBIDI_KEYWORDS = ['-moz-isolate', '-moz-isolate-override', '-moz-plaintext', '-webkit-isolate', '-webkit-isolate-override', '-webkit-plaintext', 'bidi-override', 'embed', 'isolate', 'isolate-override', 'normal', 'plaintext'] as const;
+export const USERSELECT_KEYWORDS = ALL_COLORS;
+export const VECTOREFFECT_KEYWORDS = ALL_COLORS;
+export const VERTICALALIGN_KEYWORDS = ['baseline', 'bottom', 'middle', 'sub', 'super', 'text-bottom', 'text-top', 'top'] as const;
+export const VIEWTIMELINE_KEYWORDS = ALL_COLORS;
+export const VIEWTIMELINEAXIS_KEYWORDS = ['block', 'inline', 'x', 'y'] as const;
+export const VIEWTIMELINEINSET_KEYWORDS = ['auto'] as const;
+export const VIEWTIMELINENAME_KEYWORDS = ALL_COLORS;
+export const VIEWTRANSITIONNAME_KEYWORDS = ALL_COLORS;
+export const VISIBILITY_KEYWORDS = ['collapse', 'hidden', 'visible'] as const;
+export const VOICEBALANCE_KEYWORDS = ['center', 'left', 'leftwards', 'right', 'rightwards'] as const;
+export const VOICEDURATION_KEYWORDS = ['auto'] as const;
+export const VOICEFAMILY_KEYWORDS = ['child', 'female', 'male', 'neutral', 'old', 'preserve', 'young'] as const;
+export const VOICEPITCH_KEYWORDS = ['absolute', 'high', 'low', 'medium', 'x-high', 'x-low'] as const;
+export const VOICERANGE_KEYWORDS = ['absolute', 'high', 'low', 'medium', 'x-high', 'x-low'] as const;
+export const VOICERATE_KEYWORDS = ['fast', 'medium', 'normal', 'slow', 'x-fast', 'x-slow'] as const;
+export const VOICESTRESS_KEYWORDS = ALL_COLORS;
+export const VOICEVOLUME_KEYWORDS = ['loud', 'medium', 'silent', 'soft', 'x-loud', 'x-soft'] as const;
+export const WHITESPACE_KEYWORDS = ALL_COLORS;
+export const WHITESPACECOLLAPSE_KEYWORDS = ['break-spaces', 'collapse', 'discard', 'preserve', 'preserve-breaks', 'preserve-spaces'] as const;
+export const WHITESPACETRIM_KEYWORDS = ALL_COLORS;
+export const WIDTH_KEYWORDS = ['-moz-available', '-moz-fit-content', '-moz-max-content', '-moz-min-content', '-webkit-fill-available', '-webkit-fit-content', '-webkit-max-content', '-webkit-min-content', 'auto', 'fit-content', 'intrinsic', 'max-content', 'min-content', 'min-intrinsic', 'stretch'] as const;
+export const WILLCHANGE_KEYWORDS = ['auto', 'contents', 'scroll-position'] as const;
+export const WORDBREAK_KEYWORDS = ['auto-phrase', 'break-all', 'break-word', 'keep-all', 'normal'] as const;
+export const WORDSPACING_KEYWORDS = ['normal'] as const;
+export const WORDWRAP_KEYWORDS = ['break-word', 'normal'] as const;
+export const WRITINGMODE_KEYWORDS = ['horizontal-tb', 'lr', 'lr-tb', 'rl', 'rl-tb', 'sideways-lr', 'sideways-rl', 'tb', 'tb-rl', 'vertical-lr', 'vertical-rl'] as const;
+export const ZINDEX_KEYWORDS = ['auto'] as const;
+export const ZOOM_KEYWORDS = ['normal', 'reset'] as const;
+
+// ==================== 属性 Keywords 映射 ====================
+
+export const PROPERTY_KEYWORDS_MAP: Record<string, readonly string[]> = {
+  'accent-color': ACCENTCOLOR_KEYWORDS,
+  'align-content': ALIGNCONTENT_KEYWORDS,
+  'align-items': ALIGNITEMS_KEYWORDS,
+  'align-self': ALIGNSELF_KEYWORDS,
+  'align-tracks': ALIGNTRACKS_KEYWORDS,
+  'alignment-baseline': ALIGNMENTBASELINE_KEYWORDS,
+  'all': ALL_KEYWORDS,
+  'anchor-name': ANCHORNAME_KEYWORDS,
+  'anchor-scope': ANCHORSCOPE_KEYWORDS,
+  'animation': ANIMATION_KEYWORDS,
+  'animation-composition': ANIMATIONCOMPOSITION_KEYWORDS,
+  'animation-direction': ANIMATIONDIRECTION_KEYWORDS,
+  'animation-fill-mode': ANIMATIONFILLMODE_KEYWORDS,
+  'animation-iteration-count': ANIMATIONITERATIONCOUNT_KEYWORDS,
+  'animation-name': ANIMATIONNAME_KEYWORDS,
+  'animation-play-state': ANIMATIONPLAYSTATE_KEYWORDS,
+  'animation-range': ANIMATIONRANGE_KEYWORDS,
+  'animation-range-end': ANIMATIONRANGEEND_KEYWORDS,
+  'animation-range-start': ANIMATIONRANGESTART_KEYWORDS,
+  'animation-timeline': ANIMATIONTIMELINE_KEYWORDS,
+  'animation-timing-function': ANIMATIONTIMINGFUNCTION_KEYWORDS,
+  'appearance': APPEARANCE_KEYWORDS,
+  'aspect-ratio': ASPECTRATIO_KEYWORDS,
+  'azimuth': AZIMUTH_KEYWORDS,
+  'backdrop-filter': BACKDROPFILTER_KEYWORDS,
+  'backface-visibility': BACKFACEVISIBILITY_KEYWORDS,
+  'background': BACKGROUND_KEYWORDS,
+  'background-attachment': BACKGROUNDATTACHMENT_KEYWORDS,
+  'background-blend-mode': BACKGROUNDBLENDMODE_KEYWORDS,
+  'background-clip': BACKGROUNDCLIP_KEYWORDS,
+  'background-color': BACKGROUNDCOLOR_KEYWORDS,
+  'background-image': BACKGROUNDIMAGE_KEYWORDS,
+  'background-origin': BACKGROUNDORIGIN_KEYWORDS,
+  'background-position': BACKGROUNDPOSITION_KEYWORDS,
+  'background-position-x': BACKGROUNDPOSITIONX_KEYWORDS,
+  'background-position-y': BACKGROUNDPOSITIONY_KEYWORDS,
+  'background-repeat': BACKGROUNDREPEAT_KEYWORDS,
+  'background-size': BACKGROUNDSIZE_KEYWORDS,
+  'baseline-shift': BASELINESHIFT_KEYWORDS,
+  'block-size': BLOCKSIZE_KEYWORDS,
+  'border': BORDER_KEYWORDS,
+  'border-block': BORDERBLOCK_KEYWORDS,
+  'border-block-color': BORDERBLOCKCOLOR_KEYWORDS,
+  'border-block-end': BORDERBLOCKEND_KEYWORDS,
+  'border-block-end-color': BORDERBLOCKENDCOLOR_KEYWORDS,
+  'border-block-end-style': BORDERBLOCKENDSTYLE_KEYWORDS,
+  'border-block-end-width': BORDERBLOCKENDWIDTH_KEYWORDS,
+  'border-block-start': BORDERBLOCKSTART_KEYWORDS,
+  'border-block-start-color': BORDERBLOCKSTARTCOLOR_KEYWORDS,
+  'border-block-start-style': BORDERBLOCKSTARTSTYLE_KEYWORDS,
+  'border-block-start-width': BORDERBLOCKSTARTWIDTH_KEYWORDS,
+  'border-block-style': BORDERBLOCKSTYLE_KEYWORDS,
+  'border-block-width': BORDERBLOCKWIDTH_KEYWORDS,
+  'border-bottom': BORDERBOTTOM_KEYWORDS,
+  'border-bottom-color': BORDERBOTTOMCOLOR_KEYWORDS,
+  'border-bottom-style': BORDERBOTTOMSTYLE_KEYWORDS,
+  'border-bottom-width': BORDERBOTTOMWIDTH_KEYWORDS,
+  'border-collapse': BORDERCOLLAPSE_KEYWORDS,
+  'border-color': BORDERCOLOR_KEYWORDS,
+  'border-image': BORDERIMAGE_KEYWORDS,
+  'border-image-repeat': BORDERIMAGEREPEAT_KEYWORDS,
+  'border-image-slice': BORDERIMAGESLICE_KEYWORDS,
+  'border-image-source': BORDERIMAGESOURCE_KEYWORDS,
+  'border-image-width': BORDERIMAGEWIDTH_KEYWORDS,
+  'border-inline': BORDERINLINE_KEYWORDS,
+  'border-inline-color': BORDERINLINECOLOR_KEYWORDS,
+  'border-inline-end': BORDERINLINEEND_KEYWORDS,
+  'border-inline-end-color': BORDERINLINEENDCOLOR_KEYWORDS,
+  'border-inline-end-style': BORDERINLINEENDSTYLE_KEYWORDS,
+  'border-inline-end-width': BORDERINLINEENDWIDTH_KEYWORDS,
+  'border-inline-start': BORDERINLINESTART_KEYWORDS,
+  'border-inline-start-color': BORDERINLINESTARTCOLOR_KEYWORDS,
+  'border-inline-start-style': BORDERINLINESTARTSTYLE_KEYWORDS,
+  'border-inline-start-width': BORDERINLINESTARTWIDTH_KEYWORDS,
+  'border-inline-style': BORDERINLINESTYLE_KEYWORDS,
+  'border-inline-width': BORDERINLINEWIDTH_KEYWORDS,
+  'border-left': BORDERLEFT_KEYWORDS,
+  'border-left-color': BORDERLEFTCOLOR_KEYWORDS,
+  'border-left-style': BORDERLEFTSTYLE_KEYWORDS,
+  'border-left-width': BORDERLEFTWIDTH_KEYWORDS,
+  'border-right': BORDERRIGHT_KEYWORDS,
+  'border-right-color': BORDERRIGHTCOLOR_KEYWORDS,
+  'border-right-style': BORDERRIGHTSTYLE_KEYWORDS,
+  'border-right-width': BORDERRIGHTWIDTH_KEYWORDS,
+  'border-style': BORDERSTYLE_KEYWORDS,
+  'border-top': BORDERTOP_KEYWORDS,
+  'border-top-color': BORDERTOPCOLOR_KEYWORDS,
+  'border-top-style': BORDERTOPSTYLE_KEYWORDS,
+  'border-top-width': BORDERTOPWIDTH_KEYWORDS,
+  'border-width': BORDERWIDTH_KEYWORDS,
+  'bottom': BOTTOM_KEYWORDS,
+  'box-align': BOXALIGN_KEYWORDS,
+  'box-decoration-break': BOXDECORATIONBREAK_KEYWORDS,
+  'box-direction': BOXDIRECTION_KEYWORDS,
+  'box-lines': BOXLINES_KEYWORDS,
+  'box-orient': BOXORIENT_KEYWORDS,
+  'box-pack': BOXPACK_KEYWORDS,
+  'box-shadow': BOXSHADOW_KEYWORDS,
+  'box-sizing': BOXSIZING_KEYWORDS,
+  'break-after': BREAKAFTER_KEYWORDS,
+  'break-before': BREAKBEFORE_KEYWORDS,
+  'break-inside': BREAKINSIDE_KEYWORDS,
+  'caption-side': CAPTIONSIDE_KEYWORDS,
+  'caret': CARET_KEYWORDS,
+  'caret-color': CARETCOLOR_KEYWORDS,
+  'caret-shape': CARETSHAPE_KEYWORDS,
+  'clear': CLEAR_KEYWORDS,
+  'clip': CLIP_KEYWORDS,
+  'clip-path': CLIPPATH_KEYWORDS,
+  'clip-rule': CLIPRULE_KEYWORDS,
+  'color': COLOR_KEYWORDS,
+  'color-interpolation-filters': COLORINTERPOLATIONFILTERS_KEYWORDS,
+  'color-scheme': COLORSCHEME_KEYWORDS,
+  'column-count': COLUMNCOUNT_KEYWORDS,
+  'column-fill': COLUMNFILL_KEYWORDS,
+  'column-gap': COLUMNGAP_KEYWORDS,
+  'column-rule': COLUMNRULE_KEYWORDS,
+  'column-rule-color': COLUMNRULECOLOR_KEYWORDS,
+  'column-rule-style': COLUMNRULESTYLE_KEYWORDS,
+  'column-rule-width': COLUMNRULEWIDTH_KEYWORDS,
+  'column-span': COLUMNSPAN_KEYWORDS,
+  'column-width': COLUMNWIDTH_KEYWORDS,
+  'columns': COLUMNS_KEYWORDS,
+  'contain': CONTAIN_KEYWORDS,
+  'contain-intrinsic-block-size': CONTAININTRINSICBLOCKSIZE_KEYWORDS,
+  'contain-intrinsic-height': CONTAININTRINSICHEIGHT_KEYWORDS,
+  'contain-intrinsic-inline-size': CONTAININTRINSICINLINESIZE_KEYWORDS,
+  'contain-intrinsic-size': CONTAININTRINSICSIZE_KEYWORDS,
+  'contain-intrinsic-width': CONTAININTRINSICWIDTH_KEYWORDS,
+  'container': CONTAINER_KEYWORDS,
+  'container-name': CONTAINERNAME_KEYWORDS,
+  'container-type': CONTAINERTYPE_KEYWORDS,
+  'content': CONTENT_KEYWORDS,
+  'content-visibility': CONTENTVISIBILITY_KEYWORDS,
+  'counter-increment': COUNTERINCREMENT_KEYWORDS,
+  'counter-reset': COUNTERRESET_KEYWORDS,
+  'counter-set': COUNTERSET_KEYWORDS,
+  'cue': CUE_KEYWORDS,
+  'cue-after': CUEAFTER_KEYWORDS,
+  'cue-before': CUEBEFORE_KEYWORDS,
+  'cursor': CURSOR_KEYWORDS,
+  'd': D_KEYWORDS,
+  'direction': DIRECTION_KEYWORDS,
+  'display': DISPLAY_KEYWORDS,
+  'dominant-baseline': DOMINANTBASELINE_KEYWORDS,
+  'empty-cells': EMPTYCELLS_KEYWORDS,
+  'field-sizing': FIELDSIZING_KEYWORDS,
+  'fill': FILL_KEYWORDS,
+  'fill-rule': FILLRULE_KEYWORDS,
+  'filter': FILTER_KEYWORDS,
+  'flex': FLEX_KEYWORDS,
+  'flex-basis': FLEXBASIS_KEYWORDS,
+  'flex-direction': FLEXDIRECTION_KEYWORDS,
+  'flex-flow': FLEXFLOW_KEYWORDS,
+  'flex-wrap': FLEXWRAP_KEYWORDS,
+  'float': FLOAT_KEYWORDS,
+  'font': FONT_KEYWORDS,
+  'font-family': FONTFAMILY_KEYWORDS,
+  'font-feature-settings': FONTFEATURESETTINGS_KEYWORDS,
+  'font-kerning': FONTKERNING_KEYWORDS,
+  'font-language-override': FONTLANGUAGEOVERRIDE_KEYWORDS,
+  'font-optical-sizing': FONTOPTICALSIZING_KEYWORDS,
+  'font-palette': FONTPALETTE_KEYWORDS,
+  'font-size': FONTSIZE_KEYWORDS,
+  'font-size-adjust': FONTSIZEADJUST_KEYWORDS,
+  'font-smooth': FONTSMOOTH_KEYWORDS,
+  'font-stretch': FONTSTRETCH_KEYWORDS,
+  'font-style': FONTSTYLE_KEYWORDS,
+  'font-synthesis': FONTSYNTHESIS_KEYWORDS,
+  'font-synthesis-position': FONTSYNTHESISPOSITION_KEYWORDS,
+  'font-synthesis-small-caps': FONTSYNTHESISSMALLCAPS_KEYWORDS,
+  'font-synthesis-style': FONTSYNTHESISSTYLE_KEYWORDS,
+  'font-synthesis-weight': FONTSYNTHESISWEIGHT_KEYWORDS,
+  'font-variant': FONTVARIANT_KEYWORDS,
+  'font-variant-alternates': FONTVARIANTALTERNATES_KEYWORDS,
+  'font-variant-caps': FONTVARIANTCAPS_KEYWORDS,
+  'font-variant-east-asian': FONTVARIANTEASTASIAN_KEYWORDS,
+  'font-variant-emoji': FONTVARIANTEMOJI_KEYWORDS,
+  'font-variant-ligatures': FONTVARIANTLIGATURES_KEYWORDS,
+  'font-variant-numeric': FONTVARIANTNUMERIC_KEYWORDS,
+  'font-variant-position': FONTVARIANTPOSITION_KEYWORDS,
+  'font-variation-settings': FONTVARIATIONSETTINGS_KEYWORDS,
+  'font-weight': FONTWEIGHT_KEYWORDS,
+  'forced-color-adjust': FORCEDCOLORADJUST_KEYWORDS,
+  'gap': GAP_KEYWORDS,
+  'grid': GRID_KEYWORDS,
+  'grid-area': GRIDAREA_KEYWORDS,
+  'grid-auto-columns': GRIDAUTOCOLUMNS_KEYWORDS,
+  'grid-auto-flow': GRIDAUTOFLOW_KEYWORDS,
+  'grid-auto-rows': GRIDAUTOROWS_KEYWORDS,
+  'grid-column': GRIDCOLUMN_KEYWORDS,
+  'grid-column-end': GRIDCOLUMNEND_KEYWORDS,
+  'grid-column-start': GRIDCOLUMNSTART_KEYWORDS,
+  'grid-row': GRIDROW_KEYWORDS,
+  'grid-row-end': GRIDROWEND_KEYWORDS,
+  'grid-row-start': GRIDROWSTART_KEYWORDS,
+  'grid-template': GRIDTEMPLATE_KEYWORDS,
+  'grid-template-areas': GRIDTEMPLATEAREAS_KEYWORDS,
+  'grid-template-columns': GRIDTEMPLATECOLUMNS_KEYWORDS,
+  'grid-template-rows': GRIDTEMPLATEROWS_KEYWORDS,
+  'hanging-punctuation': HANGINGPUNCTUATION_KEYWORDS,
+  'height': HEIGHT_KEYWORDS,
+  'hyphenate-character': HYPHENATECHARACTER_KEYWORDS,
+  'hyphenate-limit-chars': HYPHENATELIMITCHARS_KEYWORDS,
+  'hyphens': HYPHENS_KEYWORDS,
+  'image-orientation': IMAGEORIENTATION_KEYWORDS,
+  'image-rendering': IMAGERENDERING_KEYWORDS,
+  'image-resolution': IMAGERESOLUTION_KEYWORDS,
+  'ime-mode': IMEMODE_KEYWORDS,
+  'initial-letter': INITIALLETTER_KEYWORDS,
+  'initial-letter-align': INITIALLETTERALIGN_KEYWORDS,
+  'inline-size': INLINESIZE_KEYWORDS,
+  'input-security': INPUTSECURITY_KEYWORDS,
+  'inset': INSET_KEYWORDS,
+  'inset-block': INSETBLOCK_KEYWORDS,
+  'inset-block-end': INSETBLOCKEND_KEYWORDS,
+  'inset-block-start': INSETBLOCKSTART_KEYWORDS,
+  'inset-inline': INSETINLINE_KEYWORDS,
+  'inset-inline-end': INSETINLINEEND_KEYWORDS,
+  'inset-inline-start': INSETINLINESTART_KEYWORDS,
+  'interpolate-size': INTERPOLATESIZE_KEYWORDS,
+  'isolation': ISOLATION_KEYWORDS,
+  'justify-content': JUSTIFYCONTENT_KEYWORDS,
+  'justify-items': JUSTIFYITEMS_KEYWORDS,
+  'justify-self': JUSTIFYSELF_KEYWORDS,
+  'justify-tracks': JUSTIFYTRACKS_KEYWORDS,
+  'kerning': KERNING_KEYWORDS,
+  'left': LEFT_KEYWORDS,
+  'letter-spacing': LETTERSPACING_KEYWORDS,
+  'line-break': LINEBREAK_KEYWORDS,
+  'line-clamp': LINECLAMP_KEYWORDS,
+  'line-height': LINEHEIGHT_KEYWORDS,
+  'list-style': LISTSTYLE_KEYWORDS,
+  'list-style-image': LISTSTYLEIMAGE_KEYWORDS,
+  'list-style-position': LISTSTYLEPOSITION_KEYWORDS,
+  'list-style-type': LISTSTYLETYPE_KEYWORDS,
+  'margin': MARGIN_KEYWORDS,
+  'margin-block': MARGINBLOCK_KEYWORDS,
+  'margin-block-end': MARGINBLOCKEND_KEYWORDS,
+  'margin-block-start': MARGINBLOCKSTART_KEYWORDS,
+  'margin-bottom': MARGINBOTTOM_KEYWORDS,
+  'margin-inline': MARGININLINE_KEYWORDS,
+  'margin-inline-end': MARGININLINEEND_KEYWORDS,
+  'margin-inline-start': MARGININLINESTART_KEYWORDS,
+  'margin-left': MARGINLEFT_KEYWORDS,
+  'margin-right': MARGINRIGHT_KEYWORDS,
+  'margin-top': MARGINTOP_KEYWORDS,
+  'margin-trim': MARGINTRIM_KEYWORDS,
+  'marker': MARKER_KEYWORDS,
+  'marker-end': MARKEREND_KEYWORDS,
+  'marker-mid': MARKERMID_KEYWORDS,
+  'marker-start': MARKERSTART_KEYWORDS,
+  'mask': MASK_KEYWORDS,
+  'mask-border': MASKBORDER_KEYWORDS,
+  'mask-border-mode': MASKBORDERMODE_KEYWORDS,
+  'mask-border-repeat': MASKBORDERREPEAT_KEYWORDS,
+  'mask-border-slice': MASKBORDERSLICE_KEYWORDS,
+  'mask-border-source': MASKBORDERSOURCE_KEYWORDS,
+  'mask-border-width': MASKBORDERWIDTH_KEYWORDS,
+  'mask-clip': MASKCLIP_KEYWORDS,
+  'mask-composite': MASKCOMPOSITE_KEYWORDS,
+  'mask-image': MASKIMAGE_KEYWORDS,
+  'mask-mode': MASKMODE_KEYWORDS,
+  'mask-origin': MASKORIGIN_KEYWORDS,
+  'mask-position': MASKPOSITION_KEYWORDS,
+  'mask-repeat': MASKREPEAT_KEYWORDS,
+  'mask-size': MASKSIZE_KEYWORDS,
+  'mask-type': MASKTYPE_KEYWORDS,
+  'masonry-auto-flow': MASONRYAUTOFLOW_KEYWORDS,
+  'math-depth': MATHDEPTH_KEYWORDS,
+  'math-shift': MATHSHIFT_KEYWORDS,
+  'math-style': MATHSTYLE_KEYWORDS,
+  'max-block-size': MAXBLOCKSIZE_KEYWORDS,
+  'max-height': MAXHEIGHT_KEYWORDS,
+  'max-inline-size': MAXINLINESIZE_KEYWORDS,
+  'max-lines': MAXLINES_KEYWORDS,
+  'max-width': MAXWIDTH_KEYWORDS,
+  'min-block-size': MINBLOCKSIZE_KEYWORDS,
+  'min-height': MINHEIGHT_KEYWORDS,
+  'min-inline-size': MININLINESIZE_KEYWORDS,
+  'min-width': MINWIDTH_KEYWORDS,
+  'mix-blend-mode': MIXBLENDMODE_KEYWORDS,
+  'object-fit': OBJECTFIT_KEYWORDS,
+  'object-position': OBJECTPOSITION_KEYWORDS,
+  'offset': OFFSET_KEYWORDS,
+  'offset-anchor': OFFSETANCHOR_KEYWORDS,
+  'offset-path': OFFSETPATH_KEYWORDS,
+  'offset-position': OFFSETPOSITION_KEYWORDS,
+  'offset-rotate': OFFSETROTATE_KEYWORDS,
+  'outline': OUTLINE_KEYWORDS,
+  'outline-color': OUTLINECOLOR_KEYWORDS,
+  'outline-style': OUTLINESTYLE_KEYWORDS,
+  'outline-width': OUTLINEWIDTH_KEYWORDS,
+  'overflow': OVERFLOW_KEYWORDS,
+  'overflow-anchor': OVERFLOWANCHOR_KEYWORDS,
+  'overflow-block': OVERFLOWBLOCK_KEYWORDS,
+  'overflow-clip-box': OVERFLOWCLIPBOX_KEYWORDS,
+  'overflow-clip-margin': OVERFLOWCLIPMARGIN_KEYWORDS,
+  'overflow-inline': OVERFLOWINLINE_KEYWORDS,
+  'overflow-wrap': OVERFLOWWRAP_KEYWORDS,
+  'overflow-x': OVERFLOWX_KEYWORDS,
+  'overflow-y': OVERFLOWY_KEYWORDS,
+  'overlay': OVERLAY_KEYWORDS,
+  'overscroll-behavior': OVERSCROLLBEHAVIOR_KEYWORDS,
+  'overscroll-behavior-block': OVERSCROLLBEHAVIORBLOCK_KEYWORDS,
+  'overscroll-behavior-inline': OVERSCROLLBEHAVIORINLINE_KEYWORDS,
+  'overscroll-behavior-x': OVERSCROLLBEHAVIORX_KEYWORDS,
+  'overscroll-behavior-y': OVERSCROLLBEHAVIORY_KEYWORDS,
+  'page': PAGE_KEYWORDS,
+  'page-break-after': PAGEBREAKAFTER_KEYWORDS,
+  'page-break-before': PAGEBREAKBEFORE_KEYWORDS,
+  'page-break-inside': PAGEBREAKINSIDE_KEYWORDS,
+  'paint-order': PAINTORDER_KEYWORDS,
+  'pause': PAUSE_KEYWORDS,
+  'pause-after': PAUSEAFTER_KEYWORDS,
+  'pause-before': PAUSEBEFORE_KEYWORDS,
+  'perspective': PERSPECTIVE_KEYWORDS,
+  'perspective-origin': PERSPECTIVEORIGIN_KEYWORDS,
+  'place-content': PLACECONTENT_KEYWORDS,
+  'place-items': PLACEITEMS_KEYWORDS,
+  'place-self': PLACESELF_KEYWORDS,
+  'pointer-events': POINTEREVENTS_KEYWORDS,
+  'position': POSITION_KEYWORDS,
+  'position-anchor': POSITIONANCHOR_KEYWORDS,
+  'position-area': POSITIONAREA_KEYWORDS,
+  'position-try': POSITIONTRY_KEYWORDS,
+  'position-try-fallbacks': POSITIONTRYFALLBACKS_KEYWORDS,
+  'position-try-order': POSITIONTRYORDER_KEYWORDS,
+  'position-visibility': POSITIONVISIBILITY_KEYWORDS,
+  'print-color-adjust': PRINTCOLORADJUST_KEYWORDS,
+  'quotes': QUOTES_KEYWORDS,
+  'resize': RESIZE_KEYWORDS,
+  'rest': REST_KEYWORDS,
+  'rest-after': RESTAFTER_KEYWORDS,
+  'rest-before': RESTBEFORE_KEYWORDS,
+  'right': RIGHT_KEYWORDS,
+  'rotate': ROTATE_KEYWORDS,
+  'row-gap': ROWGAP_KEYWORDS,
+  'ruby-align': RUBYALIGN_KEYWORDS,
+  'ruby-merge': RUBYMERGE_KEYWORDS,
+  'ruby-position': RUBYPOSITION_KEYWORDS,
+  'scale': SCALE_KEYWORDS,
+  'scroll-behavior': SCROLLBEHAVIOR_KEYWORDS,
+  'scroll-padding': SCROLLPADDING_KEYWORDS,
+  'scroll-padding-block': SCROLLPADDINGBLOCK_KEYWORDS,
+  'scroll-padding-block-end': SCROLLPADDINGBLOCKEND_KEYWORDS,
+  'scroll-padding-block-start': SCROLLPADDINGBLOCKSTART_KEYWORDS,
+  'scroll-padding-bottom': SCROLLPADDINGBOTTOM_KEYWORDS,
+  'scroll-padding-inline': SCROLLPADDINGINLINE_KEYWORDS,
+  'scroll-padding-inline-end': SCROLLPADDINGINLINEEND_KEYWORDS,
+  'scroll-padding-inline-start': SCROLLPADDINGINLINESTART_KEYWORDS,
+  'scroll-padding-left': SCROLLPADDINGLEFT_KEYWORDS,
+  'scroll-padding-right': SCROLLPADDINGRIGHT_KEYWORDS,
+  'scroll-padding-top': SCROLLPADDINGTOP_KEYWORDS,
+  'scroll-snap-align': SCROLLSNAPALIGN_KEYWORDS,
+  'scroll-snap-coordinate': SCROLLSNAPCOORDINATE_KEYWORDS,
+  'scroll-snap-destination': SCROLLSNAPDESTINATION_KEYWORDS,
+  'scroll-snap-points-x': SCROLLSNAPPOINTSX_KEYWORDS,
+  'scroll-snap-points-y': SCROLLSNAPPOINTSY_KEYWORDS,
+  'scroll-snap-stop': SCROLLSNAPSTOP_KEYWORDS,
+  'scroll-snap-type': SCROLLSNAPTYPE_KEYWORDS,
+  'scroll-snap-type-x': SCROLLSNAPTYPEX_KEYWORDS,
+  'scroll-snap-type-y': SCROLLSNAPTYPEY_KEYWORDS,
+  'scroll-timeline': SCROLLTIMELINE_KEYWORDS,
+  'scroll-timeline-axis': SCROLLTIMELINEAXIS_KEYWORDS,
+  'scroll-timeline-name': SCROLLTIMELINENAME_KEYWORDS,
+  'scrollbar-color': SCROLLBARCOLOR_KEYWORDS,
+  'scrollbar-gutter': SCROLLBARGUTTER_KEYWORDS,
+  'scrollbar-width': SCROLLBARWIDTH_KEYWORDS,
+  'shape-outside': SHAPEOUTSIDE_KEYWORDS,
+  'shape-rendering': SHAPERENDERING_KEYWORDS,
+  'speak': SPEAK_KEYWORDS,
+  'speak-as': SPEAKAS_KEYWORDS,
+  'stroke': STROKE_KEYWORDS,
+  'stroke-dasharray': STROKEDASHARRAY_KEYWORDS,
+  'stroke-linecap': STROKELINECAP_KEYWORDS,
+  'stroke-linejoin': STROKELINEJOIN_KEYWORDS,
+  'table-layout': TABLELAYOUT_KEYWORDS,
+  'text-align': TEXTALIGN_KEYWORDS,
+  'text-align-last': TEXTALIGNLAST_KEYWORDS,
+  'text-anchor': TEXTANCHOR_KEYWORDS,
+  'text-combine-upright': TEXTCOMBINEUPRIGHT_KEYWORDS,
+  'text-decoration': TEXTDECORATION_KEYWORDS,
+  'text-decoration-color': TEXTDECORATIONCOLOR_KEYWORDS,
+  'text-decoration-line': TEXTDECORATIONLINE_KEYWORDS,
+  'text-decoration-skip': TEXTDECORATIONSKIP_KEYWORDS,
+  'text-decoration-skip-ink': TEXTDECORATIONSKIPINK_KEYWORDS,
+  'text-decoration-style': TEXTDECORATIONSTYLE_KEYWORDS,
+  'text-decoration-thickness': TEXTDECORATIONTHICKNESS_KEYWORDS,
+  'text-emphasis': TEXTEMPHASIS_KEYWORDS,
+  'text-emphasis-color': TEXTEMPHASISCOLOR_KEYWORDS,
+  'text-emphasis-position': TEXTEMPHASISPOSITION_KEYWORDS,
+  'text-emphasis-style': TEXTEMPHASISSTYLE_KEYWORDS,
+  'text-indent': TEXTINDENT_KEYWORDS,
+  'text-justify': TEXTJUSTIFY_KEYWORDS,
+  'text-orientation': TEXTORIENTATION_KEYWORDS,
+  'text-overflow': TEXTOVERFLOW_KEYWORDS,
+  'text-rendering': TEXTRENDERING_KEYWORDS,
+  'text-shadow': TEXTSHADOW_KEYWORDS,
+  'text-size-adjust': TEXTSIZEADJUST_KEYWORDS,
+  'text-spacing-trim': TEXTSPACINGTRIM_KEYWORDS,
+  'text-transform': TEXTTRANSFORM_KEYWORDS,
+  'text-underline-offset': TEXTUNDERLINEOFFSET_KEYWORDS,
+  'text-underline-position': TEXTUNDERLINEPOSITION_KEYWORDS,
+  'text-wrap': TEXTWRAP_KEYWORDS,
+  'text-wrap-mode': TEXTWRAPMODE_KEYWORDS,
+  'text-wrap-style': TEXTWRAPSTYLE_KEYWORDS,
+  'timeline-scope': TIMELINESCOPE_KEYWORDS,
+  'top': TOP_KEYWORDS,
+  'touch-action': TOUCHACTION_KEYWORDS,
+  'transform': TRANSFORM_KEYWORDS,
+  'transform-box': TRANSFORMBOX_KEYWORDS,
+  'transform-origin': TRANSFORMORIGIN_KEYWORDS,
+  'transform-style': TRANSFORMSTYLE_KEYWORDS,
+  'transition': TRANSITION_KEYWORDS,
+  'transition-behavior': TRANSITIONBEHAVIOR_KEYWORDS,
+  'transition-property': TRANSITIONPROPERTY_KEYWORDS,
+  'transition-timing-function': TRANSITIONTIMINGFUNCTION_KEYWORDS,
+  'translate': TRANSLATE_KEYWORDS,
+  'unicode-bidi': UNICODEBIDI_KEYWORDS,
+  'user-select': USERSELECT_KEYWORDS,
+  'vector-effect': VECTOREFFECT_KEYWORDS,
+  'vertical-align': VERTICALALIGN_KEYWORDS,
+  'view-timeline': VIEWTIMELINE_KEYWORDS,
+  'view-timeline-axis': VIEWTIMELINEAXIS_KEYWORDS,
+  'view-timeline-inset': VIEWTIMELINEINSET_KEYWORDS,
+  'view-timeline-name': VIEWTIMELINENAME_KEYWORDS,
+  'view-transition-name': VIEWTRANSITIONNAME_KEYWORDS,
+  'visibility': VISIBILITY_KEYWORDS,
+  'voice-balance': VOICEBALANCE_KEYWORDS,
+  'voice-duration': VOICEDURATION_KEYWORDS,
+  'voice-family': VOICEFAMILY_KEYWORDS,
+  'voice-pitch': VOICEPITCH_KEYWORDS,
+  'voice-range': VOICERANGE_KEYWORDS,
+  'voice-rate': VOICERATE_KEYWORDS,
+  'voice-stress': VOICESTRESS_KEYWORDS,
+  'voice-volume': VOICEVOLUME_KEYWORDS,
+  'white-space': WHITESPACE_KEYWORDS,
+  'white-space-collapse': WHITESPACECOLLAPSE_KEYWORDS,
+  'white-space-trim': WHITESPACETRIM_KEYWORDS,
+  'width': WIDTH_KEYWORDS,
+  'will-change': WILLCHANGE_KEYWORDS,
+  'word-break': WORDBREAK_KEYWORDS,
+  'word-spacing': WORDSPACING_KEYWORDS,
+  'word-wrap': WORDWRAP_KEYWORDS,
+  'writing-mode': WRITINGMODE_KEYWORDS,
+  'z-index': ZINDEX_KEYWORDS,
+  'zoom': ZOOM_KEYWORDS,
 };
