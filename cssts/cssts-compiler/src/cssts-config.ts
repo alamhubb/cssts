@@ -10,18 +10,12 @@
 // ==================== 类型定义 ====================
 
 import {ProgressiveRange} from "./types/value.ts";
-import {CSSPropertiesType} from "./types/cssProperties";
-import {CSSProperties, CSSProperty} from "./types/cssPropertyConfig";
-import {CSSPropertyName} from "./data/property-data.ts";
-import {NumberCategoryName, NumberTypeName, NumberUnitName} from "./types/numberTypes";
 import {
     NumberTypeConfigItem,
     NumberTypeExcludeItem,
     UnitCategoryConfigItem,
     UnitCategoryExcludeItem, UnitConfigItem, UnitExcludeItem
 } from "./types/config.ts";
-import {PseudoElementName, UnitType} from "./data/cssts-data.ts";
-import {AllColorName, AllKeywordName} from "./types/cssKeywords";
 import {CssPseudoClassName, CssPseudoElementName} from "./types/cssPseudoClassElement";
 import {CssPseudoClassConfig, CssPseudoElementConfig} from "./types/pseudoStyles";
 
