@@ -7,11 +7,9 @@ import type {CsstsConfig} from "../types/csstsConfig";
  */
 export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
-    properties: ['width', 'height', {
-        margin: {
-            px: {
-                min: 100
-            }
+    properties: [{
+        width: {
+            numberTypes:[]
         }
     }],
     excludeProperties: [{
