@@ -11,8 +11,7 @@
  * - color.ts: 颜色数据
  * - propertyKeywords.ts: 每个属性的 keywords
  * - propertyNumberTypes.ts: 每个属性的 numberTypes
- * - units.ts: 单位常量和别名
- * - numberTypeCategory.ts: numberType 和 category 映射
+ * - cssNumberData.ts: 单位常量、别名、numberType 和 category 映射
  * - pseudoClasses.ts: 伪类数据
  * - pseudoElements.ts: 伪元素数据
  * - keywordConstants.ts: keyword 常量
@@ -420,21 +419,28 @@ function loadNumberMapping(): any {
   return JSON.parse(fs.readFileSync(mappingPath, 'utf-8'));
 }
 
-function generateUnitsFile(categories: Record<string, string[]>): string {
+function generateCssNumberDataFile(mapping: any): string {
   const lines: string[] = [
     '/**',
-    ' * CSS 单位常量（自动生成）',
+    ' * CSS 数值数据（自动生成）',
+    ' * 包含单位常量、别名、NumberType 和 Category 映射',
     ' */',
     '',
   ];
 
+  const numberTypes = mapping.numberTypes as Record<string, string[]>;
+  const categories = mapping.categories as Record<string, string[]>;
+  const allCategories = Object.keys(categories).sort();
+
+  // 收集所有单位
   const allUnits = new Set<string>();
   for (const units of Object.values(categories)) {
     (units as string[]).forEach(u => allUnits.add(normalizeUnit(u)));
   }
   const sortedUnits = Array.from(allUnits).sort();
 
-  lines.push('// ==================== 所有 Units 常量 ====================', '');
+  // ==================== Units 常量 ====================
+  lines.push('// ==================== Units 常量 ====================', '');
   for (const unit of sortedUnits) {
     lines.push(`export const UNIT_${unit.toUpperCase()} = '${unit}' as const;`);
   }
@@ -453,30 +459,7 @@ function generateUnitsFile(categories: Record<string, string[]>): string {
   lines.push('  return UNIT_ALIAS_MAP[alias] ?? alias;');
   lines.push('}', '');
 
-  return lines.join('\n');
-}
-
-function generateNumberTypeCategoryFile(mapping: any): string {
-  const lines: string[] = [
-    '/**',
-    ' * NumberType 和 Category 映射（自动生成）',
-    ' */',
-    '',
-  ];
-
-  const numberTypes = mapping.numberTypes as Record<string, string[]>;
-  const categories = mapping.categories as Record<string, string[]>;
-  const allCategories = Object.keys(categories).sort();
-
-  const allUnits = new Set<string>();
-  for (const units of Object.values(categories)) {
-    (units as string[]).forEach(u => allUnits.add(normalizeUnit(u)));
-  }
-  const sortedUnits = Array.from(allUnits).sort();
-
-  const unitImports = sortedUnits.map(u => `UNIT_${u.toUpperCase()}`).join(', ');
-  lines.push(`import { ${unitImports} } from './units';`, '');
-
+  // ==================== NumberType 到 Category 映射 ====================
   lines.push('// ==================== NumberType 到 Category 映射 ====================', '');
   for (const [numberType, cats] of Object.entries(numberTypes)) {
     const constName = numberType.toUpperCase();
@@ -494,10 +477,12 @@ function generateNumberTypeCategoryFile(mapping: any): string {
   allCategories.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
 
+  // ==================== Category 到 Units 映射 ====================
+  lines.push('// ==================== Category 到 Units 映射 ====================', '');
   lines.push('export const CATEGORY_UNITS_MAP: Record<string, readonly string[]> = {');
   for (const [category, units] of Object.entries(categories)) {
-    const unitRefs = (units as string[]).map(u => `UNIT_${normalizeUnit(u).toUpperCase()}`).join(', ');
-    lines.push(`  '${category}': [${unitRefs}],`);
+    const unitRefsList = (units as string[]).map(u => `UNIT_${normalizeUnit(u).toUpperCase()}`).join(', ');
+    lines.push(`  '${category}': [${unitRefsList}],`);
   }
   lines.push('};', '');
 
@@ -677,11 +662,8 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'propertyNumberTypes.ts'), generatePropertyNumberTypesFile(propertyData));
   console.log('✅ src/data/propertyNumberTypes.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'units.ts'), generateUnitsFile(numberMapping.categories));
-  console.log('✅ src/data/units.ts');
-
-  fs.writeFileSync(path.join(dataDir, 'numberTypeCategory.ts'), generateNumberTypeCategoryFile(numberMapping));
-  console.log('✅ src/data/numberTypeCategory.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssNumberData.ts'), generateCssNumberDataFile(numberMapping));
+  console.log('✅ src/data/cssNumberData.ts');
 
   fs.writeFileSync(path.join(dataDir, 'pseudoClasses.ts'), generatePseudoClassesFile(pseudoStandards.pseudoClasses));
   console.log('✅ src/data/pseudoClasses.ts');

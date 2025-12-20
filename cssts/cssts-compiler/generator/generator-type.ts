@@ -273,7 +273,7 @@ function generateNumberConfigType(): string {
  * 包含 Unit、Category、NumberType 配置类型
  */
 
-import type { ALL_UNITS, ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
+import type { ALL_UNITS, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
 import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
 
 import type { CsstsStepConfig } from './csstsStepConfig';
