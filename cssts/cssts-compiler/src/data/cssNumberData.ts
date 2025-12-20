@@ -74,6 +74,21 @@ export const RATIO_CATEGORIES = ['unitless'] as const;
 export const DECIBEL_CATEGORIES = ['unitless'] as const;
 export const SEMITONES_CATEGORIES = ['unitless'] as const;
 
+// ==================== NumberType Category 类型 ====================
+
+export type CssLengthCategoryName = typeof LENGTH_CATEGORIES[number];
+export type CssAngleCategoryName = typeof ANGLE_CATEGORIES[number];
+export type CssTimeCategoryName = typeof TIME_CATEGORIES[number];
+export type CssFrequencyCategoryName = typeof FREQUENCY_CATEGORIES[number];
+export type CssPercentageCategoryName = typeof PERCENTAGE_CATEGORIES[number];
+export type CssNumberCategoryName = typeof NUMBER_CATEGORIES[number];
+export type CssIntegerCategoryName = typeof INTEGER_CATEGORIES[number];
+export type CssResolutionCategoryName = typeof RESOLUTION_CATEGORIES[number];
+export type CssFlexCategoryName = typeof FLEX_CATEGORIES[number];
+export type CssRatioCategoryName = typeof RATIO_CATEGORIES[number];
+export type CssDecibelCategoryName = typeof DECIBEL_CATEGORIES[number];
+export type CssSemitonesCategoryName = typeof SEMITONES_CATEGORIES[number];
+
 export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {
   'length': LENGTH_CATEGORIES,
   'angle': ANGLE_CATEGORIES,

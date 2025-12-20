@@ -18,6 +18,18 @@ import type {
   CssResolutionUnitName,
   CssFlexUnitName,
   CssUnitlessUnitName,
+  CssLengthCategoryName,
+  CssAngleCategoryName,
+  CssTimeCategoryName,
+  CssFrequencyCategoryName,
+  CssPercentageCategoryName,
+  CssNumberCategoryName as CssNumberTypeCategoryName,
+  CssIntegerCategoryName,
+  CssResolutionCategoryName,
+  CssFlexCategoryName,
+  CssRatioCategoryName,
+  CssDecibelCategoryName,
+  CssSemitonesCategoryName,
 } from '../data/cssNumberData';
 import type { ALL_NUMBER_TYPES } from '../data/cssPropertyNumber';
 import type { keywords, allKeywords } from '../data/cssKeywordsData';
@@ -164,6 +176,67 @@ export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExc
 
 export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
+// NumberType 到 Category 类型映射
+export interface CssNumberTypeCategoryMap {
+  length: CssLengthCategoryName;
+  angle: CssAngleCategoryName;
+  time: CssTimeCategoryName;
+  frequency: CssFrequencyCategoryName;
+  percentage: CssPercentageCategoryName;
+  number: CssNumberTypeCategoryName;
+  integer: CssIntegerCategoryName;
+  resolution: CssResolutionCategoryName;
+  flex: CssFlexCategoryName;
+  ratio: CssRatioCategoryName;
+  decibel: CssDecibelCategoryName;
+  semitones: CssSemitonesCategoryName;
+}
+
+// 每个 NumberType 的精准 Category 配置 Map
+export type CssLengthCategoryConfigMap = { [K in CssLengthCategoryName]?: CssCategoryValueConfig };
+export type CssAngleCategoryConfigMap = { [K in CssAngleCategoryName]?: CssCategoryValueConfig };
+export type CssTimeCategoryConfigMap = { [K in CssTimeCategoryName]?: CssCategoryValueConfig };
+export type CssFrequencyCategoryConfigMap = { [K in CssFrequencyCategoryName]?: CssCategoryValueConfig };
+export type CssPercentageCategoryConfigMap = { [K in CssPercentageCategoryName]?: CssCategoryValueConfig };
+export type CssNumberTypeCategoryConfigMap = { [K in CssNumberTypeCategoryName]?: CssCategoryValueConfig };
+export type CssIntegerCategoryConfigMap = { [K in CssIntegerCategoryName]?: CssCategoryValueConfig };
+export type CssResolutionCategoryConfigMap = { [K in CssResolutionCategoryName]?: CssCategoryValueConfig };
+export type CssFlexCategoryConfigMap = { [K in CssFlexCategoryName]?: CssCategoryValueConfig };
+export type CssRatioCategoryConfigMap = { [K in CssRatioCategoryName]?: CssCategoryValueConfig };
+export type CssDecibelCategoryConfigMap = { [K in CssDecibelCategoryName]?: CssCategoryValueConfig };
+export type CssSemitonesCategoryConfigMap = { [K in CssSemitonesCategoryName]?: CssCategoryValueConfig };
+
+// 每个 NumberType 的精准配置类型（第二层可以是 category 或 unit）
+export type CssLengthValueConfig = CsstsStepConfig | CssLengthCategoryName[] | CssLengthCategoryConfigMap | CssUnitConfigMap;
+export type CssAngleNumberTypeValueConfig = CsstsStepConfig | CssAngleCategoryName[] | CssAngleCategoryConfigMap | CssUnitConfigMap;
+export type CssTimeValueConfig = CsstsStepConfig | CssTimeCategoryName[] | CssTimeCategoryConfigMap | CssUnitConfigMap;
+export type CssFrequencyValueConfig = CsstsStepConfig | CssFrequencyCategoryName[] | CssFrequencyCategoryConfigMap | CssUnitConfigMap;
+export type CssPercentageNumberTypeValueConfig = CsstsStepConfig | CssPercentageCategoryName[] | CssPercentageCategoryConfigMap | CssUnitConfigMap;
+export type CssNumberTypeValueConfigForNumber = CsstsStepConfig | CssNumberTypeCategoryName[] | CssNumberTypeCategoryConfigMap | CssUnitConfigMap;
+export type CssIntegerValueConfig = CsstsStepConfig | CssIntegerCategoryName[] | CssIntegerCategoryConfigMap | CssUnitConfigMap;
+export type CssResolutionNumberTypeValueConfig = CsstsStepConfig | CssResolutionCategoryName[] | CssResolutionCategoryConfigMap | CssUnitConfigMap;
+export type CssFlexNumberTypeValueConfig = CsstsStepConfig | CssFlexCategoryName[] | CssFlexCategoryConfigMap | CssUnitConfigMap;
+export type CssRatioValueConfig = CsstsStepConfig | CssRatioCategoryName[] | CssRatioCategoryConfigMap | CssUnitConfigMap;
+export type CssDecibelValueConfig = CsstsStepConfig | CssDecibelCategoryName[] | CssDecibelCategoryConfigMap | CssUnitConfigMap;
+export type CssSemitonesValueConfig = CsstsStepConfig | CssSemitonesCategoryName[] | CssSemitonesCategoryConfigMap | CssUnitConfigMap;
+
+// 精准的 NumberType 配置 Map（每个 numberType 只接受对应的 category）
+export interface CssNumberTypeConfigMapPrecise {
+  length?: CssLengthValueConfig;
+  angle?: CssAngleNumberTypeValueConfig;
+  time?: CssTimeValueConfig;
+  frequency?: CssFrequencyValueConfig;
+  percentage?: CssPercentageNumberTypeValueConfig;
+  number?: CssNumberTypeValueConfigForNumber;
+  integer?: CssIntegerValueConfig;
+  resolution?: CssResolutionNumberTypeValueConfig;
+  flex?: CssFlexNumberTypeValueConfig;
+  ratio?: CssRatioValueConfig;
+  decibel?: CssDecibelValueConfig;
+  semitones?: CssSemitonesValueConfig;
+}
+
+// 兼容旧版的宽松类型
 export type CssNumberTypeValueConfig =
   | CsstsStepConfig
   | CssNumberCategoryName[]
@@ -174,11 +247,9 @@ export type CssNumberTypeConfigMap = Partial<Record<CssNumberTypeName, CssNumber
 
 export type CssNumberTypeConfigItem =
   | CssNumberTypeName
-  | CssNumberTypeConfigMap
-  | CssCategoryConfigMap
-  | CssUnitConfigMap;
+  | CssNumberTypeConfigMapPrecise;
 
-export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
+export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMapPrecise;
 
 export type CssNumberTypeExcludeValueConfig =
   | CssNumberCategoryName[]
@@ -189,9 +260,7 @@ export type CssNumberTypeExcludeMap = Partial<Record<CssNumberTypeName, CssNumbe
 
 export type CssNumberTypeExcludeItem =
   | CssNumberTypeName
-  | CssNumberTypeExcludeMap
-  | CssCategoryExcludeMap
-  | CssUnitExcludeMap;
+  | CssNumberTypeExcludeMap;
 
 export type CssNumberTypeExcludeConfig = CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap;
 

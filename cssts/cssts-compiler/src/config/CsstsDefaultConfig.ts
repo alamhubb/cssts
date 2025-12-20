@@ -18,15 +18,19 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     // 数值类型配置
     numberTypes: [
-        {length: ['pixel']},                                  // 字符串：简单启用 numberType
-        {pixel: ['px', 'vw']},   // 完整路径
-        {px: {min: 100}},                        // 直接配置 unit（完全跨级）
+        {
+            length:
+                {
+                    percentage: {min: 100},
+                    pixel: ['px', 'vw'],
+                    px: {min: 100}
+                }
+        },
     ],
     excludeNumberTypes: [],
 
     // 单位分类配置
-    unitCategories: [{
-    }],
+    unitCategories: [{}],
     excludeUnitCategories: [],
 
     // 单位配置

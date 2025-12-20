@@ -464,6 +464,16 @@ function generateCssNumberDataFile(mapping: any): string {
   }
 
   lines.push('');
+  
+  // 为每个 NumberType 生成对应的 Category 类型
+  lines.push('// ==================== NumberType Category 类型 ====================', '');
+  for (const [numberType] of Object.entries(numberTypes)) {
+    const constName = numberType.toUpperCase();
+    const typeName = numberType.charAt(0).toUpperCase() + numberType.slice(1);
+    lines.push(`export type Css${typeName}CategoryName = typeof ${constName}_CATEGORIES[number];`);
+  }
+  lines.push('');
+  
   lines.push('export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {');
   for (const [numberType] of Object.entries(numberTypes)) {
     lines.push(`  '${numberType}': ${numberType.toUpperCase()}_CATEGORIES,`);
