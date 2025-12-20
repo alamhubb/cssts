@@ -22,10 +22,6 @@ export interface alignItemsPropertyType {
   keywords: typeof Keywords.ALIGN_ITEMS_KEYWORDS[number][];
 }
 
-export interface alignmentBaselinePropertyType {
-  keywords: typeof Keywords.ALIGNMENT_BASELINE_KEYWORDS[number][];
-}
-
 export interface alignSelfPropertyType {
   keywords: typeof Keywords.ALIGN_SELF_KEYWORDS[number][];
 }
@@ -34,8 +30,13 @@ export interface alignTracksPropertyType {
   keywords: typeof Keywords.ALIGN_TRACKS_KEYWORDS[number][];
 }
 
+export interface alignmentBaselinePropertyType {
+  keywords: typeof Keywords.ALIGNMENT_BASELINE_KEYWORDS[number][];
+}
+
 export interface allPropertyType {
   keywords: typeof Keywords.ALL_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.ALL_NUMBER_TYPES[number][];
 }
 
 export interface anchorNamePropertyType {
@@ -622,11 +623,6 @@ export interface columnRuleWidthPropertyType {
   numberTypes: typeof NumberTypes.COLUMN_RULE_WIDTH_NUMBER_TYPES[number][];
 }
 
-export interface columnsPropertyType {
-  keywords: typeof Keywords.COLUMNS_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.COLUMNS_NUMBER_TYPES[number][];
-}
-
 export interface columnSpanPropertyType {
   keywords: typeof Keywords.COLUMN_SPAN_KEYWORDS[number][];
 }
@@ -636,20 +632,13 @@ export interface columnWidthPropertyType {
   numberTypes: typeof NumberTypes.COLUMN_WIDTH_NUMBER_TYPES[number][];
 }
 
+export interface columnsPropertyType {
+  keywords: typeof Keywords.COLUMNS_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.COLUMNS_NUMBER_TYPES[number][];
+}
+
 export interface containPropertyType {
   keywords: typeof Keywords.CONTAIN_KEYWORDS[number][];
-}
-
-export interface containerPropertyType {
-  keywords: typeof Keywords.CONTAINER_KEYWORDS[number][];
-}
-
-export interface containerNamePropertyType {
-  keywords: typeof Keywords.CONTAINER_NAME_KEYWORDS[number][];
-}
-
-export interface containerTypePropertyType {
-  keywords: typeof Keywords.CONTAINER_TYPE_KEYWORDS[number][];
 }
 
 export interface containIntrinsicBlockSizePropertyType {
@@ -675,6 +664,18 @@ export interface containIntrinsicSizePropertyType {
 export interface containIntrinsicWidthPropertyType {
   keywords: typeof Keywords.CONTAIN_INTRINSIC_WIDTH_KEYWORDS[number][];
   numberTypes: typeof NumberTypes.CONTAIN_INTRINSIC_WIDTH_NUMBER_TYPES[number][];
+}
+
+export interface containerPropertyType {
+  keywords: typeof Keywords.CONTAINER_KEYWORDS[number][];
+}
+
+export interface containerNamePropertyType {
+  keywords: typeof Keywords.CONTAINER_NAME_KEYWORDS[number][];
+}
+
+export interface containerTypePropertyType {
+  keywords: typeof Keywords.CONTAINER_TYPE_KEYWORDS[number][];
 }
 
 export interface contentPropertyType {
@@ -1747,19 +1748,6 @@ export interface scalePropertyType {
   numberTypes: typeof NumberTypes.SCALE_NUMBER_TYPES[number][];
 }
 
-export interface scrollbarColorPropertyType {
-  keywords: typeof Keywords.SCROLLBAR_COLOR_KEYWORDS[number][];
-  numberTypes: typeof NumberTypes.SCROLLBAR_COLOR_NUMBER_TYPES[number][];
-}
-
-export interface scrollbarGutterPropertyType {
-  keywords: typeof Keywords.SCROLLBAR_GUTTER_KEYWORDS[number][];
-}
-
-export interface scrollbarWidthPropertyType {
-  keywords: typeof Keywords.SCROLLBAR_WIDTH_KEYWORDS[number][];
-}
-
 export interface scrollBehaviorPropertyType {
   keywords: typeof Keywords.SCROLL_BEHAVIOR_KEYWORDS[number][];
 }
@@ -1915,6 +1903,19 @@ export interface scrollTimelineNamePropertyType {
   keywords: typeof Keywords.SCROLL_TIMELINE_NAME_KEYWORDS[number][];
 }
 
+export interface scrollbarColorPropertyType {
+  keywords: typeof Keywords.SCROLLBAR_COLOR_KEYWORDS[number][];
+  numberTypes: typeof NumberTypes.SCROLLBAR_COLOR_NUMBER_TYPES[number][];
+}
+
+export interface scrollbarGutterPropertyType {
+  keywords: typeof Keywords.SCROLLBAR_GUTTER_KEYWORDS[number][];
+}
+
+export interface scrollbarWidthPropertyType {
+  keywords: typeof Keywords.SCROLLBAR_WIDTH_KEYWORDS[number][];
+}
+
 export interface shapeImageThresholdPropertyType {
   numberTypes: typeof NumberTypes.SHAPE_IMAGE_THRESHOLD_NUMBER_TYPES[number][];
 }
@@ -1974,12 +1975,12 @@ export interface strokeWidthPropertyType {
   numberTypes: typeof NumberTypes.STROKE_WIDTH_NUMBER_TYPES[number][];
 }
 
-export interface tableLayoutPropertyType {
-  keywords: typeof Keywords.TABLE_LAYOUT_KEYWORDS[number][];
-}
-
 export interface tabSizePropertyType {
   numberTypes: typeof NumberTypes.TAB_SIZE_NUMBER_TYPES[number][];
+}
+
+export interface tableLayoutPropertyType {
+  keywords: typeof Keywords.TABLE_LAYOUT_KEYWORDS[number][];
 }
 
 export interface textAlignPropertyType {
@@ -2317,9 +2318,9 @@ export interface CSSPropertiesType {
   accentColor?: accentColorPropertyType;
   alignContent?: alignContentPropertyType;
   alignItems?: alignItemsPropertyType;
-  alignmentBaseline?: alignmentBaselinePropertyType;
   alignSelf?: alignSelfPropertyType;
   alignTracks?: alignTracksPropertyType;
+  alignmentBaseline?: alignmentBaselinePropertyType;
   all?: allPropertyType;
   anchorName?: anchorNamePropertyType;
   anchorScope?: anchorScopePropertyType;
@@ -2450,18 +2451,18 @@ export interface CSSPropertiesType {
   columnRuleColor?: columnRuleColorPropertyType;
   columnRuleStyle?: columnRuleStylePropertyType;
   columnRuleWidth?: columnRuleWidthPropertyType;
-  columns?: columnsPropertyType;
   columnSpan?: columnSpanPropertyType;
   columnWidth?: columnWidthPropertyType;
+  columns?: columnsPropertyType;
   contain?: containPropertyType;
-  container?: containerPropertyType;
-  containerName?: containerNamePropertyType;
-  containerType?: containerTypePropertyType;
   containIntrinsicBlockSize?: containIntrinsicBlockSizePropertyType;
   containIntrinsicHeight?: containIntrinsicHeightPropertyType;
   containIntrinsicInlineSize?: containIntrinsicInlineSizePropertyType;
   containIntrinsicSize?: containIntrinsicSizePropertyType;
   containIntrinsicWidth?: containIntrinsicWidthPropertyType;
+  container?: containerPropertyType;
+  containerName?: containerNamePropertyType;
+  containerType?: containerTypePropertyType;
   content?: contentPropertyType;
   contentVisibility?: contentVisibilityPropertyType;
   counterIncrement?: counterIncrementPropertyType;
@@ -2703,9 +2704,6 @@ export interface CSSPropertiesType {
   rx?: rxPropertyType;
   ry?: ryPropertyType;
   scale?: scalePropertyType;
-  scrollbarColor?: scrollbarColorPropertyType;
-  scrollbarGutter?: scrollbarGutterPropertyType;
-  scrollbarWidth?: scrollbarWidthPropertyType;
   scrollBehavior?: scrollBehaviorPropertyType;
   scrollMargin?: scrollMarginPropertyType;
   scrollMarginBlock?: scrollMarginBlockPropertyType;
@@ -2741,6 +2739,9 @@ export interface CSSPropertiesType {
   scrollTimeline?: scrollTimelinePropertyType;
   scrollTimelineAxis?: scrollTimelineAxisPropertyType;
   scrollTimelineName?: scrollTimelineNamePropertyType;
+  scrollbarColor?: scrollbarColorPropertyType;
+  scrollbarGutter?: scrollbarGutterPropertyType;
+  scrollbarWidth?: scrollbarWidthPropertyType;
   shapeImageThreshold?: shapeImageThresholdPropertyType;
   shapeMargin?: shapeMarginPropertyType;
   shapeOutside?: shapeOutsidePropertyType;
@@ -2755,8 +2756,8 @@ export interface CSSPropertiesType {
   strokeMiterlimit?: strokeMiterlimitPropertyType;
   strokeOpacity?: strokeOpacityPropertyType;
   strokeWidth?: strokeWidthPropertyType;
-  tableLayout?: tableLayoutPropertyType;
   tabSize?: tabSizePropertyType;
+  tableLayout?: tableLayoutPropertyType;
   textAlign?: textAlignPropertyType;
   textAlignLast?: textAlignLastPropertyType;
   textAnchor?: textAnchorPropertyType;
