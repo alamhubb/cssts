@@ -9,26 +9,20 @@ export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
     properties: {
         width: {
-            length :{
-                unitless:{
-
-                }
+            length: {
+                unitless: {}
             }
         },
-        height:{
-            length :{
-                unitless:{
-
-                }
+        height: {
+            length: {
+                unitless: {}
             }
         }
     },
     excludeProperties: [{
         width: {
-            length :{
-                unitless:{
-
-                }
+            length: {
+                unitless: {}
             }
         }
     }],
@@ -46,9 +40,10 @@ export const csstsDefaultConfig: CsstsConfig = {
     excludeUnitCategories: [],
 
     // 单位配置
-    units: [{
-        px: {min: 100}
-    }],
+    units: {
+        px: {min: 100},
+        vw: {min: 100}
+    },
     excludeUnits: [],
 
     // 关键字/颜色配置

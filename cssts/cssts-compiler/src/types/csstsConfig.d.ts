@@ -30,20 +30,25 @@ export interface CsstsStepConfig {
 // ==================== 层级配置类型（从下到上依赖） ====================
 
 /**
- * 单位配置项（最底层）
- * 可以是字符串（简单启用）或对象（带配置）
- */
-export type UnitConfigItem =
-    | CssNumberUnitName
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
-
-/**
  * 单位配置映射（对象模式）
+ * 示例：{ px: { min: 0 }, rem: { presets: [0, 0.5, 1] } }
  */
 export type UnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
+ * 单位配置项（最底层）
+ * 可以是字符串（简单启用）或对象（带配置，可配置多个单位）
+ * - 'px' - 简单启用
+ * - { px: { min: 0 }, vw: { min: 100 } } - 配置多个单位
+ */
+export type UnitConfigItem =
+    | CssNumberUnitName
+    | UnitConfigMap;
+
+/**
  * 单位配置（支持数组模式和对象模式）
+ * - 数组模式：['px', { rem: { min: 0 } }]
+ * - 对象模式：{ px: { min: 0 }, rem: { presets: [0, 0.5, 1] } }
  */
 export type UnitConfig = UnitConfigItem[] | UnitConfigMap;
 
@@ -60,6 +65,12 @@ export type CategoryValueConfig =
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
+ * 单位分类配置映射（对象模式）
+ * 示例：{ pixel: { px: { min: 0 } }, percentage: ['percent'] }
+ */
+export type UnitCategoryConfigMap = Partial<Record<CssNumberCategoryName, CategoryValueConfig>>;
+
+/**
  * 单位分类配置项（依赖 CategoryValueConfig）
  * 字符串只支持当前层级（category），对象支持跨级
  * - 'pixel' - 简单启用 category
@@ -69,13 +80,8 @@ export type CategoryValueConfig =
  */
 export type UnitCategoryConfigItem =
     | CssNumberCategoryName
-    | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
-
-/**
- * 单位分类配置映射（对象模式）
- */
-export type UnitCategoryConfigMap = Partial<Record<CssNumberCategoryName, CategoryValueConfig>>;
+    | UnitCategoryConfigMap
+    | UnitConfigMap;  // 跨级：直接配置 unit
 
 /**
  * 单位分类配置（支持数组模式和对象模式）
@@ -97,6 +103,12 @@ export type NumberTypeValueConfig =
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
+ * 数值类型配置映射（对象模式）
+ * 示例：{ length: { pixel: { px: { min: 0 } } }, angle: ['deg'] }
+ */
+export type NumberTypeConfigMap = Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>;
+
+/**
  * 数值类型配置项（依赖 NumberTypeValueConfig, CategoryValueConfig）
  * 字符串只支持当前层级（numberType），对象支持跨级
  * - 'length' - 简单启用 numberType
@@ -108,14 +120,9 @@ export type NumberTypeValueConfig =
  */
 export type NumberTypeConfigItem =
     | CssNumberTypeName
-    | Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>
-    | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
-
-/**
- * 数值类型配置映射（对象模式）
- */
-export type NumberTypeConfigMap = Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>;
+    | NumberTypeConfigMap
+    | UnitCategoryConfigMap  // 跨级：从 category 开始
+    | UnitConfigMap;         // 跨级：直接配置 unit
 
 /**
  * 数值类型配置（支持数组模式和对象模式）
@@ -211,18 +218,6 @@ export interface CssPropertyValueConfig extends CssPropertyBaseConfig {
 }
 
 /**
- * 属性配置项
- * 可以是字符串（简单启用）或对象（带配置）
- * key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key
- * - 'width' - 简单启用属性
- * - { width: { px: { min: 0 } } } - 属性下直接配置单位
- * - { width: [...] } - 属性下的数值类型配置数组
- */
-export type CssPropertyConfigItem =
-    | CssPropertyName
-    | Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>;
-
-/**
  * 属性配置映射（对象模式）
  * 一次性配置多个属性
  * 示例：
@@ -232,6 +227,18 @@ export type CssPropertyConfigItem =
  * }
  */
 export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>;
+
+/**
+ * 属性配置项
+ * 可以是字符串（简单启用）或对象（带配置）
+ * key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key
+ * - 'width' - 简单启用属性
+ * - { width: { px: { min: 0 } } } - 属性下直接配置单位
+ * - { width: [...] } - 属性下的数值类型配置数组
+ */
+export type CssPropertyConfigItem =
+    | CssPropertyName
+    | CssPropertyConfigMap;
 
 /**
  * 属性配置（支持数组模式和对象模式）
