@@ -10,6 +10,30 @@ Property → NumberType → NumberCategory → NumberUnit
          → Keyword
 ```
 
+## 步长配置 (CssStepConfig)
+
+```typescript
+interface CssStepConfig {
+  step?: number | CssProgressiveRange[];  // 步长或渐进步长
+  min?: number;                            // 最小值
+  max?: number;                            // 最大值
+  negative?: boolean;                      // 是否支持负值
+  presets?: number[];                      // 预设值
+}
+```
+
+### 渐进步长范围 (progressiveRanges)
+
+根据数值范围使用不同的步长：
+
+```typescript
+progressiveRanges: [
+  { max: 10, divisors: [1] },        // 0-10: 步长 1
+  { max: 100, divisors: [5, 10] },   // 10-100: 步长 5, 10
+  { max: 1000, divisors: [50, 100] } // 100-1000: 步长 50, 100
+]
+```
+
 ## 配置字段
 
 ### 属性配置 (properties / excludeProperties)
@@ -161,25 +185,6 @@ customProperties: {
     md: '16px',
     lg: '24px'
   }
-},
-
-// 渐进步长范围
-progressiveRanges: [
-  { max: 10, divisors: [1] },
-  { max: 100, divisors: [5, 10] },
-  { max: 1000, divisors: [50, 100] }
-]
-```
-
-## 步长配置 (CssStepConfig)
-
-```typescript
-interface CssStepConfig {
-  step?: number | CssProgressiveRange[];  // 步长或渐进步长
-  min?: number;                            // 最小值
-  max?: number;                            // 最大值
-  negative?: boolean;                      // 是否支持负值
-  presets?: number[];                      // 预设值
 }
 ```
 
