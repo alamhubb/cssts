@@ -1,7 +1,5 @@
 /**
  * CSS 伪类数据（自动生成）
- *
- * 从 pseudo-standards.json 提取的所有伪类
  */
 
 export const pseudoClasses = [

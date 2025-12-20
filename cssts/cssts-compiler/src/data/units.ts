@@ -1,10 +1,5 @@
 /**
  * CSS 单位常量（自动生成）
- *
- * 包含：
- * - 所有 CSS 单位的常量定义
- * - ALL_UNITS 数组
- * - 单位别名映射（用于运行时转换用户输入）
  */
 
 // ==================== 所有 Units 常量 ====================
@@ -52,27 +47,13 @@ export const UNIT_VMIN = 'vmin' as const;
 export const UNIT_VW = 'vw' as const;
 export const UNIT_X = 'x' as const;
 
-// ==================== 所有 Units 数组 ====================
-
 export const ALL_UNITS = [UNIT_HZ, UNIT_Q, UNIT_CAP, UNIT_CH, UNIT_CM, UNIT_DEG, UNIT_DPCM, UNIT_DPI, UNIT_DPPX, UNIT_DVH, UNIT_DVW, UNIT_EM, UNIT_EX, UNIT_FR, UNIT_GRAD, UNIT_IC, UNIT_IN, UNIT_KHZ, UNIT_LH, UNIT_LVH, UNIT_LVW, UNIT_MM, UNIT_MS, UNIT_PC, UNIT_PERCENT, UNIT_PT, UNIT_PX, UNIT_RAD, UNIT_REM, UNIT_RLH, UNIT_S, UNIT_SVH, UNIT_SVW, UNIT_TURN, UNIT_UNITLESS, UNIT_VB, UNIT_VH, UNIT_VI, UNIT_VMAX, UNIT_VMIN, UNIT_VW, UNIT_X] as const;
 
-// ==================== 单位别名映射 ====================
-
-/**
- * 单位别名映射表
- * key: 用户输入的别名
- * value: 实际的单位名称
- */
 export const UNIT_ALIAS_MAP: Record<string, string> = {
   '': 'unitless',
   '%': 'percent',
 };
 
-/**
- * 根据别名获取实际单位
- * @param alias 用户输入的别名
- * @returns 实际的单位名称，如果没有别名则返回原值
- */
 export function resolveUnitAlias(alias: string): string {
   return UNIT_ALIAS_MAP[alias] ?? alias;
 }

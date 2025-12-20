@@ -1,10 +1,6 @@
 /**
  * CSS 颜色数据（自动生成）
- *
- * 按分类的颜色数组
  */
-
-// ==================== 标准颜色 ====================
 
 export const STANDARD_COLORS = [
   'aliceblue',
@@ -158,10 +154,6 @@ export const STANDARD_COLORS = [
   'yellowgreen',
 ] as const;
 
-export type StandardColor = typeof STANDARD_COLORS[number];
-
-// ==================== 系统颜色 ====================
-
 export const SYSTEM_COLORS = [
   'AccentColor',
   'AccentColorText',
@@ -183,10 +175,6 @@ export const SYSTEM_COLORS = [
   'SelectedItemText',
   'VisitedText',
 ] as const;
-
-export type SystemColor = typeof SYSTEM_COLORS[number];
-
-// ==================== 浏览器前缀颜色 ====================
 
 export const BROWSER_PREFIX_COLORS = [
   '-moz-ButtonDefault',
@@ -236,10 +224,6 @@ export const BROWSER_PREFIX_COLORS = [
   '-webkit-text',
 ] as const;
 
-export type BrowserPrefixColor = typeof BROWSER_PREFIX_COLORS[number];
-
-// ==================== 色彩空间 ====================
-
 export const COLOR_SPACES = [
   'a98-rgb',
   'display-p3',
@@ -257,10 +241,6 @@ export const COLOR_SPACES = [
   'xyz-d65',
 ] as const;
 
-export type ColorSpace = typeof COLOR_SPACES[number];
-
-// ==================== 特殊关键字 ====================
-
 export const SPECIAL_COLOR_KEYWORDS = [
   'currentColor',
   'decreasing',
@@ -272,10 +252,6 @@ export const SPECIAL_COLOR_KEYWORDS = [
   'shorter',
 ] as const;
 
-export type SpecialColorKeyword = typeof SPECIAL_COLOR_KEYWORDS[number];
-
-// ==================== 所有颜色 ====================
-
 export const ALL_COLORS = [
   ...STANDARD_COLORS,
   ...SYSTEM_COLORS,
@@ -283,5 +259,3 @@ export const ALL_COLORS = [
   ...COLOR_SPACES,
   ...SPECIAL_COLOR_KEYWORDS,
 ] as const;
-
-export type CSSColor = typeof ALL_COLORS[number];

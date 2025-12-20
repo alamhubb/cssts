@@ -1,7 +1,5 @@
 /**
  * CSS 伪元素数据（自动生成）
- *
- * 从 pseudo-standards.json 提取的所有伪元素
  */
 
 export const pseudoElements = [

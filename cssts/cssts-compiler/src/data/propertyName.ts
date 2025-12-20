@@ -1,8 +1,5 @@
 /**
  * CSS 属性名映射（自动生成）
- *
- * 将驼峰命名的属性名映射到原始的 kebab-case 属性名
- * 例如：accentColor -> accent-color
  */
 
 export const CSS_PROPERTY_NAME_MAP = {
@@ -528,8 +525,6 @@ export const CSS_PROPERTY_NAME_MAP = {
   zIndex: 'z-index',
   zoom: 'zoom',
 } as const;
-
-// ==================== 反向映射 ====================
 
 export const CSS_PROPERTY_NAME_REVERSE_MAP: Record<string, keyof typeof CSS_PROPERTY_NAME_MAP> = {
   'accent-color': 'accentColor',

@@ -1,9 +1,5 @@
 /**
  * CSS 属性 Keywords（自动生成）
- *
- * 每个属性的 keywords 数组
- * 如果属性包含颜色，则使用 ALL_COLORS 引用
- * 只包含有 keywords 的属性
  */
 
 import { ALL_COLORS } from './color';
@@ -456,8 +452,6 @@ export const WORD_WRAP_KEYWORDS = ['break-word', 'normal'] as const;
 export const WRITING_MODE_KEYWORDS = ['horizontal-tb', 'lr', 'lr-tb', 'rl', 'rl-tb', 'sideways-lr', 'sideways-rl', 'tb', 'tb-rl', 'vertical-lr', 'vertical-rl'] as const;
 export const Z_INDEX_KEYWORDS = ['auto'] as const;
 export const ZOOM_KEYWORDS = ['normal', 'reset'] as const;
-
-// ==================== 属性 Keywords 映射 ====================
 
 export const PROPERTY_KEYWORDS_MAP: Record<string, readonly string[]> = {
   'accent-color': ACCENT_COLOR_KEYWORDS,

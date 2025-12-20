@@ -1,18 +1,9 @@
 /**
  * 伪类/伪元素样式类型定义（自动生成）
- *
- * 基于 data/pseudoClasses.ts 和 data/pseudoElements.ts
- * 为伪类和伪元素提供类型安全的样式配置
  */
 
 import type { CSSPropertiesValueType } from './cssPropertiesValue';
 
-// ==================== 伪类样式类型 ====================
-
-/**
- * 伪类样式配置类型
- * 每个伪类可以配置 CSS 属性值
- */
 export interface CssPseudoClassConfig {
   hover?: CSSPropertiesValueType;
   active?: CSSPropertiesValueType;
@@ -77,12 +68,6 @@ export interface CssPseudoClassConfig {
   blank?: CSSPropertiesValueType;
 }
 
-// ==================== 伪元素样式类型 ====================
-
-/**
- * 伪元素样式配置类型
- * 每个伪元素可以配置 CSS 属性值
- */
 export interface CssPseudoElementConfig {
   before?: CSSPropertiesValueType;
   after?: CSSPropertiesValueType;

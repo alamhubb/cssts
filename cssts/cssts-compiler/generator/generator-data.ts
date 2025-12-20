@@ -1,13 +1,23 @@
 /**
  * CSS 数据生成脚本
  *
- * 从 csstree 提取 CSS 数据并生成统一的数据文件：
- * - 属性的 keywords 和 numberTypes
- * - 命名颜色列表
- * - CSS 单位列表
- * - 伪类/伪元素列表（从 pseudo-standards.json 读取）
+ * 数据来源：
+ * - csstree：属性名、颜色、keywords、numberTypes
+ * - datajson/numberMapping.json：单位和分类映射
+ * - datajson/pseudo-standards.json：伪类和伪元素
  *
- * 生成文件：src/data/cssts-data.ts
+ * 生成文件（src/data/）：
+ * - propertyName.ts: CSS 属性名映射
+ * - color.ts: 颜色数据
+ * - propertyKeywords.ts: 每个属性的 keywords
+ * - propertyNumberTypes.ts: 每个属性的 numberTypes
+ * - units.ts: 单位常量和别名
+ * - numberTypeCategory.ts: numberType 和 category 映射
+ * - pseudoClasses.ts: 伪类数据
+ * - pseudoElements.ts: 伪元素数据
+ * - keywordConstants.ts: keyword 常量
+ * - keywords.ts: keywords 数组
+ * - allKeywords.ts: 所有 keywords 和 colors
  *
  * 运行方式：npx tsx generator/generator-data.ts
  */
@@ -20,7 +30,6 @@ import * as csstree from 'css-tree';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 输出目录
 const dataDir = path.join(__dirname, '../src/data');
 
 // 确保输出目录存在
@@ -28,31 +37,52 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-// ==================== 从 csstree 提取数据 ====================
+// ==================== 工具函数 ====================
 
-interface PropertyInfo {
-  name: string;
-  keywords?: string[];
-  numberTypes?: string[];
+function kebabToCamel(str: string): string {
+  return str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
 
-// 定义被认可的数值类型
-// 包括：单位类型 + 纯数值类型
+function keywordToConstName(keyword: string): string {
+  return keyword
+    .replace(/-/g, '_')
+    .replace(/[^A-Z0-9_]/gi, '')
+    .toUpperCase();
+}
+
+function buildConstNameMap(keywords: Set<string>): Map<string, string> {
+  const sortedKeywords = Array.from(keywords).sort();
+  const constNameCount = new Map<string, number>();
+  const keywordToConst = new Map<string, string>();
+
+  for (const keyword of sortedKeywords) {
+    let constName = keywordToConstName(keyword);
+    const count = constNameCount.get(constName) || 0;
+    if (count > 0) {
+      constName = `${constName}_${count}`;
+    }
+    constNameCount.set(keywordToConstName(keyword), count + 1);
+    keywordToConst.set(keyword, constName);
+  }
+
+  return keywordToConst;
+}
+
+const UNIT_ALIAS: Record<string, string> = {
+  '': 'unitless',
+  '%': 'percent',
+};
+
+function normalizeUnit(unit: string): string {
+  return UNIT_ALIAS[unit] ?? unit;
+}
+
+
+// ==================== 从 csstree 提取数据 ====================
+
 const ACCEPTED_NUMBER_TYPES = new Set([
-  // 从 units 中来的
-  'angle',
-  'decibel',
-  'flex',
-  'frequency',
-  'length',
-  'resolution',
-  'semitones',
-  'time',
-  // 纯数值类型
-  'number',
-  'integer',
-  'percentage',
-  'ratio',
+  'angle', 'decibel', 'flex', 'frequency', 'length', 'resolution', 'semitones', 'time',
+  'number', 'integer', 'percentage', 'ratio',
 ]);
 
 const UNION_TYPE_MAP: Record<string, string[]> = {
@@ -61,40 +91,6 @@ const UNION_TYPE_MAP: Record<string, string[]> = {
   'time-percentage': ['time', 'percentage'],
   'frequency-percentage': ['frequency', 'percentage'],
 };
-
-function extractPropertiesFromCsstree(): PropertyInfo[] {
-  const lexer = (csstree as any).lexer;
-  const properties: PropertyInfo[] = [];
-
-  for (const [propName, propDef] of Object.entries(lexer.properties as Record<string, any>)) {
-    if (propName.startsWith('-')) continue;
-
-    const keywords = new Set<string>();
-    const numberTypes = new Set<string>();
-
-    if (propDef && propDef.syntax) {
-      extractFromSyntaxNode(propDef.syntax, keywords, numberTypes, lexer);
-    }
-
-    const propInfo: PropertyInfo = {
-      name: propName,
-    };
-
-    // 只有当有 keywords 时才添加
-    if (keywords.size > 0) {
-      propInfo.keywords = Array.from(keywords).sort();
-    }
-
-    // 只有当有 numberTypes 时才添加
-    if (numberTypes.size > 0) {
-      propInfo.numberTypes = Array.from(numberTypes).sort();
-    }
-
-    properties.push(propInfo);
-  }
-
-  return properties.sort((a, b) => a.name.localeCompare(b.name));
-}
 
 function extractFromSyntaxNode(
   node: any,
@@ -113,18 +109,15 @@ function extractFromSyntaxNode(
 
     case 'Type':
       const typeName = node.name;
-      // 只保留被认可的数值类型
       if (ACCEPTED_NUMBER_TYPES.has(typeName)) {
         numberTypes.add(typeName);
       } else if (UNION_TYPE_MAP[typeName]) {
-        // 联合类型，展开并只保留被认可的
         UNION_TYPE_MAP[typeName].forEach(t => {
           if (ACCEPTED_NUMBER_TYPES.has(t)) {
             numberTypes.add(t);
           }
         });
       } else if (!visited.has(typeName)) {
-        // 递归查看这个类型的定义
         visited.add(typeName);
         const typeDef = lexer.types[typeName];
         if (typeDef?.syntax) {
@@ -134,7 +127,6 @@ function extractFromSyntaxNode(
       break;
 
     case 'Property':
-      // 递归解析被引用的属性
       const propName = node.name;
       if (!visitedProperties.has(propName)) {
         visitedProperties.add(propName);
@@ -163,183 +155,556 @@ function extractFromSyntaxNode(
   }
 }
 
-// ==================== 从 csstree 提取颜色 ====================
+// ==================== 属性名映射 ====================
 
-function extractColorsFromCsstree(): string[] {
+function generatePropertyNameMap(): Record<string, string> {
   const lexer = (csstree as any).lexer;
-  const colors = new Set<string>();
+  const propertyMap: Record<string, string> = {};
+  const properties = lexer.properties as Record<string, any>;
+  
+  for (const propName of Object.keys(properties)) {
+    if (propName.startsWith('-')) continue;
+    propertyMap[kebabToCamel(propName)] = propName;
+  }
 
-  // 从 csstree 的 types 中查找 named-color 类型定义
-  // named-color 包含所有标准的 CSS 颜色名称
+  return propertyMap;
+}
+
+function generatePropertyNameFile(propertyMap: Record<string, string>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 属性名映射（自动生成）',
+    ' */',
+    '',
+    'export const CSS_PROPERTY_NAME_MAP = {',
+  ];
+
+  const sortedKeys = Object.keys(propertyMap).sort();
+  for (const camelName of sortedKeys) {
+    lines.push(`  ${camelName}: '${propertyMap[camelName]}',`);
+  }
+
+  lines.push('} as const;', '');
+  lines.push('export const CSS_PROPERTY_NAME_REVERSE_MAP: Record<string, keyof typeof CSS_PROPERTY_NAME_MAP> = {');
+  
+  for (const camelName of sortedKeys) {
+    lines.push(`  '${propertyMap[camelName]}': '${camelName}',`);
+  }
+  
+  lines.push('} as const;', '');
+  return lines.join('\n');
+}
+
+
+// ==================== 颜色数据 ====================
+
+interface ColorData {
+  standardColors: string[];
+  systemColors: string[];
+  browserPrefixColors: string[];
+  colorSpaces: string[];
+  specialKeywords: string[];
+}
+
+function extractAllColors(): ColorData {
+  const lexer = (csstree as any).lexer;
+  
+  const standardColors = new Set<string>();
+  const systemColors = new Set<string>();
+  const browserPrefixColors = new Set<string>();
+  const colorSpaces = new Set<string>();
+  const specialKeywords = new Set<string>();
+
   const namedColorType = lexer.types['named-color'];
-  if (namedColorType && namedColorType.syntax) {
+  if (namedColorType?.syntax) {
     const keywords = new Set<string>();
     const numberTypes = new Set<string>();
     extractFromSyntaxNode(namedColorType.syntax, keywords, numberTypes, lexer);
-    keywords.forEach(k => colors.add(k));
+    keywords.forEach(k => standardColors.add(k));
   }
 
-  return Array.from(colors).sort();
-}
-
-// ==================== 从 csstree 提取单位 ====================
-
-function extractUnitsFromCsstree(): string[] {
-  const lexer = (csstree as any).lexer;
-  const units = new Set<string>();
-
-  // 从 csstree 的 units 对象中提取所有单位
-  // units 是一个对象，键是单位类型（如 'length', 'angle'），值是该类型的单位数组
-  const unitsObj = lexer.units as Record<string, string[]>;
-  
-  for (const unitList of Object.values(unitsObj)) {
-    if (Array.isArray(unitList)) {
-      unitList.forEach(unit => units.add(unit));
-    }
+  const colorType = lexer.types['color'];
+  if (colorType?.syntax) {
+    const keywords = new Set<string>();
+    const numberTypes = new Set<string>();
+    extractFromSyntaxNode(colorType.syntax, keywords, numberTypes, lexer);
+    
+    keywords.forEach(k => {
+      if (standardColors.has(k)) return;
+      if (k.startsWith('-moz-') || k.startsWith('-webkit-')) {
+        browserPrefixColors.add(k);
+      } else if (/^[A-Z]/.test(k)) {
+        systemColors.add(k);
+      } else if (['hsl', 'hwb', 'lab', 'lch', 'oklab', 'oklch', 'srgb', 'display-p3', 'a98-rgb', 'prophoto-rgb', 'rec2020', 'xyz', 'xyz-d50', 'xyz-d65'].includes(k)) {
+        colorSpaces.add(k);
+      } else if (['currentColor', 'none', 'transparent', 'hue', 'in', 'increasing', 'decreasing', 'longer', 'shorter'].includes(k)) {
+        specialKeywords.add(k);
+      }
+    });
   }
 
-  // 添加百分比单位
-  units.add('%');
-
-  return Array.from(units).sort();
-}
-
-// ==================== 从配置文件读取伪类/伪元素标准 ====================
-
-function loadPseudoStandards(): { pseudoClasses: string[]; pseudoElements: string[] } {
-  const standardsPath = path.join(__dirname, 'datajson', 'pseudo-standards.json');
-  const standardsContent = fs.readFileSync(standardsPath, 'utf-8');
-  const standards = JSON.parse(standardsContent);
-  
   return {
-    pseudoClasses: standards.pseudoClasses,
-    pseudoElements: standards.pseudoElements
+    standardColors: Array.from(standardColors).sort(),
+    systemColors: Array.from(systemColors).sort(),
+    browserPrefixColors: Array.from(browserPrefixColors).sort(),
+    colorSpaces: Array.from(colorSpaces).sort(),
+    specialKeywords: Array.from(specialKeywords).sort(),
   };
 }
 
-
-
-// ==================== 生成代码 ====================
-
-// ==================== 生成合并文件 ====================
-
-function generateCsstsDataFile(
-  properties: PropertyInfo[],
-  colors: string[],
-  units: string[],
-  pseudoClasses: string[],
-  pseudoElements: string[]
-): string {
+function generateColorFile(colorData: ColorData): string {
   const lines: string[] = [
     '/**',
-    ' * CSSTS 数据（自动生成）',
-    ' *',
-    ' * 包含从 csstree 提取的所有 CSS 数据：',
-    ' * - 属性的 keywords 和 numberTypes',
-    ' * - 命名颜色列表',
-    ' * - CSS 单位列表',
-    ' * - 伪类/伪元素列表',
+    ' * CSS 颜色数据（自动生成）',
     ' */',
     '',
-    '// ==================== 属性数据 ====================',
-    '',
-    'export interface PropertyInfo {',
-    '  name: string;',
-    '  keywords?: string[];',
-    '  numberTypes?: string[];',
-    '}',
-    '',
-    'export const PROPERTY_DATA: PropertyInfo[] = [',
+    'export const STANDARD_COLORS = [',
   ];
 
-  for (const prop of properties) {
-    lines.push('  {');
-    lines.push(`    name: '${prop.name}',`);
-
-    if (prop.keywords) {
-      lines.push(`    keywords: [${prop.keywords.map(k => `'${k}'`).join(', ')}],`);
-    }
-
-    if (prop.numberTypes) {
-      lines.push(`    numberTypes: [${prop.numberTypes.map(t => `'${t}'`).join(', ')}],`);
-    }
-
-    lines.push('  },');
-  }
-
-  lines.push('];', '');
-
-  // 属性查询 Map（用于快速查询）
-  lines.push('// ==================== 属性查询 Map ====================', '');
-  lines.push('export const PROPERTY_MAP = new Map<string, PropertyInfo>([');
-  for (const prop of properties) {
-    const propStr = `{ name: '${prop.name}'${prop.keywords ? `, keywords: [${prop.keywords.map(k => `'${k}'`).join(', ')}]` : ''}${prop.numberTypes ? `, numberTypes: [${prop.numberTypes.map(t => `'${t}'`).join(', ')}]` : ''} }`;
-    lines.push(`  ['${prop.name}', ${propStr}],`);
-  }
-  lines.push(']);', '');
-
-  // 颜色数据
-  lines.push('// ==================== 颜色数据 ====================', '');
-  lines.push('export const NAMED_COLORS = [');
-  colors.forEach(color => {
-    lines.push(`  '${color}',`);
-  });
+  colorData.standardColors.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
-  lines.push('export type NamedColorValue = typeof NAMED_COLORS[number];', '');
 
-  // 单位数据
-  lines.push('// ==================== 单位数据 ====================', '');
-  lines.push('export const ALL_UNITS = [');
-  units.forEach(unit => {
-    lines.push(`  '${unit}',`);
-  });
+  lines.push('export const SYSTEM_COLORS = [');
+  colorData.systemColors.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
-  lines.push('export type UnitType = typeof ALL_UNITS[number];', '');
 
-  // 伪类/伪元素数据
-  lines.push('// ==================== 伪类/伪元素数据 ====================', '');
-  lines.push('export const PSEUDO_CLASSES = [');
-  pseudoClasses.forEach(pc => {
-    lines.push(`  '${pc}',`);
-  });
+  lines.push('export const BROWSER_PREFIX_COLORS = [');
+  colorData.browserPrefixColors.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
-  lines.push('export type PseudoClassName = typeof PSEUDO_CLASSES[number];', '');
-  lines.push('');
-  lines.push('export const PSEUDO_ELEMENTS = [');
-  pseudoElements.forEach(pe => {
-    lines.push(`  '${pe}',`);
-  });
+
+  lines.push('export const COLOR_SPACES = [');
+  colorData.colorSpaces.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
-  lines.push('export type PseudoElementName = typeof PSEUDO_ELEMENTS[number];', '');
+
+  lines.push('export const SPECIAL_COLOR_KEYWORDS = [');
+  colorData.specialKeywords.forEach(c => lines.push(`  '${c}',`));
+  lines.push('] as const;', '');
+
+  lines.push('export const ALL_COLORS = [');
+  lines.push('  ...STANDARD_COLORS,');
+  lines.push('  ...SYSTEM_COLORS,');
+  lines.push('  ...BROWSER_PREFIX_COLORS,');
+  lines.push('  ...COLOR_SPACES,');
+  lines.push('  ...SPECIAL_COLOR_KEYWORDS,');
+  lines.push('] as const;', '');
 
   return lines.join('\n');
 }
 
+
+// ==================== 属性 Keywords 和 NumberTypes ====================
+
+interface PropertyData {
+  keywords: string[];
+  numberTypes: string[];
+}
+
+function extractPropertyData(): Record<string, PropertyData> {
+  const lexer = (csstree as any).lexer;
+  const propertyData: Record<string, PropertyData> = {};
+  const colorData = extractAllColors();
+  const allColors = new Set([
+    ...colorData.standardColors,
+    ...colorData.systemColors,
+    ...colorData.browserPrefixColors,
+    ...colorData.colorSpaces,
+    ...colorData.specialKeywords,
+  ]);
+
+  const properties = lexer.properties as Record<string, any>;
+  
+  for (const [propName, propDef] of Object.entries(properties)) {
+    if (propName.startsWith('-')) continue;
+
+    const keywords = new Set<string>();
+    const numberTypes = new Set<string>();
+
+    if (propDef?.syntax) {
+      extractFromSyntaxNode(propDef.syntax, keywords, numberTypes, lexer);
+    }
+
+    const hasColors = Array.from(keywords).some(k => allColors.has(k));
+    if (hasColors) {
+      keywords.clear();
+      keywords.add('__COLORS__');
+    }
+
+    propertyData[propName] = {
+      keywords: Array.from(keywords).sort(),
+      numberTypes: Array.from(numberTypes).sort(),
+    };
+  }
+
+  return propertyData;
+}
+
+function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 属性 Keywords（自动生成）',
+    ' */',
+    '',
+    "import { ALL_COLORS } from './color';",
+    '',
+  ];
+
+  const sortedProps = Object.keys(propertyData)
+    .filter(p => propertyData[p].keywords.length > 0)
+    .sort();
+  
+  for (const propName of sortedProps) {
+    const data = propertyData[propName];
+    const constName = propName.replace(/-/g, '_').toUpperCase();
+    
+    if (data.keywords.length === 1 && data.keywords[0] === '__COLORS__') {
+      lines.push(`export const ${constName}_KEYWORDS = ALL_COLORS;`);
+    } else {
+      lines.push(`export const ${constName}_KEYWORDS = [${data.keywords.map(k => `'${k}'`).join(', ')}] as const;`);
+    }
+  }
+
+  lines.push('');
+  lines.push('export const PROPERTY_KEYWORDS_MAP: Record<string, readonly string[]> = {');
+  for (const propName of sortedProps) {
+    const constName = propName.replace(/-/g, '_').toUpperCase();
+    lines.push(`  '${propName}': ${constName}_KEYWORDS,`);
+  }
+  lines.push('};', '');
+
+  return lines.join('\n');
+}
+
+function generatePropertyNumberTypesFile(propertyData: Record<string, PropertyData>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 属性 NumberTypes（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const sortedProps = Object.keys(propertyData)
+    .filter(p => propertyData[p].numberTypes.length > 0)
+    .sort();
+
+  const allNumberTypes = new Set<string>();
+  for (const propName of sortedProps) {
+    propertyData[propName].numberTypes.forEach(nt => allNumberTypes.add(nt));
+  }
+
+  lines.push('// ==================== 所有 NumberTypes ====================', '');
+  lines.push(`export const ALL_NUMBER_TYPES = [${Array.from(allNumberTypes).sort().map(t => `'${t}'`).join(', ')}] as const;`);
+  lines.push('');
+  
+  for (const propName of sortedProps) {
+    const data = propertyData[propName];
+    const constName = propName.replace(/-/g, '_').toUpperCase();
+    lines.push(`export const ${constName}_NUMBER_TYPES = [${data.numberTypes.map(t => `'${t}'`).join(', ')}] as const;`);
+  }
+
+  lines.push('');
+  lines.push('export const PROPERTY_NUMBER_TYPES_MAP: Record<string, readonly string[]> = {');
+  for (const propName of sortedProps) {
+    const constName = propName.replace(/-/g, '_').toUpperCase();
+    lines.push(`  '${propName}': ${constName}_NUMBER_TYPES,`);
+  }
+  lines.push('};', '');
+
+  return lines.join('\n');
+}
+
+
+// ==================== Units 和 NumberTypeCategory（从 datajson） ====================
+
+function loadNumberMapping(): any {
+  const mappingPath = path.join(__dirname, 'datajson', 'numberMapping.json');
+  return JSON.parse(fs.readFileSync(mappingPath, 'utf-8'));
+}
+
+function generateUnitsFile(categories: Record<string, string[]>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 单位常量（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const allUnits = new Set<string>();
+  for (const units of Object.values(categories)) {
+    (units as string[]).forEach(u => allUnits.add(normalizeUnit(u)));
+  }
+  const sortedUnits = Array.from(allUnits).sort();
+
+  lines.push('// ==================== 所有 Units 常量 ====================', '');
+  for (const unit of sortedUnits) {
+    lines.push(`export const UNIT_${unit.toUpperCase()} = '${unit}' as const;`);
+  }
+  lines.push('');
+
+  const unitRefs = sortedUnits.map(u => `UNIT_${u.toUpperCase()}`).join(', ');
+  lines.push(`export const ALL_UNITS = [${unitRefs}] as const;`, '');
+
+  lines.push('export const UNIT_ALIAS_MAP: Record<string, string> = {');
+  for (const [alias, unit] of Object.entries(UNIT_ALIAS)) {
+    lines.push(`  '${alias}': '${unit}',`);
+  }
+  lines.push('};', '');
+
+  lines.push('export function resolveUnitAlias(alias: string): string {');
+  lines.push('  return UNIT_ALIAS_MAP[alias] ?? alias;');
+  lines.push('}', '');
+
+  return lines.join('\n');
+}
+
+function generateNumberTypeCategoryFile(mapping: any): string {
+  const lines: string[] = [
+    '/**',
+    ' * NumberType 和 Category 映射（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const numberTypes = mapping.numberTypes as Record<string, string[]>;
+  const categories = mapping.categories as Record<string, string[]>;
+  const allCategories = Object.keys(categories).sort();
+
+  const allUnits = new Set<string>();
+  for (const units of Object.values(categories)) {
+    (units as string[]).forEach(u => allUnits.add(normalizeUnit(u)));
+  }
+  const sortedUnits = Array.from(allUnits).sort();
+
+  const unitImports = sortedUnits.map(u => `UNIT_${u.toUpperCase()}`).join(', ');
+  lines.push(`import { ${unitImports} } from './units';`, '');
+
+  lines.push('// ==================== NumberType 到 Category 映射 ====================', '');
+  for (const [numberType, cats] of Object.entries(numberTypes)) {
+    const constName = numberType.toUpperCase();
+    lines.push(`export const ${constName}_CATEGORIES = [${(cats as string[]).map(c => `'${c}'`).join(', ')}] as const;`);
+  }
+
+  lines.push('');
+  lines.push('export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {');
+  for (const [numberType] of Object.entries(numberTypes)) {
+    lines.push(`  '${numberType}': ${numberType.toUpperCase()}_CATEGORIES,`);
+  }
+  lines.push('};', '');
+
+  lines.push('export const ALL_NUMBER_CATEGORIES = [');
+  allCategories.forEach(c => lines.push(`  '${c}',`));
+  lines.push('] as const;', '');
+
+  lines.push('export const CATEGORY_UNITS_MAP: Record<string, readonly string[]> = {');
+  for (const [category, units] of Object.entries(categories)) {
+    const unitRefs = (units as string[]).map(u => `UNIT_${normalizeUnit(u).toUpperCase()}`).join(', ');
+    lines.push(`  '${category}': [${unitRefs}],`);
+  }
+  lines.push('};', '');
+
+  return lines.join('\n');
+}
+
+
+// ==================== 伪类和伪元素（从 datajson） ====================
+
+function loadPseudoStandards(): { pseudoClasses: string[]; pseudoElements: string[] } {
+  const jsonPath = path.join(__dirname, 'datajson/pseudo-standards.json');
+  return JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+}
+
+function generatePseudoClassesFile(pseudoClasses: string[]): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 伪类数据（自动生成）',
+    ' */',
+    '',
+    'export const pseudoClasses = [',
+  ];
+  pseudoClasses.forEach(p => lines.push(`  '${p}',`));
+  lines.push('] as const;', '');
+  return lines.join('\n');
+}
+
+function generatePseudoElementsFile(pseudoElements: string[]): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 伪元素数据（自动生成）',
+    ' */',
+    '',
+    'export const pseudoElements = [',
+  ];
+  pseudoElements.forEach(p => lines.push(`  '${p}',`));
+  lines.push('] as const;', '');
+  return lines.join('\n');
+}
+
+// ==================== Keywords（从 csstree） ====================
+
+function extractKeywordsFromCsstree(): Set<string> {
+  const lexer = (csstree as any).lexer;
+  const keywords = new Set<string>();
+
+  function extract(node: any, visited = new Set<string>(), visitedProps = new Set<string>()): void {
+    if (!node) return;
+    switch (node.type) {
+      case 'Keyword':
+        keywords.add(node.name);
+        break;
+      case 'Type':
+        if (!visited.has(node.name)) {
+          visited.add(node.name);
+          const typeDef = lexer.types[node.name];
+          if (typeDef?.syntax) extract(typeDef.syntax, visited, visitedProps);
+        }
+        break;
+      case 'Property':
+        if (!visitedProps.has(node.name)) {
+          visitedProps.add(node.name);
+          const propDef = lexer.properties[node.name];
+          if (propDef?.syntax) extract(propDef.syntax, visited, visitedProps);
+        }
+        break;
+      case 'Group':
+      case 'Multiplier':
+        if (node.term) extract(node.term, visited, visitedProps);
+        if (node.terms) node.terms.forEach((t: any) => extract(t, visited, visitedProps));
+        break;
+      case 'Combination':
+        if (node.terms) node.terms.forEach((t: any) => extract(t, visited, visitedProps));
+        break;
+    }
+  }
+
+  const properties = lexer.properties as Record<string, any>;
+  for (const [propName, propDef] of Object.entries(properties)) {
+    if (propName.startsWith('-')) continue;
+    if (propDef?.syntax) extract(propDef.syntax);
+  }
+
+  return keywords;
+}
+
+function generateKeywordConstantsFile(keywords: Set<string>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS Keywords 常量（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const constNameMap = buildConstNameMap(keywords);
+  const sortedKeywords = Array.from(keywords).sort();
+
+  for (const keyword of sortedKeywords) {
+    const constName = constNameMap.get(keyword)!;
+    lines.push(`export const KEYWORD_${constName} = '${keyword}' as const;`);
+  }
+
+  lines.push('');
+  lines.push('export const KEYWORD_MAP: Record<string, string> = {');
+  for (const keyword of sortedKeywords) {
+    const constName = constNameMap.get(keyword)!;
+    lines.push(`  '${keyword}': KEYWORD_${constName},`);
+  }
+  lines.push('};', '');
+
+  return lines.join('\n');
+}
+
+function generateKeywordsFile(keywords: Set<string>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS Keywords 数组（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const constNameMap = buildConstNameMap(keywords);
+  const sortedKeywords = Array.from(keywords).sort();
+  const constNames = sortedKeywords.map(k => `KEYWORD_${constNameMap.get(k)!}`);
+  lines.push(`import { ${constNames.join(', ')}, KEYWORD_MAP } from './keywordConstants';`, '');
+
+  lines.push('export const keywords = [');
+  for (const keyword of sortedKeywords) {
+    lines.push(`  KEYWORD_${constNameMap.get(keyword)!},`);
+  }
+  lines.push('] as const;', '');
+  lines.push('export { KEYWORD_MAP };', '');
+
+  return lines.join('\n');
+}
+
+function generateAllKeywordsFile(): string {
+  return `/**
+ * 所有 CSS Keywords 和 Colors（自动生成）
+ */
+
+import { keywords } from './keywords';
+import { ALL_COLORS } from './color';
+
+export const allKeywords = [...keywords, ...ALL_COLORS] as const;
+
+export { keywords, ALL_COLORS };
+`;
+}
+
+
 // ==================== 主函数 ====================
 
 function main() {
-  console.log('🚀 Generating CSSTS data from csstree...\n');
+  console.log('🚀 生成所有 CSS 数据文件...\n');
 
-  const properties = extractPropertiesFromCsstree();
-  const colors = extractColorsFromCsstree();
-  const units = extractUnitsFromCsstree();
-  const { pseudoClasses, pseudoElements } = loadPseudoStandards();
+  // 从 csstree 提取
+  const propertyMap = generatePropertyNameMap();
+  const colorData = extractAllColors();
+  const propertyData = extractPropertyData();
+  const keywords = extractKeywordsFromCsstree();
 
-  const code = generateCsstsDataFile(properties, colors, units, pseudoClasses, pseudoElements);
+  // 从 datajson 读取
+  const numberMapping = loadNumberMapping();
+  const pseudoStandards = loadPseudoStandards();
 
-  fs.writeFileSync(path.join(dataDir, 'cssts-data.ts'), code);
-  console.log('✅ src/data/cssts-data.ts');
+  // 生成文件
+  fs.writeFileSync(path.join(dataDir, 'propertyName.ts'), generatePropertyNameFile(propertyMap));
+  console.log('✅ src/data/propertyName.ts');
 
-  console.log(`\n📊 Statistics:`);
-  console.log(`   Total properties: ${properties.length}`);
-  console.log(`   Properties with keywords: ${properties.filter(p => p.keywords).length}`);
-  console.log(`   Properties with numberTypes: ${properties.filter(p => p.numberTypes).length}`);
-  console.log(`   Properties with both: ${properties.filter(p => p.keywords && p.numberTypes).length}`);
-  console.log(`   Named colors: ${colors.length}`);
-  console.log(`   CSS units: ${units.length}`);
-  console.log(`   Pseudo classes: ${pseudoClasses.length}`);
-  console.log(`   Pseudo elements: ${pseudoElements.length}`);
-  console.log('\n✨ Data generation completed!');
+  fs.writeFileSync(path.join(dataDir, 'color.ts'), generateColorFile(colorData));
+  console.log('✅ src/data/color.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'propertyKeywords.ts'), generatePropertyKeywordsFile(propertyData));
+  console.log('✅ src/data/propertyKeywords.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'propertyNumberTypes.ts'), generatePropertyNumberTypesFile(propertyData));
+  console.log('✅ src/data/propertyNumberTypes.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'units.ts'), generateUnitsFile(numberMapping.categories));
+  console.log('✅ src/data/units.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'numberTypeCategory.ts'), generateNumberTypeCategoryFile(numberMapping));
+  console.log('✅ src/data/numberTypeCategory.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'pseudoClasses.ts'), generatePseudoClassesFile(pseudoStandards.pseudoClasses));
+  console.log('✅ src/data/pseudoClasses.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'pseudoElements.ts'), generatePseudoElementsFile(pseudoStandards.pseudoElements));
+  console.log('✅ src/data/pseudoElements.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'keywordConstants.ts'), generateKeywordConstantsFile(keywords));
+  console.log('✅ src/data/keywordConstants.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'keywords.ts'), generateKeywordsFile(keywords));
+  console.log('✅ src/data/keywords.ts');
+
+  fs.writeFileSync(path.join(dataDir, 'allKeywords.ts'), generateAllKeywordsFile());
+  console.log('✅ src/data/allKeywords.ts');
+
+  console.log(`\n📊 统计信息:`);
+  console.log(`   属性数: ${Object.keys(propertyMap).length}`);
+  console.log(`   Keywords 数: ${keywords.size}`);
+  console.log(`   颜色数: ${colorData.standardColors.length + colorData.systemColors.length}`);
+  console.log(`   伪类数: ${pseudoStandards.pseudoClasses.length}`);
+  console.log(`   伪元素数: ${pseudoStandards.pseudoElements.length}`);
+  console.log('\n✨ 数据文件生成完成!');
 }
 
 main();

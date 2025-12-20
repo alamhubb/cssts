@@ -1,8 +1,5 @@
 /**
  * CSS 属性 NumberTypes（自动生成）
- *
- * 每个属性的 numberTypes 数组
- * 只包含有 numberTypes 的属性
  */
 
 // ==================== 所有 NumberTypes ====================
@@ -309,8 +306,6 @@ export const X_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const Y_NUMBER_TYPES = ['length', 'percentage'] as const;
 export const Z_INDEX_NUMBER_TYPES = ['integer'] as const;
 export const ZOOM_NUMBER_TYPES = ['number', 'percentage'] as const;
-
-// ==================== 属性 NumberTypes 映射 ====================
 
 export const PROPERTY_NUMBER_TYPES_MAP: Record<string, readonly string[]> = {
   'accent-color': ACCENT_COLOR_NUMBER_TYPES,

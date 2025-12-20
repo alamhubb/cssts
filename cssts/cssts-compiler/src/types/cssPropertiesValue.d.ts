@@ -1,12 +1,8 @@
 /**
  * CSS 属性值类型定义（自动生成）
- *
- * 每个属性的值类型为：关键字类型 | string
  */
 
 import type * as Keywords from '../data/propertyKeywords';
-
-// ==================== 属性值映射 ====================
 
 export interface CSSPropertiesValueType {
   accentColor?: typeof Keywords.ACCENT_COLOR_KEYWORDS[number] | string;

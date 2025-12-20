@@ -1,10 +1,5 @@
 /**
  * NumberType 和 Category 映射（自动生成）
- *
- * 包含：
- * - 每个 numberType 对应的 category 列表
- * - 所有 category 的列表
- * - category 到 units 的映射
  */
 
 import { UNIT_HZ, UNIT_Q, UNIT_CAP, UNIT_CH, UNIT_CM, UNIT_DEG, UNIT_DPCM, UNIT_DPI, UNIT_DPPX, UNIT_DVH, UNIT_DVW, UNIT_EM, UNIT_EX, UNIT_FR, UNIT_GRAD, UNIT_IC, UNIT_IN, UNIT_KHZ, UNIT_LH, UNIT_LVH, UNIT_LVW, UNIT_MM, UNIT_MS, UNIT_PC, UNIT_PERCENT, UNIT_PT, UNIT_PX, UNIT_RAD, UNIT_REM, UNIT_RLH, UNIT_S, UNIT_SVH, UNIT_SVW, UNIT_TURN, UNIT_UNITLESS, UNIT_VB, UNIT_VH, UNIT_VI, UNIT_VMAX, UNIT_VMIN, UNIT_VW, UNIT_X } from './units';
@@ -39,8 +34,6 @@ export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {
   'semitones': SEMITONES_CATEGORIES,
 };
 
-// ==================== 所有 Number Categories ====================
-
 export const ALL_NUMBER_CATEGORIES = [
   'angle',
   'flex',
@@ -53,8 +46,6 @@ export const ALL_NUMBER_CATEGORIES = [
   'time',
   'unitless',
 ] as const;
-
-// ==================== Category 到 Units 映射 ====================
 
 export const CATEGORY_UNITS_MAP: Record<string, readonly string[]> = {
   'percentage': [UNIT_PERCENT, UNIT_VW, UNIT_VH, UNIT_VMIN, UNIT_VMAX, UNIT_SVW, UNIT_SVH, UNIT_LVW, UNIT_LVH, UNIT_DVW, UNIT_DVH, UNIT_VI, UNIT_VB],

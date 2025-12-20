@@ -1,10 +1,6 @@
 /**
  * CSS Keywords 常量（自动生成）
- *
- * 每个 keyword 的常量定义
  */
-
-// ==================== 所有 Keywords ====================
 
 export const KEYWORD__APPLE_SYSTEM = '-apple-system' as const;
 export const KEYWORD__APPLE_SYSTEM_BODY = '-apple-system-body' as const;
@@ -939,8 +935,6 @@ export const KEYWORD_YOUNG = 'young' as const;
 export const KEYWORD_Z = 'z' as const;
 export const KEYWORD_ZOOM_IN = 'zoom-in' as const;
 export const KEYWORD_ZOOM_OUT = 'zoom-out' as const;
-
-// ==================== Keywords 映射 ====================
 
 export const KEYWORD_MAP: Record<string, string> = {
   '-apple-system': KEYWORD__APPLE_SYSTEM,

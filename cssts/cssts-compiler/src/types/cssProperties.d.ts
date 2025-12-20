@@ -1,13 +1,9 @@
 /**
  * CSS 属性类型定义（自动生成）
- *
- * 每个属性的 keywords 和 numberTypes 类型
  */
 
 import type * as Keywords from '../data/propertyKeywords';
 import type * as NumberTypes from '../data/propertyNumberTypes';
-
-// ==================== 属性类型 ====================
 
 export interface accentColorPropertyType {
   keywords: typeof Keywords.ACCENT_COLOR_KEYWORDS[number][];
@@ -2311,8 +2307,6 @@ export interface zoomPropertyType {
   keywords: typeof Keywords.ZOOM_KEYWORDS[number][];
   numberTypes: typeof NumberTypes.ZOOM_NUMBER_TYPES[number][];
 }
-
-// ==================== 属性映射 ====================
 
 export interface CSSPropertiesType {
   accentColor?: accentColorPropertyType;
