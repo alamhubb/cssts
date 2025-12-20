@@ -7,8 +7,7 @@
  * - cssPseudoClassElement.d.ts: 伪类/伪元素类型和样式配置
  * - cssProperties.d.ts: 属性类型
  * - cssPseudoValue.d.ts: 伪类/伪元素属性值类型
- * - csstsStepConfig.d.ts: 基础配置类型
- * - cssPropertyConfig.d.ts: 属性名称/Number/Property 配置类型
+ * - cssPropertyConfig.d.ts: 基础配置/属性名称/Number/Property 配置类型
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
  * 运行方式：npx tsx generator/generator-type.ts
@@ -152,7 +151,7 @@ function generateCssPseudoClassElementType(): string {
 function generateCssPropertyConfigType(): string {
   return `/**
  * CSS 属性配置类型定义（自动生成）
- * 包含属性名称、Unit/Category/NumberType、Property 配置类型
+ * 包含基础配置、属性名称、Unit/Category/NumberType、Property 配置类型
  */
 
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
@@ -162,7 +161,25 @@ import type { keywords, allKeywords } from '../data/cssKeywordsData';
 import type { ALL_COLORS } from '../data/cssColorData';
 
 import type { CSSPropertiesType } from './cssProperties';
-import type { CsstsStepConfig } from './csstsStepConfig';
+
+// ==================== 基础配置类型 ====================
+
+/** 渐进步长范围配置 */
+export interface CssProgressiveRange {
+  max: number;
+  divisors: number[];
+}
+
+/** 单位值配置 */
+export interface CsstsStepConfig {
+  step?: number | CssProgressiveRange[];
+  min?: number;
+  max?: number;
+  negative?: boolean;
+  presets?: number[];
+}
+
+export type CssCustomPropertyValue = string | Record<string, string>;
 
 // ==================== 属性名称类型 ====================
 
@@ -373,32 +390,6 @@ function generateCssPseudoValueType(): string {
 
 
 
-// ==================== 基础配置类型 ====================
-
-function generateCsstsStepConfigType(): string {
-  return `/**
- * 基础配置类型定义（自动生成）
- */
-
-/** 渐进步长范围配置 */
-export interface CssProgressiveRange {
-  max: number;
-  divisors: number[];
-}
-
-/** 单位值配置 */
-export interface CsstsStepConfig {
-  step?: number | CssProgressiveRange[];
-  min?: number;
-  max?: number;
-  negative?: boolean;
-  presets?: number[];
-}
-
-export type CssCustomPropertyValue = string | Record<string, string>;
-`;
-}
-
 // ==================== CSSTS 配置类型 ====================
 
 function generateCsstsConfigType(): string {
@@ -407,8 +398,9 @@ function generateCsstsConfigType(): string {
  */
 
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
-import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type {
+  CssProgressiveRange,
+  CssCustomPropertyValue,
   CssUnitConfig,
   CssUnitExcludeItem,
   CssCategoryConfig,
@@ -483,10 +475,7 @@ function main() {
   fs.writeFileSync(path.join(typesDir, 'cssPseudoValue.d.ts'), generateCssPseudoValueType());
   console.log('✅ src/types/cssPseudoValue.d.ts');
 
-  // 层级配置类型文件
-  fs.writeFileSync(path.join(typesDir, 'csstsStepConfig.d.ts'), generateCsstsStepConfigType());
-  console.log('✅ src/types/csstsStepConfig.d.ts');
-
+  // 配置类型文件
   fs.writeFileSync(path.join(typesDir, 'cssPropertyConfig.d.ts'), generateCssPropertyConfigType());
   console.log('✅ src/types/cssPropertyConfig.d.ts');
 

@@ -3,8 +3,9 @@
  */
 
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
-import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type {
+  CssProgressiveRange,
+  CssCustomPropertyValue,
   CssUnitConfig,
   CssUnitExcludeItem,
   CssCategoryConfig,

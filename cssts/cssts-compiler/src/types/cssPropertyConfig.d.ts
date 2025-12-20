@@ -1,6 +1,6 @@
 /**
  * CSS 属性配置类型定义（自动生成）
- * 包含属性名称、Unit/Category/NumberType、Property 配置类型
+ * 包含基础配置、属性名称、Unit/Category/NumberType、Property 配置类型
  */
 
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
@@ -10,7 +10,25 @@ import type { keywords, allKeywords } from '../data/cssKeywordsData';
 import type { ALL_COLORS } from '../data/cssColorData';
 
 import type { CSSPropertiesType } from './cssProperties';
-import type { CsstsStepConfig } from './csstsStepConfig';
+
+// ==================== 基础配置类型 ====================
+
+/** 渐进步长范围配置 */
+export interface CssProgressiveRange {
+  max: number;
+  divisors: number[];
+}
+
+/** 单位值配置 */
+export interface CsstsStepConfig {
+  step?: number | CssProgressiveRange[];
+  min?: number;
+  max?: number;
+  negative?: boolean;
+  presets?: number[];
+}
+
+export type CssCustomPropertyValue = string | Record<string, string>;
 
 // ==================== 属性名称类型 ====================
 
