@@ -26,9 +26,6 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     // 单位分类配置
     unitCategories: [{
-        pixel: {
-            l
-        }
     }],
     excludeUnitCategories: [],
 

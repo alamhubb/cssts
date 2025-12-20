@@ -135,8 +135,7 @@ export type CssCategoryConfigMap = Partial<Record<CssNumberCategoryName, CssCate
 
 export type CssCategoryConfigItem =
   | CssNumberCategoryName
-  | CssCategoryConfigMapPrecise
-  | CssUnitConfigMap;
+  | CssCategoryConfigMapPrecise;
 
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMapPrecise;
 
@@ -157,8 +156,7 @@ export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCat
 
 export type CssCategoryExcludeItem =
   | CssNumberCategoryName
-  | CssCategoryExcludeMapPrecise
-  | CssUnitExcludeMap;
+  | CssCategoryExcludeMapPrecise;
 
 export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMapPrecise;
 
