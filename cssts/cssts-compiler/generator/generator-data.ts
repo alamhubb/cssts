@@ -544,15 +544,19 @@ function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: stri
     '',
     '// ==================== 伪类 ====================',
     '',
-    'export const pseudoClasses = [',
+    '// camelCase 到 kebab-case 映射',
+    'export const PSEUDO_CLASS_NAME_MAP = {',
   ];
-  pseudoClasses.forEach(p => lines.push(`  '${p}',`));
-  lines.push('] as const;', '');
+  pseudoClasses.forEach(p => lines.push(`  ${kebabToCamel(p)}: '${p}',`));
+  lines.push('} as const;', '');
 
   lines.push('// ==================== 伪元素 ====================', '');
-  lines.push('export const pseudoElements = [');
-  pseudoElements.forEach(p => lines.push(`  '${p}',`));
-  lines.push('] as const;', '');
+  
+  // kebab-to-camel 映射
+  lines.push('// camelCase 到 kebab-case 映射');
+  lines.push('export const PSEUDO_ELEMENT_NAME_MAP = {');
+  pseudoElements.forEach(p => lines.push(`  ${kebabToCamel(p)}: '${p}',`));
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
