@@ -8,12 +8,15 @@ import type {
   CssNumberUnitName,
   CssNumberUnitItem,
   CssNumberCategoryItem,
+  CssNumberCategoryExcludeItem,
   CssNumberTypeItem,
+  CssNumberTypeExcludeItem,
   CssKeywordName,
   CssColorTypeName,
   CssColorTypeItem,
   CssColorName,
   CssPropertyItem,
+  CssPropertyExcludeItem,
   CssPseudoClassName,
   CssPseudoElementName,
   CssPseudoClassConfig,
@@ -24,11 +27,20 @@ export interface CsstsConfig {
   /** CSS 属性配置 */
   properties?: CssPropertyItem[];
 
+  /** 排除的属性配置 */
+  excludeProperties?: CssPropertyExcludeItem[];
+
   /** 数值类型配置 */
   numberTypes?: CssNumberTypeItem[];
 
+  /** 排除的数值类型 */
+  excludeNumberTypes?: CssNumberTypeExcludeItem[];
+
   /** 数值类别配置 */
   numberCategories?: CssNumberCategoryItem[];
+
+  /** 排除的数值类别 */
+  excludeNumberCategories?: CssNumberCategoryExcludeItem[];
 
   /** 数值单位配置 */
   numberUnits?: CssNumberUnitItem[];

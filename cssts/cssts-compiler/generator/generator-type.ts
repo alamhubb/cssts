@@ -99,13 +99,25 @@ export type CssNumberCategoryValue<C extends CssNumberCategoryName> =
   | CssNumberUnitName[]
   | CssNumberUnitConfig;
 
+// 数值类别排除值配置（不含步长）
+export type CssNumberCategoryExcludeValue<C extends CssNumberCategoryName> = 
+  | CssNumberUnitName[];
+
 // 数值类别配置 Map
 export type CssNumberCategoryConfig = {
   [C in CssNumberCategoryName]?: CssNumberCategoryValue<C>;
 };
 
+// 数值类别排除配置 Map
+export type CssNumberCategoryExcludeConfig = {
+  [C in CssNumberCategoryName]?: CssNumberCategoryExcludeValue<C>;
+};
+
 // 数值类别配置项
 export type CssNumberCategoryItem = CssNumberCategoryName | CssNumberCategoryConfig;
+
+// 数值类别排除配置项
+export type CssNumberCategoryExcludeItem = CssNumberCategoryName | CssNumberCategoryExcludeConfig;
 
 // ==================== NumberType 类型 ====================
 
@@ -120,6 +132,10 @@ type NumberTypeCategories<NT extends CssNumberTypeName> =
 type StrictCategoryConfig<T extends CssNumberCategoryName> = 
   { [K in T]?: CssNumberCategoryValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
 
+// 严格的 Category 排除配置（禁止额外属性）
+type StrictCategoryExcludeConfig<T extends CssNumberCategoryName> = 
+  { [K in T]?: CssNumberCategoryExcludeValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
+
 // 数值类型值配置（泛型）
 export type CssNumberTypeValue<NT extends CssNumberTypeName> = 
   | CssStepConfig
@@ -127,13 +143,27 @@ export type CssNumberTypeValue<NT extends CssNumberTypeName> =
   | StrictCategoryConfig<NumberTypeCategories<NT>>
   | CssNumberUnitConfig;
 
+// 数值类型排除值配置（不含步长）
+export type CssNumberTypeExcludeValue<NT extends CssNumberTypeName> = 
+  | NumberTypeCategories<NT>[]
+  | StrictCategoryExcludeConfig<NumberTypeCategories<NT>>
+  | CssNumberUnitName[];
+
 // 数值类型配置 Map
 export type CssNumberTypeConfig = {
   [NT in CssNumberTypeName]?: CssNumberTypeValue<NT>;
 };
 
+// 数值类型排除配置 Map
+export type CssNumberTypeExcludeConfig = {
+  [NT in CssNumberTypeName]?: CssNumberTypeExcludeValue<NT>;
+};
+
 // 数值类型配置项
 export type CssNumberTypeItem = CssNumberTypeName | CssNumberTypeConfig;
+
+// 数值类型排除配置项
+export type CssNumberTypeExcludeItem = CssNumberTypeName | CssNumberTypeExcludeConfig;
 
 // ==================== Keyword 类型 ====================
 
@@ -199,13 +229,36 @@ export type CssPropertyValue<P extends CssPropertyName> = {
   & (PropertyColorTypes<P> extends never ? {} : 
   (StrictColorTypeConfig<PropertyColorTypes<P>> | {}));
 
+// 严格的 NumberType 排除配置（禁止额外属性）
+type StrictNumberTypeExcludeConfig<T extends CssNumberTypeName> = 
+  { [K in T]?: CssNumberTypeExcludeValue<K> } & { [K in Exclude<CssNumberTypeName, T>]?: never };
+
+// 属性排除值配置（不含步长）
+export type CssPropertyExcludeValue<P extends CssPropertyName> = {
+  keywords?: PropertyKeywords<P>[];
+  numberTypes?: PropertyNumberTypes<P>[];
+  colorTypes?: PropertyColorTypes<P>[];
+  colors?: CssColorName[];
+} & (PropertyNumberTypes<P> extends never ? {} : 
+  (StrictNumberTypeExcludeConfig<PropertyNumberTypes<P>> | CssNumberCategoryExcludeConfig | CssNumberUnitName[] | {}))
+  & (PropertyColorTypes<P> extends never ? {} : 
+  (StrictColorTypeConfig<PropertyColorTypes<P>> | {}));
+
 // 属性配置 Map
 export type CssPropertyConfig = {
   [P in CssPropertyName]?: CssPropertyValue<P>;
 };
 
+// 属性排除配置 Map
+export type CssPropertyExcludeConfig = {
+  [P in CssPropertyName]?: CssPropertyExcludeValue<P>;
+};
+
 // 属性配置项
 export type CssPropertyItem = CssPropertyName | CssPropertyConfig;
+
+// 属性排除配置项
+export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeConfig;
 
 // ==================== Pseudo 类型 ====================
 
@@ -249,12 +302,15 @@ import type {
   CssNumberUnitName,
   CssNumberUnitItem,
   CssNumberCategoryItem,
+  CssNumberCategoryExcludeItem,
   CssNumberTypeItem,
+  CssNumberTypeExcludeItem,
   CssKeywordName,
   CssColorTypeName,
   CssColorTypeItem,
   CssColorName,
   CssPropertyItem,
+  CssPropertyExcludeItem,
   CssPseudoClassName,
   CssPseudoElementName,
   CssPseudoClassConfig,
@@ -265,11 +321,20 @@ export interface CsstsConfig {
   /** CSS 属性配置 */
   properties?: CssPropertyItem[];
 
+  /** 排除的属性配置 */
+  excludeProperties?: CssPropertyExcludeItem[];
+
   /** 数值类型配置 */
   numberTypes?: CssNumberTypeItem[];
 
+  /** 排除的数值类型 */
+  excludeNumberTypes?: CssNumberTypeExcludeItem[];
+
   /** 数值类别配置 */
   numberCategories?: CssNumberCategoryItem[];
+
+  /** 排除的数值类别 */
+  excludeNumberCategories?: CssNumberCategoryExcludeItem[];
 
   /** 数值单位配置 */
   numberUnits?: CssNumberUnitItem[];

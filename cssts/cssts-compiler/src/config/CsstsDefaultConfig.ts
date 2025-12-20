@@ -9,13 +9,15 @@ export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
     properties: [{
         width: {
-            length:{
-
-            }
+            length: {}
         }
     }],
     excludeProperties: [{
-        width: {}
+        width: {
+            length: {
+                min: 100
+            }
+        }
     }],
 
     // 数值类型配置
@@ -29,17 +31,21 @@ export const csstsDefaultConfig: CsstsConfig = {
                 }
         },
     ],
-    excludeNumberTypes: [],
+    excludeNumberTypes: [{
+        length:{
+            min: 100
+        }
+    }],
 
-    // 单位分类配置
-    unitCategories: [{}],
-    excludeUnitCategories: [],
+    // 数值类别配置
+    numberCategories: [{}],
+    excludeNumberCategories: [],
 
-    // 单位配置
-    units: {
+    // 数值单位配置
+    numberUnits: [{
         px: {min: 100},
         vw: {min: 100}
-    },
+    }],
     excludeUnits: [],
 
     // 关键字/颜色配置
