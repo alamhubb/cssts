@@ -9,7 +9,9 @@ export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
     properties: [{
         width: {
-            numberTypes: []
+            length:{
+
+            }
         }
     }],
     excludeProperties: [{

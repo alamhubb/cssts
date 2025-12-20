@@ -8,9 +8,10 @@
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP, NUMBER_TYPE_CATEGORY_MAP } from '../data/cssNumberData';
 import type { ALL_NUMBER_TYPES, PROPERTY_NUMBER_TYPES_MAP } from '../data/cssPropertyNumber';
+import type { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import type { KEYWORD_NAME_MAP } from '../data/cssKeywordsData';
-import type { COLOR_NAME_MAP } from '../data/cssColorData';
+import type { ALL_COLOR_TYPES, COLOR_TYPE_COLORS_MAP, COLOR_NAME_MAP } from '../data/cssColorData';
 import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../data/cssPseudoData';
 
 // ==================== 基础配置类型 ====================
@@ -56,10 +57,11 @@ type CategoryUnits<C extends CssNumberCategoryName> = typeof CATEGORY_UNITS_MAP[
 type StrictUnitConfig<T extends CssNumberUnitName> = 
   { [K in T]?: CssStepConfig } & { [K in Exclude<CssNumberUnitName, T>]?: never };
 
-// 数值类别值配置（泛型）
+// 数值类别值配置（泛型）- 允许配置任意单位
 export type CssNumberCategoryValue<C extends CssNumberCategoryName> = 
-  | CategoryUnits<C>[]
-  | StrictUnitConfig<CategoryUnits<C>>;
+  | CssStepConfig
+  | CssNumberUnitName[]
+  | CssNumberUnitConfig;
 
 // 数值类别配置 Map
 export type CssNumberCategoryConfig = {
@@ -102,8 +104,28 @@ export type CssNumberTypeItem = CssNumberTypeName | CssNumberTypeConfig;
 // 关键字名称（camelCase）
 export type CssKeywordName = keyof typeof KEYWORD_NAME_MAP;
 
-// 颜色名称（camelCase）
+// ==================== Color 类型 ====================
+
+// 颜色类型名称
+export type CssColorTypeName = typeof ALL_COLOR_TYPES[number];
+
+// 获取 ColorType 对应的 Color 类型
+type ColorTypeColors<CT extends CssColorTypeName> = typeof COLOR_TYPE_COLORS_MAP[CT][number];
+
+// 颜色名称（kebab-case key）
 export type CssColorName = keyof typeof COLOR_NAME_MAP;
+
+// 颜色类型值配置（泛型）- 允许配置任意颜色
+export type CssColorTypeValue<CT extends CssColorTypeName> = 
+  | CssColorName[];
+
+// 颜色类型配置 Map
+export type CssColorTypeConfig = {
+  [CT in CssColorTypeName]?: CssColorTypeValue<CT>;
+};
+
+// 颜色类型配置项
+export type CssColorTypeItem = CssColorTypeName | CssColorTypeConfig;
 
 // ==================== Property 类型 ====================
 
@@ -118,16 +140,28 @@ type PropertyKeywords<P extends CssPropertyName> =
 type PropertyNumberTypes<P extends CssPropertyName> = 
   P extends keyof typeof PROPERTY_NUMBER_TYPES_MAP ? typeof PROPERTY_NUMBER_TYPES_MAP[P][number] : never;
 
+// 获取属性支持的 ColorTypes
+type PropertyColorTypes<P extends CssPropertyName> = 
+  P extends keyof typeof PROPERTY_COLOR_TYPES_MAP ? typeof PROPERTY_COLOR_TYPES_MAP[P][number] : never;
+
 // 严格的 NumberType 配置（禁止额外属性）
 type StrictNumberTypeConfig<T extends CssNumberTypeName> = 
   { [K in T]?: CssNumberTypeValue<K> } & { [K in Exclude<CssNumberTypeName, T>]?: never };
+
+// 严格的 ColorType 配置（禁止额外属性）
+type StrictColorTypeConfig<T extends CssColorTypeName> = 
+  { [K in T]?: CssColorTypeValue<K> } & { [K in Exclude<CssColorTypeName, T>]?: never };
 
 // 属性值配置（泛型）
 export type CssPropertyValue<P extends CssPropertyName> = {
   keywords?: PropertyKeywords<P>[];
   numberTypes?: PropertyNumberTypes<P>[];
+  colorTypes?: PropertyColorTypes<P>[];
+  colors?: CssColorName[];
 } & (PropertyNumberTypes<P> extends never ? {} : 
-  (StrictNumberTypeConfig<PropertyNumberTypes<P>> | CssNumberCategoryConfig | CssNumberUnitConfig | {}));
+  (StrictNumberTypeConfig<PropertyNumberTypes<P>> | CssNumberCategoryConfig | CssNumberUnitConfig | {}))
+  & (PropertyColorTypes<P> extends never ? {} : 
+  (StrictColorTypeConfig<PropertyColorTypes<P>> | {}));
 
 // 属性配置 Map
 export type CssPropertyConfig = {

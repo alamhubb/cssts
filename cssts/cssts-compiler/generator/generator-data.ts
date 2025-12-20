@@ -169,105 +169,84 @@ function generatePropertyNameFile(propertyMap: Record<string, string>): string {
 
 // ==================== 颜色数据 ====================
 
-interface ColorData {
-  standardColors: string[];
-  systemColors: string[];
-  browserPrefixColors: string[];
-  colorSpaces: string[];
-  specialKeywords: string[];
+// 颜色类型定义（从 csstree 提取）
+const COLOR_TYPES = ['named-color', 'system-color', 'deprecated-system-color', '-non-standard-color'] as const;
+
+interface ColorTypeData {
+  colorTypes: Record<string, string[]>;  // colorType -> colors[]
+  allColors: string[];
 }
 
-function extractAllColors(): ColorData {
+function extractColorData(): ColorTypeData {
   const lexer = (csstree as any).lexer;
-  
-  const standardColors = new Set<string>();
-  const systemColors = new Set<string>();
-  const browserPrefixColors = new Set<string>();
-  const colorSpaces = new Set<string>();
-  const specialKeywords = new Set<string>();
+  const colorTypes: Record<string, string[]> = {};
+  const allColorsSet = new Set<string>();
 
-  const namedColorType = lexer.types['named-color'];
-  if (namedColorType?.syntax) {
-    const keywords = new Set<string>();
-    const numberTypes = new Set<string>();
-    extractFromSyntaxNode(namedColorType.syntax, keywords, numberTypes, lexer);
-    keywords.forEach(k => standardColors.add(k));
-  }
-
-  const colorType = lexer.types['color'];
-  if (colorType?.syntax) {
-    const keywords = new Set<string>();
-    const numberTypes = new Set<string>();
-    extractFromSyntaxNode(colorType.syntax, keywords, numberTypes, lexer);
-    
-    keywords.forEach(k => {
-      if (standardColors.has(k)) return;
-      if (k.startsWith('-moz-') || k.startsWith('-webkit-')) {
-        browserPrefixColors.add(k);
-      } else if (/^[A-Z]/.test(k)) {
-        systemColors.add(k);
-      } else if (['hsl', 'hwb', 'lab', 'lch', 'oklab', 'oklch', 'srgb', 'display-p3', 'a98-rgb', 'prophoto-rgb', 'rec2020', 'xyz', 'xyz-d50', 'xyz-d65'].includes(k)) {
-        colorSpaces.add(k);
-      } else if (['currentColor', 'none', 'transparent', 'hue', 'in', 'increasing', 'decreasing', 'longer', 'shorter'].includes(k)) {
-        specialKeywords.add(k);
+  for (const colorType of COLOR_TYPES) {
+    const typeDef = lexer.types[colorType];
+    if (typeDef?.syntax) {
+      const keywords = new Set<string>();
+      const numberTypes = new Set<string>();
+      extractFromSyntaxNode(typeDef.syntax, keywords, numberTypes, lexer);
+      const colors = Array.from(keywords).sort();
+      if (colors.length > 0) {
+        // 转换 colorType 名称为 camelCase 作为 key
+        const camelColorType = kebabToCamel(colorType);
+        colorTypes[camelColorType] = colors;
+        colors.forEach(c => allColorsSet.add(c));
       }
-    });
+    }
   }
 
   return {
-    standardColors: Array.from(standardColors).sort(),
-    systemColors: Array.from(systemColors).sort(),
-    browserPrefixColors: Array.from(browserPrefixColors).sort(),
-    colorSpaces: Array.from(colorSpaces).sort(),
-    specialKeywords: Array.from(specialKeywords).sort(),
+    colorTypes,
+    allColors: Array.from(allColorsSet).sort(),
   };
 }
 
-function generateColorFile(colorData: ColorData): string {
-  // 直接内联所有颜色到 COLOR_NAME_MAP
-  const allColors = [
-    ...colorData.standardColors,
-    ...colorData.systemColors,
-    ...colorData.browserPrefixColors,
-    ...colorData.colorSpaces,
-    ...colorData.specialKeywords,
-  ].sort();
-
+function generateColorFile(colorData: ColorTypeData): string {
   const lines: string[] = [
     '/**',
     ' * CSS 颜色数据（自动生成）',
-    ' * 格式：kebab-case -> camelCase',
+    ' * 包含颜色类型和颜色映射',
     ' */',
     '',
-    '// kebab-case 到 camelCase 映射',
-    'export const COLOR_NAME_MAP = {',
   ];
 
-  allColors.forEach(c => lines.push(`  '${c}': '${kebabToCamel(c)}',`));
+  // ==================== ALL_COLOR_TYPES ====================
+  const colorTypeNames = Object.keys(colorData.colorTypes).sort();
+  lines.push(`export const ALL_COLOR_TYPES = [${colorTypeNames.map(t => `'${t}'`).join(', ')}] as const;`, '');
+
+  // ==================== COLOR_TYPE_COLORS_MAP ====================
+  lines.push('// ColorType -> Colors 映射（使用 camelCase）');
+  lines.push('export const COLOR_TYPE_COLORS_MAP = {');
+  for (const [colorType, colors] of Object.entries(colorData.colorTypes)) {
+    const camelColors = colors.map(c => kebabToCamel(c));
+    lines.push(`  ${colorType}: [${camelColors.map(c => `'${c}'`).join(', ')}] as const,`);
+  }
+  lines.push('} as const;', '');
+
+  // ==================== COLOR_NAME_MAP ====================
+  lines.push('// kebab-case 到 camelCase 映射');
+  lines.push('export const COLOR_NAME_MAP = {');
+  colorData.allColors.forEach(c => lines.push(`  '${c}': '${kebabToCamel(c)}',`));
   lines.push('} as const;', '');
 
   return lines.join('\n');
 }
 
 
-// ==================== 属性 Keywords 和 NumberTypes ====================
+// ==================== 属性 Keywords、NumberTypes 和 ColorTypes ====================
 
 interface PropertyData {
   keywords: string[];
   numberTypes: string[];
+  colorTypes: string[];
 }
 
-function extractPropertyData(): Record<string, PropertyData> {
+function extractPropertyData(allColors: Set<string>, colorTypeColorsMap: Record<string, string[]>): Record<string, PropertyData> {
   const lexer = (csstree as any).lexer;
   const propertyData: Record<string, PropertyData> = {};
-  const colorData = extractAllColors();
-  const allColors = new Set([
-    ...colorData.standardColors,
-    ...colorData.systemColors,
-    ...colorData.browserPrefixColors,
-    ...colorData.colorSpaces,
-    ...colorData.specialKeywords,
-  ]);
 
   const properties = lexer.properties as Record<string, any>;
   
@@ -285,14 +264,21 @@ function extractPropertyData(): Record<string, PropertyData> {
     const colorKeywords = Array.from(keywords).filter(k => allColors.has(k));
     const nonColorKeywords = Array.from(keywords).filter(k => !allColors.has(k));
     
-    // 如果有颜色 keywords，用 __COLORS__ 标记替代
-    const finalKeywords = colorKeywords.length > 0 
-      ? [...nonColorKeywords, '__COLORS__']
-      : nonColorKeywords;
+    // 确定属性支持的 colorTypes
+    const supportedColorTypes: string[] = [];
+    if (colorKeywords.length > 0) {
+      for (const [colorType, colors] of Object.entries(colorTypeColorsMap)) {
+        // 如果属性的颜色 keywords 包含该 colorType 的任意颜色，则支持该 colorType
+        if (colors.some(c => colorKeywords.includes(c))) {
+          supportedColorTypes.push(colorType);
+        }
+      }
+    }
 
     propertyData[propName] = {
-      keywords: finalKeywords.sort(),
+      keywords: nonColorKeywords.sort(),
       numberTypes: Array.from(numberTypes).sort(),
+      colorTypes: supportedColorTypes.sort(),
     };
   }
 
@@ -305,8 +291,6 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     ' * CSS 属性 Keywords（自动生成）',
     ' */',
     '',
-    "import { COLOR_NAME_MAP } from './cssColorData';",
-    '',
   ];
 
   const sortedProps = Object.keys(propertyData)
@@ -318,21 +302,7 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
   for (const propName of sortedProps) {
     const data = propertyData[propName];
     const camelName = kebabToCamel(propName);
-    
-    const hasColors = data.keywords.includes('__COLORS__');
-    const nonColorKeywords = data.keywords.filter(k => k !== '__COLORS__');
-    
-    if (hasColors && nonColorKeywords.length === 0) {
-      // 只有颜色
-      lines.push(`  ${camelName}: Object.keys(COLOR_NAME_MAP) as (keyof typeof COLOR_NAME_MAP)[],`);
-    } else if (hasColors) {
-      // 既有颜色也有其他 keywords
-      const keywordsStr = nonColorKeywords.map(k => `'${k}'`).join(', ');
-      lines.push(`  ${camelName}: [${keywordsStr}, ...Object.keys(COLOR_NAME_MAP)] as const,`);
-    } else {
-      // 只有非颜色 keywords
-      lines.push(`  ${camelName}: [${data.keywords.map(k => `'${k}'`).join(', ')}] as const,`);
-    }
+    lines.push(`  ${camelName}: [${data.keywords.map(k => `'${k}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
@@ -366,6 +336,30 @@ function generatePropertyNumberTypesFile(propertyData: Record<string, PropertyDa
     const data = propertyData[propName];
     const camelName = kebabToCamel(propName);
     lines.push(`  ${camelName}: [${data.numberTypes.map(t => `'${t}'`).join(', ')}] as const,`);
+  }
+  lines.push('} as const;', '');
+
+  return lines.join('\n');
+}
+
+function generatePropertyColorTypesFile(propertyData: Record<string, PropertyData>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 属性 ColorTypes（自动生成）',
+    ' */',
+    '',
+  ];
+
+  const sortedProps = Object.keys(propertyData)
+    .filter(p => propertyData[p].colorTypes.length > 0)
+    .sort();
+
+  // 直接生成 PROPERTY_COLOR_TYPES_MAP，内联所有值
+  lines.push('export const PROPERTY_COLOR_TYPES_MAP = {');
+  for (const propName of sortedProps) {
+    const data = propertyData[propName];
+    const camelName = kebabToCamel(propName);
+    lines.push(`  ${camelName}: [${data.colorTypes.map(t => `'${t}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
@@ -468,7 +462,7 @@ function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: stri
 
 // ==================== Keywords（从 csstree） ====================
 
-function extractKeywordsFromCsstree(): Set<string> {
+function extractKeywordsFromCsstree(allColors: Set<string>): Set<string> {
   const lexer = (csstree as any).lexer;
   const keywords = new Set<string>();
 
@@ -476,7 +470,10 @@ function extractKeywordsFromCsstree(): Set<string> {
     if (!node) return;
     switch (node.type) {
       case 'Keyword':
-        keywords.add(node.name);
+        // 排除颜色
+        if (!allColors.has(node.name)) {
+          keywords.add(node.name);
+        }
         break;
       case 'Type':
         if (!visited.has(node.name)) {
@@ -539,9 +536,10 @@ function main() {
 
   // 从 csstree 提取
   const propertyMap = generatePropertyNameMap();
-  const colorData = extractAllColors();
-  const propertyData = extractPropertyData();
-  const keywords = extractKeywordsFromCsstree();
+  const colorData = extractColorData();
+  const allColorsSet = new Set(colorData.allColors);
+  const propertyData = extractPropertyData(allColorsSet, colorData.colorTypes);
+  const keywords = extractKeywordsFromCsstree(allColorsSet);
 
   // 从 datajson 读取
   const numberMapping = loadNumberMapping();
@@ -560,6 +558,9 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'cssPropertyNumber.ts'), generatePropertyNumberTypesFile(propertyData));
   console.log('✅ src/data/cssPropertyNumber.ts');
 
+  fs.writeFileSync(path.join(dataDir, 'cssPropertyColorTypes.ts'), generatePropertyColorTypesFile(propertyData));
+  console.log('✅ src/data/cssPropertyColorTypes.ts');
+
   fs.writeFileSync(path.join(dataDir, 'cssNumberData.ts'), generateCssNumberDataFile(numberMapping));
   console.log('✅ src/data/cssNumberData.ts');
 
@@ -572,7 +573,8 @@ function main() {
   console.log(`\n📊 统计信息:`);
   console.log(`   属性数: ${Object.keys(propertyMap).length}`);
   console.log(`   Keywords 数: ${keywords.size}`);
-  console.log(`   颜色数: ${colorData.standardColors.length + colorData.systemColors.length}`);
+  console.log(`   颜色类型数: ${Object.keys(colorData.colorTypes).length}`);
+  console.log(`   颜色数: ${colorData.allColors.length}`);
   console.log(`   伪类数: ${pseudoStandards.pseudoClasses.length}`);
   console.log(`   伪元素数: ${pseudoStandards.pseudoElements.length}`);
   console.log('\n✨ 数据文件生成完成!');

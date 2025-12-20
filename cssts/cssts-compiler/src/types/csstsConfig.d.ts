@@ -10,6 +10,8 @@ import type {
   CssNumberCategoryItem,
   CssNumberTypeItem,
   CssKeywordName,
+  CssColorTypeName,
+  CssColorTypeItem,
   CssColorName,
   CssPropertyItem,
   CssPseudoClassName,
@@ -39,6 +41,12 @@ export interface CsstsConfig {
 
   /** 排除的关键字 */
   excludeKeywords?: CssKeywordName[];
+
+  /** 颜色类型配置 */
+  colorTypes?: CssColorTypeItem[];
+
+  /** 排除的颜色类型 */
+  excludeColorTypes?: CssColorTypeName[];
 
   /** 颜色 */
   colors?: CssColorName[];
