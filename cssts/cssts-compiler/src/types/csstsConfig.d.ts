@@ -27,10 +27,18 @@ export interface CsstsStepConfig {
     presets?: number[];                   // 额外的预设值（与 step 生成的合并）
 }
 
-// ==================== 层级配置类型 ====================
+// ==================== 层级配置类型（从下到上依赖） ====================
 
 /**
- * 分类值配置
+ * 单位配置项（最底层）
+ * 可以是字符串（简单启用）或对象（带配置）
+ */
+export type UnitConfigItem =
+    | CssNumberUnitName
+    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
+/**
+ * 分类值配置（依赖 UnitConfigItem）
  * 支持多种格式：
  * - CsstsStepConfig - 直接配置整个分类
  * - CssNumberUnitName[] - 指定支持的单位列表
@@ -42,7 +50,20 @@ export type CategoryValueConfig =
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
- * 数值类型值配置
+ * 单位分类配置项（依赖 CategoryValueConfig）
+ * 字符串只支持当前层级（category），对象支持跨级
+ * - 'pixel' - 简单启用 category
+ * - { pixel: { px: { min: 0 } } } - 完整路径
+ * - { pixel: ['px', 'rem'] } - 指定支持的单位列表
+ * - { px: { min: 100 } } - 跨级：直接配置 unit
+ */
+export type UnitCategoryConfigItem =
+    | CssNumberCategoryName
+    | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
+    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
+/**
+ * 数值类型值配置（依赖 CategoryValueConfig）
  * 支持多种格式：
  * - CsstsStepConfig - 直接配置整个数值类型
  * - CssNumberCategoryName[] - 指定支持的分类列表
@@ -56,7 +77,7 @@ export type NumberTypeValueConfig =
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
- * 数值类型配置项
+ * 数值类型配置项（依赖 NumberTypeValueConfig, CategoryValueConfig）
  * 字符串只支持当前层级（numberType），对象支持跨级
  * - 'length' - 简单启用 numberType
  * - { length: { pixel: { px: { min: 0 } } } } - 完整路径
@@ -71,49 +92,65 @@ export type NumberTypeConfigItem =
     | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
+// ==================== 排除配置类型（从下到上依赖） ====================
+
 /**
- * 单位分类配置项
- * 字符串只支持当前层级（category），对象支持跨级
- * - 'pixel' - 简单启用 category
- * - { pixel: { px: { min: 0 } } } - 完整路径
- * - { pixel: ['px', 'rem'] } - 指定支持的单位列表
- * - { px: { min: 100 } } - 跨级：直接配置 unit
+ * 单位排除项（最底层）
+ * 只支持字符串形式
  */
-export type UnitCategoryConfigItem =
-    | CssNumberCategoryName
-    | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+export type UnitExcludeItem = CssNumberUnitName;
 
 /**
- * 单位配置项
- * 可以是字符串（简单启用）或对象（带配置）
+ * 分类排除值配置（依赖 UnitExcludeItem）
+ * - UnitExcludeItem[] - 排除指定的单位列表
  */
-export type UnitConfigItem =
-    | CssNumberUnitName
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
-
-// ==================== 排除配置类型 ====================
+export type CategoryExcludeValueConfig = UnitExcludeItem[];
 
 /**
- * 数值类型排除项
- */
-export type NumberTypeExcludeItem =
-    | CssNumberTypeName
-    | Record<CssNumberTypeName, string[] | Record<string, string[]>>;
-
-/**
- * 单位分类排除项
+ * 单位分类排除项（依赖 CategoryExcludeValueConfig）
+ * 字符串只支持 category 名称，对象支持配置要排除的单位
  */
 export type UnitCategoryExcludeItem =
     | CssNumberCategoryName
-    | Record<CssNumberCategoryName, string[]>;
+    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
 
 /**
- * 单位排除项
+ * 数值类型排除值配置（依赖 CategoryExcludeValueConfig）
+ * - CssNumberCategoryName[] - 排除指定的分类列表
+ * - Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>> - 排除分类下的单位
  */
-export type UnitExcludeItem =
-    | CssNumberUnitName
-    | Record<CssNumberUnitName, {}>;
+export type NumberTypeExcludeValueConfig =
+    | CssNumberCategoryName[]
+    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+
+/**
+ * 数值类型排除项（依赖 NumberTypeExcludeValueConfig, CategoryExcludeValueConfig）
+ * 字符串只支持 numberType 名称，对象支持跨级
+ */
+export type NumberTypeExcludeItem =
+    | CssNumberTypeName
+    | Partial<Record<CssNumberTypeName, NumberTypeExcludeValueConfig>>
+    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+
+/**
+ * 属性排除值配置（依赖 NumberTypeExcludeValueConfig, CategoryExcludeValueConfig）
+ * 不支持 CsstsStepConfig
+ */
+export interface CssPropertyExcludeValueConfig {
+    numberTypes?: CssNumberTypeName[];
+    keywords?: CssKeywordName[];
+    colors?: CssColorName[];
+    [key: string]: CssNumberTypeName[] | CssKeywordName[] | CssColorName[] | NumberTypeExcludeValueConfig | CategoryExcludeValueConfig | undefined;
+}
+
+/**
+ * 属性排除项（依赖 CssPropertyExcludeValueConfig, NumberTypeExcludeItem, CategoryExcludeValueConfig）
+ * 字符串只支持属性名称，对象支持跨级
+ */
+export type CssPropertyExcludeItem =
+    | CssPropertyName
+    | Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>
+    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
 
 // ==================== 属性配置类型 ====================
 
@@ -184,8 +221,9 @@ export interface CsstsConfig {
     /**
      * 排除的属性列表（黑名单）
      * 仅当 properties 为空时生效
+     * 支持跨级配置（不支持 CsstsStepConfig）
      */
-    excludeProperties?: CssPropertyName[];
+    excludeProperties?: CssPropertyExcludeItem[];
 
     // ==================== 数值类型配置 ====================
 
