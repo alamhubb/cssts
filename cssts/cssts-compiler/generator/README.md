@@ -89,6 +89,25 @@ npx tsx generator/generator-config-type.ts
    生成 src/config/ 下的所有类型定义
 ```
 
+## generator-all.ts 生成的文件
+
+运行 `npx tsx generator/generator-all.ts` 会生成以下文件：
+
+### src/data/ 目录
+- `keywordConstants.ts` - CSS Keywords 常量
+- `keywords.ts` - CSS Keywords 数组
+- `allKeywords.ts` - 所有 Keywords 和 Colors
+- `pseudoClasses.ts` - CSS 伪类数据
+- `pseudoElements.ts` - CSS 伪元素数据
+
+### src/types/ 目录
+- `cssKeywords.d.ts` - Keywords 类型定义
+- `numberTypes.d.ts` - NumberTypes 类型定义
+- `cssPseudoClassElement.d.ts` - 伪类/伪元素类型定义
+- `pseudoStyles.d.ts` - 伪类/伪元素样式类型定义
+- `cssPropertyConfig.d.ts` - CSS 属性配置类型定义
+- `csstsConfig.d.ts` - CSSTS 配置类型定义（包含 CsstsConfig 接口）
+
 ## NumberTypes 处理
 
 ### 两种 NumberTypes 数据的区别

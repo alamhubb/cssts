@@ -5,8 +5,7 @@
  */
 
 import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
-import type { ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
-import type { ALL_UNITS } from '../data/units';
+import type { ALL_NUMBER_CATEGORIES, ALL_UNITS } from '../data/numberTypeCategory';
 
 // ==================== NumberTypes 名称 ====================
 

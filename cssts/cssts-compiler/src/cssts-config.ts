@@ -5,167 +5,83 @@
  * 提供用户配置接口和创建函数
  */
 
-// TODO: 这些导入需要创建对应的模块文件
-// import type {AllColorValue} from './config/colors';
-// import type {NumberTypeName, UnitType, UnitCategoryName} from './config/units';
-// import type {KeywordValue} from './config/keywords';
-// import {CssPropertyConfigMap, type CssPropertyCamelName} from './config/property-config';
-// import type {PseudoClassName} from './config/pseudo';
-// import type {PseudoElementName} from './config/pseudo';
-// import {
-//     PseudoClassStylesConfig,
-//     PseudoElementStylesConfig,
-// } from './config/pseudo-styles.js';
+import type {
+    ProgressiveRange,
+    CssCategoryConfig,
+    CssPropertyConfig,
+    CsstsConfig,
+    CsstsConfigRequired,
+} from './types/csstsConfig';
 
-// 临时类型定义（待替换为实际模块）
-type AllColorValue = string;
-type NumberTypeName = string;
-type UnitType = string;
-type UnitCategoryName = string;
-type KeywordValue = string;
-type CssPropertyCamelName = string;
-type CssPropertyConfigMap = Record<string, any>;
-type PseudoClassName = string;
-type PseudoElementName = string;
-type PseudoClassStylesConfig = Record<string, any>;
-type PseudoElementStylesConfig = Record<string, any>;
-
-import {
-    type ProgressiveRange,
-    type StepConfig,
-    type UnitValueConfig,
-    type UnitCategoryConfig,
-} from './types/value';
-import {
-    type UnitsConfigValue,
-    type NumberTypeConfigItem,
-    type UnitCategoryConfigItem,
-    type UnitConfigItem,
-    type NumberTypeExcludeItem,
-    type UnitCategoryExcludeItem,
-    type UnitExcludeItem,
-} from './types/config';
-
-// ==================== 重新导出配置相关类型和常量 ====================
-
+// 重新导出类型
 export type {
     ProgressiveRange,
-    StepConfig,
-    UnitValueConfig,
-    UnitsConfigValue,
-    UnitCategoryConfig,
-    NumberTypeConfigItem,
-    UnitCategoryConfigItem,
-    UnitConfigItem,
-    NumberTypeExcludeItem,
-    UnitCategoryExcludeItem,
-    UnitExcludeItem,
-};
+    CsstsStepConfig,
+    CssUnitConfigMap,
+    CssUnitConfigItem,
+    CssUnitConfig,
+    CssCategoryValueConfig,
+    CssCategoryConfigMap,
+    CssCategoryConfigItem,
+    CssCategoryConfig,
+    CssNumberTypeValueConfig,
+    CssNumberTypeConfigMap,
+    CssNumberTypeConfigItem,
+    CssNumberTypeConfig,
+    CssUnitExcludeItem,
+    CssUnitExcludeMap,
+    CssCategoryExcludeValueConfig,
+    CssCategoryExcludeMap,
+    CssCategoryExcludeItem,
+    CssCategoryExcludeConfig,
+    CssNumberTypeExcludeValueConfig,
+    CssNumberTypeExcludeMap,
+    CssNumberTypeExcludeItem,
+    CssNumberTypeExcludeConfig,
+    CssPropertyExcludeValueConfig,
+    CssPropertyExcludeMap,
+    CssPropertyExcludeItem,
+    CssPropertyExcludeConfig,
+    CustomPropertyValue,
+    CssPropertyBaseConfig,
+    CssPropertyValueConfig,
+    CssPropertyConfigMap,
+    CssPropertyConfigItem,
+    CssPropertyConfig,
+    CsstsConfig,
+    CsstsConfigRequired,
+} from './types/csstsConfig';
 
-// ==================== 类型定义 ====================
-
-/** 自定义属性值类型 */
-export type CustomPropertyValue = string | Record<string, string>;
-
+/** 单位分类配置（用于默认配置） */
+interface UnitCategoryDefaultConfig {
+    min?: number;
+    max?: number;
+    step?: number | ProgressiveRange[];
+    negative?: boolean;
+    presets?: number[];
+}
 
 // ==================== 合并所有核心属性 ====================
-export const cssDefaultProperties: CssPropertyCamelName[] = [
-    // ==================== 布局属性 ====================
+export const cssDefaultProperties: string[] = [
     'top',
 ];
-
-
-/*export const cssDefaultProperties: CssPropertyCamelName[] = [
-    // ==================== 布局属性 ====================
-    'display',
-    'position',
-    'top',
-    'right',
-    'bottom',
-    'left',
-    'inset',
-    'zIndex',
-    'float',
-    'clear',
-
-    // ==================== Flexbox 属性 ====================
-    'flex',
-    'flexDirection',
-    'justifyContent',
-    'alignItems',
-    'gap',
-
-    // ==================== Grid 属性 ====================
-    'gridTemplateColumns',
-    'gridTemplateRows',
-
-    // ==================== 尺寸属性 ====================
-    'width',
-    'height',
-    'minWidth',
-    'maxWidth',
-    'minHeight',
-    'maxHeight',
-
-    // ==================== 间距属性 ====================
-    'margin',
-    'padding',
-
-    // ==================== 背景属性 ====================
-    'backgroundColor',
-    'backgroundImage',
-    'backgroundSize',
-
-    // ==================== 文本属性 ====================
-    'color',
-    'fontSize',
-    'fontWeight',
-    'lineHeight',
-    'textAlign',
-
-    // ==================== 边框属性 ====================
-    'border',
-    'borderColor',
-    'borderRadius',
-    'borderWidth',
-
-    // ==================== 阴影属性 ====================
-    'boxShadow',
-    'textShadow',
-
-    // ==================== 变换属性 ====================
-    'transform',
-    'rotate',
-    'scale',
-    'translate',
-
-    // ==================== 过渡属性 ====================
-    'transition',
-    'animation',
-
-    // ==================== 其他属性 ====================
-    'opacity',
-    'cursor',
-    'overflow',
-];*/
-
 
 // ==================== 系统级别默认配置 ====================
 
 /** 默认渐进步长策略 */
 export const DEFAULT_PROGRESSIVE_RANGES: ProgressiveRange[] = [
-    {max: 100, divisors: [1]},         // 0-100: 每个整数
-    {max: 200, divisors: [2, 5]},      // 100-200: 能被 2 或 5 整除
-    {max: 500, divisors: [5]},         // 200-500: 能被 5 整除
-    {max: 1000, divisors: [10]},       // 500-1000: 能被 10 整除
-    {max: 2000, divisors: [20, 50]},   // 1000-2000: 能被 20 或 50 整除
-    {max: 5000, divisors: [50]},       // 2000-5000: 能被 50 整除
-    {max: 10000, divisors: [100]},     // 5000-10000: 能被 100 整除
-    {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
+    { max: 100, divisors: [1] },         // 0-100: 每个整数
+    { max: 200, divisors: [2, 5] },      // 100-200: 能被 2 或 5 整除
+    { max: 500, divisors: [5] },         // 200-500: 能被 5 整除
+    { max: 1000, divisors: [10] },       // 500-1000: 能被 10 整除
+    { max: 2000, divisors: [20, 50] },   // 1000-2000: 能被 20 或 50 整除
+    { max: 5000, divisors: [50] },       // 2000-5000: 能被 50 整除
+    { max: 10000, divisors: [100] },     // 5000-10000: 能被 100 整除
+    { max: Infinity, divisors: [1000] }, // 10000+: 能被 1000 整除
 ];
 
 /** 默认数值类型列表 - 包含所有常用数值类型 */
-export const DEFAULT_NUMBER_TYPES: NumberTypeName[] = [
+export const DEFAULT_NUMBER_TYPES: string[] = [
     'length',
     'angle',
     'time',
@@ -183,11 +99,10 @@ export const DEFAULT_NUMBER_TYPES: NumberTypeName[] = [
  * 基于分类配置数值，同一分类下的所有单位共享相同的数值范围
  * 使用 presets 模式可以精确控制生成的数值
  */
-export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategoryConfig> = {
+export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<string, UnitCategoryDefaultConfig> = {
     // pixel 单位分类 - Tailwind spacing scale
     pixel: {
         negative: true,
-        // Tailwind 4px 基准间距系统（精简版）
         presets: [
             0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 40, 48,
             56, 64, 80, 96, 128, 160, 192, 224, 256, 320, 384,
@@ -197,7 +112,6 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
     // 百分比类 (%, vw, vh, vmin, vmax, etc.)
     percentage: {
         negative: false,
-        // 常用百分比值
         presets: [0, 10, 20, 25, 30, 33.333333, 40, 50, 60, 66.666667, 70, 75, 80, 90, 100],
     },
 
@@ -250,202 +164,6 @@ export const DEFAULT_UNIT_CATEGORY_CONFIGS: Record<UnitCategoryName, UnitCategor
     },
 };
 
-// ==================== CSSTS 配置接口 ====================
-
-/**
- * CSSTS 配置接口
- * 
- * 定义所有配置项的结构
- */
-export interface CsstsConfig {
-    // ==================== 属性配置 ====================
-
-    /**
-     * 支持的属性列表（白名单）
-     * 可以是属性名数组或属性配置对象
-     * 如果配置了此项，则只生成这些属性的原子类，忽略 excludeProperties
-     * 为空或 undefined 时使用 excludeProperties 逻辑
-     * 
-     * @example
-     * properties: ['width', 'height', 'margin']
-     * 
-     * @example
-     * properties: {
-     *   width: { numberTypes: ['length'] },
-     *   height: { numberTypes: ['length'] }
-     * }
-     */
-    properties?: CssPropertyCamelName[] | CssPropertyConfigMap;
-
-    /**
-     * 排除的属性列表（黑名单）
-     * 仅当 properties 为空时生效
-     * 默认排除冷门属性（基于 Tailwind 经验，98% 用不到的属性）
-     */
-    excludeProperties?: CssPropertyCamelName[];
-
-    // ==================== 数值类型配置 ====================
-
-    /**
-     * 支持的数值类型列表（白名单）
-     * 可以是字符串数组或混合数组（字符串 + 对象）
-     * 对象格式：{ numberType: { unitCategory: { unit: { step: 4 } } } }
-     *
-     * @example
-     * numberTypes: [
-     *   'length',
-     *   { time: { px: { px: { step: 4 } } } }
-     * ]
-     */
-    numberTypes?: NumberTypeConfigItem<NumberTypeName>[];
-
-    /**
-     * 排除的数值类型列表（黑名单）
-     * 仅当 numberTypes 为空时生效
-     * 支持混合数组格式，可以排除整个数值类型、特定单位或特定分类下的单位
-     *
-     * @example
-     * excludeNumberTypes: [
-     *   'angle',                           // 排除整个 angle 数值类型
-     *   { time: ['ms', 's'] },             // 排除 time 类型下的 ms 和 s 单位
-     *   { length: { pixel: ['px'] } }      // 排除 length 类型中 pixel 分类下的 px
-     * ]
-     */
-    excludeNumberTypes?: NumberTypeExcludeItem<NumberTypeName>[];
-
-    // ==================== 单位分类配置 ====================
-
-    /**
-     * 支持的单位分类列表（白名单）
-     * 可以是字符串数组或混合数组（字符串 + 对象）
-     * 对象格式：{ unitCategory: { unit: { step: 4 } } }
-     *
-     * 默认包含除了系统级别低频分类外的所有分类
-     *
-     * @example
-     * unitCategories: [
-     *   'pixel',
-     *   { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } }
-     * ]
-     */
-    unitCategories?: UnitCategoryConfigItem<UnitCategoryName>[];
-
-    /**
-     * 排除的单位分类列表（黑名单）
-     * 仅当 unitCategories 为空时生效
-     * 支持混合数组格式，可以排除整个分类或特定单位
-     *
-     * @example
-     * excludeUnitCategories: [
-     *   'resolution',               // 排除整个 resolution 分类
-     *   { pixel: ['px'] }           // 排除 pixel 分类下的 px 单位
-     * ]
-     */
-    excludeUnitCategories?: UnitCategoryExcludeItem<UnitCategoryName>[];
-
-    // ==================== 单位配置 ====================
-
-    /**
-     * 支持的单位列表（白名单）
-     * 可以是字符串数组或混合数组（字符串 + 对象）
-     * 对象格式：{ unit: { step: 4, max: 500 } }
-     *
-     * @example
-     * units: [
-     *   'px',
-     *   'em',
-     *   { px: { step: 4, max: 500 } }  // px is the unit name, not category
-     * ]
-     */
-    units?: UnitConfigItem<UnitType>[];
-
-    /**
-     * 排除的单位列表（黑名单）
-     * 仅当 units 为空时生效
-     * 支持混合数组格式（为了保持一致性）
-     *
-     * @example
-     * excludeUnits: [
-     *   'px',
-     *   'em',
-     *   { dpi: {} }
-     * ]
-     */
-    excludeUnits?: UnitExcludeItem<UnitType>[];
-
-    // ==================== 关键字/颜色配置 ====================
-
-    /**
-     * 支持的关键字列表（白名单）
-     * 如果配置了此项，则只生成这些关键字，忽略 excludeKeywords
-     */
-    keywords?: KeywordValue[];
-
-    /**
-     * 排除的关键字列表（黑名单）
-     * 仅当 keywords 为空时生效
-     * 只需要名字列表，不支持配置
-     */
-    excludeKeywords?: KeywordValue[];
-
-    /**
-     * 支持的颜色列表（白名单）
-     * 如果配置了此项，则只生成这些颜色，忽略 excludeColors
-     */
-    colors?: AllColorValue[];
-
-    /**
-     * 排除的颜色列表（黑名单）
-     * 仅当 colors 为空时生效
-     * 只需要名字列表，不支持配置
-     */
-    excludeColors?: AllColorValue[];
-
-    // ==================== 其他配置 ====================
-
-    /** 自定义属性 */
-    customProperties?: Record<string, CustomPropertyValue>;
-
-    /** 渐进步长策略（不设置则使用默认策略） */
-    progressiveRanges?: ProgressiveRange[];
-
-    // ==================== 伪类/伪元素配置 ====================
-
-    /**
-     * 支持的伪类列表（白名单）
-     * 如果配置了此项，则只生成这些伪类，忽略 excludePseudoClasses
-     */
-    pseudoClasses?: PseudoClassName[];
-
-    /**
-     * 排除的伪类列表（黑名单）
-     * 仅当 pseudoClasses 为空时生效
-     * 只需要名字列表，不支持配置
-     */
-    excludePseudoClasses?: PseudoClassName[];
-
-    /**
-     * 支持的伪元素列表（白名单）
-     * 如果配置了此项，则只生成这些伪元素，忽略 excludePseudoElements
-     */
-    pseudoElements?: PseudoElementName[];
-
-    /**
-     * 排除的伪元素列表（黑名单）
-     * 仅当 pseudoElements 为空时生效
-     * 只需要名字列表，不支持配置
-     */
-    excludePseudoElements?: PseudoElementName[];
-
-    // ==================== 伪类/伪元素样式配置 ====================
-
-    /** 伪类样式配置（当变量名包含伪类后缀时自动添加的样式） */
-    pseudoClassesConfig?: PseudoClassStylesConfig;
-
-    /** 伪元素样式配置 */
-    pseudoElementsConfig?: PseudoElementStylesConfig;
-}
-
 // ==================== 配置创建函数 ====================
 
 /**
@@ -453,52 +171,27 @@ export interface CsstsConfig {
  *
  * @param options 可选的配置对象，用于覆盖默认值
  * @returns 完整的配置对象，所有字段都有默认值
- *
- * @example
- * // 使用默认配置
- * const config = createConfig();
- *
- * @example
- * // 只生成指定属性
- * const config = createConfig({
- *   properties: ['width', 'height', 'margin', 'padding'],
- * });
- *
- * @example
- * // 只使用 pixel 和百分比单位
- * const config = createConfig({
- *   unitCategories: ['pixel', 'percentage'],
- * });
- *
- * @example
- * // 自定义单位分类配置
- * const config = createConfig({
- *   unitCategories: [
- *     { pixel: { px: { presets: [0, 4, 8, 16, 32, 64] } } },
- *     { percentage: { '%': { presets: [0, 25, 50, 75, 100] } } },
- *   ],
- * });
  */
-export function createConfig(options: CsstsConfig = {}): Required<CsstsConfig> {
+export function createConfig(options: CsstsConfig = {}): CsstsConfigRequired {
     return {
         // ==================== 其他配置 ====================
         customProperties: options.customProperties ?? {},
         progressiveRanges: options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES,
 
         // ==================== 属性配置 ====================
-        properties: options.properties ?? cssDefaultProperties,
+        properties: options.properties ?? (cssDefaultProperties as CssPropertyConfig),
         excludeProperties: options.excludeProperties ?? [],
 
         // ==================== 数值类型配置 ====================
-        numberTypes: options.numberTypes,
+        numberTypes: options.numberTypes ?? [],
         excludeNumberTypes: options.excludeNumberTypes ?? [],
 
         // ==================== 单位分类配置 ====================
-        unitCategories: options.unitCategories ?? [DEFAULT_UNIT_CATEGORY_CONFIGS],
+        unitCategories: options.unitCategories ?? (DEFAULT_UNIT_CATEGORY_CONFIGS as unknown as CssCategoryConfig),
         excludeUnitCategories: options.excludeUnitCategories ?? [],
 
         // ==================== 单位配置 ====================
-        units: options.units,
+        units: options.units ?? [],
         excludeUnits: options.excludeUnits ?? [],
 
         // ==================== 关键字/颜色配置 ====================
@@ -508,14 +201,14 @@ export function createConfig(options: CsstsConfig = {}): Required<CsstsConfig> {
         excludeColors: options.excludeColors ?? [],
 
         // ==================== 伪类/伪元素配置 ====================
-        pseudoClasses: options.pseudoClasses,
+        pseudoClasses: options.pseudoClasses ?? [],
         excludePseudoClasses: options.excludePseudoClasses ?? [],
-        pseudoElements: options.pseudoElements,
+        pseudoElements: options.pseudoElements ?? [],
         excludePseudoElements: options.excludePseudoElements ?? [],
 
         // ==================== 伪类/伪元素样式配置 ====================
-        pseudoClassesConfig: options.pseudoClassesConfig,
-        pseudoElementsConfig: options.pseudoElementsConfig,
+        pseudoClassesConfig: options.pseudoClassesConfig ?? {},
+        pseudoElementsConfig: options.pseudoElementsConfig ?? {},
     };
 }
 

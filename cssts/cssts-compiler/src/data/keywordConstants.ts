@@ -801,7 +801,7 @@ export const KEYWORD_SPELLING_ERROR = 'spelling-error' as const;
 export const KEYWORD_SPRINGGREEN = 'springgreen' as const;
 export const KEYWORD_SQUARE = 'square' as const;
 export const KEYWORD_SQUARE_BUTTON = 'square-button' as const;
-export const KEYWORD_SRGB = 'srgb' as const;
+export const KEYWORD_SRGB_1 = 'srgb' as const;
 export const KEYWORD_SRGB_LINEAR = 'srgb-linear' as const;
 export const KEYWORD_STABLE = 'stable' as const;
 export const KEYWORD_STACKED_FRACTIONS = 'stacked-fractions' as const;
@@ -1738,7 +1738,7 @@ export const KEYWORD_MAP: Record<string, string> = {
   'springgreen': KEYWORD_SPRINGGREEN,
   'square': KEYWORD_SQUARE,
   'square-button': KEYWORD_SQUARE_BUTTON,
-  'srgb': KEYWORD_SRGB,
+  'srgb': KEYWORD_SRGB_1,
   'srgb-linear': KEYWORD_SRGB_LINEAR,
   'stable': KEYWORD_STABLE,
   'stacked-fractions': KEYWORD_STACKED_FRACTIONS,

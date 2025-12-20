@@ -10,9 +10,17 @@ import {
   CsstsConfig,
   DEFAULT_UNIT_CATEGORY_CONFIGS,
   DEFAULT_PROGRESSIVE_RANGES,
-  type UnitCategoryConfig,
   type ProgressiveRange,
 } from '../cssts-config.js';
+
+/** 单位分类配置（用于生成器） */
+interface UnitCategoryConfig {
+  min?: number;
+  max?: number;
+  step?: number | ProgressiveRange[];
+  negative?: boolean;
+  presets?: number[];
+}
 import {
   shouldInclude,
   extractUnitCategoryConfigsFromArray,
