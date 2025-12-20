@@ -104,15 +104,39 @@ export const ALL_NUMBER_CATEGORIES = [
 
 // ==================== Category 到 Units 映射 ====================
 
-export const CATEGORY_UNITS_MAP: Record<string, readonly string[]> = {
-  'percentage': [UNIT_PERCENT, UNIT_VW, UNIT_VH, UNIT_VMIN, UNIT_VMAX, UNIT_SVW, UNIT_SVH, UNIT_LVW, UNIT_LVH, UNIT_DVW, UNIT_DVH, UNIT_VI, UNIT_VB],
-  'pixel': [UNIT_PX],
-  'fontRelative': [UNIT_EM, UNIT_REM, UNIT_CH, UNIT_EX, UNIT_CAP, UNIT_IC, UNIT_LH, UNIT_RLH],
-  'physical': [UNIT_CM, UNIT_MM, UNIT_IN, UNIT_PT, UNIT_PC, UNIT_Q],
-  'angle': [UNIT_DEG, UNIT_GRAD, UNIT_RAD, UNIT_TURN],
-  'time': [UNIT_S, UNIT_MS],
-  'frequency': [UNIT_HZ, UNIT_KHZ],
-  'resolution': [UNIT_DPI, UNIT_DPCM, UNIT_DPPX, UNIT_X],
-  'flex': [UNIT_FR],
-  'unitless': [UNIT_UNITLESS],
-};
+export const PERCENTAGE_UNITS = [UNIT_PERCENT, UNIT_VW, UNIT_VH, UNIT_VMIN, UNIT_VMAX, UNIT_SVW, UNIT_SVH, UNIT_LVW, UNIT_LVH, UNIT_DVW, UNIT_DVH, UNIT_VI, UNIT_VB] as const;
+export const PIXEL_UNITS = [UNIT_PX] as const;
+export const FONTRELATIVE_UNITS = [UNIT_EM, UNIT_REM, UNIT_CH, UNIT_EX, UNIT_CAP, UNIT_IC, UNIT_LH, UNIT_RLH] as const;
+export const PHYSICAL_UNITS = [UNIT_CM, UNIT_MM, UNIT_IN, UNIT_PT, UNIT_PC, UNIT_Q] as const;
+export const ANGLE_UNITS = [UNIT_DEG, UNIT_GRAD, UNIT_RAD, UNIT_TURN] as const;
+export const TIME_UNITS = [UNIT_S, UNIT_MS] as const;
+export const FREQUENCY_UNITS = [UNIT_HZ, UNIT_KHZ] as const;
+export const RESOLUTION_UNITS = [UNIT_DPI, UNIT_DPCM, UNIT_DPPX, UNIT_X] as const;
+export const FLEX_UNITS = [UNIT_FR] as const;
+export const UNITLESS_UNITS = [UNIT_UNITLESS] as const;
+
+// ==================== Category Unit 类型 ====================
+
+export type CssPercentageUnitName = typeof PERCENTAGE_UNITS[number];
+export type CssPixelUnitName = typeof PIXEL_UNITS[number];
+export type CssFontRelativeUnitName = typeof FONTRELATIVE_UNITS[number];
+export type CssPhysicalUnitName = typeof PHYSICAL_UNITS[number];
+export type CssAngleUnitName = typeof ANGLE_UNITS[number];
+export type CssTimeUnitName = typeof TIME_UNITS[number];
+export type CssFrequencyUnitName = typeof FREQUENCY_UNITS[number];
+export type CssResolutionUnitName = typeof RESOLUTION_UNITS[number];
+export type CssFlexUnitName = typeof FLEX_UNITS[number];
+export type CssUnitlessUnitName = typeof UNITLESS_UNITS[number];
+
+export const CATEGORY_UNITS_MAP = {
+  'percentage': PERCENTAGE_UNITS,
+  'pixel': PIXEL_UNITS,
+  'fontRelative': FONTRELATIVE_UNITS,
+  'physical': PHYSICAL_UNITS,
+  'angle': ANGLE_UNITS,
+  'time': TIME_UNITS,
+  'frequency': FREQUENCY_UNITS,
+  'resolution': RESOLUTION_UNITS,
+  'flex': FLEX_UNITS,
+  'unitless': UNITLESS_UNITS,
+} as const;

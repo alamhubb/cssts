@@ -4,7 +4,21 @@
  */
 
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
-import type { ALL_UNITS, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
+import type {
+  ALL_UNITS,
+  ALL_NUMBER_CATEGORIES,
+  CATEGORY_UNITS_MAP,
+  CssPercentageUnitName,
+  CssPixelUnitName,
+  CssFontRelativeUnitName,
+  CssPhysicalUnitName,
+  CssAngleUnitName,
+  CssTimeUnitName,
+  CssFrequencyUnitName,
+  CssResolutionUnitName,
+  CssFlexUnitName,
+  CssUnitlessUnitName,
+} from '../data/cssNumberData';
 import type { ALL_NUMBER_TYPES } from '../data/cssPropertyNumber';
 import type { keywords, allKeywords } from '../data/cssKeywordsData';
 import type { ALL_COLORS } from '../data/cssColorData';
@@ -56,6 +70,37 @@ export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string,
 
 export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
+// Category 到 Unit 类型映射
+export interface CssCategoryUnitMap {
+  percentage: CssPercentageUnitName;
+  pixel: CssPixelUnitName;
+  fontRelative: CssFontRelativeUnitName;
+  physical: CssPhysicalUnitName;
+  angle: CssAngleUnitName;
+  time: CssTimeUnitName;
+  frequency: CssFrequencyUnitName;
+  resolution: CssResolutionUnitName;
+  flex: CssFlexUnitName;
+  unitless: CssUnitlessUnitName;
+}
+
+// 严格的 Unit 配置 Map（只允许指定类型的 key）
+export type CssStrictUnitConfigMap<U extends string> = {
+  [K in U]?: CsstsStepConfig;
+};
+
+// 精准的 Category 值配置（根据 category 限制可用的 unit）
+export type CssCategoryValueConfigPrecise<C extends CssNumberCategoryName> =
+  | CsstsStepConfig
+  | CssCategoryUnitMap[C][]
+  | CssStrictUnitConfigMap<CssCategoryUnitMap[C]>;
+
+// 精准的 Category 配置 Map
+export type CssCategoryConfigMapPrecise = {
+  [C in CssNumberCategoryName]?: CssCategoryValueConfigPrecise<C>;
+};
+
+// 兼容旧版的宽松类型
 export type CssCategoryValueConfig =
   | CsstsStepConfig
   | CssNumberUnitName[]
@@ -65,21 +110,32 @@ export type CssCategoryConfigMap = Partial<Record<CssNumberCategoryName, CssCate
 
 export type CssCategoryConfigItem =
   | CssNumberCategoryName
-  | CssCategoryConfigMap
+  | CssCategoryConfigMapPrecise
   | CssUnitConfigMap;
 
-export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
+export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMapPrecise;
 
+// 精准的 Category 排除值配置
+export type CssCategoryExcludeValueConfigPrecise<C extends CssNumberCategoryName> =
+  | CssCategoryUnitMap[C][]
+  | Partial<Record<CssCategoryUnitMap[C], Record<string, never>>>;
+
+// 精准的 Category 排除 Map
+export type CssCategoryExcludeMapPrecise = {
+  [C in CssNumberCategoryName]?: CssCategoryExcludeValueConfigPrecise<C>;
+};
+
+// 兼容旧版的宽松类型
 export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
 
 export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
 
 export type CssCategoryExcludeItem =
   | CssNumberCategoryName
-  | CssCategoryExcludeMap
+  | CssCategoryExcludeMapPrecise
   | CssUnitExcludeMap;
 
-export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
+export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMapPrecise;
 
 // ==================== NumberType 类型 ====================
 

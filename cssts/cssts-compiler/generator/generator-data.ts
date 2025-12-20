@@ -476,12 +476,30 @@ function generateCssNumberDataFile(mapping: any): string {
 
   // ==================== Category 到 Units 映射 ====================
   lines.push('// ==================== Category 到 Units 映射 ====================', '');
-  lines.push('export const CATEGORY_UNITS_MAP: Record<string, readonly string[]> = {');
+  
+  // 为每个 category 生成对应的 units 数组常量
   for (const [category, units] of Object.entries(categories)) {
+    const constName = category.toUpperCase().replace(/-/g, '_');
     const unitRefsList = (units as string[]).map(u => `UNIT_${normalizeUnit(u).toUpperCase()}`).join(', ');
-    lines.push(`  '${category}': [${unitRefsList}],`);
+    lines.push(`export const ${constName}_UNITS = [${unitRefsList}] as const;`);
   }
-  lines.push('};', '');
+  lines.push('');
+
+  // 为每个 category 生成对应的 unit name 类型
+  lines.push('// ==================== Category Unit 类型 ====================', '');
+  for (const [category] of Object.entries(categories)) {
+    const constName = category.toUpperCase().replace(/-/g, '_');
+    const typeName = category.split('-').map((s, i) => i === 0 ? s.charAt(0).toUpperCase() + s.slice(1) : s.charAt(0).toUpperCase() + s.slice(1)).join('');
+    lines.push(`export type Css${typeName}UnitName = typeof ${constName}_UNITS[number];`);
+  }
+  lines.push('');
+  
+  lines.push('export const CATEGORY_UNITS_MAP = {');
+  for (const [category] of Object.entries(categories)) {
+    const constName = category.toUpperCase().replace(/-/g, '_');
+    lines.push(`  '${category}': ${constName}_UNITS,`);
+  }
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
