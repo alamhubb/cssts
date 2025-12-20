@@ -5,9 +5,9 @@
 import type { CssPropertyName } from './cssPropertyConfig';
 import type { CssNumberTypeName } from './numberTypes';
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
-import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './categoryConfig';
-import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './numberTypeConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
+import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
+import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
 
 // ==================== Property 基础配置 ====================
 

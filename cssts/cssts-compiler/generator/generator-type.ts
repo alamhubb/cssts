@@ -11,11 +11,11 @@
  * - cssProperties.d.ts: 属性类型
  * - cssPropertiesValue.d.ts: 属性值类型
  * - pseudoStyles.d.ts: 伪类/伪元素样式类型
- * - baseConfig.d.ts: 基础配置类型
- * - unitConfig.d.ts: Unit 配置类型
- * - categoryConfig.d.ts: Category 配置类型
- * - numberTypeConfig.d.ts: NumberType 配置类型
- * - propertyValueConfig.d.ts: Property 配置类型
+ * - csstsStepConfig.d.ts: 基础配置类型
+ * - cssUnitConfig.d.ts: Unit 配置类型
+ * - cssCategoryConfig.d.ts: Category 配置类型
+ * - cssNumberTypeConfig.d.ts: NumberType 配置类型
+ * - cssPropertyValueConfig.d.ts: Property 配置类型
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
  * 运行方式：npx tsx generator/generator-type.ts
@@ -283,27 +283,27 @@ function generatePseudoStylesType(): string {
 
 // ==================== 基础配置类型 ====================
 
-function generateBaseConfigType(): string {
+function generateCsstsStepConfigType(): string {
   return `/**
  * 基础配置类型定义（自动生成）
  */
 
 /** 渐进步长范围配置 */
-export interface ProgressiveRange {
+export interface CssProgressiveRange {
   max: number;
   divisors: number[];
 }
 
 /** 单位值配置 */
 export interface CsstsStepConfig {
-  step?: number | ProgressiveRange[];
+  step?: number | CssProgressiveRange[];
   min?: number;
   max?: number;
   negative?: boolean;
   presets?: number[];
 }
 
-export type CustomPropertyValue = string | Record<string, string>;
+export type CssCustomPropertyValue = string | Record<string, string>;
 `;
 }
 
@@ -315,7 +315,7 @@ function generateUnitConfigType(): string {
  */
 
 import type { CssNumberUnitName } from './numberTypes';
-import type { CsstsStepConfig } from './baseConfig';
+import type { CsstsStepConfig } from './csstsStepConfig';
 
 // ==================== Unit 配置 ====================
 
@@ -338,8 +338,8 @@ function generateCategoryConfigType(): string {
  */
 
 import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
-import type { CsstsStepConfig } from './baseConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
+import type { CsstsStepConfig } from './csstsStepConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
 
 // ==================== Category 配置 ====================
 
@@ -375,9 +375,9 @@ function generateNumberTypeConfigType(): string {
  */
 
 import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
-import type { CsstsStepConfig } from './baseConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
-import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './categoryConfig';
+import type { CsstsStepConfig } from './csstsStepConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
+import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
 
 // ==================== NumberType 配置 ====================
 
@@ -422,9 +422,9 @@ function generatePropertyConfigType(): string {
 import type { CssPropertyName } from './cssPropertyConfig';
 import type { CssNumberTypeName } from './numberTypes';
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
-import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './categoryConfig';
-import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './numberTypeConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
+import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
+import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
 
 // ==================== Property 基础配置 ====================
 
@@ -470,11 +470,11 @@ function generateCsstsConfigType(): string {
 import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
 import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
-import type { ProgressiveRange, CustomPropertyValue } from './baseConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './unitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './categoryConfig';
-import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './numberTypeConfig';
-import type { CssPropertyConfig, CssPropertyExcludeConfig } from './propertyValueConfig';
+import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
+import type { CssUnitConfig, CssUnitExcludeItem } from './cssUnitConfig';
+import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssCategoryConfig';
+import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
+import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {
   /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */
@@ -502,9 +502,9 @@ export interface CsstsConfig {
   /** 排除的颜色，如 ['rebeccapurple'] */
   excludeColors?: CssColorName[];
   /** 自定义属性，如 { '--primary': '#007bff' } 或 { '--size': { sm: '12px', lg: '24px' } } */
-  customProperties?: Record<string, CustomPropertyValue>;
+  customProperties?: Record<string, CssCustomPropertyValue>;
   /** 渐进步长范围，如 [{ max: 100, divisors: [1, 2, 4] }] */
-  progressiveRanges?: ProgressiveRange[];
+  progressiveRanges?: CssProgressiveRange[];
   /** 包含的伪类，如 ['hover', 'focus', 'active'] */
   pseudoClasses?: CssPseudoClassName[];
   /** 排除的伪类，如 ['visited', 'link'] */
@@ -551,20 +551,20 @@ function main() {
   console.log('✅ src/types/pseudoStyles.d.ts');
 
   // 层级配置类型文件
-  fs.writeFileSync(path.join(typesDir, 'baseConfig.d.ts'), generateBaseConfigType());
-  console.log('✅ src/types/baseConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'csstsStepConfig.d.ts'), generateCsstsStepConfigType());
+  console.log('✅ src/types/csstsStepConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'unitConfig.d.ts'), generateUnitConfigType());
-  console.log('✅ src/types/unitConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssUnitConfig.d.ts'), generateUnitConfigType());
+  console.log('✅ src/types/cssUnitConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'categoryConfig.d.ts'), generateCategoryConfigType());
-  console.log('✅ src/types/categoryConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssCategoryConfig.d.ts'), generateCategoryConfigType());
+  console.log('✅ src/types/cssCategoryConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'numberTypeConfig.d.ts'), generateNumberTypeConfigType());
-  console.log('✅ src/types/numberTypeConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssNumberTypeConfig.d.ts'), generateNumberTypeConfigType());
+  console.log('✅ src/types/cssNumberTypeConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'propertyValueConfig.d.ts'), generatePropertyConfigType());
-  console.log('✅ src/types/propertyValueConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssPropertyValueConfig.d.ts'), generatePropertyConfigType());
+  console.log('✅ src/types/cssPropertyValueConfig.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'csstsConfig.d.ts'), generateCsstsConfigType());
   console.log('✅ src/types/csstsConfig.d.ts');

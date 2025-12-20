@@ -3,7 +3,7 @@
  */
 
 import type { CssNumberUnitName } from './numberTypes';
-import type { CsstsStepConfig } from './baseConfig';
+import type { CsstsStepConfig } from './csstsStepConfig';
 
 // ==================== Unit 配置 ====================
 

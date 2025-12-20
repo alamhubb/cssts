@@ -5,11 +5,11 @@
 import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
 import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
-import type { ProgressiveRange, CustomPropertyValue } from './baseConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './unitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './categoryConfig';
-import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './numberTypeConfig';
-import type { CssPropertyConfig, CssPropertyExcludeConfig } from './propertyValueConfig';
+import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
+import type { CssUnitConfig, CssUnitExcludeItem } from './cssUnitConfig';
+import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssCategoryConfig';
+import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
+import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {
   /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */
@@ -37,9 +37,9 @@ export interface CsstsConfig {
   /** 排除的颜色，如 ['rebeccapurple'] */
   excludeColors?: CssColorName[];
   /** 自定义属性，如 { '--primary': '#007bff' } 或 { '--size': { sm: '12px', lg: '24px' } } */
-  customProperties?: Record<string, CustomPropertyValue>;
+  customProperties?: Record<string, CssCustomPropertyValue>;
   /** 渐进步长范围，如 [{ max: 100, divisors: [1, 2, 4] }] */
-  progressiveRanges?: ProgressiveRange[];
+  progressiveRanges?: CssProgressiveRange[];
   /** 包含的伪类，如 ['hover', 'focus', 'active'] */
   pseudoClasses?: CssPseudoClassName[];
   /** 排除的伪类，如 ['visited', 'link'] */

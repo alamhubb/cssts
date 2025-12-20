@@ -3,18 +3,18 @@
  */
 
 /** 渐进步长范围配置 */
-export interface ProgressiveRange {
+export interface CssProgressiveRange {
   max: number;
   divisors: number[];
 }
 
 /** 单位值配置 */
 export interface CsstsStepConfig {
-  step?: number | ProgressiveRange[];
+  step?: number | CssProgressiveRange[];
   min?: number;
   max?: number;
   negative?: boolean;
   presets?: number[];
 }
 
-export type CustomPropertyValue = string | Record<string, string>;
+export type CssCustomPropertyValue = string | Record<string, string>;

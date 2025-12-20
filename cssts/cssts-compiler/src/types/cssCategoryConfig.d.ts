@@ -3,8 +3,8 @@
  */
 
 import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
-import type { CsstsStepConfig } from './baseConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
+import type { CsstsStepConfig } from './csstsStepConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
 
 // ==================== Category 配置 ====================
 
