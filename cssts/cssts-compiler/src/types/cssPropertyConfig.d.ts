@@ -9,8 +9,8 @@ import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP, NUMBER_TYPE_CATEGORY_MAP } from '../data/cssNumberData';
 import type { ALL_NUMBER_TYPES, PROPERTY_NUMBER_TYPES_MAP } from '../data/cssPropertyNumber';
 import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
-import type { keywords, allKeywords } from '../data/cssKeywordsData';
-import type { ALL_COLORS } from '../data/cssColorData';
+import type { KEYWORD_NAME_MAP } from '../data/cssKeywordsData';
+import type { COLOR_NAME_MAP } from '../data/cssColorData';
 import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../data/cssPseudoData';
 
 // ==================== 基础配置类型 ====================
@@ -99,19 +99,16 @@ export type CssNumberTypeItem = CssNumberTypeName | CssNumberTypeConfig;
 
 // ==================== Keyword 类型 ====================
 
-// 关键字名称
-export type CssKeywordName = typeof keywords[number];
+// 关键字名称（camelCase）
+export type CssKeywordName = keyof typeof KEYWORD_NAME_MAP;
 
-// 颜色名称
-export type CssColorName = typeof ALL_COLORS[number];
-
-// 所有关键字名称（包含颜色）
-export type CssAllKeywordName = typeof allKeywords[number];
+// 颜色名称（camelCase）
+export type CssColorName = keyof typeof COLOR_NAME_MAP;
 
 // ==================== Property 类型 ====================
 
-// 属性名称
-export type CssPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
+// 属性名称（camelCase，从 kebab-case 映射的值）
+export type CssPropertyName = typeof CSS_PROPERTY_NAME_MAP[keyof typeof CSS_PROPERTY_NAME_MAP];
 
 // 获取属性支持的 Keywords
 type PropertyKeywords<P extends CssPropertyName> = 
@@ -142,10 +139,10 @@ export type CssPropertyItem = CssPropertyName | CssPropertyConfig;
 
 // ==================== Pseudo 类型 ====================
 
-// 伪类名称
+// 伪类名称（camelCase，从 kebab-case 映射的值）
 export type CssPseudoClassName = typeof PSEUDO_CLASS_NAME_MAP[keyof typeof PSEUDO_CLASS_NAME_MAP];
 
-// 伪元素名称
+// 伪元素名称（camelCase，从 kebab-case 映射的值）
 export type CssPseudoElementName = typeof PSEUDO_ELEMENT_NAME_MAP[keyof typeof PSEUDO_ELEMENT_NAME_MAP];
 
 // 伪类/伪元素值（属性样式配置）
@@ -153,12 +150,12 @@ export type CssPseudoValue = {
   [P in keyof typeof PROPERTY_KEYWORDS_MAP]?: typeof PROPERTY_KEYWORDS_MAP[P][number] | string;
 };
 
-// 伪类配置
+// 伪类配置（使用 camelCase 键）
 export type CssPseudoClassConfig = {
-  [P in keyof typeof PSEUDO_CLASS_NAME_MAP]?: CssPseudoValue;
+  [P in CssPseudoClassName]?: CssPseudoValue;
 };
 
-// 伪元素配置
+// 伪元素配置（使用 camelCase 键）
 export type CssPseudoElementConfig = {
-  [P in keyof typeof PSEUDO_ELEMENT_NAME_MAP]?: CssPseudoValue;
+  [P in CssPseudoElementName]?: CssPseudoValue;
 };

@@ -36,7 +36,10 @@ if (!fs.existsSync(dataDir)) {
 // ==================== 工具函数 ====================
 
 function kebabToCamel(str: string): string {
-  return str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+  // 处理以 - 开头的情况（如 -moz-xxx, -webkit-xxx）
+  const normalized = str.startsWith('-') ? str.slice(1) : str;
+  // 将 -x 转为 X（只处理小写字母）
+  return normalized.replace(/-([a-zA-Z])/g, (_, char) => char.toUpperCase());
 }
 
 const UNIT_ALIAS: Record<string, string> = {
@@ -145,14 +148,18 @@ function generatePropertyNameFile(propertyMap: Record<string, string>): string {
   const lines: string[] = [
     '/**',
     ' * CSS 属性名映射（自动生成）',
+    ' * 格式：kebab-case -> camelCase',
     ' */',
     '',
+    '// kebab-case 到 camelCase 映射',
     'export const CSS_PROPERTY_NAME_MAP = {',
   ];
 
-  const sortedKeys = Object.keys(propertyMap).sort();
-  for (const camelName of sortedKeys) {
-    lines.push(`  ${camelName}: '${propertyMap[camelName]}',`);
+  // 反转映射：kebab-case -> camelCase
+  const sortedKebabNames = Object.values(propertyMap).sort();
+  for (const kebabName of sortedKebabNames) {
+    const camelName = kebabToCamel(kebabName);
+    lines.push(`  '${kebabName}': '${camelName}',`);
   }
 
   lines.push('} as const;', '');
@@ -217,7 +224,7 @@ function extractAllColors(): ColorData {
 }
 
 function generateColorFile(colorData: ColorData): string {
-  // 直接内联所有颜色到 ALL_COLORS
+  // 直接内联所有颜色到 COLOR_NAME_MAP
   const allColors = [
     ...colorData.standardColors,
     ...colorData.systemColors,
@@ -229,13 +236,15 @@ function generateColorFile(colorData: ColorData): string {
   const lines: string[] = [
     '/**',
     ' * CSS 颜色数据（自动生成）',
+    ' * 格式：kebab-case -> camelCase',
     ' */',
     '',
-    'export const ALL_COLORS = [',
+    '// kebab-case 到 camelCase 映射',
+    'export const COLOR_NAME_MAP = {',
   ];
 
-  allColors.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
+  allColors.forEach(c => lines.push(`  '${c}': '${kebabToCamel(c)}',`));
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
@@ -296,7 +305,7 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     ' * CSS 属性 Keywords（自动生成）',
     ' */',
     '',
-    "import { ALL_COLORS } from './cssColorData';",
+    "import { COLOR_NAME_MAP } from './cssColorData';",
     '',
   ];
 
@@ -315,11 +324,11 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     
     if (hasColors && nonColorKeywords.length === 0) {
       // 只有颜色
-      lines.push(`  ${camelName}: ALL_COLORS,`);
+      lines.push(`  ${camelName}: Object.keys(COLOR_NAME_MAP) as (keyof typeof COLOR_NAME_MAP)[],`);
     } else if (hasColors) {
       // 既有颜色也有其他 keywords
       const keywordsStr = nonColorKeywords.map(k => `'${k}'`).join(', ');
-      lines.push(`  ${camelName}: [${keywordsStr}, ...ALL_COLORS] as const,`);
+      lines.push(`  ${camelName}: [${keywordsStr}, ...Object.keys(COLOR_NAME_MAP)] as const,`);
     } else {
       // 只有非颜色 keywords
       lines.push(`  ${camelName}: [${data.keywords.map(k => `'${k}'`).join(', ')}] as const,`);
@@ -434,22 +443,24 @@ function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: stri
   const lines: string[] = [
     '/**',
     ' * CSS 伪类和伪元素数据（自动生成）',
+    ' * 格式：kebab-case -> camelCase',
     ' */',
     '',
     '// ==================== 伪类 ====================',
     '',
-    '// camelCase 到 kebab-case 映射',
+    '// kebab-case 到 camelCase 映射',
     'export const PSEUDO_CLASS_NAME_MAP = {',
   ];
-  pseudoClasses.forEach(p => lines.push(`  ${kebabToCamel(p)}: '${p}',`));
+  // 反转映射：kebab-case -> camelCase
+  pseudoClasses.forEach(p => lines.push(`  '${p}': '${kebabToCamel(p)}',`));
   lines.push('} as const;', '');
 
   lines.push('// ==================== 伪元素 ====================', '');
   
-  // kebab-to-camel 映射
-  lines.push('// camelCase 到 kebab-case 映射');
+  // 反转映射：kebab-case -> camelCase
+  lines.push('// kebab-case 到 camelCase 映射');
   lines.push('export const PSEUDO_ELEMENT_NAME_MAP = {');
-  pseudoElements.forEach(p => lines.push(`  ${kebabToCamel(p)}: '${p}',`));
+  pseudoElements.forEach(p => lines.push(`  '${p}': '${kebabToCamel(p)}',`));
   lines.push('} as const;', '');
 
   return lines.join('\n');
@@ -507,17 +518,15 @@ function generateCssKeywordsDataFile(keywords: Set<string>): string {
   const lines: string[] = [
     '/**',
     ' * CSS Keywords 数据（自动生成）',
+    ' * 格式：kebab-case -> camelCase',
     ' */',
     '',
-    "import { ALL_COLORS } from './cssColorData';",
-    '',
-    '// Keywords 数组',
-    `export const keywords = [${sortedKeywords.map(k => `'${k}'`).join(', ')}] as const;`,
-    '',
-    '// allKeywords（包含颜色）',
-    'export const allKeywords = [...keywords, ...ALL_COLORS] as const;',
-    '',
+    '// kebab-case 到 camelCase 映射',
+    'export const KEYWORD_NAME_MAP = {',
   ];
+
+  sortedKeywords.forEach(k => lines.push(`  '${k}': '${kebabToCamel(k)}',`));
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
