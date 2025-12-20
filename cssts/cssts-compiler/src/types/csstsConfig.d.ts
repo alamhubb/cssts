@@ -6,8 +6,8 @@ import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
 import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './cssUnitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssCategoryConfig';
+import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
+import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
 import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
 import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 

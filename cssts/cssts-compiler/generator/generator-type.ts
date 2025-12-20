@@ -12,8 +12,8 @@
  * - cssPropertiesValue.d.ts: 属性值类型
  * - pseudoStyles.d.ts: 伪类/伪元素样式类型
  * - csstsStepConfig.d.ts: 基础配置类型
- * - cssUnitConfig.d.ts: Unit 配置类型
- * - cssCategoryConfig.d.ts: Category 配置类型
+ * - cssNumberUnitConfig.d.ts: Unit 配置类型
+ * - cssNumberCategoryConfig.d.ts: Category 配置类型
  * - cssNumberTypeConfig.d.ts: NumberType 配置类型
  * - cssPropertyValueConfig.d.ts: Property 配置类型
  * - csstsConfig.d.ts: CSSTS 配置类型
@@ -339,7 +339,7 @@ function generateCategoryConfigType(): string {
 
 import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 
 // ==================== Category 配置 ====================
 
@@ -376,8 +376,8 @@ function generateNumberTypeConfigType(): string {
 
 import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
-import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
 
 // ==================== NumberType 配置 ====================
 
@@ -422,8 +422,8 @@ function generatePropertyConfigType(): string {
 import type { CssPropertyName } from './cssPropertyConfig';
 import type { CssNumberTypeName } from './numberTypes';
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
-import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
 import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
 
 // ==================== Property 基础配置 ====================
@@ -471,8 +471,8 @@ import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
 import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './cssUnitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssCategoryConfig';
+import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
+import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
 import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
 import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
@@ -554,11 +554,11 @@ function main() {
   fs.writeFileSync(path.join(typesDir, 'csstsStepConfig.d.ts'), generateCsstsStepConfigType());
   console.log('✅ src/types/csstsStepConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'cssUnitConfig.d.ts'), generateUnitConfigType());
-  console.log('✅ src/types/cssUnitConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssNumberUnitConfig.d.ts'), generateUnitConfigType());
+  console.log('✅ src/types/cssNumberUnitConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'cssCategoryConfig.d.ts'), generateCategoryConfigType());
-  console.log('✅ src/types/cssCategoryConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssNumberCategoryConfig.d.ts'), generateCategoryConfigType());
+  console.log('✅ src/types/cssNumberCategoryConfig.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'cssNumberTypeConfig.d.ts'), generateNumberTypeConfigType());
   console.log('✅ src/types/cssNumberTypeConfig.d.ts');

@@ -4,7 +4,7 @@
 
 import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 
 // ==================== Category 配置 ====================
 

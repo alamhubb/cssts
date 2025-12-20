@@ -4,8 +4,8 @@
 
 import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssUnitConfig';
-import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssCategoryConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
 
 // ==================== NumberType 配置 ====================
 
