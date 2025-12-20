@@ -8,7 +8,7 @@
  * - cssPseudoClassElement.d.ts: 伪类/伪元素类型
  * - cssPropertyConfig.d.ts: 属性名称类型
  * - cssProperties.d.ts: 属性类型
- * - cssPropertiesValue.d.ts: 属性值类型
+ * - cssPseudoValue.d.ts: 伪类/伪元素属性值类型
  * - pseudoStyles.d.ts: 伪类/伪元素样式类型
  * - csstsStepConfig.d.ts: 基础配置类型
  * - cssNumberUnitConfig.d.ts: Unit 配置类型
@@ -208,18 +208,18 @@ function generateCssPropertiesType(): string {
   return lines.join('\n');
 }
 
-function generateCssPropertiesValueType(): string {
+function generateCssPseudoValueType(): string {
   const propertyNames = loadPropertyNames();
   const keywordsExports = loadPropertyKeywordsExports();
 
   const lines: string[] = [
     '/**',
-    ' * CSS 属性值类型定义（自动生成）',
+    ' * CSS 伪类/伪元素属性值类型定义（自动生成）',
     ' */',
     '',
     "import type * as Keywords from '../data/propertyKeywords';",
     '',
-    'export interface CSSPropertiesValueType {',
+    'export interface CssPseudoValueType {',
   ];
 
   for (const camelName of propertyNames) {
@@ -243,20 +243,20 @@ function generatePseudoStylesType(): string {
     ' * 伪类/伪元素样式类型定义（自动生成）',
     ' */',
     '',
-    "import type { CSSPropertiesValueType } from './cssPropertiesValue';",
+    "import type { CssPseudoValueType } from './cssPseudoValue';",
     '',
     'export interface CssPseudoClassConfig {',
   ];
 
   for (const pseudoClass of pseudoClasses) {
-    lines.push(`  ${kebabToCamel(pseudoClass)}?: CSSPropertiesValueType;`);
+    lines.push(`  ${kebabToCamel(pseudoClass)}?: CssPseudoValueType;`);
   }
 
   lines.push('}', '');
   lines.push('export interface CssPseudoElementConfig {');
 
   for (const pseudoElement of pseudoElements) {
-    lines.push(`  ${kebabToCamel(pseudoElement)}?: CSSPropertiesValueType;`);
+    lines.push(`  ${kebabToCamel(pseudoElement)}?: CssPseudoValueType;`);
   }
 
   lines.push('}', '');
@@ -548,8 +548,8 @@ function main() {
   fs.writeFileSync(path.join(typesDir, 'cssProperties.d.ts'), generateCssPropertiesType());
   console.log('✅ src/types/cssProperties.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'cssPropertiesValue.d.ts'), generateCssPropertiesValueType());
-  console.log('✅ src/types/cssPropertiesValue.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssPseudoValue.d.ts'), generateCssPseudoValueType());
+  console.log('✅ src/types/cssPseudoValue.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'pseudoStyles.d.ts'), generatePseudoStylesType());
   console.log('✅ src/types/pseudoStyles.d.ts');

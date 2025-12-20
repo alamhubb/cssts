@@ -1,10 +1,10 @@
 /**
- * CSS 属性值类型定义（自动生成）
+ * CSS 伪类/伪元素属性值类型定义（自动生成）
  */
 
 import type * as Keywords from '../data/propertyKeywords';
 
-export interface CSSPropertiesValueType {
+export interface CssPseudoValueType {
   accentColor?: typeof Keywords.ACCENT_COLOR_KEYWORDS[number] | string;
   alignContent?: typeof Keywords.ALIGN_CONTENT_KEYWORDS[number] | string;
   alignItems?: typeof Keywords.ALIGN_ITEMS_KEYWORDS[number] | string;
