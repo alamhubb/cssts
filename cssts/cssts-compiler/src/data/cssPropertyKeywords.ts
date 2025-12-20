@@ -2,7 +2,7 @@
  * CSS 属性 Keywords（自动生成）
  */
 
-import { ALL_COLORS } from './color';
+import { ALL_COLORS } from './cssColorData';
 
 export const ACCENT_COLOR_KEYWORDS = ALL_COLORS;
 export const ALIGN_CONTENT_KEYWORDS = ['baseline', 'center', 'end', 'first', 'flex-end', 'flex-start', 'last', 'normal', 'safe', 'space-around', 'space-between', 'space-evenly', 'start', 'stretch', 'unsafe'] as const;

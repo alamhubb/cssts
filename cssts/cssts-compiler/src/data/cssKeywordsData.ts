@@ -3,7 +3,7 @@
  * 包含 Keywords 常量、数组和 allKeywords
  */
 
-import { ALL_COLORS } from './color';
+import { ALL_COLORS } from './cssColorData';
 
 // ==================== Keywords 常量 ====================
 

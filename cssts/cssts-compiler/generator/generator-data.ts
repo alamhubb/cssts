@@ -8,7 +8,7 @@
  *
  * 生成文件（src/data/）：
  * - cssPropertyNameMapping.ts: CSS 属性名映射
- * - color.ts: 颜色数据
+ * - cssColorData.ts: 颜色数据
  * - cssPropertyKeywords.ts: 每个属性的 keywords
  * - cssPropertyNumber.ts: 每个属性的 numberTypes
  * - cssNumberData.ts: 单位常量、别名、numberType 和 category 映射
@@ -340,7 +340,7 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     ' * CSS 属性 Keywords（自动生成）',
     ' */',
     '',
-    "import { ALL_COLORS } from './color';",
+    "import { ALL_COLORS } from './cssColorData';",
     '',
   ];
 
@@ -568,7 +568,7 @@ function generateCssKeywordsDataFile(keywords: Set<string>): string {
     ' * 包含 Keywords 常量、数组和 allKeywords',
     ' */',
     '',
-    "import { ALL_COLORS } from './color';",
+    "import { ALL_COLORS } from './cssColorData';",
     '',
   ];
 
@@ -625,8 +625,8 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'cssPropertyNameMapping.ts'), generatePropertyNameFile(propertyMap));
   console.log('✅ src/data/cssPropertyNameMapping.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'color.ts'), generateColorFile(colorData));
-  console.log('✅ src/data/color.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssColorData.ts'), generateColorFile(colorData));
+  console.log('✅ src/data/cssColorData.ts');
 
   fs.writeFileSync(path.join(dataDir, 'cssPropertyKeywords.ts'), generatePropertyKeywordsFile(propertyData));
   console.log('✅ src/data/cssPropertyKeywords.ts');

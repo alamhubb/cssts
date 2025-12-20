@@ -10,9 +10,12 @@ import type {
   CssCategoryConfig,
   CssCategoryExcludeConfig,
   CssNumberTypeConfig,
-  CssNumberTypeExcludeConfig
-} from './cssNumberConfig';
-import type { CssKeywordName, CssColorName, CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
+  CssNumberTypeExcludeConfig,
+  CssKeywordName,
+  CssColorName,
+  CssPropertyConfig,
+  CssPropertyExcludeConfig
+} from './cssPropertyConfig';
 
 export interface CsstsConfig {
   /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */
