@@ -3,6 +3,7 @@
  */
 
 import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
+
 import type { CsstsStepConfig } from './csstsStepConfig';
 import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 import type { CssNumberCategoryName, CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
@@ -18,11 +19,13 @@ export type CssNumberTypeValueConfig =
   | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 export type CssNumberTypeConfigMap = Partial<Record<CssNumberTypeName, CssNumberTypeValueConfig>>;
+
 export type CssNumberTypeConfigItem =
   | CssNumberTypeName
   | CssNumberTypeConfigMap
   | CssCategoryConfigMap
   | CssUnitConfigMap;
+
 export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
 
 // ==================== NumberType 排除配置 ====================
@@ -33,9 +36,11 @@ export type CssNumberTypeExcludeValueConfig =
   | CssUnitExcludeMap;
 
 export type CssNumberTypeExcludeMap = Partial<Record<CssNumberTypeName, CssNumberTypeExcludeValueConfig>>;
+
 export type CssNumberTypeExcludeItem =
   | CssNumberTypeName
   | CssNumberTypeExcludeMap
   | CssCategoryExcludeMap
   | CssUnitExcludeMap;
+
 export type CssNumberTypeExcludeConfig = CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap;

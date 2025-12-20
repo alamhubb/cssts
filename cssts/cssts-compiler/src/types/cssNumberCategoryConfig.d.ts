@@ -3,6 +3,7 @@
  */
 
 import type { ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
+
 import type { CsstsStepConfig } from './csstsStepConfig';
 import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 
@@ -16,18 +17,23 @@ export type CssCategoryValueConfig =
   | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 export type CssCategoryConfigMap = Partial<Record<CssNumberCategoryName, CssCategoryValueConfig>>;
+
 export type CssCategoryConfigItem =
   | CssNumberCategoryName
   | CssCategoryConfigMap
   | CssUnitConfigMap;
+
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
 
 // ==================== Category 排除配置 ====================
 
 export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
+
 export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
+
 export type CssCategoryExcludeItem =
   | CssNumberCategoryName
   | CssCategoryExcludeMap
   | CssUnitExcludeMap;
+
 export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;

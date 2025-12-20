@@ -25,7 +25,9 @@ export type CssPropertyValueConfig =
   | (CssPropertyBaseConfig & CssUnitConfigMap);
 
 export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | CssNumberTypeConfigItem[]>>;
+
 export type CssPropertyConfigItem = CssPropertyName | CssPropertyConfigMap;
+
 export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMap;
 
 // ==================== Property 排除配置 ====================
@@ -37,5 +39,7 @@ export type CssPropertyExcludeValueConfig =
   | (CssPropertyBaseConfig & CssUnitExcludeMap);
 
 export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
+
 export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap;
+
 export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
