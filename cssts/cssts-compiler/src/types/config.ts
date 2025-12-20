@@ -5,13 +5,8 @@
  * 包含所有配置项相关的类型定义
  */
 
-import type { UnitCategoryName } from '../config/units';
 import type {
-    ProgressiveRange,
-    StepConfig,
     UnitValueConfig,
-    UnitCategoryConfig,
-    UnitsConfigValue,
 } from './value';
 
 // ==================== 层级配置类型 ====================
