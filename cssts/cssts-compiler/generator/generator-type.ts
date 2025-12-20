@@ -5,11 +5,10 @@
  *
  * 生成文件（src/types/）：
  * - cssKeywords.d.ts: Keywords 类型
- * - cssPseudoClassElement.d.ts: 伪类/伪元素类型
+ * - cssPseudoClassElement.d.ts: 伪类/伪元素类型和样式配置
  * - cssPropertyConfig.d.ts: 属性名称类型
  * - cssProperties.d.ts: 属性类型
  * - cssPseudoValue.d.ts: 伪类/伪元素属性值类型
- * - pseudoStyles.d.ts: 伪类/伪元素样式类型
  * - csstsStepConfig.d.ts: 基础配置类型
  * - cssNumberUnitConfig.d.ts: Unit 配置类型
  * - cssNumberCategoryConfig.d.ts: Category 配置类型
@@ -130,17 +129,41 @@ export type CssAllKeywordName = typeof allKeywords[number];
 }
 
 function generateCssPseudoClassElementType(): string {
-  return `/**
- * CSS 伪类和伪元素类型定义（自动生成）
- */
+  const pseudoClasses = loadPseudoClasses();
+  const pseudoElements = loadPseudoElements();
 
-import type { pseudoClasses } from '../data/pseudoClasses';
-import type { pseudoElements } from '../data/pseudoElements';
+  const lines: string[] = [
+    '/**',
+    ' * CSS 伪类和伪元素类型定义（自动生成）',
+    ' */',
+    '',
+    "import type { pseudoClasses } from '../data/pseudoClasses';",
+    "import type { pseudoElements } from '../data/pseudoElements';",
+    '',
+    "import type { CssPseudoValueType } from './cssPseudoValue';",
+    '',
+    'export type CssPseudoClassName = typeof pseudoClasses[number];',
+    '',
+    'export type CssPseudoElementName = typeof pseudoElements[number];',
+    '',
+    '// ==================== 伪类/伪元素样式配置 ====================',
+    '',
+    'export interface CssPseudoClassConfig {',
+  ];
 
-export type CssPseudoClassName = typeof pseudoClasses[number];
+  for (const pseudoClass of pseudoClasses) {
+    lines.push(`  ${kebabToCamel(pseudoClass)}?: CssPseudoValueType;`);
+  }
 
-export type CssPseudoElementName = typeof pseudoElements[number];
-`;
+  lines.push('}', '');
+  lines.push('export interface CssPseudoElementConfig {');
+
+  for (const pseudoElement of pseudoElements) {
+    lines.push(`  ${kebabToCamel(pseudoElement)}?: CssPseudoValueType;`);
+  }
+
+  lines.push('}', '');
+  return lines.join('\n');
 }
 
 function generateCssPropertyConfigType(): string {
@@ -234,34 +257,6 @@ function generateCssPseudoValueType(): string {
   return lines.join('\n');
 }
 
-function generatePseudoStylesType(): string {
-  const pseudoClasses = loadPseudoClasses();
-  const pseudoElements = loadPseudoElements();
-
-  const lines: string[] = [
-    '/**',
-    ' * 伪类/伪元素样式类型定义（自动生成）',
-    ' */',
-    '',
-    "import type { CssPseudoValueType } from './cssPseudoValue';",
-    '',
-    'export interface CssPseudoClassConfig {',
-  ];
-
-  for (const pseudoClass of pseudoClasses) {
-    lines.push(`  ${kebabToCamel(pseudoClass)}?: CssPseudoValueType;`);
-  }
-
-  lines.push('}', '');
-  lines.push('export interface CssPseudoElementConfig {');
-
-  for (const pseudoElement of pseudoElements) {
-    lines.push(`  ${kebabToCamel(pseudoElement)}?: CssPseudoValueType;`);
-  }
-
-  lines.push('}', '');
-  return lines.join('\n');
-}
 
 
 // ==================== 基础配置类型 ====================
@@ -475,8 +470,7 @@ function generateCsstsConfigType(): string {
  */
 
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
-import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
+import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
 import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
@@ -550,9 +544,6 @@ function main() {
 
   fs.writeFileSync(path.join(typesDir, 'cssPseudoValue.d.ts'), generateCssPseudoValueType());
   console.log('✅ src/types/cssPseudoValue.d.ts');
-
-  fs.writeFileSync(path.join(typesDir, 'pseudoStyles.d.ts'), generatePseudoStylesType());
-  console.log('✅ src/types/pseudoStyles.d.ts');
 
   // 层级配置类型文件
   fs.writeFileSync(path.join(typesDir, 'csstsStepConfig.d.ts'), generateCsstsStepConfigType());

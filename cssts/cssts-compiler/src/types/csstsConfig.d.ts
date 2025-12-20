@@ -3,8 +3,7 @@
  */
 
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
-import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
+import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
 import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
