@@ -38,6 +38,16 @@ export type UnitConfigItem =
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
+ * 单位配置映射（对象模式）
+ */
+export type UnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
+/**
+ * 单位配置（支持数组模式和对象模式）
+ */
+export type UnitConfig = UnitConfigItem[] | UnitConfigMap;
+
+/**
  * 分类值配置（依赖 UnitConfigItem）
  * 支持多种格式：
  * - CsstsStepConfig - 直接配置整个分类
@@ -61,6 +71,16 @@ export type UnitCategoryConfigItem =
     | CssNumberCategoryName
     | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
+/**
+ * 单位分类配置映射（对象模式）
+ */
+export type UnitCategoryConfigMap = Partial<Record<CssNumberCategoryName, CategoryValueConfig>>;
+
+/**
+ * 单位分类配置（支持数组模式和对象模式）
+ */
+export type UnitCategoryConfig = UnitCategoryConfigItem[] | UnitCategoryConfigMap;
 
 /**
  * 数值类型值配置（依赖 CategoryValueConfig）
@@ -91,6 +111,16 @@ export type NumberTypeConfigItem =
     | Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>
     | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
+/**
+ * 数值类型配置映射（对象模式）
+ */
+export type NumberTypeConfigMap = Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>;
+
+/**
+ * 数值类型配置（支持数组模式和对象模式）
+ */
+export type NumberTypeConfig = NumberTypeConfigItem[] | NumberTypeConfigMap;
 
 // ==================== 排除配置类型（从下到上依赖） ====================
 
@@ -144,13 +174,12 @@ export interface CssPropertyExcludeValueConfig {
 }
 
 /**
- * 属性排除项（依赖 CssPropertyExcludeValueConfig, NumberTypeExcludeItem, CategoryExcludeValueConfig）
- * 字符串只支持属性名称，对象支持跨级
+ * 属性排除项（依赖 CssPropertyExcludeValueConfig, NumberTypeExcludeItem）
+ * 字符串只支持属性名称，key 必须是 CSS 属性名称
  */
 export type CssPropertyExcludeItem =
     | CssPropertyName
-    | Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>
-    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+    | Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>;
 
 // ==================== 属性配置类型 ====================
 
@@ -184,19 +213,32 @@ export interface CssPropertyValueConfig extends CssPropertyBaseConfig {
 /**
  * 属性配置项
  * 可以是字符串（简单启用）或对象（带配置）
- * 支持跨级配置：
+ * key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key
  * - 'width' - 简单启用属性
  * - { width: { px: { min: 0 } } } - 属性下直接配置单位
- * - { px: [...] } - 跨级：直接用单位名称作为 key
+ * - { width: [...] } - 属性下的数值类型配置数组
  */
 export type CssPropertyConfigItem =
     | CssPropertyName
-    | Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>
-    | Partial<Record<CssNumberCategoryName, CategoryValueConfig | NumberTypeConfigItem[]>>
-    | Partial<Record<CssNumberUnitName, CsstsStepConfig | NumberTypeConfigItem[]>>;
+    | Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>;
 
-/** 属性配置映射（兼容旧版） */
-export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig>>;
+/**
+ * 属性配置映射（对象模式）
+ * 一次性配置多个属性
+ * 示例：
+ * {
+ *   width: { length: { pixel: { px: { min: 0 } } } },
+ *   height: { length: { unitless: {} } }
+ * }
+ */
+export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>;
+
+/**
+ * 属性配置（支持数组模式和对象模式）
+ * - 数组模式：CssPropertyConfigItem[]
+ * - 对象模式：CssPropertyConfigMap
+ */
+export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMap;
 
 // ==================== CSSTS 配置接口 ====================
 
@@ -210,13 +252,11 @@ export interface CsstsConfig {
 
     /**
      * 支持的属性列表（白名单）
-     * 可以是属性名数组或属性配置对象
-     * 支持跨级配置：
-     * - ['width', 'height'] - 简单启用
-     * - [{ height: { px: { min: 100 } } }] - 跨级配置单位
-     * - [{ height: { numberTypes: ['length'] } }] - 指定数值类型
+     * 支持两种模式：
+     * - 数组模式：['width', 'height', { margin: { px: { min: 0 } } }]
+     * - 对象模式：{ width: { length: { pixel: {} } }, height: { length: {} } }
      */
-    properties?: CssPropertyConfigItem[];
+    properties?: CssPropertyConfig;
 
     /**
      * 排除的属性列表（黑名单）
@@ -229,8 +269,9 @@ export interface CsstsConfig {
 
     /**
      * 支持的数值类型列表（白名单）
+     * 支持数组模式和对象模式
      */
-    numberTypes?: NumberTypeConfigItem[];
+    numberTypes?: NumberTypeConfig;
 
     /**
      * 排除的数值类型列表（黑名单）
@@ -241,8 +282,9 @@ export interface CsstsConfig {
 
     /**
      * 支持的单位分类列表（白名单）
+     * 支持数组模式和对象模式
      */
-    unitCategories?: UnitCategoryConfigItem[];
+    unitCategories?: UnitCategoryConfig;
 
     /**
      * 排除的单位分类列表（黑名单）
@@ -253,8 +295,9 @@ export interface CsstsConfig {
 
     /**
      * 支持的单位列表（白名单）
+     * 支持数组模式和对象模式
      */
-    units?: UnitConfigItem[];
+    units?: UnitConfig;
 
     /**
      * 排除的单位列表（黑名单）

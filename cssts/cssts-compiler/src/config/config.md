@@ -8,20 +8,20 @@ CSSTS 配置用于控制 CSS 原子类的生成规则，包括属性、数值类
 
 ```typescript
 interface CsstsConfig {
-  // 属性配置
-  properties?: CssPropertyConfigItem[];
-  excludeProperties?: CssPropertyName[];
+  // 属性配置（支持数组模式和对象模式）
+  properties?: CssPropertyConfig;  // CssPropertyConfigItem[] | CssPropertyConfigMap
+  excludeProperties?: CssPropertyExcludeItem[];
 
-  // 数值类型配置
-  numberTypes?: NumberTypeConfigItem[];
+  // 数值类型配置（支持数组模式和对象模式）
+  numberTypes?: NumberTypeConfig;  // NumberTypeConfigItem[] | NumberTypeConfigMap
   excludeNumberTypes?: NumberTypeExcludeItem[];
 
-  // 单位分类配置
-  unitCategories?: UnitCategoryConfigItem[];
+  // 单位分类配置（支持数组模式和对象模式）
+  unitCategories?: UnitCategoryConfig;  // UnitCategoryConfigItem[] | UnitCategoryConfigMap
   excludeUnitCategories?: UnitCategoryExcludeItem[];
 
-  // 单位配置
-  units?: UnitConfigItem[];
+  // 单位配置（支持数组模式和对象模式）
+  units?: UnitConfig;  // UnitConfigItem[] | UnitConfigMap
   excludeUnits?: UnitExcludeItem[];
 
   // 关键字/颜色配置
@@ -43,6 +43,30 @@ interface CsstsConfig {
   // 伪类/伪元素样式配置
   pseudoClassesConfig?: CssPseudoClassConfig;
   pseudoElementsConfig?: CssPseudoElementConfig;
+}
+```
+
+## 数组模式 vs 对象模式
+
+`properties`、`numberTypes`、`unitCategories`、`units` 都支持两种配置模式：
+
+### 数组模式
+适合混合配置，可以包含字符串和对象：
+```typescript
+properties: [
+  'width',
+  'height',
+  { margin: { px: { min: 0 } } }
+]
+```
+
+### 对象模式
+适合一次性配置多个项目，结构更清晰：
+```typescript
+properties: {
+  width: { length: { pixel: { px: { min: 0 } } } },
+  height: { length: { unitless: {} } },
+  margin: { numberTypes: ['length'], keywords: ['auto'] }
 }
 ```
 
@@ -170,17 +194,29 @@ CssPropertyExcludeItem (最上层)
 
 ### properties 配置
 
-**类型**: `CssPropertyConfigItem[]`
+**类型**: `CssPropertyConfig` = `CssPropertyConfigItem[] | CssPropertyConfigMap`
 
-**支持的配置格式**:
+支持数组模式和对象模式。
+
+**数组模式 - 支持的配置格式**:
 
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssPropertyName` | 字符串，只支持属性名称 | `'width'`, `'height'` |
 | `Record<CssPropertyName, CssPropertyValueConfig>` | 属性配置对象 | `{ height: { numberTypes: ['length'] } }` |
-| `Record<CssPropertyName, NumberTypeConfigItem[]>` | 属性下的数值类型配置数组 | `{ height: [{ px: { min: 0 } }] }` |
-| `Record<CssNumberCategoryName, CategoryValueConfig>` | 跨级：分类配置 | `{ pixel: { px: { min: 0 } } }` |
-| `Record<CssNumberUnitName, CsstsStepConfig>` | 跨级：单位配置 | `{ px: { min: 100 } }` |
+| `Record<CssPropertyName, NumberTypeConfigItem[]>` | 属性下的数值类型配置数组 | `{ width: [{ px: { min: 0 } }] }` |
+
+**对象模式**:
+```typescript
+// 一次性配置多个属性
+properties: {
+  width: { length: { pixel: { px: { min: 0 } } } },
+  height: { length: { unitless: {} } },
+  margin: { numberTypes: ['length'], keywords: ['auto'] }
+}
+```
+
+**注意**: `properties` 的 key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key。
 
 **CssPropertyValueConfig 支持的字段**:
 - `numberTypes?: CssNumberTypeName[]` - 指定数值类型
@@ -189,6 +225,7 @@ CssPropertyExcludeItem (最上层)
 - 以及任意跨级配置（单位名、分类名作为 key）
 
 ```typescript
+// 数组模式
 properties: [
   // 字符串：只支持属性名称（不支持跨级）
   'width',
@@ -202,22 +239,34 @@ properties: [
   { height: { pixel: { px: { min: 0 } } } },         // 配置分类和单位
   { height: { pixel: ['px', 'rem'] } },              // 指定分类下的单位列表
 
-  // 跨级：直接用单位/分类名称作为 key
-  { px: [
+  // 数组格式配置（属性下的 NumberTypeConfigItem[]）
+  { width: [
     'length',                                        // 启用 numberType
     { pixel: ['px', 'vw'] },                         // 指定分类下的单位列表
     { px: { min: 100 } },                            // 配置具体单位
   ]},
 ]
+
+// 对象模式
+properties: {
+  width: { length: { pixel: { px: { min: 0 } } } },
+  height: { length: { unitless: {} } },
+  margin: [
+    'length',
+    { pixel: ['px', 'rem'] }
+  ]
+}
 ```
 
 ---
 
 ### numberTypes 配置
 
-**类型**: `NumberTypeConfigItem[]`
+**类型**: `NumberTypeConfig` = `NumberTypeConfigItem[] | NumberTypeConfigMap`
 
-**支持的配置格式**:
+支持数组模式和对象模式。
+
+**数组模式 - 支持的配置格式**:
 
 | 格式 | 说明 | 示例 |
 |-----|------|------|
@@ -226,6 +275,14 @@ properties: [
 | `Record<CssNumberCategoryName, CategoryValueConfig>` | 跨级：分类配置 | `{ pixel: { px: { min: 0 } } }` |
 | `Record<CssNumberUnitName, CsstsStepConfig>` | 跨级：单位配置 | `{ px: { min: 100 } }` |
 
+**对象模式**:
+```typescript
+numberTypes: {
+  length: { pixel: { px: { min: 0 } } },
+  angle: { presets: [0, 90, 180, 270] }
+}
+```
+
 **NumberTypeValueConfig 支持的格式**:
 - `CsstsStepConfig` - 直接配置整个数值类型
 - `CssNumberCategoryName[]` - 指定支持的分类列表
@@ -233,6 +290,7 @@ properties: [
 - `Record<CssNumberUnitName, CsstsStepConfig>` - 跨级配置单位
 
 ```typescript
+// 数组模式
 numberTypes: [
   // 字符串：只支持 numberType 名称（不支持跨级）
   'length',
@@ -250,15 +308,24 @@ numberTypes: [
   { pixel: ['px', 'rem'] },                         // 指定 category 下的单位列表
   { px: { min: 100 } },                             // 直接配置 unit
 ]
+
+// 对象模式
+numberTypes: {
+  length: { pixel: { px: { min: 0 } } },
+  angle: ['deg', 'rad'],
+  time: { presets: [0, 100, 200, 300] }
+}
 ```
 
 ---
 
 ### unitCategories 配置
 
-**类型**: `UnitCategoryConfigItem[]`
+**类型**: `UnitCategoryConfig` = `UnitCategoryConfigItem[] | UnitCategoryConfigMap`
 
-**支持的配置格式**:
+支持数组模式和对象模式。
+
+**数组模式 - 支持的配置格式**:
 
 | 格式 | 说明 | 示例 |
 |-----|------|------|
@@ -266,12 +333,21 @@ numberTypes: [
 | `Record<CssNumberCategoryName, CategoryValueConfig>` | category 配置对象 | `{ pixel: { px: { min: 0 } } }` |
 | `Record<CssNumberUnitName, CsstsStepConfig>` | 跨级：单位配置 | `{ px: { min: 100 } }` |
 
+**对象模式**:
+```typescript
+unitCategories: {
+  pixel: { px: { min: 0 }, rem: { presets: [0, 0.5, 1] } },
+  percentage: { presets: [0, 25, 50, 75, 100] }
+}
+```
+
 **CategoryValueConfig 支持的格式**:
 - `CsstsStepConfig` - 直接配置整个分类
 - `CssNumberUnitName[]` - 指定支持的单位列表
 - `Record<CssNumberUnitName, CsstsStepConfig>` - 配置具体单位
 
 ```typescript
+// 数组模式
 unitCategories: [
   // 字符串：只支持 category 名称（不支持跨级）
   'pixel',
@@ -287,22 +363,41 @@ unitCategories: [
   { px: { min: 100 } },
   { rem: { presets: [0, 0.5, 1, 1.5, 2] } },
 ]
+
+// 对象模式
+unitCategories: {
+  pixel: { px: { min: 0 }, rem: { presets: [0, 0.5, 1] } },
+  percentage: ['percent'],
+  angle: { deg: { presets: [0, 90, 180, 270] } }
+}
 ```
 
 ---
 
 ### units 配置
 
-**类型**: `UnitConfigItem[]`
+**类型**: `UnitConfig` = `UnitConfigItem[] | UnitConfigMap`
 
-**支持的配置格式**:
+支持数组模式和对象模式。
+
+**数组模式 - 支持的配置格式**:
 
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssNumberUnitName` | 字符串，简单启用单位 | `'px'`, `'rem'` |
 | `Record<CssNumberUnitName, CsstsStepConfig>` | 单位配置对象 | `{ px: { min: 0, max: 100 } }` |
 
+**对象模式**:
 ```typescript
+units: {
+  px: { min: 0, max: 100, step: 4 },
+  rem: { presets: [0, 0.5, 1, 1.5, 2] },
+  percent: { presets: [0, 25, 50, 75, 100] }
+}
+```
+
+```typescript
+// 数组模式
 units: [
   // 字符串：简单启用
   'px',
@@ -313,18 +408,25 @@ units: [
   { rem: { presets: [0, 0.5, 1, 1.5, 2] } },
   { percent: { presets: [0, 25, 50, 75, 100] } },
 ]
+
+// 对象模式
+units: {
+  px: { min: 0, max: 100, step: 4 },
+  rem: { presets: [0, 0.5, 1, 1.5, 2] },
+  percent: { presets: [0, 25, 50, 75, 100] }
+}
 ```
 
 ---
 
 ### 配置格式总结
 
-| 配置项 | 字符串支持 | 对象跨级支持 |
-|-------|-----------|-------------|
-| `properties` | 只支持 `CssPropertyName` | 支持 property → category → unit |
-| `numberTypes` | 只支持 `CssNumberTypeName` | 支持 numberType → category → unit |
-| `unitCategories` | 只支持 `CssNumberCategoryName` | 支持 category → unit |
-| `units` | 只支持 `CssNumberUnitName` | 无跨级（已是最底层） |
+| 配置项 | 数组模式 | 对象模式 | 字符串支持 | 对象 key 支持 |
+|-------|---------|---------|-----------|-------------|
+| `properties` | ✅ | ✅ | 只支持 `CssPropertyName` | 只支持 `CssPropertyName` |
+| `numberTypes` | ✅ | ✅ | 只支持 `CssNumberTypeName` | 支持跨级 |
+| `unitCategories` | ✅ | ✅ | 只支持 `CssNumberCategoryName` | 支持跨级 |
+| `units` | ✅ | ✅ | 只支持 `CssNumberUnitName` | 无跨级 |
 
 ---
 
@@ -391,22 +493,23 @@ excludeNumberTypes: [
 |-----|------|------|
 | `CssPropertyName` | 字符串，排除整个属性 | `'width'` |
 | `Record<CssPropertyName, CssPropertyExcludeValueConfig>` | 排除属性下的配置 | `{ height: { numberTypes: ['length'] } }` |
-| `Record<CssNumberCategoryName, CategoryExcludeValueConfig>` | 跨级：排除分类下的单位 | `{ pixel: ['px'] }` |
+| `Record<CssPropertyName, NumberTypeExcludeItem[]>` | 排除属性下的数值类型配置 | `{ height: [{ pixel: ['px'] }] }` |
+
+**注意**: `excludeProperties` 的 key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key。
 
 ```typescript
 excludeProperties: [
   'width',                                    // 排除整个属性
   { height: { numberTypes: ['length'] } },    // 排除属性下的数值类型
   { height: { pixel: ['px'] } },              // 排除属性下分类的单位
-  { pixel: ['px'] },                          // 跨级：排除分类下的单位
 ]
 ```
 
 ### 排除配置格式总结
 
-| 配置项 | 字符串支持 | 对象跨级支持 |
+| 配置项 | 字符串支持 | 对象 key 支持 |
 |-------|-----------|-------------|
-| `excludeProperties` | 只支持 `CssPropertyName` | 支持 property → category |
+| `excludeProperties` | 只支持 `CssPropertyName` | 只支持 `CssPropertyName`（不支持跨级） |
 | `excludeNumberTypes` | 只支持 `CssNumberTypeName` | 支持 numberType → category |
 | `excludeUnitCategories` | 只支持 `CssNumberCategoryName` | 支持 category（配置要排除的单位） |
 | `excludeUnits` | 只支持 `CssNumberUnitName` | 无跨级（已是最底层） |

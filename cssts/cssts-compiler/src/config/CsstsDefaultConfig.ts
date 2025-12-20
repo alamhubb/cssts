@@ -7,14 +7,31 @@ import type {CsstsConfig} from "../types/csstsConfig";
  */
 export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
-    properties: [{
-        px: [
-            'length',                                    // 字符串：简单启用 numberType
-            {pixel: ['px', 'vw']},   // 完整路径
-            {px: {min: 100}},                        // 直接配置 unit（完全跨级）
-        ]
+    properties: {
+        width: {
+            length :{
+                unitless:{
+
+                }
+            }
+        },
+        height:{
+            length :{
+                unitless:{
+
+                }
+            }
+        }
+    },
+    excludeProperties: [{
+        width: {
+            length :{
+                unitless:{
+
+                }
+            }
+        }
     }],
-    excludeProperties: [],
 
     // 数值类型配置
     numberTypes: [
