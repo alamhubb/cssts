@@ -84,21 +84,46 @@ export interface CssCategoryUnitMap {
   unitless: CssUnitlessUnitName;
 }
 
-// 严格的 Unit 配置 Map（只允许指定类型的 key）
-export type CssStrictUnitConfigMap<U extends string> = {
-  [K in U]?: CsstsStepConfig;
-};
+// 每个 Category 的精准 Unit 配置 Map（只包含有效 key）
+export type CssPercentageUnitConfigMap = { [K in CssPercentageUnitName]?: CsstsStepConfig };
+export type CssPixelUnitConfigMap = { [K in CssPixelUnitName]?: CsstsStepConfig };
+export type CssFontRelativeUnitConfigMap = { [K in CssFontRelativeUnitName]?: CsstsStepConfig };
+export type CssPhysicalUnitConfigMap = { [K in CssPhysicalUnitName]?: CsstsStepConfig };
+export type CssAngleUnitConfigMap = { [K in CssAngleUnitName]?: CsstsStepConfig };
+export type CssTimeUnitConfigMap = { [K in CssTimeUnitName]?: CsstsStepConfig };
+export type CssFrequencyUnitConfigMap = { [K in CssFrequencyUnitName]?: CsstsStepConfig };
+export type CssResolutionUnitConfigMap = { [K in CssResolutionUnitName]?: CsstsStepConfig };
+export type CssFlexUnitConfigMap = { [K in CssFlexUnitName]?: CsstsStepConfig };
+export type CssUnitlessUnitConfigMap = { [K in CssUnitlessUnitName]?: CsstsStepConfig };
 
-// 精准的 Category 值配置（根据 category 限制可用的 unit）
-export type CssCategoryValueConfigPrecise<C extends CssNumberCategoryName> =
-  | CsstsStepConfig
-  | CssCategoryUnitMap[C][]
-  | CssStrictUnitConfigMap<CssCategoryUnitMap[C]>;
+// 每个 Category 的精准配置类型
+export type CssPercentageValueConfig = CsstsStepConfig | CssPercentageUnitName[] | CssPercentageUnitConfigMap;
+export type CssPixelValueConfig = CsstsStepConfig | CssPixelUnitName[] | CssPixelUnitConfigMap;
+export type CssFontRelativeValueConfig = CsstsStepConfig | CssFontRelativeUnitName[] | CssFontRelativeUnitConfigMap;
+export type CssPhysicalValueConfig = CsstsStepConfig | CssPhysicalUnitName[] | CssPhysicalUnitConfigMap;
+export type CssAngleValueConfig = CsstsStepConfig | CssAngleUnitName[] | CssAngleUnitConfigMap;
+export type CssTimeValueConfig = CsstsStepConfig | CssTimeUnitName[] | CssTimeUnitConfigMap;
+export type CssFrequencyValueConfig = CsstsStepConfig | CssFrequencyUnitName[] | CssFrequencyUnitConfigMap;
+export type CssResolutionValueConfig = CsstsStepConfig | CssResolutionUnitName[] | CssResolutionUnitConfigMap;
+export type CssFlexValueConfig = CsstsStepConfig | CssFlexUnitName[] | CssFlexUnitConfigMap;
+export type CssUnitlessValueConfig = CsstsStepConfig | CssUnitlessUnitName[] | CssUnitlessUnitConfigMap;
 
-// 精准的 Category 配置 Map
-export type CssCategoryConfigMapPrecise = {
-  [C in CssNumberCategoryName]?: CssCategoryValueConfigPrecise<C>;
-};
+// 精准的 Category 配置 Map（每个 category 只接受对应的 unit）
+export interface CssCategoryConfigMapPrecise {
+  percentage?: CssPercentageValueConfig;
+  pixel?: CssPixelValueConfig;
+  fontRelative?: CssFontRelativeValueConfig;
+  physical?: CssPhysicalValueConfig;
+  angle?: CssAngleValueConfig;
+  time?: CssTimeValueConfig;
+  frequency?: CssFrequencyValueConfig;
+  resolution?: CssResolutionValueConfig;
+  flex?: CssFlexValueConfig;
+  unitless?: CssUnitlessValueConfig;
+}
+
+// 辅助函数类型，用于严格类型检查
+export type DefineCategoryConfig = <T extends CssCategoryConfigMapPrecise>(config: T) => T;
 
 // 兼容旧版的宽松类型
 export type CssCategoryValueConfig =

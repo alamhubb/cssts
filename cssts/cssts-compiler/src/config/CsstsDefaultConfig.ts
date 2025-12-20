@@ -9,7 +9,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
     properties: [{
         width: {
-            numberTypes:[]
+            numberTypes: []
         }
     }],
     excludeProperties: [{
@@ -25,7 +25,11 @@ export const csstsDefaultConfig: CsstsConfig = {
     excludeNumberTypes: [],
 
     // 单位分类配置
-    unitCategories: ['unitless', {px: {min: 0}}],
+    unitCategories: [{
+        pixel: {
+            l
+        }
+    }],
     excludeUnitCategories: [],
 
     // 单位配置
