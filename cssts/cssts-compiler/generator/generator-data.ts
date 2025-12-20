@@ -9,8 +9,8 @@
  * 生成文件（src/data/）：
  * - propertyName.ts: CSS 属性名映射
  * - color.ts: 颜色数据
- * - propertyKeywords.ts: 每个属性的 keywords
- * - propertyNumberTypes.ts: 每个属性的 numberTypes
+ * - cssPropertyKeywords.ts: 每个属性的 keywords
+ * - cssPropertyNumber.ts: 每个属性的 numberTypes
  * - cssNumberData.ts: 单位常量、别名、numberType 和 category 映射
  * - pseudoClasses.ts: 伪类数据
  * - pseudoElements.ts: 伪元素数据
@@ -634,11 +634,11 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'color.ts'), generateColorFile(colorData));
   console.log('✅ src/data/color.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'propertyKeywords.ts'), generatePropertyKeywordsFile(propertyData));
-  console.log('✅ src/data/propertyKeywords.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssPropertyKeywords.ts'), generatePropertyKeywordsFile(propertyData));
+  console.log('✅ src/data/cssPropertyKeywords.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'propertyNumberTypes.ts'), generatePropertyNumberTypesFile(propertyData));
-  console.log('✅ src/data/propertyNumberTypes.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssPropertyNumber.ts'), generatePropertyNumberTypesFile(propertyData));
+  console.log('✅ src/data/cssPropertyNumber.ts');
 
   fs.writeFileSync(path.join(dataDir, 'cssNumberData.ts'), generateCssNumberDataFile(numberMapping));
   console.log('✅ src/data/cssNumberData.ts');

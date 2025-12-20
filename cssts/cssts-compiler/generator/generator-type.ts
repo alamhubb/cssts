@@ -58,7 +58,7 @@ function loadPropertyNames(): string[] {
 }
 
 function loadPropertyKeywordsExports(): Set<string> {
-  const filePath = path.join(dataDir, 'propertyKeywords.ts');
+  const filePath = path.join(dataDir, 'cssPropertyKeywords.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
   const regex = /export const (\w+_KEYWORDS)/g;
   const exports = new Set<string>();
@@ -70,7 +70,7 @@ function loadPropertyKeywordsExports(): Set<string> {
 }
 
 function loadPropertyNumberTypesExports(): Set<string> {
-  const filePath = path.join(dataDir, 'propertyNumberTypes.ts');
+  const filePath = path.join(dataDir, 'cssPropertyNumber.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
   const regex = /export const (\w+_NUMBER_TYPES)/g;
   const exports = new Set<string>();
@@ -172,8 +172,8 @@ function generateCssPropertiesType(): string {
     ' * CSS 属性类型定义（自动生成）',
     ' */',
     '',
-    "import type * as Keywords from '../data/propertyKeywords';",
-    "import type * as NumberTypes from '../data/propertyNumberTypes';",
+    "import type * as Keywords from '../data/cssPropertyKeywords';",
+    "import type * as NumberTypes from '../data/cssPropertyNumber';",
     '',
   ];
 
@@ -220,7 +220,7 @@ function generateCssPseudoValueType(): string {
     ' * CSS 伪类/伪元素属性值类型定义（自动生成）',
     ' */',
     '',
-    "import type * as Keywords from '../data/propertyKeywords';",
+    "import type * as Keywords from '../data/cssPropertyKeywords';",
     '',
     'export interface CssPseudoValueType {',
   ];
@@ -274,7 +274,7 @@ function generateNumberConfigType(): string {
  */
 
 import type { ALL_UNITS, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
-import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
+import type { ALL_NUMBER_TYPES } from '../data/cssPropertyNumber';
 
 import type { CsstsStepConfig } from './csstsStepConfig';
 

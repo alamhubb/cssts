@@ -2,8 +2,8 @@
  * CSS 属性类型定义（自动生成）
  */
 
-import type * as Keywords from '../data/propertyKeywords';
-import type * as NumberTypes from '../data/propertyNumberTypes';
+import type * as Keywords from '../data/cssPropertyKeywords';
+import type * as NumberTypes from '../data/cssPropertyNumber';
 
 export interface accentColorPropertyType {
   keywords: typeof Keywords.ACCENT_COLOR_KEYWORDS[number][];

@@ -2,7 +2,7 @@
  * CSS 伪类/伪元素属性值类型定义（自动生成）
  */
 
-import type * as Keywords from '../data/propertyKeywords';
+import type * as Keywords from '../data/cssPropertyKeywords';
 
 export interface CssPseudoValueType {
   accentColor?: typeof Keywords.ACCENT_COLOR_KEYWORDS[number] | string;
