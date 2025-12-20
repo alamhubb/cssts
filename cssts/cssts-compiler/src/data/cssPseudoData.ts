@@ -1,6 +1,8 @@
 /**
- * CSS 伪类数据（自动生成）
+ * CSS 伪类和伪元素数据（自动生成）
  */
+
+// ==================== 伪类 ====================
 
 export const pseudoClasses = [
   'hover',
@@ -64,4 +66,22 @@ export const pseudoClasses = [
   'host-context',
   'scope',
   'blank',
+] as const;
+
+// ==================== 伪元素 ====================
+
+export const pseudoElements = [
+  'before',
+  'after',
+  'first-line',
+  'first-letter',
+  'marker',
+  'selection',
+  'placeholder',
+  'backdrop',
+  'file-selector-button',
+  'cue',
+  'cue-region',
+  'part',
+  'slotted',
 ] as const;

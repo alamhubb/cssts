@@ -7,13 +7,12 @@
  * - datajson/pseudo-standards.json：伪类和伪元素
  *
  * 生成文件（src/data/）：
- * - propertyName.ts: CSS 属性名映射
+ * - cssPropertyNameMapping.ts: CSS 属性名映射
  * - color.ts: 颜色数据
  * - cssPropertyKeywords.ts: 每个属性的 keywords
  * - cssPropertyNumber.ts: 每个属性的 numberTypes
  * - cssNumberData.ts: 单位常量、别名、numberType 和 category 映射
- * - pseudoClasses.ts: 伪类数据
- * - pseudoElements.ts: 伪元素数据
+ * - cssPseudoData.ts: 伪类和伪元素数据
  * - cssKeywordsData.ts: keywords 常量、数组和 allKeywords
  *
  * 运行方式：npx tsx generator/generator-data.ts
@@ -495,29 +494,24 @@ function loadPseudoStandards(): { pseudoClasses: string[]; pseudoElements: strin
   return JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 }
 
-function generatePseudoClassesFile(pseudoClasses: string[]): string {
+function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: string[]): string {
   const lines: string[] = [
     '/**',
-    ' * CSS 伪类数据（自动生成）',
+    ' * CSS 伪类和伪元素数据（自动生成）',
     ' */',
+    '',
+    '// ==================== 伪类 ====================',
     '',
     'export const pseudoClasses = [',
   ];
   pseudoClasses.forEach(p => lines.push(`  '${p}',`));
   lines.push('] as const;', '');
-  return lines.join('\n');
-}
 
-function generatePseudoElementsFile(pseudoElements: string[]): string {
-  const lines: string[] = [
-    '/**',
-    ' * CSS 伪元素数据（自动生成）',
-    ' */',
-    '',
-    'export const pseudoElements = [',
-  ];
+  lines.push('// ==================== 伪元素 ====================', '');
+  lines.push('export const pseudoElements = [');
   pseudoElements.forEach(p => lines.push(`  '${p}',`));
   lines.push('] as const;', '');
+
   return lines.join('\n');
 }
 
@@ -628,8 +622,8 @@ function main() {
   const pseudoStandards = loadPseudoStandards();
 
   // 生成文件
-  fs.writeFileSync(path.join(dataDir, 'propertyName.ts'), generatePropertyNameFile(propertyMap));
-  console.log('✅ src/data/propertyName.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssPropertyNameMapping.ts'), generatePropertyNameFile(propertyMap));
+  console.log('✅ src/data/cssPropertyNameMapping.ts');
 
   fs.writeFileSync(path.join(dataDir, 'color.ts'), generateColorFile(colorData));
   console.log('✅ src/data/color.ts');
@@ -643,11 +637,8 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'cssNumberData.ts'), generateCssNumberDataFile(numberMapping));
   console.log('✅ src/data/cssNumberData.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'pseudoClasses.ts'), generatePseudoClassesFile(pseudoStandards.pseudoClasses));
-  console.log('✅ src/data/pseudoClasses.ts');
-
-  fs.writeFileSync(path.join(dataDir, 'pseudoElements.ts'), generatePseudoElementsFile(pseudoStandards.pseudoElements));
-  console.log('✅ src/data/pseudoElements.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssPseudoData.ts'), generateCssPseudoDataFile(pseudoStandards.pseudoClasses, pseudoStandards.pseudoElements));
+  console.log('✅ src/data/cssPseudoData.ts');
 
   fs.writeFileSync(path.join(dataDir, 'cssKeywordsData.ts'), generateCssKeywordsDataFile(keywords));
   console.log('✅ src/data/cssKeywordsData.ts');

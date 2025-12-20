@@ -2,8 +2,7 @@
  * CSS 伪类和伪元素类型定义（自动生成）
  */
 
-import type { pseudoClasses } from '../data/pseudoClasses';
-import type { pseudoElements } from '../data/pseudoElements';
+import type { pseudoClasses, pseudoElements } from '../data/cssPseudoData';
 
 import type { CssPseudoValueType } from './cssPseudoValue';
 

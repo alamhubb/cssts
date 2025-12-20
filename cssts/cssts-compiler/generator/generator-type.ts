@@ -46,7 +46,7 @@ function camelToUpperSnake(str: string): string {
 // ==================== 从 data 文件读取数据 ====================
 
 function loadPropertyNames(): string[] {
-  const filePath = path.join(dataDir, 'propertyName.ts');
+  const filePath = path.join(dataDir, 'cssPropertyNameMapping.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
   const regex = /^\s+(\w+):\s*'/gm;
   const names: string[] = [];
@@ -82,25 +82,31 @@ function loadPropertyNumberTypesExports(): Set<string> {
 }
 
 function loadPseudoClasses(): string[] {
-  const filePath = path.join(dataDir, 'pseudoClasses.ts');
+  const filePath = path.join(dataDir, 'cssPseudoData.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
+  // 只匹配 pseudoClasses 数组中的内容
+  const match = content.match(/export const pseudoClasses = \[([\s\S]*?)\] as const;/);
+  if (!match) return [];
   const regex = /'([^']+)'/g;
   const classes: string[] = [];
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    classes.push(match[1]);
+  let m;
+  while ((m = regex.exec(match[1])) !== null) {
+    classes.push(m[1]);
   }
   return classes;
 }
 
 function loadPseudoElements(): string[] {
-  const filePath = path.join(dataDir, 'pseudoElements.ts');
+  const filePath = path.join(dataDir, 'cssPseudoData.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
+  // 只匹配 pseudoElements 数组中的内容
+  const match = content.match(/export const pseudoElements = \[([\s\S]*?)\] as const;/);
+  if (!match) return [];
   const regex = /'([^']+)'/g;
   const elements: string[] = [];
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    elements.push(match[1]);
+  let m;
+  while ((m = regex.exec(match[1])) !== null) {
+    elements.push(m[1]);
   }
   return elements;
 }
@@ -117,8 +123,7 @@ function generateCssPseudoClassElementType(): string {
     ' * CSS 伪类和伪元素类型定义（自动生成）',
     ' */',
     '',
-    "import type { pseudoClasses } from '../data/pseudoClasses';",
-    "import type { pseudoElements } from '../data/pseudoElements';",
+    "import type { pseudoClasses, pseudoElements } from '../data/cssPseudoData';",
     '',
     "import type { CssPseudoValueType } from './cssPseudoValue';",
     '',
@@ -151,7 +156,7 @@ function generateCssPropertyConfigType(): string {
  * CSS 属性配置类型定义（自动生成）
  */
 
-import type { CSS_PROPERTY_NAME_MAP } from '../data/propertyName';
+import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import type { CSSPropertiesType } from './cssProperties';
 
 export type CssPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
