@@ -7,10 +7,15 @@
  * - cssKeywords.d.ts: Keywords 类型
  * - numberTypes.d.ts: NumberTypes 类型
  * - cssPseudoClassElement.d.ts: 伪类/伪元素类型
- * - cssPropertyConfig.d.ts: 属性配置类型
+ * - cssPropertyConfig.d.ts: 属性名称类型
  * - cssProperties.d.ts: 属性类型
  * - cssPropertiesValue.d.ts: 属性值类型
  * - pseudoStyles.d.ts: 伪类/伪元素样式类型
+ * - baseConfig.d.ts: 基础配置类型
+ * - unitConfig.d.ts: Unit 配置类型
+ * - categoryConfig.d.ts: Category 配置类型
+ * - numberTypeConfig.d.ts: NumberType 配置类型
+ * - propertyValueConfig.d.ts: Property 配置类型
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
  * 运行方式：npx tsx generator/generator-type.ts
@@ -276,19 +281,12 @@ function generatePseudoStylesType(): string {
 }
 
 
-function generateCsstsConfigType(): string {
+// ==================== 基础配置类型 ====================
+
+function generateBaseConfigType(): string {
   return `/**
- * CSSTS 配置类型定义（自动生成）
+ * 基础配置类型定义（自动生成）
  */
-
-import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
-import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
-import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
-import type { CSSPropertiesValueType } from './cssPropertiesValue';
-
-// ==================== 值配置类型 ====================
 
 /** 渐进步长范围配置 */
 export interface ProgressiveRange {
@@ -305,16 +303,45 @@ export interface CsstsStepConfig {
   presets?: number[];
 }
 
-export interface CsstsStyleConfig extends CSSPropertiesValueType {
-  pseudoClasses?: CssPseudoClassConfig;
-  pseudoElements?: CssPseudoElementConfig;
+export type CustomPropertyValue = string | Record<string, string>;
+`;
 }
 
-// ==================== 层级配置类型（从下到上依赖） ====================
+// ==================== Unit 配置类型 ====================
+
+function generateUnitConfigType(): string {
+  return `/**
+ * Unit 配置类型定义（自动生成）
+ */
+
+import type { CssNumberUnitName } from './numberTypes';
+import type { CsstsStepConfig } from './baseConfig';
+
+// ==================== Unit 配置 ====================
 
 export type CssUnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 export type CssUnitConfigItem = CssNumberUnitName | CssUnitConfigMap;
 export type CssUnitConfig = CssUnitConfigItem[] | CssUnitConfigMap;
+
+// ==================== Unit 排除配置 ====================
+
+export type CssUnitExcludeItem = CssNumberUnitName;
+export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
+`;
+}
+
+// ==================== Category 配置类型 ====================
+
+function generateCategoryConfigType(): string {
+  return `/**
+ * Category 配置类型定义（自动生成）
+ */
+
+import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
+import type { CsstsStepConfig } from './baseConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
+
+// ==================== Category 配置 ====================
 
 export type CssCategoryValueConfig =
   | CsstsStepConfig
@@ -327,6 +354,32 @@ export type CssCategoryConfigItem =
   | CssCategoryConfigMap
   | CssUnitConfigMap;
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
+
+// ==================== Category 排除配置 ====================
+
+export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
+export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
+export type CssCategoryExcludeItem =
+  | CssNumberCategoryName
+  | CssCategoryExcludeMap
+  | CssUnitExcludeMap;
+export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
+`;
+}
+
+// ==================== NumberType 配置类型 ====================
+
+function generateNumberTypeConfigType(): string {
+  return `/**
+ * NumberType 配置类型定义（自动生成）
+ */
+
+import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
+import type { CsstsStepConfig } from './baseConfig';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
+import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './categoryConfig';
+
+// ==================== NumberType 配置 ====================
 
 export type CssNumberTypeValueConfig =
   | CsstsStepConfig
@@ -342,18 +395,7 @@ export type CssNumberTypeConfigItem =
   | CssUnitConfigMap;
 export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
 
-// ==================== 排除配置类型 ====================
-
-export type CssUnitExcludeItem = CssNumberUnitName;
-export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
-
-export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
-export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
-export type CssCategoryExcludeItem =
-  | CssNumberCategoryName
-  | CssCategoryExcludeMap
-  | CssUnitExcludeMap;
-export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
+// ==================== NumberType 排除配置 ====================
 
 export type CssNumberTypeExcludeValueConfig =
   | CssNumberCategoryName[]
@@ -367,6 +409,24 @@ export type CssNumberTypeExcludeItem =
   | CssCategoryExcludeMap
   | CssUnitExcludeMap;
 export type CssNumberTypeExcludeConfig = CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap;
+`;
+}
+
+// ==================== Property 配置类型 ====================
+
+function generatePropertyConfigType(): string {
+  return `/**
+ * Property 配置类型定义（自动生成）
+ */
+
+import type { CssPropertyName } from './cssPropertyConfig';
+import type { CssNumberTypeName } from './numberTypes';
+import type { CssKeywordName, CssColorName } from './cssKeywords';
+import type { CssUnitConfigMap, CssUnitExcludeMap } from './unitConfig';
+import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './categoryConfig';
+import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './numberTypeConfig';
+
+// ==================== Property 基础配置 ====================
 
 export interface CssPropertyBaseConfig {
   numberTypes?: CssNumberTypeName[];
@@ -374,19 +434,7 @@ export interface CssPropertyBaseConfig {
   colors?: CssColorName[];
 }
 
-export type CssPropertyExcludeValueConfig =
-  | CssPropertyBaseConfig
-  | (CssPropertyBaseConfig & CssNumberTypeExcludeMap)
-  | (CssPropertyBaseConfig & CssCategoryExcludeMap)
-  | (CssPropertyBaseConfig & CssUnitExcludeMap);
-
-export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
-export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap;
-export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
-
-// ==================== 属性配置类型 ====================
-
-export type CustomPropertyValue = string | Record<string, string>;
+// ==================== Property 配置 ====================
 
 export type CssPropertyValueConfig =
   | CssPropertyBaseConfig
@@ -398,28 +446,76 @@ export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyVa
 export type CssPropertyConfigItem = CssPropertyName | CssPropertyConfigMap;
 export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMap;
 
-// ==================== CSSTS 配置接口 ====================
+// ==================== Property 排除配置 ====================
+
+export type CssPropertyExcludeValueConfig =
+  | CssPropertyBaseConfig
+  | (CssPropertyBaseConfig & CssNumberTypeExcludeMap)
+  | (CssPropertyBaseConfig & CssCategoryExcludeMap)
+  | (CssPropertyBaseConfig & CssUnitExcludeMap);
+
+export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
+export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap;
+export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
+`;
+}
+
+// ==================== CSSTS 配置类型 ====================
+
+function generateCsstsConfigType(): string {
+  return `/**
+ * CSSTS 配置类型定义（自动生成）
+ */
+
+import type { CssKeywordName, CssColorName } from './cssKeywords';
+import type { CssPseudoClassName, CssPseudoElementName } from './cssPseudoClassElement';
+import type { CssPseudoClassConfig, CssPseudoElementConfig } from './pseudoStyles';
+import type { ProgressiveRange, CustomPropertyValue } from './baseConfig';
+import type { CssUnitConfig, CssUnitExcludeItem } from './unitConfig';
+import type { CssCategoryConfig, CssCategoryExcludeConfig } from './categoryConfig';
+import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './numberTypeConfig';
+import type { CssPropertyConfig, CssPropertyExcludeConfig } from './propertyValueConfig';
 
 export interface CsstsConfig {
+  /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */
   properties?: CssPropertyConfig;
+  /** 排除的 CSS 属性，如 ['appearance', 'zoom'] */
   excludeProperties?: CssPropertyExcludeConfig;
+  /** 包含的数值类型配置，如 ['length', 'angle'] 或 { length: { px: { step: 1 } } } */
   numberTypes?: CssNumberTypeConfig;
+  /** 排除的数值类型，如 ['flex', 'resolution'] */
   excludeNumberTypes?: CssNumberTypeExcludeConfig;
+  /** 包含的单位类别配置，如 ['absolute-length', 'angle'] */
   unitCategories?: CssCategoryConfig;
+  /** 排除的单位类别，如 ['viewport-percentage-length'] */
   excludeUnitCategories?: CssCategoryExcludeConfig;
+  /** 包含的单位配置，如 ['px', 'rem'] 或 { px: { step: 1, min: 0, max: 100 } } */
   units?: CssUnitConfig;
+  /** 排除的单位，如 ['cm', 'mm', 'in'] */
   excludeUnits?: CssUnitExcludeItem[];
+  /** 包含的关键字，如 ['auto', 'inherit', 'initial'] */
   keywords?: CssKeywordName[];
+  /** 排除的关键字，如 ['unset', 'revert'] */
   excludeKeywords?: CssKeywordName[];
+  /** 包含的颜色，如 ['red', 'blue', 'transparent'] */
   colors?: CssColorName[];
+  /** 排除的颜色，如 ['rebeccapurple'] */
   excludeColors?: CssColorName[];
+  /** 自定义属性，如 { '--primary': '#007bff' } 或 { '--size': { sm: '12px', lg: '24px' } } */
   customProperties?: Record<string, CustomPropertyValue>;
+  /** 渐进步长范围，如 [{ max: 100, divisors: [1, 2, 4] }] */
   progressiveRanges?: ProgressiveRange[];
+  /** 包含的伪类，如 ['hover', 'focus', 'active'] */
   pseudoClasses?: CssPseudoClassName[];
+  /** 排除的伪类，如 ['visited', 'link'] */
   excludePseudoClasses?: CssPseudoClassName[];
+  /** 包含的伪元素，如 ['before', 'after'] */
   pseudoElements?: CssPseudoElementName[];
+  /** 排除的伪元素，如 ['first-line', 'first-letter'] */
   excludePseudoElements?: CssPseudoElementName[];
+  /** 伪类样式配置 */
   pseudoClassesConfig?: CssPseudoClassConfig;
+  /** 伪元素样式配置 */
   pseudoElementsConfig?: CssPseudoElementConfig;
 }
 
@@ -432,7 +528,7 @@ export type CsstsConfigRequired = Required<CsstsConfig>;
 function main() {
   console.log('🚀 生成所有 CSS 类型文件...\n');
 
-  // 生成类型文件
+  // 基础类型文件
   fs.writeFileSync(path.join(typesDir, 'cssKeywords.d.ts'), generateCssKeywordsType());
   console.log('✅ src/types/cssKeywords.d.ts');
 
@@ -453,6 +549,22 @@ function main() {
 
   fs.writeFileSync(path.join(typesDir, 'pseudoStyles.d.ts'), generatePseudoStylesType());
   console.log('✅ src/types/pseudoStyles.d.ts');
+
+  // 层级配置类型文件
+  fs.writeFileSync(path.join(typesDir, 'baseConfig.d.ts'), generateBaseConfigType());
+  console.log('✅ src/types/baseConfig.d.ts');
+
+  fs.writeFileSync(path.join(typesDir, 'unitConfig.d.ts'), generateUnitConfigType());
+  console.log('✅ src/types/unitConfig.d.ts');
+
+  fs.writeFileSync(path.join(typesDir, 'categoryConfig.d.ts'), generateCategoryConfigType());
+  console.log('✅ src/types/categoryConfig.d.ts');
+
+  fs.writeFileSync(path.join(typesDir, 'numberTypeConfig.d.ts'), generateNumberTypeConfigType());
+  console.log('✅ src/types/numberTypeConfig.d.ts');
+
+  fs.writeFileSync(path.join(typesDir, 'propertyValueConfig.d.ts'), generatePropertyConfigType());
+  console.log('✅ src/types/propertyValueConfig.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'csstsConfig.d.ts'), generateCsstsConfigType());
   console.log('✅ src/types/csstsConfig.d.ts');
