@@ -4,7 +4,6 @@
  * 数据来源：src/data/ 目录下的数据文件
  *
  * 生成文件（src/types/）：
- * - cssKeywords.d.ts: Keywords 类型
  * - cssPseudoClassElement.d.ts: 伪类/伪元素类型和样式配置
  * - cssPropertyConfig.d.ts: 属性名称类型
  * - cssProperties.d.ts: 属性类型
@@ -13,7 +12,7 @@
  * - cssNumberUnitConfig.d.ts: Unit 配置类型
  * - cssNumberCategoryConfig.d.ts: Category 配置类型
  * - cssNumberTypeConfig.d.ts: NumberType 配置类型
- * - cssPropertyValueConfig.d.ts: Property 配置类型
+ * - cssPropertyValueConfig.d.ts: Property 配置类型和 Keywords 类型
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
  * 运行方式：npx tsx generator/generator-type.ts
@@ -110,23 +109,6 @@ function loadPseudoElements(): string[] {
 
 
 // ==================== Types 生成 ====================
-
-function generateCssKeywordsType(): string {
-  return `/**
- * CSS Keywords 类型定义（自动生成）
- */
-
-import type { keywords } from '../data/keywords';
-import type { allKeywords } from '../data/allKeywords';
-import type { ALL_COLORS } from '../data/color';
-
-export type CssKeywordName = typeof keywords[number];
-
-export type CssColorName = typeof ALL_COLORS[number];
-
-export type CssAllKeywordName = typeof allKeywords[number];
-`;
-}
 
 function generateCssPseudoClassElementType(): string {
   const pseudoClasses = loadPseudoClasses();
@@ -418,11 +400,22 @@ function generatePropertyConfigType(): string {
  * Property 配置类型定义（自动生成）
  */
 
+import type { keywords } from '../data/keywords';
+import type { allKeywords } from '../data/allKeywords';
+import type { ALL_COLORS } from '../data/color';
+
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
 import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+
+// ==================== Keywords 类型 ====================
+
+export type CssKeywordName = typeof keywords[number];
+
+export type CssColorName = typeof ALL_COLORS[number];
+
+export type CssAllKeywordName = typeof allKeywords[number];
 
 // ==================== Property 基础配置 ====================
 
@@ -469,13 +462,12 @@ function generateCsstsConfigType(): string {
  * CSSTS 配置类型定义（自动生成）
  */
 
-import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
 import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
 import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
-import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
+import type { CssKeywordName, CssColorName, CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {
   /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */
@@ -530,9 +522,6 @@ function main() {
   console.log('🚀 生成所有 CSS 类型文件...\n');
 
   // 基础类型文件
-  fs.writeFileSync(path.join(typesDir, 'cssKeywords.d.ts'), generateCssKeywordsType());
-  console.log('✅ src/types/cssKeywords.d.ts');
-
   fs.writeFileSync(path.join(typesDir, 'cssPseudoClassElement.d.ts'), generateCssPseudoClassElementType());
   console.log('✅ src/types/cssPseudoClassElement.d.ts');
 

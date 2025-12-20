@@ -2,13 +2,12 @@
  * CSSTS 配置类型定义（自动生成）
  */
 
-import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
 import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
 import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
 import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
-import type { CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
+import type { CssKeywordName, CssColorName, CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {
   /** 包含的 CSS 属性配置，如 ['width', 'height'] 或 { width: { px: { step: 1 } } } */

@@ -2,11 +2,22 @@
  * Property 配置类型定义（自动生成）
  */
 
+import type { keywords } from '../data/keywords';
+import type { allKeywords } from '../data/allKeywords';
+import type { ALL_COLORS } from '../data/color';
+
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssKeywordName, CssColorName } from './cssKeywords';
 import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
 import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+
+// ==================== Keywords 类型 ====================
+
+export type CssKeywordName = typeof keywords[number];
+
+export type CssColorName = typeof ALL_COLORS[number];
+
+export type CssAllKeywordName = typeof allKeywords[number];
 
 // ==================== Property 基础配置 ====================
 
