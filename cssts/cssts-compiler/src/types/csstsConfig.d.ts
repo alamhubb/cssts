@@ -33,7 +33,7 @@ export interface CsstsStepConfig {
  * 单位配置映射（对象模式）
  * 示例：{ px: { min: 0 }, rem: { presets: [0, 0.5, 1] } }
  */
-export type UnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+export type CssUnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
  * 单位配置项（最底层）
@@ -41,25 +41,25 @@ export type UnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
  * - 'px' - 简单启用
  * - { px: { min: 0 }, vw: { min: 100 } } - 配置多个单位
  */
-export type UnitConfigItem =
+export type CssUnitConfigItem =
     | CssNumberUnitName
-    | UnitConfigMap;
+    | CssUnitConfigMap;
 
 /**
  * 单位配置（支持数组模式和对象模式）
  * - 数组模式：['px', { rem: { min: 0 } }]
  * - 对象模式：{ px: { min: 0 }, rem: { presets: [0, 0.5, 1] } }
  */
-export type UnitConfig = UnitConfigItem[] | UnitConfigMap;
+export type CssUnitConfig = CssUnitConfigItem[] | CssUnitConfigMap;
 
 /**
- * 分类值配置（依赖 UnitConfigItem）
+ * 分类值配置（依赖 CssUnitConfigItem）
  * 支持多种格式：
  * - CsstsStepConfig - 直接配置整个分类
  * - CssNumberUnitName[] - 指定支持的单位列表
  * - Partial<Record<CssNumberUnitName, CsstsStepConfig>> - 配置具体单位
  */
-export type CategoryValueConfig =
+export type CssCategoryValueConfig =
     | CsstsStepConfig
     | CssNumberUnitName[]
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
@@ -68,48 +68,48 @@ export type CategoryValueConfig =
  * 单位分类配置映射（对象模式）
  * 示例：{ pixel: { px: { min: 0 } }, percentage: ['percent'] }
  */
-export type UnitCategoryConfigMap = Partial<Record<CssNumberCategoryName, CategoryValueConfig>>;
+export type CssCategoryConfigMap = Partial<Record<CssNumberCategoryName, CssCategoryValueConfig>>;
 
 /**
- * 单位分类配置项（依赖 CategoryValueConfig）
+ * 单位分类配置项（依赖 CssCategoryValueConfig）
  * 字符串只支持当前层级（category），对象支持跨级
  * - 'pixel' - 简单启用 category
  * - { pixel: { px: { min: 0 } } } - 完整路径
  * - { pixel: ['px', 'rem'] } - 指定支持的单位列表
  * - { px: { min: 100 } } - 跨级：直接配置 unit
  */
-export type UnitCategoryConfigItem =
+export type CssCategoryConfigItem =
     | CssNumberCategoryName
-    | UnitCategoryConfigMap
-    | UnitConfigMap;  // 跨级：直接配置 unit
+    | CssCategoryConfigMap
+    | CssUnitConfigMap;  // 跨级：直接配置 unit
 
 /**
  * 单位分类配置（支持数组模式和对象模式）
  */
-export type UnitCategoryConfig = UnitCategoryConfigItem[] | UnitCategoryConfigMap;
+export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
 
 /**
- * 数值类型值配置（依赖 CategoryValueConfig）
+ * 数值类型值配置（依赖 CssCategoryValueConfig）
  * 支持多种格式：
  * - CsstsStepConfig - 直接配置整个数值类型
  * - CssNumberCategoryName[] - 指定支持的分类列表
- * - Partial<Record<CssNumberCategoryName, CategoryValueConfig>> - 配置多个分类
+ * - Partial<Record<CssNumberCategoryName, CssCategoryValueConfig>> - 配置多个分类
  * - Partial<Record<CssNumberUnitName, CsstsStepConfig>> - 跨级配置单位
  */
-export type NumberTypeValueConfig =
+export type CssNumberTypeValueConfig =
     | CsstsStepConfig
     | CssNumberCategoryName[]
-    | Partial<Record<CssNumberCategoryName, CategoryValueConfig>>
+    | Partial<Record<CssNumberCategoryName, CssCategoryValueConfig>>
     | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 /**
  * 数值类型配置映射（对象模式）
  * 示例：{ length: { pixel: { px: { min: 0 } } }, angle: ['deg'] }
  */
-export type NumberTypeConfigMap = Partial<Record<CssNumberTypeName, NumberTypeValueConfig>>;
+export type CssNumberTypeConfigMap = Partial<Record<CssNumberTypeName, CssNumberTypeValueConfig>>;
 
 /**
- * 数值类型配置项（依赖 NumberTypeValueConfig, CategoryValueConfig）
+ * 数值类型配置项（依赖 CssNumberTypeValueConfig, CssCategoryValueConfig）
  * 字符串只支持当前层级（numberType），对象支持跨级
  * - 'length' - 简单启用 numberType
  * - { length: { pixel: { px: { min: 0 } } } } - 完整路径
@@ -118,16 +118,16 @@ export type NumberTypeConfigMap = Partial<Record<CssNumberTypeName, NumberTypeVa
  * - { pixel: { px: { min: 0 } } } - 跨级：从 category 开始
  * - { px: { min: 0 } } - 跨级：直接配置 unit
  */
-export type NumberTypeConfigItem =
+export type CssNumberTypeConfigItem =
     | CssNumberTypeName
-    | NumberTypeConfigMap
-    | UnitCategoryConfigMap  // 跨级：从 category 开始
-    | UnitConfigMap;         // 跨级：直接配置 unit
+    | CssNumberTypeConfigMap
+    | CssCategoryConfigMap  // 跨级：从 category 开始
+    | CssUnitConfigMap;         // 跨级：直接配置 unit
 
 /**
  * 数值类型配置（支持数组模式和对象模式）
  */
-export type NumberTypeConfig = NumberTypeConfigItem[] | NumberTypeConfigMap;
+export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
 
 // ==================== 排除配置类型（从下到上依赖，与白名单结构对称） ====================
 
@@ -135,89 +135,89 @@ export type NumberTypeConfig = NumberTypeConfigItem[] | NumberTypeConfigMap;
  * 单位排除项（最底层）
  * 只支持字符串形式（不需要 CsstsStepConfig）
  */
-export type UnitExcludeItem = CssNumberUnitName;
+export type CssUnitExcludeItem = CssNumberUnitName;
 
 /**
  * 单位排除映射（对象模式）
- * 与白名单 UnitConfigMap 对应，但值为空对象（不需要配置）
+ * 与白名单 CssUnitConfigMap 对应，但值为空对象（不需要配置）
  * 示例：{ px: {}, rem: {} }
  */
-export type UnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
+export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
 
 /**
- * 分类排除值配置（依赖 UnitExcludeItem）
- * 与白名单 CategoryValueConfig 对应，但不支持 CsstsStepConfig
+ * 分类排除值配置（依赖 CssUnitExcludeItem）
+ * 与白名单 CssCategoryValueConfig 对应，但不支持 CsstsStepConfig
  * - CssNumberUnitName[] - 排除指定的单位列表
- * - UnitExcludeMap - 对象模式排除单位
+ * - CssUnitExcludeMap - 对象模式排除单位
  */
-export type CategoryExcludeValueConfig =
+export type CssCategoryExcludeValueConfig =
     | CssNumberUnitName[]
-    | UnitExcludeMap;
+    | CssUnitExcludeMap;
 
 /**
  * 单位分类排除映射（对象模式）
- * 与白名单 UnitCategoryConfigMap 对应
+ * 与白名单 CssCategoryConfigMap 对应
  * 示例：{ pixel: ['px', 'rem'], percentage: { percent: {} } }
  */
-export type UnitCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
 
 /**
- * 单位分类排除项（依赖 CategoryExcludeValueConfig）
- * 与白名单 UnitCategoryConfigItem 对应
+ * 单位分类排除项（依赖 CssCategoryExcludeValueConfig）
+ * 与白名单 CssCategoryConfigItem 对应
  * - 'pixel' - 简单排除 category
  * - { pixel: ['px', 'rem'] } - 排除分类下的单位
  * - { px: {} } - 跨级：直接排除 unit
  */
-export type UnitCategoryExcludeItem =
+export type CssCategoryExcludeItem =
     | CssNumberCategoryName
-    | UnitCategoryExcludeMap
-    | UnitExcludeMap;  // 跨级：直接排除 unit
+    | CssCategoryExcludeMap
+    | CssUnitExcludeMap;  // 跨级：直接排除 unit
 
 /**
  * 单位分类排除配置（支持数组模式和对象模式）
- * 与白名单 UnitCategoryConfig 对应
+ * 与白名单 CssCategoryConfig 对应
  */
-export type UnitCategoryExcludeConfig = UnitCategoryExcludeItem[] | UnitCategoryExcludeMap;
+export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
 
 /**
- * 数值类型排除值配置（依赖 CategoryExcludeValueConfig）
- * 与白名单 NumberTypeValueConfig 对应，但不支持 CsstsStepConfig
+ * 数值类型排除值配置（依赖 CssCategoryExcludeValueConfig）
+ * 与白名单 CssNumberTypeValueConfig 对应，但不支持 CsstsStepConfig
  * - CssNumberCategoryName[] - 排除指定的分类列表
- * - UnitCategoryExcludeMap - 排除分类下的单位
- * - UnitExcludeMap - 跨级排除单位
+ * - CssCategoryExcludeMap - 排除分类下的单位
+ * - CssUnitExcludeMap - 跨级排除单位
  */
-export type NumberTypeExcludeValueConfig =
+export type CssNumberTypeExcludeValueConfig =
     | CssNumberCategoryName[]
-    | UnitCategoryExcludeMap
-    | UnitExcludeMap;
+    | CssCategoryExcludeMap
+    | CssUnitExcludeMap;
 
 /**
  * 数值类型排除映射（对象模式）
- * 与白名单 NumberTypeConfigMap 对应
+ * 与白名单 CssNumberTypeConfigMap 对应
  * 示例：{ length: ['pixel'], angle: { deg: ['deg'] } }
  */
-export type NumberTypeExcludeMap = Partial<Record<CssNumberTypeName, NumberTypeExcludeValueConfig>>;
+export type CssNumberTypeExcludeMap = Partial<Record<CssNumberTypeName, CssNumberTypeExcludeValueConfig>>;
 
 /**
- * 数值类型排除项（依赖 NumberTypeExcludeValueConfig, UnitCategoryExcludeMap）
- * 与白名单 NumberTypeConfigItem 对应
+ * 数值类型排除项（依赖 CssNumberTypeExcludeValueConfig, CssCategoryExcludeMap）
+ * 与白名单 CssNumberTypeConfigItem 对应
  * - 'length' - 简单排除 numberType
  * - { length: ['pixel'] } - 排除 numberType 下的分类
  * - { length: { pixel: ['px'] } } - 完整路径
  * - { pixel: ['px'] } - 跨级：从 category 开始
  * - { px: {} } - 跨级：直接排除 unit
  */
-export type NumberTypeExcludeItem =
+export type CssNumberTypeExcludeItem =
     | CssNumberTypeName
-    | NumberTypeExcludeMap
-    | UnitCategoryExcludeMap  // 跨级：从 category 开始
-    | UnitExcludeMap;         // 跨级：直接排除 unit
+    | CssNumberTypeExcludeMap
+    | CssCategoryExcludeMap  // 跨级：从 category 开始
+    | CssUnitExcludeMap;         // 跨级：直接排除 unit
 
 /**
  * 数值类型排除配置（支持数组模式和对象模式）
- * 与白名单 NumberTypeConfig 对应
+ * 与白名单 CssNumberTypeConfig 对应
  */
-export type NumberTypeExcludeConfig = NumberTypeExcludeItem[] | NumberTypeExcludeMap;
+export type CssNumberTypeExcludeConfig = CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap;
 
 /**
  * 属性排除值配置
@@ -231,19 +231,19 @@ export type NumberTypeExcludeConfig = NumberTypeExcludeItem[] | NumberTypeExclud
  */
 export type CssPropertyExcludeValueConfig =
     | CssPropertyBaseConfig
-    | (CssPropertyBaseConfig & NumberTypeExcludeMap)
-    | (CssPropertyBaseConfig & UnitCategoryExcludeMap)
-    | (CssPropertyBaseConfig & UnitExcludeMap);
+    | (CssPropertyBaseConfig & CssNumberTypeExcludeMap)
+    | (CssPropertyBaseConfig & CssCategoryExcludeMap)
+    | (CssPropertyBaseConfig & CssUnitExcludeMap);
 
 /**
  * 属性排除映射（对象模式）
  * 与白名单 CssPropertyConfigMap 对应
  * 示例：{ width: { numberTypes: ['length'] }, height: [{ pixel: ['px'] }] }
  */
-export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>;
+export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
 
 /**
- * 属性排除项（依赖 CssPropertyExcludeMap, NumberTypeExcludeItem）
+ * 属性排除项（依赖 CssPropertyExcludeMap, CssNumberTypeExcludeItem）
  * 与白名单 CssPropertyConfigItem 对应
  * - 'width' - 简单排除属性
  * - { width: { numberTypes: ['length'] } } - 排除属性下的数值类型
@@ -286,9 +286,9 @@ export interface CssPropertyBaseConfig {
  */
 export type CssPropertyValueConfig =
     | CssPropertyBaseConfig
-    | (CssPropertyBaseConfig & NumberTypeConfigMap)
-    | (CssPropertyBaseConfig & UnitCategoryConfigMap)
-    | (CssPropertyBaseConfig & UnitConfigMap);
+    | (CssPropertyBaseConfig & CssNumberTypeConfigMap)
+    | (CssPropertyBaseConfig & CssCategoryConfigMap)
+    | (CssPropertyBaseConfig & CssUnitConfigMap);
 
 /**
  * 属性配置映射（对象模式）
@@ -299,7 +299,7 @@ export type CssPropertyValueConfig =
  *   height: { length: { unitless: {} } }
  * }
  */
-export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | NumberTypeConfigItem[]>>;
+export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | CssNumberTypeConfigItem[]>>;
 
 /**
  * 属性配置项
@@ -351,13 +351,13 @@ export interface CsstsConfig {
      * 支持的数值类型列表（白名单）
      * 支持数组模式和对象模式
      */
-    numberTypes?: NumberTypeConfig;
+    numberTypes?: CssNumberTypeConfig;
 
     /**
      * 排除的数值类型列表（黑名单）
      * 支持与白名单相同的结构（不支持 CsstsStepConfig）
      */
-    excludeNumberTypes?: NumberTypeExcludeConfig;
+    excludeNumberTypes?: CssNumberTypeExcludeConfig;
 
     // ==================== 单位分类配置 ====================
 
@@ -365,13 +365,13 @@ export interface CsstsConfig {
      * 支持的单位分类列表（白名单）
      * 支持数组模式和对象模式
      */
-    unitCategories?: UnitCategoryConfig;
+    unitCategories?: CssCategoryConfig;
 
     /**
      * 排除的单位分类列表（黑名单）
      * 支持与白名单相同的结构（不支持 CsstsStepConfig）
      */
-    excludeUnitCategories?: UnitCategoryExcludeConfig;
+    excludeUnitCategories?: CssCategoryExcludeConfig;
 
     // ==================== 单位配置 ====================
 
@@ -379,12 +379,12 @@ export interface CsstsConfig {
      * 支持的单位列表（白名单）
      * 支持数组模式和对象模式
      */
-    units?: UnitConfig;
+    units?: CssUnitConfig;
 
     /**
      * 排除的单位列表（黑名单）
      */
-    excludeUnits?: UnitExcludeItem[];
+    excludeUnits?: CssUnitExcludeItem[];
 
     // ==================== 关键字/颜色配置 ====================
 

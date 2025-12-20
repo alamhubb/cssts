@@ -13,16 +13,16 @@ interface CsstsConfig {
   excludeProperties?: CssPropertyExcludeConfig;  // CssPropertyExcludeItem[] | CssPropertyExcludeMap
 
   // 数值类型配置（支持数组模式和对象模式）
-  numberTypes?: NumberTypeConfig;  // NumberTypeConfigItem[] | NumberTypeConfigMap
-  excludeNumberTypes?: NumberTypeExcludeConfig;  // NumberTypeExcludeItem[] | NumberTypeExcludeMap
+  numberTypes?: CssNumberTypeConfig;  // CssNumberTypeConfigItem[] | CssNumberTypeConfigMap
+  excludeNumberTypes?: CssNumberTypeExcludeConfig;  // CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap
 
   // 单位分类配置（支持数组模式和对象模式）
-  unitCategories?: UnitCategoryConfig;  // UnitCategoryConfigItem[] | UnitCategoryConfigMap
-  excludeUnitCategories?: UnitCategoryExcludeConfig;  // UnitCategoryExcludeItem[] | UnitCategoryExcludeMap
+  unitCategories?: CssCategoryConfig;  // CssCategoryConfigItem[] | CssCategoryConfigMap
+  excludeUnitCategories?: CssCategoryExcludeConfig;  // CssCategoryExcludeItem[] | CssCategoryExcludeMap
 
   // 单位配置（支持数组模式和对象模式）
-  units?: UnitConfig;  // UnitConfigItem[] | UnitConfigMap
-  excludeUnits?: UnitExcludeItem[];  // CssNumberUnitName[]
+  units?: CssUnitConfig;  // CssUnitConfigItem[] | CssUnitConfigMap
+  excludeUnits?: CssUnitExcludeItem[];  // CssNumberUnitName[]
 
   // 关键字/颜色配置
   keywords?: CssKeywordName[];
@@ -156,15 +156,15 @@ Property → NumberType → Category → Unit → Config
 
 **白名单配置（从下到上）：**
 ```
-UnitConfigItem (最底层)
+CssUnitConfigItem (最底层)
     ↑
-CategoryValueConfig
+CssCategoryValueConfig
     ↑
-UnitCategoryConfigItem
+CssCategoryConfigItem
     ↑
-NumberTypeValueConfig
+CssNumberTypeValueConfig
     ↑
-NumberTypeConfigItem
+CssNumberTypeConfigItem
     ↑
 CssPropertyValueConfig
     ↑
@@ -173,21 +173,21 @@ CssPropertyConfigItem (最上层)
 
 **排除配置（从下到上，与白名单对称）：**
 ```
-UnitExcludeItem = CssNumberUnitName (最底层)
+CssUnitExcludeItem = CssNumberUnitName (最底层)
     ↑
-UnitExcludeMap = Partial<Record<CssNumberUnitName, {}>>
+CssUnitExcludeMap = Partial<Record<CssNumberUnitName, {}>>
     ↑
-CategoryExcludeValueConfig = CssNumberUnitName[] | UnitExcludeMap
+CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap
     ↑
-UnitCategoryExcludeMap
+CssCategoryExcludeMap
     ↑
-UnitCategoryExcludeItem = CssNumberCategoryName | UnitCategoryExcludeMap | UnitExcludeMap
+CssCategoryExcludeItem = CssNumberCategoryName | CssCategoryExcludeMap | CssUnitExcludeMap
     ↑
-NumberTypeExcludeValueConfig = CssNumberCategoryName[] | UnitCategoryExcludeMap | UnitExcludeMap
+CssNumberTypeExcludeValueConfig = CssNumberCategoryName[] | CssCategoryExcludeMap | CssUnitExcludeMap
     ↑
-NumberTypeExcludeMap
+CssNumberTypeExcludeMap
     ↑
-NumberTypeExcludeItem = CssNumberTypeName | NumberTypeExcludeMap | UnitCategoryExcludeMap | UnitExcludeMap
+CssNumberTypeExcludeItem = CssNumberTypeName | CssNumberTypeExcludeMap | CssCategoryExcludeMap | CssUnitExcludeMap
     ↑
 CssPropertyExcludeValueConfig (支持 numberTypes/keywords/colors 及跨级配置)
     ↑
@@ -250,7 +250,7 @@ unitCategories: [
 |-----|------|------|
 | `CssPropertyName` | 字符串，只支持属性名称 | `'width'`, `'height'` |
 | `Record<CssPropertyName, CssPropertyValueConfig>` | 属性配置对象 | `{ height: { numberTypes: ['length'] } }` |
-| `Record<CssPropertyName, NumberTypeConfigItem[]>` | 属性下的数值类型配置数组 | `{ width: [{ px: { min: 0 } }] }` |
+| `Record<CssPropertyName, CssNumberTypeConfigItem[]>` | 属性下的数值类型配置数组 | `{ width: [{ px: { min: 0 } }] }` |
 
 **对象模式**:
 ```typescript
@@ -355,7 +355,7 @@ excludeProperties: {
 
 ### numberTypes 配置
 
-**类型**: `NumberTypeConfig` = `NumberTypeConfigItem[] | NumberTypeConfigMap`
+**类型**: `CssNumberTypeConfig` = `CssNumberTypeConfigItem[] | CssNumberTypeConfigMap`
 
 支持数组模式和对象模式。
 
@@ -364,8 +364,8 @@ excludeProperties: {
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssNumberTypeName` | 字符串，只支持 numberType 名称 | `'length'`, `'angle'` |
-| `Record<CssNumberTypeName, NumberTypeValueConfig>` | numberType 配置对象 | `{ length: { pixel: { px: { min: 0 } } } }` |
-| `Record<CssNumberCategoryName, CategoryValueConfig>` | 跨级：分类配置 | `{ pixel: { px: { min: 0 } } }` |
+| `Record<CssNumberTypeName, CssNumberTypeValueConfig>` | numberType 配置对象 | `{ length: { pixel: { px: { min: 0 } } } }` |
+| `Record<CssNumberCategoryName, CssCategoryValueConfig>` | 跨级：分类配置 | `{ pixel: { px: { min: 0 } } }` |
 | `Record<CssNumberUnitName, CsstsStepConfig>` | 跨级：单位配置 | `{ px: { min: 100 } }` |
 
 **对象模式**:
@@ -376,10 +376,10 @@ numberTypes: {
 }
 ```
 
-**NumberTypeValueConfig 支持的格式**:
+**CssNumberTypeValueConfig 支持的格式**:
 - `CsstsStepConfig` - 直接配置整个数值类型
 - `CssNumberCategoryName[]` - 指定支持的分类列表
-- `Record<CssNumberCategoryName, CategoryValueConfig>` - 配置多个分类
+- `Record<CssNumberCategoryName, CssCategoryValueConfig>` - 配置多个分类
 - `Record<CssNumberUnitName, CsstsStepConfig>` - 跨级配置单位
 
 ```typescript
@@ -414,7 +414,7 @@ numberTypes: {
 
 ### excludeNumberTypes 配置
 
-**类型**: `NumberTypeExcludeConfig` = `NumberTypeExcludeItem[] | NumberTypeExcludeMap`
+**类型**: `CssNumberTypeExcludeConfig` = `CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap`
 
 支持数组模式和对象模式，与白名单 `numberTypes` 结构对称。
 
@@ -423,9 +423,9 @@ numberTypes: {
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssNumberTypeName` | 字符串，排除整个 numberType | `'angle'` |
-| `NumberTypeExcludeMap` | 排除 numberType 下的分类或单位 | `{ length: ['pixel'] }` |
-| `UnitCategoryExcludeMap` | 跨级：排除分类下的单位 | `{ pixel: ['px'] }` |
-| `UnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
+| `CssNumberTypeExcludeMap` | 排除 numberType 下的分类或单位 | `{ length: ['pixel'] }` |
+| `CssCategoryExcludeMap` | 跨级：排除分类下的单位 | `{ pixel: ['px'] }` |
+| `CssUnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
 
 ```typescript
 // 数组模式
@@ -448,7 +448,7 @@ excludeNumberTypes: {
 
 ### unitCategories 配置
 
-**类型**: `UnitCategoryConfig` = `UnitCategoryConfigItem[] | UnitCategoryConfigMap`
+**类型**: `CssCategoryConfig` = `CssCategoryConfigItem[] | CssCategoryConfigMap`
 
 支持数组模式和对象模式。
 
@@ -457,7 +457,7 @@ excludeNumberTypes: {
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssNumberCategoryName` | 字符串，只支持 category 名称 | `'pixel'`, `'percentage'` |
-| `Record<CssNumberCategoryName, CategoryValueConfig>` | category 配置对象 | `{ pixel: { px: { min: 0 } } }` |
+| `Record<CssNumberCategoryName, CssCategoryValueConfig>` | category 配置对象 | `{ pixel: { px: { min: 0 } } }` |
 | `Record<CssNumberUnitName, CsstsStepConfig>` | 跨级：单位配置 | `{ px: { min: 100 } }` |
 
 **对象模式**:
@@ -468,7 +468,7 @@ unitCategories: {
 }
 ```
 
-**CategoryValueConfig 支持的格式**:
+**CssCategoryValueConfig 支持的格式**:
 - `CsstsStepConfig` - 直接配置整个分类
 - `CssNumberUnitName[]` - 指定支持的单位列表
 - `Record<CssNumberUnitName, CsstsStepConfig>` - 配置具体单位
@@ -503,7 +503,7 @@ unitCategories: {
 
 ### excludeUnitCategories 配置
 
-**类型**: `UnitCategoryExcludeConfig` = `UnitCategoryExcludeItem[] | UnitCategoryExcludeMap`
+**类型**: `CssCategoryExcludeConfig` = `CssCategoryExcludeItem[] | CssCategoryExcludeMap`
 
 支持数组模式和对象模式，与白名单 `unitCategories` 结构对称。
 
@@ -512,8 +512,8 @@ unitCategories: {
 | 格式 | 说明 | 示例 |
 |-----|------|------|
 | `CssNumberCategoryName` | 字符串，排除整个分类 | `'pixel'` |
-| `UnitCategoryExcludeMap` | 排除分类下的单位 | `{ pixel: ['px'] }` |
-| `UnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
+| `CssCategoryExcludeMap` | 排除分类下的单位 | `{ pixel: ['px'] }` |
+| `CssUnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
 
 ```typescript
 // 数组模式
@@ -534,7 +534,7 @@ excludeUnitCategories: {
 
 ### units 配置
 
-**类型**: `UnitConfig` = `UnitConfigItem[] | UnitConfigMap`
+**类型**: `CssUnitConfig` = `CssUnitConfigItem[] | CssUnitConfigMap`
 
 支持数组模式和对象模式。
 
@@ -579,7 +579,7 @@ units: {
 
 ### excludeUnits 配置
 
-**类型**: `UnitExcludeItem[]` = `CssNumberUnitName[]`
+**类型**: `CssUnitExcludeItem[]` = `CssNumberUnitName[]`
 
 最底层，只支持字符串数组。
 
@@ -613,11 +613,11 @@ excludeUnits: ['px', 'rem', 'em']
 
 | 白名单类型 | 黑名单类型 | 区别 |
 |-----------|-----------|------|
-| `UnitConfigMap` | `UnitExcludeMap` | 值为 `{}` 而非 `CsstsStepConfig` |
-| `CategoryValueConfig` | `CategoryExcludeValueConfig` | 不支持 `CsstsStepConfig` |
-| `UnitCategoryConfigMap` | `UnitCategoryExcludeMap` | 同上 |
-| `NumberTypeValueConfig` | `NumberTypeExcludeValueConfig` | 同上 |
-| `NumberTypeConfigMap` | `NumberTypeExcludeMap` | 同上 |
+| `CssUnitConfigMap` | `CssUnitExcludeMap` | 值为 `{}` 而非 `CsstsStepConfig` |
+| `CssCategoryValueConfig` | `CssCategoryExcludeValueConfig` | 不支持 `CsstsStepConfig` |
+| `CssCategoryConfigMap` | `CssCategoryExcludeMap` | 同上 |
+| `CssNumberTypeValueConfig` | `CssNumberTypeExcludeValueConfig` | 同上 |
+| `CssNumberTypeConfigMap` | `CssNumberTypeExcludeMap` | 同上 |
 | `CssPropertyValueConfig` | `CssPropertyExcludeValueConfig` | 同上 |
 | `CssPropertyConfigMap` | `CssPropertyExcludeMap` | 同上 |
 
