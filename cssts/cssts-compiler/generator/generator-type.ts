@@ -5,7 +5,6 @@
  *
  * 生成文件（src/types/）：
  * - cssKeywords.d.ts: Keywords 类型
- * - numberTypes.d.ts: NumberTypes 类型
  * - cssPseudoClassElement.d.ts: 伪类/伪元素类型
  * - cssPropertyConfig.d.ts: 属性名称类型
  * - cssProperties.d.ts: 属性类型
@@ -127,22 +126,6 @@ export type CssKeywordName = typeof keywords[number];
 export type CssColorName = typeof ALL_COLORS[number];
 
 export type CssAllKeywordName = typeof allKeywords[number];
-`;
-}
-
-function generateNumberTypesType(): string {
-  return `/**
- * NumberTypes 类型定义（自动生成）
- */
-
-import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
-import type { ALL_NUMBER_CATEGORIES, ALL_UNITS } from '../data/numberTypeCategory';
-
-export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
-
-export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
-
-export type CssNumberUnitName = typeof ALL_UNITS[number];
 `;
 }
 
@@ -314,18 +297,24 @@ function generateUnitConfigType(): string {
  * Unit 配置类型定义（自动生成）
  */
 
-import type { CssNumberUnitName } from './numberTypes';
+import type { ALL_UNITS } from '../data/numberTypeCategory';
+
 import type { CsstsStepConfig } from './csstsStepConfig';
+
+export type CssNumberUnitName = typeof ALL_UNITS[number];
 
 // ==================== Unit 配置 ====================
 
 export type CssUnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
+
 export type CssUnitConfigItem = CssNumberUnitName | CssUnitConfigMap;
+
 export type CssUnitConfig = CssUnitConfigItem[] | CssUnitConfigMap;
 
 // ==================== Unit 排除配置 ====================
 
 export type CssUnitExcludeItem = CssNumberUnitName;
+
 export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
 `;
 }
@@ -337,9 +326,12 @@ function generateCategoryConfigType(): string {
  * Category 配置类型定义（自动生成）
  */
 
-import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
+import type { ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
+
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+
+export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
 // ==================== Category 配置 ====================
 
@@ -349,20 +341,25 @@ export type CssCategoryValueConfig =
   | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 export type CssCategoryConfigMap = Partial<Record<CssNumberCategoryName, CssCategoryValueConfig>>;
+
 export type CssCategoryConfigItem =
   | CssNumberCategoryName
   | CssCategoryConfigMap
   | CssUnitConfigMap;
+
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
 
 // ==================== Category 排除配置 ====================
 
 export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
+
 export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
+
 export type CssCategoryExcludeItem =
   | CssNumberCategoryName
   | CssCategoryExcludeMap
   | CssUnitExcludeMap;
+
 export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
 `;
 }
@@ -374,10 +371,13 @@ function generateNumberTypeConfigType(): string {
  * NumberType 配置类型定义（自动生成）
  */
 
-import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
+import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
+
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
-import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberCategoryName, CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
+
+export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
 // ==================== NumberType 配置 ====================
 
@@ -388,11 +388,13 @@ export type CssNumberTypeValueConfig =
   | Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
 export type CssNumberTypeConfigMap = Partial<Record<CssNumberTypeName, CssNumberTypeValueConfig>>;
+
 export type CssNumberTypeConfigItem =
   | CssNumberTypeName
   | CssNumberTypeConfigMap
   | CssCategoryConfigMap
   | CssUnitConfigMap;
+
 export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
 
 // ==================== NumberType 排除配置 ====================
@@ -403,11 +405,13 @@ export type CssNumberTypeExcludeValueConfig =
   | CssUnitExcludeMap;
 
 export type CssNumberTypeExcludeMap = Partial<Record<CssNumberTypeName, CssNumberTypeExcludeValueConfig>>;
+
 export type CssNumberTypeExcludeItem =
   | CssNumberTypeName
   | CssNumberTypeExcludeMap
   | CssCategoryExcludeMap
   | CssUnitExcludeMap;
+
 export type CssNumberTypeExcludeConfig = CssNumberTypeExcludeItem[] | CssNumberTypeExcludeMap;
 `;
 }
@@ -420,11 +424,10 @@ function generatePropertyConfigType(): string {
  */
 
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssNumberTypeName } from './numberTypes';
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
-import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
 
 // ==================== Property 基础配置 ====================
 
@@ -443,7 +446,9 @@ export type CssPropertyValueConfig =
   | (CssPropertyBaseConfig & CssUnitConfigMap);
 
 export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | CssNumberTypeConfigItem[]>>;
+
 export type CssPropertyConfigItem = CssPropertyName | CssPropertyConfigMap;
+
 export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMap;
 
 // ==================== Property 排除配置 ====================
@@ -455,7 +460,9 @@ export type CssPropertyExcludeValueConfig =
   | (CssPropertyBaseConfig & CssUnitExcludeMap);
 
 export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
+
 export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap;
+
 export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
 `;
 }
@@ -531,9 +538,6 @@ function main() {
   // 基础类型文件
   fs.writeFileSync(path.join(typesDir, 'cssKeywords.d.ts'), generateCssKeywordsType());
   console.log('✅ src/types/cssKeywords.d.ts');
-
-  fs.writeFileSync(path.join(typesDir, 'numberTypes.d.ts'), generateNumberTypesType());
-  console.log('✅ src/types/numberTypes.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'cssPseudoClassElement.d.ts'), generateCssPseudoClassElementType());
   console.log('✅ src/types/cssPseudoClassElement.d.ts');

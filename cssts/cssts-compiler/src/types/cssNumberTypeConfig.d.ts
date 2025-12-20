@@ -2,10 +2,12 @@
  * NumberType 配置类型定义（自动生成）
  */
 
-import type { CssNumberTypeName, CssNumberCategoryName, CssNumberUnitName } from './numberTypes';
+import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
-import type { CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberCategoryName, CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
+
+export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
 // ==================== NumberType 配置 ====================
 

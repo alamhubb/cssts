@@ -2,9 +2,11 @@
  * Category 配置类型定义（自动生成）
  */
 
-import type { CssNumberUnitName, CssNumberCategoryName } from './numberTypes';
+import type { ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
 import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+
+export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
 // ==================== Category 配置 ====================
 

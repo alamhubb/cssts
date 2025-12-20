@@ -3,11 +3,10 @@
  */
 
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssNumberTypeName } from './numberTypes';
 import type { CssKeywordName, CssColorName } from './cssKeywords';
-import type { CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
 import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
-import type { CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
 
 // ==================== Property 基础配置 ====================
 
