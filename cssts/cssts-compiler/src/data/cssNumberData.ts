@@ -89,20 +89,20 @@ export type CssRatioCategoryName = typeof RATIO_CATEGORIES[number];
 export type CssDecibelCategoryName = typeof DECIBEL_CATEGORIES[number];
 export type CssSemitonesCategoryName = typeof SEMITONES_CATEGORIES[number];
 
-export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {
-  'length': LENGTH_CATEGORIES,
-  'angle': ANGLE_CATEGORIES,
-  'time': TIME_CATEGORIES,
-  'frequency': FREQUENCY_CATEGORIES,
-  'percentage': PERCENTAGE_CATEGORIES,
-  'number': NUMBER_CATEGORIES,
-  'integer': INTEGER_CATEGORIES,
-  'resolution': RESOLUTION_CATEGORIES,
-  'flex': FLEX_CATEGORIES,
-  'ratio': RATIO_CATEGORIES,
-  'decibel': DECIBEL_CATEGORIES,
-  'semitones': SEMITONES_CATEGORIES,
-};
+export const NUMBER_TYPE_CATEGORY_MAP = {
+  length: LENGTH_CATEGORIES,
+  angle: ANGLE_CATEGORIES,
+  time: TIME_CATEGORIES,
+  frequency: FREQUENCY_CATEGORIES,
+  percentage: PERCENTAGE_CATEGORIES,
+  number: NUMBER_CATEGORIES,
+  integer: INTEGER_CATEGORIES,
+  resolution: RESOLUTION_CATEGORIES,
+  flex: FLEX_CATEGORIES,
+  ratio: RATIO_CATEGORIES,
+  decibel: DECIBEL_CATEGORIES,
+  semitones: SEMITONES_CATEGORIES,
+} as const;
 
 export const ALL_NUMBER_CATEGORIES = [
   'angle',

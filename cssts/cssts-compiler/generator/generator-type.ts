@@ -78,6 +78,29 @@ function loadPropertyNumberTypesExports(): Set<string> {
   return exports;
 }
 
+// 读取每个属性的 numberTypes 值
+function loadPropertyNumberTypesValues(): Map<string, string[]> {
+  const filePath = path.join(dataDir, 'cssPropertyNumber.ts');
+  const content = fs.readFileSync(filePath, 'utf-8');
+  // 匹配 export const XXX_NUMBER_TYPES = ['type1', 'type2'] as const;
+  const regex = /export const (\w+)_NUMBER_TYPES = \[([^\]]*)\] as const;/g;
+  const result = new Map<string, string[]>();
+  let match;
+  while ((match = regex.exec(content)) !== null) {
+    const constName = match[1];
+    const typesStr = match[2];
+    // 提取引号中的值
+    const types: string[] = [];
+    const typeRegex = /'([^']+)'/g;
+    let typeMatch;
+    while ((typeMatch = typeRegex.exec(typesStr)) !== null) {
+      types.push(typeMatch[1]);
+    }
+    result.set(constName, types);
+  }
+  return result;
+}
+
 function loadPseudoClasses(): string[] {
   const filePath = path.join(dataDir, 'cssPseudoData.ts');
   const content = fs.readFileSync(filePath, 'utf-8');
@@ -149,9 +172,12 @@ function generateCssPseudoClassElementType(): string {
 }
 
 function generateCssPropertyConfigType(): string {
-  return `/**
+  const lines: string[] = [];
+
+  // 文件头部
+  lines.push(`/**
  * CSS 属性配置类型定义（自动生成）
- * 包含基础配置、属性名称、Unit/Category/NumberType、Property 配置类型
+ * 使用泛型实现四层精准类型约束：Property → NumberType → Category → Unit
  */
 
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
@@ -159,37 +185,16 @@ import type {
   ALL_UNITS,
   ALL_NUMBER_CATEGORIES,
   CATEGORY_UNITS_MAP,
-  CssPercentageUnitName,
-  CssPixelUnitName,
-  CssFontRelativeUnitName,
-  CssPhysicalUnitName,
-  CssAngleUnitName,
-  CssTimeUnitName,
-  CssFrequencyUnitName,
-  CssResolutionUnitName,
-  CssFlexUnitName,
-  CssUnitlessUnitName,
-  CssLengthCategoryName,
-  CssAngleCategoryName,
-  CssTimeCategoryName,
-  CssFrequencyCategoryName,
-  CssPercentageCategoryName,
-  CssNumberCategoryName as CssNumberTypeCategoryName,
-  CssIntegerCategoryName,
-  CssResolutionCategoryName,
-  CssFlexCategoryName,
-  CssRatioCategoryName,
-  CssDecibelCategoryName,
-  CssSemitonesCategoryName,
+  NUMBER_TYPE_CATEGORY_MAP,
 } from '../data/cssNumberData';
-import type { ALL_NUMBER_TYPES } from '../data/cssPropertyNumber';
+import type { ALL_NUMBER_TYPES, PROPERTY_NUMBER_TYPES_MAP } from '../data/cssPropertyNumber';
+import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import type { keywords, allKeywords } from '../data/cssKeywordsData';
 import type { ALL_COLORS } from '../data/cssColorData';
 
-import type { CSSPropertiesType } from './cssProperties';
+// ==================== 基础配置类型 ====================`);
 
-// ==================== 基础配置类型 ====================
-
+  lines.push(`
 /** 渐进步长范围配置 */
 export interface CssProgressiveRange {
   max: number;
@@ -211,10 +216,6 @@ export type CssCustomPropertyValue = string | Record<string, string>;
 
 export type CssPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
 
-export type CssProperty = CssPropertyName | CSSPropertiesType;
-
-export type CssProperties = CssProperty | CssProperty[];
-
 // ==================== Unit 类型 ====================
 
 export type CssNumberUnitName = typeof ALL_UNITS[number];
@@ -229,61 +230,32 @@ export type CssUnitExcludeItem = CssNumberUnitName;
 
 export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
 
-// ==================== Category 类型 ====================
+// ==================== Category 类型（泛型版本） ====================
 
 export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
-// Category 到 Unit 类型映射
-export interface CssCategoryUnitMap {
-  percentage: CssPercentageUnitName;
-  pixel: CssPixelUnitName;
-  fontRelative: CssFontRelativeUnitName;
-  physical: CssPhysicalUnitName;
-  angle: CssAngleUnitName;
-  time: CssTimeUnitName;
-  frequency: CssFrequencyUnitName;
-  resolution: CssResolutionUnitName;
-  flex: CssFlexUnitName;
-  unitless: CssUnitlessUnitName;
-}
+// 从 CATEGORY_UNITS_MAP 获取 Category 对应的 Unit 类型
+type CategoryUnits<C extends CssNumberCategoryName> = typeof CATEGORY_UNITS_MAP[C][number];
 
-// 每个 Category 的精准 Unit 配置 Map（只包含有效 key）
-export type CssPercentageUnitConfigMap = { [K in CssPercentageUnitName]?: CsstsStepConfig };
-export type CssPixelUnitConfigMap = { [K in CssPixelUnitName]?: CsstsStepConfig };
-export type CssFontRelativeUnitConfigMap = { [K in CssFontRelativeUnitName]?: CsstsStepConfig };
-export type CssPhysicalUnitConfigMap = { [K in CssPhysicalUnitName]?: CsstsStepConfig };
-export type CssAngleUnitConfigMap = { [K in CssAngleUnitName]?: CsstsStepConfig };
-export type CssTimeUnitConfigMap = { [K in CssTimeUnitName]?: CsstsStepConfig };
-export type CssFrequencyUnitConfigMap = { [K in CssFrequencyUnitName]?: CsstsStepConfig };
-export type CssResolutionUnitConfigMap = { [K in CssResolutionUnitName]?: CsstsStepConfig };
-export type CssFlexUnitConfigMap = { [K in CssFlexUnitName]?: CsstsStepConfig };
-export type CssUnitlessUnitConfigMap = { [K in CssUnitlessUnitName]?: CsstsStepConfig };
+// 严格的 Unit 配置 Map（方案 B：交叉类型，禁止额外属性）
+type StrictUnitConfigMap<T extends CssNumberUnitName> = {
+  [K in T]?: CsstsStepConfig;
+} & {
+  [K in Exclude<CssNumberUnitName, T>]?: never;
+};
 
-// 每个 Category 的精准配置类型
-export type CssPercentageValueConfig = CsstsStepConfig | CssPercentageUnitName[] | CssPercentageUnitConfigMap;
-export type CssPixelValueConfig = CsstsStepConfig | CssPixelUnitName[] | CssPixelUnitConfigMap;
-export type CssFontRelativeValueConfig = CsstsStepConfig | CssFontRelativeUnitName[] | CssFontRelativeUnitConfigMap;
-export type CssPhysicalValueConfig = CsstsStepConfig | CssPhysicalUnitName[] | CssPhysicalUnitConfigMap;
-export type CssAngleValueConfig = CsstsStepConfig | CssAngleUnitName[] | CssAngleUnitConfigMap;
-export type CssTimeValueConfig = CsstsStepConfig | CssTimeUnitName[] | CssTimeUnitConfigMap;
-export type CssFrequencyValueConfig = CsstsStepConfig | CssFrequencyUnitName[] | CssFrequencyUnitConfigMap;
-export type CssResolutionValueConfig = CsstsStepConfig | CssResolutionUnitName[] | CssResolutionUnitConfigMap;
-export type CssFlexValueConfig = CsstsStepConfig | CssFlexUnitName[] | CssFlexUnitConfigMap;
-export type CssUnitlessValueConfig = CsstsStepConfig | CssUnitlessUnitName[] | CssUnitlessUnitConfigMap;
+// Category 的精准 Unit 配置 Map（泛型版本）
+export type CssCategoryUnitConfigMap<C extends CssNumberCategoryName> = StrictUnitConfigMap<CategoryUnits<C>>;
 
-// 精准的 Category 配置 Map（每个 category 只接受对应的 unit）
-export interface CssCategoryConfigMapPrecise {
-  percentage?: CssPercentageValueConfig;
-  pixel?: CssPixelValueConfig;
-  fontRelative?: CssFontRelativeValueConfig;
-  physical?: CssPhysicalValueConfig;
-  angle?: CssAngleValueConfig;
-  time?: CssTimeValueConfig;
-  frequency?: CssFrequencyValueConfig;
-  resolution?: CssResolutionValueConfig;
-  flex?: CssFlexValueConfig;
-  unitless?: CssUnitlessValueConfig;
-}
+// Category 的精准配置类型（泛型版本）
+export type CssCategoryValueConfigPrecise<C extends CssNumberCategoryName> = 
+  | CategoryUnits<C>[]
+  | CssCategoryUnitConfigMap<C>;
+
+// 精准的 Category 配置 Map（使用映射类型自动生成）
+export type CssCategoryConfigMapPrecise = {
+  [C in CssNumberCategoryName]?: CssCategoryValueConfigPrecise<C>;
+};
 
 // 辅助函数类型，用于严格类型检查
 export type DefineCategoryConfig = <T extends CssCategoryConfigMapPrecise>(config: T) => T;
@@ -302,10 +274,10 @@ export type CssCategoryConfigItem =
 
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMapPrecise;
 
-// 精准的 Category 排除值配置
+// 精准的 Category 排除值配置（泛型版本）
 export type CssCategoryExcludeValueConfigPrecise<C extends CssNumberCategoryName> =
-  | CssCategoryUnitMap[C][]
-  | Partial<Record<CssCategoryUnitMap[C], Record<string, never>>>;
+  | CategoryUnits<C>[]
+  | Partial<Record<CategoryUnits<C>, Record<string, never>>>;
 
 // 精准的 Category 排除 Map
 export type CssCategoryExcludeMapPrecise = {
@@ -323,69 +295,37 @@ export type CssCategoryExcludeItem =
 
 export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMapPrecise;
 
-// ==================== NumberType 类型 ====================
+// ==================== NumberType 类型（泛型版本） ====================
 
 export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
-// NumberType 到 Category 类型映射
-export interface CssNumberTypeCategoryMap {
-  length: CssLengthCategoryName;
-  angle: CssAngleCategoryName;
-  time: CssTimeCategoryName;
-  frequency: CssFrequencyCategoryName;
-  percentage: CssPercentageCategoryName;
-  number: CssNumberTypeCategoryName;
-  integer: CssIntegerCategoryName;
-  resolution: CssResolutionCategoryName;
-  flex: CssFlexCategoryName;
-  ratio: CssRatioCategoryName;
-  decibel: CssDecibelCategoryName;
-  semitones: CssSemitonesCategoryName;
-}
+// 从 NUMBER_TYPE_CATEGORY_MAP 获取 NumberType 对应的 Category 类型
+type NumberTypeCategories<NT extends CssNumberTypeName> = 
+  NT extends keyof typeof NUMBER_TYPE_CATEGORY_MAP 
+    ? typeof NUMBER_TYPE_CATEGORY_MAP[NT][number] 
+    : never;
 
-// 每个 NumberType 的精准 Category 配置 Map
-export type CssLengthCategoryConfigMap = { [K in CssLengthCategoryName]?: CssCategoryValueConfig };
-export type CssAngleCategoryConfigMap = { [K in CssAngleCategoryName]?: CssCategoryValueConfig };
-export type CssTimeCategoryConfigMap = { [K in CssTimeCategoryName]?: CssCategoryValueConfig };
-export type CssFrequencyCategoryConfigMap = { [K in CssFrequencyCategoryName]?: CssCategoryValueConfig };
-export type CssPercentageCategoryConfigMap = { [K in CssPercentageCategoryName]?: CssCategoryValueConfig };
-export type CssNumberTypeCategoryConfigMap = { [K in CssNumberTypeCategoryName]?: CssCategoryValueConfig };
-export type CssIntegerCategoryConfigMap = { [K in CssIntegerCategoryName]?: CssCategoryValueConfig };
-export type CssResolutionCategoryConfigMap = { [K in CssResolutionCategoryName]?: CssCategoryValueConfig };
-export type CssFlexCategoryConfigMap = { [K in CssFlexCategoryName]?: CssCategoryValueConfig };
-export type CssRatioCategoryConfigMap = { [K in CssRatioCategoryName]?: CssCategoryValueConfig };
-export type CssDecibelCategoryConfigMap = { [K in CssDecibelCategoryName]?: CssCategoryValueConfig };
-export type CssSemitonesCategoryConfigMap = { [K in CssSemitonesCategoryName]?: CssCategoryValueConfig };
+// 严格的 Category 配置 Map（方案 B：交叉类型，禁止额外属性）
+type StrictCategoryConfigMap<T extends CssNumberCategoryName> = {
+  [K in T]?: CssCategoryValueConfigPrecise<K>;
+} & {
+  [K in Exclude<CssNumberCategoryName, T>]?: never;
+};
 
-// 每个 NumberType 的精准配置类型（第二层可以是 category 或 unit）
-export type CssLengthValueConfig = CsstsStepConfig | CssLengthCategoryName[] | CssLengthCategoryConfigMap | CssUnitConfigMap;
-export type CssAngleNumberTypeValueConfig = CsstsStepConfig | CssAngleCategoryName[] | CssAngleCategoryConfigMap | CssUnitConfigMap;
-export type CssTimeValueConfig = CsstsStepConfig | CssTimeCategoryName[] | CssTimeCategoryConfigMap | CssUnitConfigMap;
-export type CssFrequencyValueConfig = CsstsStepConfig | CssFrequencyCategoryName[] | CssFrequencyCategoryConfigMap | CssUnitConfigMap;
-export type CssPercentageNumberTypeValueConfig = CsstsStepConfig | CssPercentageCategoryName[] | CssPercentageCategoryConfigMap | CssUnitConfigMap;
-export type CssNumberTypeValueConfigForNumber = CsstsStepConfig | CssNumberTypeCategoryName[] | CssNumberTypeCategoryConfigMap | CssUnitConfigMap;
-export type CssIntegerValueConfig = CsstsStepConfig | CssIntegerCategoryName[] | CssIntegerCategoryConfigMap | CssUnitConfigMap;
-export type CssResolutionNumberTypeValueConfig = CsstsStepConfig | CssResolutionCategoryName[] | CssResolutionCategoryConfigMap | CssUnitConfigMap;
-export type CssFlexNumberTypeValueConfig = CsstsStepConfig | CssFlexCategoryName[] | CssFlexCategoryConfigMap | CssUnitConfigMap;
-export type CssRatioValueConfig = CsstsStepConfig | CssRatioCategoryName[] | CssRatioCategoryConfigMap | CssUnitConfigMap;
-export type CssDecibelValueConfig = CsstsStepConfig | CssDecibelCategoryName[] | CssDecibelCategoryConfigMap | CssUnitConfigMap;
-export type CssSemitonesValueConfig = CsstsStepConfig | CssSemitonesCategoryName[] | CssSemitonesCategoryConfigMap | CssUnitConfigMap;
+// NumberType 的精准 Category 配置 Map（泛型版本）
+export type CssNumberTypeCategoryConfigMap<NT extends CssNumberTypeName> = StrictCategoryConfigMap<NumberTypeCategories<NT>>;
 
-// 精准的 NumberType 配置 Map（每个 numberType 只接受对应的 category）
-export interface CssNumberTypeConfigMapPrecise {
-  length?: CssLengthValueConfig;
-  angle?: CssAngleNumberTypeValueConfig;
-  time?: CssTimeValueConfig;
-  frequency?: CssFrequencyValueConfig;
-  percentage?: CssPercentageNumberTypeValueConfig;
-  number?: CssNumberTypeValueConfigForNumber;
-  integer?: CssIntegerValueConfig;
-  resolution?: CssResolutionNumberTypeValueConfig;
-  flex?: CssFlexNumberTypeValueConfig;
-  ratio?: CssRatioValueConfig;
-  decibel?: CssDecibelValueConfig;
-  semitones?: CssSemitonesValueConfig;
-}
+// NumberType 的精准配置类型（泛型版本）
+export type CssNumberTypeValueConfigPrecise<NT extends CssNumberTypeName> = 
+  | CsstsStepConfig
+  | NumberTypeCategories<NT>[]
+  | CssNumberTypeCategoryConfigMap<NT>
+  | CssUnitConfigMap;
+
+// 精准的 NumberType 配置 Map（使用映射类型自动生成）
+export type CssNumberTypeConfigMapPrecise = {
+  [NT in CssNumberTypeName]?: CssNumberTypeValueConfigPrecise<NT>;
+};
 
 // 兼容旧版的宽松类型
 export type CssNumberTypeValueConfig =
@@ -423,15 +363,54 @@ export type CssColorName = typeof ALL_COLORS[number];
 
 export type CssAllKeywordName = typeof allKeywords[number];
 
-// ==================== Property 基础配置 ====================
+// ==================== Property 类型（泛型版本） ====================
 
+// 从 PROPERTY_KEYWORDS_MAP 获取属性支持的 Keywords
+type PropertyKeywords<P extends CssPropertyName> = 
+  P extends keyof typeof PROPERTY_KEYWORDS_MAP 
+    ? typeof PROPERTY_KEYWORDS_MAP[P][number] 
+    : never;
+
+// 从 PROPERTY_NUMBER_TYPES_MAP 获取属性支持的 NumberTypes
+type PropertyNumberTypes<P extends CssPropertyName> = 
+  P extends keyof typeof PROPERTY_NUMBER_TYPES_MAP 
+    ? typeof PROPERTY_NUMBER_TYPES_MAP[P][number] 
+    : never;
+
+// 严格的 NumberType 配置 Map（方案 B：交叉类型，禁止额外属性）
+type StrictNumberTypeConfigMap<T extends CssNumberTypeName> = {
+  [K in T]?: CssNumberTypeValueConfigPrecise<K>;
+} & {
+  [K in Exclude<CssNumberTypeName, T>]?: never;
+};
+
+// Property 的精准 NumberType 配置 Map（泛型版本）
+export type CssPropertyNumberTypeConfigMap<P extends CssPropertyName> = StrictNumberTypeConfigMap<PropertyNumberTypes<P>>;
+
+// Property 的精准配置类型（泛型版本）
+export type CssPropertyValueConfigPrecise<P extends CssPropertyName> = {
+  /** 属性支持的 keywords */
+  keywords?: PropertyKeywords<P>[];
+  /** 属性支持的 numberTypes */
+  numberTypes?: PropertyNumberTypes<P>[];
+} & (
+  // 如果属性有 numberTypes，可以配置 numberType/category/unit
+  PropertyNumberTypes<P> extends never 
+    ? {} 
+    : (CssPropertyNumberTypeConfigMap<P> | CssCategoryConfigMapPrecise | CssUnitConfigMap | {})
+);
+
+// 精准的 Property 配置 Map（使用映射类型自动生成）
+export type CssPropertyConfigMapPrecise = {
+  [P in CssPropertyName]?: CssPropertyValueConfigPrecise<P>;
+};
+
+// 兼容旧版的宽松类型
 export interface CssPropertyBaseConfig {
   numberTypes?: CssNumberTypeName[];
   keywords?: CssKeywordName[];
   colors?: CssColorName[];
 }
-
-// ==================== Property 配置 ====================
 
 export type CssPropertyValueConfig =
   | CssPropertyBaseConfig
@@ -441,9 +420,9 @@ export type CssPropertyValueConfig =
 
 export type CssPropertyConfigMap = Partial<Record<CssPropertyName, CssPropertyValueConfig | CssNumberTypeConfigItem[]>>;
 
-export type CssPropertyConfigItem = CssPropertyName | CssPropertyConfigMap;
+export type CssPropertyConfigItem = CssPropertyName | CssPropertyConfigMapPrecise;
 
-export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMap;
+export type CssPropertyConfig = CssPropertyConfigItem[] | CssPropertyConfigMapPrecise;
 
 // ==================== Property 排除配置 ====================
 
@@ -453,12 +432,16 @@ export type CssPropertyExcludeValueConfig =
   | (CssPropertyBaseConfig & CssCategoryExcludeMap)
   | (CssPropertyBaseConfig & CssUnitExcludeMap);
 
+export type CssPropertyExcludeMapPrecise = { [K in CssPropertyName]?: CssPropertyExcludeValueConfig };
+
 export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | CssNumberTypeExcludeItem[]>>;
 
-export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap;
+export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMapPrecise;
 
-export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
-`;
+export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMapPrecise;
+`);
+
+  return lines.join('\n');
 }
 
 function generateCssPropertiesType(): string {

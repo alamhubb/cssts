@@ -8,6 +8,161 @@ CSSTS 的配置系统分为三个层级：
 2. **全局级别配置** - 在 `CsstsConfig` 中手动配置
 3. **生成器** - 根据配置生成原子类型提示和原子类
 
+## 类型系统层级
+
+CSSTS 采用四层类型系统，从上到下依次为：
+
+```
+Property → NumberType → Category → Unit
+   ↓           ↓           ↓         ↓
+ width      length      pixel       px
+ height   percentage  fontRelative   em
+ margin     angle       physical    rem
+```
+
+每一层都可以单独配置，也可以跨层配置。
+
+## 精准属性配置类型
+
+### 每个属性的精准类型
+
+系统为每个 CSS 属性生成精准的配置类型，确保只能配置该属性支持的 keywords 和 numberTypes：
+
+```typescript
+// 自动生成的类型示例
+export interface WidthPropertyConfigPrecise {
+  /** width 支持的 keywords */
+  keywords?: ('auto' | 'fit-content' | 'max-content' | 'min-content' | ...)[];
+  /** width 支持的 numberTypes */
+  numberTypes?: ('length' | 'percentage')[];
+}
+
+export interface DisplayPropertyConfigPrecise {
+  /** display 支持的 keywords */
+  keywords?: ('block' | 'inline' | 'flex' | 'grid' | ...)[];
+  // 注意：display 没有 numberTypes
+}
+
+export interface AnimationDelayPropertyConfigPrecise {
+  /** animationDelay 支持的 numberTypes */
+  numberTypes?: ('time')[];
+  // 注意：animationDelay 没有 keywords
+}
+```
+
+### 使用精准配置
+
+```typescript
+import type { CssPropertyConfigMapPrecise } from './types/cssPropertyConfig';
+
+const config: CssPropertyConfigMapPrecise = {
+  // width 只能选择其支持的 keywords 和 numberTypes
+  width: {
+    keywords: ['auto', 'fit-content'],  // ✅ 类型安全
+    numberTypes: ['length', 'percentage'],  // ✅ 类型安全
+    // 还可以配置具体的 numberType/category/unit
+    length: {
+      pixel: {
+        px: { step: 1, min: 0, max: 1000 }
+      }
+    }
+  },
+  
+  // flexDirection 只有 keywords
+  flexDirection: {
+    keywords: ['row', 'column', 'row-reverse'],  // ✅ 类型安全
+    // numberTypes: ['length'],  // ❌ 编译错误：flexDirection 不支持 numberTypes
+  },
+  
+  // animationDelay 只有 numberTypes
+  animationDelay: {
+    numberTypes: ['time'],  // ✅ 类型安全
+    time: {
+      ms: { step: 100 }
+    }
+  }
+};
+```
+
+### 配置值类型
+
+每个属性的配置值类型根据其是否支持 numberTypes 而不同：
+
+**有 numberTypes 的属性**（如 width、height、margin）：
+```typescript
+// 可以配置 keywords + numberTypes + 该属性支持的 numberType 配置
+export type WidthPropertyValueConfig = 
+  WidthPropertyConfigPrecise & 
+  (WidthNumberTypeConfigMap | CssCategoryConfigMapPrecise | CssUnitConfigMap | {});
+```
+
+**没有 numberTypes 的属性**（如 display、flexDirection）：
+```typescript
+// 只能配置 keywords，不能配置 numberType/category/unit
+export type FlexDirectionPropertyValueConfig = FlexDirectionPropertyConfigPrecise;
+```
+
+### 精准的 NumberType 配置
+
+每个属性会生成特定的 NumberType 配置类型，只包含该属性支持的 numberTypes：
+
+```typescript
+// fontSize 只支持 length 和 percentage
+export interface FontSizeNumberTypeConfigMap {
+  length?: CssLengthValueConfig;
+  percentage?: CssPercentageNumberTypeValueConfig;
+  // 注意：没有 angle、time 等其他 numberTypes
+}
+
+// animationDelay 只支持 time
+export interface AnimationDelayNumberTypeConfigMap {
+  time?: CssTimeNumberTypeValueConfig;
+  // 注意：没有 length、percentage 等其他 numberTypes
+}
+```
+
+这意味着：
+
+1. **fontSize 可以配置 length 和 percentage**：
+```typescript
+fontSize: {
+  numberTypes: ['length', 'percentage'],
+  length: { pixel: { px: { step: 1 } } },  // ✅ 可以配置
+  percentage: { percent: { step: 5 } }  // ✅ 可以配置
+}
+```
+
+2. **animationDelay 只能配置 time**：
+```typescript
+animationDelay: {
+  numberTypes: ['time'],
+  time: { ms: { step: 100 } },  // ✅ 可以配置
+  // length: { ... }  // ❌ 编译错误！animationDelay 不支持 length
+}
+```
+
+3. **没有 numberTypes 的属性不能配置任何 numberType**：
+```typescript
+flexDirection: {
+  keywords: ['row', 'column']  // ✅ 只能配置 keywords
+  // length: { ... }  // ❌ 编译错误！
+}
+```
+
+### 类型约束级别
+
+当前实现的约束级别：
+
+| 层级 | 约束 | 说明 |
+|------|------|------|
+| Property → keywords | ✅ 精准 | 每个属性只能配置其支持的 keywords |
+| Property → numberTypes | ✅ 精准 | 每个属性只能配置其支持的 numberTypes |
+| Property → NumberType 配置 | ✅ 精准 | 每个属性只能配置其支持的 numberType（如 length、time） |
+| Property → Category 配置 | ⚠️ 宽松 | 所有有 numberTypes 的属性都可以配置任意 category |
+| Property → Unit 配置 | ⚠️ 宽松 | 所有有 numberTypes 的属性都可以配置任意 unit |
+
+> 注意：Category 和 Unit 层级的精准约束需要更复杂的类型生成，目前使用宽松类型。
+
 ## 三层配置体系
 
 ### 1. 属性级别配置（Property-Level Config）
@@ -385,3 +540,62 @@ const config = new CsstsConfig({
 ### Q: 属性配置中的 `null` 是什么意思？
 
 A: 表示该属性不支持该类型的值。例如 `display` 属性的 `numberTypes` 为 `null`，表示 `display` 不支持数值。
+
+## 类型生成系统
+
+### 生成脚本
+
+类型系统由两个生成脚本维护：
+
+1. **generator-data.ts**（阶段1：数据生成）
+   - 从 csstree 提取 CSS 属性、keywords、numberTypes、颜色等数据
+   - 从 datajson 读取单位映射和伪类/伪元素数据
+   - 生成 `src/data/` 目录下的数据文件
+
+2. **generator-type.ts**（阶段2：类型生成）
+   - 读取 `src/data/` 中的数据文件
+   - 生成 `src/types/` 目录下的类型定义文件
+
+### 运行生成脚本
+
+```bash
+# 先生成数据文件
+npx tsx generator/generator-data.ts
+
+# 再生成类型文件
+npx tsx generator/generator-type.ts
+```
+
+### 生成的类型文件
+
+| 文件 | 说明 |
+|------|------|
+| `cssPropertyConfig.d.ts` | 属性配置类型（包含精准属性配置） |
+| `cssProperties.d.ts` | 每个属性的 keywords/numberTypes 类型 |
+| `cssPseudoClassElement.d.ts` | 伪类/伪元素类型 |
+| `cssPseudoValue.d.ts` | 伪类/伪元素属性值类型 |
+| `csstsConfig.d.ts` | CSSTS 主配置类型 |
+
+### 精准类型的优势
+
+1. **编译时类型检查**：错误的 keywords 或 numberTypes 会在编译时报错
+2. **IDE 智能提示**：输入时自动补全该属性支持的值
+3. **文档即代码**：类型定义本身就是最准确的文档
+4. **减少运行时错误**：配置错误在开发阶段就能发现
+
+### 类型层级关系
+
+```
+CsstsConfig
+  └── properties: CssPropertyConfig
+        └── CssPropertyConfigMapPrecise
+              └── {propertyName}: {PropertyName}PropertyValueConfig
+                    ├── keywords?: {PropertyName}Keywords[]
+                    ├── numberTypes?: {PropertyName}NumberTypes[]
+                    └── CssNumberTypeConfigMapPrecise
+                          └── {numberType}: CssNumberTypeValueConfig
+                                └── CssCategoryConfigMapPrecise
+                                      └── {category}: CssCategoryValueConfig
+                                            └── CssUnitConfigMap
+                                                  └── {unit}: CsstsStepConfig
+```

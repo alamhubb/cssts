@@ -319,14 +319,17 @@ function extractPropertyData(): Record<string, PropertyData> {
       extractFromSyntaxNode(propDef.syntax, keywords, numberTypes, lexer);
     }
 
-    const hasColors = Array.from(keywords).some(k => allColors.has(k));
-    if (hasColors) {
-      keywords.clear();
-      keywords.add('__COLORS__');
-    }
+    // 分离颜色和非颜色 keywords
+    const colorKeywords = Array.from(keywords).filter(k => allColors.has(k));
+    const nonColorKeywords = Array.from(keywords).filter(k => !allColors.has(k));
+    
+    // 如果有颜色 keywords，用 __COLORS__ 标记替代
+    const finalKeywords = colorKeywords.length > 0 
+      ? [...nonColorKeywords, '__COLORS__']
+      : nonColorKeywords;
 
     propertyData[propName] = {
-      keywords: Array.from(keywords).sort(),
+      keywords: finalKeywords.sort(),
       numberTypes: Array.from(numberTypes).sort(),
     };
   }
@@ -352,20 +355,30 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     const data = propertyData[propName];
     const constName = propName.replace(/-/g, '_').toUpperCase();
     
-    if (data.keywords.length === 1 && data.keywords[0] === '__COLORS__') {
+    const hasColors = data.keywords.includes('__COLORS__');
+    const nonColorKeywords = data.keywords.filter(k => k !== '__COLORS__');
+    
+    if (hasColors && nonColorKeywords.length === 0) {
+      // 只有颜色
       lines.push(`export const ${constName}_KEYWORDS = ALL_COLORS;`);
+    } else if (hasColors) {
+      // 既有颜色也有其他 keywords
+      const keywordsStr = nonColorKeywords.map(k => `'${k}'`).join(', ');
+      lines.push(`export const ${constName}_KEYWORDS = [${keywordsStr}, ...ALL_COLORS] as const;`);
     } else {
+      // 只有非颜色 keywords
       lines.push(`export const ${constName}_KEYWORDS = [${data.keywords.map(k => `'${k}'`).join(', ')}] as const;`);
     }
   }
 
   lines.push('');
-  lines.push('export const PROPERTY_KEYWORDS_MAP: Record<string, readonly string[]> = {');
+  lines.push('export const PROPERTY_KEYWORDS_MAP = {');
   for (const propName of sortedProps) {
     const constName = propName.replace(/-/g, '_').toUpperCase();
-    lines.push(`  '${propName}': ${constName}_KEYWORDS,`);
+    const camelName = kebabToCamel(propName);
+    lines.push(`  ${camelName}: ${constName}_KEYWORDS,`);
   }
-  lines.push('};', '');
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
@@ -398,12 +411,13 @@ function generatePropertyNumberTypesFile(propertyData: Record<string, PropertyDa
   }
 
   lines.push('');
-  lines.push('export const PROPERTY_NUMBER_TYPES_MAP: Record<string, readonly string[]> = {');
+  lines.push('export const PROPERTY_NUMBER_TYPES_MAP = {');
   for (const propName of sortedProps) {
     const constName = propName.replace(/-/g, '_').toUpperCase();
-    lines.push(`  '${propName}': ${constName}_NUMBER_TYPES,`);
+    const camelName = kebabToCamel(propName);
+    lines.push(`  ${camelName}: ${constName}_NUMBER_TYPES,`);
   }
-  lines.push('};', '');
+  lines.push('} as const;', '');
 
   return lines.join('\n');
 }
@@ -474,11 +488,11 @@ function generateCssNumberDataFile(mapping: any): string {
   }
   lines.push('');
   
-  lines.push('export const NUMBER_TYPE_CATEGORY_MAP: Record<string, readonly string[]> = {');
+  lines.push('export const NUMBER_TYPE_CATEGORY_MAP = {');
   for (const [numberType] of Object.entries(numberTypes)) {
-    lines.push(`  '${numberType}': ${numberType.toUpperCase()}_CATEGORIES,`);
+    lines.push(`  ${numberType}: ${numberType.toUpperCase()}_CATEGORIES,`);
   }
-  lines.push('};', '');
+  lines.push('} as const;', '');
 
   lines.push('export const ALL_NUMBER_CATEGORIES = [');
   allCategories.forEach(c => lines.push(`  '${c}',`));
