@@ -7,24 +7,15 @@ import type {CsstsConfig} from "../types/csstsConfig";
  */
 export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
-    properties: {
-        width: {
-            length: {
-                unitless: {}
-            }
-        },
-        height: {
-            length: {
-                unitless: {}
+    properties: ['width', 'height', {
+        margin: {
+            px: {
+                min: 100
             }
         }
-    },
+    }],
     excludeProperties: [{
-        width: {
-            length: {
-                unitless: {}
-            }
-        }
+        width: {}
     }],
 
     // 数值类型配置
@@ -36,7 +27,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     excludeNumberTypes: [],
 
     // 单位分类配置
-    unitCategories: ['unitless', {unitless: ['px', 'vw']}, {px: {min: 0}}],
+    unitCategories: ['unitless', {px: {min: 0}}],
     excludeUnitCategories: [],
 
     // 单位配置

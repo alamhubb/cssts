@@ -129,64 +129,135 @@ export type NumberTypeConfigItem =
  */
 export type NumberTypeConfig = NumberTypeConfigItem[] | NumberTypeConfigMap;
 
-// ==================== 排除配置类型（从下到上依赖） ====================
+// ==================== 排除配置类型（从下到上依赖，与白名单结构对称） ====================
 
 /**
  * 单位排除项（最底层）
- * 只支持字符串形式
+ * 只支持字符串形式（不需要 CsstsStepConfig）
  */
 export type UnitExcludeItem = CssNumberUnitName;
 
 /**
- * 分类排除值配置（依赖 UnitExcludeItem）
- * - UnitExcludeItem[] - 排除指定的单位列表
+ * 单位排除映射（对象模式）
+ * 与白名单 UnitConfigMap 对应，但值为空对象（不需要配置）
+ * 示例：{ px: {}, rem: {} }
  */
-export type CategoryExcludeValueConfig = UnitExcludeItem[];
+export type UnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
+
+/**
+ * 分类排除值配置（依赖 UnitExcludeItem）
+ * 与白名单 CategoryValueConfig 对应，但不支持 CsstsStepConfig
+ * - CssNumberUnitName[] - 排除指定的单位列表
+ * - UnitExcludeMap - 对象模式排除单位
+ */
+export type CategoryExcludeValueConfig =
+    | CssNumberUnitName[]
+    | UnitExcludeMap;
+
+/**
+ * 单位分类排除映射（对象模式）
+ * 与白名单 UnitCategoryConfigMap 对应
+ * 示例：{ pixel: ['px', 'rem'], percentage: { percent: {} } }
+ */
+export type UnitCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
 
 /**
  * 单位分类排除项（依赖 CategoryExcludeValueConfig）
- * 字符串只支持 category 名称，对象支持配置要排除的单位
+ * 与白名单 UnitCategoryConfigItem 对应
+ * - 'pixel' - 简单排除 category
+ * - { pixel: ['px', 'rem'] } - 排除分类下的单位
+ * - { px: {} } - 跨级：直接排除 unit
  */
 export type UnitCategoryExcludeItem =
     | CssNumberCategoryName
-    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+    | UnitCategoryExcludeMap
+    | UnitExcludeMap;  // 跨级：直接排除 unit
+
+/**
+ * 单位分类排除配置（支持数组模式和对象模式）
+ * 与白名单 UnitCategoryConfig 对应
+ */
+export type UnitCategoryExcludeConfig = UnitCategoryExcludeItem[] | UnitCategoryExcludeMap;
 
 /**
  * 数值类型排除值配置（依赖 CategoryExcludeValueConfig）
+ * 与白名单 NumberTypeValueConfig 对应，但不支持 CsstsStepConfig
  * - CssNumberCategoryName[] - 排除指定的分类列表
- * - Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>> - 排除分类下的单位
+ * - UnitCategoryExcludeMap - 排除分类下的单位
+ * - UnitExcludeMap - 跨级排除单位
  */
 export type NumberTypeExcludeValueConfig =
     | CssNumberCategoryName[]
-    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+    | UnitCategoryExcludeMap
+    | UnitExcludeMap;
 
 /**
- * 数值类型排除项（依赖 NumberTypeExcludeValueConfig, CategoryExcludeValueConfig）
- * 字符串只支持 numberType 名称，对象支持跨级
+ * 数值类型排除映射（对象模式）
+ * 与白名单 NumberTypeConfigMap 对应
+ * 示例：{ length: ['pixel'], angle: { deg: ['deg'] } }
+ */
+export type NumberTypeExcludeMap = Partial<Record<CssNumberTypeName, NumberTypeExcludeValueConfig>>;
+
+/**
+ * 数值类型排除项（依赖 NumberTypeExcludeValueConfig, UnitCategoryExcludeMap）
+ * 与白名单 NumberTypeConfigItem 对应
+ * - 'length' - 简单排除 numberType
+ * - { length: ['pixel'] } - 排除 numberType 下的分类
+ * - { length: { pixel: ['px'] } } - 完整路径
+ * - { pixel: ['px'] } - 跨级：从 category 开始
+ * - { px: {} } - 跨级：直接排除 unit
  */
 export type NumberTypeExcludeItem =
     | CssNumberTypeName
-    | Partial<Record<CssNumberTypeName, NumberTypeExcludeValueConfig>>
-    | Partial<Record<CssNumberCategoryName, CategoryExcludeValueConfig>>;
+    | NumberTypeExcludeMap
+    | UnitCategoryExcludeMap  // 跨级：从 category 开始
+    | UnitExcludeMap;         // 跨级：直接排除 unit
 
 /**
- * 属性排除值配置（依赖 NumberTypeExcludeValueConfig, CategoryExcludeValueConfig）
- * 不支持 CsstsStepConfig
+ * 数值类型排除配置（支持数组模式和对象模式）
+ * 与白名单 NumberTypeConfig 对应
  */
-export interface CssPropertyExcludeValueConfig {
-    numberTypes?: CssNumberTypeName[];
-    keywords?: CssKeywordName[];
-    colors?: CssColorName[];
-    [key: string]: CssNumberTypeName[] | CssKeywordName[] | CssColorName[] | NumberTypeExcludeValueConfig | CategoryExcludeValueConfig | undefined;
-}
+export type NumberTypeExcludeConfig = NumberTypeExcludeItem[] | NumberTypeExcludeMap;
 
 /**
- * 属性排除项（依赖 CssPropertyExcludeValueConfig, NumberTypeExcludeItem）
- * 字符串只支持属性名称，key 必须是 CSS 属性名称
+ * 属性排除值配置
+ * 与白名单 CssPropertyValueConfig 对应，但不支持 CsstsStepConfig
+ * 支持多种配置方式：
+ * - { numberTypes: ['length'] } - 排除数值类型
+ * - { keywords: ['auto'] } - 排除关键字
+ * - { colors: ['red'] } - 排除颜色
+ * - { pixel: ['px'] } - 排除分类下的单位
+ * - { length: { pixel: ['px'] } } - 完整路径
+ */
+export type CssPropertyExcludeValueConfig =
+    | CssPropertyBaseConfig
+    | (CssPropertyBaseConfig & NumberTypeExcludeMap)
+    | (CssPropertyBaseConfig & UnitCategoryExcludeMap)
+    | (CssPropertyBaseConfig & UnitExcludeMap);
+
+/**
+ * 属性排除映射（对象模式）
+ * 与白名单 CssPropertyConfigMap 对应
+ * 示例：{ width: { numberTypes: ['length'] }, height: [{ pixel: ['px'] }] }
+ */
+export type CssPropertyExcludeMap = Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>;
+
+/**
+ * 属性排除项（依赖 CssPropertyExcludeMap, NumberTypeExcludeItem）
+ * 与白名单 CssPropertyConfigItem 对应
+ * - 'width' - 简单排除属性
+ * - { width: { numberTypes: ['length'] } } - 排除属性下的数值类型
+ * - { width: [{ pixel: ['px'] }] } - 数组格式配置
  */
 export type CssPropertyExcludeItem =
     | CssPropertyName
-    | Partial<Record<CssPropertyName, CssPropertyExcludeValueConfig | NumberTypeExcludeItem[]>>;
+    | CssPropertyExcludeMap;
+
+/**
+ * 属性排除配置（支持数组模式和对象模式）
+ * 与白名单 CssPropertyConfig 对应
+ */
+export type CssPropertyExcludeConfig = CssPropertyExcludeItem[] | CssPropertyExcludeMap;
 
 // ==================== 属性配置类型 ====================
 
@@ -210,12 +281,14 @@ export interface CssPropertyBaseConfig {
  * - { colors: ['red'] } - 指定颜色
  * - { px: { min: 0 } } - 直接配置单位（跨级）
  * - { pixel: { px: { min: 0 } } } - 配置分类和单位
- * - NumberTypeConfigItem[] - 数组格式配置
+ * - { length: { pixel: { px: {} } } } - 完整路径
  * - 以上可以混合使用
  */
-export interface CssPropertyValueConfig extends CssPropertyBaseConfig {
-    [key: string]: CssNumberTypeName[] | CssKeywordName[] | CssColorName[] | CsstsStepConfig | CategoryValueConfig | NumberTypeConfigItem[] | undefined;
-}
+export type CssPropertyValueConfig =
+    | CssPropertyBaseConfig
+    | (CssPropertyBaseConfig & NumberTypeConfigMap)
+    | (CssPropertyBaseConfig & UnitCategoryConfigMap)
+    | (CssPropertyBaseConfig & UnitConfigMap);
 
 /**
  * 属性配置映射（对象模式）
@@ -268,9 +341,9 @@ export interface CsstsConfig {
     /**
      * 排除的属性列表（黑名单）
      * 仅当 properties 为空时生效
-     * 支持跨级配置（不支持 CsstsStepConfig）
+     * 支持与白名单相同的结构（不支持 CsstsStepConfig）
      */
-    excludeProperties?: CssPropertyExcludeItem[];
+    excludeProperties?: CssPropertyExcludeConfig;
 
     // ==================== 数值类型配置 ====================
 
@@ -282,8 +355,9 @@ export interface CsstsConfig {
 
     /**
      * 排除的数值类型列表（黑名单）
+     * 支持与白名单相同的结构（不支持 CsstsStepConfig）
      */
-    excludeNumberTypes?: NumberTypeExcludeItem[];
+    excludeNumberTypes?: NumberTypeExcludeConfig;
 
     // ==================== 单位分类配置 ====================
 
@@ -295,8 +369,9 @@ export interface CsstsConfig {
 
     /**
      * 排除的单位分类列表（黑名单）
+     * 支持与白名单相同的结构（不支持 CsstsStepConfig）
      */
-    excludeUnitCategories?: UnitCategoryExcludeItem[];
+    excludeUnitCategories?: UnitCategoryExcludeConfig;
 
     // ==================== 单位配置 ====================
 

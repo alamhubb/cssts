@@ -10,19 +10,19 @@ CSSTS 配置用于控制 CSS 原子类的生成规则，包括属性、数值类
 interface CsstsConfig {
   // 属性配置（支持数组模式和对象模式）
   properties?: CssPropertyConfig;  // CssPropertyConfigItem[] | CssPropertyConfigMap
-  excludeProperties?: CssPropertyExcludeItem[];
+  excludeProperties?: CssPropertyExcludeConfig;  // CssPropertyExcludeItem[] | CssPropertyExcludeMap
 
   // 数值类型配置（支持数组模式和对象模式）
   numberTypes?: NumberTypeConfig;  // NumberTypeConfigItem[] | NumberTypeConfigMap
-  excludeNumberTypes?: NumberTypeExcludeItem[];
+  excludeNumberTypes?: NumberTypeExcludeConfig;  // NumberTypeExcludeItem[] | NumberTypeExcludeMap
 
   // 单位分类配置（支持数组模式和对象模式）
   unitCategories?: UnitCategoryConfig;  // UnitCategoryConfigItem[] | UnitCategoryConfigMap
-  excludeUnitCategories?: UnitCategoryExcludeItem[];
+  excludeUnitCategories?: UnitCategoryExcludeConfig;  // UnitCategoryExcludeItem[] | UnitCategoryExcludeMap
 
   // 单位配置（支持数组模式和对象模式）
   units?: UnitConfig;  // UnitConfigItem[] | UnitConfigMap
-  excludeUnits?: UnitExcludeItem[];
+  excludeUnits?: UnitExcludeItem[];  // CssNumberUnitName[]
 
   // 关键字/颜色配置
   keywords?: CssKeywordName[];
@@ -79,28 +79,31 @@ properties: {
 
 ### 排除配置 (exclude)
 
-排除配置支持与白名单相同的跨级策略，但**不支持 CsstsStepConfig**（因为排除不需要配置数值）。
+排除配置与白名单结构**完全对称**，支持数组模式和对象模式，唯一区别是**不支持 CsstsStepConfig**（因为排除不需要配置数值）。
 
 ```typescript
-// excludeProperties - 排除属性
+// excludeProperties - 排除属性（支持数组模式和对象模式）
 excludeProperties: [
   'width',                                    // 字符串：排除属性
   { height: ['length'] },                     // 排除属性下的数值类型
   { height: { pixel: ['px'] } },              // 排除属性下分类的单位
+  { height: { length: { pixel: ['px'] } } },  // 完整路径
 ]
 
-// excludeNumberTypes - 排除数值类型
+// excludeNumberTypes - 排除数值类型（支持数组模式和对象模式）
 excludeNumberTypes: [
   'angle',                                    // 字符串：排除整个 numberType
   { length: ['pixel'] },                      // 排除 numberType 下的分类
   { length: { pixel: ['px'] } },              // 排除分类下的单位
   { pixel: ['px'] },                          // 跨级：排除分类下的单位
+  { px: {} },                                 // 跨级：直接排除单位
 ]
 
-// excludeUnitCategories - 排除单位分类
+// excludeUnitCategories - 排除单位分类（支持数组模式和对象模式）
 excludeUnitCategories: [
   'resolution',                               // 字符串：排除整个分类
   { pixel: ['px'] },                          // 排除分类下的单位
+  { px: {} },                                 // 跨级：直接排除单位
 ]
 
 // excludeUnits - 排除单位（只支持字符串数组）
@@ -168,21 +171,29 @@ CssPropertyValueConfig
 CssPropertyConfigItem (最上层)
 ```
 
-**排除配置（从下到上）：**
+**排除配置（从下到上，与白名单对称）：**
 ```
 UnitExcludeItem = CssNumberUnitName (最底层)
     ↑
-CategoryExcludeValueConfig = UnitExcludeItem[]
+UnitExcludeMap = Partial<Record<CssNumberUnitName, {}>>
     ↑
-UnitCategoryExcludeItem
+CategoryExcludeValueConfig = CssNumberUnitName[] | UnitExcludeMap
     ↑
-NumberTypeExcludeValueConfig
+UnitCategoryExcludeMap
     ↑
-NumberTypeExcludeItem
+UnitCategoryExcludeItem = CssNumberCategoryName | UnitCategoryExcludeMap | UnitExcludeMap
     ↑
-CssPropertyExcludeValueConfig
+NumberTypeExcludeValueConfig = CssNumberCategoryName[] | UnitCategoryExcludeMap | UnitExcludeMap
     ↑
-CssPropertyExcludeItem (最上层)
+NumberTypeExcludeMap
+    ↑
+NumberTypeExcludeItem = CssNumberTypeName | NumberTypeExcludeMap | UnitCategoryExcludeMap | UnitExcludeMap
+    ↑
+CssPropertyExcludeValueConfig (支持 numberTypes/keywords/colors 及跨级配置)
+    ↑
+CssPropertyExcludeMap
+    ↑
+CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeMap (最上层)
 ```
 
 ### 跨级配置规则
@@ -190,7 +201,42 @@ CssPropertyExcludeItem (最上层)
 - **字符串形式**：只支持当前层级的名称（不支持跨级）
 - **对象形式**：支持跨级配置，可以从任意层级开始
 
+**特殊规则 - properties 和 excludeProperties**：
+
+`properties` 和 `excludeProperties` 的 key **必须是 CSS 属性名称**，不支持跨级。但属性值内部可以跨级配置：
+
+```typescript
+// ✅ 正确：key 是 CSS 属性名，值内部跨级配置
+properties: [
+  { margin: { px: { min: 100 } } },           // margin 是属性名，px 是跨级配置
+  { width: { pixel: { px: { min: 0 } } } },   // width 是属性名，pixel/px 是跨级配置
+]
+
+// ❌ 错误：key 不能是 unit 或 category 名称
+properties: [
+  { px: { min: 100 } },                       // px 不是 CSS 属性名！
+  { pixel: { px: { min: 0 } } },              // pixel 不是 CSS 属性名！
+]
+```
+
+**其他配置项（numberTypes、unitCategories）的跨级规则**：
+
+```typescript
+// ✅ 正确：numberTypes 支持跨级，key 可以是 category 或 unit
+numberTypes: [
+  { pixel: { px: { min: 0 } } },              // 跨级：从 category 开始
+  { px: { min: 100 } },                       // 跨级：直接配置 unit
+]
+
+// ✅ 正确：unitCategories 支持跨级，key 可以是 unit
+unitCategories: [
+  { px: { min: 100 } },                       // 跨级：直接配置 unit
+]
+```
+
 ---
+
+## 配置项详解
 
 ### properties 配置
 
@@ -260,6 +306,53 @@ properties: {
 
 ---
 
+### excludeProperties 配置
+
+**类型**: `CssPropertyExcludeConfig` = `CssPropertyExcludeItem[] | CssPropertyExcludeMap`
+
+支持数组模式和对象模式，与白名单 `properties` 结构对称。
+
+**支持的配置格式**:
+
+| 格式 | 说明 | 示例 |
+|-----|------|------|
+| `CssPropertyName` | 字符串，排除整个属性 | `'width'` |
+| `CssPropertyExcludeMap` | 排除属性下的配置 | `{ height: { numberTypes: ['length'] } }` |
+
+**CssPropertyExcludeValueConfig 支持的字段**:
+- `numberTypes?: CssNumberTypeName[]` - 排除数值类型
+- `keywords?: CssKeywordName[]` - 排除关键字
+- `colors?: CssColorName[]` - 排除颜色
+- 以及任意跨级配置（分类名、numberType 名作为 key）
+
+```typescript
+// 数组模式
+excludeProperties: [
+  'width',                                    // 排除整个属性
+  { height: { numberTypes: ['length'] } },    // 排除属性下的数值类型
+  { height: { keywords: ['auto'] } },         // 排除属性下的关键字
+  { height: { pixel: ['px'] } },              // 排除属性下分类的单位
+  { height: { length: { pixel: ['px'] } } },  // 完整路径
+  
+  // 数组格式配置（属性下的 NumberTypeExcludeItem[]）
+  { width: [
+    'length',                                 // 排除 numberType
+    { pixel: ['px', 'rem'] },                 // 排除分类下的单位
+  ]},
+]
+
+// 对象模式
+excludeProperties: {
+  width: { numberTypes: ['length'] },
+  height: [{ pixel: ['px'] }],
+  margin: { length: { pixel: ['px', 'rem'] } }
+}
+```
+
+**注意**: `excludeProperties` 的 key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key。
+
+---
+
 ### numberTypes 配置
 
 **类型**: `NumberTypeConfig` = `NumberTypeConfigItem[] | NumberTypeConfigMap`
@@ -314,6 +407,40 @@ numberTypes: {
   length: { pixel: { px: { min: 0 } } },
   angle: ['deg', 'rad'],
   time: { presets: [0, 100, 200, 300] }
+}
+```
+
+---
+
+### excludeNumberTypes 配置
+
+**类型**: `NumberTypeExcludeConfig` = `NumberTypeExcludeItem[] | NumberTypeExcludeMap`
+
+支持数组模式和对象模式，与白名单 `numberTypes` 结构对称。
+
+**支持的配置格式**:
+
+| 格式 | 说明 | 示例 |
+|-----|------|------|
+| `CssNumberTypeName` | 字符串，排除整个 numberType | `'angle'` |
+| `NumberTypeExcludeMap` | 排除 numberType 下的分类或单位 | `{ length: ['pixel'] }` |
+| `UnitCategoryExcludeMap` | 跨级：排除分类下的单位 | `{ pixel: ['px'] }` |
+| `UnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
+
+```typescript
+// 数组模式
+excludeNumberTypes: [
+  'angle',                                    // 排除整个 numberType
+  { length: ['pixel'] },                      // 排除 numberType 下的分类
+  { length: { pixel: ['px'] } },              // 排除分类下的单位
+  { pixel: ['px'] },                          // 跨级：排除分类下的单位
+  { px: {} },                                 // 跨级：直接排除单位
+]
+
+// 对象模式
+excludeNumberTypes: {
+  length: ['pixel'],
+  angle: { deg: ['deg'] }
 }
 ```
 
@@ -374,6 +501,37 @@ unitCategories: {
 
 ---
 
+### excludeUnitCategories 配置
+
+**类型**: `UnitCategoryExcludeConfig` = `UnitCategoryExcludeItem[] | UnitCategoryExcludeMap`
+
+支持数组模式和对象模式，与白名单 `unitCategories` 结构对称。
+
+**支持的配置格式**:
+
+| 格式 | 说明 | 示例 |
+|-----|------|------|
+| `CssNumberCategoryName` | 字符串，排除整个分类 | `'pixel'` |
+| `UnitCategoryExcludeMap` | 排除分类下的单位 | `{ pixel: ['px'] }` |
+| `UnitExcludeMap` | 跨级：直接排除单位 | `{ px: {} }` |
+
+```typescript
+// 数组模式
+excludeUnitCategories: [
+  'resolution',                    // 排除整个分类
+  { pixel: ['px', 'rem'] },        // 排除分类下的指定单位
+  { px: {} },                      // 跨级：直接排除单位
+]
+
+// 对象模式
+excludeUnitCategories: {
+  pixel: ['px', 'rem'],
+  percentage: { percent: {} }
+}
+```
+
+---
+
 ### units 配置
 
 **类型**: `UnitConfig` = `UnitConfigItem[] | UnitConfigMap`
@@ -419,22 +577,7 @@ units: {
 
 ---
 
-### 配置格式总结
-
-| 配置项 | 数组模式 | 对象模式 | 字符串支持 | 对象 key 支持 |
-|-------|---------|---------|-----------|-------------|
-| `properties` | ✅ | ✅ | 只支持 `CssPropertyName` | 只支持 `CssPropertyName` |
-| `numberTypes` | ✅ | ✅ | 只支持 `CssNumberTypeName` | 支持跨级 |
-| `unitCategories` | ✅ | ✅ | 只支持 `CssNumberCategoryName` | 支持跨级 |
-| `units` | ✅ | ✅ | 只支持 `CssNumberUnitName` | 无跨级 |
-
----
-
-## 排除配置详解
-
-排除配置与白名单配置结构对应，但**不支持 CsstsStepConfig**（因为排除不需要配置数值）。
-
-### excludeUnits
+### excludeUnits 配置
 
 **类型**: `UnitExcludeItem[]` = `CssNumberUnitName[]`
 
@@ -444,75 +587,39 @@ units: {
 excludeUnits: ['px', 'rem', 'em']
 ```
 
-### excludeUnitCategories
+---
 
-**类型**: `UnitCategoryExcludeItem[]`
+### 配置格式总结
 
-**支持的配置格式**:
+| 配置项 | 数组模式 | 对象模式 | 字符串支持 | 对象 key 支持 | 值内部跨级 |
+|-------|---------|---------|-----------|-------------|-----------|
+| `properties` | ✅ | ✅ | 只支持 `CssPropertyName` | 只支持 `CssPropertyName` | ✅ 支持 |
+| `excludeProperties` | ✅ | ✅ | 只支持 `CssPropertyName` | 只支持 `CssPropertyName` | ✅ 支持 |
+| `numberTypes` | ✅ | ✅ | 只支持 `CssNumberTypeName` | 支持跨级 | ✅ 支持 |
+| `excludeNumberTypes` | ✅ | ✅ | 只支持 `CssNumberTypeName` | 支持跨级 | ✅ 支持 |
+| `unitCategories` | ✅ | ✅ | 只支持 `CssNumberCategoryName` | 支持跨级 | ✅ 支持 |
+| `excludeUnitCategories` | ✅ | ✅ | 只支持 `CssNumberCategoryName` | 支持跨级 | ✅ 支持 |
+| `units` | ✅ | ✅ | 只支持 `CssNumberUnitName` | 无跨级（最底层） | - |
+| `excludeUnits` | ✅ | ❌ | 只支持 `CssNumberUnitName` | 无跨级（最底层） | - |
 
-| 格式 | 说明 | 示例 |
-|-----|------|------|
-| `CssNumberCategoryName` | 字符串，排除整个分类 | `'pixel'` |
-| `Record<CssNumberCategoryName, CategoryExcludeValueConfig>` | 排除分类下的单位 | `{ pixel: ['px'] }` |
+**说明**：
+- `properties` / `excludeProperties` 的 key 必须是 CSS 属性名，但属性值内部可以跨级
+- `numberTypes` / `excludeNumberTypes` 的 key 可以是 numberType、category 或 unit 名称
+- `unitCategories` / `excludeUnitCategories` 的 key 可以是 category 或 unit 名称
+- `units` / `excludeUnits` 是最底层，无跨级概念
+- 排除配置与白名单结构对称，唯一区别是不支持 `CsstsStepConfig`
 
-```typescript
-excludeUnitCategories: [
-  'resolution',                    // 排除整个分类
-  { pixel: ['px', 'rem'] },        // 排除分类下的指定单位
-]
-```
+### 白名单 vs 黑名单对照表
 
-### excludeNumberTypes
-
-**类型**: `NumberTypeExcludeItem[]`
-
-**支持的配置格式**:
-
-| 格式 | 说明 | 示例 |
-|-----|------|------|
-| `CssNumberTypeName` | 字符串，排除整个 numberType | `'angle'` |
-| `Record<CssNumberTypeName, NumberTypeExcludeValueConfig>` | 排除 numberType 下的分类或单位 | `{ length: ['pixel'] }` |
-| `Record<CssNumberCategoryName, CategoryExcludeValueConfig>` | 跨级：排除分类下的单位 | `{ pixel: ['px'] }` |
-
-```typescript
-excludeNumberTypes: [
-  'angle',                                    // 排除整个 numberType
-  { length: ['pixel'] },                      // 排除 numberType 下的分类
-  { length: { pixel: ['px'] } },              // 排除分类下的单位
-  { pixel: ['px'] },                          // 跨级：排除分类下的单位
-]
-```
-
-### excludeProperties
-
-**类型**: `CssPropertyExcludeItem[]`
-
-**支持的配置格式**:
-
-| 格式 | 说明 | 示例 |
-|-----|------|------|
-| `CssPropertyName` | 字符串，排除整个属性 | `'width'` |
-| `Record<CssPropertyName, CssPropertyExcludeValueConfig>` | 排除属性下的配置 | `{ height: { numberTypes: ['length'] } }` |
-| `Record<CssPropertyName, NumberTypeExcludeItem[]>` | 排除属性下的数值类型配置 | `{ height: [{ pixel: ['px'] }] }` |
-
-**注意**: `excludeProperties` 的 key 必须是 CSS 属性名称，不支持用 category 或 unit 名称作为 key。
-
-```typescript
-excludeProperties: [
-  'width',                                    // 排除整个属性
-  { height: { numberTypes: ['length'] } },    // 排除属性下的数值类型
-  { height: { pixel: ['px'] } },              // 排除属性下分类的单位
-]
-```
-
-### 排除配置格式总结
-
-| 配置项 | 字符串支持 | 对象 key 支持 |
-|-------|-----------|-------------|
-| `excludeProperties` | 只支持 `CssPropertyName` | 只支持 `CssPropertyName`（不支持跨级） |
-| `excludeNumberTypes` | 只支持 `CssNumberTypeName` | 支持 numberType → category |
-| `excludeUnitCategories` | 只支持 `CssNumberCategoryName` | 支持 category（配置要排除的单位） |
-| `excludeUnits` | 只支持 `CssNumberUnitName` | 无跨级（已是最底层） |
+| 白名单类型 | 黑名单类型 | 区别 |
+|-----------|-----------|------|
+| `UnitConfigMap` | `UnitExcludeMap` | 值为 `{}` 而非 `CsstsStepConfig` |
+| `CategoryValueConfig` | `CategoryExcludeValueConfig` | 不支持 `CsstsStepConfig` |
+| `UnitCategoryConfigMap` | `UnitCategoryExcludeMap` | 同上 |
+| `NumberTypeValueConfig` | `NumberTypeExcludeValueConfig` | 同上 |
+| `NumberTypeConfigMap` | `NumberTypeExcludeMap` | 同上 |
+| `CssPropertyValueConfig` | `CssPropertyExcludeValueConfig` | 同上 |
+| `CssPropertyConfigMap` | `CssPropertyExcludeMap` | 同上 |
 
 ## 单位别名
 
