@@ -14,9 +14,7 @@
  * - cssNumberData.ts: 单位常量、别名、numberType 和 category 映射
  * - pseudoClasses.ts: 伪类数据
  * - pseudoElements.ts: 伪元素数据
- * - keywordConstants.ts: keyword 常量
- * - keywords.ts: keywords 数组
- * - allKeywords.ts: 所有 keywords 和 colors
+ * - cssKeywordsData.ts: keywords 常量、数组和 allKeywords
  *
  * 运行方式：npx tsx generator/generator-data.ts
  */
@@ -569,23 +567,28 @@ function extractKeywordsFromCsstree(): Set<string> {
   return keywords;
 }
 
-function generateKeywordConstantsFile(keywords: Set<string>): string {
+function generateCssKeywordsDataFile(keywords: Set<string>): string {
   const lines: string[] = [
     '/**',
-    ' * CSS Keywords 常量（自动生成）',
+    ' * CSS Keywords 数据（自动生成）',
+    ' * 包含 Keywords 常量、数组和 allKeywords',
     ' */',
+    '',
+    "import { ALL_COLORS } from './color';",
     '',
   ];
 
   const constNameMap = buildConstNameMap(keywords);
   const sortedKeywords = Array.from(keywords).sort();
 
+  // ==================== Keywords 常量 ====================
+  lines.push('// ==================== Keywords 常量 ====================', '');
   for (const keyword of sortedKeywords) {
     const constName = constNameMap.get(keyword)!;
     lines.push(`export const KEYWORD_${constName} = '${keyword}' as const;`);
   }
-
   lines.push('');
+
   lines.push('export const KEYWORD_MAP: Record<string, string> = {');
   for (const keyword of sortedKeywords) {
     const constName = constNameMap.get(keyword)!;
@@ -593,44 +596,19 @@ function generateKeywordConstantsFile(keywords: Set<string>): string {
   }
   lines.push('};', '');
 
-  return lines.join('\n');
-}
-
-function generateKeywordsFile(keywords: Set<string>): string {
-  const lines: string[] = [
-    '/**',
-    ' * CSS Keywords 数组（自动生成）',
-    ' */',
-    '',
-  ];
-
-  const constNameMap = buildConstNameMap(keywords);
-  const sortedKeywords = Array.from(keywords).sort();
-  const constNames = sortedKeywords.map(k => `KEYWORD_${constNameMap.get(k)!}`);
-  lines.push(`import { ${constNames.join(', ')}, KEYWORD_MAP } from './keywordConstants';`, '');
-
+  // ==================== Keywords 数组 ====================
+  lines.push('// ==================== Keywords 数组 ====================', '');
   lines.push('export const keywords = [');
   for (const keyword of sortedKeywords) {
     lines.push(`  KEYWORD_${constNameMap.get(keyword)!},`);
   }
   lines.push('] as const;', '');
-  lines.push('export { KEYWORD_MAP };', '');
+
+  // ==================== allKeywords ====================
+  lines.push('// ==================== allKeywords ====================', '');
+  lines.push('export const allKeywords = [...keywords, ...ALL_COLORS] as const;', '');
 
   return lines.join('\n');
-}
-
-function generateAllKeywordsFile(): string {
-  return `/**
- * 所有 CSS Keywords 和 Colors（自动生成）
- */
-
-import { keywords } from './keywords';
-import { ALL_COLORS } from './color';
-
-export const allKeywords = [...keywords, ...ALL_COLORS] as const;
-
-export { keywords, ALL_COLORS };
-`;
 }
 
 
@@ -671,14 +649,8 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'pseudoElements.ts'), generatePseudoElementsFile(pseudoStandards.pseudoElements));
   console.log('✅ src/data/pseudoElements.ts');
 
-  fs.writeFileSync(path.join(dataDir, 'keywordConstants.ts'), generateKeywordConstantsFile(keywords));
-  console.log('✅ src/data/keywordConstants.ts');
-
-  fs.writeFileSync(path.join(dataDir, 'keywords.ts'), generateKeywordsFile(keywords));
-  console.log('✅ src/data/keywords.ts');
-
-  fs.writeFileSync(path.join(dataDir, 'allKeywords.ts'), generateAllKeywordsFile());
-  console.log('✅ src/data/allKeywords.ts');
+  fs.writeFileSync(path.join(dataDir, 'cssKeywordsData.ts'), generateCssKeywordsDataFile(keywords));
+  console.log('✅ src/data/cssKeywordsData.ts');
 
   console.log(`\n📊 统计信息:`);
   console.log(`   属性数: ${Object.keys(propertyMap).length}`);

@@ -2,8 +2,7 @@
  * Property 配置类型定义（自动生成）
  */
 
-import type { keywords } from '../data/keywords';
-import type { allKeywords } from '../data/allKeywords';
+import type { keywords, allKeywords } from '../data/cssKeywordsData';
 import type { ALL_COLORS } from '../data/color';
 
 import type { CssPropertyName } from './cssPropertyConfig';
