@@ -9,9 +9,7 @@
  * - cssProperties.d.ts: 属性类型
  * - cssPseudoValue.d.ts: 伪类/伪元素属性值类型
  * - csstsStepConfig.d.ts: 基础配置类型
- * - cssNumberUnitConfig.d.ts: Unit 配置类型
- * - cssNumberCategoryConfig.d.ts: Category 配置类型
- * - cssNumberTypeConfig.d.ts: NumberType 配置类型
+ * - cssNumberConfig.d.ts: Unit/Category/NumberType 配置类型
  * - cssPropertyValueConfig.d.ts: Property 配置类型和 Keywords 类型
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
@@ -267,20 +265,22 @@ export type CssCustomPropertyValue = string | Record<string, string>;
 `;
 }
 
-// ==================== Unit 配置类型 ====================
+// ==================== Number 配置类型（合并 Unit/Category/NumberType） ====================
 
-function generateUnitConfigType(): string {
+function generateNumberConfigType(): string {
   return `/**
- * Unit 配置类型定义（自动生成）
+ * CSS 数值配置类型定义（自动生成）
+ * 包含 Unit、Category、NumberType 配置类型
  */
 
-import type { ALL_UNITS } from '../data/numberTypeCategory';
+import type { ALL_UNITS, ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
+import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
 
 import type { CsstsStepConfig } from './csstsStepConfig';
 
-export type CssNumberUnitName = typeof ALL_UNITS[number];
+// ==================== Unit 类型 ====================
 
-// ==================== Unit 配置 ====================
+export type CssNumberUnitName = typeof ALL_UNITS[number];
 
 export type CssUnitConfigMap = Partial<Record<CssNumberUnitName, CsstsStepConfig>>;
 
@@ -288,29 +288,13 @@ export type CssUnitConfigItem = CssNumberUnitName | CssUnitConfigMap;
 
 export type CssUnitConfig = CssUnitConfigItem[] | CssUnitConfigMap;
 
-// ==================== Unit 排除配置 ====================
-
 export type CssUnitExcludeItem = CssNumberUnitName;
 
 export type CssUnitExcludeMap = Partial<Record<CssNumberUnitName, Record<string, never>>>;
-`;
-}
 
-// ==================== Category 配置类型 ====================
-
-function generateCategoryConfigType(): string {
-  return `/**
- * Category 配置类型定义（自动生成）
- */
-
-import type { ALL_NUMBER_CATEGORIES } from '../data/numberTypeCategory';
-
-import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
+// ==================== Category 类型 ====================
 
 export type CssNumberCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
-
-// ==================== Category 配置 ====================
 
 export type CssCategoryValueConfig =
   | CsstsStepConfig
@@ -326,8 +310,6 @@ export type CssCategoryConfigItem =
 
 export type CssCategoryConfig = CssCategoryConfigItem[] | CssCategoryConfigMap;
 
-// ==================== Category 排除配置 ====================
-
 export type CssCategoryExcludeValueConfig = CssNumberUnitName[] | CssUnitExcludeMap;
 
 export type CssCategoryExcludeMap = Partial<Record<CssNumberCategoryName, CssCategoryExcludeValueConfig>>;
@@ -338,25 +320,10 @@ export type CssCategoryExcludeItem =
   | CssUnitExcludeMap;
 
 export type CssCategoryExcludeConfig = CssCategoryExcludeItem[] | CssCategoryExcludeMap;
-`;
-}
 
-// ==================== NumberType 配置类型 ====================
-
-function generateNumberTypeConfigType(): string {
-  return `/**
- * NumberType 配置类型定义（自动生成）
- */
-
-import type { ALL_NUMBER_TYPES } from '../data/propertyNumberTypes';
-
-import type { CsstsStepConfig } from './csstsStepConfig';
-import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
-import type { CssNumberCategoryName, CssCategoryValueConfig, CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
+// ==================== NumberType 类型 ====================
 
 export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
-
-// ==================== NumberType 配置 ====================
 
 export type CssNumberTypeValueConfig =
   | CsstsStepConfig
@@ -373,8 +340,6 @@ export type CssNumberTypeConfigItem =
   | CssUnitConfigMap;
 
 export type CssNumberTypeConfig = CssNumberTypeConfigItem[] | CssNumberTypeConfigMap;
-
-// ==================== NumberType 排除配置 ====================
 
 export type CssNumberTypeExcludeValueConfig =
   | CssNumberCategoryName[]
@@ -405,9 +370,18 @@ import type { allKeywords } from '../data/allKeywords';
 import type { ALL_COLORS } from '../data/color';
 
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
-import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
-import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+import type {
+  CssNumberUnitName,
+  CssUnitConfigMap,
+  CssUnitExcludeMap,
+  CssCategoryConfigMap,
+  CssCategoryExcludeMap,
+  CssNumberTypeName,
+  CssNumberTypeConfigMap,
+  CssNumberTypeConfigItem,
+  CssNumberTypeExcludeMap,
+  CssNumberTypeExcludeItem
+} from './cssNumberConfig';
 
 // ==================== Keywords 类型 ====================
 
@@ -464,9 +438,14 @@ function generateCsstsConfigType(): string {
 
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
-import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
+import type {
+  CssUnitConfig,
+  CssUnitExcludeItem,
+  CssCategoryConfig,
+  CssCategoryExcludeConfig,
+  CssNumberTypeConfig,
+  CssNumberTypeExcludeConfig
+} from './cssNumberConfig';
 import type { CssKeywordName, CssColorName, CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {
@@ -538,14 +517,8 @@ function main() {
   fs.writeFileSync(path.join(typesDir, 'csstsStepConfig.d.ts'), generateCsstsStepConfigType());
   console.log('✅ src/types/csstsStepConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'cssNumberUnitConfig.d.ts'), generateUnitConfigType());
-  console.log('✅ src/types/cssNumberUnitConfig.d.ts');
-
-  fs.writeFileSync(path.join(typesDir, 'cssNumberCategoryConfig.d.ts'), generateCategoryConfigType());
-  console.log('✅ src/types/cssNumberCategoryConfig.d.ts');
-
-  fs.writeFileSync(path.join(typesDir, 'cssNumberTypeConfig.d.ts'), generateNumberTypeConfigType());
-  console.log('✅ src/types/cssNumberTypeConfig.d.ts');
+  fs.writeFileSync(path.join(typesDir, 'cssNumberConfig.d.ts'), generateNumberConfigType());
+  console.log('✅ src/types/cssNumberConfig.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'cssPropertyValueConfig.d.ts'), generatePropertyConfigType());
   console.log('✅ src/types/cssPropertyValueConfig.d.ts');

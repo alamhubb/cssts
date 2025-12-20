@@ -4,9 +4,14 @@
 
 import type { CssPseudoClassName, CssPseudoElementName, CssPseudoClassConfig, CssPseudoElementConfig } from './cssPseudoClassElement';
 import type { CssProgressiveRange, CssCustomPropertyValue } from './csstsStepConfig';
-import type { CssUnitConfig, CssUnitExcludeItem } from './cssNumberUnitConfig';
-import type { CssCategoryConfig, CssCategoryExcludeConfig } from './cssNumberCategoryConfig';
-import type { CssNumberTypeConfig, CssNumberTypeExcludeConfig } from './cssNumberTypeConfig';
+import type {
+  CssUnitConfig,
+  CssUnitExcludeItem,
+  CssCategoryConfig,
+  CssCategoryExcludeConfig,
+  CssNumberTypeConfig,
+  CssNumberTypeExcludeConfig
+} from './cssNumberConfig';
 import type { CssKeywordName, CssColorName, CssPropertyConfig, CssPropertyExcludeConfig } from './cssPropertyValueConfig';
 
 export interface CsstsConfig {

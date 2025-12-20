@@ -7,9 +7,18 @@ import type { allKeywords } from '../data/allKeywords';
 import type { ALL_COLORS } from '../data/color';
 
 import type { CssPropertyName } from './cssPropertyConfig';
-import type { CssNumberUnitName, CssUnitConfigMap, CssUnitExcludeMap } from './cssNumberUnitConfig';
-import type { CssCategoryConfigMap, CssCategoryExcludeMap } from './cssNumberCategoryConfig';
-import type { CssNumberTypeName, CssNumberTypeConfigMap, CssNumberTypeConfigItem, CssNumberTypeExcludeMap, CssNumberTypeExcludeItem } from './cssNumberTypeConfig';
+import type {
+  CssNumberUnitName,
+  CssUnitConfigMap,
+  CssUnitExcludeMap,
+  CssCategoryConfigMap,
+  CssCategoryExcludeMap,
+  CssNumberTypeName,
+  CssNumberTypeConfigMap,
+  CssNumberTypeConfigItem,
+  CssNumberTypeExcludeMap,
+  CssNumberTypeExcludeItem
+} from './cssNumberConfig';
 
 // ==================== Keywords 类型 ====================
 
