@@ -39,31 +39,6 @@ function kebabToCamel(str: string): string {
   return str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
 }
 
-function keywordToConstName(keyword: string): string {
-  return keyword
-    .replace(/-/g, '_')
-    .replace(/[^A-Z0-9_]/gi, '')
-    .toUpperCase();
-}
-
-function buildConstNameMap(keywords: Set<string>): Map<string, string> {
-  const sortedKeywords = Array.from(keywords).sort();
-  const constNameCount = new Map<string, number>();
-  const keywordToConst = new Map<string, string>();
-
-  for (const keyword of sortedKeywords) {
-    let constName = keywordToConstName(keyword);
-    const count = constNameCount.get(constName) || 0;
-    if (count > 0) {
-      constName = `${constName}_${count}`;
-    }
-    constNameCount.set(keywordToConstName(keyword), count + 1);
-    keywordToConst.set(keyword, constName);
-  }
-
-  return keywordToConst;
-}
-
 const UNIT_ALIAS: Record<string, string> = {
   '': 'unitless',
   '%': 'percent',
@@ -181,13 +156,6 @@ function generatePropertyNameFile(propertyMap: Record<string, string>): string {
   }
 
   lines.push('} as const;', '');
-  lines.push('export const CSS_PROPERTY_NAME_REVERSE_MAP: Record<string, keyof typeof CSS_PROPERTY_NAME_MAP> = {');
-  
-  for (const camelName of sortedKeys) {
-    lines.push(`  '${propertyMap[camelName]}': '${camelName}',`);
-  }
-  
-  lines.push('} as const;', '');
   return lines.join('\n');
 }
 
@@ -249,39 +217,24 @@ function extractAllColors(): ColorData {
 }
 
 function generateColorFile(colorData: ColorData): string {
+  // 直接内联所有颜色到 ALL_COLORS
+  const allColors = [
+    ...colorData.standardColors,
+    ...colorData.systemColors,
+    ...colorData.browserPrefixColors,
+    ...colorData.colorSpaces,
+    ...colorData.specialKeywords,
+  ].sort();
+
   const lines: string[] = [
     '/**',
     ' * CSS 颜色数据（自动生成）',
     ' */',
     '',
-    'export const STANDARD_COLORS = [',
+    'export const ALL_COLORS = [',
   ];
 
-  colorData.standardColors.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
-
-  lines.push('export const SYSTEM_COLORS = [');
-  colorData.systemColors.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
-
-  lines.push('export const BROWSER_PREFIX_COLORS = [');
-  colorData.browserPrefixColors.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
-
-  lines.push('export const COLOR_SPACES = [');
-  colorData.colorSpaces.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
-
-  lines.push('export const SPECIAL_COLOR_KEYWORDS = [');
-  colorData.specialKeywords.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
-
-  lines.push('export const ALL_COLORS = [');
-  lines.push('  ...STANDARD_COLORS,');
-  lines.push('  ...SYSTEM_COLORS,');
-  lines.push('  ...BROWSER_PREFIX_COLORS,');
-  lines.push('  ...COLOR_SPACES,');
-  lines.push('  ...SPECIAL_COLOR_KEYWORDS,');
+  allColors.forEach(c => lines.push(`  '${c}',`));
   lines.push('] as const;', '');
 
   return lines.join('\n');
@@ -351,32 +304,26 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
     .filter(p => propertyData[p].keywords.length > 0)
     .sort();
   
+  // 直接生成 PROPERTY_KEYWORDS_MAP，内联所有值
+  lines.push('export const PROPERTY_KEYWORDS_MAP = {');
   for (const propName of sortedProps) {
     const data = propertyData[propName];
-    const constName = propName.replace(/-/g, '_').toUpperCase();
+    const camelName = kebabToCamel(propName);
     
     const hasColors = data.keywords.includes('__COLORS__');
     const nonColorKeywords = data.keywords.filter(k => k !== '__COLORS__');
     
     if (hasColors && nonColorKeywords.length === 0) {
       // 只有颜色
-      lines.push(`export const ${constName}_KEYWORDS = ALL_COLORS;`);
+      lines.push(`  ${camelName}: ALL_COLORS,`);
     } else if (hasColors) {
       // 既有颜色也有其他 keywords
       const keywordsStr = nonColorKeywords.map(k => `'${k}'`).join(', ');
-      lines.push(`export const ${constName}_KEYWORDS = [${keywordsStr}, ...ALL_COLORS] as const;`);
+      lines.push(`  ${camelName}: [${keywordsStr}, ...ALL_COLORS] as const,`);
     } else {
       // 只有非颜色 keywords
-      lines.push(`export const ${constName}_KEYWORDS = [${data.keywords.map(k => `'${k}'`).join(', ')}] as const;`);
+      lines.push(`  ${camelName}: [${data.keywords.map(k => `'${k}'`).join(', ')}] as const,`);
     }
-  }
-
-  lines.push('');
-  lines.push('export const PROPERTY_KEYWORDS_MAP = {');
-  for (const propName of sortedProps) {
-    const constName = propName.replace(/-/g, '_').toUpperCase();
-    const camelName = kebabToCamel(propName);
-    lines.push(`  ${camelName}: ${constName}_KEYWORDS,`);
   }
   lines.push('} as const;', '');
 
@@ -400,22 +347,16 @@ function generatePropertyNumberTypesFile(propertyData: Record<string, PropertyDa
     propertyData[propName].numberTypes.forEach(nt => allNumberTypes.add(nt));
   }
 
-  lines.push('// ==================== 所有 NumberTypes ====================', '');
+  // ALL_NUMBER_TYPES
   lines.push(`export const ALL_NUMBER_TYPES = [${Array.from(allNumberTypes).sort().map(t => `'${t}'`).join(', ')}] as const;`);
   lines.push('');
   
-  for (const propName of sortedProps) {
-    const data = propertyData[propName];
-    const constName = propName.replace(/-/g, '_').toUpperCase();
-    lines.push(`export const ${constName}_NUMBER_TYPES = [${data.numberTypes.map(t => `'${t}'`).join(', ')}] as const;`);
-  }
-
-  lines.push('');
+  // 直接生成 PROPERTY_NUMBER_TYPES_MAP，内联所有值
   lines.push('export const PROPERTY_NUMBER_TYPES_MAP = {');
   for (const propName of sortedProps) {
-    const constName = propName.replace(/-/g, '_').toUpperCase();
+    const data = propertyData[propName];
     const camelName = kebabToCamel(propName);
-    lines.push(`  ${camelName}: ${constName}_NUMBER_TYPES,`);
+    lines.push(`  ${camelName}: [${data.numberTypes.map(t => `'${t}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
@@ -434,7 +375,7 @@ function generateCssNumberDataFile(mapping: any): string {
   const lines: string[] = [
     '/**',
     ' * CSS 数值数据（自动生成）',
-    ' * 包含单位常量、别名、NumberType 和 Category 映射',
+    ' * 包含单位、NumberType 和 Category 映射',
     ' */',
     '',
   ];
@@ -450,78 +391,31 @@ function generateCssNumberDataFile(mapping: any): string {
   }
   const sortedUnits = Array.from(allUnits).sort();
 
-  // ==================== Units 常量 ====================
-  lines.push('// ==================== Units 常量 ====================', '');
-  for (const unit of sortedUnits) {
-    lines.push(`export const UNIT_${unit.toUpperCase()} = '${unit}' as const;`);
-  }
-  lines.push('');
+  // ==================== ALL_UNITS ====================
+  lines.push(`export const ALL_UNITS = [${sortedUnits.map(u => `'${u}'`).join(', ')}] as const;`, '');
 
-  const unitRefs = sortedUnits.map(u => `UNIT_${u.toUpperCase()}`).join(', ');
-  lines.push(`export const ALL_UNITS = [${unitRefs}] as const;`, '');
-
+  // ==================== UNIT_ALIAS_MAP ====================
   lines.push('export const UNIT_ALIAS_MAP: Record<string, string> = {');
   for (const [alias, unit] of Object.entries(UNIT_ALIAS)) {
     lines.push(`  '${alias}': '${unit}',`);
   }
   lines.push('};', '');
 
-  lines.push('export function resolveUnitAlias(alias: string): string {');
-  lines.push('  return UNIT_ALIAS_MAP[alias] ?? alias;');
-  lines.push('}', '');
-
-  // ==================== NumberType 到 Category 映射 ====================
-  lines.push('// ==================== NumberType 到 Category 映射 ====================', '');
-  for (const [numberType, cats] of Object.entries(numberTypes)) {
-    const constName = numberType.toUpperCase();
-    lines.push(`export const ${constName}_CATEGORIES = [${(cats as string[]).map(c => `'${c}'`).join(', ')}] as const;`);
-  }
-
-  lines.push('');
-  
-  // 为每个 NumberType 生成对应的 Category 类型
-  lines.push('// ==================== NumberType Category 类型 ====================', '');
-  for (const [numberType] of Object.entries(numberTypes)) {
-    const constName = numberType.toUpperCase();
-    const typeName = numberType.charAt(0).toUpperCase() + numberType.slice(1);
-    lines.push(`export type Css${typeName}CategoryName = typeof ${constName}_CATEGORIES[number];`);
-  }
-  lines.push('');
-  
+  // ==================== NUMBER_TYPE_CATEGORY_MAP ====================
   lines.push('export const NUMBER_TYPE_CATEGORY_MAP = {');
-  for (const [numberType] of Object.entries(numberTypes)) {
-    lines.push(`  ${numberType}: ${numberType.toUpperCase()}_CATEGORIES,`);
+  for (const [numberType, cats] of Object.entries(numberTypes)) {
+    lines.push(`  ${numberType}: [${(cats as string[]).map(c => `'${c}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
-  lines.push('export const ALL_NUMBER_CATEGORIES = [');
-  allCategories.forEach(c => lines.push(`  '${c}',`));
-  lines.push('] as const;', '');
+  // ==================== ALL_NUMBER_CATEGORIES ====================
+  lines.push(`export const ALL_NUMBER_CATEGORIES = [${allCategories.map(c => `'${c}'`).join(', ')}] as const;`, '');
 
-  // ==================== Category 到 Units 映射 ====================
-  lines.push('// ==================== Category 到 Units 映射 ====================', '');
-  
-  // 为每个 category 生成对应的 units 数组常量
-  for (const [category, units] of Object.entries(categories)) {
-    const constName = category.toUpperCase().replace(/-/g, '_');
-    const unitRefsList = (units as string[]).map(u => `UNIT_${normalizeUnit(u).toUpperCase()}`).join(', ');
-    lines.push(`export const ${constName}_UNITS = [${unitRefsList}] as const;`);
-  }
-  lines.push('');
-
-  // 为每个 category 生成对应的 unit name 类型
-  lines.push('// ==================== Category Unit 类型 ====================', '');
-  for (const [category] of Object.entries(categories)) {
-    const constName = category.toUpperCase().replace(/-/g, '_');
-    const typeName = category.split('-').map((s, i) => i === 0 ? s.charAt(0).toUpperCase() + s.slice(1) : s.charAt(0).toUpperCase() + s.slice(1)).join('');
-    lines.push(`export type Css${typeName}UnitName = typeof ${constName}_UNITS[number];`);
-  }
-  lines.push('');
-  
+  // ==================== CATEGORY_UNITS_MAP ====================
   lines.push('export const CATEGORY_UNITS_MAP = {');
-  for (const [category] of Object.entries(categories)) {
-    const constName = category.toUpperCase().replace(/-/g, '_');
-    lines.push(`  '${category}': ${constName}_UNITS,`);
+  for (const [category, units] of Object.entries(categories)) {
+    const normalizedUnits = (units as string[]).map(u => normalizeUnit(u));
+    lines.push(`  ${category}: [${normalizedUnits.map(u => `'${u}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
@@ -608,45 +502,22 @@ function extractKeywordsFromCsstree(): Set<string> {
 }
 
 function generateCssKeywordsDataFile(keywords: Set<string>): string {
+  const sortedKeywords = Array.from(keywords).sort();
+
   const lines: string[] = [
     '/**',
     ' * CSS Keywords 数据（自动生成）',
-    ' * 包含 Keywords 常量、数组和 allKeywords',
     ' */',
     '',
     "import { ALL_COLORS } from './cssColorData';",
     '',
+    '// Keywords 数组',
+    `export const keywords = [${sortedKeywords.map(k => `'${k}'`).join(', ')}] as const;`,
+    '',
+    '// allKeywords（包含颜色）',
+    'export const allKeywords = [...keywords, ...ALL_COLORS] as const;',
+    '',
   ];
-
-  const constNameMap = buildConstNameMap(keywords);
-  const sortedKeywords = Array.from(keywords).sort();
-
-  // ==================== Keywords 常量 ====================
-  lines.push('// ==================== Keywords 常量 ====================', '');
-  for (const keyword of sortedKeywords) {
-    const constName = constNameMap.get(keyword)!;
-    lines.push(`export const KEYWORD_${constName} = '${keyword}' as const;`);
-  }
-  lines.push('');
-
-  lines.push('export const KEYWORD_MAP: Record<string, string> = {');
-  for (const keyword of sortedKeywords) {
-    const constName = constNameMap.get(keyword)!;
-    lines.push(`  '${keyword}': KEYWORD_${constName},`);
-  }
-  lines.push('};', '');
-
-  // ==================== Keywords 数组 ====================
-  lines.push('// ==================== Keywords 数组 ====================', '');
-  lines.push('export const keywords = [');
-  for (const keyword of sortedKeywords) {
-    lines.push(`  KEYWORD_${constNameMap.get(keyword)!},`);
-  }
-  lines.push('] as const;', '');
-
-  // ==================== allKeywords ====================
-  lines.push('// ==================== allKeywords ====================', '');
-  lines.push('export const allKeywords = [...keywords, ...ALL_COLORS] as const;', '');
 
   return lines.join('\n');
 }

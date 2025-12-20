@@ -6,48 +6,89 @@
  */
 
 import type {
-    ProgressiveRange,
-    CssCategoryConfig,
-    CssPropertyConfig,
+    CssProgressiveRange,
+    CssNumberCategoryItem,
+    CssPropertyItem,
     CsstsConfig,
     CsstsConfigRequired,
 } from './types/csstsConfig';
 
 // 重新导出类型
 export type {
+    // 基础配置
+    CssProgressiveRange,
+    CssStepConfig,
+    CssCustomPropertyValue,
+    
+    // NumberUnit
+    CssNumberUnitName,
+    CssNumberUnitConfig,
+    CssNumberUnitItem,
+    
+    // NumberCategory
+    CssNumberCategoryName,
+    CssNumberCategoryValue,
+    CssNumberCategoryConfig,
+    CssNumberCategoryItem,
+    
+    // NumberType
+    CssNumberTypeName,
+    CssNumberTypeValue,
+    CssNumberTypeConfig,
+    CssNumberTypeItem,
+    
+    // Keyword & Color
+    CssKeywordName,
+    CssColorName,
+    CssAllKeywordName,
+    
+    // Property
+    CssPropertyName,
+    CssPropertyValue,
+    CssPropertyConfig,
+    CssPropertyItem,
+    
+    // Pseudo
+    CssPseudoClassName,
+    CssPseudoElementName,
+    CssPseudoValue,
+    CssPseudoClassConfig,
+    CssPseudoElementConfig,
+    
+    // 兼容别名
     ProgressiveRange,
     CsstsStepConfig,
+    CustomPropertyValue,
     CssUnitConfigMap,
     CssUnitConfigItem,
     CssUnitConfig,
+    CssUnitExcludeItem,
+    CssUnitExcludeMap,
     CssCategoryValueConfig,
     CssCategoryConfigMap,
     CssCategoryConfigItem,
     CssCategoryConfig,
-    CssNumberTypeValueConfig,
-    CssNumberTypeConfigMap,
-    CssNumberTypeConfigItem,
-    CssNumberTypeConfig,
-    CssUnitExcludeItem,
-    CssUnitExcludeMap,
     CssCategoryExcludeValueConfig,
     CssCategoryExcludeMap,
     CssCategoryExcludeItem,
     CssCategoryExcludeConfig,
+    CssNumberTypeValueConfig,
+    CssNumberTypeConfigMap,
+    CssNumberTypeConfigItem,
     CssNumberTypeExcludeValueConfig,
     CssNumberTypeExcludeMap,
     CssNumberTypeExcludeItem,
     CssNumberTypeExcludeConfig,
-    CssPropertyExcludeValueConfig,
-    CssPropertyExcludeMap,
-    CssPropertyExcludeItem,
-    CssPropertyExcludeConfig,
-    CustomPropertyValue,
     CssPropertyBaseConfig,
     CssPropertyValueConfig,
     CssPropertyConfigMap,
     CssPropertyConfigItem,
-    CssPropertyConfig,
+    CssPropertyExcludeValueConfig,
+    CssPropertyExcludeMap,
+    CssPropertyExcludeItem,
+    CssPropertyExcludeConfig,
+    
+    // 主配置
     CsstsConfig,
     CsstsConfigRequired,
 } from './types/csstsConfig';
@@ -179,7 +220,7 @@ export function createConfig(options: CsstsConfig = {}): CsstsConfigRequired {
         progressiveRanges: options.progressiveRanges ?? DEFAULT_PROGRESSIVE_RANGES,
 
         // ==================== 属性配置 ====================
-        properties: options.properties ?? (cssDefaultProperties as CssPropertyConfig),
+        properties: options.properties ?? (cssDefaultProperties as CssPropertyItem[]),
         excludeProperties: options.excludeProperties ?? [],
 
         // ==================== 数值类型配置 ====================
@@ -187,10 +228,12 @@ export function createConfig(options: CsstsConfig = {}): CsstsConfigRequired {
         excludeNumberTypes: options.excludeNumberTypes ?? [],
 
         // ==================== 单位分类配置 ====================
-        unitCategories: options.unitCategories ?? (DEFAULT_UNIT_CATEGORY_CONFIGS as unknown as CssCategoryConfig),
+        numberCategories: options.numberCategories ?? [],
+        unitCategories: options.unitCategories ?? (DEFAULT_UNIT_CATEGORY_CONFIGS as unknown as CssNumberCategoryItem[]),
         excludeUnitCategories: options.excludeUnitCategories ?? [],
 
         // ==================== 单位配置 ====================
+        numberUnits: options.numberUnits ?? [],
         units: options.units ?? [],
         excludeUnits: options.excludeUnits ?? [],
 
