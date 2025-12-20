@@ -7,19 +7,31 @@ import type {CsstsConfig} from "../types/csstsConfig";
  */
 export const csstsDefaultConfig: CsstsConfig = {
     // 属性配置
-    properties: null,
+    properties: [{
+        px: [
+            'length',                                    // 字符串：简单启用 numberType
+            {pixel: ['px', 'vw']},   // 完整路径
+            {px: {min: 100}},                        // 直接配置 unit（完全跨级）
+        ]
+    }],
     excludeProperties: [],
 
     // 数值类型配置
-    numberTypes: undefined,
+    numberTypes: [
+        {length: ['pixel']},                                  // 字符串：简单启用 numberType
+        {pixel: ['px', 'vw']},   // 完整路径
+        {px: {min: 100}},                        // 直接配置 unit（完全跨级）
+    ],
     excludeNumberTypes: [],
 
     // 单位分类配置
-    unitCategories: undefined,
+    unitCategories: ['unitless', {unitless: ['px', 'vw']}, {px: {min: 0}}],
     excludeUnitCategories: [],
 
     // 单位配置
-    units: undefined,
+    units: [{
+        px: {min: 100}
+    }],
     excludeUnits: [],
 
     // 关键字/颜色配置
