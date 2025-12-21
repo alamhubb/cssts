@@ -130,11 +130,36 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
     ],
 
-    colorTypes: [{
-        namedColor: ['green']
-    }],
+    colors: [
+        'transparent',
 
-    colors: ['red'],
+        'black',
+        'white',
+        'red',
+        'green',
+        'blue',
+        'yellow',
+        'gray',
+        'grey',
+        'cyan',
+        'magenta',
+        'orange',
+        'silver',
+        'purple',
+        'pink',
+        'brown',
+        'lime',
+        'navy',
+        'teal',
+        'olive',
+        'skyblue',
+        'lightgray',
+        'darkgray',
+        'gold',
+        'salmon',
+        'tomato',
+        'violet'
+    ],
 
     excludeKeywords: [
         'a98Rgb',
