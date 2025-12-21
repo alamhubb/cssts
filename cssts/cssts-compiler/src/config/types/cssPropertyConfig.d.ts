@@ -5,14 +5,14 @@
  * 命名规范：Css + [Property|NumberCategory|NumberUnit|Keyword|Color|PseudoClass|PseudoElement] + [Name|Value|Config|Item]
  */
 
-import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
-import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../data/cssNumberData';
-import type { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
-import type { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
-import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
-import type { KEYWORD_NAME_MAP } from '../data/cssKeywordsData';
-import type { ALL_COLOR_TYPES, COLOR_TYPE_COLORS_MAP, COLOR_NAME_MAP } from '../data/cssColorData';
-import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../data/cssPseudoData';
+import type { CSS_PROPERTY_NAME_MAP } from '../../data/cssPropertyNameMapping';
+import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../../data/cssNumberData';
+import type { PROPERTY_CATEGORIES_MAP } from '../../data/cssPropertyNumber';
+import type { PROPERTY_COLOR_TYPES_MAP } from '../../data/cssPropertyColorTypes';
+import type { PROPERTY_KEYWORDS_MAP } from '../../data/cssPropertyKeywords';
+import type { KEYWORD_NAME_MAP } from '../../data/cssKeywordsData';
+import type { ALL_COLOR_TYPES, COLOR_TYPE_COLORS_MAP, COLOR_NAME_MAP } from '../../data/cssColorData';
+import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../../data/cssPseudoData';
 
 // ==================== 基础配置类型 ====================
 

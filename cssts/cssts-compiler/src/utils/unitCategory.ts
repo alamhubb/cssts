@@ -1,11 +1,11 @@
 /**
- * CSS Types 工具函数
+ * CSS 单位分类查询工具
  * 
- * 基于 data/ 中的数据提供查询和转换功能
+ * 基于 data/ 中的数据提供单位和分类的查询功能
  */
 
-import { ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from './data/cssNumberData';
-import { PROPERTY_CATEGORIES_MAP } from './data/cssPropertyNumber';
+import { ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../data/cssNumberData';
+import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
 
 // 类型定义
 export type UnitCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
@@ -48,7 +48,7 @@ export function getUnitsFromCategories(categories: UnitCategoryName[]): string[]
   const units = new Set<string>();
   for (const cat of categories) {
     const catUnits = CATEGORY_UNITS_MAP[cat];
-    if (catUnits) catUnits.forEach(u => units.add(u));
+    if (catUnits) catUnits.forEach((u: string) => units.add(u));
   }
   return Array.from(units);
 }

@@ -1,9 +1,7 @@
 /**
- * DTS 生成器
+ * 原子类生成器
  * 
- * 根据配置生成 CSS 原子类的 TypeScript 类型定义
- * 
- * @see dts-generator.md 详细文档
+ * 根据配置生成 CSS 原子类定义，用于 DTS 类型生成
  */
 
 import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
@@ -14,8 +12,8 @@ import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import { COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from '../data/cssColorData';
-import type { CsstsConfig } from '../types/csstsConfig';
-import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName } from '../types/cssPropertyConfig';
+import type { CsstsConfig } from '../config/types/csstsConfig';
+import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName } from '../config/types/cssPropertyConfig';
 
 // 所有 CSS 属性名列表
 const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyName[];
@@ -80,17 +78,14 @@ function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
   const properties = config.properties;
   const excludeProperties = config.excludeProperties ?? [];
   
-  // 1. 有 properties → 直接使用 properties
   if (properties && properties.length > 0) {
     return properties;
   }
   
-  // 2. 没有 properties，有 excludeProperties → 所有属性 - excludeProperties
   if (excludeProperties.length > 0) {
     return ALL_PROPERTY_NAMES.filter(p => !excludeProperties.includes(p));
   }
   
-  // 3. 都没有 → 使用所有属性
   return ALL_PROPERTY_NAMES;
 }
 
@@ -104,7 +99,6 @@ function getEffectiveCategories(config: CsstsConfig): CssNumberCategoryName[] {
 
 /** 获取有效的颜色列表 */
 function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly string[]): string[] {
-  // 1. 如果配置了 colors，直接使用
   if (config.colors && config.colors.length > 0) {
     const excludeColors = config.excludeColors ?? [];
     return config.colors.filter(c => !excludeColors.includes(c));
@@ -113,7 +107,6 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
   const colors = new Set<string>();
   const excludeColorTypes = config.excludeColorTypes ?? [];
   
-  // 2. 如果没有配置 colorTypes，使用所有颜色类型
   if (!config.colorTypes || config.colorTypes.length === 0) {
     for (const colorType of ALL_COLOR_TYPES) {
       if (excludeColorTypes.includes(colorType)) continue;
@@ -127,10 +120,8 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
       }
     }
   } else {
-    // 3. 根据 colorTypes 配置获取颜色（支持混合格式）
     for (const item of config.colorTypes) {
       if (typeof item === 'string') {
-        // 字符串格式：使用该类型的所有颜色
         const colorType = item as CssColorTypeName;
         if (excludeColorTypes.includes(colorType)) continue;
         if (!propertyColorTypes.includes(colorType)) continue;
@@ -142,7 +133,6 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
           }
         }
       } else {
-        // 对象格式：{ namedColor: ['red', 'green'] }
         for (const [colorType, colorList] of Object.entries(item)) {
           if (excludeColorTypes.includes(colorType as CssColorTypeName)) continue;
           if (!propertyColorTypes.includes(colorType)) continue;
@@ -157,7 +147,6 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
     }
   }
   
-  // 排除指定颜色
   const excludeColors = config.excludeColors ?? [];
   return Array.from(colors).filter(c => !excludeColors.includes(c as any));
 }
@@ -184,7 +173,6 @@ function findCategoryOrUnitConfig(
 ): CssStepConfig | undefined {
   if (!propertyConfig) return undefined;
   
-  // 1. 先查找该 category 下的 unit 名称（unit 优先级更高）
   const categoryUnits = CATEGORY_UNITS_MAP[categoryName as keyof typeof CATEGORY_UNITS_MAP];
   if (categoryUnits) {
     for (const unit of categoryUnits) {
@@ -194,7 +182,6 @@ function findCategoryOrUnitConfig(
     }
   }
   
-  // 2. 再查找 category 名称
   if (categoryName in propertyConfig) {
     return propertyConfig[categoryName];
   }
@@ -208,12 +195,10 @@ function getPropertyCategoryConfig(
   propertyName: string,
   categoryName: string
 ): CssStepConfig | undefined {
-  // 1. 先查找属性级别的配置（支持 category 或 unit 名称）
   const propertyConfig = findConfigInArray(config.propertiesConfig, propertyName);
   const propResult = findCategoryOrUnitConfig(propertyConfig, categoryName);
   if (propResult) return propResult;
   
-  // 2. 查找父属性的配置（属性继承）
   const parentProperty = PROPERTY_PARENT_MAP[propertyName];
   if (parentProperty) {
     const parentConfig = findConfigInArray(config.propertiesConfig, parentProperty);
@@ -221,7 +206,6 @@ function getPropertyCategoryConfig(
     if (parentResult) return parentResult;
   }
   
-  // 3. 再查找全局 category 配置
   return findConfigInArray(config.numberCategoriesConfig, categoryName);
 }
 
@@ -230,31 +214,24 @@ function generateNumbers(stepConfig: CssStepConfig, progressiveRanges?: CssProgr
   const { min = 0, max = 100, step, presets = [] } = stepConfig;
   const numbers = new Set<number>();
   
-  // 添加预设值
   presets.forEach(p => {
     if (p >= min && p <= max) {
       numbers.add(p);
     }
   });
   
-  // 根据 step 类型生成数值
   if (step === undefined) {
-    // 使用全局 progressiveRanges
     if (progressiveRanges) {
       generateFromProgressiveRanges(numbers, min, max, progressiveRanges);
     } else {
-      // 默认步长 1
       generateFromStep(numbers, min, max, 1);
     }
   } else if (typeof step === 'number') {
-    // 单一步长
     generateFromStep(numbers, min, max, step);
   } else if (Array.isArray(step)) {
     if (step.length > 0 && typeof step[0] === 'number') {
-      // 多个步长值
       generateFromMultipleSteps(numbers, min, max, step as number[]);
     } else {
-      // 渐进步长范围
       generateFromProgressiveRanges(numbers, min, max, step as CssProgressiveRange[]);
     }
   }
@@ -264,19 +241,16 @@ function generateNumbers(stepConfig: CssStepConfig, progressiveRanges?: CssProgr
 
 /** 从单一步长生成数值 */
 function generateFromStep(numbers: Set<number>, min: number, max: number, step: number): void {
-  // 从 0 开始向两边扩展
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
   
-  // 正数部分
   for (let i = step; i <= max; i += step) {
     if (i >= min) {
       numbers.add(roundNumber(i, step));
     }
   }
   
-  // 负数部分
   for (let i = -step; i >= min; i -= step) {
     if (i <= max) {
       numbers.add(roundNumber(i, step));
@@ -286,12 +260,10 @@ function generateFromStep(numbers: Set<number>, min: number, max: number, step: 
 
 /** 从多个步长值生成数值 */
 function generateFromMultipleSteps(numbers: Set<number>, min: number, max: number, steps: number[]): void {
-  // 0 的处理
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
   
-  // 生成能被任意步长整除的数
   const minStep = Math.min(...steps);
   
   for (let i = minStep; i <= max; i += minStep) {
@@ -314,12 +286,10 @@ function generateFromProgressiveRanges(
   max: number,
   ranges: CssProgressiveRange[]
 ): void {
-  // 0 的处理
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
   
-  // 正数部分
   let current = 1;
   for (const range of ranges) {
     const rangeMax = Math.min(range.max, max);
@@ -332,7 +302,6 @@ function generateFromProgressiveRanges(
     if (current > max) break;
   }
   
-  // 负数部分
   current = -1;
   for (const range of ranges) {
     const rangeMin = Math.max(-range.max, min);
@@ -361,7 +330,6 @@ function getPrecision(num: number): number {
 
 /** 格式化数值为类名部分 */
 function formatNumberForClassName(num: number): string {
-  // 负数用 N 前缀
   if (num < 0) {
     return `N${formatPositiveNumber(Math.abs(num))}`;
   }
@@ -370,25 +338,20 @@ function formatNumberForClassName(num: number): string {
 
 /** 格式化正数为类名部分 */
 function formatPositiveNumber(num: number): string {
-  // 小数点用 p 替换
   return num.toString().replace('.', 'p');
 }
 
 /** 格式化单位为类名部分 */
 function formatUnitForClassName(unit: string): string {
   if (unit === 'unitless' || unit === '') return '';
-  // 百分比用 pct
   if (unit === 'percent') return 'pct';
   return unit;
 }
 
 /** 格式化 keyword 为类名部分 (kebab-case → PascalCase) */
 function formatKeywordForClassName(keyword: string): string {
-  // 处理以 - 开头的情况（如 -moz-box, -webkit-flex）
-  // 去掉开头的 -，然后转换为 PascalCase
   const normalized = keyword.startsWith('-') ? keyword.slice(1) : keyword;
   
-  // kebab-case 转 PascalCase
   return normalized
     .split('-')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
@@ -397,12 +360,12 @@ function formatKeywordForClassName(keyword: string): string {
 
 /** 格式化颜色名为类名部分 */
 function formatColorForClassName(color: string): string {
-  // kebab-case 转 PascalCase
   return color
     .split('-')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
 }
+
 
 // ==================== 主生成函数 ====================
 
@@ -413,15 +376,14 @@ function generateAtomsForProperty(
   effectiveCategories: CssNumberCategoryName[]
 ): AtomDefinition[] {
   const atoms: AtomDefinition[] = [];
-  const seenNames = new Set<string>();  // 用于去重（特别是 0 值）
+  const seenNames = new Set<string>();
   const kebabProperty = camelToKebab(propertyName);
   const excludeKeywords = config.excludeKeywords ?? [];
   
-  // 1. 生成 keyword 原子类（无论如何都生成，如果有的话）
+  // 1. 生成 keyword 原子类
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
-      // 检查是否被排除（keyword 是 kebab-case，excludeKeywords 是 camelCase）
       const camelKeyword = formatKeywordForClassName(keyword).charAt(0).toLowerCase() + formatKeywordForClassName(keyword).slice(1);
       if (excludeKeywords.includes(camelKeyword as any)) continue;
       
@@ -438,15 +400,13 @@ function generateAtomsForProperty(
     }
   }
   
-  // 2. colors 和 numberTypes 互斥：有 colors 用 colors，没有才用 numberTypes
+  // 2. colors 和 numberTypes 互斥
   const propertyColorTypes = PROPERTY_COLOR_TYPES_MAP[propertyName as keyof typeof PROPERTY_COLOR_TYPES_MAP];
   const hasColors = propertyColorTypes && propertyColorTypes.length > 0;
   
   if (hasColors) {
-    // 获取有效的颜色列表
     const effectiveColors = getEffectiveColors(config, propertyColorTypes);
     
-    // 生成颜色原子类
     for (const colorName of effectiveColors) {
       const atomName = `${propertyName}${formatColorForClassName(colorName)}`;
       
@@ -460,39 +420,31 @@ function generateAtomsForProperty(
       });
     }
   } else {
-    // 生成数值原子类
     const propertyCategories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
     if (propertyCategories) {
-      // 过滤出有效的 categories
       const validCategories = propertyCategories.filter(c => 
         effectiveCategories.includes(c as CssNumberCategoryName)
       );
       
-      // 为每个 category 生成原子类
       for (const category of validCategories) {
         const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
         const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
         
-        // 获取该 category 的单位
         let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
         if (!units) continue;
         
-        // 如果配置了 units，则过滤单位
         if (stepConfig.units && stepConfig.units.length > 0) {
           const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
           if (filteredUnits.length === 0) continue;
           units = filteredUnits as unknown as typeof units;
         }
         
-        // 生成数值列表
         const numbers = generateNumbers(stepConfig, config.progressiveRanges);
         
-        // 为每个单位和数值组合生成原子类
         for (const unit of units) {
           for (const num of numbers) {
             const numStr = formatNumberForClassName(num);
             
-            // 0 值不需要单位，生成 top0 而不是 top0px
             let atomName: string;
             let cssValue: string;
             
@@ -512,7 +464,6 @@ function generateAtomsForProperty(
               }
             }
             
-            // 跳过已生成的（去重，特别是 0 值）
             if (seenNames.has(atomName)) continue;
             seenNames.add(atomName);
             
@@ -550,8 +501,6 @@ export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
 
 /** 生成 CSS 类名（property_value 格式） */
 function generateCssClassName(atom: AtomDefinition): string {
-  // property 已经是 kebab-case，value 需要处理特殊字符
-  // 例如：height + 1em → height_1em
   return `${atom.property}_${atom.value}`;
 }
 
@@ -573,19 +522,12 @@ export function generateStats(options?: GeneratorOptions): {
   const byCategory: Record<string, number> = {};
   
   for (const atom of atoms) {
-    // 按属性统计
     byProperty[atom.property] = (byProperty[atom.property] || 0) + 1;
-    
-    // 按单位/类别统计
     const category = atom.unit || 'keyword';
     byCategory[category] = (byCategory[category] || 0) + 1;
   }
   
-  return {
-    totalAtoms: atoms.length,
-    byProperty,
-    byCategory,
-  };
+  return { totalAtoms: atoms.length, byProperty, byCategory };
 }
 
 /** 按属性分组的原子类 */
@@ -611,7 +553,7 @@ export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProp
   return result;
 }
 
-/** 生成单个属性的 DTS 内容（在不同属性/单位之间添加空行） */
+/** 生成单个属性的 DTS 内容 */
 export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[]): string {
   const lines: string[] = [
     '/**',
@@ -627,15 +569,10 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
     
-    // 检查是否需要添加空行
-    // 1. 不同属性之间添加空行（用于 colors.d.ts, keywords.d.ts）
-    // 2. 同一属性不同单位之间添加空行（用于数值属性文件）
     if (lastProperty !== undefined) {
       if (atom.property !== lastProperty) {
-        // 不同属性，添加空行
         lines.push('');
       } else if (atom.unit !== lastUnit && atom.unit !== undefined && lastUnit !== undefined) {
-        // 同一属性，不同单位，添加空行
         lines.push('');
       }
     }
@@ -659,15 +596,12 @@ export function generateIndexDts(propertyNames: string[]): string {
     '',
   ];
   
-  // 导入所有属性类型
   for (const prop of propertyNames) {
     const typeName = prop.charAt(0).toUpperCase() + prop.slice(1) + 'Atoms';
     lines.push(`export { ${typeName} } from './${prop}';`);
   }
   
   lines.push('');
-  
-  // 生成聚合类型
   lines.push('/** 所有原子类类型 */');
   lines.push('export interface CsstsAtoms extends');
   

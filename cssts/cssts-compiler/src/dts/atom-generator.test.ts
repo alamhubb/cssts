@@ -1,15 +1,15 @@
 /**
- * DTS Generator 测试
+ * Atom Generator 测试
  * 
- * 运行方式：npx tsx src/generator/dts-generator.test.ts
+ * 运行方式：npx tsx src/dts/atom-generator.test.ts
  */
 
-import { generateAtoms, generateDts, generateStats } from './atomcss-generator.ts';
+import { generateAtoms, generateDts, generateStats } from './atom-generator.ts';
 
-console.log('🧪 DTS Generator 测试\n');
+console.log('🧪 Atom Generator 测试\n');
 
-// ==================== 测试 1：使用默认配置生成（只有 top 属性） ====================
-console.log('==================== 测试 1：默认配置（properties: ["top"]） ====================\n');
+// ==================== 测试 1：使用默认配置生成 ====================
+console.log('==================== 测试 1：默认配置 ====================\n');
 
 const stats = generateStats();
 console.log(`📊 总原子类数: ${stats.totalAtoms}`);
@@ -72,5 +72,3 @@ console.log('...');
 console.log(`\n总行数: ${dtsLines.length}`);
 
 console.log('\n✅ 测试完成!');
-console.log('\n📝 说明: 默认配置只包含 top 属性，这是预期行为。');
-console.log('   如需生成更多属性，请在配置中设置 properties 或 excludeProperties。');
