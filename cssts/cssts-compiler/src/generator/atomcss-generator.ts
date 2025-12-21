@@ -611,7 +611,7 @@ export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProp
   return result;
 }
 
-/** 生成单个属性的 DTS 内容 */
+/** 生成单个属性的 DTS 内容（在不同属性/单位之间添加空行） */
 export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[]): string {
   const lines: string[] = [
     '/**',
@@ -621,9 +621,28 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
     `export interface ${propertyName.charAt(0).toUpperCase() + propertyName.slice(1)}Atoms {`,
   ];
   
+  let lastProperty: string | undefined;
+  let lastUnit: string | undefined;
+  
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
+    
+    // 检查是否需要添加空行
+    // 1. 不同属性之间添加空行（用于 colors.d.ts, keywords.d.ts）
+    // 2. 同一属性不同单位之间添加空行（用于数值属性文件）
+    if (lastProperty !== undefined) {
+      if (atom.property !== lastProperty) {
+        // 不同属性，添加空行
+        lines.push('');
+      } else if (atom.unit !== lastUnit && atom.unit !== undefined && lastUnit !== undefined) {
+        // 同一属性，不同单位，添加空行
+        lines.push('');
+      }
+    }
+    
     lines.push(`  ${atom.name}: '${cssClassName}';`);
+    lastProperty = atom.property;
+    lastUnit = atom.unit;
   }
   
   lines.push('}', '');

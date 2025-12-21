@@ -132,7 +132,6 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     colors: [
         'transparent',
-
         'black',
         'white',
         'red',

@@ -18,6 +18,7 @@ import {
   type GeneratorOptions,
   type AtomDefinition,
 } from './atomcss-generator.ts';
+import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 
 // ==================== 类型定义 ====================
 
@@ -56,9 +57,13 @@ function getDefaultOutputDir(): string {
 
 
 /**
- * 生成索引文件内容（支持 keywords）
+ * 生成索引文件内容（支持 keywords 和 colors）
  */
-function generateIndexDtsWithKeywords(numberProperties: string[], hasKeywords: boolean): string {
+function generateIndexDtsWithCategories(
+  numberProperties: string[],
+  hasKeywords: boolean,
+  hasColors: boolean
+): string {
   const lines: string[] = [
     '/**',
     ' * CSSTS 原子类类型定义索引（自动生成）',
@@ -70,6 +75,11 @@ function generateIndexDtsWithKeywords(numberProperties: string[], hasKeywords: b
   for (const prop of numberProperties.sort()) {
     const typeName = prop.charAt(0).toUpperCase() + prop.slice(1) + 'Atoms';
     lines.push(`export { ${typeName} } from './${prop}';`);
+  }
+  
+  // 导入 colors 类型
+  if (hasColors) {
+    lines.push(`export { ColorsAtoms } from './colors';`);
   }
   
   // 导入 keywords 类型
@@ -84,6 +94,9 @@ function generateIndexDtsWithKeywords(numberProperties: string[], hasKeywords: b
   lines.push('export interface CsstsAtoms extends');
   
   const typeNames = numberProperties.sort().map(p => p.charAt(0).toUpperCase() + p.slice(1) + 'Atoms');
+  if (hasColors) {
+    typeNames.push('ColorsAtoms');
+  }
   if (hasKeywords) {
     typeNames.push('KeywordsAtoms');
   }
@@ -100,6 +113,11 @@ function generateIndexDtsWithKeywords(numberProperties: string[], hasKeywords: b
 
 /**
  * 生成 DTS 文件到指定目录
+ * 
+ * 分类优先级：number > color > keywords
+ * - 有 number 数据 → 单独文件（如 width.d.ts）
+ * - 无 number，有 colorTypes → colors.d.ts
+ * - 无 number，无 colorTypes → keywords.d.ts
  * 
  * @example
  * // 使用默认目录（node_modules/cssts-ts/@types）
@@ -148,12 +166,13 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     
     const atomsByProperty = generateAtomsByProperty(generatorOptions);
     
-    // 区分有 number 数据的属性和只有 keywords/colors 的属性
+    // 分类：number > color > keywords
     const numberProperties: string[] = [];
-    const keywordOnlyAtoms: AtomDefinition[] = [];
+    const colorAtoms: AtomDefinition[] = [];
+    const keywordAtoms: AtomDefinition[] = [];
     
     for (const [propName, atoms] of Object.entries(atomsByProperty)) {
-      // 检查是否有 number 数据
+      // 1. 检查是否有 number 数据
       const hasNumber = atoms.some(atom => atom.number !== undefined);
       
       if (hasNumber) {
@@ -164,28 +183,45 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
         fs.writeFileSync(propPath, propDts, 'utf-8');
         files.push(propPath);
       } else {
-        // 只有 keywords/colors → 收集到一起
-        keywordOnlyAtoms.push(...atoms);
+        // 2. 检查是否是颜色属性（在 PROPERTY_COLOR_TYPES_MAP 中存在）
+        const isColorProperty = propName in PROPERTY_COLOR_TYPES_MAP;
+        
+        if (isColorProperty) {
+          // 颜色属性 → colors.d.ts
+          colorAtoms.push(...atoms);
+        } else {
+          // 其他 → keywords.d.ts
+          keywordAtoms.push(...atoms);
+        }
       }
     }
     
     log(`   ✅ 生成 ${numberProperties.length} 个数值属性文件`);
     
-    // 生成 keywords.d.ts（包含所有只有 keywords/colors 的属性）
-    if (keywordOnlyAtoms.length > 0) {
-      const keywordsDts = generatePropertyDts('keywords', keywordOnlyAtoms);
+    // 生成 colors.d.ts
+    if (colorAtoms.length > 0) {
+      const colorsDts = generatePropertyDts('colors', colorAtoms);
+      const colorsPath = path.join(cssTypeDir, 'colors.d.ts');
+      fs.writeFileSync(colorsPath, colorsDts, 'utf-8');
+      files.push(colorsPath);
+      log(`   ✅ 生成 colors.d.ts (${colorAtoms.length} 个原子类)`);
+    }
+    
+    // 生成 keywords.d.ts
+    if (keywordAtoms.length > 0) {
+      const keywordsDts = generatePropertyDts('keywords', keywordAtoms);
       const keywordsPath = path.join(cssTypeDir, 'keywords.d.ts');
       fs.writeFileSync(keywordsPath, keywordsDts, 'utf-8');
       files.push(keywordsPath);
-      log(`   ✅ 生成 keywords.d.ts (${keywordOnlyAtoms.length} 个原子类)`);
+      log(`   ✅ 生成 keywords.d.ts (${keywordAtoms.length} 个原子类)`);
     }
     
     // 生成索引文件
-    const allPropertyNames = [...numberProperties];
-    if (keywordOnlyAtoms.length > 0) {
-      allPropertyNames.push('keywords');
-    }
-    const indexDts = generateIndexDtsWithKeywords(numberProperties, keywordOnlyAtoms.length > 0);
+    const indexDts = generateIndexDtsWithCategories(
+      numberProperties,
+      keywordAtoms.length > 0,
+      colorAtoms.length > 0
+    );
     const indexPath = path.join(cssTypeDir, 'index.d.ts');
     fs.writeFileSync(indexPath, indexDts, 'utf-8');
     files.push(indexPath);
