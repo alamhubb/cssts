@@ -1,5 +1,202 @@
 import type {CsstsConfig} from "../types/csstsConfig";
-import type {CssProgressiveRange} from "../types/cssPropertyConfig";
+import {CssProgressiveRange, CssPropertyName} from "../types/cssPropertyConfig";
+
+const atomicCssProperties: CssPropertyName[] = [
+    // ==================== 布局 (Layout) ====================
+    'display',
+    'visibility',
+    'position',
+    'zIndex',
+    'isolation',
+
+    // 坐标 (Coordinates)
+    'inset', // [加回] 同时设四个方向
+    'top',
+    'right',
+    'bottom',
+    'left',
+
+    // 溢出 (Overflow)
+    'overflow', // [加回] 同时设XY
+    'overflowX',
+    'overflowY',
+
+    // ==================== Flexbox & Grid ====================
+    // 容器
+    'flexDirection',
+    'flexWrap',
+    'justifyContent',
+    'alignItems',
+    'alignContent',
+    'justifyItems',
+
+    // 间距
+    'gap',      // [加回] 同时设行列
+    'rowGap',
+    'columnGap',
+
+    // Grid 结构
+    'gridTemplateColumns',
+    'gridTemplateRows',
+    'gridAutoFlow',
+    'gridAutoColumns',
+    'gridAutoRows',
+
+    // 子元素
+    'order',
+    'flexGrow',
+    'flexShrink',
+    'flexBasis',
+    'alignSelf',
+    'justifySelf',
+
+    // Grid 位置
+    'gridColumnStart',
+    'gridColumnEnd',
+    'gridRowStart',
+    'gridRowEnd',
+
+    // ==================== 尺寸 (Sizing) ====================
+    'width',
+    'minWidth',
+    'maxWidth',
+    'height',
+    'minHeight',
+    'maxHeight',
+    'aspectRatio',
+    'boxSizing',
+
+    // ==================== 间距 (Spacing) ====================
+    // Margin
+    'margin',       // [加回] 极高频
+    'marginTop',
+    'marginRight',
+    'marginBottom',
+    'marginLeft',
+
+    // Padding
+    'padding',      // [加回] 极高频
+    'paddingTop',
+    'paddingRight',
+    'paddingBottom',
+    'paddingLeft',
+
+    // ==================== 排版 (Typography) ====================
+    'fontFamily',
+    'fontSize',
+    'fontWeight',
+    'fontStyle',
+
+    'lineHeight',
+    'letterSpacing',
+    'wordSpacing',
+    'textAlign',
+    'color',
+    'textIndent',
+    'textTransform',
+    'verticalAlign',
+    'whiteSpace',
+    'wordBreak',
+    'overflowWrap',
+    'caretColor',
+
+    // 装饰
+    'textDecorationLine',
+    'textDecorationStyle',
+    'textDecorationColor',
+    'textDecorationThickness',
+    'textUnderlineOffset',
+
+    // ==================== 背景 (Background) ====================
+    // 注意：background 依旧建议剔除，因为它不是“单值”的逻辑，它太复杂
+    'backgroundColor',
+    'backgroundImage',
+    'backgroundPositionX',
+    'backgroundPositionY',
+    'backgroundSize',
+    'backgroundRepeat',
+    'backgroundAttachment',
+    'backgroundClip',
+    'backgroundOrigin',
+    'backgroundBlendMode',
+
+    // ==================== 边框 (Border) ====================
+    // 统一设置 (四个方向) [全部加回]
+    'borderWidth',
+    'borderStyle',
+    'borderColor',
+    'borderRadius',
+
+    // 单独方向设置 (拆解)
+    'borderTopWidth',
+    'borderRightWidth',
+    'borderBottomWidth',
+    'borderLeftWidth',
+
+    'borderTopStyle',
+    'borderRightStyle',
+    'borderBottomStyle',
+    'borderLeftStyle',
+
+    'borderTopColor',
+    'borderRightColor',
+    'borderBottomColor',
+    'borderLeftColor',
+
+    'borderTopLeftRadius',
+    'borderTopRightRadius',
+    'borderBottomRightRadius',
+    'borderBottomLeftRadius',
+
+    // 轮廓 (Outline)
+    'outlineWidth', // outline 是个特例，通常这几个分开支持更好，或者仅支持 outline-width/color
+    'outlineStyle',
+    'outlineColor',
+    'outlineOffset',
+
+    // ==================== 视觉效果 (Effects) ====================
+    'opacity',
+    'boxShadow',
+    'mixBlendMode',
+    'filter',
+    'backdropFilter',
+
+    // ==================== 变换 (Transforms) ====================
+    'scale',
+    'rotate',
+    'translate',
+    'perspective',
+    'transformOrigin',
+
+    // ==================== 过渡 (Transition) ====================
+    'transitionProperty',
+    'transitionDuration',
+    'transitionTimingFunction',
+    'transitionDelay',
+
+    // ==================== 动画 (Animation) ====================
+    'animationName',
+    'animationDuration',
+    'animationTimingFunction',
+    'animationDelay',
+    'animationIterationCount',
+    'animationDirection',
+    'animationFillMode',
+    'animationPlayState',
+
+    // ==================== 交互与其他 (Misc) ====================
+    'cursor',
+    'userSelect',
+    'pointerEvents',
+    'resize',
+    'objectFit',
+    'objectPosition',
+    'willChange',
+    'appearance',
+    'scrollBehavior',
+    'touchAction',
+    'clipPath'
+];
 
 // ==================== 系统级别默认配置 ====================
 
@@ -16,233 +213,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     // 默认支持的属性列表（覆盖 95% 使用场景，参考 Tailwind/UnoCSS）
-    properties: [
-        // ==================== 布局 (Layout) ====================
-        // Display & Visibility
-        'display',
-        'visibility',
-        'overflow',
-        'overflowX',
-        'overflowY',
-
-        // Position
-        'position',
-        'top',
-        'right',
-        'bottom',
-        'left',
-        'inset',
-        'zIndex',
-
-        // Flexbox
-        'flex',
-        'flexDirection',
-        'flexWrap',
-        'flexGrow',
-        'flexShrink',
-        'flexBasis',
-        'justifyContent',
-        'alignItems',
-        'alignContent',
-        'alignSelf',
-        'order',
-
-        // Grid
-        'gridTemplateColumns',
-        'gridTemplateRows',
-        'gridColumn',
-        'gridColumnStart',
-        'gridColumnEnd',
-        'gridRow',
-        'gridRowStart',
-        'gridRowEnd',
-        'gridAutoFlow',
-        'gridAutoColumns',
-        'gridAutoRows',
-        'gap',
-        'columnGap',
-        'rowGap',
-        'placeContent',
-        'placeItems',
-        'placeSelf',
-
-        // ==================== 尺寸 (Sizing) ====================
-        'width',
-        'minWidth',
-        'maxWidth',
-        'height',
-        'minHeight',
-        'maxHeight',
-        'aspectRatio',
-
-        // ==================== 间距 (Spacing) ====================
-        // Padding
-        'padding',
-        'paddingTop',
-        'paddingRight',
-        'paddingBottom',
-        'paddingLeft',
-        'paddingInline',
-        'paddingBlock',
-
-        // Margin
-        'margin',
-        'marginTop',
-        'marginRight',
-        'marginBottom',
-        'marginLeft',
-        'marginInline',
-        'marginBlock',
-
-        // ==================== 排版 (Typography) ====================
-        'fontFamily',
-        'fontSize',
-        'fontWeight',
-        'fontStyle',
-        'lineHeight',
-        'letterSpacing',
-        'textAlign',
-        'textDecoration',
-        'textDecorationLine',
-        'textDecorationColor',
-        'textDecorationStyle',
-        'textDecorationThickness',
-        'textTransform',
-        'textOverflow',
-        'textIndent',
-        'verticalAlign',
-        'whiteSpace',
-        'wordBreak',
-        'wordSpacing',
-        'overflowWrap',
-        'hyphens',
-        'lineClamp',
-
-        // ==================== 颜色 (Colors) ====================
-        'color',
-        'backgroundColor',
-        'opacity',
-
-        // ==================== 边框 (Borders) ====================
-        'border',
-        'borderWidth',
-        'borderStyle',
-        'borderColor',
-        'borderTop',
-        'borderTopWidth',
-        'borderTopStyle',
-        'borderTopColor',
-        'borderRight',
-        'borderRightWidth',
-        'borderRightStyle',
-        'borderRightColor',
-        'borderBottom',
-        'borderBottomWidth',
-        'borderBottomStyle',
-        'borderBottomColor',
-        'borderLeft',
-        'borderLeftWidth',
-        'borderLeftStyle',
-        'borderLeftColor',
-        'borderRadius',
-        'borderTopLeftRadius',
-        'borderTopRightRadius',
-        'borderBottomLeftRadius',
-        'borderBottomRightRadius',
-        'borderCollapse',
-
-        // ==================== 背景 (Backgrounds) ====================
-        'background',
-        'backgroundImage',
-        'backgroundSize',
-        'backgroundPosition',
-        'backgroundRepeat',
-        'backgroundAttachment',
-        'backgroundClip',
-        'backgroundOrigin',
-
-        // ==================== 效果 (Effects) ====================
-        'boxShadow',
-        'textShadow',
-        'filter',
-        'backdropFilter',
-        'mixBlendMode',
-        'backgroundBlendMode',
-
-        // ==================== 变换 (Transforms) ====================
-        'transform',
-        'transformOrigin',
-        'scale',
-        'rotate',
-        'translate',
-        'perspective',
-        'perspectiveOrigin',
-
-        // ==================== 过渡与动画 (Transitions & Animations) ====================
-        'transition',
-        'transitionProperty',
-        'transitionDuration',
-        'transitionTimingFunction',
-        'transitionDelay',
-        'animation',
-        'animationName',
-        'animationDuration',
-        'animationTimingFunction',
-        'animationDelay',
-        'animationIterationCount',
-        'animationDirection',
-        'animationFillMode',
-        'animationPlayState',
-
-        // ==================== 交互 (Interactivity) ====================
-        'cursor',
-        'userSelect',
-        'pointerEvents',
-        'resize',
-        'touchAction',
-        'scrollBehavior',
-        'scrollSnapType',
-        'scrollSnapAlign',
-
-        // ==================== 表格 (Tables) ====================
-        'tableLayout',
-        'borderSpacing',
-        'captionSide',
-        'emptyCells',
-
-        // ==================== 列表 (Lists) ====================
-        'listStyle',
-        'listStyleType',
-        'listStylePosition',
-        'listStyleImage',
-
-        // ==================== 其他常用 (Miscellaneous) ====================
-        'boxSizing',
-        'float',
-        'clear',
-        'objectFit',
-        'objectPosition',
-        'outline',
-        'outlineWidth',
-        'outlineStyle',
-        'outlineColor',
-        'outlineOffset',
-        'content',
-        'appearance',
-        'willChange',
-        'contain',
-        'isolation',
-        'accentColor',
-        'caretColor',
-        'columns',
-        'columnCount',
-        'columnWidth',
-        'columnRule',
-        'columnRuleWidth',
-        'columnRuleStyle',
-        'columnRuleColor',
-        'clipPath',
-    ],
+    properties: atomicCssProperties,
 
     numberCategories: [
         {
