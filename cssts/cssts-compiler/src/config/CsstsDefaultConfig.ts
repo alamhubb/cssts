@@ -158,6 +158,10 @@ export const csstsDefaultConfig: CsstsConfig = {
         'xyz',
         'xyzD50',
         'xyzD65',
+        'initial',
+        'unset',
+        'revert',
+        'revertLayer',
     ],
 
 
