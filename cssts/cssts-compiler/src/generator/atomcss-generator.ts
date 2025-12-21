@@ -288,6 +288,7 @@ function generateAtomsForProperty(
   effectiveCategories: CssNumberCategoryName[]
 ): AtomDefinition[] {
   const atoms: AtomDefinition[] = [];
+  const seenNames = new Set<string>();  // 用于去重（特别是 0 值）
   const kebabProperty = camelToKebab(propertyName);
   
   // 获取属性支持的 categories
@@ -310,7 +311,9 @@ function generateAtomsForProperty(
     
     // 如果配置了 units，则过滤单位
     if (stepConfig.units && stepConfig.units.length > 0) {
-      units = units.filter(u => stepConfig.units!.includes(u as any)) as typeof units;
+      const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
+      if (filteredUnits.length === 0) continue;
+      units = filteredUnits as unknown as typeof units;
     }
     
     // 生成数值列表
@@ -319,25 +322,37 @@ function generateAtomsForProperty(
     // 为每个单位和数值组合生成原子类
     for (const unit of units) {
       for (const num of numbers) {
-        const unitSuffix = formatUnitForClassName(unit);
         const numStr = formatNumberForClassName(num);
-        const atomName = `${propertyName}${numStr}${unitSuffix}`;
         
-        // CSS 值
+        // 0 值不需要单位，生成 top0 而不是 top0px
+        let atomName: string;
         let cssValue: string;
-        if (unit === 'unitless' || unit === '') {
-          cssValue = num.toString();
-        } else if (unit === 'percent') {
-          cssValue = `${num}%`;
+        
+        if (num === 0) {
+          atomName = `${propertyName}0`;
+          cssValue = '0';
         } else {
-          cssValue = `${num}${unit}`;
+          const unitSuffix = formatUnitForClassName(unit);
+          atomName = `${propertyName}${numStr}${unitSuffix}`;
+          
+          if (unit === 'unitless') {
+            cssValue = num.toString();
+          } else if (unit === 'percent') {
+            cssValue = `${num}%`;
+          } else {
+            cssValue = `${num}${unit}`;
+          }
         }
+        
+        // 跳过已生成的（去重，特别是 0 值）
+        if (seenNames.has(atomName)) continue;
+        seenNames.add(atomName);
         
         atoms.push({
           name: atomName,
           property: kebabProperty,
           value: cssValue,
-          unit: unit === 'unitless' ? undefined : unit,
+          unit: num === 0 ? undefined : (unit === 'unitless' ? undefined : unit),
           number: num,
         });
       }
@@ -348,8 +363,14 @@ function generateAtomsForProperty(
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
+      const atomName = `${propertyName}${keyword.charAt(0).toUpperCase()}${keyword.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}`;
+      
+      // 跳过已生成的
+      if (seenNames.has(atomName)) continue;
+      seenNames.add(atomName);
+      
       atoms.push({
-        name: `${propertyName}${keyword.charAt(0).toUpperCase()}${keyword.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}`,
+        name: atomName,
         property: kebabProperty,
         value: keyword,
       });

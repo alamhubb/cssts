@@ -248,10 +248,25 @@ const stats = generateStats({ config: userConfig })
 console.log(`总原子类数: ${stats.totalAtoms}`)
 ```
 
-### 0 的处理
+### 0 值处理
 
+**生成规则：**
 - 如果 `min <= 0 && max >= 0`，则包含 0
 - 否则不包含 0
+
+**去重优化：**
+- CSS 规范中 `0` 不需要单位，`0px`、`0em`、`0rem` 等效于 `0`
+- 生成器会自动去重，只生成一个 `top0: '0'`，而不是 `top0px`、`top0em`、`top0rem` 等多个
+- 这大幅减少了生成的原子类数量（例如 top 属性从 1013 个减少到 888 个）
+
+```typescript
+// 生成结果示例
+top0: '0';      // ✅ 只生成一个，值为 '0'（无单位）
+top1px: '1px';
+top1em: '1em';
+top1rem: '1rem';
+// top0px, top0em, top0rem 不会生成（去重）
+```
 
 ---
 

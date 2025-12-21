@@ -3,7 +3,7 @@
  */
 
 export interface CsstsAtoms {
-  top0em: '0em';
+  top0: '0';
   top1em: '1em';
   top2em: '2em';
   top3em: '3em';
@@ -24,7 +24,6 @@ export interface CsstsAtoms {
   top18em: '18em';
   top19em: '19em';
   top20em: '20em';
-  top0rem: '0rem';
   top1rem: '1rem';
   top2rem: '2rem';
   top3rem: '3rem';
@@ -45,7 +44,6 @@ export interface CsstsAtoms {
   top18rem: '18rem';
   top19rem: '19rem';
   top20rem: '20rem';
-  top0pct: '0%';
   top1pct: '1%';
   top2pct: '2%';
   top3pct: '3%';
@@ -148,7 +146,6 @@ export interface CsstsAtoms {
   top98pct: '98%';
   top99pct: '99%';
   top100pct: '100%';
-  top0vw: '0vw';
   top1vw: '1vw';
   top2vw: '2vw';
   top3vw: '3vw';
@@ -251,7 +248,6 @@ export interface CsstsAtoms {
   top98vw: '98vw';
   top99vw: '99vw';
   top100vw: '100vw';
-  top0vh: '0vh';
   top1vh: '1vh';
   top2vh: '2vh';
   top3vh: '3vh';
@@ -624,7 +620,6 @@ export interface CsstsAtoms {
   topN3px: '-3px';
   topN2px: '-2px';
   topN1px: '-1px';
-  top0px: '0px';
   top1px: '1px';
   top2px: '2px';
   top3px: '3px';
