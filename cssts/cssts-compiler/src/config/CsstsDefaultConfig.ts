@@ -188,7 +188,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         'revertLayer',
     ],
 
-
     // 默认支持的属性列表
     properties: atomicCssProperties,
 
@@ -276,7 +275,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                 unitless: {
                     min: -1,
                     max: 10000,
-                    presets: [-1, 999, 9999],
                 }
             }
         },
