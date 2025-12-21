@@ -11,6 +11,7 @@ import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
 import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
 import { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
+import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
 import type { CsstsConfig } from '../types/csstsConfig';
 import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName } from '../types/cssPropertyConfig';
 
@@ -118,7 +119,16 @@ function getPropertyCategoryConfig(
     return propertyConfig[categoryName];
   }
   
-  // 2. 再查找全局 category 配置
+  // 2. 查找父属性的配置（属性继承）
+  const parentProperty = PROPERTY_PARENT_MAP[propertyName];
+  if (parentProperty) {
+    const parentConfig = findConfigInArray(config.propertiesConfig, parentProperty);
+    if (parentConfig && categoryName in parentConfig) {
+      return parentConfig[categoryName];
+    }
+  }
+  
+  // 3. 再查找全局 category 配置
   return findConfigInArray(config.numberCategoriesConfig, categoryName);
 }
 

@@ -10,6 +10,7 @@ const atomicCssProperties: CssPropertyName[] = [
     'zIndex',
 
     // 坐标 (Coordinates)
+    'inset',
     'top',
     'right',
     'bottom',

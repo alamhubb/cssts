@@ -1,0 +1,15 @@
+{
+  "$comment": "CSS 属性继承关系：父属性 → 子属性列表。当子属性没有配置时，自动继承父属性的配置。",
+  
+  "margin": ["marginTop", "marginRight", "marginBottom", "marginLeft"],
+  "padding": ["paddingTop", "paddingRight", "paddingBottom", "paddingLeft"],
+  
+  "borderWidth": ["borderTopWidth", "borderRightWidth", "borderBottomWidth", "borderLeftWidth"],
+  "borderStyle": ["borderTopStyle", "borderRightStyle", "borderBottomStyle", "borderLeftStyle"],
+  "borderColor": ["borderTopColor", "borderRightColor", "borderBottomColor", "borderLeftColor"],
+  "borderRadius": ["borderTopLeftRadius", "borderTopRightRadius", "borderBottomRightRadius", "borderBottomLeftRadius"],
+  
+  "inset": ["top", "right", "bottom", "left"],
+  "gap": ["rowGap", "columnGap"],
+  "overflow": ["overflowX", "overflowY"]
+}

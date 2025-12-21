@@ -436,6 +436,44 @@ function loadPseudoStandards(): { pseudoClasses: string[]; pseudoElements: strin
   return JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 }
 
+// ==================== 属性继承关系（从 datajson） ====================
+
+function loadPropertyInheritance(): Record<string, string[]> {
+  const jsonPath = path.join(__dirname, 'datajson/propertyInheritance.json');
+  const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+  // 移除 $comment 字段
+  delete data.$comment;
+  return data;
+}
+
+function generatePropertyInheritanceFile(inheritance: Record<string, string[]>): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSS 属性继承关系（自动生成）',
+    ' * 子属性 → 父属性映射',
+    ' * 当子属性没有配置时，自动继承父属性的配置',
+    ' */',
+    '',
+    '// 子属性 → 父属性映射',
+    'export const PROPERTY_PARENT_MAP: Record<string, string> = {',
+  ];
+
+  // 反转映射：从 parent → children 变为 child → parent，不同组之间加空行
+  let isFirst = true;
+  for (const [parent, children] of Object.entries(inheritance)) {
+    if (!isFirst) {
+      lines.push('');  // 组之间加空行
+    }
+    isFirst = false;
+    for (const child of children) {
+      lines.push(`  ${child}: '${parent}',`);
+    }
+  }
+
+  lines.push('};', '');
+  return lines.join('\n');
+}
+
 function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: string[]): string {
   const lines: string[] = [
     '/**',
@@ -547,6 +585,7 @@ function main() {
   // 从 datajson 读取
   const numberMapping = loadNumberMapping();
   const pseudoStandards = loadPseudoStandards();
+  const propertyInheritance = loadPropertyInheritance();
 
   // 生成文件
   fs.writeFileSync(path.join(dataDir, 'cssPropertyNameMapping.ts'), generatePropertyNameFile(propertyMap));
@@ -573,6 +612,9 @@ function main() {
   fs.writeFileSync(path.join(dataDir, 'cssKeywordsData.ts'), generateCssKeywordsDataFile(keywords));
   console.log('✅ src/data/cssKeywordsData.ts');
 
+  fs.writeFileSync(path.join(dataDir, 'cssPropertyInheritance.ts'), generatePropertyInheritanceFile(propertyInheritance));
+  console.log('✅ src/data/cssPropertyInheritance.ts');
+
   console.log(`\n📊 统计信息:`);
   console.log(`   属性数: ${Object.keys(propertyMap).length}`);
   console.log(`   Keywords 数: ${keywords.size}`);
@@ -580,6 +622,7 @@ function main() {
   console.log(`   颜色数: ${colorData.allColors.length}`);
   console.log(`   伪类数: ${pseudoStandards.pseudoClasses.length}`);
   console.log(`   伪元素数: ${pseudoStandards.pseudoElements.length}`);
+  console.log(`   属性继承关系: ${Object.keys(propertyInheritance).length} 组`);
   console.log('\n✨ 数据文件生成完成!');
 }
 
