@@ -98,6 +98,17 @@ const stats = generateStats()
 | `pct` | `%` 百分号 | `50pct` → `50%` |
 | `s` | `/` 斜杠 | `16s9` → `16/9` |
 
+### Vendor Prefix 处理
+
+以 `-` 开头的 vendor prefix keyword 会去掉开头的 `-`，然后转换为 PascalCase：
+
+| CSS Keyword | TS 变量名 |
+|-------------|-----------|
+| `-moz-box` | `displayMozBox` |
+| `-webkit-flex` | `displayWebkitFlex` |
+| `-ms-grid` | `displayMsGrid` |
+| `-webkit-inline-box` | `displayWebkitInlineBox` |
+
 ---
 
 ## 配置系统

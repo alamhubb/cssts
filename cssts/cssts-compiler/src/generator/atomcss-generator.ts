@@ -382,6 +382,19 @@ function formatUnitForClassName(unit: string): string {
   return unit;
 }
 
+/** 格式化 keyword 为类名部分 (kebab-case → PascalCase) */
+function formatKeywordForClassName(keyword: string): string {
+  // 处理以 - 开头的情况（如 -moz-box, -webkit-flex）
+  // 去掉开头的 -，然后转换为 PascalCase
+  const normalized = keyword.startsWith('-') ? keyword.slice(1) : keyword;
+  
+  // kebab-case 转 PascalCase
+  return normalized
+    .split('-')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
 /** 格式化颜色名为类名部分 */
 function formatColorForClassName(color: string): string {
   // kebab-case 转 PascalCase
@@ -407,7 +420,7 @@ function generateAtomsForProperty(
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
-      const atomName = `${propertyName}${keyword.charAt(0).toUpperCase()}${keyword.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}`;
+      const atomName = `${propertyName}${formatKeywordForClassName(keyword)}`;
       
       if (seenNames.has(atomName)) continue;
       seenNames.add(atomName);
@@ -530,25 +543,17 @@ export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
   return allAtoms;
 }
 
+/** 生成 CSS 类名（property_value 格式） */
+function generateCssClassName(atom: AtomDefinition): string {
+  // property 已经是 kebab-case，value 需要处理特殊字符
+  // 例如：height + 1em → height_1em
+  return `${atom.property}_${atom.value}`;
+}
+
 /** 生成 DTS 内容 */
 export function generateDts(options?: GeneratorOptions): string {
   const atoms = generateAtoms(options);
-  
-  const lines: string[] = [
-    '/**',
-    ' * CSSTS 原子类类型定义（自动生成）',
-    ' */',
-    '',
-    'export interface CsstsAtoms {',
-  ];
-  
-  for (const atom of atoms) {
-    lines.push(`  ${atom.name}: '${atom.value}';`);
-  }
-  
-  lines.push('}', '');
-  
-  return lines.join('\n');
+  return generatePropertyDts('cssts', atoms);
 }
 
 /** 生成统计信息 */
@@ -612,7 +617,8 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
   ];
   
   for (const atom of atoms) {
-    lines.push(`  ${atom.name}: '${atom.value}';`);
+    const cssClassName = generateCssClassName(atom);
+    lines.push(`  ${atom.name}: '${cssClassName}';`);
   }
   
   lines.push('}', '');

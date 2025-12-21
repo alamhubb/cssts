@@ -11,8 +11,8 @@ import { generateDtsFiles } from './dts-generate.ts';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// 本地测试：输出到 types/ 目录
-const OUTPUT_DIR = path.resolve(__dirname, '../../types');
+// 本地测试：输出到 target/ 目录
+const OUTPUT_DIR = path.resolve(__dirname, '../../target');
 
 console.log('🚀 开始生成 .d.ts 文件...\n');
 
