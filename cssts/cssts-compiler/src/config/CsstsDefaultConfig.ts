@@ -131,7 +131,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     // 默认支持的属性列表
-    properties: ['margin', 'marginTop'],
+    properties: atomicCssProperties,
 
     // 排除不常用的数值类别
     excludeNumberCategories: [
@@ -173,7 +173,7 @@ export const csstsDefaultConfig: CsstsConfig = {
             angle: {
                 min: -360,
                 max: 360,
-                step: 1
+                step: [10,15]
             },
         },
         {
@@ -270,7 +270,7 @@ export const csstsDefaultConfig: CsstsConfig = {
                 unitless: {
                     min: 0,
                     max: 3,
-                    step: 0.125,
+                    step: 0.25,
                 }
             }
         },
@@ -282,22 +282,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                     min: 100,
                     max: 900,
                     step: 100,
-                }
-            }
-        },
-
-        // letter-spacing / word-spacing: 通常较小值
-        {
-            letterSpacing: {
-                pixel: {
-                    min: -5,
-                    max: 20,
-                    step: 0.5
-                },
-                fontRelative: {
-                    min: -0.5,
-                    max: 1,
-                    step: 0.1
                 }
             }
         },
@@ -329,17 +313,6 @@ export const csstsDefaultConfig: CsstsConfig = {
             }
         },
 
-        // outline-offset: 通常较小值
-        {
-            outlineOffset: {
-                pixel: {
-                    min: -10,
-                    max: 20,
-                    step: 1
-                }
-            }
-        },
-
         // scale: 通常 0-2 范围
         {
             scale: {
@@ -347,17 +320,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                     min: 0,
                     max: 2,
                     step: 0.1
-                }
-            }
-        },
-
-        // rotate: 角度
-        {
-            rotate: {
-                angle: {
-                    min: -360,
-                    max: 360,
-                    step: [10, 15]
                 }
             }
         },
