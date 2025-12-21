@@ -114,8 +114,6 @@ const atomicCssProperties: CssPropertyName[] = [
 ];
 
 
-console.log(Object.keys(PROPERTY_CATEGORIES_MAP).length)
-
 // ==================== 系统级别默认配置 ====================
 
 export const csstsDefaultConfig: CsstsConfig = {

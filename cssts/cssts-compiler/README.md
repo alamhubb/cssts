@@ -299,6 +299,65 @@ top1rem: '1rem';
 - **颜色类型** - `namedColor`、`systemColor`、`deprecatedSystemColor`、`nonStandardColor`
 - **数值类型** - `length`、`percentage`、`angle`、`time` 等
 
+### 数据映射设计
+
+所有 `*_NAME_MAP` 的 key 统一使用 `camelCase`，value 为原始的 `kebab-case`：
+
+```typescript
+// 所有 NAME_MAP 统一格式：camelCase → kebab-case
+CSS_PROPERTY_NAME_MAP = {
+  'backgroundColor': 'background-color',
+  'fontSize': 'font-size',
+}
+
+KEYWORD_NAME_MAP = {
+  'crispEdges': 'crisp-edges',
+  'mozBox': '-moz-box',
+}
+
+COLOR_NAME_MAP = {
+  'transparent': 'transparent',
+  'aliceblue': 'aliceblue',
+}
+
+PSEUDO_CLASS_NAME_MAP = {
+  'focusVisible': 'focus-visible',
+  'firstChild': 'first-child',
+}
+
+PSEUDO_ELEMENT_NAME_MAP = {
+  'firstLine': 'first-line',
+  'fileSelectorButton': 'file-selector-button',
+}
+```
+
+**设计原因：**
+
+1. **数据源格式**：csstree 和其他数据源的原始数据格式是 `kebab-case`
+2. **TypeScript 使用**：在 TypeScript 中使用 `camelCase` 作为变量名
+3. **查找流程**：
+   - 遍历数据源时获取 `kebab-case` 格式的原始数据
+   - 将 `kebab-case` 转换为 `camelCase`
+   - 用 `camelCase` 作为 key 查找 Map
+   - 获取对应的原始 `kebab-case` 值用于生成 CSS
+
+```typescript
+// 使用示例
+const kebabKeyword = 'crisp-edges';           // 原始数据（来自 csstree）
+const camelKey = kebabToCamel(kebabKeyword);  // 转换为 'crispEdges'
+const original = KEYWORD_NAME_MAP[camelKey];  // 查找得到 'crisp-edges'
+
+// 生成原子类时
+const atomName = `display${camelKey}`;        // 'displayCrispEdges'
+const cssValue = original;                     // 'crisp-edges'
+```
+
+**统一设计的好处：**
+
+- 所有 Map 使用相同的 key 格式，减少混淆
+- 查找逻辑一致：先转 camelCase，再查 Map
+- 便于去重：相同 camelCase 的不同 kebab-case 会被自动去重
+
 ### 特殊处理
 
 #### CSS 全局关键字

@@ -164,8 +164,8 @@ export type CssColorTypeItem = CssColorTypeName | CssColorTypeConfig;
 
 // ==================== Property 类型 ====================
 
-// 属性名称（camelCase，从 kebab-case 映射的值）
-export type CssPropertyName = typeof CSS_PROPERTY_NAME_MAP[keyof typeof CSS_PROPERTY_NAME_MAP];
+// 属性名称（camelCase，Map 的 key）
+export type CssPropertyName = keyof typeof CSS_PROPERTY_NAME_MAP;
 
 // 获取属性支持的 Keywords
 type PropertyKeywords<P extends CssPropertyName> = 
@@ -231,11 +231,11 @@ export type CssPropertyExcludeItem = CssPropertyName | CssPropertyExcludeConfig;
 
 // ==================== Pseudo 类型 ====================
 
-// 伪类名称（camelCase，从 kebab-case 映射的值）
-export type CssPseudoClassName = typeof PSEUDO_CLASS_NAME_MAP[keyof typeof PSEUDO_CLASS_NAME_MAP];
+// 伪类名称（camelCase，Map 的 key）
+export type CssPseudoClassName = keyof typeof PSEUDO_CLASS_NAME_MAP;
 
-// 伪元素名称（camelCase，从 kebab-case 映射的值）
-export type CssPseudoElementName = typeof PSEUDO_ELEMENT_NAME_MAP[keyof typeof PSEUDO_ELEMENT_NAME_MAP];
+// 伪元素名称（camelCase，Map 的 key）
+export type CssPseudoElementName = keyof typeof PSEUDO_ELEMENT_NAME_MAP;
 
 // 伪类/伪元素值（属性样式配置）
 export type CssPseudoValue = {
