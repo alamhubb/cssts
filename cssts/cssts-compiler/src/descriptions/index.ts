@@ -6,5 +6,5 @@
 
 export * from './pseudo';
 export * from './units';
-export * from './number-types';
+export * from './number-categories';
 export * from './system-colors';

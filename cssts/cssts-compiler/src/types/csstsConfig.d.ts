@@ -9,8 +9,6 @@ import type {
   CssNumberUnitItem,
   CssNumberCategoryItem,
   CssNumberCategoryExcludeItem,
-  CssNumberTypeItem,
-  CssNumberTypeExcludeItem,
   CssKeywordName,
   CssColorTypeName,
   CssColorTypeItem,
@@ -29,12 +27,6 @@ export interface CsstsConfig {
 
   /** 排除的属性配置 */
   excludeProperties?: CssPropertyExcludeItem[];
-
-  /** 数值类型配置 */
-  numberTypes?: CssNumberTypeItem[];
-
-  /** 排除的数值类型 */
-  excludeNumberTypes?: CssNumberTypeExcludeItem[];
 
   /** 数值类别配置 */
   numberCategories?: CssNumberCategoryItem[];

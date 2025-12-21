@@ -1,13 +1,13 @@
 /**
  * CSS 属性配置类型定义（自动生成）
- * 使用泛型实现四层精准类型约束：Property → NumberType → NumberCategory → NumberUnit
+ * 使用泛型实现三层精准类型约束：Property → NumberCategory → NumberUnit
  * 
- * 命名规范：Css + [Property|NumberType|NumberCategory|NumberUnit|Keyword|Color|PseudoClass|PseudoElement] + [Name|Value|Config|Item]
+ * 命名规范：Css + [Property|NumberCategory|NumberUnit|Keyword|Color|PseudoClass|PseudoElement] + [Name|Value|Config|Item]
  */
 
 import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
-import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP, NUMBER_TYPE_CATEGORY_MAP } from '../data/cssNumberData';
-import type { ALL_NUMBER_TYPES, PROPERTY_NUMBER_TYPES_MAP } from '../data/cssPropertyNumber';
+import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../data/cssNumberData';
+import type { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
 import type { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import type { KEYWORD_NAME_MAP } from '../data/cssKeywordsData';
@@ -83,52 +83,6 @@ export type CssNumberCategoryItem = CssNumberCategoryName | CssNumberCategoryCon
 // 数值类别排除配置项
 export type CssNumberCategoryExcludeItem = CssNumberCategoryName | CssNumberCategoryExcludeConfig;
 
-// ==================== NumberType 类型 ====================
-
-// 数值类型名称
-export type CssNumberTypeName = typeof ALL_NUMBER_TYPES[number];
-
-// 获取 NumberType 对应的 Category 类型
-type NumberTypeCategories<NT extends CssNumberTypeName> = 
-  NT extends keyof typeof NUMBER_TYPE_CATEGORY_MAP ? typeof NUMBER_TYPE_CATEGORY_MAP[NT][number] : never;
-
-// 严格的 Category 配置（禁止额外属性）
-type StrictCategoryConfig<T extends CssNumberCategoryName> = 
-  { [K in T]?: CssNumberCategoryValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
-
-// 严格的 Category 排除配置（禁止额外属性）
-type StrictCategoryExcludeConfig<T extends CssNumberCategoryName> = 
-  { [K in T]?: CssNumberCategoryExcludeValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
-
-// 数值类型值配置（泛型）
-export type CssNumberTypeValue<NT extends CssNumberTypeName> = 
-  | CssStepConfig
-  | NumberTypeCategories<NT>[]
-  | StrictCategoryConfig<NumberTypeCategories<NT>>
-  | CssNumberUnitConfig;
-
-// 数值类型排除值配置（不含步长）
-export type CssNumberTypeExcludeValue<NT extends CssNumberTypeName> = 
-  | NumberTypeCategories<NT>[]
-  | StrictCategoryExcludeConfig<NumberTypeCategories<NT>>
-  | CssNumberUnitName[];
-
-// 数值类型配置 Map
-export type CssNumberTypeConfig = {
-  [NT in CssNumberTypeName]?: CssNumberTypeValue<NT>;
-};
-
-// 数值类型排除配置 Map
-export type CssNumberTypeExcludeConfig = {
-  [NT in CssNumberTypeName]?: CssNumberTypeExcludeValue<NT>;
-};
-
-// 数值类型配置项
-export type CssNumberTypeItem = CssNumberTypeName | CssNumberTypeConfig;
-
-// 数值类型排除配置项
-export type CssNumberTypeExcludeItem = CssNumberTypeName | CssNumberTypeExcludeConfig;
-
 // ==================== Keyword 类型 ====================
 
 // 关键字名称（camelCase）
@@ -166,17 +120,17 @@ export type CssPropertyName = typeof CSS_PROPERTY_NAME_MAP[keyof typeof CSS_PROP
 type PropertyKeywords<P extends CssPropertyName> = 
   P extends keyof typeof PROPERTY_KEYWORDS_MAP ? typeof PROPERTY_KEYWORDS_MAP[P][number] : never;
 
-// 获取属性支持的 NumberTypes
-type PropertyNumberTypes<P extends CssPropertyName> = 
-  P extends keyof typeof PROPERTY_NUMBER_TYPES_MAP ? typeof PROPERTY_NUMBER_TYPES_MAP[P][number] : never;
+// 获取属性支持的 NumberCategories
+type PropertyCategories<P extends CssPropertyName> = 
+  P extends keyof typeof PROPERTY_CATEGORIES_MAP ? typeof PROPERTY_CATEGORIES_MAP[P][number] : never;
 
 // 获取属性支持的 ColorTypes
 type PropertyColorTypes<P extends CssPropertyName> = 
   P extends keyof typeof PROPERTY_COLOR_TYPES_MAP ? typeof PROPERTY_COLOR_TYPES_MAP[P][number] : never;
 
-// 严格的 NumberType 配置（禁止额外属性）
-type StrictNumberTypeConfig<T extends CssNumberTypeName> = 
-  { [K in T]?: CssNumberTypeValue<K> } & { [K in Exclude<CssNumberTypeName, T>]?: never };
+// 严格的 Category 配置（禁止额外属性）
+type StrictCategoryConfig<T extends CssNumberCategoryName> = 
+  { [K in T]?: CssNumberCategoryValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
 
 // 严格的 ColorType 配置（禁止额外属性）
 type StrictColorTypeConfig<T extends CssColorTypeName> = 
@@ -185,26 +139,26 @@ type StrictColorTypeConfig<T extends CssColorTypeName> =
 // 属性值配置（泛型）
 export type CssPropertyValue<P extends CssPropertyName> = {
   keywords?: PropertyKeywords<P>[];
-  numberTypes?: PropertyNumberTypes<P>[];
+  numberCategories?: PropertyCategories<P>[];
   colorTypes?: PropertyColorTypes<P>[];
   colors?: CssColorName[];
-} & (PropertyNumberTypes<P> extends never ? {} : 
-  (StrictNumberTypeConfig<PropertyNumberTypes<P>> | CssNumberCategoryConfig | CssNumberUnitConfig | {}))
+} & (PropertyCategories<P> extends never ? {} : 
+  (StrictCategoryConfig<PropertyCategories<P>> | CssNumberUnitConfig | {}))
   & (PropertyColorTypes<P> extends never ? {} : 
   (StrictColorTypeConfig<PropertyColorTypes<P>> | {}));
 
-// 严格的 NumberType 排除配置（禁止额外属性）
-type StrictNumberTypeExcludeConfig<T extends CssNumberTypeName> = 
-  { [K in T]?: CssNumberTypeExcludeValue<K> } & { [K in Exclude<CssNumberTypeName, T>]?: never };
+// 严格的 Category 排除配置（禁止额外属性）
+type StrictCategoryExcludeConfig<T extends CssNumberCategoryName> = 
+  { [K in T]?: CssNumberCategoryExcludeValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
 
 // 属性排除值配置（不含步长）
 export type CssPropertyExcludeValue<P extends CssPropertyName> = {
   keywords?: PropertyKeywords<P>[];
-  numberTypes?: PropertyNumberTypes<P>[];
+  numberCategories?: PropertyCategories<P>[];
   colorTypes?: PropertyColorTypes<P>[];
   colors?: CssColorName[];
-} & (PropertyNumberTypes<P> extends never ? {} : 
-  (StrictNumberTypeExcludeConfig<PropertyNumberTypes<P>> | CssNumberCategoryExcludeConfig | CssNumberUnitName[] | {}))
+} & (PropertyCategories<P> extends never ? {} : 
+  (StrictCategoryExcludeConfig<PropertyCategories<P>> | CssNumberUnitName[] | {}))
   & (PropertyColorTypes<P> extends never ? {} : 
   (StrictColorTypeConfig<PropertyColorTypes<P>> | {}));
 

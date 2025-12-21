@@ -54,10 +54,23 @@ function normalizeUnit(unit: string): string {
 
 // ==================== 从 csstree 提取数据 ====================
 
-const ACCEPTED_NUMBER_TYPES = new Set([
-  'angle', 'decibel', 'flex', 'frequency', 'length', 'resolution', 'semitones', 'time',
-  'number', 'integer', 'percentage', 'ratio',
-]);
+// CSS 数值类型到 Category 的映射
+const NUMBER_TYPE_TO_CATEGORIES: Record<string, string[]> = {
+  'length': ['pixel', 'fontRelative', 'physical', 'percentage'],
+  'angle': ['angle'],
+  'time': ['time'],
+  'frequency': ['frequency'],
+  'percentage': ['percentage'],
+  'number': ['unitless'],
+  'integer': ['unitless'],
+  'resolution': ['resolution'],
+  'flex': ['flex'],
+  'ratio': ['unitless'],
+  'decibel': ['unitless'],
+  'semitones': ['unitless'],
+};
+
+const ACCEPTED_NUMBER_TYPES = new Set(Object.keys(NUMBER_TYPE_TO_CATEGORIES));
 
 const UNION_TYPE_MAP: Record<string, string[]> = {
   'length-percentage': ['length', 'percentage'],
@@ -240,7 +253,7 @@ function generateColorFile(colorData: ColorTypeData): string {
 
 interface PropertyData {
   keywords: string[];
-  numberTypes: string[];
+  numberCategories: string[];  // 直接存储 categories，不再有 numberTypes 中间层
   colorTypes: string[];
 }
 
@@ -275,9 +288,18 @@ function extractPropertyData(allColors: Set<string>, colorTypeColorsMap: Record<
       }
     }
 
+    // 将 numberTypes 转换为 categories（去重）
+    const categoriesSet = new Set<string>();
+    for (const nt of numberTypes) {
+      const cats = NUMBER_TYPE_TO_CATEGORIES[nt];
+      if (cats) {
+        cats.forEach(c => categoriesSet.add(c));
+      }
+    }
+
     propertyData[propName] = {
       keywords: nonColorKeywords.sort(),
-      numberTypes: Array.from(numberTypes).sort(),
+      numberCategories: Array.from(categoriesSet).sort(),
       colorTypes: supportedColorTypes.sort(),
     };
   }
@@ -312,30 +334,26 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
 function generatePropertyNumberTypesFile(propertyData: Record<string, PropertyData>): string {
   const lines: string[] = [
     '/**',
-    ' * CSS 属性 NumberTypes（自动生成）',
+    ' * CSS 属性 NumberCategories（自动生成）',
     ' */',
     '',
   ];
 
   const sortedProps = Object.keys(propertyData)
-    .filter(p => propertyData[p].numberTypes.length > 0)
+    .filter(p => propertyData[p].numberCategories.length > 0)
     .sort();
 
-  const allNumberTypes = new Set<string>();
+  const allCategories = new Set<string>();
   for (const propName of sortedProps) {
-    propertyData[propName].numberTypes.forEach(nt => allNumberTypes.add(nt));
+    propertyData[propName].numberCategories.forEach(c => allCategories.add(c));
   }
 
-  // ALL_NUMBER_TYPES
-  lines.push(`export const ALL_NUMBER_TYPES = [${Array.from(allNumberTypes).sort().map(t => `'${t}'`).join(', ')}] as const;`);
-  lines.push('');
-  
-  // 直接生成 PROPERTY_NUMBER_TYPES_MAP，内联所有值
-  lines.push('export const PROPERTY_NUMBER_TYPES_MAP = {');
+  // 直接生成 PROPERTY_CATEGORIES_MAP，内联所有值
+  lines.push('export const PROPERTY_CATEGORIES_MAP = {');
   for (const propName of sortedProps) {
     const data = propertyData[propName];
     const camelName = kebabToCamel(propName);
-    lines.push(`  ${camelName}: [${data.numberTypes.map(t => `'${t}'`).join(', ')}] as const,`);
+    lines.push(`  ${camelName}: [${data.numberCategories.map(c => `'${c}'`).join(', ')}] as const,`);
   }
   lines.push('} as const;', '');
 
@@ -378,12 +396,11 @@ function generateCssNumberDataFile(mapping: any): string {
   const lines: string[] = [
     '/**',
     ' * CSS 数值数据（自动生成）',
-    ' * 包含单位、NumberType 和 Category 映射',
+    ' * 包含单位和 Category 映射',
     ' */',
     '',
   ];
 
-  const numberTypes = mapping.numberTypes as Record<string, string[]>;
   const categories = mapping.categories as Record<string, string[]>;
   const allCategories = Object.keys(categories).sort();
 
@@ -403,13 +420,6 @@ function generateCssNumberDataFile(mapping: any): string {
     lines.push(`  '${alias}': '${unit}',`);
   }
   lines.push('};', '');
-
-  // ==================== NUMBER_TYPE_CATEGORY_MAP ====================
-  lines.push('export const NUMBER_TYPE_CATEGORY_MAP = {');
-  for (const [numberType, cats] of Object.entries(numberTypes)) {
-    lines.push(`  ${numberType}: [${(cats as string[]).map(c => `'${c}'`).join(', ')}] as const,`);
-  }
-  lines.push('} as const;', '');
 
   // ==================== ALL_NUMBER_CATEGORIES ====================
   lines.push(`export const ALL_NUMBER_CATEGORIES = [${allCategories.map(c => `'${c}'`).join(', ')}] as const;`, '');

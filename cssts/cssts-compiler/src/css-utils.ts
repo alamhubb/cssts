@@ -4,12 +4,11 @@
  * 基于 data/ 中的数据提供查询和转换功能
  */
 
-import { ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP, NUMBER_TYPE_CATEGORY_MAP } from './data/cssNumberData';
-import { ALL_NUMBER_TYPES } from './data/cssPropertyNumber';
+import { ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from './data/cssNumberData';
+import { PROPERTY_CATEGORIES_MAP } from './data/cssPropertyNumber';
 
 // 类型定义
 export type UnitCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
-export type NumberTypeName = typeof ALL_NUMBER_TYPES[number];
 
 // 构建反向映射：单位 -> 分类
 const CATEGORY_BY_UNIT: Record<string, UnitCategoryName> = {};
@@ -36,23 +35,7 @@ export function isUnitInCategory(unit: string, category: UnitCategoryName): bool
   return CATEGORY_BY_UNIT[unit] === category;
 }
 
-// ==================== NumberType 链式查询 ====================
-
-/**
- * 根据 numberTypes 获取对应的 unitCategories
- * 
- * @example
- * getUnitCategoriesFromNumberTypes(['length', 'percentage'])
- * // => ['pixel', 'fontRelative', 'physical', 'percentage']
- */
-export function getUnitCategoriesFromNumberTypes(numberTypes: NumberTypeName[]): UnitCategoryName[] {
-  const categories = new Set<UnitCategoryName>();
-  for (const nt of numberTypes) {
-    const cats = NUMBER_TYPE_CATEGORY_MAP[nt as keyof typeof NUMBER_TYPE_CATEGORY_MAP];
-    if (cats) cats.forEach(c => categories.add(c as UnitCategoryName));
-  }
-  return Array.from(categories);
-}
+// ==================== Category 链式查询 ====================
 
 /**
  * 根据 unitCategories 获取对应的 units
@@ -71,24 +54,25 @@ export function getUnitsFromCategories(categories: UnitCategoryName[]): string[]
 }
 
 /**
- * 根据 numberTypes 直接获取 units（链式查询）
+ * 获取属性支持的所有 categories
  * 
  * @example
- * getUnitsFromNumberTypes(['length', 'percentage'])
+ * getPropertyCategories('width')
+ * // => ['fontRelative', 'percentage', 'physical', 'pixel']
+ */
+export function getPropertyCategories(propertyName: string): UnitCategoryName[] {
+  const categories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
+  return categories ? [...categories] : [];
+}
+
+/**
+ * 获取属性支持的所有 units
+ * 
+ * @example
+ * getPropertyUnits('width')
  * // => ['px', 'em', 'rem', '%', 'vw', 'vh', ...]
  */
-export function getUnitsFromNumberTypes(numberTypes: NumberTypeName[]): string[] {
-  const categories = getUnitCategoriesFromNumberTypes(numberTypes);
-  return getUnitsFromCategories(categories);
-}
-
-/** 获取单个 numberType 对应的 unitCategories */
-export function getCategoriesForNumberType(numberType: NumberTypeName): UnitCategoryName[] {
-  return [...(numberTypeToCategories[numberType] || [])];
-}
-
-/** 获取单个 numberType 对应的 units */
-export function getUnitsForNumberType(numberType: NumberTypeName): string[] {
-  const categories = getCategoriesForNumberType(numberType);
+export function getPropertyUnits(propertyName: string): string[] {
+  const categories = getPropertyCategories(propertyName);
   return getUnitsFromCategories(categories);
 }

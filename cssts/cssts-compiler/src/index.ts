@@ -150,9 +150,7 @@ export {
   getUnitCategory,
   getUnitsInCategory,
   isUnitInCategory,
-  getUnitCategoriesFromNumberTypes,
   getUnitsFromCategories,
-  getUnitsFromNumberTypes,
-  getCategoriesForNumberType,
-  getUnitsForNumberType,
+  getPropertyCategories,
+  getPropertyUnits,
 } from './css-utils.js'

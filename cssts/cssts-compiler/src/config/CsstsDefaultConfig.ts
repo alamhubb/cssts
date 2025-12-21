@@ -212,25 +212,360 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
     ],
 
-    // 默认支持的属性列表（覆盖 95% 使用场景，参考 Tailwind/UnoCSS）
+    // 默认支持的属性列表
     properties: atomicCssProperties,
 
+    // ==================== 数值类别配置 ====================
     numberCategories: [
         {
+            // 像素单位 - 最常用，支持负值
             pixel: {
-                negative: true
+                negative: true,
+                min: 0,
+                max: 1000,
+            },
+
+            // 字体相对单位 (em, rem, ch, etc.)
+            fontRelative: {
+                negative: true,
+                min: 0,
+                max: 20,
+                step: 0.125,  // 0.125rem = 2px (基于 16px)
+                presets: [0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16],
             },
 
             // 百分比类 (%, vw, vh, vmin, vmax, etc.)
             percentage: {
                 negative: false,
+                min: 0,
+                max: 100,
+                step: 1,
                 presets: [33.33, 66.67],
             },
 
-            // 无单位数值 - opacity, z-index, line-height 等
+            // 角度单位 (deg, rad, turn, grad)
+            angle: {
+                negative: true,
+                min: 0,
+                max: 360,
+                step: 1
+            },
+
+            // 时间单位 (s, ms)
+            time: {
+                negative: false,
+                min: 0,
+                max: 60
+            },
+
+            // 无单位数值 - opacity, z-index, line-height, flex-grow 等
             unitless: {
-                negative: false
+                negative: true,
+                min: 0,
+                max: 100,
+                step: 1,
+            },
+
+            // Flex 单位 (fr) - Grid 布局常用
+            flex: {
+                negative: false,
+                min: 0,
+                max: 12,
+                step: 1,
+                presets: [1, 2, 3, 4, 5, 6],
             },
         }
-    ]
+    ],
+
+    // 排除不常用的数值类别
+    excludeNumberCategories: [
+        'physical',    // cm, mm, in, pt, pc - 仅用于打印
+        'frequency',   // Hz, kHz - 音频相关，Web 几乎不用
+        'resolution',  // dpi, dpcm, dppx - 主要用于媒体查询
+    ],
+
+    // ==================== 特殊属性配置 ====================
+    propertiesInfo: [
+        // z-index: 通常使用特定层级
+        {
+            zIndex: {
+                unitless: {
+                    negative: true,
+                    max: 10000,
+                    presets: [-1, 999, 9999],
+                }
+            }
+        },
+
+        // opacity: 0-1 范围，步长 0.1
+        {
+            opacity: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 1,
+                    step: 0.1,
+                }
+            }
+        },
+
+        // flex-grow / flex-shrink: 0-10 范围
+        {
+            flexGrow: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 10,
+                    step: 1
+                }
+            }
+        },
+        {
+            flexShrink: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 10,
+                    step: 1
+                }
+            }
+        },
+
+        // order: 通常 -10 到 10
+        {
+            order: {
+                unitless: {
+                    negative: true,
+                    min: -10,
+                    max: 10,
+                    step: 1,
+                }
+            }
+        },
+
+        // line-height: 无单位时通常 1-3
+        {
+            lineHeight: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 3,
+                    step: 0.125,
+                }
+            }
+        },
+
+        // font-weight: 100-900，步长 100
+        {
+            fontWeight: {
+                unitless: {
+                    negative: false,
+                    min: 100,
+                    max: 900,
+                    step: 100,
+                }
+            }
+        },
+
+        // letter-spacing / word-spacing: 通常较小值
+        {
+            letterSpacing: {
+                pixel: {
+                    negative: true,
+                    min: -5,
+                    max: 20,
+                    step: 0.5
+                },
+                fontRelative: {
+                    negative: true,
+                    min: -0.5,
+                    max: 1,
+                    step: 0.1
+                }
+            }
+        },
+
+        // border-width: 通常 0-10px
+        {
+            borderWidth: {
+                pixel: {
+                    negative: false,
+                    min: 0,
+                    max: 10,
+                    step: 1
+                }
+            }
+        },
+
+        // border-radius: 通常 0-50px 或百分比
+        {
+            borderRadius: {
+                pixel: {
+                    negative: false,
+                    min: 0,
+                    max: 100,
+                    step: 1
+                },
+                percentage: {
+                    negative: false,
+                    min: 0,
+                    max: 50,
+                    step: 5
+                }
+            }
+        },
+
+        // outline-offset: 通常较小值
+        {
+            outlineOffset: {
+                pixel: {
+                    negative: true,
+                    min: -10,
+                    max: 20,
+                    step: 1,
+                    presets: [0, 2, 4, 8],
+                }
+            }
+        },
+
+        // scale: 通常 0-2 范围
+        {
+            scale: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 2,
+                    step: 0.05,
+                    presets: [0, 0.5, 0.75, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.5, 2],
+                }
+            }
+        },
+
+        // rotate: 角度
+        {
+            rotate: {
+                angle: {
+                    negative: true,
+                    min: -360,
+                    max: 360,
+                    step: 1,
+                    presets: [0, 1, 2, 3, 6, 12, 45, 90, 180],
+                }
+            }
+        },
+
+        // transition/animation duration: 时间
+        {
+            transitionDuration: {
+                time: {
+                    negative: false,
+                    min: 0,
+                    max: 2000,
+                    step: 50,
+                    presets: [0, 75, 100, 150, 200, 300, 500, 700, 1000],
+                }
+            }
+        },
+        {
+            transitionDelay: {
+                time: {
+                    negative: false,
+                    min: 0,
+                    max: 2000,
+                    step: 50,
+                    presets: [0, 75, 100, 150, 200, 300, 500],
+                }
+            }
+        },
+        {
+            animationDuration: {
+                time: {
+                    negative: false,
+                    min: 0,
+                    max: 5000,
+                    step: 100,
+                    presets: [0, 150, 300, 500, 700, 1000, 2000],
+                }
+            }
+        },
+        {
+            animationDelay: {
+                time: {
+                    negative: false,
+                    min: 0,
+                    max: 5000,
+                    step: 100,
+                    presets: [0, 150, 300, 500, 1000],
+                }
+            }
+        },
+
+        // animation-iteration-count: 通常 1-10 或 infinite
+        {
+            animationIterationCount: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 10,
+                    step: 1,
+                    presets: [1, 2, 3],
+                }
+            }
+        },
+
+        // aspect-ratio: 常见比例
+        {
+            aspectRatio: {
+                unitless: {
+                    negative: false,
+                    min: 0,
+                    max: 3,
+                    step: 0.1,
+                    presets: [1, 1.333, 1.5, 1.778, 2],  // 1:1, 4:3, 3:2, 16:9, 2:1
+                }
+            }
+        },
+
+        // grid-column/row-start/end: 通常 1-12
+        {
+            gridColumnStart: {
+                unitless: {
+                    negative: false,
+                    min: 1,
+                    max: 13,
+                    step: 1,
+                }
+            }
+        },
+        {
+            gridColumnEnd: {
+                unitless: {
+                    negative: false,
+                    min: 1,
+                    max: 13,
+                    step: 1,
+                }
+            }
+        },
+        {
+            gridRowStart: {
+                unitless: {
+                    negative: false,
+                    min: 1,
+                    max: 13,
+                    step: 1,
+                }
+            }
+        },
+        {
+            gridRowEnd: {
+                unitless: {
+                    negative: false,
+                    min: 1,
+                    max: 13,
+                    step: 1,
+                }
+            }
+        },
+    ],
 };

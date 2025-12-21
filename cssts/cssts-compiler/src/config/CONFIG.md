@@ -36,13 +36,36 @@ progressiveRanges: [
 
 ## 配置字段
 
-### 属性配置 (properties / excludeProperties)
+### 属性列表 (properties / excludeProperties)
 
-配置 CSS 属性及其支持的数值类型、颜色类型、关键字。
+简单的属性名列表，控制启用/禁用哪些属性：
 
 ```typescript
+// 启用的属性
 properties: [
-  'width',  // 字符串形式，使用默认配置
+  'width',
+  'height', 
+  'padding',
+  'margin',
+  'display',
+  'flex',
+  // ...
+],
+
+// 排除的属性
+excludeProperties: [
+  'azimuth',
+  'voiceFamily',
+  // ...
+]
+```
+
+### 属性详细配置 (propertiesInfo / excludePropertiesInfo)
+
+配置 CSS 属性的详细信息：keywords、numberTypes、colorTypes 等。
+
+```typescript
+propertiesInfo: [
   {
     width: {
       keywords: ['auto', 'fit-content'],
@@ -53,9 +76,16 @@ properties: [
         percentage: ['vw', 'vh']
       }
     }
+  },
+  {
+    opacity: {
+      number: { min: 0, max: 1, step: 0.1 }
+    }
   }
 ]
 ```
+
+**注意**：`propertiesInfo` 只需要配置需要自定义的属性，未配置的属性使用默认值。
 
 ### 数值类型配置 (numberTypes / excludeNumberTypes)
 
@@ -193,12 +223,15 @@ customProperties: {
 排除配置（`exclude*`）不支持步长设置，只能指定要排除的项目：
 
 ```typescript
-// ✅ 正确
+// ✅ 正确 - 简单列表
 excludeProperties: ['margin', 'padding']
+
+// ✅ 正确 - 详细排除配置
+excludePropertiesInfo: [{ width: { numberTypes: ['percentage'] } }]
 excludeNumberTypes: [{ length: ['pixel'] }]
 
 // ❌ 错误 - 排除配置不支持步长
-excludeProperties: [{ width: { length: { min: 100 } } }]
+excludePropertiesInfo: [{ width: { length: { min: 100 } } }]
 ```
 
 ## 命名规范

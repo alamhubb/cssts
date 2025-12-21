@@ -1,19 +1,4 @@
 {
-  "numberTypes": {
-    "length": ["pixel", "fontRelative", "physical", "percentage"],
-    "angle": ["angle"],
-    "time": ["time"],
-    "frequency": ["frequency"],
-    "percentage": ["percentage"],
-    "number": ["unitless"],
-    "integer": ["unitless"],
-    "resolution": ["resolution"],
-    "flex": ["flex"],
-    "ratio": ["unitless"],
-    "decibel": ["unitless"],
-    "semitones": ["unitless"]
-  },
-
   "categories": {
     "percentage": ["%", "vw", "vh", "vmin", "vmax", "svw", "svh", "lvw", "lvh", "dvw", "dvh", "vi", "vb"],
     "pixel": ["px"],
