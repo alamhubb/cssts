@@ -14,17 +14,34 @@ Property → NumberCategory → NumberUnit
 
 ```typescript
 interface CssStepConfig {
-  step?: number | CssProgressiveRange[];  // 步长或渐进步长
-  min?: number;                            // 最小值
-  max?: number;                            // 最大值
-  negative?: boolean;                      // 是否支持负值
-  presets?: number[];                      // 预设值
+  step?: number | number[] | CssProgressiveRange[];  // 步长配置
+  min?: number;                                       // 最小值
+  max?: number;                                       // 最大值
+  negative?: boolean;                                 // 是否支持负值
+  presets?: number[];                                 // 预设值
 }
+```
+
+### step 支持三种格式
+
+```typescript
+// 1. 单一步长
+step: 1
+
+// 2. 多个步长值（生成能被这些值整除的数）
+step: [1, 5, 10]  // 生成 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, ...
+
+// 3. 渐进步长范围（不同范围使用不同步长）
+step: [
+  { max: 10, divisors: [1] },        // 0-10: 步长 1
+  { max: 100, divisors: [5, 10] },   // 10-100: 步长 5, 10
+  { max: 1000, divisors: [50, 100] } // 100-1000: 步长 50, 100
+]
 ```
 
 ### 渐进步长范围 (progressiveRanges)
 
-根据数值范围使用不同的步长：
+全局渐进步长配置，根据数值范围使用不同的步长：
 
 ```typescript
 progressiveRanges: [

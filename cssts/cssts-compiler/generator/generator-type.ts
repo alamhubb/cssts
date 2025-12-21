@@ -60,7 +60,13 @@ export interface CssProgressiveRange {
 
 // 步长配置
 export interface CssStepConfig {
-  step?: number | CssProgressiveRange[];
+  /** 
+   * 步长配置
+   * - number: 单一步长值，如 step: 1
+   * - number[]: 多个步长值，如 step: [1, 5, 10]
+   * - CssProgressiveRange[]: 渐进步长范围
+   */
+  step?: number | number[] | CssProgressiveRange[];
   min?: number;
   max?: number;
   negative?: boolean;

@@ -426,8 +426,7 @@ export const csstsDefaultConfig: CsstsConfig = {
                     negative: true,
                     min: -10,
                     max: 20,
-                    step: 1,
-                    presets: [0, 2, 4, 8],
+                    step: 1
                 }
             }
         },
@@ -439,8 +438,7 @@ export const csstsDefaultConfig: CsstsConfig = {
                     negative: false,
                     min: 0,
                     max: 2,
-                    step: 0.05,
-                    presets: [0, 0.5, 0.75, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 1.5, 2],
+                    step: 0.1
                 }
             }
         },
@@ -452,67 +450,7 @@ export const csstsDefaultConfig: CsstsConfig = {
                     negative: true,
                     min: -360,
                     max: 360,
-                    step: 1,
-                    presets: [0, 1, 2, 3, 6, 12, 45, 90, 180],
-                }
-            }
-        },
-
-        // transition/animation duration: 时间
-        {
-            transitionDuration: {
-                time: {
-                    negative: false,
-                    min: 0,
-                    max: 2000,
-                    step: 50,
-                    presets: [0, 75, 100, 150, 200, 300, 500, 700, 1000],
-                }
-            }
-        },
-        {
-            transitionDelay: {
-                time: {
-                    negative: false,
-                    min: 0,
-                    max: 2000,
-                    step: 50,
-                    presets: [0, 75, 100, 150, 200, 300, 500],
-                }
-            }
-        },
-        {
-            animationDuration: {
-                time: {
-                    negative: false,
-                    min: 0,
-                    max: 5000,
-                    step: 100,
-                    presets: [0, 150, 300, 500, 700, 1000, 2000],
-                }
-            }
-        },
-        {
-            animationDelay: {
-                time: {
-                    negative: false,
-                    min: 0,
-                    max: 5000,
-                    step: 100,
-                    presets: [0, 150, 300, 500, 1000],
-                }
-            }
-        },
-
-        // animation-iteration-count: 通常 1-10 或 infinite
-        {
-            animationIterationCount: {
-                unitless: {
-                    negative: false,
-                    min: 0,
-                    max: 10,
-                    step: 1,
-                    presets: [1, 2, 3],
+                    step: [10, 15]
                 }
             }
         },
@@ -525,7 +463,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                     min: 0,
                     max: 3,
                     step: 0.1,
-                    presets: [1, 1.333, 1.5, 1.778, 2],  // 1:1, 4:3, 3:2, 16:9, 2:1
                 }
             }
         },
