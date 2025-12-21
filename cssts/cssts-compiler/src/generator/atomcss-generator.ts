@@ -8,7 +8,7 @@
 
 import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
 import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
-import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
+import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES, ALL_UNITS } from '../data/cssNumberData';
 import { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
@@ -17,6 +17,17 @@ import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssProp
 
 // 所有 CSS 属性名列表
 const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyName[];
+
+// 构建 unit → category 的反向映射
+const UNIT_TO_CATEGORY_MAP: Record<string, string> = {};
+for (const [category, units] of Object.entries(CATEGORY_UNITS_MAP)) {
+  for (const unit of units) {
+    UNIT_TO_CATEGORY_MAP[unit] = category;
+  }
+}
+
+// 所有单位名称集合（用于快速判断）
+const ALL_UNITS_SET = new Set(ALL_UNITS);
 
 // ==================== 类型定义 ====================
 
@@ -107,25 +118,48 @@ function findConfigInArray<T extends Record<string, any>>(
   return undefined;
 }
 
+/** 从属性配置中查找 category 或 unit 级别的配置 */
+function findCategoryOrUnitConfig(
+  propertyConfig: any,
+  categoryName: string
+): CssStepConfig | undefined {
+  if (!propertyConfig) return undefined;
+  
+  // 1. 先查找该 category 下的 unit 名称（unit 优先级更高）
+  const categoryUnits = CATEGORY_UNITS_MAP[categoryName as keyof typeof CATEGORY_UNITS_MAP];
+  if (categoryUnits) {
+    for (const unit of categoryUnits) {
+      if (unit in propertyConfig) {
+        return propertyConfig[unit];
+      }
+    }
+  }
+  
+  // 2. 再查找 category 名称
+  if (categoryName in propertyConfig) {
+    return propertyConfig[categoryName];
+  }
+  
+  return undefined;
+}
+
 /** 获取属性的 category 配置 */
 function getPropertyCategoryConfig(
   config: CsstsConfig,
   propertyName: string,
   categoryName: string
 ): CssStepConfig | undefined {
-  // 1. 先查找属性级别的配置
+  // 1. 先查找属性级别的配置（支持 category 或 unit 名称）
   const propertyConfig = findConfigInArray(config.propertiesConfig, propertyName);
-  if (propertyConfig && categoryName in propertyConfig) {
-    return propertyConfig[categoryName];
-  }
+  const propResult = findCategoryOrUnitConfig(propertyConfig, categoryName);
+  if (propResult) return propResult;
   
   // 2. 查找父属性的配置（属性继承）
   const parentProperty = PROPERTY_PARENT_MAP[propertyName];
   if (parentProperty) {
     const parentConfig = findConfigInArray(config.propertiesConfig, parentProperty);
-    if (parentConfig && categoryName in parentConfig) {
-      return parentConfig[categoryName];
-    }
+    const parentResult = findCategoryOrUnitConfig(parentConfig, categoryName);
+    if (parentResult) return parentResult;
   }
   
   // 3. 再查找全局 category 配置
