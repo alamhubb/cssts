@@ -1,5 +1,5 @@
-import type {CsstsConfig} from "../types/csstsConfig";
-import {CssPropertyName} from "../types/cssPropertyConfig";
+import type {CsstsConfig} from "./types/csstsConfig";
+import {CssPropertyName} from "./types/cssPropertyConfig";
 import {PROPERTY_CATEGORIES_MAP} from "../data/cssPropertyNumber.ts";
 
 const atomicCssProperties: CssPropertyName[] = [

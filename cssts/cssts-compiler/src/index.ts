@@ -29,117 +29,72 @@ export {
   generateAtomCssRule,
 } from './utils/cssClassName.js'
 
-// ==================== 主配置系统 ====================
-export {
-  // 主配置类和默认实例
-  CsstsConfig,
-  csstsDefaultConfig,
-} from './cssts-config.js'
+// ==================== 配置 ====================
+export { csstsDefaultConfig } from './config/CsstsDefaultConfig.ts'
 
 // ==================== 配置工具函数 ====================
 export {
-  // 配置工具函数
   shouldInclude,
   getEffectiveList,
   normalizeUnitsConfig,
   normalizeUnitCategoriesConfig,
 } from './utils/config-utils.js'
 
-// ==================== 配置工厂函数 ====================
-export {
-  createCsstsConfig,
-} from './factory/config-factory.js'
-
-// ==================== 生成器 ====================
+// ==================== DTS 生成器 ====================
 export {
   generateAtoms,
   generateDts,
   generateStats,
+  generateAtomsByProperty,
+  generatePropertyDts,
+  generateIndexDts,
   type AtomDefinition,
+  type AtomsByProperty,
   type GeneratorOptions,
-} from './generator/atomcss-generator.ts'
-
-// ==================== 配置数据 ====================
-export {
-  CssPropertyConfigMap,
-  cssPropertyNameMap,
-  type CssPropertyCamelName,
-  type CssPropertyKebabName,
-} from './config/property-config.js'
+} from './dts/atom-generator.ts'
 
 export {
-  PSEUDO_CLASSES,
-  PSEUDO_ELEMENTS,
-  COMMON_PSEUDO_CLASSES,
-  COMMON_PSEUDO_ELEMENTS,
-  type PseudoClassName,
-  type PseudoElementName,
-} from './config/pseudo.js'
+  generateDtsFiles,
+  type DtsGenerateOptions,
+  type DtsGenerateResult,
+} from './dts/dts-writer.ts'
 
-export {
-  CORE_PROPERTIES,
-  LAYOUT_PROPERTIES,
-  FLEXBOX_PROPERTIES,
-  GRID_PROPERTIES,
-  SIZING_PROPERTIES,
-  SPACING_PROPERTIES,
-  BACKGROUND_PROPERTIES,
-  TEXT_PROPERTIES,
-  BORDER_PROPERTIES,
-  SHADOW_PROPERTIES,
-  TRANSFORM_PROPERTIES,
-  TRANSITION_PROPERTIES,
-  OTHER_PROPERTIES,
-  CORE_PROPERTIES_STATS,
-  EXPECTED_ATOMS_COUNT,
-} from './custom/core-properties.ts'
-
+// ==================== 类型导出 ====================
 export type {
-  UnitType,
-  NumberTypeName,
-  UnitCategoryName,
-} from './config/units.js'
-
-export type {
-  // 从 csstsConfig.d.ts 导出配置类型
-  ProgressiveRange,
-  CsstsStepConfig,
-  CssUnitConfigMap,
-  CssUnitConfigItem,
-  CssUnitConfig,
-  CssCategoryValueConfig,
-  CssCategoryConfigMap,
-  CssCategoryConfigItem,
-  CssCategoryConfig,
-  CssNumberTypeValueConfig,
-  CssNumberTypeConfigMap,
-  CssNumberTypeConfigItem,
-  CssNumberTypeConfig,
-  CssUnitExcludeItem,
-  CssUnitExcludeMap,
-  CssCategoryExcludeValueConfig,
-  CssCategoryExcludeMap,
-  CssCategoryExcludeItem,
-  CssCategoryExcludeConfig,
-  CssNumberTypeExcludeValueConfig,
-  CssNumberTypeExcludeMap,
-  CssNumberTypeExcludeItem,
-  CssNumberTypeExcludeConfig,
-  CssPropertyExcludeValueConfig,
-  CssPropertyExcludeMap,
-  CssPropertyExcludeItem,
-  CssPropertyExcludeConfig,
-  CustomPropertyValue,
-  CssPropertyBaseConfig,
-  CssPropertyValueConfig,
-  CssPropertyConfigMap,
-  CssPropertyConfigItem,
-  CssPropertyConfig,
-  CsstsConfig as CsstsConfigType,
+  CsstsConfig,
   CsstsConfigRequired,
-} from './types/csstsConfig.js'
-export type { KeywordValue } from './config/keywords.js'
-export type { AllColorValue, SystemColorValue } from './config/colors.js'
+} from './config/types/csstsConfig'
+
+export type {
+  CssProgressiveRange,
+  CssStepConfig,
+  CssCustomPropertyValue,
+  CssNumberUnitName,
+  CssNumberUnitConfig,
+  CssNumberCategoryName,
+  CssNumberCategoryConfig,
+  CssKeywordName,
+  CssColorTypeName,
+  CssColorTypeConfig,
+  CssColorName,
+  CssPropertyName,
+  CssPropertyConfig,
+  CssPseudoClassName,
+  CssPseudoElementName,
+  CssPseudoClassConfig,
+  CssPseudoElementConfig,
+} from './config/types/cssPropertyConfig'
+
+// ==================== 数据导出 ====================
+export { CSS_PROPERTY_NAME_MAP } from './data/cssPropertyNameMapping'
+export { KEYWORD_NAME_MAP, CSS_GLOBAL_KEYWORDS } from './data/cssKeywordsData'
+export { COLOR_NAME_MAP, COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from './data/cssColorData'
+export { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from './data/cssPseudoData'
+export { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from './data/cssNumberData'
+export { PROPERTY_CATEGORIES_MAP } from './data/cssPropertyNumber'
+export { PROPERTY_KEYWORDS_MAP } from './data/cssPropertyKeywords'
+export { PROPERTY_COLOR_TYPES_MAP } from './data/cssPropertyColorTypes'
+export { PROPERTY_PARENT_MAP } from './data/cssPropertyInheritance'
 
 // ==================== 工具函数 ====================
 export {
@@ -149,4 +104,4 @@ export {
   getUnitsFromCategories,
   getPropertyCategories,
   getPropertyUnits,
-} from './css-utils.js'
+} from './utils/unitCategory.js'

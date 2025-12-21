@@ -3,7 +3,7 @@
  *
  * 数据来源：src/data/ 目录下的数据文件
  *
- * 生成文件（src/types/）：
+ * 生成文件（src/config/types/）：
  * - cssPropertyConfig.d.ts: 所有 CSS 配置类型（泛型版本）
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
@@ -22,7 +22,7 @@ import { ALL_COLOR_TYPES, COLOR_NAME_MAP } from '../src/data/cssColorData';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const typesDir = path.join(__dirname, '../src/types');
+const typesDir = path.join(__dirname, '../src/config/types');
 
 // 确保输出目录存在
 if (!fs.existsSync(typesDir)) {
@@ -41,14 +41,14 @@ function generateCssPropertyConfigType(): string {
  * 命名规范：Css + [Property|NumberCategory|NumberUnit|Keyword|Color|PseudoClass|PseudoElement] + [Name|Value|Config|Item]
  */
 
-import type { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
-import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../data/cssNumberData';
-import type { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
-import type { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
-import type { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
-import type { KEYWORD_NAME_MAP } from '../data/cssKeywordsData';
-import type { ALL_COLOR_TYPES, COLOR_TYPE_COLORS_MAP, COLOR_NAME_MAP } from '../data/cssColorData';
-import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../data/cssPseudoData';
+import type { CSS_PROPERTY_NAME_MAP } from '../../data/cssPropertyNameMapping';
+import type { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from '../../data/cssNumberData';
+import type { PROPERTY_CATEGORIES_MAP } from '../../data/cssPropertyNumber';
+import type { PROPERTY_COLOR_TYPES_MAP } from '../../data/cssPropertyColorTypes';
+import type { PROPERTY_KEYWORDS_MAP } from '../../data/cssPropertyKeywords';
+import type { KEYWORD_NAME_MAP } from '../../data/cssKeywordsData';
+import type { ALL_COLOR_TYPES, COLOR_TYPE_COLORS_MAP, COLOR_NAME_MAP } from '../../data/cssColorData';
+import type { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from '../../data/cssPseudoData';
 
 // ==================== 基础配置类型 ====================
 
@@ -411,10 +411,10 @@ function main() {
 
   // 配置类型文件
   fs.writeFileSync(path.join(typesDir, 'cssPropertyConfig.d.ts'), generateCssPropertyConfigType());
-  console.log('✅ src/types/cssPropertyConfig.d.ts');
+  console.log('✅ src/config/types/cssPropertyConfig.d.ts');
 
   fs.writeFileSync(path.join(typesDir, 'csstsConfig.d.ts'), generateCsstsConfigType());
-  console.log('✅ src/types/csstsConfig.d.ts');
+  console.log('✅ src/config/types/csstsConfig.d.ts');
 
   // 统计
   const propertyCount = Object.keys(CSS_PROPERTY_NAME_MAP).length;

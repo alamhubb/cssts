@@ -29,17 +29,29 @@ const btn$hover$active = css { cursorPointer }
 
 ```
 cssts-compiler/
-├── generator/       # 数据和类型生成脚本
+├── generator/           # 数据和类型生成脚本（开发时使用）
+│   ├── datajson/        # 原始数据文件（JSON）
+│   ├── generator-data.ts    # 生成 src/data/
+│   └── generator-type.ts    # 生成 src/config/types/
 ├── src/
-│   ├── config/      # 配置系统
-│   ├── data/        # 生成的数据文件
-│   ├── factory/     # AST 转换器
-│   ├── generator/   # DTS 生成器
-│   ├── parser/      # 解析器
-│   ├── transform/   # 核心转换功能
-│   ├── types/       # 类型定义
-│   └── utils/       # 工具函数
-└── types/           # 生成的 .d.ts 文件输出目录
+│   ├── config/          # 配置系统
+│   │   ├── types/       # 配置类型定义（自动生成）
+│   │   └── CsstsDefaultConfig.ts
+│   ├── data/            # 生成的数据文件
+│   ├── dts/             # DTS 生成器（运行时使用）
+│   │   ├── atom-generator.ts  # 原子类生成核心逻辑
+│   │   ├── dts-writer.ts      # DTS 文件写入
+│   │   └── dts-cli.ts         # CLI 入口
+│   ├── factory/         # AST 转换器
+│   ├── parser/          # 解析器
+│   ├── transform/       # 核心转换功能（CSS 生成）
+│   └── utils/           # 工具函数
+│       ├── cssClassName.ts  # CSS 类名生成
+│       ├── cssUtils.ts      # CSS 样式收集
+│       ├── config-utils.ts  # 配置工具
+│       └── unitCategory.ts  # 单位分类查询
+├── target/              # 生成的 .d.ts 文件输出目录
+└── tests/               # 测试文件
 ```
 
 ---

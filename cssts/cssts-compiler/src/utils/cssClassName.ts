@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, type AtomDefinition } from "../generator/atomcss-generator.ts"
+import { generateAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）

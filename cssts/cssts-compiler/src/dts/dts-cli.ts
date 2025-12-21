@@ -1,12 +1,12 @@
 /**
  * DTS 生成脚本入口
  * 
- * 运行: npx tsx src/generator/dts-generate-cli.ts
+ * 运行: npx tsx src/dts/dts-cli.ts
  */
 
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { generateDtsFiles } from './dts-generate.ts';
+import { generateDtsFiles } from './dts-writer.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
