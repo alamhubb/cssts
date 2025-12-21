@@ -1,5 +1,6 @@
 import type {CsstsConfig} from "../types/csstsConfig";
 import {CssPropertyName} from "../types/cssPropertyConfig";
+import {PROPERTY_CATEGORIES_MAP} from "../data/cssPropertyNumber.ts";
 
 const atomicCssProperties: CssPropertyName[] = [
     // ==================== 布局 (Layout) ====================
@@ -7,10 +8,8 @@ const atomicCssProperties: CssPropertyName[] = [
     'visibility',
     'position',
     'zIndex',
-    'isolation',
 
     // 坐标 (Coordinates)
-    'inset', // [加回] 同时设四个方向
     'top',
     'right',
     'bottom',
@@ -35,26 +34,13 @@ const atomicCssProperties: CssPropertyName[] = [
     'rowGap',
     'columnGap',
 
-    // Grid 结构
-    'gridTemplateColumns',
-    'gridTemplateRows',
-    'gridAutoFlow',
-    'gridAutoColumns',
-    'gridAutoRows',
-
     // 子元素
-    'order',
+    'flex',
     'flexGrow',
     'flexShrink',
     'flexBasis',
     'alignSelf',
     'justifySelf',
-
-    // Grid 位置
-    'gridColumnStart',
-    'gridColumnEnd',
-    'gridRowStart',
-    'gridRowEnd',
 
     // ==================== 尺寸 (Sizing) ====================
     'width',
@@ -82,48 +68,21 @@ const atomicCssProperties: CssPropertyName[] = [
     'paddingLeft',
 
     // ==================== 排版 (Typography) ====================
-    'fontFamily',
     'fontSize',
     'fontWeight',
-    'fontStyle',
 
     'lineHeight',
-    'letterSpacing',
-    'wordSpacing',
-    'textAlign',
     'color',
-    'textIndent',
-    'textTransform',
-    'verticalAlign',
-    'whiteSpace',
-    'wordBreak',
-    'overflowWrap',
-    'caretColor',
-
-    // 装饰
-    'textDecorationLine',
-    'textDecorationStyle',
-    'textDecorationColor',
-    'textDecorationThickness',
-    'textUnderlineOffset',
 
     // ==================== 背景 (Background) ====================
     // 注意：background 依旧建议剔除，因为它不是“单值”的逻辑，它太复杂
     'backgroundColor',
-    'backgroundImage',
-    'backgroundPositionX',
-    'backgroundPositionY',
     'backgroundSize',
     'backgroundRepeat',
-    'backgroundAttachment',
-    'backgroundClip',
-    'backgroundOrigin',
-    'backgroundBlendMode',
 
     // ==================== 边框 (Border) ====================
     // 统一设置 (四个方向) [全部加回]
     'borderWidth',
-    'borderStyle',
     'borderColor',
     'borderRadius',
 
@@ -132,11 +91,6 @@ const atomicCssProperties: CssPropertyName[] = [
     'borderRightWidth',
     'borderBottomWidth',
     'borderLeftWidth',
-
-    'borderTopStyle',
-    'borderRightStyle',
-    'borderBottomStyle',
-    'borderLeftStyle',
 
     'borderTopColor',
     'borderRightColor',
@@ -148,55 +102,19 @@ const atomicCssProperties: CssPropertyName[] = [
     'borderBottomRightRadius',
     'borderBottomLeftRadius',
 
-    // 轮廓 (Outline)
-    'outlineWidth', // outline 是个特例，通常这几个分开支持更好，或者仅支持 outline-width/color
-    'outlineStyle',
-    'outlineColor',
-    'outlineOffset',
-
     // ==================== 视觉效果 (Effects) ====================
     'opacity',
     'boxShadow',
-    'mixBlendMode',
-    'filter',
-    'backdropFilter',
-
-    // ==================== 变换 (Transforms) ====================
-    'scale',
-    'rotate',
-    'translate',
-    'perspective',
-    'transformOrigin',
-
-    // ==================== 过渡 (Transition) ====================
-    'transitionProperty',
-    'transitionDuration',
-    'transitionTimingFunction',
-    'transitionDelay',
-
-    // ==================== 动画 (Animation) ====================
-    'animationName',
-    'animationDuration',
-    'animationTimingFunction',
-    'animationDelay',
-    'animationIterationCount',
-    'animationDirection',
-    'animationFillMode',
-    'animationPlayState',
 
     // ==================== 交互与其他 (Misc) ====================
     'cursor',
     'userSelect',
-    'pointerEvents',
     'resize',
-    'objectFit',
-    'objectPosition',
-    'willChange',
-    'appearance',
-    'scrollBehavior',
-    'touchAction',
-    'clipPath'
 ];
+
+
+
+console.log(Object.keys(PROPERTY_CATEGORIES_MAP).length)
 
 // ==================== 系统级别默认配置 ====================
 
