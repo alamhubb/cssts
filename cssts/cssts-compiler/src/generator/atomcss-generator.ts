@@ -487,3 +487,77 @@ export function generateStats(options?: GeneratorOptions): {
     byCategory,
   };
 }
+
+/** 按属性分组的原子类 */
+export interface AtomsByProperty {
+  [propertyName: string]: AtomDefinition[];
+}
+
+/** 生成按属性分组的原子类 */
+export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProperty {
+  const config = mergeConfig(options?.config);
+  const effectiveProperties = getEffectiveProperties(config);
+  const effectiveCategories = getEffectiveCategories(config);
+  
+  const result: AtomsByProperty = {};
+  
+  for (const property of effectiveProperties) {
+    const atoms = generateAtomsForProperty(property, config, effectiveCategories);
+    if (atoms.length > 0) {
+      result[property] = atoms;
+    }
+  }
+  
+  return result;
+}
+
+/** 生成单个属性的 DTS 内容 */
+export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[]): string {
+  const lines: string[] = [
+    '/**',
+    ` * ${propertyName} 原子类类型定义（自动生成）`,
+    ' */',
+    '',
+    `export interface ${propertyName.charAt(0).toUpperCase() + propertyName.slice(1)}Atoms {`,
+  ];
+  
+  for (const atom of atoms) {
+    lines.push(`  ${atom.name}: '${atom.value}';`);
+  }
+  
+  lines.push('}', '');
+  
+  return lines.join('\n');
+}
+
+/** 生成聚合索引文件内容 */
+export function generateIndexDts(propertyNames: string[]): string {
+  const lines: string[] = [
+    '/**',
+    ' * CSSTS 原子类类型定义索引（自动生成）',
+    ' */',
+    '',
+  ];
+  
+  // 导入所有属性类型
+  for (const prop of propertyNames) {
+    const typeName = prop.charAt(0).toUpperCase() + prop.slice(1) + 'Atoms';
+    lines.push(`export { ${typeName} } from './${prop}';`);
+  }
+  
+  lines.push('');
+  
+  // 生成聚合类型
+  lines.push('/** 所有原子类类型 */');
+  lines.push('export interface CsstsAtoms extends');
+  
+  const typeNames = propertyNames.map(p => p.charAt(0).toUpperCase() + p.slice(1) + 'Atoms');
+  for (let i = 0; i < typeNames.length; i++) {
+    const isLast = i === typeNames.length - 1;
+    lines.push(`  ${typeNames[i]}${isLast ? ' {}' : ','}`);
+  }
+  
+  lines.push('');
+  
+  return lines.join('\n');
+}
