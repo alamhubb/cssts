@@ -2,28 +2,6 @@
 
 > CssTs 编译器 - 解析、转换、生成
 
-## 📚 文档导航
-
-- **[配置系统](./CONFIG.md)** - 详细的配置指南和最佳实践
-- **[核心 API](#核心-api)** - 编译器 API 文档
-- **[类型定义生成](#类型定义生成)** - 生成 `.d.ts` 文件
-
-## ⚠️ 重要：伪类分隔符是双美元符号
-
-使用两个美元符号标记伪类（不是单个美元符号）：
-
-```typescript
-// ✅ 正确：使用两个美元符号
-const btn$$hover$$active = css { cursorPointer }
-
-// ❌ 错误：使用单个美元符号（伪类不会生效！）
-const btn$hover$active = css { cursorPointer }
-```
-
-分隔符配置来自 `cssts-runtime`：`CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'`
-
----
-
 ## 核心职责
 
 `cssts-compiler` 负责所有**编译时**的工作：
@@ -33,53 +11,38 @@ const btn$hover$active = css { cursorPointer }
 3. **CSS 生成** - 根据使用的样式生成 CSS
 4. **类型生成** - 生成 `.d.ts` 类型定义文件
 
+## ⚠️ 重要：伪类分隔符是双美元符号
+
+```typescript
+// ✅ 正确：使用双美元符号 $
+const btn$$hover$$active = css { cursorPointer }
+
+// ❌ 错误：使用单美元符号（伪类不会生效！）
+const btn$hover$active = css { cursorPointer }
+```
+
+分隔符配置来自 `cssts-runtime`：`CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'`
+
+---
+
 ## 模块结构
 
 ```
 cssts-compiler/
-├── parser/          # 解析器（CssTsParser）
-├── factory/         # AST 转换器（CssTsCstToAst）
-├── transform/       # 核心转换功能（transformCssTs）
-├── generator/       # 类型定义生成器
-├── utils/           # 工具函数（getCssClassName 等）
+├── generator/       # 数据和类型生成脚本
+├── src/
+│   ├── config/      # 配置系统
+│   ├── data/        # 生成的数据文件
+│   ├── factory/     # AST 转换器
+│   ├── generator/   # DTS 生成器
+│   ├── parser/      # 解析器
+│   ├── transform/   # 核心转换功能
+│   ├── types/       # 类型定义
+│   └── utils/       # 工具函数
 └── types/           # 生成的 .d.ts 文件输出目录
 ```
 
-## 分隔符配置
-
-从 `cssts` 导入统一的分隔符配置：
-
-```typescript
-import { CSSTS_CONFIG } from 'cssts'
-
-CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$'  - 伪类分隔符（双美元符号）
-```
-
-> **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
-
-## 核心设计：统一的样式存储
-
-使用单一的 `Set<string>` 存储所有样式名，按需解析：
-
-```typescript
-// 存储
-const styles = new Set<string>()
-styles.add('displayFlex')                    // 普通原子类
-styles.add('clickable$$hover$$active')       // 带伪类的样式（双美元符号）
-
-// 解析
-parseStyleName('displayFlex')
-// { baseName: 'displayFlex', pseudos: [] }
-
-parseStyleName('clickable$$hover$$active')
-// { baseName: 'clickable', pseudos: ['hover', 'active'] }
-```
-
-**优点**：
-- 数据结构简单（只有一个 `Set<string>`）
-- 不存储冗余数据
-- 按需解析，更灵活
+---
 
 ## 核心 API
 
@@ -88,17 +51,10 @@ parseStyleName('clickable$$hover$$active')
 ```typescript
 import { transformCssTs, type TransformContext } from 'cssts-compiler'
 
-// 创建上下文（多文件共享）
-const context: TransformContext = {
-  styles: new Set<string>()
-}
-
-// 转换 .cssts 文件
+const context: TransformContext = { styles: new Set<string>() }
 const result = transformCssTs(code, context)
 // result.code - 转换后的 JS 代码
 // result.hasStyles - 是否有样式
-
-// context.styles 会被自动填充（包括 $ 伪类样式）
 ```
 
 ### parseStyleName - 样式名解析
@@ -106,104 +62,258 @@ const result = transformCssTs(code, context)
 ```typescript
 import { parseStyleName } from 'cssts-compiler'
 
-// 普通原子类
 parseStyleName('displayFlex')
 // { baseName: 'displayFlex', pseudos: [] }
 
-// 带伪类的样式（双美元符号）
 parseStyleName('clickable$$hover$$active')
 // { baseName: 'clickable', pseudos: ['hover', 'active'] }
 ```
 
-### generateStylesCss - CSS 生成
+### generateAtoms - 原子类生成
 
 ```typescript
-import { generateStylesCss } from 'cssts-compiler'
+import { generateAtoms, generateDts, generateStats } from 'cssts-compiler'
 
-const css = generateStylesCss(
-  styles,       // Set<string>
-  pseudoUtils,  // 伪类配置（可选）
-  prefix        // 类名前缀（可选）
-)
-```
-
-### generateCsstsAtomModule - 虚拟模块生成
-
-```typescript
-import { generateCsstsAtomModule } from 'cssts-compiler'
-
-const moduleCode = generateCsstsAtomModule(
-  styles,  // Set<string>
-  prefix   // 类名前缀（可选）
-)
-```
-
-## 类型定义生成
-
-用于生成 `.d.ts` 文件（输出到 `cssts-compiler/types/`）：
-
-```typescript
-import { 
-  generateAtoms,
-  generateCsstsAtomsDts,
-  generateGlobalDts,
-  generate
-} from 'cssts-compiler'
-
-// 根据配置生成所有原子类定义
 const atoms = generateAtoms()
-
-// 生成 CsstsAtoms.d.ts
-const atomsDts = generateCsstsAtomsDts(atoms)
-
-// 或者一次性生成所有文件
-await generate() // 输出到 cssts-compiler/types/
+const dtsContent = generateDts()
+const stats = generateStats()
 ```
 
-## 伪类语法
+---
 
-使用两个美元符号标记伪类：
+## 命名规范
 
-```typescript
-// 输入
-const clickable$$hover$$active = css { cursorPointer, displayFlex }
-
-// 解析
-parseStyleName('clickable$$hover$$active')
-// { baseName: 'clickable', pseudos: ['hover', 'active'] }
-```
-
-### 生成的 CSS
-
-```css
-/* 原子类（来自 css {}） */
-.cursor_pointer { cursor: pointer; }
-.display_flex { display: flex; }
-
-/* 伪类样式（来自配置） */
-.clickable:hover { opacity: 0.9; }
-.clickable:active { opacity: 0.6; }
-```
-
-## 类名生成规则
-
-### 最长前缀匹配
-
-```typescript
-getCssClassName('backgroundColorRed')
-// 匹配 "backgroundColor" → "background-color"
-// 值 "Red" → "red"
-// 结果: "background-color_red"
-```
-
-### 值转换规则
+| TS 变量名 | CSS 类名 | CSS 规则 |
+|-----------|----------|----------|
+| `displayFlex` | `display_flex` | `display: flex` |
+| `paddingTop16px` | `padding-top_16px` | `padding-top: 16px` |
+| `opacity0p9` | `opacity_0.9` | `opacity: 0.9` |
+| `width50pct` | `width_50%` | `width: 50%` |
+| `zIndexN1` | `z-index_-1` | `z-index: -1` |
 
 | 转义符 | 含义 | 示例 |
 |--------|------|------|
-| `p` | `.` 小数点 | `0p9` → `0.9` |
+| `N` | `-` 负数 | `N10` → `-10` |
+| `p` | `.` 小数点 | `0p5` → `0.5` |
 | `pct` | `%` 百分号 | `50pct` → `50%` |
 | `s` | `/` 斜杠 | `16s9` → `16/9` |
-| `N` | `-` 负数 | `N1` → `-1` |
+
+---
+
+## 配置系统
+
+### 配置层级
+
+```
+Property → NumberCategory → NumberUnit
+         → ColorType → Color
+         → Keyword
+```
+
+### 配置字段概览
+
+| 列表配置 | 详情配置 | 用途 |
+|----------|----------|------|
+| `properties` | `propertiesConfig` | CSS 属性 |
+| `excludeProperties` | - | 排除属性 |
+| `numberCategories` | `numberCategoriesConfig` | 数值类别 |
+| `excludeNumberCategories` | - | 排除类别 |
+| `numberUnits` | `numberUnitsConfig` | 数值单位 |
+| `excludeUnits` | - | 排除单位 |
+| `colorTypes` | `colorTypesConfig` | 颜色类型 |
+| `excludeColorTypes` | - | 排除颜色类型 |
+
+### 数值类别 (NumberCategory)
+
+| Category | Units |
+|----------|-------|
+| pixel | px |
+| fontRelative | em, rem, ch, ex, cap, ic, lh, rlh |
+| physical | cm, mm, in, pt, pc, Q |
+| percentage | %, vw, vh, vmin, vmax, svw, svh, lvw, lvh, dvw, dvh, vi, vb |
+| angle | deg, grad, rad, turn |
+| time | s, ms |
+| frequency | Hz, kHz |
+| resolution | dpi, dpcm, dppx, x |
+| flex | fr |
+| unitless | (无单位) |
+
+### 步长配置 (CssStepConfig)
+
+```typescript
+interface CssStepConfig {
+  step?: number | number[] | CssProgressiveRange[];
+  min?: number;
+  max?: number;
+  presets?: number[];
+}
+```
+
+step 支持三种格式：
+
+```typescript
+// 1. 单一步长
+step: 1
+
+// 2. 多个步长值
+step: [1, 5, 10]
+
+// 3. 渐进步长范围
+step: [
+  { max: 10, divisors: [1] },
+  { max: 100, divisors: [5, 10] },
+  { max: 1000, divisors: [50, 100] }
+]
+```
+
+### 配置示例
+
+```typescript
+import { CsstsConfig } from 'cssts-compiler'
+
+const config: CsstsConfig = {
+  // 属性列表
+  properties: ['width', 'height', 'margin', 'padding'],
+  excludeProperties: ['azimuth'],
+
+  // 属性详细配置
+  propertiesConfig: [
+    {
+      zIndex: {
+        unitless: { min: -1, max: 9999, presets: [-1, 999, 9999] }
+      }
+    },
+    {
+      opacity: {
+        unitless: { min: 0, max: 1, step: 0.1 }
+      }
+    }
+  ],
+
+  // 数值类别
+  numberCategories: ['pixel', 'fontRelative', 'percentage'],
+  excludeNumberCategories: ['physical', 'resolution'],
+
+  // 数值类别详细配置
+  numberCategoriesConfig: [
+    { pixel: { min: 0, max: 1000, step: 1 } },
+    { percentage: { min: 0, max: 100, step: 5 } }
+  ],
+
+  // 颜色
+  colorTypes: ['namedColor', 'systemColor'],
+  excludeColorTypes: ['deprecatedSystemColor'],
+
+  // 伪类
+  pseudoClasses: ['hover', 'focus', 'active'],
+  excludePseudoClasses: ['visited'],
+
+  // 渐进步长
+  progressiveRanges: [
+    { max: 10, divisors: [1] },
+    { max: 100, divisors: [5, 10] },
+    { max: 1000, divisors: [50, 100] }
+  ]
+}
+```
+
+### 配置优先级
+
+```
+属性级配置 (propertiesConfig) > 全局类别配置 (numberCategoriesConfig) > 默认值
+```
+
+属性列表优先级：
+1. 有 `properties` → 直接使用
+2. 没有 `properties`，有 `excludeProperties` → 所有属性 - 排除项
+3. 都没有 → 使用所有属性
+
+---
+
+## DTS 生成器
+
+### API
+
+```typescript
+import { generateAtoms, generateDts, generateStats } from 'cssts-compiler'
+
+// 生成原子类定义数组
+const atoms = generateAtoms({ config: userConfig })
+
+// 生成 DTS 文件内容
+const dtsContent = generateDts({ config: userConfig })
+
+// 生成统计信息
+const stats = generateStats({ config: userConfig })
+console.log(`总原子类数: ${stats.totalAtoms}`)
+```
+
+### 0 的处理
+
+- 如果 `min <= 0 && max >= 0`，则包含 0
+- 否则不包含 0
+
+---
+
+## 生成脚本
+
+### generator-data.ts（阶段1：数据生成）
+
+从 csstree 提取 CSS 数据：
+
+```bash
+npx tsx generator/generator-data.ts
+```
+
+输出到 `src/data/`：
+- `cssColorData.ts` - 颜色数据
+- `cssKeywordsData.ts` - 关键词数据
+- `cssNumberData.ts` - 数值类型和单位数据
+- `cssPropertyColorTypes.ts` - 属性支持的颜色类型
+- `cssPropertyKeywords.ts` - 属性支持的关键词
+- `cssPropertyNameMapping.ts` - 属性名称映射
+- `cssPropertyNumber.ts` - 属性支持的数值类型
+- `cssPseudoData.ts` - 伪类/伪元素数据
+
+### generator-type.ts（阶段2：类型生成）
+
+从数据文件生成类型定义：
+
+```bash
+npx tsx generator/generator-type.ts
+```
+
+输出到 `src/types/`：
+- `cssPropertyConfig.d.ts` - 属性配置类型
+- `csstsConfig.d.ts` - CSSTS 配置类型
+
+### 执行顺序
+
+```bash
+# 1. 先生成数据文件
+npx tsx generator/generator-data.ts
+
+# 2. 再生成类型文件
+npx tsx generator/generator-type.ts
+```
+
+---
+
+## 核心属性列表
+
+基于 Tailwind CSS 设计理念的精简属性集合（41 个属性，约 1,092 个原子类）：
+
+```typescript
+import { CORE_PROPERTIES } from 'cssts-compiler'
+
+const config = {
+  properties: CORE_PROPERTIES
+}
+```
+
+包含：布局、Flexbox、Grid、尺寸、间距、背景、文本、边框、阴影、变换、过渡等常用属性。
+
+---
 
 ## License
 
