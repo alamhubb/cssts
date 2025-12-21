@@ -52,16 +52,12 @@ export {
 
 // ==================== 生成器 ====================
 export {
-  generateDtsAsync,
   generateAtoms,
-  generatePropertiesJson,
-  generateCsstsAtomsDts,
-  generateGlobalDts,
-  generateRuntimeDts,
-  generateIndexDts,
+  generateDts,
+  generateStats,
   type AtomDefinition,
   type GeneratorOptions,
-} from './generator-dts/index.js'
+} from './generator/atomcss-generator.ts'
 
 // ==================== 配置数据 ====================
 export {

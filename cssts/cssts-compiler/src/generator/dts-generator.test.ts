@@ -4,7 +4,7 @@
  * 运行方式：npx tsx src/generator/dts-generator.test.ts
  */
 
-import { generateAtoms, generateDts, generateStats } from './dts-generator';
+import { generateAtoms, generateDts, generateStats } from './atomcss-generator.ts';
 
 console.log('🧪 DTS Generator 测试\n');
 

@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, generatePropertiesJson } from "../generator-dts/index.js"
+import { generateAtoms, type AtomDefinition } from "../generator/atomcss-generator.ts"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）
@@ -13,6 +13,19 @@ export { CSSTS_CONFIG }
 // 从生成器获取 properties 映射（懒加载）
 let _properties: Record<string, string> | null = null
 let _sortedPropertyNames: string[] | null = null
+
+function generatePropertiesJson(atoms: AtomDefinition[]): Record<string, string> {
+  const properties = new Set<string>();
+  for (const atom of atoms) {
+    properties.add(atom.property);
+  }
+  const result: Record<string, string> = {};
+  for (const prop of [...properties].sort()) {
+    const camelName = prop.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+    result[camelName] = prop;
+  }
+  return result;
+}
 
 function getProperties(): Record<string, string> {
   if (!_properties) {

@@ -1,13 +1,13 @@
 /**
  * 生成 .d.ts 文件脚本
  * 
- * 运行: npx tsx src/generator/generate-dts.ts
+ * 运行: npx tsx src/generator/dts-generate.ts
  */
 
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import { generateDts, generateStats } from './dts-generator';
+import { generateDts, generateStats } from './atomcss-generator.ts';
 
 // ES module 兼容
 const __filename = fileURLToPath(import.meta.url);
