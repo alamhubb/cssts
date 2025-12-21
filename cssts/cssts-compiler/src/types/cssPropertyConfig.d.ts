@@ -114,16 +114,21 @@ type ColorTypeColors<CT extends CssColorTypeName> = typeof COLOR_TYPE_COLORS_MAP
 // 颜色名称（kebab-case key）
 export type CssColorName = keyof typeof COLOR_NAME_MAP;
 
-// 颜色类型值配置（泛型）- 允许配置任意颜色
-export type CssColorTypeValue<CT extends CssColorTypeName> = 
-  | CssColorName[];
+// 颜色类型值配置（泛型）- 只允许该类型下的颜色
+export type CssColorTypeValue<CT extends CssColorTypeName> = ColorTypeColors<CT>[];
 
-// 颜色类型配置 Map
-export type CssColorTypeConfig = {
-  [CT in CssColorTypeName]?: CssColorTypeValue<CT>;
-};
+// 严格的单个颜色类型配置（禁止其他颜色类型的属性）
+type StrictSingleColorTypeConfig<CT extends CssColorTypeName> = 
+  { [K in CT]: CssColorTypeValue<CT> } & { [K in Exclude<CssColorTypeName, CT>]?: never };
 
-// 颜色类型配置项
+// 颜色类型配置（联合类型，每次只能配置一个颜色类型）
+export type CssColorTypeConfig = 
+  | StrictSingleColorTypeConfig<'namedColor'>
+  | StrictSingleColorTypeConfig<'systemColor'>
+  | StrictSingleColorTypeConfig<'deprecatedSystemColor'>
+  | StrictSingleColorTypeConfig<'nonStandardColor'>;
+
+// 颜色类型配置项（字符串或严格约束的对象）
 export type CssColorTypeItem = CssColorTypeName | CssColorTypeConfig;
 
 // ==================== Property 类型 ====================
@@ -147,7 +152,7 @@ type PropertyColorTypes<P extends CssPropertyName> =
 type StrictCategoryConfig<T extends CssNumberCategoryName> = 
   { [K in T]?: CssNumberCategoryValue<K> } & { [K in Exclude<CssNumberCategoryName, T>]?: never };
 
-// 严格的 ColorType 配置（禁止额外属性）
+// 严格的 ColorType 配置（用于属性级别，禁止额外属性）
 type StrictColorTypeConfig<T extends CssColorTypeName> = 
   { [K in T]?: CssColorTypeValue<K> } & { [K in Exclude<CssColorTypeName, T>]?: never };
 

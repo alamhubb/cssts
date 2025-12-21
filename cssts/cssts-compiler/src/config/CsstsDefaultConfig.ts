@@ -130,6 +130,13 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
     ],
 
+    colorTypes: [{
+        namedColor: ['green']
+    }],
+
+    colors: ['red'],
+
+
     // 默认支持的属性列表
     properties: atomicCssProperties,
 
@@ -173,7 +180,7 @@ export const csstsDefaultConfig: CsstsConfig = {
             angle: {
                 min: -360,
                 max: 360,
-                step: [10,15]
+                step: [10, 15]
             },
         },
         {

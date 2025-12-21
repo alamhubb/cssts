@@ -12,6 +12,7 @@ import type {
   CssKeywordName,
   CssColorTypeName,
   CssColorTypeConfig,
+  CssColorTypeItem,
   CssColorName,
   CssPropertyName,
   CssPropertyConfig,
@@ -88,23 +89,18 @@ export interface CsstsConfig {
   excludeKeywords?: CssKeywordName[];
 
   /**
-   * 支持的颜色类型列表（类型名数组）
+   * 支持的颜色类型列表
+   * 可以是字符串（使用该类型所有颜色）或对象（指定颜色列表）
    * @example ['namedColor', 'systemColor']
+   * @example ['namedColor', { systemColor: ['Canvas', 'CanvasText'] }]
    */
-  colorTypes?: CssColorTypeName[];
+  colorTypes?: CssColorTypeItem[];
 
   /**
    * 排除的颜色类型列表（类型名数组）
    * @example ['deprecatedSystemColor', 'nonStandardColor']
    */
   excludeColorTypes?: CssColorTypeName[];
-
-  /**
-   * 颜色类型的详细配置
-   * 用于配置特定颜色类型包含哪些颜色
-   * @example [{ namedColor: ['red', 'blue', 'green'] }]
-   */
-  colorTypesConfig?: CssColorTypeConfig[];
 
   /** 颜色 */
   colors?: CssColorName[];

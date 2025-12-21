@@ -8,12 +8,14 @@
 
 import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
 import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
-import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES, ALL_UNITS } from '../data/cssNumberData';
+import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
 import { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
 import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
+import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
+import { COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from '../data/cssColorData';
 import type { CsstsConfig } from '../types/csstsConfig';
-import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName } from '../types/cssPropertyConfig';
+import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName } from '../types/cssPropertyConfig';
 
 // 所有 CSS 属性名列表
 const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyName[];
@@ -25,9 +27,6 @@ for (const [category, units] of Object.entries(CATEGORY_UNITS_MAP)) {
     UNIT_TO_CATEGORY_MAP[unit] = category;
   }
 }
-
-// 所有单位名称集合（用于快速判断）
-const ALL_UNITS_SET = new Set(ALL_UNITS);
 
 // ==================== 类型定义 ====================
 
@@ -101,6 +100,66 @@ function getEffectiveCategories(config: CsstsConfig): CssNumberCategoryName[] {
   const excludeCategories = config.excludeNumberCategories ?? [];
   
   return categories.filter(c => !excludeCategories.includes(c)) as CssNumberCategoryName[];
+}
+
+/** 获取有效的颜色列表 */
+function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly string[]): string[] {
+  // 1. 如果配置了 colors，直接使用
+  if (config.colors && config.colors.length > 0) {
+    const excludeColors = config.excludeColors ?? [];
+    return config.colors.filter(c => !excludeColors.includes(c));
+  }
+  
+  const colors = new Set<string>();
+  const excludeColorTypes = config.excludeColorTypes ?? [];
+  
+  // 2. 如果没有配置 colorTypes，使用所有颜色类型
+  if (!config.colorTypes || config.colorTypes.length === 0) {
+    for (const colorType of ALL_COLOR_TYPES) {
+      if (excludeColorTypes.includes(colorType)) continue;
+      if (!propertyColorTypes.includes(colorType)) continue;
+      
+      const typeColors = COLOR_TYPE_COLORS_MAP[colorType as keyof typeof COLOR_TYPE_COLORS_MAP];
+      if (typeColors) {
+        for (const color of typeColors) {
+          colors.add(color);
+        }
+      }
+    }
+  } else {
+    // 3. 根据 colorTypes 配置获取颜色（支持混合格式）
+    for (const item of config.colorTypes) {
+      if (typeof item === 'string') {
+        // 字符串格式：使用该类型的所有颜色
+        const colorType = item as CssColorTypeName;
+        if (excludeColorTypes.includes(colorType)) continue;
+        if (!propertyColorTypes.includes(colorType)) continue;
+        
+        const typeColors = COLOR_TYPE_COLORS_MAP[colorType as keyof typeof COLOR_TYPE_COLORS_MAP];
+        if (typeColors) {
+          for (const color of typeColors) {
+            colors.add(color);
+          }
+        }
+      } else {
+        // 对象格式：{ namedColor: ['red', 'green'] }
+        for (const [colorType, colorList] of Object.entries(item)) {
+          if (excludeColorTypes.includes(colorType as CssColorTypeName)) continue;
+          if (!propertyColorTypes.includes(colorType)) continue;
+          
+          if (Array.isArray(colorList)) {
+            for (const color of colorList) {
+              colors.add(color);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // 排除指定颜色
+  const excludeColors = config.excludeColors ?? [];
+  return Array.from(colors).filter(c => !excludeColors.includes(c as any));
 }
 
 /** 从配置数组中查找特定项的配置 */
@@ -323,6 +382,15 @@ function formatUnitForClassName(unit: string): string {
   return unit;
 }
 
+/** 格式化颜色名为类名部分 */
+function formatColorForClassName(color: string): string {
+  // kebab-case 转 PascalCase
+  return color
+    .split('-')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+}
+
 // ==================== 主生成函数 ====================
 
 /** 为单个属性生成原子类定义 */
@@ -335,81 +403,12 @@ function generateAtomsForProperty(
   const seenNames = new Set<string>();  // 用于去重（特别是 0 值）
   const kebabProperty = camelToKebab(propertyName);
   
-  // 获取属性支持的 categories
-  const propertyCategories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
-  if (!propertyCategories) return atoms;
-  
-  // 过滤出有效的 categories
-  const validCategories = propertyCategories.filter(c => 
-    effectiveCategories.includes(c as CssNumberCategoryName)
-  );
-  
-  // 为每个 category 生成原子类
-  for (const category of validCategories) {
-    const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
-    const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
-    
-    // 获取该 category 的单位
-    let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
-    if (!units) continue;
-    
-    // 如果配置了 units，则过滤单位
-    if (stepConfig.units && stepConfig.units.length > 0) {
-      const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
-      if (filteredUnits.length === 0) continue;
-      units = filteredUnits as unknown as typeof units;
-    }
-    
-    // 生成数值列表
-    const numbers = generateNumbers(stepConfig, config.progressiveRanges);
-    
-    // 为每个单位和数值组合生成原子类
-    for (const unit of units) {
-      for (const num of numbers) {
-        const numStr = formatNumberForClassName(num);
-        
-        // 0 值不需要单位，生成 top0 而不是 top0px
-        let atomName: string;
-        let cssValue: string;
-        
-        if (num === 0) {
-          atomName = `${propertyName}0`;
-          cssValue = '0';
-        } else {
-          const unitSuffix = formatUnitForClassName(unit);
-          atomName = `${propertyName}${numStr}${unitSuffix}`;
-          
-          if (unit === 'unitless') {
-            cssValue = num.toString();
-          } else if (unit === 'percent') {
-            cssValue = `${num}%`;
-          } else {
-            cssValue = `${num}${unit}`;
-          }
-        }
-        
-        // 跳过已生成的（去重，特别是 0 值）
-        if (seenNames.has(atomName)) continue;
-        seenNames.add(atomName);
-        
-        atoms.push({
-          name: atomName,
-          property: kebabProperty,
-          value: cssValue,
-          unit: num === 0 ? undefined : (unit === 'unitless' ? undefined : unit),
-          number: num,
-        });
-      }
-    }
-  }
-  
-  // 生成 keyword 原子类
+  // 1. 生成 keyword 原子类（无论如何都生成，如果有的话）
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
       const atomName = `${propertyName}${keyword.charAt(0).toUpperCase()}${keyword.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}`;
       
-      // 跳过已生成的
       if (seenNames.has(atomName)) continue;
       seenNames.add(atomName);
       
@@ -418,6 +417,97 @@ function generateAtomsForProperty(
         property: kebabProperty,
         value: keyword,
       });
+    }
+  }
+  
+  // 2. colors 和 numberTypes 互斥：有 colors 用 colors，没有才用 numberTypes
+  const propertyColorTypes = PROPERTY_COLOR_TYPES_MAP[propertyName as keyof typeof PROPERTY_COLOR_TYPES_MAP];
+  const hasColors = propertyColorTypes && propertyColorTypes.length > 0;
+  
+  if (hasColors) {
+    // 获取有效的颜色列表
+    const effectiveColors = getEffectiveColors(config, propertyColorTypes);
+    
+    // 生成颜色原子类
+    for (const colorName of effectiveColors) {
+      const atomName = `${propertyName}${formatColorForClassName(colorName)}`;
+      
+      if (seenNames.has(atomName)) continue;
+      seenNames.add(atomName);
+      
+      atoms.push({
+        name: atomName,
+        property: kebabProperty,
+        value: colorName,
+      });
+    }
+  } else {
+    // 生成数值原子类
+    const propertyCategories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
+    if (propertyCategories) {
+      // 过滤出有效的 categories
+      const validCategories = propertyCategories.filter(c => 
+        effectiveCategories.includes(c as CssNumberCategoryName)
+      );
+      
+      // 为每个 category 生成原子类
+      for (const category of validCategories) {
+        const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
+        const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
+        
+        // 获取该 category 的单位
+        let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
+        if (!units) continue;
+        
+        // 如果配置了 units，则过滤单位
+        if (stepConfig.units && stepConfig.units.length > 0) {
+          const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
+          if (filteredUnits.length === 0) continue;
+          units = filteredUnits as unknown as typeof units;
+        }
+        
+        // 生成数值列表
+        const numbers = generateNumbers(stepConfig, config.progressiveRanges);
+        
+        // 为每个单位和数值组合生成原子类
+        for (const unit of units) {
+          for (const num of numbers) {
+            const numStr = formatNumberForClassName(num);
+            
+            // 0 值不需要单位，生成 top0 而不是 top0px
+            let atomName: string;
+            let cssValue: string;
+            
+            if (num === 0) {
+              atomName = `${propertyName}0`;
+              cssValue = '0';
+            } else {
+              const unitSuffix = formatUnitForClassName(unit);
+              atomName = `${propertyName}${numStr}${unitSuffix}`;
+              
+              if (unit === 'unitless') {
+                cssValue = num.toString();
+              } else if (unit === 'percent') {
+                cssValue = `${num}%`;
+              } else {
+                cssValue = `${num}${unit}`;
+              }
+            }
+            
+            // 跳过已生成的（去重，特别是 0 值）
+            if (seenNames.has(atomName)) continue;
+            seenNames.add(atomName);
+            
+            atoms.push({
+              name: atomName,
+              property: kebabProperty,
+              value: cssValue,
+              unit: num === 0 ? undefined : (unit === 'unitless' ? undefined : unit),
+              number: num,
+            });
+          }
+        }
+      }
     }
   }
   
