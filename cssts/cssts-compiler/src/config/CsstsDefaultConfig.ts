@@ -236,7 +236,7 @@ export const csstsDefaultConfig: CsstsConfig = {
             fontRelative: {
                 min: -20,
                 max: 20,
-                step: 0.125,
+                step: 0.5,
                 units: ['em', 'rem'],  // 只生成 em 和 rem，排除 ch, ex, cap, ic, lh, rlh
             },
         },
