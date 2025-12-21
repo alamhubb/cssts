@@ -1,0 +1,424 @@
+/**
+ * DTS 生成器
+ * 
+ * 根据配置生成 CSS 原子类的 TypeScript 类型定义
+ * 
+ * @see dts-generator.md 详细文档
+ */
+
+import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
+import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
+import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
+import { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
+import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
+import type { CsstsConfig } from '../types/csstsConfig';
+import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName } from '../types/cssPropertyConfig';
+
+// 所有 CSS 属性名列表
+const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyName[];
+
+// ==================== 类型定义 ====================
+
+/** 生成的原子类定义 */
+export interface AtomDefinition {
+  /** 原子类名称 (camelCase) */
+  name: string;
+  /** CSS 属性名 (kebab-case) */
+  property: string;
+  /** CSS 值 */
+  value: string;
+  /** 单位 (可选) */
+  unit?: string;
+  /** 数值 (可选) */
+  number?: number;
+}
+
+/** 生成器选项 */
+export interface GeneratorOptions {
+  /** 用户配置 (可选，默认使用 csstsDefaultConfig) */
+  config?: Partial<CsstsConfig>;
+}
+
+// ==================== 工具函数 ====================
+
+/** camelCase 转 kebab-case */
+function camelToKebab(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+/** 合并配置 */
+function mergeConfig(userConfig?: Partial<CsstsConfig>): CsstsConfig {
+  if (!userConfig) return csstsDefaultConfig;
+  
+  return {
+    ...csstsDefaultConfig,
+    ...userConfig,
+    // 数组类型的配置需要特殊处理
+    properties: userConfig.properties ?? csstsDefaultConfig.properties,
+    excludeProperties: userConfig.excludeProperties ?? csstsDefaultConfig.excludeProperties,
+    numberCategories: userConfig.numberCategories ?? csstsDefaultConfig.numberCategories,
+    excludeNumberCategories: userConfig.excludeNumberCategories ?? csstsDefaultConfig.excludeNumberCategories,
+    numberCategoriesConfig: userConfig.numberCategoriesConfig ?? csstsDefaultConfig.numberCategoriesConfig,
+    propertiesConfig: userConfig.propertiesConfig ?? csstsDefaultConfig.propertiesConfig,
+    progressiveRanges: userConfig.progressiveRanges ?? csstsDefaultConfig.progressiveRanges,
+  };
+}
+
+/** 获取有效的属性列表 */
+function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
+  const properties = config.properties;
+  const excludeProperties = config.excludeProperties ?? [];
+  
+  // 1. 有 properties → 直接使用 properties
+  if (properties && properties.length > 0) {
+    return properties;
+  }
+  
+  // 2. 没有 properties，有 excludeProperties → 所有属性 - excludeProperties
+  if (excludeProperties.length > 0) {
+    return ALL_PROPERTY_NAMES.filter(p => !excludeProperties.includes(p));
+  }
+  
+  // 3. 都没有 → 使用所有属性
+  return ALL_PROPERTY_NAMES;
+}
+
+/** 获取有效的数值类别列表 */
+function getEffectiveCategories(config: CsstsConfig): CssNumberCategoryName[] {
+  const categories = config.numberCategories ?? [...ALL_NUMBER_CATEGORIES];
+  const excludeCategories = config.excludeNumberCategories ?? [];
+  
+  return categories.filter(c => !excludeCategories.includes(c)) as CssNumberCategoryName[];
+}
+
+/** 从配置数组中查找特定项的配置 */
+function findConfigInArray<T extends Record<string, any>>(
+  configArray: T[] | undefined,
+  key: string
+): any | undefined {
+  if (!configArray) return undefined;
+  
+  for (const item of configArray) {
+    if (key in item) {
+      return item[key];
+    }
+  }
+  return undefined;
+}
+
+/** 获取属性的 category 配置 */
+function getPropertyCategoryConfig(
+  config: CsstsConfig,
+  propertyName: string,
+  categoryName: string
+): CssStepConfig | undefined {
+  // 1. 先查找属性级别的配置
+  const propertyConfig = findConfigInArray(config.propertiesConfig, propertyName);
+  if (propertyConfig && categoryName in propertyConfig) {
+    return propertyConfig[categoryName];
+  }
+  
+  // 2. 再查找全局 category 配置
+  return findConfigInArray(config.numberCategoriesConfig, categoryName);
+}
+
+/** 根据步长配置生成数值列表 */
+function generateNumbers(stepConfig: CssStepConfig, progressiveRanges?: CssProgressiveRange[]): number[] {
+  const { min = 0, max = 100, step, presets = [] } = stepConfig;
+  const numbers = new Set<number>();
+  
+  // 添加预设值
+  presets.forEach(p => {
+    if (p >= min && p <= max) {
+      numbers.add(p);
+    }
+  });
+  
+  // 根据 step 类型生成数值
+  if (step === undefined) {
+    // 使用全局 progressiveRanges
+    if (progressiveRanges) {
+      generateFromProgressiveRanges(numbers, min, max, progressiveRanges);
+    } else {
+      // 默认步长 1
+      generateFromStep(numbers, min, max, 1);
+    }
+  } else if (typeof step === 'number') {
+    // 单一步长
+    generateFromStep(numbers, min, max, step);
+  } else if (Array.isArray(step)) {
+    if (step.length > 0 && typeof step[0] === 'number') {
+      // 多个步长值
+      generateFromMultipleSteps(numbers, min, max, step as number[]);
+    } else {
+      // 渐进步长范围
+      generateFromProgressiveRanges(numbers, min, max, step as CssProgressiveRange[]);
+    }
+  }
+  
+  return Array.from(numbers).sort((a, b) => a - b);
+}
+
+/** 从单一步长生成数值 */
+function generateFromStep(numbers: Set<number>, min: number, max: number, step: number): void {
+  // 从 0 开始向两边扩展
+  if (min <= 0 && max >= 0) {
+    numbers.add(0);
+  }
+  
+  // 正数部分
+  for (let i = step; i <= max; i += step) {
+    if (i >= min) {
+      numbers.add(roundNumber(i, step));
+    }
+  }
+  
+  // 负数部分
+  for (let i = -step; i >= min; i -= step) {
+    if (i <= max) {
+      numbers.add(roundNumber(i, step));
+    }
+  }
+}
+
+/** 从多个步长值生成数值 */
+function generateFromMultipleSteps(numbers: Set<number>, min: number, max: number, steps: number[]): void {
+  // 0 的处理
+  if (min <= 0 && max >= 0) {
+    numbers.add(0);
+  }
+  
+  // 生成能被任意步长整除的数
+  const minStep = Math.min(...steps);
+  
+  for (let i = minStep; i <= max; i += minStep) {
+    if (i >= min && steps.some(s => i % s === 0 || Math.abs(i % s) < 0.0001)) {
+      numbers.add(roundNumber(i, minStep));
+    }
+  }
+  
+  for (let i = -minStep; i >= min; i -= minStep) {
+    if (i <= max && steps.some(s => Math.abs(i) % s === 0 || Math.abs(Math.abs(i) % s) < 0.0001)) {
+      numbers.add(roundNumber(i, minStep));
+    }
+  }
+}
+
+/** 从渐进步长范围生成数值 */
+function generateFromProgressiveRanges(
+  numbers: Set<number>,
+  min: number,
+  max: number,
+  ranges: CssProgressiveRange[]
+): void {
+  // 0 的处理
+  if (min <= 0 && max >= 0) {
+    numbers.add(0);
+  }
+  
+  // 正数部分
+  let current = 1;
+  for (const range of ranges) {
+    const rangeMax = Math.min(range.max, max);
+    while (current <= rangeMax && current >= min) {
+      if (range.divisors.some(d => current % d === 0)) {
+        numbers.add(current);
+      }
+      current++;
+    }
+    if (current > max) break;
+  }
+  
+  // 负数部分
+  current = -1;
+  for (const range of ranges) {
+    const rangeMin = Math.max(-range.max, min);
+    while (current >= rangeMin && current <= max) {
+      if (range.divisors.some(d => Math.abs(current) % d === 0)) {
+        numbers.add(current);
+      }
+      current--;
+    }
+    if (current < min) break;
+  }
+}
+
+/** 四舍五入到指定精度 */
+function roundNumber(num: number, step: number): number {
+  const precision = getPrecision(step);
+  return Number(num.toFixed(precision));
+}
+
+/** 获取数字的小数位数 */
+function getPrecision(num: number): number {
+  const str = num.toString();
+  const dotIndex = str.indexOf('.');
+  return dotIndex === -1 ? 0 : str.length - dotIndex - 1;
+}
+
+/** 格式化数值为类名部分 */
+function formatNumberForClassName(num: number): string {
+  // 负数用 N 前缀
+  if (num < 0) {
+    return `N${formatPositiveNumber(Math.abs(num))}`;
+  }
+  return formatPositiveNumber(num);
+}
+
+/** 格式化正数为类名部分 */
+function formatPositiveNumber(num: number): string {
+  // 小数点用 p 替换
+  return num.toString().replace('.', 'p');
+}
+
+/** 格式化单位为类名部分 */
+function formatUnitForClassName(unit: string): string {
+  if (unit === 'unitless' || unit === '') return '';
+  // 百分比用 pct
+  if (unit === 'percent') return 'pct';
+  return unit;
+}
+
+// ==================== 主生成函数 ====================
+
+/** 为单个属性生成原子类定义 */
+function generateAtomsForProperty(
+  propertyName: CssPropertyName,
+  config: CsstsConfig,
+  effectiveCategories: CssNumberCategoryName[]
+): AtomDefinition[] {
+  const atoms: AtomDefinition[] = [];
+  const kebabProperty = camelToKebab(propertyName);
+  
+  // 获取属性支持的 categories
+  const propertyCategories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
+  if (!propertyCategories) return atoms;
+  
+  // 过滤出有效的 categories
+  const validCategories = propertyCategories.filter(c => 
+    effectiveCategories.includes(c as CssNumberCategoryName)
+  );
+  
+  // 为每个 category 生成原子类
+  for (const category of validCategories) {
+    const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
+    const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
+    
+    // 获取该 category 的单位
+    let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
+    if (!units) continue;
+    
+    // 如果配置了 units，则过滤单位
+    if (stepConfig.units && stepConfig.units.length > 0) {
+      units = units.filter(u => stepConfig.units!.includes(u as any)) as typeof units;
+    }
+    
+    // 生成数值列表
+    const numbers = generateNumbers(stepConfig, config.progressiveRanges);
+    
+    // 为每个单位和数值组合生成原子类
+    for (const unit of units) {
+      for (const num of numbers) {
+        const unitSuffix = formatUnitForClassName(unit);
+        const numStr = formatNumberForClassName(num);
+        const atomName = `${propertyName}${numStr}${unitSuffix}`;
+        
+        // CSS 值
+        let cssValue: string;
+        if (unit === 'unitless' || unit === '') {
+          cssValue = num.toString();
+        } else if (unit === 'percent') {
+          cssValue = `${num}%`;
+        } else {
+          cssValue = `${num}${unit}`;
+        }
+        
+        atoms.push({
+          name: atomName,
+          property: kebabProperty,
+          value: cssValue,
+          unit: unit === 'unitless' ? undefined : unit,
+          number: num,
+        });
+      }
+    }
+  }
+  
+  // 生成 keyword 原子类
+  const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
+  if (keywords) {
+    for (const keyword of keywords) {
+      atoms.push({
+        name: `${propertyName}${keyword.charAt(0).toUpperCase()}${keyword.slice(1).replace(/-([a-z])/g, (_, c) => c.toUpperCase())}`,
+        property: kebabProperty,
+        value: keyword,
+      });
+    }
+  }
+  
+  return atoms;
+}
+
+/** 生成所有原子类定义 */
+export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
+  const config = mergeConfig(options?.config);
+  const effectiveProperties = getEffectiveProperties(config);
+  const effectiveCategories = getEffectiveCategories(config);
+  
+  const allAtoms: AtomDefinition[] = [];
+  
+  for (const property of effectiveProperties) {
+    const atoms = generateAtomsForProperty(property, config, effectiveCategories);
+    allAtoms.push(...atoms);
+  }
+  
+  return allAtoms;
+}
+
+/** 生成 DTS 内容 */
+export function generateDts(options?: GeneratorOptions): string {
+  const atoms = generateAtoms(options);
+  
+  const lines: string[] = [
+    '/**',
+    ' * CSSTS 原子类类型定义（自动生成）',
+    ' */',
+    '',
+    'export interface CsstsAtoms {',
+  ];
+  
+  for (const atom of atoms) {
+    lines.push(`  ${atom.name}: '${atom.value}';`);
+  }
+  
+  lines.push('}', '');
+  
+  return lines.join('\n');
+}
+
+/** 生成统计信息 */
+export function generateStats(options?: GeneratorOptions): {
+  totalAtoms: number;
+  byProperty: Record<string, number>;
+  byCategory: Record<string, number>;
+} {
+  const atoms = generateAtoms(options);
+  
+  const byProperty: Record<string, number> = {};
+  const byCategory: Record<string, number> = {};
+  
+  for (const atom of atoms) {
+    // 按属性统计
+    byProperty[atom.property] = (byProperty[atom.property] || 0) + 1;
+    
+    // 按单位/类别统计
+    const category = atom.unit || 'keyword';
+    byCategory[category] = (byCategory[category] || 0) + 1;
+  }
+  
+  return {
+    totalAtoms: atoms.length,
+    byProperty,
+    byCategory,
+  };
+}

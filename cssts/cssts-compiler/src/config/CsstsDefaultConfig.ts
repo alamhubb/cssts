@@ -247,6 +247,7 @@ export const csstsDefaultConfig: CsstsConfig = {
                 max: 100,
                 step: 1,
                 presets: [33.33, 66.67],
+                units: ['percent', 'vw', 'vh'],
             },
         },
         {
