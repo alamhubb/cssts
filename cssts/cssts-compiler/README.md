@@ -303,18 +303,24 @@ top1rem: '1rem';
 
 #### CSS 全局关键字
 
-所有属性自动添加 CSS-wide keywords：
+CSS-wide keywords 是所有 CSS 属性都支持的全局关键字，但 csstree 不会为每个属性显式声明它们。生成器会手动将这些关键字添加到每个属性的 keywords 列表中：
+
 - `inherit` - 继承父元素的值
 - `initial` - 使用属性的初始值
 - `unset` - 可继承属性用 inherit，否则用 initial
 - `revert` - 回退到用户代理样式表的值
 - `revert-layer` - 回退到上一个级联层的值
 
+这些关键字同时也存在于 `KEYWORD_NAME_MAP` 中（从 csstree 提取），确保映射完整。
+
 #### 颜色数据
 
-- `transparent` 在 csstree 中属于 `namedColor` 类型
-- `currentColor` 在 csstree 中作为独立的颜色关键字存在
-- 颜色属性（有 colorTypes 的属性）会自动支持所有配置的颜色类型
+| 关键字 | 来源 | 说明 |
+|--------|------|------|
+| `transparent` | csstree `namedColor` 类型 | 作为命名颜色存在 |
+| `currentColor` | csstree keyword | 作为独立关键字存在于 `KEYWORD_NAME_MAP` |
+
+颜色属性（有 colorTypes 的属性）会自动支持所有配置的颜色类型。
 
 #### Vendor Prefix 处理
 
@@ -324,6 +330,17 @@ top1rem: '1rem';
 3. 与属性名拼接生成原子类名
 
 示例：`-webkit-flex` → `WebkitFlex` → `displayWebkitFlex`
+
+#### Keyword 去重
+
+当不同的 CSS keyword 转换为 camelCase 后产生相同的名称时，生成器会自动去重，保留第一个（按字母排序）。
+
+| CSS Keyword | camelCase | 处理结果 |
+|-------------|-----------|----------|
+| `crisp-edges` | `crispEdges` | ✅ 保留 |
+| `crispEdges` | `crispEdges` | ❌ 跳过（重复） |
+
+这确保了生成的 TypeScript 类型定义中不会出现重复的属性名。
 
 #### 数值单位分类
 
