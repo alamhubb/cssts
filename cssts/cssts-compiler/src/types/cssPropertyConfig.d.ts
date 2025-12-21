@@ -22,6 +22,9 @@ export interface CssProgressiveRange {
   divisors: number[];
 }
 
+// 数值单位名称（提前定义，供 CssStepConfig 使用）
+export type CssNumberUnitName = typeof ALL_UNITS[number];
+
 // 步长配置
 export interface CssStepConfig {
   /** 
@@ -35,18 +38,21 @@ export interface CssStepConfig {
   min?: number;
   /** 最大值 */
   max?: number;
-  // negative?: boolean;  // 已移除，直接用 min 控制负数范围
   /** 预设值（额外添加的特定值） */
   presets?: number[];
+  /** 
+   * 限制该 category 使用的单位
+   * 如果不设置，使用该 category 的所有单位
+   * 例如 fontRelative 默认包含 em, rem, ch, ex, cap, ic, lh, rlh
+   * 设置 units: ['em', 'rem'] 则只生成这两个单位
+   */
+  units?: CssNumberUnitName[];
 }
 
 // 自定义属性值
 export type CssCustomPropertyValue = string | Record<string, string>;
 
 // ==================== NumberUnit 类型 ====================
-
-// 数值单位名称
-export type CssNumberUnitName = typeof ALL_UNITS[number];
 
 // 数值单位配置 Map
 export type CssNumberUnitConfig = Partial<Record<CssNumberUnitName, CssStepConfig>>;

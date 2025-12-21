@@ -232,11 +232,12 @@ export const csstsDefaultConfig: CsstsConfig = {
             },
         },
         {
-            // 字体相对单位 (em, rem, ch, etc.)
+            // 字体相对单位 - 只使用 em 和 rem
             fontRelative: {
                 min: -20,
                 max: 20,
-                step: 0.125
+                step: 0.125,
+                units: ['em', 'rem'],  // 只生成 em 和 rem，排除 ch, ex, cap, ic, lh, rlh
             },
         },
         {
