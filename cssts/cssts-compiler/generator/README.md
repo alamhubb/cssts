@@ -11,14 +11,21 @@
 从 csstree 提取所有 CSS 数据并生成单个合并文件。
 
 **功能**：
-- 遍历 csstree 中的所有 CSS 属性，提取 keywords 和 numberTypes
-- 提取 CSS 命名颜色列表
+- 遍历 csstree 中的所有 CSS 属性，提取 keywords、numberTypes 和 colorTypes
+- 提取 CSS 命名颜色列表（按类型分类：namedColor、systemColor、deprecatedSystemColor、nonStandardColor）
 - 提取 CSS 单位列表
 - 提取伪类/伪元素列表
-- 生成单个合并的数据文件
+- 生成多个数据文件
 
 **输出**：
-- `src/data/cssts-data.ts` - 所有 CSS 数据（不打包）
+- `src/data/cssColorData.ts` - 颜色数据（颜色名称映射、颜色类型映射）
+- `src/data/cssKeywordsData.ts` - 关键词数据
+- `src/data/cssNumberData.ts` - 数值类型和单位数据
+- `src/data/cssPropertyColorTypes.ts` - 属性支持的颜色类型映射
+- `src/data/cssPropertyKeywords.ts` - 属性支持的关键词映射
+- `src/data/cssPropertyNameMapping.ts` - 属性名称映射（kebab-case -> camelCase）
+- `src/data/cssPropertyNumber.ts` - 属性支持的数值类型映射
+- `src/data/cssPseudoData.ts` - 伪类/伪元素数据
 
 **运行方式**：
 ```bash
@@ -27,34 +34,58 @@ npx tsx generator/generator-data.ts
 
 **输出示例**：
 ```typescript
-// 属性数据
-export const PROPERTY_DATA: PropertyInfo[] = [
-  {
-    name: 'width',
-    numberTypes: ['length', 'percentage'],
-  },
-  {
-    name: 'display',
-    keywords: ['block', 'inline', 'flex', 'grid', ...],
-  },
-];
+// 属性名称映射 (cssPropertyNameMapping.ts)
+export const CSS_PROPERTY_NAME_MAP = {
+  'accent-color': 'accentColor',
+  'align-content': 'alignContent',
+  // ...
+} as const;
 
-// 颜色数据
-export const NAMED_COLORS = ['aliceblue', 'antiquewhite', ...] as const;
+// 颜色数据 (cssColorData.ts)
+export const ALL_COLOR_TYPES = ['namedColor', 'systemColor', 'deprecatedSystemColor', 'nonStandardColor'] as const;
+export const COLOR_NAME_MAP = {
+  'aliceblue': 'aliceblue',
+  'antiquewhite': 'antiquewhite',
+  // ...
+} as const;
+export const COLOR_TYPE_COLORS_MAP = {
+  namedColor: ['aliceblue', 'antiquewhite', ...],
+  systemColor: ['accentColor', 'accentColorText', ...],
+  // ...
+} as const;
 
-// 单位数据
-export const ALL_UNITS = ['px', 'em', 'rem', '%', ...] as const;
+// 关键词数据 (cssKeywordsData.ts)
+export const KEYWORD_NAME_MAP = {
+  'auto': 'auto',
+  'inherit': 'inherit',
+  // ...
+} as const;
 
-// 伪类/伪元素数据
-export const PSEUDO_CLASSES = ['hover', 'active', 'focus', ...] as const;
-export const PSEUDO_ELEMENTS = ['before', 'after', ...] as const;
+// 数值类型数据 (cssNumberData.ts)
+export const ALL_NUMBER_TYPES = ['angle', 'flex', 'frequency', 'integer', 'length', 'number', 'percentage', 'ratio', 'resolution', 'time'] as const;
+export const NUMBER_TYPE_CATEGORIES_MAP = {
+  length: ['pixel', 'fontRelative', 'viewportRelative', ...],
+  // ...
+} as const;
+
+// 伪类/伪元素数据 (cssPseudoData.ts)
+export const PSEUDO_CLASS_NAME_MAP = {
+  'hover': 'hover',
+  'active': 'active',
+  // ...
+} as const;
+export const PSEUDO_ELEMENT_NAME_MAP = {
+  'before': 'before',
+  'after': 'after',
+  // ...
+} as const;
 ```
 
-### 2. generator-config-type.ts
+### 2. generator-type.ts
 
 **阶段2：配置类型提示生成**
 
-从 `src/data/cssts-data.ts` 生成用户配置时的类型提示文件。
+从 `src/data/` 目录下的数据文件生成用户配置时的类型提示文件。
 
 **功能**：
 - 读取属性数据
@@ -62,51 +93,28 @@ export const PSEUDO_ELEMENTS = ['before', 'after', ...] as const;
 - 提供 IDE 智能提示
 
 **输出**：
-- `src/config/colors.ts` - 颜色配置类型
-- `src/config/keywords.ts` - 关键词配置类型
-- `src/config/units.ts` - 单位配置类型
-- `src/config/pseudo.ts` - 伪类/伪元素配置类型
-- `src/config/property-config.ts` - 属性配置类型
-- `src/config/index.ts` - 配置模块导出
+- `src/types/cssPropertyConfig.d.ts` - 属性配置类型
+- `src/types/csstsConfig.d.ts` - CSSTS 配置类型（包含 CsstsConfig 接口）
 
 **运行方式**：
 ```bash
-npx tsx generator/generator-config-type.ts
+npx tsx generator/generator-type.ts
 ```
 
 **前置条件**：
-必须先运行 `generator-data.ts` 生成 `src/data/cssts-data.ts`
+必须先运行 `generator-data.ts` 生成 `src/data/` 目录下的数据文件
 
 ## 执行顺序
 
 ```
 1. npx tsx generator/generator-data.ts
    ↓
-   生成 src/data/cssts-data.ts
+   生成 src/data/ 目录下的数据文件
    ↓
-2. npx tsx generator/generator-config-type.ts
+2. npx tsx generator/generator-type.ts
    ↓
-   生成 src/config/ 下的所有类型定义
+   生成 src/types/ 下的类型定义
 ```
-
-## generator-all.ts 生成的文件
-
-运行 `npx tsx generator/generator-all.ts` 会生成以下文件：
-
-### src/data/ 目录
-- `keywordConstants.ts` - CSS Keywords 常量
-- `keywords.ts` - CSS Keywords 数组
-- `allKeywords.ts` - 所有 Keywords 和 Colors
-- `pseudoClasses.ts` - CSS 伪类数据
-- `pseudoElements.ts` - CSS 伪元素数据
-
-### src/types/ 目录
-- `cssKeywords.d.ts` - Keywords 类型定义
-- `numberTypes.d.ts` - NumberTypes 类型定义
-- `cssPseudoClassElement.d.ts` - 伪类/伪元素类型定义
-- `pseudoStyles.d.ts` - 伪类/伪元素样式类型定义
-- `cssPropertyConfig.d.ts` - CSS 属性配置类型定义
-- `csstsConfig.d.ts` - CSSTS 配置类型定义（包含 CsstsConfig 接口）
 
 ## NumberTypes 处理
 
@@ -232,11 +240,11 @@ const UNION_TYPE_MAP: Record<string, string[]> = {
 ```
 generator-data.ts (依赖 csstree)
     ↓
-src/data/cssts-data.ts (合并的数据文件)
+src/data/ (数据文件)
     ↓
-generator-config-type.ts
+generator-type.ts
     ↓
-src/config/ (类型定义)
+src/types/ (类型定义)
     ↓
 src/ 中的其他代码（不依赖 csstree）
 ```
@@ -244,34 +252,62 @@ src/ 中的其他代码（不依赖 csstree）
 ### 关键原则
 
 1. **单一依赖点**：只有 `generator/` 目录中的脚本依赖 csstree
-2. **数据驱动**：`src/` 中的所有代码从 `src/data/` 和 `src/custom/` 获取数据
-3. **自动生成**：配置文件由脚本自动生成，不应手动修改
+2. **数据驱动**：`src/` 中的所有代码从 `src/data/` 获取数据
+3. **自动生成**：数据文件和类型文件由脚本自动生成，不应手动修改
 4. **分离关注**：
    - `generator-data.ts` - 只负责数据提取
-   - `generator-config-type.ts` - 只负责类型生成
+   - `generator-type.ts` - 只负责类型生成
 
 ## 数据文件结构
 
-`src/data/cssts-data.ts` 是唯一的数据文件，包含以下导出：
+`src/data/` 目录包含以下数据文件：
 
+### cssPropertyNameMapping.ts
 ```typescript
-// 属性数据
-export interface PropertyInfo { ... }
-export const PROPERTY_DATA: PropertyInfo[]
+export const CSS_PROPERTY_NAME_MAP = { 'kebab-case': 'camelCase', ... } as const;
+```
 
-// 颜色数据
-export const NAMED_COLORS: readonly string[]
-export type NamedColorValue
+### cssColorData.ts
+```typescript
+export const ALL_COLOR_TYPES = ['namedColor', 'systemColor', ...] as const;
+export const COLOR_NAME_MAP = { 'color-name': 'colorName', ... } as const;
+export const COLOR_TYPE_COLORS_MAP = { namedColor: [...], systemColor: [...], ... } as const;
+```
 
-// 单位数据
-export const ALL_UNITS: readonly string[]
-export type UnitType
+### cssKeywordsData.ts
+```typescript
+export const KEYWORD_NAME_MAP = { 'keyword': 'keyword', ... } as const;
+```
 
-// 伪类/伪元素数据
-export const PSEUDO_CLASSES: readonly string[]
-export type PseudoClassName
-export const PSEUDO_ELEMENTS: readonly string[]
-export type PseudoElementName
+### cssNumberData.ts
+```typescript
+export const ALL_NUMBER_TYPES = ['length', 'percentage', ...] as const;
+export const ALL_NUMBER_CATEGORIES = ['pixel', 'fontRelative', ...] as const;
+export const ALL_NUMBER_UNITS = ['px', 'em', ...] as const;
+export const NUMBER_TYPE_CATEGORIES_MAP = { length: [...], ... } as const;
+export const NUMBER_CATEGORY_UNITS_MAP = { pixel: [...], ... } as const;
+export const NUMBER_UNIT_NAME_MAP = { 'px': 'px', ... } as const;
+```
+
+### cssPropertyKeywords.ts
+```typescript
+export const PROPERTY_KEYWORDS_MAP = { propertyName: [...], ... } as const;
+```
+
+### cssPropertyNumber.ts
+```typescript
+export const PROPERTY_NUMBER_TYPES_MAP = { propertyName: [...], ... } as const;
+```
+
+### cssPropertyColorTypes.ts
+```typescript
+export const PROPERTY_COLOR_TYPES_MAP = { propertyName: [...], ... } as const;
+```
+
+### cssPseudoData.ts
+```typescript
+export const PSEUDO_CLASS_NAME_MAP = { 'pseudo-class': 'pseudoClass', ... } as const;
+export const PSEUDO_ELEMENT_NAME_MAP = { 'pseudo-element': 'pseudoElement', ... } as const;
 ```
 
 ## 数据提取方式
