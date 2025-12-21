@@ -213,7 +213,6 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     // 默认支持的属性列表
-    // properties: atomicCssProperties,
     properties: ['top'],
 
     // 排除不常用的数值类别
@@ -228,16 +227,14 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 像素单位 - 最常用，支持负值
             pixel: {
-                negative: true,
-                min: 0,
+                min: -1000,
                 max: 1000,
             },
         },
         {
             // 字体相对单位 (em, rem, ch, etc.)
             fontRelative: {
-                negative: true,
-                min: 0,
+                min: -20,
                 max: 20,
                 step: 0.125
             },
@@ -245,7 +242,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 百分比类 (%, vw, vh, vmin, vmax, etc.)
             percentage: {
-                negative: false,
                 min: 0,
                 max: 100,
                 step: 1,
@@ -255,8 +251,7 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 角度单位 (deg, rad, turn, grad)
             angle: {
-                negative: true,
-                min: 0,
+                min: -360,
                 max: 360,
                 step: 1
             },
@@ -264,7 +259,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 时间单位 (s, ms)
             time: {
-                negative: false,
                 min: 0,
                 max: 60
             },
@@ -272,8 +266,7 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 无单位数值 - opacity, z-index, line-height, flex-grow 等
             unitless: {
-                negative: true,
-                min: 0,
+                min: -100,
                 max: 100,
                 step: 1,
             },
@@ -281,7 +274,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // Flex 单位 (fr) - Grid 布局常用
             flex: {
-                negative: false,
                 min: 0,
                 max: 12,
                 step: 1
@@ -295,7 +287,7 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             zIndex: {
                 unitless: {
-                    negative: true,
+                    min: -1,
                     max: 10000,
                     presets: [-1, 999, 9999],
                 }
@@ -306,7 +298,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             opacity: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 1,
                     step: 0.1,
@@ -318,7 +309,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             flexGrow: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 10,
                     step: 1
@@ -328,7 +318,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             flexShrink: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 10,
                     step: 1
@@ -340,7 +329,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             order: {
                 unitless: {
-                    negative: true,
                     min: -10,
                     max: 10,
                     step: 1,
@@ -352,7 +340,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             lineHeight: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 3,
                     step: 0.125,
@@ -364,7 +351,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             fontWeight: {
                 unitless: {
-                    negative: false,
                     min: 100,
                     max: 900,
                     step: 100,
@@ -376,13 +362,11 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             letterSpacing: {
                 pixel: {
-                    negative: true,
                     min: -5,
                     max: 20,
                     step: 0.5
                 },
                 fontRelative: {
-                    negative: true,
                     min: -0.5,
                     max: 1,
                     step: 0.1
@@ -394,7 +378,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             borderWidth: {
                 pixel: {
-                    negative: false,
                     min: 0,
                     max: 10,
                     step: 1
@@ -406,13 +389,11 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             borderRadius: {
                 pixel: {
-                    negative: false,
                     min: 0,
                     max: 100,
                     step: 1
                 },
                 percentage: {
-                    negative: false,
                     min: 0,
                     max: 50,
                     step: 5
@@ -424,7 +405,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             outlineOffset: {
                 pixel: {
-                    negative: true,
                     min: -10,
                     max: 20,
                     step: 1
@@ -436,7 +416,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             scale: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 2,
                     step: 0.1
@@ -448,7 +427,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             rotate: {
                 angle: {
-                    negative: true,
                     min: -360,
                     max: 360,
                     step: [10, 15]
@@ -460,7 +438,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             aspectRatio: {
                 unitless: {
-                    negative: false,
                     min: 0,
                     max: 3,
                     step: 0.1,
@@ -472,7 +449,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             gridColumnStart: {
                 unitless: {
-                    negative: false,
                     min: 1,
                     max: 13,
                     step: 1,
@@ -482,7 +458,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             gridColumnEnd: {
                 unitless: {
-                    negative: false,
                     min: 1,
                     max: 13,
                     step: 1,
@@ -492,7 +467,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             gridRowStart: {
                 unitless: {
-                    negative: false,
                     min: 1,
                     max: 13,
                     step: 1,
@@ -502,7 +476,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             gridRowEnd: {
                 unitless: {
-                    negative: false,
                     min: 1,
                     max: 13,
                     step: 1,

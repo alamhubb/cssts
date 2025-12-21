@@ -31,9 +31,12 @@ export interface CssStepConfig {
    * - CssProgressiveRange[]: 渐进步长范围
    */
   step?: number | number[] | CssProgressiveRange[];
+  /** 最小值（可以为负数） */
   min?: number;
+  /** 最大值 */
   max?: number;
-  negative?: boolean;
+  // negative?: boolean;  // 已移除，直接用 min 控制负数范围
+  /** 预设值（额外添加的特定值） */
   presets?: number[];
 }
 
