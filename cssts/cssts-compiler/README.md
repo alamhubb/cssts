@@ -281,6 +281,69 @@ top1rem: '1rem';
 
 ---
 
+## 数据来源
+
+### 主要数据源
+
+| 数据源 | 说明 | 提取内容 |
+|--------|------|----------|
+| [csstree](https://github.com/csstree/csstree) | CSS 语法解析库 | 属性名、keywords、颜色、数值类型 |
+| `datajson/numberMapping.json` | 自定义映射 | 单位到 category 的分类映射 |
+| `datajson/pseudo-standards.json` | 自定义数据 | 标准伪类和伪元素列表 |
+| `datajson/propertyInheritance.json` | 自定义数据 | 属性继承关系（如 margin → marginTop） |
+
+### 从 csstree 提取的数据
+
+- **属性名** - 所有标准 CSS 属性（排除 `-` 开头的 vendor prefix 属性）
+- **Keywords** - 每个属性支持的关键字值
+- **颜色类型** - `namedColor`、`systemColor`、`deprecatedSystemColor`、`nonStandardColor`
+- **数值类型** - `length`、`percentage`、`angle`、`time` 等
+
+### 特殊处理
+
+#### CSS 全局关键字
+
+所有属性自动添加 CSS-wide keywords：
+- `inherit` - 继承父元素的值
+- `initial` - 使用属性的初始值
+- `unset` - 可继承属性用 inherit，否则用 initial
+- `revert` - 回退到用户代理样式表的值
+- `revert-layer` - 回退到上一个级联层的值
+
+#### 颜色数据
+
+- `transparent` 在 csstree 中属于 `namedColor` 类型
+- `currentColor` 在 csstree 中作为独立的颜色关键字存在
+- 颜色属性（有 colorTypes 的属性）会自动支持所有配置的颜色类型
+
+#### Vendor Prefix 处理
+
+以 `-` 开头的 keyword（如 `-moz-box`、`-webkit-flex`）：
+1. 去掉开头的 `-`
+2. 转换为 PascalCase
+3. 与属性名拼接生成原子类名
+
+示例：`-webkit-flex` → `WebkitFlex` → `displayWebkitFlex`
+
+#### 数值单位分类
+
+单位按功能分为 10 个 category：
+
+| Category | 单位 | 说明 |
+|----------|------|------|
+| pixel | px | 像素单位 |
+| fontRelative | em, rem, ch, ex, cap, ic, lh, rlh | 字体相对单位 |
+| percentage | %, vw, vh, vmin, vmax, svw, svh, lvw, lvh, dvw, dvh, vi, vb | 百分比和视口单位 |
+| physical | cm, mm, in, pt, pc, Q | 物理单位 |
+| angle | deg, grad, rad, turn | 角度单位 |
+| time | s, ms | 时间单位 |
+| frequency | Hz, kHz | 频率单位 |
+| resolution | dpi, dpcm, dppx, x | 分辨率单位 |
+| flex | fr | 弹性单位 |
+| unitless | (无) | 无单位数值 |
+
+---
+
 ## 生成脚本
 
 ### generator-data.ts（阶段1：数据生成）

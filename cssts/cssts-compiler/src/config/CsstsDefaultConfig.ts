@@ -136,6 +136,30 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     colors: ['red'],
 
+    excludeKeywords: [
+        'a98Rgb',
+        'decreasing',
+        'displayP3',
+        'hsl',
+        'hue',
+        'hwb',
+        'in',
+        'increasing',
+        'lab',
+        'lch',
+        'longer',
+        'oklab',
+        'oklch',
+        'prophotoRgb',
+        'rec2020',
+        'shorter',
+        'srgb',
+        'srgbLinear',
+        'xyz',
+        'xyzD50',
+        'xyzD65',
+    ],
+
 
     // 默认支持的属性列表
     properties: atomicCssProperties,

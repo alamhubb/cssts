@@ -415,11 +415,16 @@ function generateAtomsForProperty(
   const atoms: AtomDefinition[] = [];
   const seenNames = new Set<string>();  // 用于去重（特别是 0 值）
   const kebabProperty = camelToKebab(propertyName);
+  const excludeKeywords = config.excludeKeywords ?? [];
   
   // 1. 生成 keyword 原子类（无论如何都生成，如果有的话）
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
+      // 检查是否被排除（keyword 是 kebab-case，excludeKeywords 是 camelCase）
+      const camelKeyword = formatKeywordForClassName(keyword).charAt(0).toLowerCase() + formatKeywordForClassName(keyword).slice(1);
+      if (excludeKeywords.includes(camelKeyword as any)) continue;
+      
       const atomName = `${propertyName}${formatKeywordForClassName(keyword)}`;
       
       if (seenNames.has(atomName)) continue;

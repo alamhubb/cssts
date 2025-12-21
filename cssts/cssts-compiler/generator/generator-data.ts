@@ -47,6 +47,9 @@ const UNIT_ALIAS: Record<string, string> = {
   '%': 'percent',
 };
 
+// CSS 全局关键字（CSS-wide keywords）- 所有属性都支持
+const CSS_GLOBAL_KEYWORDS = ['inherit', 'initial', 'unset', 'revert', 'revert-layer'] as const;
+
 function normalizeUnit(unit: string): string {
   return UNIT_ALIAS[unit] ?? unit;
 }
@@ -290,8 +293,11 @@ function extractPropertyData(allColors: Set<string>, colorTypeColorsMap: Record<
       }
     }
 
+    // 添加 CSS 全局关键字
+    const finalKeywords = [...nonColorKeywords, ...CSS_GLOBAL_KEYWORDS];
+
     propertyData[propName] = {
-      keywords: nonColorKeywords.sort(),
+      keywords: [...new Set(finalKeywords)].sort(),
       numberCategories: Array.from(categoriesSet).sort(),
       colorTypes: supportedColorTypes.sort(),
     };
@@ -556,14 +562,25 @@ function generateCssKeywordsDataFile(keywords: Set<string>): string {
   const lines: string[] = [
     '/**',
     ' * CSS Keywords 数据（自动生成）',
-    ' * 格式：kebab-case -> camelCase',
+    ' * 格式：camelCase -> kebab-case',
     ' */',
     '',
-    '// kebab-case 到 camelCase 映射',
+    '// CSS 全局关键字（CSS-wide keywords）- 所有属性都支持',
+    `export const CSS_GLOBAL_KEYWORDS = [${CSS_GLOBAL_KEYWORDS.map(k => `'${k}'`).join(', ')}] as const;`,
+    '',
+    '// camelCase 到 kebab-case 映射',
     'export const KEYWORD_NAME_MAP = {',
   ];
 
-  sortedKeywords.forEach(k => lines.push(`  '${k}': '${kebabToCamel(k)}',`));
+  // 去重：如果 camelCase 已存在，跳过（保留第一个）
+  const seenCamelNames = new Set<string>();
+  sortedKeywords.forEach(k => {
+    const camelName = kebabToCamel(k);
+    if (!seenCamelNames.has(camelName)) {
+      seenCamelNames.add(camelName);
+      lines.push(`  '${camelName}': '${k}',`);
+    }
+  });
   lines.push('} as const;', '');
 
   return lines.join('\n');
