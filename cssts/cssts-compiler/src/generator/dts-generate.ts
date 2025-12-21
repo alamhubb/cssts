@@ -92,15 +92,8 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
   log(`   属性数: ${Object.keys(stats.byProperty).length}`);
   log(`   单位类型数: ${Object.keys(stats.byCategory).length}`);
   
-  // 生成单文件版本
-  const dtsContent = generateDts(generatorOptions);
-  const singleFilePath = path.join(outputDir, 'CsstsAtoms.d.ts');
-  fs.writeFileSync(singleFilePath, dtsContent, 'utf-8');
-  files.push(singleFilePath);
-  log(`✅ 单文件版本: ${singleFilePath}`);
-  
-  // 生成分文件版本
   if (splitFiles) {
+    // 分文件版本
     const cssTypeDir = path.join(outputDir, 'cssType');
     if (!fs.existsSync(cssTypeDir)) {
       fs.mkdirSync(cssTypeDir, { recursive: true });
@@ -126,6 +119,13 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     fs.writeFileSync(indexPath, indexDts, 'utf-8');
     files.push(indexPath);
     log(`   ✅ 生成索引文件: index.d.ts`);
+  } else {
+    // 单文件版本
+    const dtsContent = generateDts(generatorOptions);
+    const singleFilePath = path.join(outputDir, 'CsstsAtoms.d.ts');
+    fs.writeFileSync(singleFilePath, dtsContent, 'utf-8');
+    files.push(singleFilePath);
+    log(`✅ 单文件版本: ${singleFilePath}`);
   }
   
   log('\n🎉 生成完成!');
