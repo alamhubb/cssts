@@ -6,15 +6,15 @@ import type {
   CssProgressiveRange,
   CssCustomPropertyValue,
   CssNumberUnitName,
-  CssNumberUnitItem,
-  CssNumberCategoryItem,
-  CssNumberCategoryExcludeItem,
+  CssNumberUnitConfig,
+  CssNumberCategoryName,
+  CssNumberCategoryConfig,
   CssKeywordName,
   CssColorTypeName,
-  CssColorTypeItem,
+  CssColorTypeConfig,
   CssColorName,
-  CssPropertyItem,
-  CssPropertyExcludeItem,
+  CssPropertyName,
+  CssPropertyConfig,
   CssPseudoClassName,
   CssPseudoElementName,
   CssPseudoClassConfig,
@@ -22,23 +22,64 @@ import type {
 } from './cssPropertyConfig';
 
 export interface CsstsConfig {
-  /** CSS 属性配置 */
-  properties?: CssPropertyItem[];
+  /** 
+   * 支持的 CSS 属性列表（属性名数组）
+   * 用于指定生成哪些属性的原子类
+   * @example ['width', 'height', 'margin', 'padding']
+   */
+  properties?: CssPropertyName[];
 
-  /** 排除的属性配置 */
-  excludeProperties?: CssPropertyExcludeItem[];
+  /** 
+   * 排除的 CSS 属性列表（属性名数组）
+   * 从 properties 中排除指定的属性
+   * @example ['display', 'position']
+   */
+  excludeProperties?: CssPropertyName[];
 
-  /** 数值类别配置 */
-  numberCategories?: CssNumberCategoryItem[];
+  /**
+   * 特定属性的详细配置
+   * 用于覆盖特定属性的数值范围、步长、预设值等
+   * @example [{ zIndex: { unitless: { max: 9999, presets: [-1, 999] } } }]
+   */
+  propertiesConfig?: CssPropertyConfig[];
 
-  /** 排除的数值类别 */
-  excludeNumberCategories?: CssNumberCategoryExcludeItem[];
+  /**
+   * 支持的数值类别列表（类别名数组）
+   * @example ['pixel', 'fontRelative', 'percentage']
+   */
+  numberCategories?: CssNumberCategoryName[];
 
-  /** 数值单位配置 */
-  numberUnits?: CssNumberUnitItem[];
+  /**
+   * 排除的数值类别列表（类别名数组）
+   * @example ['physical', 'frequency', 'resolution']
+   */
+  excludeNumberCategories?: CssNumberCategoryName[];
 
-  /** 排除的单位 */
+  /**
+   * 数值类别的详细配置
+   * 用于配置特定类别的数值范围、步长、预设值等
+   * @example [{ pixel: { min: 0, max: 1000, step: 1 } }]
+   */
+  numberCategoriesConfig?: CssNumberCategoryConfig[];
+
+  /**
+   * 支持的数值单位列表（单位名数组）
+   * @example ['px', 'em', 'rem', 'vw', 'vh']
+   */
+  numberUnits?: CssNumberUnitName[];
+
+  /**
+   * 排除的数值单位列表（单位名数组）
+   * @example ['cm', 'mm', 'in', 'pt', 'pc']
+   */
   excludeUnits?: CssNumberUnitName[];
+
+  /**
+   * 数值单位的详细配置
+   * 用于配置特定单位的数值范围、步长、预设值等
+   * @example [{ px: { min: 0, max: 1000, step: 1 } }]
+   */
+  numberUnitsConfig?: CssNumberUnitConfig[];
 
   /** 关键字 */
   keywords?: CssKeywordName[];
@@ -46,11 +87,24 @@ export interface CsstsConfig {
   /** 排除的关键字 */
   excludeKeywords?: CssKeywordName[];
 
-  /** 颜色类型配置 */
-  colorTypes?: CssColorTypeItem[];
+  /**
+   * 支持的颜色类型列表（类型名数组）
+   * @example ['namedColor', 'systemColor']
+   */
+  colorTypes?: CssColorTypeName[];
 
-  /** 排除的颜色类型 */
+  /**
+   * 排除的颜色类型列表（类型名数组）
+   * @example ['deprecatedSystemColor', 'nonStandardColor']
+   */
   excludeColorTypes?: CssColorTypeName[];
+
+  /**
+   * 颜色类型的详细配置
+   * 用于配置特定颜色类型包含哪些颜色
+   * @example [{ namedColor: ['red', 'blue', 'green'] }]
+   */
+  colorTypesConfig?: CssColorTypeConfig[];
 
   /** 颜色 */
   colors?: CssColorName[];

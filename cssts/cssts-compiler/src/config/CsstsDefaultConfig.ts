@@ -215,8 +215,15 @@ export const csstsDefaultConfig: CsstsConfig = {
     // 默认支持的属性列表
     properties: atomicCssProperties,
 
-    // ==================== 数值类别配置 ====================
-    numberCategories: [
+    // 排除不常用的数值类别
+    excludeNumberCategories: [
+        'physical',    // cm, mm, in, pt, pc - 仅用于打印
+        'frequency',   // Hz, kHz - 音频相关，Web 几乎不用
+        'resolution',  // dpi, dpcm, dppx - 主要用于媒体查询
+    ],
+
+    // 数值类别详细配置
+    numberCategoriesConfig: [
         {
             // 像素单位 - 最常用，支持负值
             pixel: {
@@ -224,16 +231,17 @@ export const csstsDefaultConfig: CsstsConfig = {
                 min: 0,
                 max: 1000,
             },
-
+        },
+        {
             // 字体相对单位 (em, rem, ch, etc.)
             fontRelative: {
                 negative: true,
                 min: 0,
                 max: 20,
-                step: 0.125,  // 0.125rem = 2px (基于 16px)
-                presets: [0.5, 0.75, 1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 14, 16],
+                step: 0.125
             },
-
+        },
+        {
             // 百分比类 (%, vw, vh, vmin, vmax, etc.)
             percentage: {
                 negative: false,
@@ -242,7 +250,8 @@ export const csstsDefaultConfig: CsstsConfig = {
                 step: 1,
                 presets: [33.33, 66.67],
             },
-
+        },
+        {
             // 角度单位 (deg, rad, turn, grad)
             angle: {
                 negative: true,
@@ -250,14 +259,16 @@ export const csstsDefaultConfig: CsstsConfig = {
                 max: 360,
                 step: 1
             },
-
+        },
+        {
             // 时间单位 (s, ms)
             time: {
                 negative: false,
                 min: 0,
                 max: 60
             },
-
+        },
+        {
             // 无单位数值 - opacity, z-index, line-height, flex-grow 等
             unitless: {
                 negative: true,
@@ -265,27 +276,20 @@ export const csstsDefaultConfig: CsstsConfig = {
                 max: 100,
                 step: 1,
             },
-
+        },
+        {
             // Flex 单位 (fr) - Grid 布局常用
             flex: {
                 negative: false,
                 min: 0,
                 max: 12,
-                step: 1,
-                presets: [1, 2, 3, 4, 5, 6],
+                step: 1
             },
         }
     ],
 
-    // 排除不常用的数值类别
-    excludeNumberCategories: [
-        'physical',    // cm, mm, in, pt, pc - 仅用于打印
-        'frequency',   // Hz, kHz - 音频相关，Web 几乎不用
-        'resolution',  // dpi, dpcm, dppx - 主要用于媒体查询
-    ],
-
     // ==================== 特殊属性配置 ====================
-    propertiesInfo: [
+    propertiesConfig: [
         // z-index: 通常使用特定层级
         {
             zIndex: {

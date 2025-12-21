@@ -2,10 +2,10 @@
 
 ## 配置层级结构
 
-CSSTS 采用四层精准类型约束：
+CSSTS 采用三层精准类型约束：
 
 ```
-Property → NumberType → NumberCategory → NumberUnit
+Property → NumberCategory → NumberUnit
          → ColorType → Color
          → Keyword
 ```
@@ -38,10 +38,10 @@ progressiveRanges: [
 
 ### 属性列表 (properties / excludeProperties)
 
-简单的属性名列表，控制启用/禁用哪些属性：
+**用途**：控制启用/禁用哪些 CSS 属性，只接受属性名数组。
 
 ```typescript
-// 启用的属性
+// 启用的属性（属性名列表）
 properties: [
   'width',
   'height', 
@@ -52,7 +52,7 @@ properties: [
   // ...
 ],
 
-// 排除的属性
+// 排除的属性（属性名列表）
 excludeProperties: [
   'azimuth',
   'voiceFamily',
@@ -60,109 +60,162 @@ excludeProperties: [
 ]
 ```
 
-### 属性详细配置 (propertiesInfo / excludePropertiesInfo)
+### 属性详细配置 (propertiesConfig)
 
-配置 CSS 属性的详细信息：keywords、numberTypes、colorTypes 等。
+**用途**：配置特定属性的详细信息，如数值范围、步长、预设值等。与 `properties` 分离，职责清晰。
 
 ```typescript
-propertiesInfo: [
+propertiesConfig: [
+  // z-index: 配置无单位数值的范围
   {
-    width: {
-      keywords: ['auto', 'fit-content'],
-      numberTypes: ['length', 'percentage'],
-      // 可直接配置 NumberType
-      length: {
-        pixel: { min: 0, max: 1000, step: 1 },
-        percentage: ['vw', 'vh']
+    zIndex: {
+      unitless: {
+        negative: true,
+        max: 10000,
+        presets: [-1, 999, 9999],
       }
     }
   },
+
+  // opacity: 0-1 范围，步长 0.1
   {
     opacity: {
-      number: { min: 0, max: 1, step: 0.1 }
-    }
-  }
-]
-```
-
-**注意**：`propertiesInfo` 只需要配置需要自定义的属性，未配置的属性使用默认值。
-
-### 数值类型配置 (numberTypes / excludeNumberTypes)
-
-数值类型包括：`length`, `angle`, `time`, `frequency`, `percentage`, `number`, `integer`, `resolution`, `flex`, `ratio`
-
-```typescript
-numberTypes: [
-  'length',  // 字符串形式
-  {
-    length: {
-      // 直接配置步长
-      min: 0,
-      max: 1000,
-      step: 1
+      unitless: {
+        negative: false,
+        min: 0,
+        max: 1,
+        step: 0.1,
+      }
     }
   },
+
+  // border-radius: 配置多个 category
   {
-    length: {
-      // 配置 Category
-      pixel: { min: 0, max: 100 },
-      percentage: ['vw', 'vh', 'percent']
+    borderRadius: {
+      pixel: {
+        negative: false,
+        min: 0,
+        max: 100,
+        step: 1
+      },
+      percentage: {
+        negative: false,
+        min: 0,
+        max: 50,
+        step: 5
+      }
+    }
+  },
+
+  // rotate: 角度配置
+  {
+    rotate: {
+      angle: {
+        negative: true,
+        min: -360,
+        max: 360,
+        step: 1,
+        presets: [0, 45, 90, 180],
+      }
     }
   }
 ]
 ```
 
-### 数值类别配置 (numberCategories / excludeNumberCategories)
+**注意**：`propertiesConfig` 只需要配置需要自定义的属性，未配置的属性使用全局默认值。
 
-数值类别是 NumberType 的子分类：
+### 数值类别配置 (numberCategories / excludeNumberCategories / numberCategoriesConfig)
 
-| NumberType | Categories |
-|------------|------------|
-| length | pixel, fontRelative, physical, percentage |
-| angle | angle |
-| time | time |
-| frequency | frequency |
-| percentage | percentage |
-| number/integer | unitless |
+数值类别及其包含的单位：
+
+| Category | Units |
+|----------|-------|
+| pixel | px |
+| fontRelative | em, rem, ch, ex, cap, ic, lh, rlh |
+| physical | cm, mm, in, pt, pc, Q |
+| percentage | %, vw, vh, vmin, vmax, svw, svh, lvw, lvh, dvw, dvh, vi, vb |
+| angle | deg, grad, rad, turn |
+| time | s, ms |
+| frequency | Hz, kHz |
+| resolution | dpi, dpcm, dppx, x |
+| flex | fr |
+| unitless | (无单位) |
 
 ```typescript
+// 支持的数值类别（类别名列表）
 numberCategories: [
   'pixel',
+  'fontRelative',
+  'percentage',
+  'angle',
+  'time',
+  'unitless',
+  'flex',
+],
+
+// 排除的数值类别（类别名列表）
+excludeNumberCategories: [
+  'physical',    // 排除物理单位
+  'frequency',   // 排除频率单位
+  'resolution',  // 排除分辨率单位
+],
+
+// 数值类别详细配置
+numberCategoriesConfig: [
   {
-    pixel: { min: 0, max: 100, step: 1 },
-    fontRelative: ['em', 'rem']
+    pixel: { min: 0, max: 1000, step: 1, negative: true },
+  },
+  {
+    fontRelative: { min: 0, max: 20, step: 0.125 },
+  },
+  {
+    percentage: { min: 0, max: 100, step: 1, presets: [33.33, 66.67] },
   }
 ]
 ```
 
-### 数值单位配置 (numberUnits / excludeUnits)
+### 数值单位配置 (numberUnits / excludeUnits / numberUnitsConfig)
 
-直接配置具体单位的步长：
+直接配置具体单位：
 
 ```typescript
-numberUnits: [
-  'px',
+// 支持的单位（单位名列表）
+numberUnits: ['px', 'em', 'rem', 'vw', 'vh'],
+
+// 排除的单位（单位名列表）
+excludeUnits: ['cm', 'mm', 'in', 'pt', 'pc'],
+
+// 单位详细配置
+numberUnitsConfig: [
   {
     px: { min: 0, max: 1000, step: 1 },
-    vw: { min: 0, max: 100, step: 5 }
+  },
+  {
+    vw: { min: 0, max: 100, step: 5 },
   }
-],
-excludeUnits: ['cm', 'mm', 'in']  // 排除不需要的单位
+]
 ```
 
-### 颜色类型配置 (colorTypes / excludeColorTypes)
+### 颜色类型配置 (colorTypes / excludeColorTypes / colorTypesConfig)
 
 颜色类型包括：`namedColor`, `systemColor`, `deprecatedSystemColor`, `nonStandardColor`
 
 ```typescript
-colorTypes: [
-  'namedColor',
+// 支持的颜色类型（类型名列表）
+colorTypes: ['namedColor', 'systemColor'],
+
+// 排除的颜色类型（类型名列表）
+excludeColorTypes: ['deprecatedSystemColor', 'nonStandardColor'],
+
+// 颜色类型详细配置
+colorTypesConfig: [
   {
     namedColor: ['red', 'blue', 'green'],
-    systemColor: ['AccentColor', 'ButtonFace']
+  },
+  {
+    systemColor: ['AccentColor', 'ButtonFace'],
   }
-],
-excludeColorTypes: ['deprecatedSystemColor', 'nonStandardColor']
+]
 ```
 
 ### 颜色配置 (colors / excludeColors)
@@ -218,21 +271,25 @@ customProperties: {
 }
 ```
 
-## 排除配置说明
+## 配置职责分离
 
-排除配置（`exclude*`）不支持步长设置，只能指定要排除的项目：
+所有配置都遵循"列表 + 详情"分离的模式：
 
-```typescript
-// ✅ 正确 - 简单列表
-excludeProperties: ['margin', 'padding']
+| 列表配置 | 详情配置 | 用途 |
+|----------|----------|------|
+| `properties` | `propertiesConfig` | CSS 属性 |
+| `excludeProperties` | - | 排除属性 |
+| `numberCategories` | `numberCategoriesConfig` | 数值类别 |
+| `excludeNumberCategories` | - | 排除类别 |
+| `numberUnits` | `numberUnitsConfig` | 数值单位 |
+| `excludeUnits` | - | 排除单位 |
+| `colorTypes` | `colorTypesConfig` | 颜色类型 |
+| `excludeColorTypes` | - | 排除颜色类型 |
 
-// ✅ 正确 - 详细排除配置
-excludePropertiesInfo: [{ width: { numberTypes: ['percentage'] } }]
-excludeNumberTypes: [{ length: ['pixel'] }]
-
-// ❌ 错误 - 排除配置不支持步长
-excludePropertiesInfo: [{ width: { length: { min: 100 } } }]
-```
+这种分离使得：
+- 列表配置保持简洁，只关心"要哪些"
+- 详情配置专注于"如何配置"
+- 两者可以独立修改，互不影响
 
 ## 命名规范
 
@@ -240,3 +297,4 @@ excludePropertiesInfo: [{ width: { length: { min: 100 } } }]
 - 颜色名：camelCase（如 `mozButtonDefault`）
 - 关键字：kebab-case 原值（如 `flex-start`）
 - 伪类/伪元素：camelCase（如 `focusVisible`）
+- 数值类别：camelCase（如 `fontRelative`）
