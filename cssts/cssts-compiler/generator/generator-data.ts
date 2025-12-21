@@ -54,21 +54,14 @@ function normalizeUnit(unit: string): string {
 
 // ==================== 从 csstree 提取数据 ====================
 
-// CSS 数值类型到 Category 的映射
-const NUMBER_TYPE_TO_CATEGORIES: Record<string, string[]> = {
-  'length': ['pixel', 'fontRelative', 'physical', 'percentage'],
-  'angle': ['angle'],
-  'time': ['time'],
-  'frequency': ['frequency'],
-  'percentage': ['percentage'],
-  'number': ['unitless'],
-  'integer': ['unitless'],
-  'resolution': ['resolution'],
-  'flex': ['flex'],
-  'ratio': ['unitless'],
-  'decibel': ['unitless'],
-  'semitones': ['unitless'],
-};
+// 从 numberMapping.json 加载 NumberType 到 Category 的映射
+function loadNumberTypeToCategoriesMapping(): Record<string, string[]> {
+  const mappingPath = path.join(__dirname, 'datajson', 'numberMapping.json');
+  const mapping = JSON.parse(fs.readFileSync(mappingPath, 'utf-8'));
+  return mapping.numberTypes as Record<string, string[]>;
+}
+
+const NUMBER_TYPE_TO_CATEGORIES = loadNumberTypeToCategoriesMapping();
 
 const ACCEPTED_NUMBER_TYPES = new Set(Object.keys(NUMBER_TYPE_TO_CATEGORIES));
 
