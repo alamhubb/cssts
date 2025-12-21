@@ -1,5 +1,5 @@
 import type {CsstsConfig} from "../types/csstsConfig";
-import {CssProgressiveRange, CssPropertyName} from "../types/cssPropertyConfig";
+import {CssPropertyName} from "../types/cssPropertyConfig";
 
 const atomicCssProperties: CssPropertyName[] = [
     // ==================== 布局 (Layout) ====================
@@ -213,7 +213,8 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     // 默认支持的属性列表
-    properties: atomicCssProperties,
+    // properties: atomicCssProperties,
+    properties: ['top'],
 
     // 排除不常用的数值类别
     excludeNumberCategories: [
