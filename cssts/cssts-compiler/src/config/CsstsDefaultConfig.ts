@@ -114,7 +114,6 @@ const atomicCssProperties: CssPropertyName[] = [
 ];
 
 
-
 console.log(Object.keys(PROPERTY_CATEGORIES_MAP).length)
 
 // ==================== 系统级别默认配置 ====================
@@ -132,7 +131,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     // 默认支持的属性列表
-    properties: ['top'],
+    properties: ['margin', 'marginTop'],
 
     // 排除不常用的数值类别
     excludeNumberCategories: [
@@ -146,7 +145,7 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 像素单位 - 最常用，支持负值
             pixel: {
-                min: -1000,
+                min: 0,
                 max: 1000,
             },
         },
@@ -204,6 +203,14 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     // ==================== 特殊属性配置 ====================
     propertiesConfig: [
+        {
+            margin: {
+                px: {
+                    min: -10000,
+                    max: 10000
+                }
+            }
+        },
         // z-index: 通常使用特定层级
         {
             zIndex: {
