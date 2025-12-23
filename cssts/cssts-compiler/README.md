@@ -255,21 +255,203 @@ const config: CsstsConfig = {
 
 ## DTS 生成器
 
+### 设计理念
+
+**核心问题：IDE 提示与编译转换的统一**
+
+用户在 `css { }` 中输入时：
+1. 输入 `d` → IDE 应提示 `displayFlex`, `displayBlock` 等
+2. 输入完成 `displayFlex` → 编译器转换为 `csstsAtom.displayFlex`
+
+**解决方案：全局常量声明**
+
+生成的 `.d.ts` 文件将每个原子类声明为全局常量：
+
+```typescript
+// node_modules/@types/cssts/index.d.ts
+declare const displayFlex: { 'display_flex': true };
+declare const displayBlock: { 'display_block': true };
+declare const paddingTop16px: { 'padding-top_16px': true };
+// ... 所有原子类
+```
+
+**这样设计的好处：**
+
+1. **IDE 自动补全** - 用户在 `css { }` 中输入时，IDE 会提示所有已声明的全局常量
+2. **类型安全** - 如果用户写了不存在的原子类名（如 `deephahah`），IDE 不会提示，用户立即知道这不是有效的原子类
+3. **编译时验证** - 编译器可以通过检查标识符是否匹配已知原子类来决定是否转换
+4. **统一的数据源** - IDE 提示和编译转换使用同一份类型定义，保证一致性
+
+**工作流程：**
+
+```
+用户输入 displayFlex
+    ↓
+IDE 识别为全局常量，提供补全和类型检查
+    ↓
+编译器识别为原子类名，转换为 csstsAtom.displayFlex
+    ↓
+运行时从虚拟模块获取 { 'display_flex': true }
+```
+
+### 生成逻辑详解
+
+#### 1. 原子类定义结构
+
+每个原子类由 `AtomDefinition` 描述：
+
+```typescript
+interface AtomDefinition {
+  name: string;      // 原子类名称 (camelCase)，如 'displayFlex'
+  property: string;  // CSS 属性名 (kebab-case)，如 'display'
+  value: string;     // CSS 值，如 'flex'
+  unit?: string;     // 单位（可选），如 'px'
+  number?: number;   // 数值（可选），如 16
+}
+```
+
+#### 2. 原子类名生成规则
+
+```typescript
+// 属性名 (camelCase) + 值 (PascalCase)
+atomName = propertyName + formatValue(value)
+
+// 示例：
+// display + Flex → displayFlex
+// paddingTop + 16px → paddingTop16px
+// opacity + 0.9 → opacity0p9 (小数点转 p)
+// width + 50% → width50pct (百分号转 pct)
+// zIndex + -1 → zIndexN1 (负数前缀 N)
+```
+
+#### 3. CSS 类名生成规则
+
+```typescript
+// 属性名 (kebab-case) + 分隔符 + 值
+cssClassName = `${property}_${value}`
+
+// 示例：
+// display_flex
+// padding-top_16px
+// opacity_0.9
+// width_50%
+// z-index_-1
+```
+
+#### 4. 全局常量声明生成
+
+`generateDts()` 函数遍历所有原子类，生成全局常量声明：
+
+```typescript
+// atom-generator.ts 中的 generateDts 函数
+export function generateDts(options?: GeneratorOptions): string {
+  const atoms = generateAtoms(options);
+  
+  const lines: string[] = [
+    '/**',
+    ' * CSSTS 原子类全局常量声明（自动生成）',
+    ' * ',
+    ' * 这些全局常量用于 css { } 语法中的 IDE 自动补全',
+    ' */',
+    '',
+  ];
+  
+  for (const atom of atoms) {
+    // 生成 CSS 类名：property_value
+    const cssClassName = `${atom.property}_${atom.value}`;
+    // 生成全局常量声明
+    lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
+  }
+  
+  lines.push('');
+  return lines.join('\n');
+}
+```
+
+#### 5. 文件写入
+
+`generateDtsFiles()` 函数将生成的内容写入文件：
+
+```typescript
+// dts-writer.ts
+export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResult {
+  const { outputDir = 'node_modules/@types/cssts' } = options ?? {};
+  
+  // 1. 生成 package.json
+  const packageJson = { name: '@types/cssts', version: '0.0.0', types: 'index.d.ts' };
+  fs.writeFileSync(path.join(outputDir, 'package.json'), JSON.stringify(packageJson, null, 2));
+  
+  // 2. 生成 index.d.ts（全局常量声明）
+  const dtsContent = generateDts(options);
+  fs.writeFileSync(path.join(outputDir, 'index.d.ts'), dtsContent, 'utf-8');
+  
+  return { files: [...], atomCount: atoms.length };
+}
+```
+
+#### 6. Vite 插件调用
+
+Vite 插件在 `configResolved` 钩子中调用生成函数：
+
+```typescript
+// vite-plugin-cssts/src/index.ts
+import { generateDtsFiles } from 'cssts-compiler'
+
+configResolved(resolvedConfig) {
+  if (enableDts) {
+    const outputDir = path.join(config.root, 'node_modules/@types/cssts');
+    generateDtsFiles({ outputDir });
+  }
+}
+```
+
 ### API
 
 ```typescript
-import { generateAtoms, generateDts, generateStats } from 'cssts-compiler'
+import { generateAtoms, generateDts, generateDtsFiles, generateStats } from 'cssts-compiler'
 
 // 生成原子类定义数组
 const atoms = generateAtoms({ config: userConfig })
 
-// 生成 DTS 文件内容
+// 生成 DTS 文件内容（全局常量声明格式）
 const dtsContent = generateDts({ config: userConfig })
+
+// 生成 DTS 文件到指定目录
+generateDtsFiles({ outputDir: 'node_modules/@types/cssts' })
 
 // 生成统计信息
 const stats = generateStats({ config: userConfig })
 console.log(`总原子类数: ${stats.totalAtoms}`)
 ```
+
+### 生成文件结构
+
+```
+node_modules/@types/cssts/
+├── package.json        # { "name": "@types/cssts", "types": "index.d.ts" }
+└── index.d.ts          # 全局原子类常量声明
+```
+
+**只生成一个类型文件**，包含所有原子类的全局常量声明：
+
+```typescript
+// node_modules/@types/cssts/index.d.ts
+/**
+ * CSSTS 原子类全局常量声明（自动生成）
+ * 
+ * 这些全局常量用于 css { } 语法中的 IDE 自动补全
+ */
+
+declare const displayFlex: { 'display_flex': true };
+declare const displayBlock: { 'display_block': true };
+declare const paddingTop16px: { 'padding-top_16px': true };
+// ... 约 29000+ 个原子类
+```
+
+**不需要的东西：**
+- ❌ `CsstsAtoms` 接口 - 用户不直接使用 `csstsAtom.xxx`，编译器自动转换
+- ❌ `declare module 'virtual:csstsAtom'` - 虚拟模块运行时由 Vite 提供，不需要类型声明
+- ❌ `declare module 'virtual:cssts.css'` - 同理
 
 ### 0 值处理
 
@@ -284,10 +466,9 @@ console.log(`总原子类数: ${stats.totalAtoms}`)
 
 ```typescript
 // 生成结果示例
-top0: '0';      // ✅ 只生成一个，值为 '0'（无单位）
-top1px: '1px';
-top1em: '1em';
-top1rem: '1rem';
+declare const top0: { 'top_0': true };      // ✅ 只生成一个
+declare const top1px: { 'top_1px': true };
+declare const top1em: { 'top_1em': true };
 // top0px, top0em, top0rem 不会生成（去重）
 ```
 

@@ -18,6 +18,12 @@ export {
   generateCsstsAtomModule,
 } from './transform/index.js'
 
+/** CSS 属性值映射类型 */
+export type CssPropertyValueMap = Record<string, string | undefined>
+
+/** 伪类工具配置类型 */
+export type PseudoUtilsConfig = Record<string, CssPropertyValueMap>
+
 // CSS class name utilities
 export {
   CSSTS_CONFIG,
@@ -30,7 +36,7 @@ export {
 } from './utils/cssClassName.js'
 
 // ==================== 配置 ====================
-export { csstsDefaultConfig } from './config/CsstsDefaultConfig.ts'
+export { csstsDefaultConfig, csstsDefaultConfig as defaultConfig } from './config/CsstsDefaultConfig.ts'
 
 // ==================== 配置工具函数 ====================
 export {

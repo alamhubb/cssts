@@ -9,16 +9,60 @@ CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供
 - 🎯 **类型安全** - 完整的 TypeScript 类型定义，IDE 代码补全
 - 🚀 **编译时优化** - CSS 在构建时按需生成，零运行时开销
 - 📦 **零依赖运行时** - runtime 包无任何依赖，体积最小
-- 🎨 **`$$` 伪类语法** - 通过变量名声明伪类（双美元符号 `$$`）
+- 🎨 **`$` 伪类语法** - 通过变量名声明伪类（双美元符号 `$`）
 - 🧩 **简洁数据结构** - 统一的 `Set<string>` 存储，按需解析
+- 💡 **全局常量提示** - 原子类声明为全局常量，IDE 自动补全
 
-## ⚠️ 重要：伪类分隔符是双美元符号 `$$`
+## 类型系统设计
 
-**伪类语法使用双美元符号 `$$`，不是单美元符号 `$`！**
+### 核心问题：IDE 提示与编译转换的统一
+
+用户在 `css { }` 中输入时：
+1. 输入 `d` → IDE 应提示 `displayFlex`, `displayBlock` 等
+2. 输入完成 `displayFlex` → 编译器转换为 `csstsAtom.displayFlex`
+
+### 解决方案：全局常量声明
+
+Vite 插件启动时自动生成 `.d.ts` 文件，将每个原子类声明为全局常量：
 
 ```typescript
-// ✅ 正确：使用双美元符号 $$
-const primary$$hover$$active = css { backgroundColorBlue }
+// node_modules/@types/cssts/index.d.ts（自动生成）
+declare const displayFlex: { 'display_flex': true };
+declare const displayBlock: { 'display_block': true };
+declare const paddingTop16px: { 'padding-top_16px': true };
+// ... 所有原子类
+```
+
+**只需要这一个文件**，不需要其他类型声明：
+- ❌ `CsstsAtoms` 接口 - 用户不直接使用
+- ❌ `declare module 'virtual:csstsAtom'` - 虚拟模块运行时由 Vite 提供
+
+**这样设计的好处：**
+
+1. **IDE 自动补全** - 用户在 `css { }` 中输入时，IDE 会提示所有已声明的全局常量
+2. **类型安全** - 如果用户写了不存在的原子类名，IDE 不会提示，用户立即知道这不是有效的原子类
+3. **编译时验证** - 编译器可以通过检查标识符是否匹配已知原子类来决定是否转换
+4. **统一的数据源** - IDE 提示和编译转换使用同一份类型定义，保证一致性
+
+**工作流程：**
+
+```
+用户输入 displayFlex
+    ↓
+IDE 识别为全局常量，提供补全和类型检查
+    ↓
+编译器识别为原子类名，转换为 csstsAtom.displayFlex
+    ↓
+运行时从虚拟模块获取 { 'display_flex': true }
+```
+
+## ⚠️ 重要：伪类分隔符是双美元符号 `$`
+
+**伪类语法使用双美元符号 `$`，不是单美元符号！**
+
+```typescript
+// ✅ 正确：使用双美元符号 $
+const primary$hover$active = css { backgroundColorBlue }
 
 // ❌ 错误：使用单美元符号 $（伪类不会生效！）
 const primary$hover$active = css { backgroundColorBlue }
@@ -29,18 +73,16 @@ const primary$hover$active = css { backgroundColorBlue }
 ```
 cssts/
 ├── cssts-compiler    # 编译器：解析、转换、生成
-├── cssts-runtime     # 运行时：$cls、replace、分隔符配置（包名是 cssts）
+├── cssts-runtime     # 运行时：$cls、replace、分隔符配置（包名是 cssts-ts）
 └── vite-plugin-cssts # Vite 插件
 ```
-
-> **注意**：`cssts-runtime` 目录的包名是 `cssts`，不是 `cssts-runtime`
 
 ## 快速开始
 
 ### 安装
 
 ```bash
-npm install cssts vite-plugin-cssts -D
+npm install cssts-ts vite-plugin-cssts -D
 ```
 
 ### 配置 Vite
@@ -62,6 +104,7 @@ export default defineConfig({
 })
 ```
 
+
 ### 使用
 
 #### 支持的文件类型
@@ -81,11 +124,11 @@ export default defineConfig({
 // 普通样式
 const buttonStyle = css { displayFlex, padding16px, cursorPointer }
 
-// 带伪类的样式（使用 $$ 双美元符号）
-const clickable$$hover$$active = css { cursorPointer, displayFlex }
+// 带伪类的样式（使用 $ 双美元符号）
+const clickable$hover$active = css { cursorPointer, displayFlex }
 
 // 导出使用
-export { buttonStyle, clickable$$hover$$active }
+export { buttonStyle, clickable$hover$active }
 ```
 
 #### 方式二：Vue 文件中使用 `<script lang="cssts">`
@@ -125,13 +168,13 @@ import { buttonStyle } from './Button.cssts'
 // 存储
 const styles = new Set<string>()
 styles.add('displayFlex')                   // 普通原子类
-styles.add('clickable$$hover$$active')      // 带伪类的样式（双美元符号 $$）
+styles.add('clickable$hover$active')      // 带伪类的样式（双美元符号 $）
 
 // 解析（按需）
 parseStyleName('displayFlex')
 // { baseName: 'displayFlex', pseudos: [] }
 
-parseStyleName('clickable$$hover$$active')
+parseStyleName('clickable$hover$active')
 // { baseName: 'clickable', pseudos: ['hover', 'active'] }
 ```
 
@@ -139,7 +182,6 @@ parseStyleName('clickable$$hover$$active')
 - 数据结构简单
 - 不存储冗余数据
 - 按需解析，更灵活
-
 
 ## 核心概念
 
@@ -162,16 +204,16 @@ const buttonStyle = css { displayFlex, padding16px, cursorPointer }
 // 运行时：{ 'display_flex': true, 'padding_16px': true, 'cursor_pointer': true }
 ```
 
-### $$ 伪类语法
+### $ 伪类语法
 
-通过变量名声明伪类（使用 `$$` 双美元符号分隔）：
+通过变量名声明伪类（使用 `$` 双美元符号分隔）：
 
 ```typescript
-// 变量名格式：{baseName}$${pseudo1}$${pseudo2}...
-const clickable$$hover$$active = css { cursorPointer }
+// 变量名格式：{baseName}${pseudo1}${pseudo2}...
+const clickable$hover$active = css { cursorPointer }
 
 // 解析结果
-parseStyleName('clickable$$hover$$active')
+parseStyleName('clickable$hover$active')
 // { baseName: 'clickable', pseudos: ['hover', 'active'] }
 
 // 生成的 CSS：
@@ -203,7 +245,7 @@ parseStyleName('clickable$$hover$$active')
 │  Vite 插件层                                                 │
 │  • vite-plugin-cssts: 处理 .cssts 文件和 <script lang="cssts">│
 │  • 共享 globalStyles: Set<string> 收集所有样式               │
-│  • 生成虚拟模块                                              │
+│  • 生成虚拟模块和类型定义文件                                 │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
@@ -215,7 +257,7 @@ parseStyleName('clickable$$hover$$active')
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │  运行时层                                                    │
-│  • cssts（包名）: $cls()、replace()、CSSTS_CONFIG            │
+│  • cssts-ts（包名）: $cls()、replace()、CSSTS_CONFIG         │
 │  • 零依赖，只做对象操作                                       │
 └─────────────────────────────────────────────────────────────┘
                               ↓
@@ -230,16 +272,14 @@ parseStyleName('clickable$$hover$$active')
 
 ## 分隔符配置
 
-所有分隔符统一在 `cssts` 中配置，compiler 和 runtime 共用：
+所有分隔符统一在 `cssts-ts` 中配置，compiler 和 runtime 共用：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts'
+import { CSSTS_CONFIG } from 'cssts-ts'
 
 CSSTS_CONFIG.SEPARATOR        // '_'    - 类名分隔符：property_value
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'   - 伪类分隔符：baseName$$pseudo（双美元符号）
+CSSTS_CONFIG.PSEUDO_SEPARATOR // '$'   - 伪类分隔符：baseName$pseudo（双美元符号）
 ```
-
-> **注意**：包名是 `cssts`，不是 `cssts-runtime`（目录名和包名不一致）
 
 ## License
 

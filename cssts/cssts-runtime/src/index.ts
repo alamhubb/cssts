@@ -202,31 +202,6 @@ export function replaceAll(
   return result
 }
 
-// ==================== 兼容性导出（已废弃） ====================
-
-/**
- * @deprecated 不再需要，类名已在 csstsAtom 中
- */
-export function getCssClassName(atomName: string): string {
-  console.warn('[cssts] getCssClassName is deprecated. Class names are already in csstsAtom.')
-  return atomName
-}
-
-/**
- * @deprecated 不再需要，使用 split('_') 从类名提取属性
- */
-export function getCssProperty(atomName: string): string | undefined {
-  console.warn('[cssts] getCssProperty is deprecated. Use split("_") to extract property from class name.')
-  return getPropertyFromClassName(atomName) || undefined
-}
-
-/**
- * @deprecated 不再需要 properties.json
- */
-export function initProperties(_data: Record<string, string>): void {
-  console.warn('[cssts] initProperties is deprecated. No longer needed.')
-}
-
 // ==================== 导出 ====================
 
 export const cssts = {
@@ -234,10 +209,6 @@ export const cssts = {
   replace,
   replaceAll,
   CSSTS_CONFIG,
-  // 兼容性导出
-  getCssProperty,
-  getCssClassName,
-  initProperties,
   version: '0.2.0',
 }
 

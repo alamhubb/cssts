@@ -504,10 +504,27 @@ function generateCssClassName(atom: AtomDefinition): string {
   return `${atom.property}_${atom.value}`;
 }
 
-/** 生成 DTS 内容 */
+/** 生成 DTS 内容（全局常量声明格式） */
 export function generateDts(options?: GeneratorOptions): string {
   const atoms = generateAtoms(options);
-  return generatePropertyDts('cssts', atoms);
+  
+  const lines: string[] = [
+    '/**',
+    ' * CSSTS 原子类全局常量声明（自动生成）',
+    ' * ',
+    ' * 这些全局常量用于 css { } 语法中的 IDE 自动补全',
+    ' */',
+    '',
+  ];
+  
+  for (const atom of atoms) {
+    const cssClassName = generateCssClassName(atom);
+    lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
+  }
+  
+  lines.push('');
+  
+  return lines.join('\n');
 }
 
 /** 生成统计信息 */

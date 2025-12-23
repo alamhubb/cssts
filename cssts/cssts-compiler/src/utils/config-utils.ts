@@ -4,7 +4,20 @@
  * 提供配置相关的辅助函数
  */
 
-import type { UnitCategoryName, UnitsConfigValue, UnitCategoryConfig, UnitValueConfig } from '../config/units';
+/** 单位值配置 */
+interface UnitValueConfig {
+  step?: number;
+  max?: number;
+  min?: number;
+  presets?: number[];
+  negative?: boolean;
+}
+
+/** 单位分类配置 */
+type UnitCategoryConfig = Record<string, UnitValueConfig>;
+
+/** 单位配置值类型 */
+type UnitsConfigValue<T extends string> = T | T[] | Partial<Record<T, UnitValueConfig>>;
 
 /**
  * 判断一个值是否应该被包含

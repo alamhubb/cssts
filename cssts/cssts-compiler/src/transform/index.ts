@@ -13,7 +13,9 @@ import {
   camelToKebab,
   CSSTS_CONFIG
 } from '../utils/cssClassName.js'
-import type { CssPropertyValueMap } from '../config/keywords.js'
+
+/** CSS 属性值映射类型 */
+type CssPropertyValueMap = Record<string, string | undefined>
 
 /** 伪类工具配置 */
 type PseudoUtilsConfig = Record<string, CssPropertyValueMap>
@@ -267,6 +269,3 @@ export function generateCsstsAtomModule(
   return lines.join('\n')
 }
 
-// 兼容旧 API（已废弃，将在下个版本移除）
-/** @deprecated 使用 generateStylesCss 代替 */
-export const generateUsedAtomsCss = generateStylesCss
