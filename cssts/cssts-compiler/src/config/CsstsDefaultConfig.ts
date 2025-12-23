@@ -243,11 +243,11 @@ export const csstsDefaultConfig: CsstsConfig = {
                 display: [{value: 'flex'}],
                 flexDirection: [{value: 'row'}],
                 alignItems: [
-                    {value: 'start', prefix: 'Y'},
-                    {value: 'center', prefix: 'Y'},
-                    {value: 'end', prefix: 'Y'},
-                    {value: 'stretch', prefix: 'Y'},
-                    {value: 'baseline', prefix: 'Y'},
+                    {value: 'start', prefix: 'y'},
+                    {value: 'center', prefix: 'y'},
+                    {value: 'end', prefix: 'y'},
+                    {value: 'stretch', prefix: 'y'},
+                    {value: 'baseline', prefix: 'y'},
                 ],
             }
         },
@@ -257,11 +257,11 @@ export const csstsDefaultConfig: CsstsConfig = {
                 display: [{value: 'flex'}],
                 flexDirection: [{value: 'column'}],
                 alignItems: [
-                    {value: 'start', prefix: 'X'},
-                    {value: 'center', prefix: 'X'},
-                    {value: 'end', prefix: 'X'},
-                    {value: 'stretch', prefix: 'X'},
-                    {value: 'baseline', prefix: 'X'},
+                    {value: 'start', prefix: 'x'},
+                    {value: 'center', prefix: 'x'},
+                    {value: 'end', prefix: 'x'},
+                    {value: 'stretch', prefix: 'x'},
+                    {value: 'baseline', prefix: 'x'},
                 ],
             }
         },
