@@ -1,4 +1,4 @@
-﻿import { SlimeCstToAst } from "slime-parser"
+﻿import { SlimeCstToAst, SlimeJavascriptCstToAstUtil } from "slime-parser"
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
@@ -7,7 +7,7 @@ import {
   type SlimeStatement,
   type SlimeModuleDeclaration,
   type SlimeProgram,
-  SlimeAstUtil as SlimeNodeCreate,
+  SlimeAstCreateUtils,
 } from "slime-ast"
 import { CSSTS_CONFIG, parseTsAtomName } from "../utils/cssClassName.js"
 
@@ -167,10 +167,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
         type: SlimeAstTypeName.ImportSpecifier,
-        imported: SlimeNodeCreate.createIdentifier('cssts'),
-        local: SlimeNodeCreate.createIdentifier('cssts')
+        imported: SlimeAstCreateUtils.createIdentifier('cssts'),
+        local: SlimeAstCreateUtils.createIdentifier('cssts')
       }],
-      source: SlimeNodeCreate.createStringLiteral('cssts-ts')
+      source: SlimeAstCreateUtils.createStringLiteral('cssts-ts')
     } as any
   }
 
@@ -179,10 +179,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
         type: SlimeAstTypeName.ImportSpecifier,
-        imported: SlimeNodeCreate.createIdentifier('csstsAtom'),
-        local: SlimeNodeCreate.createIdentifier('csstsAtom')
+        imported: SlimeAstCreateUtils.createIdentifier('csstsAtom'),
+        local: SlimeAstCreateUtils.createIdentifier('csstsAtom')
       }],
-      source: SlimeNodeCreate.createStringLiteral('virtual:csstsAtom')
+      source: SlimeAstCreateUtils.createStringLiteral('virtual:csstsAtom')
     } as any
   }
 
@@ -191,7 +191,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [],
-      source: SlimeNodeCreate.createStringLiteral('virtual:cssts.css')
+      source: SlimeAstCreateUtils.createStringLiteral('virtual:cssts.css')
     } as any
   }
 
@@ -244,8 +244,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   protected createCsstsAtomMemberComputed(propName: string): SlimeExpression {
-    const csstsAtomId = SlimeNodeCreate.createIdentifier('csstsAtom')
-    const propLiteral = SlimeNodeCreate.createStringLiteral(propName)
+    const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom')
+    const propLiteral = SlimeAstCreateUtils.createStringLiteral(propName)
     return {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsAtomId,
@@ -260,7 +260,55 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (first && first.name === CssTsParser.prototype.CssExpression.name) {
       return this.createCssExpressionAst(first)
     }
-    return super.createPrimaryExpressionAst(cst)
+    // 调用 SlimeJavascriptCstToAstUtil 的方法，但需要避免递归
+    // 由于方法拦截机制，我们需要直接处理 PrimaryExpression
+    return this._createPrimaryExpressionAstOriginal(cst)
+  }
+
+  /**
+   * 原始的 PrimaryExpression 处理逻辑
+   * 复制自 SlimeJavascriptPrimaryExpressionCstToAst，避免方法拦截导致的递归
+   */
+  private _createPrimaryExpressionAstOriginal(cst: SubhutiCst): SlimeExpression {
+    const first = cst.children?.[0]
+    if (!first) {
+      throw new Error('PrimaryExpression has no children')
+    }
+    
+    // 根据第一个子节点的类型分发处理
+    const name = first.name
+    
+    if (name === 'IdentifierReference') {
+      return SlimeJavascriptCstToAstUtil.createIdentifierAst(first.children?.[0])
+    } else if (name === 'Literal') {
+      return SlimeJavascriptCstToAstUtil.createLiteralAst(first)
+    } else if (name === 'ArrayLiteral') {
+      return SlimeJavascriptCstToAstUtil.createArrayLiteralAst(first) as SlimeExpression
+    } else if (name === 'FunctionExpression') {
+      return SlimeJavascriptCstToAstUtil.createFunctionExpressionAst(first) as SlimeExpression
+    } else if (name === 'ObjectLiteral') {
+      return SlimeJavascriptCstToAstUtil.createObjectLiteralAst(first) as SlimeExpression
+    } else if (name === 'ClassExpression') {
+      return SlimeJavascriptCstToAstUtil.createClassExpressionAst(first) as SlimeExpression
+    } else if (name === 'This') {
+      return SlimeAstCreateUtils.createThisExpression(first.loc) as any
+    } else if (name === 'RegularExpressionLiteral') {
+      return SlimeJavascriptCstToAstUtil.createRegExpLiteralAst(first)
+    } else if (name === 'GeneratorExpression') {
+      return SlimeJavascriptCstToAstUtil.createGeneratorExpressionAst(first) as SlimeExpression
+    } else if (name === 'AsyncFunctionExpression') {
+      return SlimeJavascriptCstToAstUtil.createAsyncFunctionExpressionAst(first) as SlimeExpression
+    } else if (name === 'AsyncGeneratorExpression') {
+      return SlimeJavascriptCstToAstUtil.createAsyncGeneratorExpressionAst(first) as SlimeExpression
+    } else if (name === 'CoverParenthesizedExpressionAndArrowParameterList') {
+      return SlimeJavascriptCstToAstUtil.createCoverParenthesizedExpressionAndArrowParameterListAst(first)
+    } else if (name === 'TemplateLiteral') {
+      return SlimeJavascriptCstToAstUtil.createTemplateLiteralAst(first)
+    } else if (name === 'ParenthesizedExpression') {
+      return SlimeJavascriptCstToAstUtil.createParenthesizedExpressionAst(first)
+    } else {
+      throw new Error('未知的 PrimaryExpression 类型: ' + name)
+    }
   }
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
@@ -278,14 +326,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
       const atomCst = identifierCsts[1]
       const atomName = atomCst.value || atomCst.children?.[0]?.value || ''
       this.usedAtoms.add(atomName)
-      return SlimeNodeCreate.createStringLiteral(atomName)
+      return SlimeAstCreateUtils.createStringLiteral(atomName)
     }
-    return SlimeNodeCreate.createStringLiteral('')
+    return SlimeAstCreateUtils.createStringLiteral('')
   }
 
   protected createCsstsClsCallWithArgs(args: SlimeExpression[], loc?: any): SlimeExpression {
-    const csstsId = SlimeNodeCreate.createIdentifier('cssts')
-    const clsId = SlimeNodeCreate.createIdentifier('$cls')
+    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
+    const clsId = SlimeAstCreateUtils.createIdentifier('$cls')
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
@@ -380,8 +428,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   protected createCsstsAtomMember(propName: string): SlimeExpression {
-    const csstsAtomId = SlimeNodeCreate.createIdentifier('csstsAtom')
-    const propId = SlimeNodeCreate.createIdentifier(propName)
+    const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom')
+    const propId = SlimeAstCreateUtils.createIdentifier(propName)
     return {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsAtomId,
@@ -412,8 +460,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const propertyName: string = memberExpr.property?.name || memberExpr.property?.value || ''
     const newAtomName: string = ast.right.value || ''
     
-    const csstsId = SlimeNodeCreate.createIdentifier('cssts')
-    const replaceId = SlimeNodeCreate.createIdentifier('replace')
+    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
+    const replaceId = SlimeAstCreateUtils.createIdentifier('replace')
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
@@ -423,9 +471,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
     } as any
     
     const args = [
-      SlimeNodeCreate.createIdentifier(objectName),
-      SlimeNodeCreate.createStringLiteral(propertyName),
-      SlimeNodeCreate.createStringLiteral(newAtomName)
+      SlimeAstCreateUtils.createIdentifier(objectName),
+      SlimeAstCreateUtils.createStringLiteral(propertyName),
+      SlimeAstCreateUtils.createStringLiteral(newAtomName)
     ]
     
     const replaceCall: SlimeExpression = {
@@ -438,7 +486,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return {
       type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
-      left: SlimeNodeCreate.createIdentifier(objectName),
+      left: SlimeAstCreateUtils.createIdentifier(objectName),
       right: replaceCall,
       loc: ast.loc
     } as any

@@ -12,6 +12,11 @@
     "test": "tsx test-runner.ts",
     "build": "npx lerna run build",
     "release": "npx lerna publish --no-git-reset --no-push --no-git-tag-version"
+  },
+  "dependencies": {
+    "slime-ast": "file:../slime/packages/slime-ast",
+    "slime-generator": "file:../slime/packages/slime-generator",
+    "slime-parser": "file:../slime/packages/slime-parser",
+    "slime-token": "file:../slime/packages/slime-token"
   }
 }
-
