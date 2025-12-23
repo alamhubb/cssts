@@ -242,13 +242,16 @@ export const csstsDefaultConfig: CsstsConfig = {
             keywordIterations: {
                 display: [{value: 'flex'}],
                 flexDirection: [{value: 'row'}],
-                alignItems: [
-                    {value: 'start', prefix: 'y'},
-                    {value: 'center', prefix: 'y'},
-                    {value: 'end', prefix: 'y'},
-                    {value: 'stretch', prefix: 'y'},
-                    {value: 'baseline', prefix: 'y'},
-                ],
+                alignItems: {
+                    prefix: 'y',
+                    values: [
+                        {value: 'start'},
+                        {value: 'center'},
+                        {value: 'end'},
+                        {value: 'stretch'},
+                        {value: 'baseline'},
+                    ]
+                },
             }
         },
         // col + alignItems (x轴)
@@ -256,13 +259,16 @@ export const csstsDefaultConfig: CsstsConfig = {
             keywordIterations: {
                 display: [{value: 'flex'}],
                 flexDirection: [{value: 'column'}],
-                alignItems: [
-                    {value: 'start', prefix: 'x'},
-                    {value: 'center', prefix: 'x'},
-                    {value: 'end', prefix: 'x'},
-                    {value: 'stretch', prefix: 'x'},
-                    {value: 'baseline', prefix: 'x'},
-                ],
+                alignItems: {
+                    prefix: 'x',
+                    values: [
+                        {value: 'start'},
+                        {value: 'center'},
+                        {value: 'end'},
+                        {value: 'stretch'},
+                        {value: 'baseline'},
+                    ]
+                }
             }
         },
         // row + justifyContent(x) + alignItems(y)

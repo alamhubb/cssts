@@ -237,9 +237,18 @@ export type KeywordIterationValueItem<P extends CssPropertyName> =
       prefix?: string;                               // 可选前缀（拼在值前面）
     };
 
+// 属性级别的关键字迭代配置（支持外层 prefix/alias）
+export type KeywordIterationPropertyValue<P extends CssPropertyName> = 
+  | KeywordIterationValueItem<P>[]                   // 简写：直接写数组
+  | {
+      values: KeywordIterationValueItem<P>[];        // 值列表
+      prefix?: string;                               // 属性级别前缀（被里层覆盖）
+      alias?: string;                                // 属性级别别名（被里层覆盖）
+    };
+
 // 单个属性的关键字迭代配置
 export type KeywordIterationPropertyConfig = {
-  [P in CssPropertyName]?: KeywordIterationValueItem<P>[];
+  [P in CssPropertyName]?: KeywordIterationPropertyValue<P>;
 };
 
 // 关键字迭代配置项

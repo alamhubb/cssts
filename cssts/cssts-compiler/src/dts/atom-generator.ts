@@ -797,20 +797,44 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
   }> = [];
   
   for (const [propName, config] of Object.entries(keywordIterations)) {
-    if (!Array.isArray(config) || config.length === 0) continue;
+    if (!config) continue;
+    
+    // 解析属性级别的 prefix/alias 和 values
+    let propPrefix: string | undefined;
+    let propAlias: string | undefined;
+    let values: any[];
+    
+    if (Array.isArray(config)) {
+      // 简写形式：直接是数组
+      values = config;
+    } else if (config && typeof config === 'object' && 'values' in config) {
+      // 详细配置：{ values, prefix?, alias? }
+      const detailConfig = config as { values: any[]; prefix?: string; alias?: string };
+      values = detailConfig.values ?? [];
+      propPrefix = detailConfig.prefix;
+      propAlias = detailConfig.alias;
+    } else {
+      continue;
+    }
+    
+    if (!values || values.length === 0) continue;
     
     const items: Array<{ value: string; alias?: string; prefix?: string }> = [];
     
-    for (const item of config) {
+    for (const item of values) {
       if (typeof item === 'string' || typeof item === 'number') {
-        // 简写形式：直接写值
-        items.push({ value: String(item) });
+        // 简写形式：直接写值，使用属性级别的 prefix/alias
+        items.push({ 
+          value: String(item),
+          prefix: propPrefix,
+          alias: propAlias
+        });
       } else if (item && typeof item === 'object' && 'value' in item) {
-        // 详细配置：{ value, alias, prefix }
+        // 详细配置：{ value, alias?, prefix? }，里层覆盖外层
         items.push({ 
           value: String(item.value), 
-          alias: item.alias,
-          prefix: item.prefix
+          alias: item.alias ?? propAlias,
+          prefix: item.prefix ?? propPrefix
         });
       }
     }
@@ -845,10 +869,13 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
       // 优先使用别名，否则使用前缀+格式化值
       let displayName: string;
       if (alias !== undefined) {
-        displayName = alias;
+        // 别名首字母大写
+        displayName = alias ? alias.charAt(0).toUpperCase() + alias.slice(1) : '';
       } else {
         const formattedValue = formatKeywordForClassName(value);
-        displayName = itemPrefix ? itemPrefix + formattedValue : formattedValue;
+        // 前缀首字母大写
+        const formattedPrefix = itemPrefix ? itemPrefix.charAt(0).toUpperCase() + itemPrefix.slice(1) : '';
+        displayName = formattedPrefix + formattedValue;
       }
       
       nameParts.push(displayName);
