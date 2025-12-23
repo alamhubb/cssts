@@ -42,6 +42,11 @@ const atomicCssProperties: CssPropertyName[] = [
     'flexBasis',
     'alignSelf',
     'justifySelf',
+    'justifyContent',
+    'alignItems',
+    'alignItems',
+    'flexDirection',
+    'flexWrap',
 
     // ==================== 尺寸 (Sizing) ====================
     'width',
@@ -97,7 +102,7 @@ const atomicCssProperties: CssPropertyName[] = [
     // 简写属性
     'border',       // [新增] 支持 border: none 等
     'borderStyle',  // [新增] 支持 borderStyleNone, borderStyleSolid 等
-    
+
     // 统一设置 (四个方向) [全部加回]
     'borderWidth',
     'borderColor',
@@ -150,6 +155,87 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: 5000, divisors: [50]},       // 2000-5000: 能被 50 整除
         {max: 10000, divisors: [100]},     // 5000-10000: 能被 100 整除
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
+    ],
+
+    groups: [
+        {name: 'marginX', numberProperties: ['marginLeft', 'marginRight']},
+        {
+            name: 'flexRow', keywordProperties: {display: 'flex', flexDirection: 'row'},
+        }, {
+            name: 'flexCol', keywordProperties: {display: 'flex', flexDirection: 'column'},
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['row'],
+                flex: [0, 1, 'auto', 'none'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['column'],
+                flex: [0, 1, 'auto', 'none'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: [{value: 'flex'}],
+                flexDirection: ['row'],
+                flexWrap: ['nowrap', 'wrap'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: [{value: 'flex'}],
+                flexDirection: ['column'],
+                flexWrap: ['nowrap', 'wrap'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['row'],
+                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['column'],
+                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['row'],
+                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['column'],
+                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['row'],
+                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+            }
+        },
+        {
+            keywordIterations: {
+                display: ['flex'],
+                flexDirection: ['column'],
+                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+            }
+        }
     ],
 
     colors: [

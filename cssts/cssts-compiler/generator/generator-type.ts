@@ -251,6 +251,68 @@ export type CssPseudoClassConfig = {
 export type CssPseudoElementConfig = {
   [P in CssPseudoElementName]?: CssPseudoValue;
 };
+
+// ==================== Group 类型 ====================
+
+// 数值类型属性名（有 PROPERTY_CATEGORIES_MAP 的属性）
+export type NumberPropertyName = keyof typeof PROPERTY_CATEGORIES_MAP;
+
+// 组合原子类的关键字配置
+// 每个属性对应该属性支持的关键字值或数值
+export type GroupKeywordsConfig = {
+  [P in CssPropertyName]?: PropertyKeywords<P> | number;
+};
+
+// 关键字迭代值配置项（单个值 + 可选别名）
+export type KeywordIterationValueItem<P extends CssPropertyName> = 
+  | PropertyKeywords<P>                              // 简写：直接写关键字
+  | number                                           // 简写：直接写数值
+  | {
+      value: PropertyKeywords<P> | number;           // 关键字或数值
+      alias?: string;                                // 可选别名
+    };
+
+// 单个属性的关键字迭代配置
+export type KeywordIterationPropertyConfig = {
+  [P in CssPropertyName]?: KeywordIterationValueItem<P>[];
+};
+
+// 关键字迭代配置项
+export type KeywordIterationItem = 
+  | CssPropertyName                                // 简写：遍历该属性所有关键字
+  | KeywordIterationPropertyConfig;                // 对象：可包含多个属性配置
+
+// 组合原子类配置
+// 类名生成规则：prefix + name + [自动生成] + suffix
+export interface GroupConfig {
+  /** 原子类名前缀 */
+  prefix?: string;
+  /** 原子类名称 */
+  name?: string;
+  /** 原子类名后缀 */
+  suffix?: string;
+  
+  /** 
+   * 数值属性列表：生成继承数值配置的原子类
+   * @example { name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] }
+   * 生成：marginX10px = margin-left: 10px + margin-right: 10px
+   */
+  numberProperties?: NumberPropertyName[];
+  
+  /** 
+   * 固定关键字组合：生成固定样式组合的原子类
+   * @example { name: 'flexRowCenter', keywordProperties: { display: 'flex', flexDirection: 'row', justifyContent: 'center' } }
+   * 生成：flexRowCenter = display: flex + flex-direction: row + justify-content: center
+   */
+  keywordProperties?: GroupKeywordsConfig;
+  
+  /** 
+   * 遍历关键字配置：遍历属性关键字生成多个原子类
+   * @example { prefix: 'flex', keywordIterations: { flexDirection: ['row', 'column'] } }
+   * 生成：flexRow, flexColumn
+   */
+  keywordIterations?: KeywordIterationPropertyConfig;
+}
 `;
 }
 
@@ -281,7 +343,8 @@ import type {
   CssPseudoClassName,
   CssPseudoElementName,
   CssPseudoClassConfig,
-  CssPseudoElementConfig
+  CssPseudoElementConfig,
+  GroupConfig
 } from './cssPropertyConfig';
 
 export interface CsstsConfig {
@@ -398,6 +461,22 @@ export interface CsstsConfig {
 
   /** 伪元素样式配置 */
   pseudoElementsConfig?: CssPseudoElementConfig;
+
+  /**
+   * 组合原子类配置
+   * 类名生成规则：prefix + name + [自动生成] + suffix
+   * 支持三种类型：
+   * 1. numberProperties: 数值组合
+   * 2. keywordProperties: 固定关键字组合
+   * 3. keywordIterations: 遍历关键字生成多个原子类
+   * @example
+   * groups: [
+   *   { name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] },
+   *   { name: 'flexRowCenter', keywordProperties: { display: 'flex', flexDirection: 'row', justifyContent: 'center' } },
+   *   { prefix: 'flex', keywordIterations: { flexDirection: ['row', 'column'] } }
+   * ]
+   */
+  groups?: GroupConfig[];
 }
 
 export type CsstsConfigRequired = Required<CsstsConfig>;

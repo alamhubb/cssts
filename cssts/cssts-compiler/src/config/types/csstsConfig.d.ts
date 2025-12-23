@@ -18,7 +18,8 @@ import type {
   CssPseudoClassName,
   CssPseudoElementName,
   CssPseudoClassConfig,
-  CssPseudoElementConfig
+  CssPseudoElementConfig,
+  GroupConfig
 } from './cssPropertyConfig';
 
 export interface CsstsConfig {
@@ -135,6 +136,22 @@ export interface CsstsConfig {
 
   /** 伪元素样式配置 */
   pseudoElementsConfig?: CssPseudoElementConfig;
+
+  /**
+   * 组合原子类配置
+   * 类名生成规则：prefix + name + [自动生成] + suffix
+   * 支持三种类型：
+   * 1. numberProperties: 数值组合
+   * 2. keywordProperties: 固定关键字组合
+   * 3. keywordIterations: 遍历关键字生成多个原子类
+   * @example
+   * groups: [
+   *   { name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] },
+   *   { name: 'flexRowCenter', keywordProperties: { display: 'flex', flexDirection: 'row', justifyContent: 'center' } },
+   *   { prefix: 'flex', keywordIterations: { flexDirection: ['row', 'column'] } }
+   * ]
+   */
+  groups?: GroupConfig[];
 }
 
 export type CsstsConfigRequired = Required<CsstsConfig>;

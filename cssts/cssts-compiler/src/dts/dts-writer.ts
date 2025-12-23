@@ -15,8 +15,11 @@ import {
   generateAtoms,
   generateStats,
   generateAtomsByProperty,
+  generateGroupAtoms,
+  generateGroupAtomsDts,
   type GeneratorOptions,
   type AtomDefinition,
+  type GroupAtomDefinition,
 } from './atom-generator.ts';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 
@@ -206,6 +209,51 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
       log(`   ✅ 生成 keywords.d.ts (${keywordAtoms.length} 个原子类)`);
     }
     
+    // 生成 group atoms
+    const groupAtoms = generateGroupAtoms(generatorOptions);
+    if (groupAtoms.length > 0) {
+      // 分离数值类型和关键字类型的 group atoms
+      const numberGroupAtoms = groupAtoms.filter(a => a.isNumber);
+      const keywordGroupAtoms = groupAtoms.filter(a => !a.isNumber);
+      
+      // 数值类型 group：按 groupName 分文件
+      if (numberGroupAtoms.length > 0) {
+        // 按 groupName 分组（从 atom.name 提取，去掉数值后缀）
+        const numberGroupsByName: Record<string, GroupAtomDefinition[]> = {};
+        for (const atom of numberGroupAtoms) {
+          // 从 atom.name 提取 groupName（去掉数值和单位后缀，包括负数前缀 N）
+          // marginX10px → marginX, marginXN10px → marginX
+          const match = atom.name.match(/^([a-zA-Z]+?)(?:N?\d|$)/);
+          const groupName = match ? match[1] : atom.name.replace(/N?\d.*$/, '');
+          if (!numberGroupsByName[groupName]) {
+            numberGroupsByName[groupName] = [];
+          }
+          numberGroupsByName[groupName].push(atom);
+        }
+        
+        for (const [groupName, atoms] of Object.entries(numberGroupsByName)) {
+          const groupDts = generateGroupAtomsDts(atoms);
+          const fileName = `${groupName}.d.ts`;
+          const groupPath = path.join(outputDir, fileName);
+          fs.writeFileSync(groupPath, groupDts, 'utf-8');
+          files.push(groupPath);
+          generatedFileNames.push(fileName);
+          log(`   ✅ 生成 ${fileName} (${atoms.length} 个组合原子类)`);
+        }
+      }
+      
+      // 关键字类型 group：放一个文件
+      if (keywordGroupAtoms.length > 0) {
+        const keywordGroupsDts = generateGroupAtomsDts(keywordGroupAtoms);
+        const fileName = 'groups-keyword.d.ts';
+        const groupsPath = path.join(outputDir, fileName);
+        fs.writeFileSync(groupsPath, keywordGroupsDts, 'utf-8');
+        files.push(groupsPath);
+        generatedFileNames.push(fileName);
+        log(`   ✅ 生成 groups-keyword.d.ts (${keywordGroupAtoms.length} 个组合原子类)`);
+      }
+    }
+    
     // 生成 index.d.ts（使用 reference 引入所有分文件）
     const indexDts = generateIndexDtsWithReferences(generatedFileNames);
     const indexPath = path.join(outputDir, 'index.d.ts');
@@ -214,7 +262,14 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     log(`   ✅ 生成索引文件: index.d.ts`);
   } else {
     // 单文件模式
-    const dtsContent = generateDts(generatorOptions);
+    let dtsContent = generateDts(generatorOptions);
+    
+    // 添加 group atoms
+    const groupAtoms = generateGroupAtoms(generatorOptions);
+    if (groupAtoms.length > 0) {
+      dtsContent += '\n' + generateGroupAtomsDts(groupAtoms);
+    }
+    
     const indexPath = path.join(outputDir, 'index.d.ts');
     fs.writeFileSync(indexPath, dtsContent, 'utf-8');
     files.push(indexPath);
