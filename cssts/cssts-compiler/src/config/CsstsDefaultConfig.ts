@@ -158,6 +158,7 @@ export const csstsDefaultConfig: CsstsConfig = {
     ],
 
     groups: [
+        {name: 'size', numberProperties: ['height', 'width']},
         {name: 'marginX', numberProperties: ['marginLeft', 'marginRight']},
         {name: 'marginY', numberProperties: ['marginTop', 'marginBottom']},
         {name: 'paddingX', numberProperties: ['paddingLeft', 'paddingRight']},
@@ -167,13 +168,6 @@ export const csstsDefaultConfig: CsstsConfig = {
         },
         {
             name: 'flexCol', keywordProperties: {display: 'flex', flexDirection: 'column'},
-        },
-        // flex 值
-        {
-            prefix: 'flex',
-            keywordIterations: {
-                flex: [0, 1, 'auto', 'none'],
-            }
         },
         // row + flex
         {
@@ -431,8 +425,8 @@ export const csstsDefaultConfig: CsstsConfig = {
         {
             // 无单位数值 - opacity, z-index, line-height, flex-grow 等
             unitless: {
-                min: -100,
-                max: 100,
+                min: -20,
+                max: 20,
                 step: 1,
             },
         },
@@ -449,9 +443,33 @@ export const csstsDefaultConfig: CsstsConfig = {
     // ==================== 特殊属性配置 ====================
     propertiesConfig: [
         {
+            height: {
+                px: {
+                    min: 0,
+                    max: 10000
+                }
+            }
+        },
+        {
+            width: {
+                px: {
+                    min: 0,
+                    max: 10000
+                }
+            }
+        },
+        {
             margin: {
                 px: {
                     min: -10000,
+                    max: 10000
+                }
+            }
+        },
+        {
+            padding: {
+                px: {
+                    min: 0,
                     max: 10000
                 }
             }
@@ -477,37 +495,6 @@ export const csstsDefaultConfig: CsstsConfig = {
             }
         },
 
-        // flex-grow / flex-shrink: 0-10 范围
-        {
-            flexGrow: {
-                unitless: {
-                    min: 0,
-                    max: 10,
-                    step: 1
-                }
-            }
-        },
-        {
-            flexShrink: {
-                unitless: {
-                    min: 0,
-                    max: 10,
-                    step: 1
-                }
-            }
-        },
-
-        // order: 通常 -10 到 10
-        {
-            order: {
-                unitless: {
-                    min: -10,
-                    max: 10,
-                    step: 1,
-                }
-            }
-        },
-
         // line-height: 无单位时通常 1-3
         {
             lineHeight: {
@@ -526,17 +513,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                     min: 100,
                     max: 900,
                     step: 100,
-                }
-            }
-        },
-
-        // border-width: 通常 0-10px
-        {
-            borderWidth: {
-                pixel: {
-                    min: 0,
-                    max: 10,
-                    step: 1
                 }
             }
         },
@@ -575,44 +551,6 @@ export const csstsDefaultConfig: CsstsConfig = {
                     min: 0,
                     max: 3,
                     step: 0.1,
-                }
-            }
-        },
-
-        // grid-column/row-start/end: 通常 1-12
-        {
-            gridColumnStart: {
-                unitless: {
-                    min: 1,
-                    max: 13,
-                    step: 1,
-                }
-            }
-        },
-        {
-            gridColumnEnd: {
-                unitless: {
-                    min: 1,
-                    max: 13,
-                    step: 1,
-                }
-            }
-        },
-        {
-            gridRowStart: {
-                unitless: {
-                    min: 1,
-                    max: 13,
-                    step: 1,
-                }
-            }
-        },
-        {
-            gridRowEnd: {
-                unitless: {
-                    min: 1,
-                    max: 13,
-                    step: 1,
                 }
             }
         },
