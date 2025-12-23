@@ -4,15 +4,15 @@
  * 提供 .cssts 文件的完整转换功能
  */
 
-import { CssTsParser } from '../parser/index.js'
-import { CssTsCstToAst } from '../factory/index.js'
+import { CssTsParser } from '../parser/index.ts'
+import { CssTsCstToAst } from '../factory/index.ts'
 import { 
   getCssClassName, 
   getCssProperty, 
   getCssValue,
   camelToKebab,
   CSSTS_CONFIG
-} from '../utils/cssClassName.js'
+} from '../utils/cssClassName.ts'
 
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>

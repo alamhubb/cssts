@@ -1,8 +1,8 @@
 // Parser
-export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTypes } from './parser/index.js'
+export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTypes } from './parser/index.ts'
 
 // AST Transformer
-export { cssTsCstToAst, CssTsCstToAst } from './factory/index.js'
+export { cssTsCstToAst, CssTsCstToAst } from './factory/index.ts'
 
 // Transform（核心转换功能）
 export {
@@ -16,7 +16,7 @@ export {
   transformCssTsWithMapping,
   generateStylesCss,
   generateCsstsAtomModule,
-} from './transform/index.js'
+} from './transform/index.ts'
 
 /** CSS 属性值映射类型 */
 export type CssPropertyValueMap = Record<string, string | undefined>
@@ -33,7 +33,7 @@ export {
   getCssValue,
   getCssClassName,
   generateAtomCssRule,
-} from './utils/cssClassName.js'
+} from './utils/cssClassName.ts'
 
 // ==================== 配置 ====================
 export { csstsDefaultConfig, csstsDefaultConfig as defaultConfig } from './config/CsstsDefaultConfig.ts'
@@ -44,7 +44,7 @@ export {
   getEffectiveList,
   normalizeUnitsConfig,
   normalizeUnitCategoriesConfig,
-} from './utils/config-utils.js'
+} from './utils/config-utils.ts'
 
 // ==================== DTS 生成器 ====================
 export {
@@ -69,7 +69,7 @@ export {
 export type {
   CsstsConfig,
   CsstsConfigRequired,
-} from './config/types/csstsConfig'
+} from './config/types/csstsConfig.ts'
 
 export type {
   CssProgressiveRange,
@@ -89,18 +89,18 @@ export type {
   CssPseudoElementName,
   CssPseudoClassConfig,
   CssPseudoElementConfig,
-} from './config/types/cssPropertyConfig'
+} from './config/types/cssPropertyConfig.ts'
 
 // ==================== 数据导出 ====================
-export { CSS_PROPERTY_NAME_MAP } from './data/cssPropertyNameMapping'
-export { KEYWORD_NAME_MAP, CSS_GLOBAL_KEYWORDS } from './data/cssKeywordsData'
-export { COLOR_NAME_MAP, COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from './data/cssColorData'
-export { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from './data/cssPseudoData'
-export { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from './data/cssNumberData'
-export { PROPERTY_CATEGORIES_MAP } from './data/cssPropertyNumber'
-export { PROPERTY_KEYWORDS_MAP } from './data/cssPropertyKeywords'
-export { PROPERTY_COLOR_TYPES_MAP } from './data/cssPropertyColorTypes'
-export { PROPERTY_PARENT_MAP } from './data/cssPropertyInheritance'
+export { CSS_PROPERTY_NAME_MAP } from './data/cssPropertyNameMapping.ts'
+export { KEYWORD_NAME_MAP, CSS_GLOBAL_KEYWORDS } from './data/cssKeywordsData.ts'
+export { COLOR_NAME_MAP, COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from './data/cssColorData.ts'
+export { PSEUDO_CLASS_NAME_MAP, PSEUDO_ELEMENT_NAME_MAP } from './data/cssPseudoData.ts'
+export { ALL_UNITS, ALL_NUMBER_CATEGORIES, CATEGORY_UNITS_MAP } from './data/cssNumberData.ts'
+export { PROPERTY_CATEGORIES_MAP } from './data/cssPropertyNumber.ts'
+export { PROPERTY_KEYWORDS_MAP } from './data/cssPropertyKeywords.ts'
+export { PROPERTY_COLOR_TYPES_MAP } from './data/cssPropertyColorTypes.ts'
+export { PROPERTY_PARENT_MAP } from './data/cssPropertyInheritance.ts'
 
 // ==================== 工具函数 ====================
 export {
@@ -110,4 +110,4 @@ export {
   getUnitsFromCategories,
   getPropertyCategories,
   getPropertyUnits,
-} from './utils/unitCategory.js'
+} from './utils/unitCategory.ts'

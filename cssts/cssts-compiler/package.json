@@ -8,6 +8,7 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
+      "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
@@ -32,15 +33,15 @@
   "license": "MIT",
   "dependencies": {
     "cssts-ts": "^0.2.5",
-    "slime-ast": "^0.2.3",
-    "slime-generator": "^0.2.3",
-    "slime-parser": "^0.2.3",
-    "slime-token": "^0.2.3",
-    "subhuti": "^0.2.3"
+    "slime-ast": "^0.2.7",
+    "slime-generator": "^0.2.7",
+    "slime-parser": "^0.2.7",
+    "slime-token": "^0.2.7",
+    "subhuti": "^0.2.7"
   },
   "devDependencies": {
     "css-tree": "^3.1.0",
-    "slime-test": "^0.2.3",
+    "slime-test": "^0.2.7",
     "tsdown": "^0.18.0",
     "typescript": "^5.8.3"
   },

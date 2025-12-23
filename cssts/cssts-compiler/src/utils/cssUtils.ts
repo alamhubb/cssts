@@ -1,4 +1,4 @@
-import type { CssStyleInfo } from '../factory/CssTsCstToAst.js'
+import type { CssStyleInfo } from '../factory/CssTsCstToAst.ts'
 
 /**
  * 驼峰命名转 kebab-case

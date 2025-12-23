@@ -1,2 +1,2 @@
-export { default as cssTsCstToAst, CssTsCstToAst, type CssStyleInfo } from './CssTsCstToAst.js'
-export { createCsstsConfig } from './config-factory.js'
+export { default as cssTsCstToAst, CssTsCstToAst, type CssStyleInfo } from './CssTsCstToAst.ts'
+export { createCsstsConfig } from './config-factory.ts'

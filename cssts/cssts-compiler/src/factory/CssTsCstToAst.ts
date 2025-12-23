@@ -2,7 +2,7 @@
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
-  SlimeNodeType,
+  SlimeAstTypeName,
   type SlimeExpression,
   type SlimeStatement,
   type SlimeModuleDeclaration,
@@ -127,16 +127,16 @@ export class CssTsCstToAst extends SlimeCstToAst {
     let hasCsstsCssImport = false
 
     for (const stmt of body) {
-      if (stmt.type === SlimeNodeType.ImportDeclaration) {
+      if (stmt.type === SlimeAstTypeName.ImportDeclaration) {
         const importDecl = stmt as any
         const source = importDecl.source?.value
         if (source === 'cssts') {
           for (const spec of importDecl.specifiers || []) {
-            if (spec.type === SlimeNodeType.ImportSpecifier) {
+            if (spec.type === SlimeAstTypeName.ImportSpecifier) {
               if (spec.imported?.name === 'cssts' || spec.local?.name === 'cssts') {
                 hasCsstsImport = true
               }
-            } else if (spec.type === SlimeNodeType.ImportDefaultSpecifier) {
+            } else if (spec.type === SlimeAstTypeName.ImportDefaultSpecifier) {
               if (spec.local?.name === 'cssts') hasCsstsImport = true
             }
           }
@@ -154,7 +154,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (newImports.length > 0) {
       let insertIndex = 0
       for (let i = 0; i < body.length; i++) {
-        if (body[i].type === SlimeNodeType.ImportDeclaration) insertIndex = i + 1
+        if (body[i].type === SlimeAstTypeName.ImportDeclaration) insertIndex = i + 1
         else break
       }
       return [...body.slice(0, insertIndex), ...newImports, ...body.slice(insertIndex)]
@@ -164,9 +164,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   private createCsstsImport(): SlimeModuleDeclaration {
     return {
-      type: SlimeNodeType.ImportDeclaration,
+      type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
-        type: SlimeNodeType.ImportSpecifier,
+        type: SlimeAstTypeName.ImportSpecifier,
         imported: SlimeNodeCreate.createIdentifier('cssts'),
         local: SlimeNodeCreate.createIdentifier('cssts')
       }],
@@ -176,9 +176,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   private createCsstsAtomImport(): SlimeModuleDeclaration {
     return {
-      type: SlimeNodeType.ImportDeclaration,
+      type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
-        type: SlimeNodeType.ImportSpecifier,
+        type: SlimeAstTypeName.ImportSpecifier,
         imported: SlimeNodeCreate.createIdentifier('csstsAtom'),
         local: SlimeNodeCreate.createIdentifier('csstsAtom')
       }],
@@ -189,7 +189,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   /** 创建 import 'virtual:cssts.css' 导入（副作用导入，无 specifiers） */
   private createCsstsCssImport(): SlimeModuleDeclaration {
     return {
-      type: SlimeNodeType.ImportDeclaration,
+      type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [],
       source: SlimeNodeCreate.createStringLiteral('virtual:cssts.css')
     } as any
@@ -228,9 +228,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
     
     if (this.currentVarName && this.currentVarName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
       this.usedAtoms.add(this.currentVarName)
-      if (result.init && result.init.type === SlimeNodeType.CallExpression) {
+      if (result.init && result.init.type === SlimeAstTypeName.CallExpression) {
         const callExpr = result.init as any
-        if (callExpr.callee?.type === SlimeNodeType.MemberExpression) {
+        if (callExpr.callee?.type === SlimeAstTypeName.MemberExpression) {
           const memberExpr = callExpr.callee as any
           if (memberExpr.object?.name === 'cssts' && memberExpr.property?.name === '$cls') {
             const groupUtilRef = this.createCsstsAtomMemberComputed(this.currentVarName)
@@ -247,7 +247,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const csstsAtomId = SlimeNodeCreate.createIdentifier('csstsAtom')
     const propLiteral = SlimeNodeCreate.createStringLiteral(propName)
     return {
-      type: SlimeNodeType.MemberExpression,
+      type: SlimeAstTypeName.MemberExpression,
       object: csstsAtomId,
       property: propLiteral,
       computed: true,
@@ -287,14 +287,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const csstsId = SlimeNodeCreate.createIdentifier('cssts')
     const clsId = SlimeNodeCreate.createIdentifier('$cls')
     const callee: SlimeExpression = {
-      type: SlimeNodeType.MemberExpression,
+      type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
       property: clsId,
       computed: false,
       optional: false
     } as any
     return {
-      type: SlimeNodeType.CallExpression,
+      type: SlimeAstTypeName.CallExpression,
       callee,
       arguments: args,
       optional: false,
@@ -329,7 +329,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const assignExprCst = cst.children?.find(c => c.name === 'AssignmentExpression')
     if (!assignExprCst) throw new Error('SpreadElement: missing AssignmentExpression')
     const argument = this.createAssignmentExpressionAst(assignExprCst)
-    return { type: SlimeNodeType.SpreadElement, argument, loc: cst.loc }
+    return { type: SlimeAstTypeName.SpreadElement, argument, loc: cst.loc }
   }
 
   /**
@@ -344,7 +344,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (!expr) return expr
 
     // 标识符：使用 isAtomName 判断
-    if (expr.type === SlimeNodeType.Identifier) {
+    if (expr.type === SlimeAstTypeName.Identifier) {
       const name = (expr as any).name || ''
       if (name && this.isAtomName(name)) {
         this.usedAtoms.add(name)
@@ -355,16 +355,16 @@ export class CssTsCstToAst extends SlimeCstToAst {
     }
 
     // SpreadElement 保持不变
-    if ((expr as any).type === SlimeNodeType.SpreadElement) return expr
+    if ((expr as any).type === SlimeAstTypeName.SpreadElement) return expr
 
     // LogicalExpression：递归转换右侧
-    if (expr.type === SlimeNodeType.LogicalExpression) {
+    if (expr.type === SlimeAstTypeName.LogicalExpression) {
       const logicalExpr = expr as any
       return { ...logicalExpr, right: this.transformCssPropertyExpression(logicalExpr.right) }
     }
 
     // ConditionalExpression：递归转换两个分支
-    if (expr.type === SlimeNodeType.ConditionalExpression) {
+    if (expr.type === SlimeAstTypeName.ConditionalExpression) {
       const condExpr = expr as any
       return {
         ...condExpr,
@@ -374,7 +374,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     }
 
     // CallExpression 保持不变
-    if (expr.type === SlimeNodeType.CallExpression) return expr
+    if (expr.type === SlimeAstTypeName.CallExpression) return expr
 
     return expr
   }
@@ -383,7 +383,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const csstsAtomId = SlimeNodeCreate.createIdentifier('csstsAtom')
     const propId = SlimeNodeCreate.createIdentifier(propName)
     return {
-      type: SlimeNodeType.MemberExpression,
+      type: SlimeAstTypeName.MemberExpression,
       object: csstsAtomId,
       property: propId,
       computed: false,
@@ -398,10 +398,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   private isCssReplacePattern(ast: any): boolean {
-    if (ast.type !== SlimeNodeType.AssignmentExpression) return false
+    if (ast.type !== SlimeAstTypeName.AssignmentExpression) return false
     if (ast.operator !== '=') return false
-    if (ast.left?.type !== SlimeNodeType.MemberExpression) return false
-    if (ast.right?.type !== SlimeNodeType.Literal) return false
+    if (ast.left?.type !== SlimeAstTypeName.MemberExpression) return false
+    if (ast.right?.type !== SlimeAstTypeName.Literal) return false
     if (typeof ast.right?.value !== 'string') return false
     return true
   }
@@ -415,7 +415,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const csstsId = SlimeNodeCreate.createIdentifier('cssts')
     const replaceId = SlimeNodeCreate.createIdentifier('replace')
     const callee: SlimeExpression = {
-      type: SlimeNodeType.MemberExpression,
+      type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
       property: replaceId,
       computed: false,
@@ -429,14 +429,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
     ]
     
     const replaceCall: SlimeExpression = {
-      type: SlimeNodeType.CallExpression,
+      type: SlimeAstTypeName.CallExpression,
       callee,
       arguments: args,
       optional: false
     } as any
     
     return {
-      type: SlimeNodeType.AssignmentExpression,
+      type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
       left: SlimeNodeCreate.createIdentifier(objectName),
       right: replaceCall,

@@ -8,18 +8,21 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
+      "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
     },
     "./css": {
+      "development": "./src/css/index.ts",
       "types": "./dist/css/index.d.mts",
       "import": "./dist/css/index.mjs",
       "require": "./dist/css/index.cjs",
       "default": "./dist/css/index.mjs"
     },
     "./cssts": {
+      "development": "./src/cssts/index.ts",
       "types": "./dist/cssts/index.d.mts",
       "import": "./dist/cssts/index.mjs",
       "require": "./dist/cssts/index.cjs",
