@@ -42,11 +42,6 @@ const atomicCssProperties: CssPropertyName[] = [
     'flexBasis',
     'alignSelf',
     'justifySelf',
-    'justifyContent',
-    'alignItems',
-    'alignItems',
-    'flexDirection',
-    'flexWrap',
 
     // ==================== 尺寸 (Sizing) ====================
     'width',
@@ -419,7 +414,7 @@ export const csstsDefaultConfig: CsstsConfig = {
             // 时间单位 (s, ms)
             time: {
                 min: 0,
-                max: 60
+                max: 5
             },
         },
         {

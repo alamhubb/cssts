@@ -93,6 +93,196 @@ const stats = generateStats()
 
 ---
 
+## Groups 组合原子类配置
+
+Groups 允许将多个 CSS 属性组合成一个原子类，支持三种配置方式。
+
+### 类名生成规则
+
+```
+最终类名 = prefix + name + [自动生成部分] + suffix
+```
+
+- `prefix`: 前缀（可选）
+- `name`: 名称（可选）
+- `[自动生成部分]`: 根据配置类型自动生成
+- `suffix`: 后缀（可选）
+
+### 1. numberProperties - 数值组合
+
+将多个属性绑定到相同的数值，继承数值配置（min/max/step）。
+
+```typescript
+// 配置
+{ name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] }
+
+// 生成
+marginX10px  → margin-left: 10px; margin-right: 10px;
+marginX20px  → margin-left: 20px; margin-right: 20px;
+```
+
+### 2. keywordProperties - 固定关键字组合
+
+生成固定样式组合的单个原子类。
+
+```typescript
+// 配置
+{ name: 'flexRow', keywordProperties: { display: 'flex', flexDirection: 'row' } }
+
+// 生成
+flexRow → display: flex; flex-direction: row;
+```
+
+支持数值：
+
+```typescript
+{ name: 'flexCol', keywordProperties: { display: 'flex', flexDirection: 'column', flex: 1 } }
+// 生成：flexCol → display: flex; flex-direction: column; flex: 1;
+```
+
+### 3. keywordIterations - 遍历关键字组合
+
+遍历属性的关键字值，生成多个原子类（笛卡尔积）。
+
+#### 基础用法
+
+```typescript
+// 配置
+{
+  keywordIterations: {
+    display: ['flex'],
+    flexDirection: ['row', 'column'],
+  }
+}
+
+// 生成
+flexRow    → display: flex; flex-direction: row;
+flexColumn → display: flex; flex-direction: column;
+```
+
+#### 详细配置：value + alias + prefix
+
+每个值支持三种写法：
+
+```typescript
+// 1. 简写：直接写值
+flexDirection: ['row', 'column']
+
+// 2. 简写：数值
+flex: [0, 1, 'auto', 'none']
+
+// 3. 详细配置：带 alias 或 prefix
+flexDirection: [
+  { value: 'row', alias: 'r' },      // 使用别名 → R
+  { value: 'column', prefix: 'c' }   // 使用前缀 → CColumn
+]
+```
+
+#### alias vs prefix 的区别
+
+| 配置 | 作用 | 示例 |
+|------|------|------|
+| `alias` | 替换整个值的显示名称 | `{ value: 'row', alias: '' }` → 不显示 |
+| `prefix` | 在值前面添加前缀 | `{ value: 'center', prefix: 'x' }` → `XCenter` |
+
+#### 属性级别配置
+
+支持在属性级别设置 prefix/alias，里层配置优先级更高：
+
+```typescript
+{
+  keywordIterations: {
+    // 属性级别配置
+    alignItems: {
+      prefix: 'y',  // 所有值默认使用 y 前缀
+      values: [
+        'start',                           // 使用外层 prefix → YStart
+        'center',                          // 使用外层 prefix → YCenter
+        { value: 'end', prefix: 'x' }      // 里层覆盖 → XEnd
+      ]
+    }
+  }
+}
+```
+
+#### 完整示例：Flexbox 布局组合
+
+```typescript
+groups: [
+  // row + justifyContent(x轴) + alignItems(y轴)
+  {
+    keywordIterations: {
+      display: [{ value: 'flex', alias: '' }],           // 不显示
+      flexDirection: [{ value: 'row', alias: '' }],      // 不显示
+      justifyContent: [
+        { value: 'start', prefix: 'x' },                 // XStart
+        { value: 'center', prefix: 'x' },                // XCenter
+        { value: 'space-between', prefix: 'x' },         // XSpaceBetween
+      ],
+      alignItems: {
+        prefix: 'y',
+        values: ['start', 'center', 'end']               // YStart, YCenter, YEnd
+      }
+    }
+  }
+]
+
+// 生成（笛卡尔积）：
+// xStartYStart, xStartYCenter, xStartYEnd,
+// xCenterYStart, xCenterYCenter, xCenterYEnd,
+// xSpaceBetweenYStart, xSpaceBetweenYCenter, xSpaceBetweenYEnd
+```
+
+### 命名转换规则
+
+| 输入 | 转换规则 | 输出 |
+|------|----------|------|
+| `'row'` | kebab → PascalCase | `Row` |
+| `'space-between'` | kebab → PascalCase | `SpaceBetween` |
+| `{ value: 'row', alias: '' }` | 空别名 | `` (不显示) |
+| `{ value: 'row', alias: 'r' }` | 别名首字母大写 | `R` |
+| `{ value: 'center', prefix: 'x' }` | 前缀首字母大写 + 值 | `XCenter` |
+| `1` (数值) | 直接使用 | `1` |
+
+### 默认配置示例
+
+```typescript
+groups: [
+  // 数值组合
+  { name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] },
+  { name: 'marginY', numberProperties: ['marginTop', 'marginBottom'] },
+  { name: 'paddingX', numberProperties: ['paddingLeft', 'paddingRight'] },
+  { name: 'paddingY', numberProperties: ['paddingTop', 'paddingBottom'] },
+  
+  // 固定组合
+  { name: 'flexRow', keywordProperties: { display: 'flex', flexDirection: 'row' } },
+  { name: 'flexCol', keywordProperties: { display: 'flex', flexDirection: 'column' } },
+  
+  // 遍历组合：row + flex
+  {
+    keywordIterations: {
+      display: [{ value: 'flex' }],
+      flexDirection: [{ value: 'row' }],
+      flex: [0, 1, 'auto', 'none'],
+    }
+  },
+  
+  // 遍历组合：row + alignItems (y轴)
+  {
+    keywordIterations: {
+      display: [{ value: 'flex' }],
+      flexDirection: [{ value: 'row' }],
+      alignItems: {
+        prefix: 'y',
+        values: ['start', 'center', 'end', 'stretch', 'baseline']
+      }
+    }
+  }
+]
+```
+
+---
+
 ## 命名规范
 
 | TS 变量名 | CSS 类名 | CSS 规则 |
