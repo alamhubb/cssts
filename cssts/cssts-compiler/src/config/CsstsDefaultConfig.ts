@@ -88,6 +88,7 @@ const atomicCssProperties: CssPropertyName[] = [
 
     // ==================== 背景 (Background) ====================
     // 注意：background 依旧建议剔除，因为它不是“单值”的逻辑，它太复杂
+    'background',
     'backgroundColor',
     'backgroundSize',
     'backgroundRepeat',
