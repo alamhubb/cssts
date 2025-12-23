@@ -159,83 +159,156 @@ export const csstsDefaultConfig: CsstsConfig = {
 
     groups: [
         {name: 'marginX', numberProperties: ['marginLeft', 'marginRight']},
+        {name: 'marginY', numberProperties: ['marginTop', 'marginBottom']},
+        {name: 'paddingX', numberProperties: ['paddingLeft', 'paddingRight']},
+        {name: 'paddingY', numberProperties: ['paddingTop', 'paddingBottom']},
         {
             name: 'flexRow', keywordProperties: {display: 'flex', flexDirection: 'row'},
-        }, {
+        },
+        {
             name: 'flexCol', keywordProperties: {display: 'flex', flexDirection: 'column'},
         },
+        // flex 值
         {
+            prefix: 'flex',
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['row'],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
+        // row + flex
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['column'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'row', alias: 'Row'}],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
+        // col + flex
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: ['row'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'column', alias: 'Col'}],
+                flex: [0, 1, 'auto', 'none'],
+            }
+        },
+        // row + wrap
+        {
+            keywordIterations: {
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'row', alias: 'Row'}],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
+        // col + wrap
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: ['column'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'column', alias: 'Col'}],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
+        // row + justifyContent (x轴)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['row'],
-                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'row', alias: 'Row'}],
+                justifyContent: [
+                    {value: 'start', prefix: 'X'},
+                    {value: 'center', prefix: 'X'},
+                    {value: 'end', prefix: 'X'},
+                    {value: 'space-between', prefix: 'X'},
+                    {value: 'space-evenly', prefix: 'X'},
+                    {value: 'space-around', prefix: 'X'},
+                ],
             }
         },
+        // col + justifyContent (y轴)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['column'],
-                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'column', alias: 'Col'}],
+                justifyContent: [
+                    {value: 'start', prefix: 'Y'},
+                    {value: 'center', prefix: 'Y'},
+                    {value: 'end', prefix: 'Y'},
+                    {value: 'space-between', prefix: 'Y'},
+                    {value: 'space-evenly', prefix: 'Y'},
+                    {value: 'space-around', prefix: 'Y'},
+                ],
             }
         },
+        // row + alignItems (y轴)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['row'],
-                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'row', alias: 'Row'}],
+                alignItems: [
+                    {value: 'start', prefix: 'Y'},
+                    {value: 'center', prefix: 'Y'},
+                    {value: 'end', prefix: 'Y'},
+                    {value: 'stretch', prefix: 'Y'},
+                    {value: 'baseline', prefix: 'Y'},
+                ],
             }
         },
+        // col + alignItems (x轴)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['column'],
-                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'column', alias: 'Col'}],
+                alignItems: [
+                    {value: 'start', prefix: 'X'},
+                    {value: 'center', prefix: 'X'},
+                    {value: 'end', prefix: 'X'},
+                    {value: 'stretch', prefix: 'X'},
+                    {value: 'baseline', prefix: 'X'},
+                ],
             }
         },
+        // row + justifyContent(x) + alignItems(y)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['row'],
-                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
-                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'row', alias: 'Row'}],
+                justifyContent: [
+                    {value: 'start', prefix: 'X'},
+                    {value: 'center', prefix: 'X'},
+                    {value: 'end', prefix: 'X'},
+                    {value: 'space-between', prefix: 'X'},
+                    {value: 'space-evenly', prefix: 'X'},
+                    {value: 'space-around', prefix: 'X'},
+                ],
+                alignItems: [
+                    {value: 'start', prefix: 'Y'},
+                    {value: 'center', prefix: 'Y'},
+                    {value: 'end', prefix: 'Y'},
+                    {value: 'stretch', prefix: 'Y'},
+                    {value: 'baseline', prefix: 'Y'},
+                ],
             }
         },
+        // col + justifyContent(y) + alignItems(x)
         {
             keywordIterations: {
-                display: ['flex'],
-                flexDirection: ['column'],
-                justifyContent: ['start', 'center', 'end', 'space-between', 'space-evenly', 'space-around'],
-                alignItems: ['start', 'center', 'end', 'stretch', 'baseline'],
+                display: [{value: 'flex', alias: ''}],
+                flexDirection: [{value: 'column', alias: 'Col'}],
+                justifyContent: [
+                    {value: 'start', prefix: 'Y'},
+                    {value: 'center', prefix: 'Y'},
+                    {value: 'end', prefix: 'Y'},
+                    {value: 'space-between', prefix: 'Y'},
+                    {value: 'space-evenly', prefix: 'Y'},
+                    {value: 'space-around', prefix: 'Y'},
+                ],
+                alignItems: [
+                    {value: 'start', prefix: 'X'},
+                    {value: 'center', prefix: 'X'},
+                    {value: 'end', prefix: 'X'},
+                    {value: 'stretch', prefix: 'X'},
+                    {value: 'baseline', prefix: 'X'},
+                ],
             }
-        }
+        },
     ],
 
     colors: [

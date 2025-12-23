@@ -790,26 +790,27 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
   
   const atoms: GroupAtomDefinition[] = [];
   
-  // 收集每个属性的关键字列表和别名
+  // 收集每个属性的关键字列表和别名/前缀
   const propertyKeywords: Array<{
     property: string;
-    items: Array<{ value: string; alias?: string }>;
+    items: Array<{ value: string; alias?: string; prefix?: string }>;
   }> = [];
   
   for (const [propName, config] of Object.entries(keywordIterations)) {
     if (!Array.isArray(config) || config.length === 0) continue;
     
-    const items: Array<{ value: string; alias?: string }> = [];
+    const items: Array<{ value: string; alias?: string; prefix?: string }> = [];
     
     for (const item of config) {
       if (typeof item === 'string' || typeof item === 'number') {
         // 简写形式：直接写值
         items.push({ value: String(item) });
       } else if (item && typeof item === 'object' && 'value' in item) {
-        // 详细配置：{ value, alias }
+        // 详细配置：{ value, alias, prefix }
         items.push({ 
           value: String(item.value), 
-          alias: item.alias 
+          alias: item.alias,
+          prefix: item.prefix
         });
       }
     }
@@ -833,18 +834,24 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
   const combinations = cartesianProduct(itemArrays);
   
   for (const combination of combinations) {
-    // 生成类名：拼接所有关键字（使用别名如果有）
+    // 生成类名：拼接所有关键字（使用别名或前缀+值）
     const nameParts: string[] = [];
     const styles: Record<string, string> = {};
     
     for (let i = 0; i < propertyKeywords.length; i++) {
       const { property } = propertyKeywords[i];
-      const { value, alias } = combination[i];
+      const { value, alias, prefix: itemPrefix } = combination[i];
       
-      // 使用别名或格式化关键字
-      const displayName = alias ?? formatKeywordForClassName(value);
+      // 优先使用别名，否则使用前缀+格式化值
+      let displayName: string;
+      if (alias !== undefined) {
+        displayName = alias;
+      } else {
+        const formattedValue = formatKeywordForClassName(value);
+        displayName = itemPrefix ? itemPrefix + formattedValue : formattedValue;
+      }
+      
       nameParts.push(displayName);
-      
       styles[camelToKebab(property)] = value;
     }
     

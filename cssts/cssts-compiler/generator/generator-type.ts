@@ -263,13 +263,14 @@ export type GroupKeywordsConfig = {
   [P in CssPropertyName]?: PropertyKeywords<P> | number;
 };
 
-// 关键字迭代值配置项（单个值 + 可选别名）
+// 关键字迭代值配置项（单个值 + 可选别名/前缀）
 export type KeywordIterationValueItem<P extends CssPropertyName> = 
   | PropertyKeywords<P>                              // 简写：直接写关键字
   | number                                           // 简写：直接写数值
   | {
       value: PropertyKeywords<P> | number;           // 关键字或数值
-      alias?: string;                                // 可选别名
+      alias?: string;                                // 可选别名（替换整个名称）
+      prefix?: string;                               // 可选前缀（拼在值前面）
     };
 
 // 单个属性的关键字迭代配置
