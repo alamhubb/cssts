@@ -178,70 +178,70 @@ export const csstsDefaultConfig: CsstsConfig = {
         // row + flex
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'row', alias: 'Row'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'row'}],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
         // col + flex
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'column', alias: 'Col'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'column'}],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
         // row + wrap
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'row', alias: 'Row'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'row'}],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
         // col + wrap
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'column', alias: 'Col'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'column'}],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
         // row + justifyContent (x轴)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'row', alias: 'Row'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'row'}],
                 justifyContent: [
-                    {value: 'start', prefix: 'X'},
-                    {value: 'center', prefix: 'X'},
-                    {value: 'end', prefix: 'X'},
-                    {value: 'space-between', prefix: 'X'},
-                    {value: 'space-evenly', prefix: 'X'},
-                    {value: 'space-around', prefix: 'X'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'space-between'},
+                    {value: 'space-evenly'},
+                    {value: 'space-around'},
                 ],
             }
         },
         // col + justifyContent (y轴)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'column', alias: 'Col'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'column'}],
                 justifyContent: [
-                    {value: 'start', prefix: 'Y'},
-                    {value: 'center', prefix: 'Y'},
-                    {value: 'end', prefix: 'Y'},
-                    {value: 'space-between', prefix: 'Y'},
-                    {value: 'space-evenly', prefix: 'Y'},
-                    {value: 'space-around', prefix: 'Y'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'space-between'},
+                    {value: 'space-evenly'},
+                    {value: 'space-around'},
                 ],
             }
         },
         // row + alignItems (y轴)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'row', alias: 'Row'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'row'}],
                 alignItems: [
                     {value: 'start', prefix: 'Y'},
                     {value: 'center', prefix: 'Y'},
@@ -254,8 +254,8 @@ export const csstsDefaultConfig: CsstsConfig = {
         // col + alignItems (x轴)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'column', alias: 'Col'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'column'}],
                 alignItems: [
                     {value: 'start', prefix: 'X'},
                     {value: 'center', prefix: 'X'},
@@ -268,44 +268,44 @@ export const csstsDefaultConfig: CsstsConfig = {
         // row + justifyContent(x) + alignItems(y)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'row', alias: 'Row'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'row'}],
                 justifyContent: [
-                    {value: 'start', prefix: 'X'},
-                    {value: 'center', prefix: 'X'},
-                    {value: 'end', prefix: 'X'},
-                    {value: 'space-between', prefix: 'X'},
-                    {value: 'space-evenly', prefix: 'X'},
-                    {value: 'space-around', prefix: 'X'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'space-between'},
+                    {value: 'space-evenly'},
+                    {value: 'space-around'},
                 ],
                 alignItems: [
-                    {value: 'start', prefix: 'Y'},
-                    {value: 'center', prefix: 'Y'},
-                    {value: 'end', prefix: 'Y'},
-                    {value: 'stretch', prefix: 'Y'},
-                    {value: 'baseline', prefix: 'Y'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'stretch'},
+                    {value: 'baseline'},
                 ],
             }
         },
         // col + justifyContent(y) + alignItems(x)
         {
             keywordIterations: {
-                display: [{value: 'flex', alias: ''}],
-                flexDirection: [{value: 'column', alias: 'Col'}],
+                display: [{value: 'flex'}],
+                flexDirection: [{value: 'column'}],
                 justifyContent: [
-                    {value: 'start', prefix: 'Y'},
-                    {value: 'center', prefix: 'Y'},
-                    {value: 'end', prefix: 'Y'},
-                    {value: 'space-between', prefix: 'Y'},
-                    {value: 'space-evenly', prefix: 'Y'},
-                    {value: 'space-around', prefix: 'Y'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'space-between'},
+                    {value: 'space-evenly'},
+                    {value: 'space-around'},
                 ],
                 alignItems: [
-                    {value: 'start', prefix: 'X'},
-                    {value: 'center', prefix: 'X'},
-                    {value: 'end', prefix: 'X'},
-                    {value: 'stretch', prefix: 'X'},
-                    {value: 'baseline', prefix: 'X'},
+                    {value: 'start'},
+                    {value: 'center'},
+                    {value: 'end'},
+                    {value: 'stretch'},
+                    {value: 'baseline'},
                 ],
             }
         },
