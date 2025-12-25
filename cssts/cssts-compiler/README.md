@@ -56,6 +56,51 @@ cssts-compiler/
 
 ---
 
+## CssTsCstToAst 扩展机制
+
+`CssTsCstToAst` 继承自 `slime-parser` 的 `SlimeCstToAst`，使用**全局注册模式**扩展 CST → AST 转换。
+
+### 为什么需要全局注册
+
+`slime-parser` 内部各转换器通过 `slimeCstToAstUtil.xxx()` 调用。直接继承重写方法**不会生效**，因为内部调用不经过子类。
+
+### 实现方式
+
+```typescript
+import { SlimeCstToAst, registerSlimeCstToAstUtil } from 'slime-parser'
+
+export class CssTsCstToAst extends SlimeCstToAst {
+  constructor() {
+    super()
+    // 关键：在构造函数中注册当前实例
+    registerSlimeCstToAstUtil(this)
+  }
+
+  // 重写方法，拦截 CssExpression 节点
+  createPrimaryExpressionAst(cst) {
+    const first = cst.children?.[0]
+    if (first?.name === 'CssExpression') {
+      return this.createCssExpressionAst(first)
+    }
+    return super.createPrimaryExpressionAst(cst)
+  }
+
+  // 处理 css { atom } 语法
+  createCssExpressionAst(cst) {
+    // 转换为 cssts.$cls() 调用
+    // ...
+  }
+}
+```
+
+### 工作原理
+
+1. `CssTsCstToAst` 在构造函数中调用 `registerSlimeCstToAstUtil(this)`
+2. 之后 `slime-parser` 内部所有调用都会路由到 `CssTsCstToAst`
+3. `createPrimaryExpressionAst` 拦截 `CssExpression` 节点，转换为 `cssts.$cls()` 调用
+
+---
+
 ## 核心 API
 
 ### transformCssTs - 单文件转换

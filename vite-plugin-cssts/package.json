@@ -6,9 +6,10 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
+  "monorepo": "./src/index.ts",
   "exports": {
     ".": {
-      "tsx": "./src/index.ts",
+
       "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",

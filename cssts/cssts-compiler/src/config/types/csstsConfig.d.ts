@@ -152,6 +152,26 @@ export interface CsstsConfig {
    * ]
    */
   groups?: GroupConfig[];
+
+  // ==================== 构建配置 ====================
+
+  /**
+   * CSS 类名前缀
+   * @example 'my-' => .my-display-flex
+   */
+  classPrefix?: string;
+
+  /**
+   * 是否生成类型声明文件
+   * @default true
+   */
+  dts?: boolean;
+
+  /**
+   * 类型声明文件输出目录
+   * @default 'node_modules/@types/cssts'
+   */
+  dtsOutputDir?: string;
 }
 
 export type CsstsConfigRequired = Required<CsstsConfig>;

@@ -5,61 +5,41 @@ import {
   generateStylesCss,
   generateCsstsAtomModule,
   generateDtsFiles,
-  type PseudoUtilsConfig,
+  type CsstsConfig,
 } from 'cssts-compiler'
 
 // ==================== 插件配置 ====================
 
 /**
- * CSSTS Vite 插件配置类
+ * CSSTS Vite 插件配置
  * 
- * 使用 class 定义配置，用户可以直接查看默认值
+ * 基于 CsstsConfig 扩展，添加插件特有的配置
  * 
  * @example
  * ```ts
  * // 使用默认配置
  * cssTsPlugin()
  * 
- * // 自定义配置（只需传入要覆盖的选项）
- * cssTsPlugin({ classPrefix: 'my-', dts: false })
+ * // 自定义配置
+ * cssTsPlugin({ 
+ *   classPrefix: 'my-', 
+ *   dts: false,
+ *   pseudoClassesConfig: { hover: { filter: 'brightness(1.15)' } }
+ * })
+ * 
+ * // 与其他插件共享样式状态
+ * const sharedStyles = new Set<string>()
+ * cssTsPlugin({ globalStyles: sharedStyles })
  * ```
  */
-export class CssTsPluginConfig {
-  /** 
-   * CSS 类名前缀
-   * @default ''
-   */
-  classPrefix: string = ''
-
-  /** 
-   * 伪类工具配置
-   * @default undefined
-   */
-  pseudoUtils?: PseudoUtilsConfig = undefined
-
-  /** 
-   * 外部传入的共享样式集合，不传则内部创建
-   * @default new Set<string>()
-   */
-  globalStyles: Set<string> = new Set<string>()
-
+export interface CssTsPluginOptions extends Partial<CsstsConfig> {
   /**
-   * 是否自动生成类型声明文件
-   * @default true
+   * 外部传入的共享样式集合
+   * 用于多个插件共享样式状态（如 vite-plugin-ovs）
+   * 不传则内部创建
    */
-  dts: boolean = true
-
-  constructor(options: Partial<CssTsPluginConfig> = {}) {
-    // 用户传入的配置覆盖默认值
-    if (options.classPrefix !== undefined) this.classPrefix = options.classPrefix
-    if (options.pseudoUtils !== undefined) this.pseudoUtils = options.pseudoUtils
-    if (options.globalStyles !== undefined) this.globalStyles = options.globalStyles
-    if (options.dts !== undefined) this.dts = options.dts
-  }
+  globalStyles?: Set<string>
 }
-
-/** 插件配置选项类型（用于函数参数） */
-export type CssTsPluginOptions = Partial<CssTsPluginConfig>
 
 // ==================== 虚拟模块 ====================
 
@@ -114,11 +94,11 @@ function rebuildVueFile(
 ): string {
   const before = originalCode.slice(0, scriptInfo.start)
   const after = originalCode.slice(scriptInfo.end)
-  
+
   // 构建新的 script 标签，将 lang="cssts" 改为 lang="ts"
   const setupAttr = scriptInfo.isSetup ? ' setup' : ''
   const newOpenTag = `<script${setupAttr} lang="ts">`
-  
+
   return `${before}${newOpenTag}\n${newScriptContent}\n</script>${after}`
 }
 
@@ -168,15 +148,17 @@ function createEsbuildPlugin() {
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
-  // 使用配置类，合并用户配置和默认值
-  const pluginConfig = new CssTsPluginConfig(options)
-  
+  // 从 CsstsConfig 读取配置
+  const prefix = options.classPrefix ?? ''
+  const pseudoUtils = options.pseudoClassesConfig
+  const enableDts = options.dts ?? true
+  const dtsOutputDir = options.dtsOutputDir
+
+  // 样式状态：外部传入或内部创建
+  const globalStyles = options.globalStyles ?? new Set<string>()
+
   let server: any = null
   let config: ResolvedConfig
-  const prefix = pluginConfig.classPrefix
-  const pseudoUtils = pluginConfig.pseudoUtils
-  const globalStyles = pluginConfig.globalStyles
-  const enableDts = pluginConfig.dts
 
   /**
    * 检查文件是否需要处理
@@ -228,9 +210,9 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     configResolved(resolvedConfig) {
       config = resolvedConfig
-      // 自动生成类型文件到 node_modules/@types/cssts/
+      // 自动生成类型文件
       if (enableDts) {
-        const outputDir = path.join(config.root, 'node_modules/@types/cssts')
+        const outputDir = dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts')
         generateDtsFiles({ outputDir })
       }
     },
