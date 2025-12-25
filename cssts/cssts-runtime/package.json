@@ -9,8 +9,6 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-
-
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
@@ -32,7 +30,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "tsdown": "^0.18.0",
+    "tsdown": "^0.18.3",
     "typescript": "^5.8.3"
   },
   "gitHead": "ff5a24ff2b6715bac6935396648066dc1d417f04"
