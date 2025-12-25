@@ -8,7 +8,7 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "bun": "./src/index.ts",
+      "tsx": "./src/index.ts",
       "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
@@ -16,7 +16,7 @@
       "default": "./dist/index.mjs"
     },
     "./css": {
-      "bun": "./src/css/index.ts",
+      "tsx": "./src/css/index.ts",
       "development": "./src/css/index.ts",
       "types": "./dist/css/index.d.mts",
       "import": "./dist/css/index.mjs",
@@ -24,7 +24,7 @@
       "default": "./dist/css/index.mjs"
     },
     "./cssts": {
-      "bun": "./src/cssts/index.ts",
+      "tsx": "./src/cssts/index.ts",
       "development": "./src/cssts/index.ts",
       "types": "./dist/cssts/index.d.mts",
       "import": "./dist/cssts/index.mjs",

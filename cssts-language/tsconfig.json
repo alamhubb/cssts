@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "tsxdler",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

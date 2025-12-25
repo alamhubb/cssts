@@ -873,7 +873,7 @@ target/cssts-dts/
 
 ```bash
 cd cssts/cssts/cssts-compiler
-bun src/dts/dts-cli.ts
+tsx src/dts/dts-cli.ts
 ```
 
 输出示例：

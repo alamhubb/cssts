@@ -8,9 +8,9 @@
  * - 本文件使用 toFileAst（包含后处理：自动导入等）
  *
  * 用法:
- *   bun tests/utils/test-stage3-fileAst.ts              # 从头开始测试
- *   bun tests/utils/test-stage3-fileAst.ts 10           # 从第10个开始
- *   bun tests/utils/test-stage3-fileAst.ts 10 -s        # 从第10个开始，遇错停止
+ *   tsx tests/utils/test-stage3-fileAst.ts              # 从头开始测试
+ *   tsx tests/utils/test-stage3-fileAst.ts 10           # 从第10个开始
+ *   tsx tests/utils/test-stage3-fileAst.ts 10 -s        # 从第10个开始，遇错停止
  */
 import { runTests, testStage3 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'

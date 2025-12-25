@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun ../node_modules/vite/bin/vite.js",
-    "build": "bun ../node_modules/vite/bin/vite.js build",
-    "preview": "bun ../node_modules/vite/bin/vite.js preview"
+    "dev": "tsx ../node_modules/vite/bin/vite.js",
+    "build": "tsx ../node_modules/vite/bin/vite.js build",
+    "preview": "tsx ../node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {
     "cssts-ts": "0.2.5",

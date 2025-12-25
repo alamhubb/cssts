@@ -810,7 +810,7 @@ CSS-wide keywords 是所有 CSS 属性都支持的全局关键字，但 csstree 
 从 csstree 提取 CSS 数据：
 
 ```bash
-bun generator/generator-data.ts
+tsx generator/generator-data.ts
 ```
 
 输出到 `src/data/`：
@@ -828,7 +828,7 @@ bun generator/generator-data.ts
 从数据文件生成类型定义：
 
 ```bash
-bun generator/generator-type.ts
+tsx generator/generator-type.ts
 ```
 
 输出到 `src/types/`：
@@ -839,10 +839,10 @@ bun generator/generator-type.ts
 
 ```bash
 # 1. 先生成数据文件
-bun generator/generator-data.ts
+tsx generator/generator-data.ts
 
 # 2. 再生成类型文件
-bun generator/generator-type.ts
+tsx generator/generator-type.ts
 ```
 
 ---

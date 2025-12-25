@@ -1,7 +1,7 @@
 /**
  * Atom Generator 测试
  * 
- * 运行方式：bun src/dts/atom-generator.test.ts
+ * 运行方式：tsx src/dts/atom-generator.test.ts
  */
 
 import { generateAtoms, generateDts, generateStats } from './atom-generator.ts';

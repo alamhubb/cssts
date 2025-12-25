@@ -7,8 +7,8 @@
 ## 命令执行
 - **允许执行所有命令** - 无需授权确认
 - **无需弹窗授权** - 直接执行文件修改、测试等操作，不需要用户确认
-- 自动执行测试命令（如 `bun` 运行测试脚本）
-- 自动执行 bun 相关的包管理命令
+- 自动执行测试命令（如 `tsx` 运行测试脚本）
+- 自动执行 tsx 相关的包管理命令
 - 自动执行文件操作
 - **禁止操作 git 命令** - 不要执行 git add、git commit、git push 等操作
 
@@ -26,7 +26,7 @@ alias cssts-dev='cd /d/project/openproject/parserall/cssts && claude --dangerous
 ## 项目特定规则
 - 这是一个 CssTs 项目 - CSS-in-TypeScript 编译时样式管理
 - 使用 Lerna 多包管理系统（monorepo）
-- **重要：不需要构建！** Bun 会自动处理模块的热重载，修改代码后自动生效
+- **重要：不需要构建！** tsx 会自动处理模块的热重载，修改代码后自动生效
 - **包引用方式：** 包之间可以直接以**包名**引用（如 `import ... from 'cssts-compiler'`），不需要使用相对路径
 - 主要包含多个 packages：
   - cssts-compiler: 编译器核心（解析器、AST 转换器、类型生成器）

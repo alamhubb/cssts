@@ -7,7 +7,7 @@
  * - cssPropertyConfig.d.ts: 所有 CSS 配置类型（泛型版本）
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
- * 运行方式：bun generator/generator-type.ts
+ * 运行方式：tsx generator/generator-type.ts
  * 
  * 前置条件：必须先运行 generator-data.ts 生成 data 文件
  */

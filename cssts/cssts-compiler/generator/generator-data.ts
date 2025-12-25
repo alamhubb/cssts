@@ -15,7 +15,7 @@
  * - cssPseudoData.ts: 伪类和伪元素数据
  * - cssKeywordsData.ts: keywords 常量、数组和 allKeywords
  *
- * 运行方式：bun generator/generator-data.ts
+ * 运行方式：tsx generator/generator-data.ts
  */
 
 import * as fs from 'node:fs';

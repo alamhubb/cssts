@@ -1,7 +1,7 @@
 /**
  * DTS 生成脚本入口
  * 
- * 运行: bun src/dts/dts-cli.ts
+ * 运行: tsx src/dts/dts-cli.ts
  */
 
 import * as path from 'path';

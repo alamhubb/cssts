@@ -5,9 +5,9 @@
  * 前提: 阶段1、2已通过（CST和AST可以正常生成）
  *
  * 用法:
- *   bun tests/utils/test-stage3.ts              # 从头开始测试
- *   bun tests/utils/test-stage3.ts 10           # 从第10个开始
- *   bun tests/utils/test-stage3.ts 10 -s        # 从第10个开始，遇错停止
+ *   tsx tests/utils/test-stage3.ts              # 从头开始测试
+ *   tsx tests/utils/test-stage3.ts 10           # 从第10个开始
+ *   tsx tests/utils/test-stage3.ts 10 -s        # 从第10个开始，遇错停止
  */
 import { runTests, testStage3 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'
