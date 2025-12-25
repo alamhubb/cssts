@@ -8,6 +8,7 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
+      "bun": "./src/index.ts",
       "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
@@ -15,6 +16,7 @@
       "default": "./dist/index.mjs"
     },
     "./css": {
+      "bun": "./src/css/index.ts",
       "development": "./src/css/index.ts",
       "types": "./dist/css/index.d.mts",
       "import": "./dist/css/index.mjs",
@@ -22,6 +24,7 @@
       "default": "./dist/css/index.mjs"
     },
     "./cssts": {
+      "bun": "./src/cssts/index.ts",
       "development": "./src/cssts/index.ts",
       "types": "./dist/cssts/index.d.mts",
       "import": "./dist/cssts/index.mjs",
@@ -35,7 +38,12 @@
   "scripts": {
     "build": "tsdown"
   },
-  "keywords": ["cssts", "element-plus", "theme", "typescript"],
+  "keywords": [
+    "cssts",
+    "element-plus",
+    "theme",
+    "typescript"
+  ],
   "license": "MIT",
   "devDependencies": {
     "tsdown": "^0.12.5",
