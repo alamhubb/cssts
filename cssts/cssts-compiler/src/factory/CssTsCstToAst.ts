@@ -1,4 +1,4 @@
-﻿import { SlimeCstToAst } from "slime-parser"
+﻿import { SlimeCstToAst, registerSlimeCstToAstUtil } from "slime-parser"
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
@@ -45,6 +45,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   constructor() {
     super()
+    // 注册当前实例，使内部调用也能路由到子类方法
+    registerSlimeCstToAstUtil(this)
   }
 
   private get currentScope(): Set<string> {
