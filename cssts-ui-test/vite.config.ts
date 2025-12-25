@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cssTsPlugin from 'vite-plugin-cssts'
+import ovsPlugin from 'vite-plugin-ovs'
 
 // 共享的伪类配置
 const pseudoUtilsConfig = {
@@ -12,9 +12,11 @@ const pseudoUtilsConfig = {
 
 export default defineConfig({
   plugins: [
-    // cssts 插件处理 .cssts 文件和 <script lang="cssts"> 的 Vue 文件
-    cssTsPlugin({
-      pseudoUtils: pseudoUtilsConfig,
+    // ovs 插件内置 cssts 支持，处理 .ovs / .cssts / <script lang="cssts">
+    ovsPlugin({
+      cssts: {
+        pseudoUtils: pseudoUtilsConfig,
+      }
     }),
     vue(),
   ],

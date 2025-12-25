@@ -2,6 +2,11 @@
   <div class="container">
     <h1>CSSTS Plugin Test</h1>
     
+    <h2>OVS Test - OVS + CSSTS 综合测试</h2>
+    <OvsTest />
+    
+    <hr style="margin: 40px 0" />
+    
     <h2>Element Plus Buttons (from npm)</h2>
     <div class="button-group">
       <el-button>Default</el-button>
@@ -22,6 +27,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+// OVS 组件
+import OvsTest from './components/ovstest.ovs'
 // Vue + cssts 组件 (使用 <script lang="cssts">)
 import VueButton from './components/VueButton.vue'
 
