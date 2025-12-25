@@ -7,7 +7,7 @@
  * - cssPropertyConfig.d.ts: 所有 CSS 配置类型（泛型版本）
  * - csstsConfig.d.ts: CSSTS 配置类型
  *
- * 运行方式：npx tsx generator/generator-type.ts
+ * 运行方式：bun generator/generator-type.ts
  * 
  * 前置条件：必须先运行 generator-data.ts 生成 data 文件
  */
@@ -511,7 +511,7 @@ function main() {
   const pseudoElementCount = Object.keys(PSEUDO_ELEMENT_NAME_MAP).length;
   const colorTypeCount = ALL_COLOR_TYPES.length;
   const colorCount = Object.keys(COLOR_NAME_MAP).length;
-  
+
   console.log(`\n📊 统计: 属性 ${propertyCount} | 颜色类型 ${colorTypeCount} | 颜色 ${colorCount} | 伪类 ${pseudoClassCount} | 伪元素 ${pseudoElementCount}`);
   console.log('\n✨ 类型文件生成完成!');
 }

@@ -8,13 +8,13 @@
  * - 本文件使用 toFileAst（包含后处理：自动导入等）
  *
  * 用法:
- *   npx tsx tests/utils/test-stage3-fileAst.ts              # 从头开始测试
- *   npx tsx tests/utils/test-stage3-fileAst.ts 10           # 从第10个开始
- *   npx tsx tests/utils/test-stage3-fileAst.ts 10 -s        # 从第10个开始，遇错停止
+ *   bun tests/utils/test-stage3-fileAst.ts              # 从头开始测试
+ *   bun tests/utils/test-stage3-fileAst.ts 10           # 从第10个开始
+ *   bun tests/utils/test-stage3-fileAst.ts 10 -s        # 从第10个开始，遇错停止
  */
 import { runTests, testStage3 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'
-import {CssTsCstToAst} from '../../src/factory/CssTsCstToAst'
+import { CssTsCstToAst } from '../../src/factory/CssTsCstToAst'
 
 /**
  * 包装类：让 toProgram 内部调用 toFileAst
@@ -24,20 +24,20 @@ import {CssTsCstToAst} from '../../src/factory/CssTsCstToAst'
  */
 class CssTsCstToAstFileMode extends CssTsCstToAst {
   private _originalToProgram = CssTsCstToAst.prototype.toProgram
-  
+
   toProgram(cst: any) {
     // 先调用原始的 toProgram 做纯 AST 转换
     const program = this._originalToProgram.call(this, cst)
-    
+
     // 复制 body 进行后处理（与 toFileAst 逻辑一致）
     let body = [...program.body]
-    
+
     // CSSTS 后处理：添加 cssts 和 csstsAtom 导入
     body = (this as any).processCsstsPostTransform(body)
-    
+
     // 更新 program.body
     program.body = body
-    
+
     return program
   }
 }

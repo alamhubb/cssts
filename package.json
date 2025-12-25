@@ -9,7 +9,7 @@
     "cssts/cssts-runtime"
   ],
   "scripts": {
-    "test": "tsx test-runner.ts",
+    "test": "bun test-runner.ts",
     "build": "npx lerna run build",
     "release": "npx lerna publish --no-git-reset --no-push --no-git-tag-version"
   }

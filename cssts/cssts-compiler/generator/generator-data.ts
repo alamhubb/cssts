@@ -15,7 +15,7 @@
  * - cssPseudoData.ts: 伪类和伪元素数据
  * - cssKeywordsData.ts: keywords 常量、数组和 allKeywords
  *
- * 运行方式：npx tsx generator/generator-data.ts
+ * 运行方式：bun generator/generator-data.ts
  */
 
 import * as fs from 'node:fs';
@@ -144,7 +144,7 @@ function generatePropertyNameMap(): Record<string, string> {
   const lexer = (csstree as any).lexer;
   const propertyMap: Record<string, string> = {};
   const properties = lexer.properties as Record<string, any>;
-  
+
   for (const propName of Object.keys(properties)) {
     if (propName.startsWith('-')) continue;
     propertyMap[kebabToCamel(propName)] = propName;
@@ -238,7 +238,7 @@ function generateColorFile(colorData: ColorTypeData): string {
   // ==================== COLOR_NAME_MAP ====================
   lines.push('// camelCase 到 kebab-case 映射');
   lines.push('export const COLOR_NAME_MAP = {');
-  
+
   // 去重：如果 camelCase 已存在，跳过（保留第一个）
   const seenCamelNames = new Set<string>();
   colorData.allColors.forEach(c => {
@@ -267,7 +267,7 @@ function extractPropertyData(allColors: Set<string>, colorTypeColorsMap: Record<
   const propertyData: Record<string, PropertyData> = {};
 
   const properties = lexer.properties as Record<string, any>;
-  
+
   for (const [propName, propDef] of Object.entries(properties)) {
     if (propName.startsWith('-')) continue;
 
@@ -281,7 +281,7 @@ function extractPropertyData(allColors: Set<string>, colorTypeColorsMap: Record<
     // 分离颜色和非颜色 keywords
     const colorKeywords = Array.from(keywords).filter(k => allColors.has(k));
     const nonColorKeywords = Array.from(keywords).filter(k => !allColors.has(k));
-    
+
     // 确定属性支持的 colorTypes
     const supportedColorTypes: string[] = [];
     if (colorKeywords.length > 0) {
@@ -326,7 +326,7 @@ function generatePropertyKeywordsFile(propertyData: Record<string, PropertyData>
   const sortedProps = Object.keys(propertyData)
     .filter(p => propertyData[p].keywords.length > 0)
     .sort();
-  
+
   // 直接生成 PROPERTY_KEYWORDS_MAP，内联所有值
   lines.push('export const PROPERTY_KEYWORDS_MAP = {');
   for (const propName of sortedProps) {
@@ -506,7 +506,7 @@ function generateCssPseudoDataFile(pseudoClasses: string[], pseudoElements: stri
   lines.push('} as const;', '');
 
   lines.push('// ==================== 伪元素 ====================', '');
-  
+
   // camelCase -> kebab-case
   lines.push('// camelCase 到 kebab-case 映射');
   lines.push('export const PSEUDO_ELEMENT_NAME_MAP = {');
