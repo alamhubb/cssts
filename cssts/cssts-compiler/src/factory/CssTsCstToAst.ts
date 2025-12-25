@@ -43,10 +43,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
   protected _hasCsstsSyntax = false
   private scopeStack: Set<string>[] = []
 
-  constructor() {
+  constructor(skipRegister?: boolean) {
     super()
-    // 注册当前实例，使内部调用也能路由到子类方法
-    registerSlimeCstToAstUtil(this)
+    // 注册实例，使内部调用也能路由到子类方法
+    // 如果 skipRegister 为 true，则不注册（子类会自己注册）
+    // 否则注册自己
+    if (skipRegister !== true) {
+      registerSlimeCstToAstUtil(this)
+    }
   }
 
   private get currentScope(): Set<string> {
