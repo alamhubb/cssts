@@ -14,7 +14,6 @@ import {fileURLToPath} from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// slime-ast 源码目录
 const casesDir = path.join(__dirname, '..', 'cssts')
 
 // 运行测试
@@ -24,5 +23,5 @@ runTests(testStage3, {
     casesDir: casesDir,
     startFrom: 1,
     stopOnFail: true,
-    fileExtension: '.ts'
+    fileExtension: '.cssts'
 })
