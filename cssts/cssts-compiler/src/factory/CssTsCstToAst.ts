@@ -1,4 +1,4 @@
-﻿import { SlimeCstToAst, SlimeJavascriptCstToAstUtil } from "slime-parser"
+﻿import { SlimeCstToAst } from "slime-parser"
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
@@ -260,55 +260,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (first && first.name === CssTsParser.prototype.CssExpression.name) {
       return this.createCssExpressionAst(first)
     }
-    // 调用 SlimeJavascriptCstToAstUtil 的方法，但需要避免递归
-    // 由于方法拦截机制，我们需要直接处理 PrimaryExpression
-    return this._createPrimaryExpressionAstOriginal(cst)
-  }
-
-  /**
-   * 原始的 PrimaryExpression 处理逻辑
-   * 复制自 SlimeJavascriptPrimaryExpressionCstToAst，避免方法拦截导致的递归
-   */
-  private _createPrimaryExpressionAstOriginal(cst: SubhutiCst): SlimeExpression {
-    const first = cst.children?.[0]
-    if (!first) {
-      throw new Error('PrimaryExpression has no children')
-    }
-    
-    // 根据第一个子节点的类型分发处理
-    const name = first.name
-    
-    if (name === 'IdentifierReference') {
-      return SlimeJavascriptCstToAstUtil.createIdentifierAst(first.children?.[0])
-    } else if (name === 'Literal') {
-      return SlimeJavascriptCstToAstUtil.createLiteralAst(first)
-    } else if (name === 'ArrayLiteral') {
-      return SlimeJavascriptCstToAstUtil.createArrayLiteralAst(first) as SlimeExpression
-    } else if (name === 'FunctionExpression') {
-      return SlimeJavascriptCstToAstUtil.createFunctionExpressionAst(first) as SlimeExpression
-    } else if (name === 'ObjectLiteral') {
-      return SlimeJavascriptCstToAstUtil.createObjectLiteralAst(first) as SlimeExpression
-    } else if (name === 'ClassExpression') {
-      return SlimeJavascriptCstToAstUtil.createClassExpressionAst(first) as SlimeExpression
-    } else if (name === 'This') {
-      return SlimeAstCreateUtils.createThisExpression(first.loc) as any
-    } else if (name === 'RegularExpressionLiteral') {
-      return SlimeJavascriptCstToAstUtil.createRegExpLiteralAst(first)
-    } else if (name === 'GeneratorExpression') {
-      return SlimeJavascriptCstToAstUtil.createGeneratorExpressionAst(first) as SlimeExpression
-    } else if (name === 'AsyncFunctionExpression') {
-      return SlimeJavascriptCstToAstUtil.createAsyncFunctionExpressionAst(first) as SlimeExpression
-    } else if (name === 'AsyncGeneratorExpression') {
-      return SlimeJavascriptCstToAstUtil.createAsyncGeneratorExpressionAst(first) as SlimeExpression
-    } else if (name === 'CoverParenthesizedExpressionAndArrowParameterList') {
-      return SlimeJavascriptCstToAstUtil.createCoverParenthesizedExpressionAndArrowParameterListAst(first)
-    } else if (name === 'TemplateLiteral') {
-      return SlimeJavascriptCstToAstUtil.createTemplateLiteralAst(first)
-    } else if (name === 'ParenthesizedExpression') {
-      return SlimeJavascriptCstToAstUtil.createParenthesizedExpressionAst(first)
-    } else {
-      throw new Error('未知的 PrimaryExpression 类型: ' + name)
-    }
+    // 直接调用基类逻辑，不再进行拦截复制
+    return super.createPrimaryExpressionAst(cst)
   }
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
