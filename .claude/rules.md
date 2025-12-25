@@ -6,9 +6,22 @@
 
 ## 命令执行
 - **允许执行所有命令** - 无需授权确认
+- **无需弹窗授权** - 直接执行文件修改、测试等操作，不需要用户确认
 - 自动执行测试命令（如 `bun` 运行测试脚本）
 - 自动执行 bun 相关的包管理命令
 - 自动执行文件操作
+- **禁止操作 git 命令** - 不要执行 git add、git commit、git push 等操作
+
+### 启动方式
+推荐使用以下命令启动 Claude Code，完全跳过权限检查：
+```bash
+claude --dangerously-skip-permissions
+```
+
+也可以为项目设置别名（在 `.bashrc` 或 `.zshrc` 中添加）：
+```bash
+alias cssts-dev='cd /d/project/openproject/parserall/cssts && claude --dangerously-skip-permissions'
+```
 
 ## 项目特定规则
 - 这是一个 CssTs 项目 - CSS-in-TypeScript 编译时样式管理
