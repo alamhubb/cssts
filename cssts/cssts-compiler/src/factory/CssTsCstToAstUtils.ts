@@ -43,14 +43,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
   protected _hasCsstsSyntax = false
   private scopeStack: Set<string>[] = []
 
-  constructor(skipRegister?: boolean) {
+  constructor() {
     super()
-    // 注册实例，使内部调用也能路由到子类方法
-    // 如果 skipRegister 为 true，则不注册（子类会自己注册）
-    // 否则注册自己
-    if (skipRegister !== true) {
-      registerSlimeCstToAstUtil(this)
-    }
+    // 注册当前实例到 cssts 全局
+    // 由于 this 在子类调用时是子类实例，所以会自动注册正确的实例
+    registerCssTsCstToAst(this)
   }
 
   private get currentScope(): Set<string> {
@@ -114,29 +111,53 @@ export class CssTsCstToAst extends SlimeCstToAst {
   clearUsedAtoms() { this.usedAtoms.clear() }
 
   toFileAst(cst: SubhutiCst): SlimeProgram {
+    console.log('[CssTsCstToAst.toFileAst] 调用, usedAtoms.size =', this.usedAtoms.size)
     const program = this.toProgram(cst)
+    console.log('[CssTsCstToAst.toFileAst] toProgram 后, usedAtoms.size =', this.usedAtoms.size)
     if (this.usedAtoms.size > 0) {
+      console.log('[CssTsCstToAst.toFileAst] 调用 ensureCsstsImports')
       program.body = this.ensureCsstsImports(program.body)
     }
     return program
   }
 
   protected processCsstsPostTransform(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
-    if (this.usedAtoms.size > 0) return this.ensureCsstsImports(body)
+    console.log('[CssTsCstToAst.processCsstsPostTransform] 调用, usedAtoms.size =', this.usedAtoms.size)
+    if (this.usedAtoms.size > 0) {
+      console.log('[CssTsCstToAst.processCsstsPostTransform] 调用 ensureCsstsImports')
+      return this.ensureCsstsImports(body)
+    }
     return body
   }
 
 
+  /**
+   * 确保 CSSTS 相关的导入语句存在
+   * 
+   * 当使用了 css {} 语法时，需要添加以下三个导入：
+   * 1. import 'virtual:cssts.css'        - 虚拟 CSS 模块，包含生成的原子类样式
+   * 2. import {cssts} from 'cssts-ts'    - CSSTS 运行时，提供 $cls 等方法
+   * 3. import {csstsAtom} from 'virtual:csstsAtom' - 原子类名映射对象
+   * 
+   * 为什么分开判断每个导入：
+   * - 虽然使用 css {} 语法时通常需要全部三个导入
+   * - 但用户可能手动添加了其中某些导入（如从 cssts-ts 导入其他内容）
+   * - 分开检查可以避免重复导入，同时确保不遗漏任何必需的导入
+   * - 这种细粒度的检查也便于未来扩展（如某些场景只需要部分导入）
+   */
   protected ensureCsstsImports(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
     let hasCsstsImport = false
     let hasCsstsAtomImport = false
     let hasCsstsCssImport = false
 
+    // 遍历现有导入，检查是否已存在 CSSTS 相关导入
     for (const stmt of body) {
       if (stmt.type === SlimeAstTypeName.ImportDeclaration) {
         const importDecl = stmt as any
         const source = importDecl.source?.value
-        if (source === 'cssts') {
+
+        // 检查 cssts-ts 导入（运行时）
+        if (source === 'cssts-ts') {
           for (const spec of importDecl.specifiers || []) {
             if (spec.type === SlimeAstTypeName.ImportSpecifier) {
               if (spec.imported?.name === 'cssts' || spec.local?.name === 'cssts') {
@@ -147,16 +168,20 @@ export class CssTsCstToAst extends SlimeCstToAst {
             }
           }
         }
+
+        // 检查虚拟模块导入
         if (source === 'virtual:csstsAtom') hasCsstsAtomImport = true
         if (source === 'virtual:cssts.css') hasCsstsCssImport = true
       }
     }
 
+    // 按需添加缺失的导入
     const newImports: SlimeModuleDeclaration[] = []
     if (!hasCsstsCssImport) newImports.push(this.createCsstsCssImport())
     if (!hasCsstsImport) newImports.push(this.createCsstsImport())
     if (!hasCsstsAtomImport) newImports.push(this.createCsstsAtomImport())
 
+    // 将新导入插入到现有导入语句之后
     if (newImports.length > 0) {
       let insertIndex = 0
       for (let i = 0; i < body.length; i++) {
@@ -221,17 +246,17 @@ export class CssTsCstToAst extends SlimeCstToAst {
       const idChild = firstChild.children?.[0]
       varName = idChild?.value || idChild?.children?.[0]?.value || null
     }
-    
+
     // 收集变量名到作用域
     if (varName) this.addToScope(varName)
-    
+
     // 伪类变量处理
     if (varName && varName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
       this.currentVarName = varName
     }
-    
+
     const result = super.createLexicalBindingAst(cst)
-    
+
     if (this.currentVarName && this.currentVarName.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
       this.usedAtoms.add(this.currentVarName)
       if (result.init && result.init.type === SlimeAstTypeName.CallExpression) {
@@ -274,12 +299,12 @@ export class CssTsCstToAst extends SlimeCstToAst {
     this._hasCsstsSyntax = true
     const children = cst.children || []
     const styleObjectCst = children.find(c => c.name === CssTsParser.prototype.CssStyleObject.name)
-    
+
     if (styleObjectCst) {
       const args = this.extractCssPropertyExpressions(styleObjectCst)
       return this.createCsstsClsCallWithArgs(args, cst.loc)
     }
-    
+
     const identifierCsts = children.filter(c => c.name === 'IdentifierName')
     if (identifierCsts.length >= 2) {
       const atomCst = identifierCsts[1]
@@ -418,7 +443,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const objectName: string = memberExpr.object?.name || memberExpr.object?.value || 'style'
     const propertyName: string = memberExpr.property?.name || memberExpr.property?.value || ''
     const newAtomName: string = ast.right.value || ''
-    
+
     const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
     const replaceId = SlimeAstCreateUtils.createIdentifier('replace')
     const callee: SlimeExpression = {
@@ -428,20 +453,20 @@ export class CssTsCstToAst extends SlimeCstToAst {
       computed: false,
       optional: false
     } as any
-    
+
     const args = [
       SlimeAstCreateUtils.createIdentifier(objectName),
       SlimeAstCreateUtils.createStringLiteral(propertyName),
       SlimeAstCreateUtils.createStringLiteral(newAtomName)
     ]
-    
+
     const replaceCall: SlimeExpression = {
       type: SlimeAstTypeName.CallExpression,
       callee,
       arguments: args,
       optional: false
     } as any
-    
+
     return {
       type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
@@ -452,5 +477,29 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 }
 
-const cssTsCstToAst = new CssTsCstToAst()
-export default cssTsCstToAst
+// ==================== 全局注册机制 ====================
+// 使用 Proxy 模式，确保导入的 cssTsCstToAst 能动态代理到当前注册的实例
+
+let _cssTsCstToAstUtil: CssTsCstToAst = new CssTsCstToAst()
+
+/**
+ * 注册 CssTsCstToAst 实例到全局
+ * 
+ * 子类构造函数会自动调用此方法，所以会注册最终的子类实例
+ * 父层（slime-parser）的注册已通过 super() 中的父类构造函数自动完成
+ */
+export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
+  _cssTsCstToAstUtil = instance
+}
+
+// Proxy: 保持 cssTsCstToAst.xxx() 调用方式，同时支持动态替换
+const CssTsCstToAstUtils = new Proxy({} as CssTsCstToAst, {
+  get(_, prop) {
+    const val = (_cssTsCstToAstUtil as any)[prop]
+    return typeof val === 'function' ? val.bind(_cssTsCstToAstUtil) : val
+  }
+})
+
+export default CssTsCstToAstUtils
+export { CssTsCstToAstUtils }
+
