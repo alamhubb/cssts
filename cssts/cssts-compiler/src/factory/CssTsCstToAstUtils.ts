@@ -480,7 +480,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
 // ==================== 全局注册机制 ====================
 // 使用 Proxy 模式，确保导入的 cssTsCstToAst 能动态代理到当前注册的实例
 
-let _cssTsCstToAstUtil: CssTsCstToAst = new CssTsCstToAst()
+let _cssTsCstToAstUtils: CssTsCstToAst = new CssTsCstToAst()
 
 /**
  * 注册 CssTsCstToAst 实例到全局
@@ -489,13 +489,13 @@ let _cssTsCstToAstUtil: CssTsCstToAst = new CssTsCstToAst()
  * 父层（slime-parser）的注册已通过 super() 中的父类构造函数自动完成
  */
 export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
-  _cssTsCstToAstUtil = instance
+  _cssTsCstToAstUtils = instance
 }
 
 // Proxy: 保持 cssTsCstToAst.xxx() 调用方式，同时支持动态替换
 export const CssTsCstToAstUtils = new Proxy({} as CssTsCstToAst, {
   get(_, prop) {
-    const val = (_cssTsCstToAstUtil as any)[prop]
-    return typeof val === 'function' ? val.bind(_cssTsCstToAstUtil) : val
+    const val = (_cssTsCstToAstUtils as any)[prop]
+    return typeof val === 'function' ? val.bind(_cssTsCstToAstUtils) : val
   }
 })
