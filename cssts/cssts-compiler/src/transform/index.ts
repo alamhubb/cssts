@@ -5,7 +5,8 @@
  */
 
 import { CssTsParser } from '../parser/index.ts'
-import { cssTsCstToAst } from '../factory/index.ts'
+import { CssTsCstToAstUtils } from '../factory/index.ts'
+import { registerSlimeCstToAstUtil } from 'slime-parser'
 import {
   getCssClassName,
   getCssProperty,
@@ -91,12 +92,16 @@ export function hasPseudos(name: string): boolean {
 export function transformCssTs(code: string, context: TransformContext): TransformResult {
   const parser = new CssTsParser(code)
   const cst = parser.Program()
-  // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
-  const ast = cssTsCstToAst.toFileAst(cst)
+
+  // 注意：cssTsCstToAst 是一个 live binding，当子类（如 OvsCstToSlimeAst）
+  // 调用 registerCssTsCstToAst() 注册自己后，这里会自动使用新的实例
+  // 这样 toProgram 和 getUsedAtoms 使用的是同一个实例
+  const ast = CssTsCstToAstUtils.toFileAst(cst)
 
   // 收集使用的样式（原子类 + 伪类样式，直接写入 context）
   // 注：伪类样式（如 clickable$$hover$$active）在 CssTsCstToAst 中已自动收集
-  const localUsedAtoms = cssTsCstToAst.getUsedAtoms()
+  const localUsedAtoms = CssTsCstToAstUtils.getUsedAtoms()
+
   for (const atom of localUsedAtoms) {
     context.styles.add(atom)
   }
@@ -121,9 +126,9 @@ export function transformCssTsWithMapping(code: string): TransformResultWithMapp
   const parser = new CssTsParser(code)
   const cst = parser.Program()
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
-  const ast = cssTsCstToAst.toFileAst(cst)
+  const ast = CssTsCstToAstUtils.toFileAst(cst)
 
-  const localUsedAtoms = cssTsCstToAst.getUsedAtoms()
+  const localUsedAtoms = CssTsCstToAstUtils.getUsedAtoms()
 
   // 生成代码
   const tokens = parser.parsedTokens

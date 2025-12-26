@@ -2,7 +2,7 @@
 export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTypes } from './parser/index.ts'
 
 // AST Transformer
-export { cssTsCstToAst, CssTsCstToAst } from './factory/index.ts'
+export { CssTsCstToAstUtils, CssTsCstToAst } from './factory/index.ts'
 
 // Transform（核心转换功能）
 export {
