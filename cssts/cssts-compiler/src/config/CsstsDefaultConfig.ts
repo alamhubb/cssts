@@ -152,6 +152,16 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
     ],
 
+    pseudoClassesConfig: {
+        hover: {filter: 'brightness(1.15)'},
+        active: {filter: 'brightness(0.85)'},
+        focus: {
+            outline: '2px solid var(--el-color-primary-light-5, #79bbff)',
+            outlineOffset: '1px'
+        },
+        disabled: {opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)'}
+    },
+
     groups: [
         {name: 'size', numberProperties: ['height', 'width']},
         {name: 'marginX', numberProperties: ['marginLeft', 'marginRight']},
