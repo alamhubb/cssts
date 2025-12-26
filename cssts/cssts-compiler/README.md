@@ -62,7 +62,7 @@ cssts-compiler/
 
 ### 为什么需要全局注册
 
-`slime-parser` 内部各转换器通过 `slimeCstToAstUtil.xxx()` 调用。直接继承重写方法**不会生效**，因为内部调用不经过子类。
+`slime-parser` 内部各转换器通过 `SlimeCstToAstUtils.xxx()` 调用。直接继承重写方法**不会生效**，因为内部调用不经过子类。
 
 ### 实现方式
 
