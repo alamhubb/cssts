@@ -1,7 +1,7 @@
 /**
  * 测试作用域分析功能
  */
-import { CssTsCstToAst } from '../src/factory/CssTsCstToAst.ts'
+import { CssTsCstToAst } from '../src/factory/CssTsCstToAstUtils.ts'
 import { CssTsParser } from '../src/parser/index.ts'
 import { SlimeGenerator } from 'slime-generator'
 

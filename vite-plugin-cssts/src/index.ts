@@ -257,6 +257,9 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
         let transformedCode = result.code
 
+        // 调试日志
+        console.log('[vite-plugin-cssts] 转换后代码前 200 字符:', transformedCode.substring(0, 200))
+
         // 注入虚拟 CSS 导入
         if (result.hasStyles && !transformedCode.includes(VIRTUAL_CSS_ID)) {
           transformedCode = `import '${VIRTUAL_CSS_ID}'\n` + transformedCode

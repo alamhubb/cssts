@@ -1,15 +1,18 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import csstsPlugin from 'vite-plugin-cssts'
+import ovsPlugin from 'vite-plugin-ovs'
 
 export default defineConfig({
   plugins: [
-    csstsPlugin({
-      pseudoUtils: {
-        hover: { filter: 'brightness(1.15)' },
-        active: { filter: 'brightness(0.85)' },
-        focus: { outline: '2px solid var(--el-color-primary-light-5, #79bbff)', 'outline-offset': '1px' },
-        disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
+    // ovs 插件内置 cssts 支持，处理 .ovs / .cssts / <script lang="cssts">
+    ovsPlugin({
+      cssts: {
+        pseudoClassesConfig: {
+          hover: { filter: 'brightness(1.15)' },
+          active: { filter: 'brightness(0.85)' },
+          focus: { outline: '2px solid var(--el-color-primary-light-5, #79bbff)', 'outline-offset': '1px' },
+          disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
+        }
       }
     }),
     vue(),
@@ -19,4 +22,3 @@ export default defineConfig({
     port: 3001
   },
 })
-

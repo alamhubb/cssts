@@ -10,7 +10,7 @@
  */
 import { runTests, testStage1 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'
-import { CssTsCstToAst } from '../../src/factory/CssTsCstToAst'
+import { CssTsCstToAst } from '../../src/factory/CssTsCstToAstUtils'
 
 // 运行测试
 runTests(testStage1, {

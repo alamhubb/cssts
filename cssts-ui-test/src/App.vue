@@ -2,10 +2,8 @@
   <div class="container">
     <h1>CSSTS Plugin Test</h1>
     
-    <!-- OVS Test 暂时禁用
     <h2>OVS Test - OVS + CSSTS 综合测试</h2>
     <OvsTest />
-    -->
     
     <hr style="margin: 40px 0" />
     
@@ -29,8 +27,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-// OVS 组件（暂时禁用以测试纯 cssts）
-// import OvsTest from './components/ovstest.ovs'
+// OVS 组件
+import OvsTest from './components/ovstest.ovs'
 // Vue + cssts 组件 (使用 <script lang="cssts">)
 import VueButton from './components/VueButton.vue'
 

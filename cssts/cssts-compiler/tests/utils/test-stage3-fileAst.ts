@@ -14,7 +14,7 @@
  */
 import { runTests, testStage3 } from 'slime-test'
 import CssTsParser from '../../src/parser/CssTsParser'
-import { CssTsCstToAst } from '../../src/factory/CssTsCstToAst'
+import { CssTsCstToAst } from '../../src/factory/CssTsCstToAstUtils'
 
 /**
  * 包装类：让 toProgram 内部调用 toFileAst

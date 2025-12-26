@@ -50,6 +50,41 @@ npm install
 npm run dev
 ```
 
+## ⚠️ 开发注意事项：运行时依赖需要构建
+
+本项目使用 `mono` 命令启动，它会自动将本地包指向源码。但有一个重要限制：
+
+> **mono 只能拦截 Node.js 端的模块解析，无法拦截浏览器端的模块解析！**
+
+### 哪些包需要构建 dist？
+
+| 包 | 需要 dist | 原因 |
+|----|-----------|------|
+| `cssts-ts` | ✅ 必须 | 运行时在浏览器中执行 |
+| `ovsjs` | ✅ 必须 | 运行时在浏览器中执行 |
+| `cssts-compiler` | ❌ 不需要 | 编译时在 Node.js 中执行，mono 拦截 |
+| `slime-*` | ❌ 不需要 | 编译时在 Node.js 中执行，mono 拦截 |
+
+### 如果出现模块解析错误
+
+如果启动时报 `Failed to resolve entry for package "cssts-ts"` 或 `"ovsjs"`：
+
+```bash
+# 构建 cssts-ts
+cd ../cssts/cssts-runtime
+npm run build
+
+# 构建 ovsjs
+cd ../../ovs/ovs/ovs-runtime
+npm run build
+```
+
+### 规律
+
+**判断方法**：问自己——这个包的代码最终在哪里运行？
+- Node.js 中运行（Vite 启动时）→ 编译时依赖 → mono 可拦截，不需要 dist
+- 浏览器中运行（页面加载时）→ 运行时依赖 → 必须有 dist
+
 ## Vite 配置
 
 只需配置 `vite-plugin-ovs`，它内部已集成 cssts 支持：

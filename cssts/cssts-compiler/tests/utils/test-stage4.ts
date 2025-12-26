@@ -11,7 +11,7 @@ import { runTests, testStage2 } from 'slime-test'
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 import CssTsParser from '../../src/parser/CssTsParser'
-import { CssTsCstToAst } from '../../src/factory/CssTsCstToAst'
+import { CssTsCstToAst } from '../../src/factory/CssTsCstToAstUtils'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

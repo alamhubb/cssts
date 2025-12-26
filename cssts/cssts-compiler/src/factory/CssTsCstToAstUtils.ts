@@ -493,13 +493,9 @@ export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
 }
 
 // Proxy: 保持 cssTsCstToAst.xxx() 调用方式，同时支持动态替换
-const CssTsCstToAstUtils = new Proxy({} as CssTsCstToAst, {
+export const CssTsCstToAstUtils = new Proxy({} as CssTsCstToAst, {
   get(_, prop) {
     const val = (_cssTsCstToAstUtil as any)[prop]
     return typeof val === 'function' ? val.bind(_cssTsCstToAstUtil) : val
   }
 })
-
-export default CssTsCstToAstUtils
-export { CssTsCstToAstUtils }
-
