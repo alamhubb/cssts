@@ -11,27 +11,28 @@ const handleClick = () => {
 
 // CSSTS 样式定义
 const cardStyles = css {
-  padding16px
-  marginTop20px
-  marginBottom20px
-  borderRadius10px
-  backgroundColorWhite
+  padding16px,
+  marginTop20px,
+  marginBottom20px,
+  borderRadius10px,
+  backgroundColorWhite,
   boxShadow0_2px_8px_rgba(0,0,0,0.1)
 }
 
 const flexRowStyles = css {
-  displayFlex
-  justifyContentSpaceAround
+  displayFlex,
+  justifyContentSpaceAround,
   marginTop12px
 }
 
 const boxStyles = css {
-  padding12px
-  borderRadius8px
-  backgroundColorDodgerblue
-  colorWhite
-  fontSize14px
-  cursorPointer
-  transitionAll0p3s
+  padding12px,
+  borderRadius8px,
+  backgroundColorDodgerblue,
+  colorWhite,
+  fontSize14px,
+  cursorPointer,
+  transitionAll0p3s,
   boxStyles$hover
 }
+

@@ -1,0 +1,6 @@
+import { ref } from 'vue'
+
+const cardStyles = css {
+  padding16px,
+  marginTop20px
+}
