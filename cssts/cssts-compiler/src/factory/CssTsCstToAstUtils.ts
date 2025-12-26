@@ -480,7 +480,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
 // ==================== 全局注册机制 ====================
 // 使用 Proxy 模式，确保导入的 cssTsCstToAst 能动态代理到当前注册的实例
 
-let _cssTsCstToAstUtils: CssTsCstToAst = new CssTsCstToAst()
+let _cssTsCstToAstUtils: CssTsCstToAst
+
+_cssTsCstToAstUtils = new CssTsCstToAst()
 
 /**
  * 注册 CssTsCstToAst 实例到全局
