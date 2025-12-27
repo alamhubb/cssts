@@ -23,6 +23,6 @@ export default class CssTsTokenConsumer extends SlimeTokenConsumer {
    * 消费 'css' 软关键字
    */
   Css() {
-    return this.consumeIdentifierValue(CssTsContextualKeywordTypes.Css)
+    this.consumeIdentifierValue(CssTsContextualKeywordTypes.Css)
   }
 }
