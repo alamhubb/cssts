@@ -425,56 +425,111 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   createAssignmentExpressionAst(cst: SubhutiCst): SlimeExpression {
     const ast = super.createAssignmentExpressionAst(cst)
-    if (this.isCssReplacePattern(ast)) return this.transformToCsstsReplace(ast)
+
+    // 检查是否是 css replace 模式：
+    // 1. 左侧是标识符（变量，不是成员表达式）
+    // 2. 右侧是 cssts.$cls() 调用（由 css { } 语法生成）
+    if (this.isCssReplacePattern(ast)) {
+      return this.transformToCsstsReplace(ast)
+    }
+
     return ast
   }
 
+  /**
+   * 检查是否是 css replace 模式
+   * 
+   * 只有满足以下条件才触发：
+   * 1. 是赋值表达式（=）
+   * 2. 左侧是简单标识符（变量名）
+   * 3. 右侧是 cssts.$cls() 调用（由 css { } 语法生成）
+   * 
+   * 这样可以避免误触发普通 JS 赋值（如 newTodo.value = ''）
+   */
   private isCssReplacePattern(ast: any): boolean {
     if (ast.type !== SlimeAstTypeName.AssignmentExpression) return false
     if (ast.operator !== '=') return false
-    if (ast.left?.type !== SlimeAstTypeName.MemberExpression) return false
-    if (ast.right?.type !== SlimeAstTypeName.Literal) return false
-    if (typeof ast.right?.value !== 'string') return false
+
+    // 左侧必须是简单标识符（变量名），不支持成员表达式
+    if (ast.left?.type !== SlimeAstTypeName.Identifier) return false
+
+    // 右侧必须是 cssts.$cls() 调用
+    if (!this.isCsstsClsCall(ast.right)) return false
+
     return true
   }
 
-  private transformToCsstsReplace(ast: any): SlimeExpression {
-    const memberExpr = ast.left
-    const objectName: string = memberExpr.object?.name || memberExpr.object?.value || 'style'
-    const propertyName: string = memberExpr.property?.name || memberExpr.property?.value || ''
-    const newAtomName: string = ast.right.value || ''
+  /**
+   * 检查表达式是否是 cssts.$cls() 调用
+   */
+  private isCsstsClsCall(expr: any): boolean {
+    if (expr?.type !== SlimeAstTypeName.CallExpression) return false
 
+    const callee = expr.callee
+    if (callee?.type !== SlimeAstTypeName.MemberExpression) return false
+
+    // 检查是否是 cssts.$cls
+    const object = callee.object
+    const property = callee.property
+
+    if (object?.type !== SlimeAstTypeName.Identifier || object?.name !== 'cssts') return false
+    if (property?.type !== SlimeAstTypeName.Identifier || property?.name !== '$cls') return false
+
+    return true
+  }
+
+  /**
+   * 转换为 cssts.replaceAll() 调用
+   * 
+   * 输入：style = cssts.$cls(a, b, c)
+   * 输出：style = cssts.replaceAll(style, [a, b, c])
+   */
+  private transformToCsstsReplace(ast: any): SlimeExpression {
+    const varName = ast.left.name
+    const clsCallArgs = ast.right.arguments || []
+
+    // 创建 cssts.replaceAll 调用
     const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
-    const replaceId = SlimeAstCreateUtils.createIdentifier('replace')
+    const replaceAllId = SlimeAstCreateUtils.createIdentifier('replaceAll')
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
-      property: replaceId,
+      property: replaceAllId,
       computed: false,
       optional: false
     } as any
 
-    const args = [
-      SlimeAstCreateUtils.createIdentifier(objectName),
-      SlimeAstCreateUtils.createStringLiteral(propertyName),
-      SlimeAstCreateUtils.createStringLiteral(newAtomName)
-    ]
+    // 创建参数数组：[a, b, c]
+    const arrayElements = clsCallArgs.map((arg: any, index: number) => {
+      const isLast = index === clsCallArgs.length - 1
+      return SlimeAstCreateUtils.createArrayElement(
+        arg,
+        isLast ? undefined : { type: 'Comma', value: ',' } as any
+      )
+    })
+    const argsArray = SlimeAstCreateUtils.createArrayExpression(arrayElements)
 
+    // replaceAll(style, [a, b, c])
     const replaceCall: SlimeExpression = {
       type: SlimeAstTypeName.CallExpression,
       callee,
-      arguments: args,
+      arguments: [
+        SlimeAstCreateUtils.createIdentifier(varName),
+        argsArray
+      ],
       optional: false
     } as any
 
+    // style = replaceAll(...)
     return {
       type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
-      left: SlimeAstCreateUtils.createIdentifier(objectName),
+      left: SlimeAstCreateUtils.createIdentifier(varName),
       right: replaceCall,
       loc: ast.loc
     } as any
   }
+
 }
 
 // ==================== 全局注册机制 ====================
