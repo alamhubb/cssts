@@ -69,9 +69,9 @@ view CounterDemo(props) {
     h3 { '🔢 计数器' }
     div(class = counter) { count.value }
     div(class = flexRow) {
-      button(class = btnPrimary$hover$active, onClick() { console.log('[+1] 被点击, count.value =', count.value); count.value++ }) { '+1' }
-      button(class = btnDanger$hover$active, onClick() { console.log('[-1] 被点击, count.value =', count.value); count.value-- }) { '-1' }
-      button(class = btnDefault$hover$active, onClick() { console.log('[重置] 被点击'); count.value = 0 }) { '重置' }
+      button(class = btnPrimary$hover$active, onClick() { count.value++ }) { '+1' }
+      button(class = btnDanger$hover$active, onClick() { count.value-- }) { '-1' }
+      button(class = btnDefault$hover$active, onClick() { count.value = 0 }) { '重置' }
     }
   }
 }
@@ -85,13 +85,9 @@ view TodoDemo(props) {
   ])
   
   function addTodo() {
-    console.log('[addTodo] 被调用, newTodo.value =', newTodo.value)
     if (newTodo.value.trim()) {
-      console.log('[addTodo] 添加新项目:', newTodo.value)
       todos.value.push({ id: Date.now(), text: newTodo.value, done: false })
       newTodo.value = ''
-    } else {
-      console.log('[addTodo] 值为空，不添加')
     }
   }
   
