@@ -16,7 +16,6 @@ const cardStyles = css {
   marginBottom20px,
   borderRadius10px,
   backgroundColorWhite,
-  boxShadow0_2px_8px_rgba(0,0,0,0.1)
 }
 
 const flexRowStyles = css {
