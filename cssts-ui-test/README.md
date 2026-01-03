@@ -75,7 +75,7 @@ cd ../cssts/cssts-runtime
 npm run build
 
 # 构建 ovsjs
-cd ../../ovs/ovs/ovs-runtime
+cd ../../ovsjs/ovs/ovs-runtime
 npm run build
 ```
 
