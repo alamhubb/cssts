@@ -13,7 +13,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       // 让 ovs-compiler 使用本地版本
-      'ovs-compiler': fileURLToPath(new URL('../../ovs/ovs-compiler/src/index.ts', import.meta.url)),
+      'ovs-compiler': fileURLToPath(new URL('../../ovsjs/ovs-compiler/src/index.ts', import.meta.url)),
       // 让 cssts 使用本地版本（新结构）
       'cssts': fileURLToPath(new URL('../../cssts/src/index.ts', import.meta.url)),
       'cssts-runtime': fileURLToPath(new URL('../../cssts/packages/cssts-runtime/src/index.ts', import.meta.url)),

@@ -1,4 +1,4 @@
-import { vitePluginOvsTransform } from '../../ovs/ovs-compiler/src/index.ts'
+import { vitePluginOvsTransform } from '../../ovsjs/ovs-compiler/src/index.ts'
 import fs from 'fs'
 
 const code = fs.readFileSync('test-project/ovs-component-test/src/components/OvsButton.ovs', 'utf-8')
