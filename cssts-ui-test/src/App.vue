@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // OVS 组件
-import OvsTest from './components/ovstest.ovs'
+// import OvsTest from './components/ovstest.ovs'
 // Vue + cssts 组件 (使用 <script lang="cssts">)
 import VueButton from './components/VueButton.vue'
 
