@@ -39,7 +39,7 @@
     "slime-generator": "^0.2.7",
     "slime-parser": "^0.2.7",
     "slime-token": "^0.2.7",
-    "subhuti": "^0.2.7"
+    "subhuti": "^0.2.86"
   },
   "devDependencies": {
     "css-tree": "^3.1.0",
