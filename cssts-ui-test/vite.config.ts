@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import ovsPlugin from 'vite-plugin-ovs'
+import cssts from 'vite-plugin-cssts'
 
 export default defineConfig({
   plugins: [
     // ovs 插件内置 cssts 支持，处理 .ovs / .cssts / <script lang="cssts">
-    ovsPlugin(),
+    cssts(),
     vue(),
   ],
   server: {
