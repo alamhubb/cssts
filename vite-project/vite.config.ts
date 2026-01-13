@@ -2,8 +2,8 @@ import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
-import { viteMono } from '../../monorepo/vite-plugin-mono/src/index'
+import cssTsPlugin from 'vite-plugin-cssts'  // 改为包名导入，让 mono 拦截
+import { viteMono } from 'vite-plugin-mono'   // 同样改为包名导入
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
