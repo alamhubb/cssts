@@ -156,8 +156,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
         const importDecl = stmt as any
         const source = importDecl.source?.value
 
-        // 检查 cssts-ts 导入（运行时）
-        if (source === 'cssts-ts') {
+        // 检查 cssts-ts 或 cssts 导入（运行时）
+        if (source === 'cssts-ts' || source === 'cssts') {
           for (const spec of importDecl.specifiers || []) {
             if (spec.type === SlimeAstTypeName.ImportSpecifier) {
               if (spec.imported?.name === 'cssts' || spec.local?.name === 'cssts') {
