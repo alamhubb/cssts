@@ -12,7 +12,7 @@ const btn$$hover$$active = css { cursorPointer }
 const btn$hover$active = css { cursorPointer }
 
 // 查看配置
-import { CSSTS_CONFIG } from 'cssts'
+import { CSSTS_CONFIG } from 'cssts-ts'
 console.log(CSSTS_CONFIG.PSEUDO_SEPARATOR)  // '$$'
 ```
 
@@ -22,7 +22,7 @@ console.log(CSSTS_CONFIG.PSEUDO_SEPARATOR)  // '$$'
 
 ```typescript
 // ✅ 正确
-import { cssts, CSSTS_CONFIG } from 'cssts'
+import { cssts, CSSTS_CONFIG } from 'cssts-ts'
 
 // ❌ 错误
 import { cssts } from 'cssts-runtime'  // 包名不存在
@@ -43,7 +43,7 @@ import { cssts } from 'cssts-runtime'  // 包名不存在
 `CSSTS_CONFIG` 是全局统一的分隔符配置，compiler 和 runtime 共用：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts'
+import { CSSTS_CONFIG } from 'cssts-ts'
 
 // 分隔符配置对象
 CSSTS_CONFIG = {
@@ -101,7 +101,7 @@ npm install cssts
 ### CSSTS_CONFIG - 分隔符配置
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts'
+import { CSSTS_CONFIG } from 'cssts-ts'
 
 CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
 CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
@@ -112,7 +112,7 @@ CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 纯对象合并，不做任何转换：
 
 ```typescript
-import { $cls } from 'cssts'
+import { $cls } from 'cssts-ts'
 
 const style = $cls(
   csstsAtom.displayFlex,
@@ -127,7 +127,7 @@ const style = $cls(
 通过字符串分割提取属性名，检测冲突并替换：
 
 ```typescript
-import { replace } from 'cssts'
+import { replace } from 'cssts-ts'
 
 const style = { 'color_red': true, 'font-weight_bold': true }
 const newStyle = replace(style, csstsAtom.colorBlue)
@@ -137,7 +137,7 @@ const newStyle = replace(style, csstsAtom.colorBlue)
 ### replaceAll - 批量替换
 
 ```typescript
-import { replaceAll } from 'cssts'
+import { replaceAll } from 'cssts-ts'
 
 const style = { 'color_red': true, 'font-size_14px': true }
 const newStyle = replaceAll(style, [
