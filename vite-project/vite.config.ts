@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cssTsPlugin from 'vite-plugin-cssts'
+import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
 
 // https://vite.dev/config/
 export default defineConfig({

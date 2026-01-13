@@ -156,15 +156,18 @@ export class CssTsCstToAst extends SlimeCstToAst {
         const importDecl = stmt as any
         const source = importDecl.source?.value
 
-        // 检查 cssts-ts 或 cssts 导入（运行时）
-        if (source === 'cssts-ts' || source === 'cssts') {
+        // 只检查 cssts-ts 导入（运行时）
+        if (source === 'cssts-ts') {
           for (const spec of importDecl.specifiers || []) {
-            if (spec.type === SlimeAstTypeName.ImportSpecifier) {
-              if (spec.imported?.name === 'cssts' || spec.local?.name === 'cssts') {
+            // 注意：spec 可能是 { specifier: {...}, commaToken: ... } 结构
+            const actualSpec = spec.specifier || spec
+
+            if (actualSpec.type === SlimeAstTypeName.ImportSpecifier) {
+              if (actualSpec.imported?.name === 'cssts' || actualSpec.local?.name === 'cssts') {
                 hasCsstsImport = true
               }
-            } else if (spec.type === SlimeAstTypeName.ImportDefaultSpecifier) {
-              if (spec.local?.name === 'cssts') hasCsstsImport = true
+            } else if (actualSpec.type === SlimeAstTypeName.ImportDefaultSpecifier) {
+              if (actualSpec.local?.name === 'cssts') hasCsstsImport = true
             }
           }
         }
@@ -174,6 +177,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
         if (source === 'virtual:cssts.css') hasCsstsCssImport = true
       }
     }
+
+    // 调试：输出检测结果
+    console.log('[ensureCsstsImports] 检测完成: hasCsstsImport =', hasCsstsImport, ', hasCsstsCssImport =', hasCsstsCssImport, ', hasCsstsAtomImport =', hasCsstsAtomImport)
 
     // 按需添加缺失的导入
     const newImports: SlimeModuleDeclaration[] = []
