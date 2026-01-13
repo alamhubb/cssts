@@ -3,7 +3,7 @@
   "version": "0.2.5",
   "description": "CssTs runtime - style merging and conflict resolution",
   "type": "module",
-  "monorepo": "./src/index.ts",
+  "local": "./src/index.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
