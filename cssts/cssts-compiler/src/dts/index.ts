@@ -13,7 +13,6 @@ export {
   generateIndexDts,
   type AtomDefinition,
   type AtomsByProperty,
-  type GeneratorOptions,
 } from './atom-generator.ts';
 
 export {

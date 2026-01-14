@@ -12,7 +12,6 @@ import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import { COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from '../data/cssColorData';
-import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
 import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName, CssColorName, GroupConfig, NumberPropertyName, KeywordIterationPropertyConfig } from '../config/types/cssPropertyConfig';
 
 // 所有 CSS 属性名列表
@@ -52,19 +51,12 @@ export interface GroupAtomDefinition {
   isNumber?: boolean;
 }
 
-/** 生成器选项 */
-export interface GeneratorOptions {
-  /** 用户配置 (可选，默认使用 csstsDefaultConfig) */
-  config?: Partial<CsstsCompilerConfig>;
-}
-
 // ==================== 工具函数 ====================
 
 /** camelCase 转 kebab-case */
 function camelToKebab(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
-// mergeConfig 已删除，改用 ConfigLookup 静态方法进行按需查找
 
 /** 获取有效的属性列表 */
 function getEffectiveProperties(): CssPropertyName[] {
@@ -463,7 +455,7 @@ function generateAtomsForProperty(
 }
 
 /** 生成所有原子类定义 */
-export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
+export function generateAtoms(): AtomDefinition[] {
   const effectiveProperties = getEffectiveProperties();
   const effectiveCategories = getEffectiveCategories();
 
@@ -483,8 +475,8 @@ function generateCssClassName(atom: AtomDefinition): string {
 }
 
 /** 生成 DTS 内容（全局常量声明格式） */
-export function generateDts(options?: GeneratorOptions): string {
-  const atoms = generateAtoms(options);
+export function generateDts(): string {
+  const atoms = generateAtoms();
 
   const lines: string[] = [
     '/**',
@@ -506,12 +498,12 @@ export function generateDts(options?: GeneratorOptions): string {
 }
 
 /** 生成统计信息 */
-export function generateStats(options?: GeneratorOptions): {
+export function generateStats(): {
   totalAtoms: number;
   byProperty: Record<string, number>;
   byCategory: Record<string, number>;
 } {
-  const atoms = generateAtoms(options);
+  const atoms = generateAtoms();
 
   const byProperty: Record<string, number> = {};
   const byCategory: Record<string, number> = {};
@@ -531,7 +523,7 @@ export interface AtomsByProperty {
 }
 
 /** 生成按属性分组的原子类 */
-export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProperty {
+export function generateAtomsByProperty(): AtomsByProperty {
   const effectiveProperties = getEffectiveProperties();
   const effectiveCategories = getEffectiveCategories();
 
@@ -861,7 +853,7 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
 }
 
 /** 生成所有 group atoms */
-export function generateGroupAtoms(options?: GeneratorOptions): GroupAtomDefinition[] {
+export function generateGroupAtoms(): GroupAtomDefinition[] {
   const groups = ConfigLookup.groups;
 
   if (!groups || groups.length === 0) return [];

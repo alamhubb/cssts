@@ -18,28 +18,21 @@ import {
   generateAtomsByProperty,
   generateGroupAtoms,
   generateGroupAtomsDts,
-  type GeneratorOptions,
   type AtomDefinition,
   type GroupAtomDefinition,
 } from './atom-generator.ts';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
+import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
 
 // ==================== 类型定义 ====================
 
 /** 
- * 生成选项
- * 
- * 继承 GeneratorOptions（包含 config），编译器会从 config 中读取：
- * - config.dtsOutputDir -> 输出目录
- * - config.dts -> 是否生成（由调用方判断）
- * 
- * 只保留调用时特有的选项
+ * DTS 生成选项
  */
-export interface DtsGenerateOptions extends GeneratorOptions {
-  /** 
-   * 输出目录（覆盖 config.dtsOutputDir）
-   * @deprecated 推荐使用 config.dtsOutputDir
-   */
+export interface DtsGenerateOptions {
+  /** 用户配置 */
+  config?: Partial<CsstsCompilerConfig>;
+  /** 输出目录（覆盖 config.dtsOutputDir） */
   outputDir?: string;
   /** 是否生成分文件版本，默认 false */
   splitFiles?: boolean;
@@ -146,7 +139,6 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
   const splitFiles = config?.dtsSplitFiles ?? false;
   const debug = config?.debug ?? false;
 
-  const generatorOptions = config ? { config } : undefined;
   const files: string[] = [];
   const log = debug ? console.log : () => { };
 
@@ -157,8 +149,8 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
 
   log('[cssts] 开始生成类型定义文件...');
 
-  const stats = generateStats(generatorOptions);
-  const atoms = generateAtoms(generatorOptions);
+  const stats = generateStats();
+  const atoms = generateAtoms();
 
   // 生成 package.json
   const packageJson = {
@@ -173,7 +165,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
   if (splitFiles) {
     log('\n📁 生成分文件版本...');
 
-    const atomsByProperty = generateAtomsByProperty(generatorOptions);
+    const atomsByProperty = generateAtomsByProperty();
 
     const generatedFileNames: string[] = [];
     const numberProperties: string[] = [];
@@ -225,7 +217,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     }
 
     // 生成 group atoms
-    const groupAtoms = generateGroupAtoms(generatorOptions);
+    const groupAtoms = generateGroupAtoms();
     if (groupAtoms.length > 0) {
       // 分离数值类型和关键字类型的 group atoms
       const numberGroupAtoms = groupAtoms.filter(a => a.isNumber);
@@ -277,10 +269,10 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     log(`   ✅ 生成索引文件: index.d.ts`);
   } else {
     // 单文件模式
-    let dtsContent = generateDts(generatorOptions);
+    let dtsContent = generateDts();
 
     // 添加 group atoms
-    const groupAtoms = generateGroupAtoms(generatorOptions);
+    const groupAtoms = generateGroupAtoms();
     if (groupAtoms.length > 0) {
       dtsContent += '\n' + generateGroupAtomsDts(groupAtoms);
     }

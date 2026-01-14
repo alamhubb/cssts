@@ -57,7 +57,6 @@ export {
   generateIndexDts,
   type AtomDefinition,
   type AtomsByProperty,
-  type GeneratorOptions,
 } from './dts/atom-generator.ts'
 
 export {
