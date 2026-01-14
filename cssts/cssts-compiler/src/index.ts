@@ -37,6 +37,7 @@ export {
 
 // ==================== 配置 ====================
 export { csstsDefaultConfig, csstsDefaultConfig as defaultConfig } from './config/CsstsDefaultConfig.ts'
+export { ConfigLookup } from './config/ConfigLookup.ts'
 
 // ==================== 配置工具函数 ====================
 export {

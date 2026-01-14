@@ -5,6 +5,7 @@
  */
 
 import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
+import { ConfigLookup } from '../config/ConfigLookup';
 import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
 import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
 import { PROPERTY_KEYWORDS_MAP } from '../data/cssPropertyKeywords';
@@ -199,24 +200,27 @@ function findCategoryOrUnitConfig(
   return undefined;
 }
 
-/** 获取属性的 category 配置 */
+/** 获取属性的 category 配置（使用 ConfigLookup 按名称查找） */
 function getPropertyCategoryConfig(
-  config: CsstsConfig,
+  lookup: ConfigLookup,
   propertyName: string,
   categoryName: string
 ): CssStepConfig | undefined {
-  const propertyConfig = findConfigInArray(config.propertiesConfig, propertyName);
+  // 1. 先从属性配置查找
+  const propertyConfig = lookup.getPropertyConfig(propertyName);
   const propResult = findCategoryOrUnitConfig(propertyConfig, categoryName);
   if (propResult) return propResult;
 
+  // 2. 查找父属性配置
   const parentProperty = PROPERTY_PARENT_MAP[propertyName];
   if (parentProperty) {
-    const parentConfig = findConfigInArray(config.propertiesConfig, parentProperty);
+    const parentConfig = lookup.getPropertyConfig(parentProperty);
     const parentResult = findCategoryOrUnitConfig(parentConfig, categoryName);
     if (parentResult) return parentResult;
   }
 
-  return findConfigInArray(config.numberCategoriesConfig, categoryName);
+  // 3. 从 category 全局配置查找
+  return lookup.getCategoryConfig(categoryName);
 }
 
 /** 根据步长配置生成数值列表 */
