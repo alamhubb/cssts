@@ -1,0 +1,257 @@
+# CSSTS - CSS-in-TypeScript 原子类系统
+
+## 什么是 CSSTS？
+
+CSSTS 是一个编译时 CSS 原子类管理系统，提供类型安全的 CSS-in-TypeScript 开发体验。
+
+## 核心概念
+
+### 1. 原子类变量
+原子类是预定义的 CSS 类，每个变量对应一个 CSS 属性值组合。
+
+### 2. 命名规范
+原子类命名遵循：`属性名` + `值`（驼峰式）
+
+## ✅ 支持的语法
+
+### 1. 关键字值
+```typescript
+const flex = displayFlex              // display: flex
+const block = displayBlock            // display: block
+const center = textAlignCenter        // text-align: center
+const bold = fontWeightBold           // font-weight: bold
+```
+
+### 2. 数值 + 单位
+```typescript
+// 像素值
+const p16 = padding16px               // padding: 16px
+const m20 = margin20px                // margin: 20px
+
+// 百分比（使用 pct）
+const w50 = width50pct                // width: 50%
+const h100 = height100pct             // height: 100%
+
+// 小数（使用 p 代替 .）
+const o50 = opacity0p5                // opacity: 0.5
+const lh1p5 = lineHeight1p5           // line-height: 1.5
+
+// 负数（使用 N 前缀）
+const mN10 = marginN10px              // margin: -10px
+```
+
+### 3. 预定义颜色
+```typescript
+const red = colorRed                  // color: red
+const blue = backgroundColorBlue      // background-color: blue
+const dodger = borderColorDodgerblue  // border-color: dodgerblue
+```
+
+### 4. css { } 块语法
+用于**组合多个原子类**：
+
+```typescript
+// ⚠️ 重要：css { } 块内的原子类必须用逗号分隔！
+
+// ✅ 正确：逗号分隔
+const button = css { displayFlex, padding16px, backgroundColorBlue }
+
+// ✅ 正确：多行逗号分隔
+const card = css {
+  displayFlex,
+  padding16px,
+  borderRadius8px,
+  backgroundColorWhite
+}
+
+// ❌ 错误：换行不带逗号
+const wrong = css {
+  displayFlex
+  padding16px    // ❌ 解析失败！
+}
+```
+
+**注意**：css { } 块**只支持原子类**，不支持 `property: 'value'` 语法。
+
+### 5. 伪类样式（$$ 分隔符）
+```typescript
+// 使用 $$ 分隔符定义伪类样式
+const button$$hover = css { backgroundColorBlue }
+const link$$active = css { colorRed }
+const card$$hover$$active = css { displayFlex, padding16px }
+```
+
+### 6. cssts.merge() 合并样式
+```typescript
+import { cssts } from 'cssts-ts'
+
+const baseStyle = css { displayFlex, padding16px }
+const activeStyle = css { backgroundColorBlue }
+
+// 运行时合并
+const merged = cssts.merge(baseStyle, activeStyle)
+```
+
+## ❌ 不支持的语法
+
+### 1. ❌ 原子类中使用任意值
+```typescript
+// ❌ 错误：原子类不支持任意颜色值
+const bg1 = backgroundColor242424
+const bg2 = backgroundColor$242424
+const bg3 = backgroundColorRgb255s0s0
+
+// ✅ 正确：只使用预定义的颜色原子类
+const bg = css { backgroundColorBlue }
+const text = css { colorRed }
+```
+
+### 2. ❌ css { } 块中使用 property: 'value' 语法
+```typescript
+// ❌ 错误：不支持冒号语法
+const wrong = css {
+  backgroundColor: '#242424'  // ❌ 解析失败！
+}
+
+// ✅ 正确：只使用预定义原子类
+const correct = css { backgroundColorBlue }
+```
+
+### 2. ❌ $ 符号作为值分隔符
+```typescript
+// ❌ 错误：$ 不是值分隔符
+const p = padding$16$px
+
+// ✅ 正确：直接驼峰拼接
+const p = padding16px
+```
+
+### 3. ❌ 在原子类变量名中使用 - 或其他特殊字符
+```typescript
+// ❌ 错误：JavaScript 变量名不支持
+const my-style = displayFlex
+
+// ✅ 正确：使用驼峰
+const myStyle = displayFlex
+```
+
+### 4. ❌ 直接在 JSX 中使用原子类变量
+```typescript
+// ❌ 错误：原子类变量不是字符串
+<div className={displayFlex}></div>
+
+// ✅ 正确：使用 css { } 包装
+<div className={css { displayFlex }}></div>
+```
+
+## 📝 完整示例
+
+```typescript
+import { cssts } from 'cssts-ts'
+
+// 1. 基础原子类使用（逗号分隔）
+const container = css { displayFlex, padding16px, margin20px }
+
+// 2. 多行写法（必须有逗号）
+const card = css {
+  displayFlex,
+  padding16px,
+  borderRadius8px,
+  backgroundColorWhite
+}
+
+// 3. 伪类样式
+const button$$hover = css { backgroundColorBlue }
+const button$$active = css { backgroundColorNavy }
+
+// 4. 运行时合并
+const activeButton = cssts.merge(
+  css { padding16px, backgroundColorBlue },
+  css { fontWeightBold }
+)
+
+// 5. Vue 中使用
+<template>
+  <div :class="container">
+    <button :class="cssts.merge(card, button$$hover, button$$active)">Click me</button>
+  </div>
+</template>
+```
+
+## 🎯 最佳实践
+
+### 1. 用逗号分隔原子类
+```typescript
+// ✅ 正确：逗号分隔
+const style = css { displayFlex, padding16px }
+
+// ❌ 错误：缺少逗号
+const style = css { displayFlex padding16px }  // 解析失败
+```
+
+### 2. 样式组合推荐方式
+```typescript
+// ✅ 推荐：合并多个 css 块
+const base = css { displayFlex, padding16px }
+const colored = css { backgroundColorBlue }
+const final = cssts.merge(base, colored)
+```
+
+## 🔧 配置
+
+可以通过 Vite 插件配置扩展：
+
+```typescript
+// vite.config.ts
+import cssTsPlugin from 'vite-plugin-cssts'
+
+export default defineConfig({
+  plugins: [
+    cssTsPlugin({
+      pseudoUtils: {
+        hover: { filter: 'brightness(1.15)' },
+        active: { filter: 'brightness(0.85)' }
+      }
+    })
+  ]
+})
+```
+
+## 🚫 常见错误
+
+### 错误 1：使用不存在的原子类
+```typescript
+// ❌ 错误
+const bg = backgroundColor242424  // 不存在这个原子类
+
+// ✅ 正确：使用预定义的颜色
+const bg = css { backgroundColorBlue }
+```
+
+### 错误 2：在原子类名中使用分隔符
+```typescript
+// ❌ 错误
+const p = padding$16px
+
+// ✅ 正确  
+const p = padding16px
+```
+
+### 错误 3：直接使用原子类变量作为 className
+```typescript
+// ❌ 错误
+<div className={displayFlex}></div>
+
+// ✅ 正确
+<div :class="css { displayFlex }"></div>
+```
+
+## 📚 更多信息
+
+- [完整文档](./README.md)
+- [架构说明](../ARCHITECTURE.md)
+- [示例项目](./cssts-ui-test/)
+
+---
+
+**重要提示**：CSSTS 的原子类是**编译时生成**的，只包含预定义的值。任意自定义值必须通过 `css { }` 块语法使用。
