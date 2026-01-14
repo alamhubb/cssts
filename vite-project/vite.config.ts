@@ -1,11 +1,10 @@
 import { fileURLToPath, URL } from 'node:url'
-import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import cssTsPlugin from 'vite-plugin-cssts'  // 改为包名导入，让 mono 拦截
+// import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
+// 改为包名导入，让 mono 拦截
+import cssTsPlugin from 'vite-plugin-cssts'
 import { viteMono } from 'vite-plugin-mono'   // 同样改为包名导入
-
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,16 +12,6 @@ export default defineConfig({
         viteMono(),  // 必须放在最前面，拦截本地包
         cssTsPlugin(),  // 零配置，使用内置默认伪类样式
         vue()],
-    resolve: {
-        alias: [
-            { find: 'cssts-compiler', replacement: resolve(__dirname, '../cssts/cssts-compiler/src/index.ts') },
-            { find: 'cssts-ts', replacement: resolve(__dirname, '../cssts/cssts-runtime/src/index.ts') },
-            { find: 'slime-parser', replacement: resolve(__dirname, '../../slime/slime-parser/src/index.ts') },
-            { find: 'slime-ast', replacement: resolve(__dirname, '../../slime/slime-ast/src/index.ts') },
-            { find: 'slime-generator', replacement: resolve(__dirname, '../../slime/slime-generator/src/index.ts') },
-            { find: 'slime-token', replacement: resolve(__dirname, '../../slime/slime-token/src/index.ts') }
-        ]
-    },
     optimizeDeps: {
         // 排除本地包，不进行预构建
         exclude: [

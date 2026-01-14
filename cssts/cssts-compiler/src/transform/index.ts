@@ -258,7 +258,7 @@ export function generateCsstsAtomModule(
       // 伪类样式：使用 kebab-case 的基础类名
       const className = camelToKebab(parsed.baseName)
       const fullClassName = prefix ? `${prefix}${className}` : className
-      entries.push(`  '${name}': { '${fullClassName}': true }`)
+      entries.push(`  ${name}: { '${fullClassName}': true }`)
     } else {
       // 普通原子类
       const className = getCssClassName(name)

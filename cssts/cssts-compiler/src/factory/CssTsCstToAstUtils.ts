@@ -111,20 +111,15 @@ export class CssTsCstToAst extends SlimeCstToAst {
   clearUsedAtoms() { this.usedAtoms.clear() }
 
   toFileAst(cst: SubhutiCst): SlimeProgram {
-    console.log('[CssTsCstToAst.toFileAst] 调用, usedAtoms.size =', this.usedAtoms.size)
     const program = this.toProgram(cst)
-    console.log('[CssTsCstToAst.toFileAst] toProgram 后, usedAtoms.size =', this.usedAtoms.size)
     if (this.usedAtoms.size > 0) {
-      console.log('[CssTsCstToAst.toFileAst] 调用 ensureCsstsImports')
       program.body = this.ensureCsstsImports(program.body)
     }
     return program
   }
 
   protected processCsstsPostTransform(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
-    console.log('[CssTsCstToAst.processCsstsPostTransform] 调用, usedAtoms.size =', this.usedAtoms.size)
     if (this.usedAtoms.size > 0) {
-      console.log('[CssTsCstToAst.processCsstsPostTransform] 调用 ensureCsstsImports')
       return this.ensureCsstsImports(body)
     }
     return body
@@ -177,9 +172,6 @@ export class CssTsCstToAst extends SlimeCstToAst {
         if (source === 'virtual:cssts.css') hasCsstsCssImport = true
       }
     }
-
-    // 调试：输出检测结果
-    console.log('[ensureCsstsImports] 检测完成: hasCsstsImport =', hasCsstsImport, ', hasCsstsCssImport =', hasCsstsCssImport, ', hasCsstsAtomImport =', hasCsstsAtomImport)
 
     // 按需添加缺失的导入
     const newImports: SlimeModuleDeclaration[] = []
