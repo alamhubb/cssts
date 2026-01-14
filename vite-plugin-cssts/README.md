@@ -151,6 +151,14 @@ vite-plugin-cssts
 - 用户代码可以直接 `import { cssts } from 'cssts-ts'`
 - vite 打包时只打包实际 import 的代码，compiler 不会进入生产构建
 
+### esbuild 依赖扫描
+
+Vite 在开发模式启动时，会使用 esbuild 扫描所有源码文件以发现依赖关系。由于 esbuild 不认识 `css { }` 这种自定义语法，直接扫描会导致失败。
+
+为了解决这个问题，插件会注入一个 esbuild 插件，在扫描阶段做简单替换（`css { ... }` → `{}`），让 esbuild 能正常解析 import 语句。
+
+**注意**：esbuild 阶段只做简单替换让扫描通过，完整的 cssts 转换由 Vite 的 transform 钩子处理。这意味着代码会被处理两次，但这是 Vite 架构的限制，无法避免。
+
 ## 生成的虚拟模块
 
 ### virtual:cssts.css

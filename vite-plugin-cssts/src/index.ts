@@ -84,6 +84,7 @@ function extractVueCsstsScript(code: string, filename: string = 'component.vue')
   start: number
   end: number
   isSetup: boolean
+  attrs: Record<string, string | boolean>
 } | null {
   const descriptor = parseVueSfc(code, filename)
   const scriptBlock = getCsstsScriptBlock(descriptor)
@@ -94,30 +95,69 @@ function extractVueCsstsScript(code: string, filename: string = 'component.vue')
     script: scriptBlock.content,
     start: scriptBlock.loc.start.offset,
     end: scriptBlock.loc.end.offset,
-    isSetup: scriptBlock === descriptor.scriptSetup
+    isSetup: scriptBlock === descriptor.scriptSetup,
+    attrs: scriptBlock.attrs
   }
 }
 
 /**
  * 重建 .vue 文件，将 lang="cssts" 改为 lang="ts" 并替换 script 内容
+ * 
+ * 使用位置信息精确替换：
+ * 1. 获取原始标签的属性（除了 lang），保留其他自定义属性
+ * 2. 构建新的 script 标签
+ * 3. 替换整个 script 块
  */
 function rebuildVueFile(
   originalCode: string,
-  scriptInfo: { start: number; end: number; isSetup: boolean },
+  scriptInfo: { start: number; end: number; isSetup: boolean; attrs: Record<string, string | boolean> },
   newScriptContent: string
 ): string {
-  // 使用位置信息精确替换
-  const before = originalCode.slice(0, scriptInfo.start)
-  const after = originalCode.slice(scriptInfo.end)
+  // 获取原始标签的属性（除了 lang 和 setup），保留其他自定义属性
+  const attrsStr = Object.entries(scriptInfo.attrs)
+    .filter(([key]) => key !== 'lang' && key !== 'setup')
+    .map(([key, value]) => value === true ? key : `${key}="${value}"`)
+    .join(' ')
 
   // 构建新的 script 标签
   const setupAttr = scriptInfo.isSetup ? ' setup' : ''
+  const otherAttrs = attrsStr ? ' ' + attrsStr : ''
+  const newTag = `<script${setupAttr}${otherAttrs} lang="ts">\n${newScriptContent}\n</script>`
 
-  return `${before}<script${setupAttr} lang="ts">\n${newScriptContent}\n</script>${after}`
+  // 找到原始 <script> 标签的开始位置
+  const beforeContent = originalCode.slice(0, scriptInfo.start)
+  const scriptTagStart = beforeContent.lastIndexOf('<script')
+
+  // </script> 紧跟在 content 之后
+  const scriptEndOffset = scriptInfo.end + '</script>'.length
+
+  // 替换整个 script 块
+  const before = originalCode.slice(0, scriptTagStart)
+  const after = originalCode.slice(scriptEndOffset)
+
+  return before + newTag + after
 }
 
 /**
- * 创建 esbuild 插件，用于依赖扫描阶段处理 cssts 语法
+ * 简单替换 css { ... } 语法为 {}
+ * 用于 esbuild 依赖扫描阶段，让 esbuild 能解析 import 语句
+ */
+function stripCssSyntax(code: string): string {
+  return code.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+}
+
+/**
+ * 创建 esbuild 插件，用于 Vite 依赖扫描阶段
+ * 
+ * 为什么需要这个插件？
+ * Vite 在开发模式启动时，会使用 esbuild 扫描所有源码文件以发现依赖关系。
+ * esbuild 不认识 css { } 这种自定义语法，会导致扫描失败。
+ * 
+ * 这个插件在 esbuild 扫描阶段做简单替换（css { ... } → {}），
+ * 让 esbuild 能正常解析 import 语句。
+ * 
+ * 注意：这里只做简单替换让 esbuild 能解析，不做完整转换。
+ * 完整的 cssts 转换由 Vite 的 transform 钩子处理。
  */
 function createEsbuildPlugin() {
   return {
@@ -127,8 +167,7 @@ function createEsbuildPlugin() {
       build.onLoad({ filter: /\.cssts$/ }, async (args: any) => {
         const fs = await import('node:fs')
         const code = fs.readFileSync(args.path, 'utf-8')
-        // 将 css { ... } 替换为 {}，让 esbuild 能解析
-        const transformed = code.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+        const transformed = stripCssSyntax(code)
         return { contents: transformed, loader: 'ts' }
       })
 
@@ -137,17 +176,16 @@ function createEsbuildPlugin() {
         const fs = await import('node:fs')
         const code = fs.readFileSync(args.path, 'utf-8')
 
-        // 使用官方解析器检查是否有 <script lang="cssts">
+        // 检查是否有 <script lang="cssts">
         if (!hasScriptLangCssts(code, args.path)) {
-          return null // 让其他 loader 处理
+          return null // 不是 cssts，让 Vue 插件处理
         }
 
-        // 提取并转换 script 内容
+        // 提取 script 内容
         const scriptInfo = extractVueCsstsScript(code, args.path)
         if (!scriptInfo) return null
 
-        // 将 css { ... } 替换为 {}，让 esbuild 能解析
-        const newContent = scriptInfo.script.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+        const newContent = stripCssSyntax(scriptInfo.script)
         const transformed = rebuildVueFile(code, scriptInfo, newContent)
 
         return { contents: transformed, loader: 'text' }
@@ -159,18 +197,8 @@ function createEsbuildPlugin() {
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
-  // 分离插件特有配置和编译器配置
-  const { globalStyles: externalStyles, ...compilerConfig } = options
-
-  // 插件特有配置
-  const globalStyles = externalStyles ?? new Set<string>()
-
-  // 编译器配置（compilerConfig 包含所有 CsstsCompilerConfig 配置）
-  // dts 默认为 true
-  const enableDts = compilerConfig.dts ?? true
-
+  const globalStyles = options.globalStyles ?? new Set<string>()
   let server: any = null
-  let config: ResolvedConfig
 
   /**
    * 检查文件是否需要处理
@@ -209,7 +237,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
     name: 'vite-plugin-cssts',
     enforce: 'pre',
 
-    // 注入 esbuild 插件，处理依赖扫描阶段
+    // 注入 esbuild 插件，处理依赖扫描阶段的 cssts 语法
     config() {
       return {
         optimizeDeps: {
@@ -220,17 +248,9 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
       }
     },
 
-    configResolved(resolvedConfig) {
-      config = resolvedConfig
-      // 自动生成类型文件
-      if (enableDts) {
-        // 如果用户没有指定 dtsOutputDir，使用默认路径
-        const configWithDefaults = {
-          ...compilerConfig,
-          dtsOutputDir: compilerConfig.dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
-        }
-        // 直接传入编译器配置
-        generateDtsFiles(configWithDefaults)
+    configResolved(_resolvedConfig) {
+      if (options.dts !== false) {
+        generateDtsFiles(options)
       }
     },
 
@@ -263,9 +283,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
         // 对于 .vue 文件，提取 <script lang="cssts"> 内容
         if (isVueFile) {
           vueScriptInfo = extractVueCsstsScript(code)
-          if (!vueScriptInfo) {
-            return null
-          }
+          if (!vueScriptInfo) return null
           codeToTransform = vueScriptInfo.script
         }
 

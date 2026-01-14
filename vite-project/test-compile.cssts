@@ -3,4 +3,31 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+
 const cardStyle = css { padding20px, borderRadius8px }
+
+// 先定义伪类样式
+const button$$hover = css { backgroundColorBlue }
+const button$$active = css { backgroundColorNavy }
+
+// 再定义合并样式（引用已定义的伪类）
+const buttonStyle = css {
+  padding10px,
+  padding20px,
+  borderRadius8px,
+  borderNone,
+  colorWhite,
+  fontSizeLarge,
+  cursorPointer,
+  button$$hover,
+  button$$active
+}
+
+// 先定义伪类
+const linkStyle$$hover = css { colorDodgerblue }
+// 再定义合并样式
+const linkStyle = css { colorBlue, linkStyle$$hover }
+
+const codeStyle = css { padding2px, padding6px, borderRadius4px }
+
+const readTheDocs = css { colorGray }

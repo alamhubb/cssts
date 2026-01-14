@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // 开发时使用相对路径，绕过 esbuild 解析问题
-// import cssTsPlugin from 'vite-plugin-cssts'
-import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
+import cssTsPlugin from 'vite-plugin-cssts'
 import { viteMono } from 'vite-plugin-mono'
 import { resolve } from 'node:path'
 import {fileURLToPath} from "node:url";
@@ -11,7 +10,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [
-        viteMono(),  // 必须放在最前面，拦截本地包
+        viteMono(),
         cssTsPlugin(),  // 零配置，使用内置默认伪类样式
         vue()
     ],
