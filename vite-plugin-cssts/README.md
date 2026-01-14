@@ -2,61 +2,64 @@
 
 > Vite 插件，用于处理 `.cssts` 文件和 `<script lang="cssts">` 中的 `css {}` 语法，按需生成原子类 CSS
 
-## 安装
-
-只需安装一个包，运行时依赖 `cssts` 会自动安装：
+## ⚡ 快速开始
 
 ```bash
+# 1. 安装（运行时依赖 cssts 会自动安装）
 npm install vite-plugin-cssts -D
 ```
 
-## 零配置类型提示
-
-插件启动时会自动生成类型定义到 `node_modules/@types/cssts/`，TypeScript 自动发现，无需任何配置。
-
-## 支持的文件类型
-
-| 文件类型 | 支持 css {} 语法 |
-|---------|-----------------|
-| `.cssts` 文件 | ✅ 支持 |
-| `.vue` 文件 `<script lang="cssts">` | ✅ 支持 |
-| `.ts` 文件 | ❌ 不支持 |
-| `.vue` 文件 `<script lang="ts">` | ❌ 不支持 |
-
-## 使用
-
-### 配置 Vite
-
 ```javascript
-// vite.config.js
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+// 2. vite.config.js - 零配置！
 import cssTsPlugin from 'vite-plugin-cssts'
+import vue from '@vitejs/plugin-vue'
 
-export default defineConfig({
-  plugins: [
-    cssTsPlugin(),
-    vue(),
-  ],
-})
+export default {
+  plugins: [cssTsPlugin(), vue()]
+}
 ```
 
-### 在 .cssts 文件中使用
+**就这样！** 现在可以使用 `css { }` 语法了。
+
+---
+
+## ✅ 功能亮点
+
+| 功能 | 说明 |
+|------|------|
+| 🚀 零配置 | 安装即用，自动生成类型定义 |
+| 📝 IDE 提示 | 输入原子类时自动补全 |
+| 🎯 按需生成 | 只生成实际使用的 CSS |
+| 🔥 HMR 支持 | 文件修改后自动热更新 |
+| 📦 体积优化 | 编译器不进入生产构建 |
+
+---
+
+## 📁 支持的文件类型
+
+| 文件类型 | 支持 `css {}` 语法 | 说明 |
+|---------|-------------------|------|
+| `.cssts` 文件 | ✅ 支持 | 独立样式文件 |
+| `.vue` `<script lang="cssts">` | ✅ 支持 | Vue 单文件组件 |
+| `.ts` / `.js` 文件 | ❌ 不支持 | 使用 `.cssts` 替代 |
+| `.vue` `<script lang="ts">` | ❌ 不支持 | 使用 `lang="cssts"` 替代 |
+
+## 📖 使用示例
+
+### 方式一：在 `.cssts` 文件中使用
 
 ```typescript
 // Button.cssts
-import { cssts } from 'cssts'
-
-// css {} 语法，自动有类型提示
+// css {} 语法，自动有 IDE 类型提示
 const buttonStyle = css { displayFlex, padding16px, colorWhite }
 
-// 运行时 API
-const merged = cssts.$cls(buttonStyle, anotherStyle)
+// 样式组合
+const button$$hover = css { buttonStyle, cursorPointer }
 
-export { buttonStyle }
+export { buttonStyle, button$$hover }
 ```
 
-### 在 .vue 文件中使用 `<script lang="cssts">`
+### 方式二：在 Vue 文件中使用 `<script lang="cssts">`
 
 ```vue
 <template>
@@ -69,9 +72,11 @@ const buttonStyle = css { displayInlineFlex, padding8px, borderRadius4px }
 </script>
 ```
 
-> **注意**：Vite 插件会自动将 `<script lang="cssts">` 转换为 `<script lang="ts">`，然后交给 Vue 编译器处理。
+> **注意**：插件会自动将 `<script lang="cssts">` 转换为 `<script lang="ts">`，然后交给 Vue 编译器处理。
 
-## 配置选项
+---
+
+## ⚙️ 配置选项
 
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|

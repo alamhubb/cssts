@@ -2,6 +2,36 @@
 
 > CssTs 编译器 - 解析、转换、生成
 
+## ⚡ 用户零配置使用
+
+**用户通过 `vite-plugin-cssts` 使用，无需直接操作 cssts-compiler！**
+
+```bash
+# 用户只需安装 vite 插件
+npm install vite-plugin-cssts -D
+```
+
+```javascript
+// vite.config.js - 零配置！
+import cssTsPlugin from 'vite-plugin-cssts'
+
+export default {
+  plugins: [cssTsPlugin(), vue()]
+}
+```
+
+| 功能 | 自动化 | 说明 |
+|------|--------|------|
+| 类型定义 | ✅ 自动 | 插件启动时自动生成到 `node_modules/@types/cssts/` |
+| IDE 提示 | ✅ 自动 | TypeScript 自动发现 `@types` 目录 |
+| CSS 生成 | ✅ 自动 | 按需收集样式，通过 `virtual:cssts.css` 注入 |
+| Vue SFC | ✅ 自动 | `<script lang="cssts">` 自动转换为 `<script lang="ts">` |
+| HMR | ✅ 自动 | 文件修改后自动热更新 |
+
+> **本文档面向 cssts-compiler 的开发者**，如果你是使用者，请查看 [vite-plugin-cssts](../vite-plugin-cssts/README.md)。
+
+---
+
 ## 核心职责
 
 `cssts-compiler` 负责所有**编译时**的工作：
@@ -11,7 +41,121 @@
 3. **CSS 生成** - 根据使用的样式生成 CSS
 4. **类型生成** - 生成 `.d.ts` 类型定义文件
 
+---
+
+## 整体架构
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                        cssts-compiler                              │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐     │
+│  │ Parser   │ -> │ CST      │ -> │ AST      │ -> │Generator │     │
+│  │ 解析器    │    │ 转换器    │    │ 转换器    │    │ 代码生成  │     │
+│  └──────────┘    └──────────┘    └──────────┘    └──────────┘     │
+│       ↑                                                            │
+│ ┌─────┴─────┐         ┌──────────────────────────────────┐        │
+│ │ Token     │         │ DTS Generator                     │        │
+│ │ 词法分析   │         │ .d.ts 类型定义生成                 │        │
+│ └───────────┘         └──────────────────────────────────┘        │
+│                                                                    │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 编译流程（4个阶段）
+
+### 阶段 1: 解析 (Parser)
+
+```typescript
+// 输入源代码
+const button$$hover = css { cursorPointer, backgroundColorBlue }
+
+// CssTsParser 继承 SlimeParser，添加 CssExpression 语法
+const parser = new CssTsParser(code)
+const cst = parser.Program()   // -> 解析成 CST (Concrete Syntax Tree)
+```
+
+**作用**：识别 `css { }` 语法，生成 CST 节点
+
+### 阶段 2: CST → AST 转换 (Factory)
+
+```typescript
+// CssTsCstToAst 继承 SlimeCstToAst
+const ast = CssTsCstToAstUtils.toFileAst(cst)
+
+// 关键拦截点：createPrimaryExpressionAst
+if (cst.name === 'CssExpression') {
+    return this.createCssExpressionAst(cst)  // 转换 css { } 
+}
+```
+
+**作用**：
+- 识别 `CssExpression` 节点
+- 转换为 `cssts.$cls(csstsAtom.xxx, ...)` 调用
+- 收集使用的原子类到 `usedAtoms` 集合
+
+### 阶段 3: 代码生成 (Generator)
+
+```typescript
+const result = SlimeGenerator.generator(ast, tokens)
+
+// 输出
+const button$$hover = cssts.$cls(
+    csstsAtom["button$$hover"],
+    csstsAtom.cursorPointer, 
+    csstsAtom.backgroundColorBlue
+)
+```
+
+**作用**：将 AST 转回 JavaScript 代码
+
+### 阶段 4: CSS 生成 (Transform)
+
+```typescript
+// 根据收集的样式名生成 CSS
+const css = generateStylesCss(context.styles, pseudoUtils)
+
+/* 输出 */
+.cursor_pointer { cursor: pointer }
+.background-color_blue { background-color: blue }
+.button--hover:hover { cursor: pointer; background-color: blue }
+```
+
+---
+
+## 完整数据流
+
+```
+源代码 (.cssts)
+const btn = css { displayFlex, colorRed }
+         ↓
+    ① CssTsParser.Program()
+         ↓
+    CST (Concrete Syntax Tree)
+         ↓
+    ② CssTsCstToAstUtils.toFileAst()
+         ↓
+    AST + usedAtoms: Set(['displayFlex', 'colorRed'])
+         ↓
+    ③ SlimeGenerator.generator()
+         ↓
+JavaScript 代码
+const btn = cssts.$cls(csstsAtom.displayFlex, csstsAtom.colorRed)
+         ↓
+    ④ generateStylesCss(usedAtoms)
+         ↓
+CSS 代码
+.display_flex { display: flex }
+.color_red { color: red }
+```
+
+---
+
 ## ⚠️ 重要：伪类分隔符是双美元符号
+
 
 ```typescript
 // ✅ 正确：使用双美元符号 $
@@ -53,6 +197,27 @@ cssts-compiler/
 ├── target/              # 生成的 .d.ts 文件输出目录
 └── tests/               # 测试文件
 ```
+
+### 模块职责说明
+
+| 目录 | 职责 | 说明 |
+|------|------|------|
+| **parser/** | 解析 | 继承 slime-parser，添加 `css { }` 语法解析 |
+| **factory/** | CST→AST | 将 CST 转换为 AST，拦截 `CssExpression` 节点 |
+| **transform/** | 核心转换 | 调用 parser + factory + generator 完成完整转换 |
+| **dts/** | 类型生成 | 生成 `@types/cssts/index.d.ts` 供 IDE 提示 |
+| **utils/** | 工具函数 | CSS 类名生成、配置处理、单位分类等 |
+| **data/** | 数据集 | 所有 CSS 属性、关键字、颜色、伪类等数据 |
+| **config/** | 配置系统 | 原子类生成配置（属性、单位、步长等） |
+
+### 关键设计决策
+
+| 决策 | 原因 |
+|------|------|
+| 继承 slime-parser | 复用成熟的 TS/JS 解析器，只需添加 `css { }` 语法 |
+| 全局注册机制 | 让子类能覆盖转换逻辑，解决继承时内部调用不走子类的问题 |
+| 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
+| 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
 
 ---
 
