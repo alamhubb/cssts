@@ -8,6 +8,7 @@
 config/
 ├── CsstsDefaultConfig.ts              # 系统默认配置
 ├── CsstsDefaultSupportCssProperties.ts # 默认支持的 CSS 属性列表
+├── ConfigLookup.ts                     # 配置查找器（用户配置 + 默认配置）
 └── types/
     ├── cssPropertyConfig.d.ts          # CSS 属性配置类型（自动生成）
     └── csstsConfig.d.ts                # CSSTS 配置类型（手动维护）
@@ -110,70 +111,66 @@ interface CsstsCompilerConfig extends CsstsConfig {
 
 ### 配置策略说明
 
-**⚠️ 重要：完全替换策略**
+**✅ 分层覆盖策略（ConfigLookup）**
 
-用户配置的 `progressiveRanges` 会**完全替换**默认配置，而不是合并：
+系统保持两份配置：**用户配置** 和 **默认配置**，使用时按需查找：
+
+#### 顶级覆盖
+
+对于大部分配置，用户有就用用户的，没有就用默认的：
 
 ```typescript
-// ❌ 错误理解：用户以为会"追加"到默认配置
+// 用户只配置了 colors
 cssTsPlugin({
-  progressiveRanges: [
-    { max: 50, divisors: [1] }  // 用户只想修改 0-50 区间
-  ]
-  // 实际结果：只有 0-50 区间，其他区间全部丢失！
-})
-
-// ✅ 正确做法：完整定义所有需要的区间
-cssTsPlugin({
-  progressiveRanges: [
-    { max: 50, divisors: [1] },           // 0-50: 每个整数
-    { max: 100, divisors: [5] },          // 50-100: 5 的倍数
-    { max: 500, divisors: [10] },         // 100-500: 10 的倍数
-    { max: 1000, divisors: [50] },        // 500-1000: 50 的倍数
-    { max: Infinity, divisors: [100] }    // 1000+: 100 的倍数
-  ]
+  colors: ['red', 'blue', 'green']  // 完全替换默认颜色
+  // progressiveRanges 没配置 → 使用默认的
 })
 ```
 
-**适用于所有数组类型配置**：
+适用于：`properties`, `colors`, `progressiveRanges`, `groups`, `keywords` 等
 
-以下配置都遵循**完全替换**策略：
-- `properties` - 完全替换默认属性列表
-- `colors` - 完全替换默认颜色列表
-- `progressiveRanges` - 完全替换默认步长规则
-- `numberCategoriesConfig` - 完全替换数值类别配置
-- `propertiesConfig` - 完全替换特殊属性配置
-- `groups` - 完全替换组合原子类配置
+#### 按名称覆盖（细粒度）
 
-**为什么采用完全替换策略？**
-
-1. **清晰可预测**：用户配置的就是最终结果，没有隐藏的合并逻辑
-2. **避免冲突**：不会出现"用户配置 + 默认配置"导致的意外重复
-3. **完全控制**：需要完全自定义时，用户有完全的控制权
-
-**如何保留部分默认配置？**
-
-如果你只想修改部分配置，需要手动导入默认配置：
+对于 `numberCategoriesConfig` 和 `propertiesConfig`，按 **Category 名** 或 **Property 名** 查找：
 
 ```typescript
-import { csstsDefaultConfig } from 'cssts-compiler'
+// 默认配置
+numberCategoriesConfig: [
+  { pixel: { min: 0, max: 1000 } },
+  { fontRelative: { min: 0, max: 20, units: ['em', 'rem'] } }
+]
 
+// 用户配置（只改了 pixel）
 cssTsPlugin({
-  // 保留默认步长规则，只追加新区间
-  progressiveRanges: [
-    ...csstsDefaultConfig.progressiveRanges,
-    { max: 20000, divisors: [2000] }  // 追加 10000-20000 区间
-  ],
-  
-  // 保留默认颜色，追加品牌色
-  colors: [
-    ...csstsDefaultConfig.colors,
-    'brand-primary', 'brand-secondary'
+  numberCategoriesConfig: [
+    { pixel: { max: 2000 } }  // 覆盖 pixel
   ]
 })
+
+// 查找结果：
+// pixel → 用户的 { max: 2000 }
+// fontRelative → 默认的 { min: 0, max: 20, units: ['em', 'rem'] }
+```
+
+**好处**：用户只配置差异部分，不会丢失其他默认配置！
+
+#### ConfigLookup 实现
+
+```typescript
+class ConfigLookup {
+  constructor(userConfig?, defaultConfig) { ... }
+  
+  // 顶级覆盖
+  get colors() { return this.userConfig?.colors ?? this.defaultConfig.colors }
+  
+  // 按名称查找（先用户后默认）
+  getCategoryConfig(categoryName: string) { ... }
+  getPropertyConfig(propertyName: string) { ... }
+}
 ```
 
 ---
+
 
 ## 🎨 默认支持的颜色
 
