@@ -17,6 +17,5 @@ export {
 
 export {
   generateDtsFiles,
-  type DtsGenerateOptions,
   type DtsGenerateResult,
 } from './dts-writer.ts';

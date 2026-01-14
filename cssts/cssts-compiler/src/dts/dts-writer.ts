@@ -26,20 +26,6 @@ import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
 
 // ==================== 类型定义 ====================
 
-/** 
- * DTS 生成选项
- */
-export interface DtsGenerateOptions {
-  /** 用户配置 */
-  config?: Partial<CsstsCompilerConfig>;
-  /** 输出目录（覆盖 config.dtsOutputDir） */
-  outputDir?: string;
-  /** 是否生成分文件版本，默认 false */
-  splitFiles?: boolean;
-  /** 是否打印日志，默认 false */
-  verbose?: boolean;
-}
-
 /** 生成结果 */
 export interface DtsGenerateResult {
   /** 生成的文件列表 */
@@ -128,14 +114,12 @@ function generateIndexDtsWithReferences(fileNames: string[]): string {
  * 1. dtsSplitFiles=false（默认）：单个 index.d.ts 文件
  * 2. dtsSplitFiles=true：拆分为多个文件，每个属性一个文件
  */
-export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResult {
-  const { config } = options ?? {};
-
+export function generateDtsFiles(config?: Partial<CsstsCompilerConfig>): DtsGenerateResult {
   // 初始化配置查找器（全局唯一入口）
   ConfigLookup.init(config);
 
-  // 从 config 中读取配置，options 中的值作为覆盖（兼容旧用法）
-  const outputDir = options?.outputDir ?? config?.dtsOutputDir ?? getDefaultOutputDir();
+  // 从 config 中读取配置
+  const outputDir = config?.dtsOutputDir ?? getDefaultOutputDir();
   const splitFiles = config?.dtsSplitFiles ?? false;
   const debug = config?.debug ?? false;
 
