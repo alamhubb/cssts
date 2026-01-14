@@ -17,9 +17,9 @@ const OUTPUT_DIR = path.resolve(__dirname, '../../target/cssts-dts');
 console.log('🚀 开始生成 .d.ts 文件...\n');
 
 const result = generateDtsFiles({
-  outputDir: OUTPUT_DIR,
-  splitFiles: true,
-  verbose: true,
+  dtsOutputDir: OUTPUT_DIR,
+  dtsSplitFiles: true,
+  debug: true,
 });
 
 console.log(`\n📋 生成了 ${result.files.length} 个文件`);
