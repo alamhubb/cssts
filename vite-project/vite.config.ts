@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 // 开发时使用相对路径，绕过 esbuild 解析问题
-import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
+import cssTsPlugin from 'vite-plugin-cssts'
 import { viteMono } from 'vite-plugin-mono'
 
 // https://vite.dev/config/
