@@ -19,7 +19,7 @@ export const csstsDefaultConfig: CsstsConfig = {
         {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
     ],
 
-    pseudoClassesConfig: {
+    pseudoClassConfig: {
         hover: {filter: 'brightness(1.15)'},
         active: {filter: 'brightness(0.85)'},
         focus: {

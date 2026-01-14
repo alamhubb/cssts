@@ -11,14 +11,8 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 export default defineConfig({
     plugins: [
         viteMono(),  // 必须放在最前面，拦截本地包
-        cssTsPlugin({
-            pseudoUtils: {
-                hover: { filter: 'brightness(1.15)' },
-                active: { filter: 'brightness(0.85)' }
-            }
-        }),
-        vue()
-    ],
+        cssTsPlugin(),  // 零配置，使用内置默认伪类样式
+        vue()],
     resolve: {
         alias: [
             { find: 'cssts-compiler', replacement: resolve(__dirname, '../cssts/cssts-compiler/src/index.ts') },

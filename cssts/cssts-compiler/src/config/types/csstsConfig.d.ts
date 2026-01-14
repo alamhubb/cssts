@@ -150,7 +150,7 @@ export interface CsstsConfig {
   excludePseudoElements?: CssPseudoElementName[];
 
   /** 伪类样式配置 */
-  pseudoClassesConfig?: CssPseudoClassConfig;
+  pseudoClassConfig?: CssPseudoClassConfig;
 
   /** 伪元素样式配置 */
   pseudoElementsConfig?: CssPseudoElementConfig;

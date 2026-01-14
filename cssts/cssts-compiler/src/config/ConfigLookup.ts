@@ -122,6 +122,11 @@ export class ConfigLookup {
         return this.userConfig?.excludeColorTypes ?? this.defaultConfig.excludeColorTypes;
     }
 
+    /** 伪类配置 */
+    static get pseudoClassConfig() {
+        return this.userConfig?.pseudoClassConfig ?? this.defaultConfig.pseudoClassConfig;
+    }
+
     // ==================== 按名称覆盖（静态方法） ====================
 
     /**

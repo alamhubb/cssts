@@ -90,7 +90,7 @@ cssTsPlugin({
   properties: ['width', 'height', 'margin', 'padding'],
   colors: ['red', 'blue', 'green'],
   progressiveRanges: [{ max: 100, divisors: [1] }],
-  pseudoClassesConfig: { hover: { opacity: '0.9' } },
+  pseudoClassConfig: { hover: { opacity: '0.9' } },
   
   // 插件特有配置
   globalStyles: sharedStyles  // 可选：共享样式集合
@@ -107,7 +107,7 @@ cssTsPlugin({
 | `properties` | `string[]` | 所有常用属性 | 只生成指定属性的原子类 |
 | `colors` | `string[]` | 常用颜色 | 只生成指定颜色 |
 | `progressiveRanges` | `ProgressiveRange[]` | 默认步长规则 | 数值步长配置 |
-| `pseudoClassesConfig` | `PseudoUtilsConfig` | `undefined` | 伪类额外样式配置 |
+| `pseudoClassConfig` | `PseudoUtilsConfig` | `undefined` | 伪类额外样式配置 |
 | `globalStyles` | `Set<string>` | `undefined` | 共享样式集合（多插件共享） |
 
 ## 伪类语法

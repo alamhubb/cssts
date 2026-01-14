@@ -27,7 +27,7 @@ import {
  *   dtsOutputDir: 'node_modules/@types/cssts-ts',
  *   properties: ['width', 'height', 'margin'],
  *   colors: ['red', 'blue', 'green'],
- *   pseudoClassesConfig: { hover: { opacity: '0.9' } }
+ *   pseudoClassConfig: { hover: { opacity: '0.9' } }
  * })
  * ```
  */
@@ -229,8 +229,8 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
           ...compilerConfig,
           dtsOutputDir: compilerConfig.dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
         }
-        // 直接传入编译器配置，编译器自己读取所有配置
-        generateDtsFiles({ config: configWithDefaults })
+        // 直接传入编译器配置
+        generateDtsFiles(configWithDefaults)
       }
     },
 
@@ -245,7 +245,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     load(id) {
       if (id === RESOLVED_VIRTUAL_CSS_ID) {
-        return generateStylesCss(globalStyles, options.pseudoClassesConfig, options.classPrefix)
+        return generateStylesCss(globalStyles, options.classPrefix)
       }
       if (id === RESOLVED_VIRTUAL_ATOM_ID) {
         return generateCsstsAtomModule(globalStyles, options.classPrefix)

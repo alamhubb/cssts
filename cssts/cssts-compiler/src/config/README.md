@@ -315,7 +315,7 @@ cssTsPlugin({
   }],
   
   // 自定义伪类样式
-  pseudoClassesConfig: {
+  pseudoClassConfig: {
     hover: { opacity: '0.9' }
   }
 })
