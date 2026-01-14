@@ -39,7 +39,7 @@ const linkStyle$$hover = css { colorDodgerblue }
   <h1>{{ msg }}</h1>
 
   <div :class="cardStyle">
-    <button type="button" :class="cssts.merge(buttonBase, button$$hover, button$$active)" @click="count++">
+    <button type="button" :class="cssts.$cls(buttonBase, button$$hover, button$$active)" @click="count++">
       count is {{ count }}
     </button>
     <p>
@@ -50,13 +50,13 @@ const linkStyle$$hover = css { colorDodgerblue }
 
   <p>
     Check out
-    <a :class="cssts.merge(linkStyle, linkStyle$$hover)" href="https://vuejs.org/guide/quick-start.html#local" target="_blank">
+    <a :class="cssts.$cls(linkStyle, linkStyle$$hover)" href="https://vuejs.org/guide/quick-start.html#local" target="_blank">
       create-vue
     </a>, the official Vue + Vite starter
   </p>
   <p>
     Learn more about IDE Support for Vue in the
-    <a :class="cssts.merge(linkStyle, linkStyle$$hover)"
+    <a :class="cssts.$cls(linkStyle, linkStyle$$hover)"
       href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
       target="_blank">
       Vue Docs Scaling up Guide

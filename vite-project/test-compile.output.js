@@ -1,11 +1,6 @@
+import {ref} from 'vue';
+import {cssts} from 'cssts-ts';
 import "virtual:cssts.css";
-import {cssts} from "cssts-ts";
 import {csstsAtom} from "virtual:csstsAtom";
+const count = ref(0);
 const cardStyle = cssts.$cls(csstsAtom.padding20px,csstsAtom.borderRadius8px);
-const buttonBase = cssts.$cls(csstsAtom.padding10px,csstsAtom.padding20px,csstsAtom.borderRadius8px,csstsAtom.borderNone,csstsAtom.colorWhite,csstsAtom.fontSizeLarge,csstsAtom.cursorPointer);
-const button$$hover = cssts.$cls(csstsAtom["button$$hover"],csstsAtom.backgroundColorBlue);
-const button$$active = cssts.$cls(csstsAtom["button$$active"],csstsAtom.backgroundColorNavy);
-const codeStyle = cssts.$cls(csstsAtom.padding2px,csstsAtom.padding6px,csstsAtom.borderRadius4px);
-const readTheDocs = cssts.$cls(csstsAtom.colorGray);
-const linkStyle = cssts.$cls(csstsAtom.colorBlue);
-const linkStyle$$hover = cssts.$cls(csstsAtom["linkStyle$$hover"],csstsAtom.colorDodgerblue);

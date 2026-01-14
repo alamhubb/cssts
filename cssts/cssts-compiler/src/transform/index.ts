@@ -91,7 +91,7 @@ export function hasPseudos(name: string): boolean {
  */
 export function transformCssTs(code: string, context: TransformContext): TransformResult {
   const parser = new CssTsParser(code)
-  const cst = parser.Program('script')  // ✅ 传递 sourceType，cssts 是脚本模式
+  const cst = parser.Program()  // 使用默认的 module 模式
 
   // 注意：cssTsCstToAst 是一个 live binding，当子类（如 OvsCstToSlimeAst）
   // 调用 registerCssTsCstToAst() 注册自己后，这里会自动使用新的实例
@@ -124,7 +124,7 @@ export function transformCssTs(code: string, context: TransformContext): Transfo
  */
 export function transformCssTsWithMapping(code: string): TransformResultWithMapping {
   const parser = new CssTsParser(code)
-  const cst = parser.Program('script')  // ✅ 传递 sourceType
+  const cst = parser.Program()  // 使用默认的 module 模式
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
   const ast = CssTsCstToAstUtils.toFileAst(cst)
 
