@@ -69,6 +69,8 @@ export {
 export type {
   CsstsConfig,
   CsstsConfigRequired,
+  CsstsCompilerConfig,
+  CsstsCompilerConfigRequired,
 } from './config/types/csstsConfig.d.ts'
 
 export type {

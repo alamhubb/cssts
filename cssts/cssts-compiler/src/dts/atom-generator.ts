@@ -12,7 +12,7 @@ import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import { COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from '../data/cssColorData';
-import type { CsstsConfig } from '../config/types/csstsConfig';
+import type { CsstsConfig, CsstsCompilerConfig } from '../config/types/csstsConfig';
 import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName, GroupConfig, NumberPropertyName, KeywordIterationPropertyConfig } from '../config/types/cssPropertyConfig';
 
 // 所有 CSS 属性名列表
@@ -55,7 +55,7 @@ export interface GroupAtomDefinition {
 /** 生成器选项 */
 export interface GeneratorOptions {
   /** 用户配置 (可选，默认使用 csstsDefaultConfig) */
-  config?: Partial<CsstsConfig>;
+  config?: Partial<CsstsCompilerConfig>;
 }
 
 // ==================== 工具函数 ====================
@@ -68,7 +68,7 @@ function camelToKebab(str: string): string {
 /** 合并配置 */
 function mergeConfig(userConfig?: Partial<CsstsConfig>): CsstsConfig {
   if (!userConfig) return csstsDefaultConfig;
-  
+
   return {
     ...csstsDefaultConfig,
     ...userConfig,
@@ -87,15 +87,15 @@ function mergeConfig(userConfig?: Partial<CsstsConfig>): CsstsConfig {
 function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
   const properties = config.properties;
   const excludeProperties = config.excludeProperties ?? [];
-  
+
   if (properties && properties.length > 0) {
     return properties;
   }
-  
+
   if (excludeProperties.length > 0) {
     return ALL_PROPERTY_NAMES.filter(p => !excludeProperties.includes(p));
   }
-  
+
   return ALL_PROPERTY_NAMES;
 }
 
@@ -103,7 +103,7 @@ function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
 function getEffectiveCategories(config: CsstsConfig): CssNumberCategoryName[] {
   const categories = config.numberCategories ?? [...ALL_NUMBER_CATEGORIES];
   const excludeCategories = config.excludeNumberCategories ?? [];
-  
+
   return categories.filter(c => !excludeCategories.includes(c)) as CssNumberCategoryName[];
 }
 
@@ -113,15 +113,15 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
     const excludeColors = config.excludeColors ?? [];
     return config.colors.filter(c => !excludeColors.includes(c));
   }
-  
+
   const colors = new Set<string>();
   const excludeColorTypes = config.excludeColorTypes ?? [];
-  
+
   if (!config.colorTypes || config.colorTypes.length === 0) {
     for (const colorType of ALL_COLOR_TYPES) {
       if (excludeColorTypes.includes(colorType)) continue;
       if (!propertyColorTypes.includes(colorType)) continue;
-      
+
       const typeColors = COLOR_TYPE_COLORS_MAP[colorType as keyof typeof COLOR_TYPE_COLORS_MAP];
       if (typeColors) {
         for (const color of typeColors) {
@@ -135,7 +135,7 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
         const colorType = item as CssColorTypeName;
         if (excludeColorTypes.includes(colorType)) continue;
         if (!propertyColorTypes.includes(colorType)) continue;
-        
+
         const typeColors = COLOR_TYPE_COLORS_MAP[colorType as keyof typeof COLOR_TYPE_COLORS_MAP];
         if (typeColors) {
           for (const color of typeColors) {
@@ -146,7 +146,7 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
         for (const [colorType, colorList] of Object.entries(item)) {
           if (excludeColorTypes.includes(colorType as CssColorTypeName)) continue;
           if (!propertyColorTypes.includes(colorType)) continue;
-          
+
           if (Array.isArray(colorList)) {
             for (const color of colorList) {
               colors.add(color);
@@ -156,7 +156,7 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
       }
     }
   }
-  
+
   const excludeColors = config.excludeColors ?? [];
   return Array.from(colors).filter(c => !excludeColors.includes(c as any));
 }
@@ -167,7 +167,7 @@ function findConfigInArray<T extends Record<string, any>>(
   key: string
 ): any | undefined {
   if (!configArray) return undefined;
-  
+
   for (const item of configArray) {
     if (key in item) {
       return item[key];
@@ -182,7 +182,7 @@ function findCategoryOrUnitConfig(
   categoryName: string
 ): CssStepConfig | undefined {
   if (!propertyConfig) return undefined;
-  
+
   const categoryUnits = CATEGORY_UNITS_MAP[categoryName as keyof typeof CATEGORY_UNITS_MAP];
   if (categoryUnits) {
     for (const unit of categoryUnits) {
@@ -191,11 +191,11 @@ function findCategoryOrUnitConfig(
       }
     }
   }
-  
+
   if (categoryName in propertyConfig) {
     return propertyConfig[categoryName];
   }
-  
+
   return undefined;
 }
 
@@ -208,14 +208,14 @@ function getPropertyCategoryConfig(
   const propertyConfig = findConfigInArray(config.propertiesConfig, propertyName);
   const propResult = findCategoryOrUnitConfig(propertyConfig, categoryName);
   if (propResult) return propResult;
-  
+
   const parentProperty = PROPERTY_PARENT_MAP[propertyName];
   if (parentProperty) {
     const parentConfig = findConfigInArray(config.propertiesConfig, parentProperty);
     const parentResult = findCategoryOrUnitConfig(parentConfig, categoryName);
     if (parentResult) return parentResult;
   }
-  
+
   return findConfigInArray(config.numberCategoriesConfig, categoryName);
 }
 
@@ -223,13 +223,13 @@ function getPropertyCategoryConfig(
 function generateNumbers(stepConfig: CssStepConfig, progressiveRanges?: CssProgressiveRange[]): number[] {
   const { min = 0, max = 100, step, presets = [] } = stepConfig;
   const numbers = new Set<number>();
-  
+
   presets.forEach(p => {
     if (p >= min && p <= max) {
       numbers.add(p);
     }
   });
-  
+
   if (step === undefined) {
     if (progressiveRanges) {
       generateFromProgressiveRanges(numbers, min, max, progressiveRanges);
@@ -245,7 +245,7 @@ function generateNumbers(stepConfig: CssStepConfig, progressiveRanges?: CssProgr
       generateFromProgressiveRanges(numbers, min, max, step as CssProgressiveRange[]);
     }
   }
-  
+
   return Array.from(numbers).sort((a, b) => a - b);
 }
 
@@ -254,13 +254,13 @@ function generateFromStep(numbers: Set<number>, min: number, max: number, step: 
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
-  
+
   for (let i = step; i <= max; i += step) {
     if (i >= min) {
       numbers.add(roundNumber(i, step));
     }
   }
-  
+
   for (let i = -step; i >= min; i -= step) {
     if (i <= max) {
       numbers.add(roundNumber(i, step));
@@ -273,15 +273,15 @@ function generateFromMultipleSteps(numbers: Set<number>, min: number, max: numbe
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
-  
+
   const minStep = Math.min(...steps);
-  
+
   for (let i = minStep; i <= max; i += minStep) {
     if (i >= min && steps.some(s => i % s === 0 || Math.abs(i % s) < 0.0001)) {
       numbers.add(roundNumber(i, minStep));
     }
   }
-  
+
   for (let i = -minStep; i >= min; i -= minStep) {
     if (i <= max && steps.some(s => Math.abs(i) % s === 0 || Math.abs(Math.abs(i) % s) < 0.0001)) {
       numbers.add(roundNumber(i, minStep));
@@ -299,7 +299,7 @@ function generateFromProgressiveRanges(
   if (min <= 0 && max >= 0) {
     numbers.add(0);
   }
-  
+
   let current = 1;
   for (const range of ranges) {
     const rangeMax = Math.min(range.max, max);
@@ -311,7 +311,7 @@ function generateFromProgressiveRanges(
     }
     if (current > max) break;
   }
-  
+
   current = -1;
   for (const range of ranges) {
     const rangeMin = Math.max(-range.max, min);
@@ -361,7 +361,7 @@ function formatUnitForClassName(unit: string): string {
 /** 格式化 keyword 为类名部分 (kebab-case → PascalCase) */
 function formatKeywordForClassName(keyword: string): string {
   const normalized = keyword.startsWith('-') ? keyword.slice(1) : keyword;
-  
+
   return normalized
     .split('-')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
@@ -389,19 +389,19 @@ function generateAtomsForProperty(
   const seenNames = new Set<string>();
   const kebabProperty = camelToKebab(propertyName);
   const excludeKeywords = config.excludeKeywords ?? [];
-  
+
   // 1. 生成 keyword 原子类
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
   if (keywords) {
     for (const keyword of keywords) {
       const camelKeyword = formatKeywordForClassName(keyword).charAt(0).toLowerCase() + formatKeywordForClassName(keyword).slice(1);
       if (excludeKeywords.includes(camelKeyword as any)) continue;
-      
+
       const atomName = `${propertyName}${formatKeywordForClassName(keyword)}`;
-      
+
       if (seenNames.has(atomName)) continue;
       seenNames.add(atomName);
-      
+
       atoms.push({
         name: atomName,
         property: kebabProperty,
@@ -409,20 +409,20 @@ function generateAtomsForProperty(
       });
     }
   }
-  
+
   // 2. colors 和 numberTypes 互斥
   const propertyColorTypes = PROPERTY_COLOR_TYPES_MAP[propertyName as keyof typeof PROPERTY_COLOR_TYPES_MAP];
   const hasColors = propertyColorTypes && propertyColorTypes.length > 0;
-  
+
   if (hasColors) {
     const effectiveColors = getEffectiveColors(config, propertyColorTypes);
-    
+
     for (const colorName of effectiveColors) {
       const atomName = `${propertyName}${formatColorForClassName(colorName)}`;
-      
+
       if (seenNames.has(atomName)) continue;
       seenNames.add(atomName);
-      
+
       atoms.push({
         name: atomName,
         property: kebabProperty,
@@ -432,39 +432,39 @@ function generateAtomsForProperty(
   } else {
     const propertyCategories = PROPERTY_CATEGORIES_MAP[propertyName as keyof typeof PROPERTY_CATEGORIES_MAP];
     if (propertyCategories) {
-      const validCategories = propertyCategories.filter(c => 
+      const validCategories = propertyCategories.filter(c =>
         effectiveCategories.includes(c as CssNumberCategoryName)
       );
-      
+
       for (const category of validCategories) {
         const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
         const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
-        
+
         let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
         if (!units) continue;
-        
+
         if (stepConfig.units && stepConfig.units.length > 0) {
           const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
           if (filteredUnits.length === 0) continue;
           units = filteredUnits as unknown as typeof units;
         }
-        
+
         const numbers = generateNumbers(stepConfig, config.progressiveRanges);
-        
+
         for (const unit of units) {
           for (const num of numbers) {
             const numStr = formatNumberForClassName(num);
-            
+
             let atomName: string;
             let cssValue: string;
-            
+
             if (num === 0) {
               atomName = `${propertyName}0`;
               cssValue = '0';
             } else {
               const unitSuffix = formatUnitForClassName(unit);
               atomName = `${propertyName}${numStr}${unitSuffix}`;
-              
+
               if (unit === 'unitless') {
                 cssValue = num.toString();
               } else if (unit === 'percent') {
@@ -473,10 +473,10 @@ function generateAtomsForProperty(
                 cssValue = `${num}${unit}`;
               }
             }
-            
+
             if (seenNames.has(atomName)) continue;
             seenNames.add(atomName);
-            
+
             atoms.push({
               name: atomName,
               property: kebabProperty,
@@ -489,7 +489,7 @@ function generateAtomsForProperty(
       }
     }
   }
-  
+
   return atoms;
 }
 
@@ -498,14 +498,14 @@ export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
   const config = mergeConfig(options?.config);
   const effectiveProperties = getEffectiveProperties(config);
   const effectiveCategories = getEffectiveCategories(config);
-  
+
   const allAtoms: AtomDefinition[] = [];
-  
+
   for (const property of effectiveProperties) {
     const atoms = generateAtomsForProperty(property, config, effectiveCategories);
     allAtoms.push(...atoms);
   }
-  
+
   return allAtoms;
 }
 
@@ -517,7 +517,7 @@ function generateCssClassName(atom: AtomDefinition): string {
 /** 生成 DTS 内容（全局常量声明格式） */
 export function generateDts(options?: GeneratorOptions): string {
   const atoms = generateAtoms(options);
-  
+
   const lines: string[] = [
     '/**',
     ' * CSSTS 原子类全局常量声明（自动生成）',
@@ -526,14 +526,14 @@ export function generateDts(options?: GeneratorOptions): string {
     ' */',
     '',
   ];
-  
+
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
     lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
   }
-  
+
   lines.push('');
-  
+
   return lines.join('\n');
 }
 
@@ -544,16 +544,16 @@ export function generateStats(options?: GeneratorOptions): {
   byCategory: Record<string, number>;
 } {
   const atoms = generateAtoms(options);
-  
+
   const byProperty: Record<string, number> = {};
   const byCategory: Record<string, number> = {};
-  
+
   for (const atom of atoms) {
     byProperty[atom.property] = (byProperty[atom.property] || 0) + 1;
     const category = atom.unit || 'keyword';
     byCategory[category] = (byCategory[category] || 0) + 1;
   }
-  
+
   return { totalAtoms: atoms.length, byProperty, byCategory };
 }
 
@@ -567,16 +567,16 @@ export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProp
   const config = mergeConfig(options?.config);
   const effectiveProperties = getEffectiveProperties(config);
   const effectiveCategories = getEffectiveCategories(config);
-  
+
   const result: AtomsByProperty = {};
-  
+
   for (const property of effectiveProperties) {
     const atoms = generateAtomsForProperty(property, config, effectiveCategories);
     if (atoms.length > 0) {
       result[property] = atoms;
     }
   }
-  
+
   return result;
 }
 
@@ -589,13 +589,13 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
     '',
     `export interface ${propertyName.charAt(0).toUpperCase() + propertyName.slice(1)}Atoms {`,
   ];
-  
+
   let lastProperty: string | undefined;
   let lastUnit: string | undefined;
-  
+
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
-    
+
     if (lastProperty !== undefined) {
       if (atom.property !== lastProperty) {
         lines.push('');
@@ -603,14 +603,14 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
         lines.push('');
       }
     }
-    
+
     lines.push(`  ${atom.name}: '${cssClassName}';`);
     lastProperty = atom.property;
     lastUnit = atom.unit;
   }
-  
+
   lines.push('}', '');
-  
+
   return lines.join('\n');
 }
 
@@ -622,24 +622,24 @@ export function generateIndexDts(propertyNames: string[]): string {
     ' */',
     '',
   ];
-  
+
   for (const prop of propertyNames) {
     const typeName = prop.charAt(0).toUpperCase() + prop.slice(1) + 'Atoms';
     lines.push(`export { ${typeName} } from './${prop}';`);
   }
-  
+
   lines.push('');
   lines.push('/** 所有原子类类型 */');
   lines.push('export interface CsstsAtoms extends');
-  
+
   const typeNames = propertyNames.map(p => p.charAt(0).toUpperCase() + p.slice(1) + 'Atoms');
   for (let i = 0; i < typeNames.length; i++) {
     const isLast = i === typeNames.length - 1;
     lines.push(`  ${typeNames[i]}${isLast ? ' {}' : ','}`);
   }
-  
+
   lines.push('');
-  
+
   return lines.join('\n');
 }
 
@@ -658,12 +658,12 @@ function generateGroupAtomName(
   if (name) result += name;
   result += autoGenerated;
   if (suffix) result += suffix;
-  
+
   // 确保首字母小写（camelCase）
   if (result.length > 0) {
     result = result.charAt(0).toLowerCase() + result.slice(1);
   }
-  
+
   return result;
 }
 
@@ -675,10 +675,10 @@ function generateNumberGroupAtoms(
 ): GroupAtomDefinition[] {
   const { prefix, name, suffix, numberProperties } = groupConfig;
   if (!numberProperties || numberProperties.length === 0) return [];
-  
+
   const atoms: GroupAtomDefinition[] = [];
   const seenNames = new Set<string>();
-  
+
   // 找到所有属性共同支持的 categories
   const commonCategories = new Set<string>();
   for (const propName of numberProperties) {
@@ -696,43 +696,43 @@ function generateNumberGroupAtoms(
       }
     }
   }
-  
+
   // 过滤有效的 categories
-  const validCategories = Array.from(commonCategories).filter(c => 
+  const validCategories = Array.from(commonCategories).filter(c =>
     effectiveCategories.includes(c as CssNumberCategoryName)
   );
-  
+
   for (const category of validCategories) {
     // 使用第一个属性的配置作为基准
     const firstProp = numberProperties[0];
     const categoryConfig = getPropertyCategoryConfig(config, firstProp, category);
     const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
-    
+
     let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
     if (!units) continue;
-    
+
     if (stepConfig.units && stepConfig.units.length > 0) {
       const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
       if (filteredUnits.length === 0) continue;
       units = filteredUnits as unknown as typeof units;
     }
-    
+
     const numbers = generateNumbers(stepConfig, config.progressiveRanges);
-    
+
     for (const unit of units) {
       for (const num of numbers) {
         const numStr = formatNumberForClassName(num);
-        
+
         let autoGenerated: string;
         let cssValue: string;
-        
+
         if (num === 0) {
           autoGenerated = '0';
           cssValue = '0';
         } else {
           const unitSuffix = formatUnitForClassName(unit);
           autoGenerated = `${numStr}${unitSuffix}`;
-          
+
           if (unit === 'unitless') {
             cssValue = num.toString();
           } else if (unit === 'percent') {
@@ -741,18 +741,18 @@ function generateNumberGroupAtoms(
             cssValue = `${num}${unit}`;
           }
         }
-        
+
         const atomName = generateGroupAtomName(prefix, name, autoGenerated, suffix);
-        
+
         if (seenNames.has(atomName)) continue;
         seenNames.add(atomName);
-        
+
         // 生成所有属性的样式
         const styles: Record<string, string> = {};
         for (const propName of numberProperties) {
           styles[camelToKebab(propName)] = cssValue;
         }
-        
+
         atoms.push({
           name: atomName,
           styles,
@@ -761,7 +761,7 @@ function generateNumberGroupAtoms(
       }
     }
   }
-  
+
   return atoms;
 }
 
@@ -769,14 +769,14 @@ function generateNumberGroupAtoms(
 function generateKeywordGroupAtoms(groupConfig: GroupConfig): GroupAtomDefinition[] {
   const { prefix, name, suffix, keywordProperties } = groupConfig;
   if (!keywordProperties || Object.keys(keywordProperties).length === 0) return [];
-  
+
   const atomName = generateGroupAtomName(prefix, name, '', suffix);
-  
+
   const styles: Record<string, string> = {};
   for (const [propName, value] of Object.entries(keywordProperties)) {
     styles[camelToKebab(propName)] = value as string;
   }
-  
+
   return [{
     name: atomName,
     styles,
@@ -787,23 +787,23 @@ function generateKeywordGroupAtoms(groupConfig: GroupConfig): GroupAtomDefinitio
 function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefinition[] {
   const { prefix, name, suffix, keywordIterations } = groupConfig;
   if (!keywordIterations || Object.keys(keywordIterations).length === 0) return [];
-  
+
   const atoms: GroupAtomDefinition[] = [];
-  
+
   // 收集每个属性的关键字列表和别名/前缀
   const propertyKeywords: Array<{
     property: string;
     items: Array<{ value: string; alias?: string; prefix?: string }>;
   }> = [];
-  
+
   for (const [propName, config] of Object.entries(keywordIterations)) {
     if (!config) continue;
-    
+
     // 解析属性级别的 prefix/alias 和 values
     let propPrefix: string | undefined;
     let propAlias: string | undefined;
     let values: any[];
-    
+
     if (Array.isArray(config)) {
       // 简写形式：直接是数组
       values = config;
@@ -816,36 +816,36 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
     } else {
       continue;
     }
-    
+
     if (!values || values.length === 0) continue;
-    
+
     const items: Array<{ value: string; alias?: string; prefix?: string }> = [];
-    
+
     for (const item of values) {
       if (typeof item === 'string' || typeof item === 'number') {
         // 简写形式：直接写值，使用属性级别的 prefix/alias
-        items.push({ 
+        items.push({
           value: String(item),
           prefix: propPrefix,
           alias: propAlias
         });
       } else if (item && typeof item === 'object' && 'value' in item) {
         // 详细配置：{ value, alias?, prefix? }，里层覆盖外层
-        items.push({ 
-          value: String(item.value), 
+        items.push({
+          value: String(item.value),
           alias: item.alias ?? propAlias,
           prefix: item.prefix ?? propPrefix
         });
       }
     }
-    
+
     if (items.length > 0) {
       propertyKeywords.push({ property: propName, items });
     }
   }
-  
+
   if (propertyKeywords.length === 0) return [];
-  
+
   // 生成所有关键字组合的笛卡尔积
   function cartesianProduct<T>(arrays: T[][]): T[][] {
     return arrays.reduce<T[][]>(
@@ -853,19 +853,19 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
       [[]]
     );
   }
-  
+
   const itemArrays = propertyKeywords.map(pk => pk.items);
   const combinations = cartesianProduct(itemArrays);
-  
+
   for (const combination of combinations) {
     // 生成类名：拼接所有关键字（使用别名或前缀+值）
     const nameParts: string[] = [];
     const styles: Record<string, string> = {};
-    
+
     for (let i = 0; i < propertyKeywords.length; i++) {
       const { property } = propertyKeywords[i];
       const { value, alias, prefix: itemPrefix } = combination[i];
-      
+
       // 优先使用别名，否则使用前缀+格式化值
       let displayName: string;
       if (alias !== undefined) {
@@ -877,20 +877,20 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
         const formattedPrefix = itemPrefix ? itemPrefix.charAt(0).toUpperCase() + itemPrefix.slice(1) : '';
         displayName = formattedPrefix + formattedValue;
       }
-      
+
       nameParts.push(displayName);
       styles[camelToKebab(property)] = value;
     }
-    
+
     const autoGenerated = nameParts.join('');
     const atomName = generateGroupAtomName(prefix, name, autoGenerated, suffix);
-    
+
     atoms.push({
       name: atomName,
       styles,
     });
   }
-  
+
   return atoms;
 }
 
@@ -898,56 +898,56 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
 export function generateGroupAtoms(options?: GeneratorOptions): GroupAtomDefinition[] {
   const config = mergeConfig(options?.config);
   const groups = config.groups;
-  
+
   if (!groups || groups.length === 0) return [];
-  
+
   const effectiveCategories = getEffectiveCategories(config);
   const allAtoms: GroupAtomDefinition[] = [];
-  
+
   for (const groupConfig of groups) {
     // numberProperties
     if (groupConfig.numberProperties) {
       const atoms = generateNumberGroupAtoms(groupConfig, config, effectiveCategories);
       allAtoms.push(...atoms);
     }
-    
+
     // keywordProperties（固定组合）
     if (groupConfig.keywordProperties) {
       const atoms = generateKeywordGroupAtoms(groupConfig);
       allAtoms.push(...atoms);
     }
-    
+
     // keywordIterations（遍历组合）
     if (groupConfig.keywordIterations) {
       const atoms = generateKeywordIterationAtoms(groupConfig);
       allAtoms.push(...atoms);
     }
   }
-  
+
   return allAtoms;
 }
 
 /** 生成 group atoms 的 DTS 内容 */
 export function generateGroupAtomsDts(atoms: GroupAtomDefinition[]): string {
   if (atoms.length === 0) return '';
-  
+
   const lines: string[] = [
     '/**',
     ' * CSSTS Group 原子类全局常量声明（自动生成）',
     ' */',
     '',
   ];
-  
+
   for (const atom of atoms) {
     // 生成 CSS 类名：每个属性_值单独一个 key
     const cssClassParts = Object.entries(atom.styles)
       .map(([prop, value]) => `'${prop}_${value}': true`)
       .join('; ');
-    
+
     lines.push(`declare const ${atom.name}: { ${cssClassParts} };`);
   }
-  
+
   lines.push('');
-  
+
   return lines.join('\n');
 }

@@ -25,9 +25,20 @@ import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 
 // ==================== 类型定义 ====================
 
-/** 生成选项 */
+/** 
+ * 生成选项
+ * 
+ * 继承 GeneratorOptions（包含 config），编译器会从 config 中读取：
+ * - config.dtsOutputDir -> 输出目录
+ * - config.dts -> 是否生成（由调用方判断）
+ * 
+ * 只保留调用时特有的选项
+ */
 export interface DtsGenerateOptions extends GeneratorOptions {
-  /** 输出目录（绝对路径），默认为 node_modules/@types/cssts-ts */
+  /** 
+   * 输出目录（覆盖 config.dtsOutputDir）
+   * @deprecated 推荐使用 config.dtsOutputDir
+   */
   outputDir?: string;
   /** 是否生成分文件版本，默认 false */
   splitFiles?: boolean;
@@ -114,26 +125,26 @@ function generateIndexDtsWithReferences(fileNames: string[]): string {
 /**
  * 生成 DTS 文件到指定目录
  * 
- * 支持两种模式：
- * 1. splitFiles=true（默认）：拆分为多个文件，每个属性一个文件，使用 declare const 全局声明
- * 2. splitFiles=false：单个 index.d.ts 文件
+ * 从 config 中读取配置：
+ * - config.dtsOutputDir: 输出目录
+ * - config.dtsSplitFiles: 是否拆分文件
+ * - config.debug: 是否打印日志
  * 
- * 分类优先级：number > color > keywords
- * - 有 number 数据 → 单独文件（如 width.d.ts）
- * - 无 number，有 colorTypes → colors.d.ts
- * - 无 number，无 colorTypes → keywords.d.ts
+ * 支持两种模式：
+ * 1. dtsSplitFiles=false（默认）：单个 index.d.ts 文件
+ * 2. dtsSplitFiles=true：拆分为多个文件，每个属性一个文件
  */
 export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResult {
-  const {
-    outputDir = getDefaultOutputDir(),
-    splitFiles = false,
-    verbose = false,
-    config,
-  } = options ?? {};
+  const { config } = options ?? {};
+
+  // 从 config 中读取配置，options 中的值作为覆盖（兼容旧用法）
+  const outputDir = options?.outputDir ?? config?.dtsOutputDir ?? getDefaultOutputDir();
+  const splitFiles = config?.dtsSplitFiles ?? false;
+  const debug = config?.debug ?? false;
 
   const generatorOptions = config ? { config } : undefined;
   const files: string[] = [];
-  const log = verbose ? console.log : () => { };
+  const log = debug ? console.log : () => { };
 
   // 确保目录存在
   if (!fs.existsSync(outputDir)) {

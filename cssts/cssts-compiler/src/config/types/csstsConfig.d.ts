@@ -1,5 +1,9 @@
 /**
- * CSSTS 配置类型定义（自动生成）
+ * CSSTS 配置类型定义（手动维护）
+ * 
+ * 配置层次：
+ * - CsstsConfig: 核心业务配置，控制"生成什么原子类"
+ * - CsstsCompilerConfig: 编译器配置，继承业务配置 + 添加构建配置
  */
 
 import type {
@@ -22,7 +26,16 @@ import type {
   GroupConfig
 } from './cssPropertyConfig';
 
+// ==================== 核心业务配置 ====================
+
+/**
+ * CSSTS 核心业务配置
+ * 
+ * 控制"生成什么原子类"：属性、颜色、数值范围、伪类等
+ */
 export interface CsstsConfig {
+  // ==================== 属性配置 ====================
+
   /** 
    * 支持的 CSS 属性列表（属性名数组）
    * 用于指定生成哪些属性的原子类
@@ -43,6 +56,8 @@ export interface CsstsConfig {
    * @example [{ zIndex: { unitless: { max: 9999, presets: [-1, 999] } } }]
    */
   propertiesConfig?: CssPropertyConfig[];
+
+  // ==================== 数值配置 ====================
 
   /**
    * 支持的数值类别列表（类别名数组）
@@ -82,11 +97,18 @@ export interface CsstsConfig {
    */
   numberUnitsConfig?: CssNumberUnitConfig[];
 
+  /** 渐进步长范围 */
+  progressiveRanges?: CssProgressiveRange[];
+
+  // ==================== 关键字配置 ====================
+
   /** 关键字 */
   keywords?: CssKeywordName[];
 
   /** 排除的关键字 */
   excludeKeywords?: CssKeywordName[];
+
+  // ==================== 颜色配置 ====================
 
   /**
    * 支持的颜色类型列表（类型名数组）
@@ -113,11 +135,7 @@ export interface CsstsConfig {
   /** 排除的颜色 */
   excludeColors?: CssColorName[];
 
-  /** 自定义属性 */
-  customProperties?: Record<string, CssCustomPropertyValue>;
-
-  /** 渐进步长范围 */
-  progressiveRanges?: CssProgressiveRange[];
+  // ==================== 伪类/伪元素配置 ====================
 
   /** 伪类 */
   pseudoClasses?: CssPseudoClassName[];
@@ -137,6 +155,8 @@ export interface CsstsConfig {
   /** 伪元素样式配置 */
   pseudoElementsConfig?: CssPseudoElementConfig;
 
+  // ==================== 组合配置 ====================
+
   /**
    * 组合原子类配置
    * 类名生成规则：prefix + name + [自动生成] + suffix
@@ -153,13 +173,27 @@ export interface CsstsConfig {
    */
   groups?: GroupConfig[];
 
-  // ==================== 构建配置 ====================
+  /** 自定义属性 */
+  customProperties?: Record<string, CssCustomPropertyValue>;
+
+  // ==================== 输出配置 ====================
 
   /**
    * CSS 类名前缀
    * @example 'my-' => .my-display-flex
    */
   classPrefix?: string;
+}
+
+// ==================== 编译器配置 ====================
+
+/**
+ * CSSTS 编译器配置
+ * 
+ * 继承核心业务配置，添加构建相关配置
+ */
+export interface CsstsCompilerConfig extends CsstsConfig {
+  // ==================== 类型定义生成配置 ====================
 
   /**
    * 是否生成类型声明文件
@@ -172,6 +206,23 @@ export interface CsstsConfig {
    * @default 'node_modules/@types/cssts-ts'
    */
   dtsOutputDir?: string;
+
+  /**
+   * 是否将类型声明文件拆分为多个文件
+   * @default false
+   */
+  dtsSplitFiles?: boolean;
+
+  // ==================== 调试配置 ====================
+
+  /**
+   * 是否开启调试模式（打印详细日志）
+   * @default false
+   */
+  debug?: boolean;
 }
 
+// ==================== 辅助类型 ====================
+
 export type CsstsConfigRequired = Required<CsstsConfig>;
+export type CsstsCompilerConfigRequired = Required<CsstsCompilerConfig>;

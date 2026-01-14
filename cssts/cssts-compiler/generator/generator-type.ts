@@ -5,7 +5,8 @@
  *
  * 生成文件（src/config/types/）：
  * - cssPropertyConfig.d.ts: 所有 CSS 配置类型（泛型版本）
- * - csstsConfig.d.ts: CSSTS 配置类型
+ * 
+ * 注意：csstsConfig.d.ts 是手动维护的，不再自动生成
  *
  * 运行方式：tsx generator/generator-type.ts
  * 
@@ -502,8 +503,8 @@ function main() {
   fs.writeFileSync(path.join(typesDir, 'cssPropertyConfig.d.ts'), generateCssPropertyConfigType());
   console.log('✅ src/config/types/cssPropertyConfig.d.ts');
 
-  fs.writeFileSync(path.join(typesDir, 'csstsConfig.d.ts'), generateCsstsConfigType());
-  console.log('✅ src/config/types/csstsConfig.d.ts');
+  // 注意：csstsConfig.d.ts 是手动维护的，不再自动生成
+  console.log('ℹ️  src/config/types/csstsConfig.d.ts（手动维护，未生成）');
 
   // 统计
   const propertyCount = Object.keys(CSS_PROPERTY_NAME_MAP).length;

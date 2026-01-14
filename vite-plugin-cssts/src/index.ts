@@ -5,8 +5,7 @@ import {
   generateStylesCss,
   generateCsstsAtomModule,
   generateDtsFiles,
-  type CsstsConfig,
-  type PseudoUtilsConfig,
+  type CsstsCompilerConfig,
 } from 'cssts-compiler'
 
 // ==================== 插件配置 ====================
@@ -14,59 +13,25 @@ import {
 /**
  * CSSTS Vite 插件配置
  * 
+ * 继承 CsstsCompilerConfig，所有编译器配置都可以直接在顶层使用
+ * 
  * @example
  * ```ts
  * // 使用默认配置
  * cssTsPlugin()
  * 
- * // 完整配置示例
+ * // 自定义配置
  * cssTsPlugin({
- *   // 编译器配置（控制生成哪些原子类）
- *   config: {
- *     properties: ['width', 'height', 'margin'],
- *     progressiveRanges: [{ max: 100, step: 1 }],
- *     colors: ['red', 'blue', 'green']
- *   },
- *   // 插件配置
- *   dts: true,
  *   classPrefix: 'my-',
+ *   dts: true,
+ *   dtsOutputDir: 'node_modules/@types/cssts-ts',
+ *   properties: ['width', 'height', 'margin'],
+ *   colors: ['red', 'blue', 'green'],
  *   pseudoClassesConfig: { hover: { opacity: '0.9' } }
  * })
  * ```
  */
-export interface CssTsPluginOptions {
-  /**
-   * CssTS 编译器配置
-   * 控制生成哪些原子类、步长、颜色等
-   * 此配置会传递给 generateDtsFiles，影响类型提示
-   */
-  config?: Partial<CsstsConfig>
-
-  /**
-   * 是否生成 .d.ts 类型定义文件
-   * @default true
-   */
-  dts?: boolean
-
-  /**
-   * 类型文件输出目录
-   * @default 'node_modules/@types/cssts-ts'
-   */
-  dtsOutputDir?: string
-
-  /**
-   * CSS 类名前缀
-   * @example 'my-' → .my-display_flex
-   */
-  classPrefix?: string
-
-  /**
-   * 伪类样式配置
-   * 为伪类添加额外的样式属性
-   * @example { hover: { filter: 'brightness(1.15)' } }
-   */
-  pseudoClassesConfig?: PseudoUtilsConfig
-
+export interface CssTsPluginOptions extends Partial<CsstsCompilerConfig> {
   /**
    * 外部传入的共享样式集合
    * 用于多个插件共享样式状态（如 vite-plugin-ovs）
@@ -194,14 +159,15 @@ function createEsbuildPlugin() {
 // ==================== Vite Plugin ====================
 
 export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
-  // 从 CsstsConfig 读取配置
-  const prefix = options.classPrefix ?? ''
-  const pseudoUtils = options.pseudoClassesConfig
-  const enableDts = options.dts ?? true
-  const dtsOutputDir = options.dtsOutputDir
+  // 分离插件特有配置和编译器配置
+  const { globalStyles: externalStyles, ...compilerConfig } = options
 
-  // 样式状态：外部传入或内部创建
-  const globalStyles = options.globalStyles ?? new Set<string>()
+  // 插件特有配置
+  const globalStyles = externalStyles ?? new Set<string>()
+
+  // 编译器配置（compilerConfig 包含所有 CsstsCompilerConfig 配置）
+  // dts 默认为 true
+  const enableDts = compilerConfig.dts ?? true
 
   let server: any = null
   let config: ResolvedConfig
@@ -256,13 +222,15 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     configResolved(resolvedConfig) {
       config = resolvedConfig
-      // 自动生成类型文件（根据用户配置）
+      // 自动生成类型文件
       if (enableDts) {
-        const outputDir = dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
-        generateDtsFiles({
-          outputDir,
-          config: options.config  // 传入用户的编译器配置
-        })
+        // 如果用户没有指定 dtsOutputDir，使用默认路径
+        const configWithDefaults = {
+          ...compilerConfig,
+          dtsOutputDir: compilerConfig.dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
+        }
+        // 直接传入编译器配置，编译器自己读取所有配置
+        generateDtsFiles({ config: configWithDefaults })
       }
     },
 
@@ -277,10 +245,10 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     load(id) {
       if (id === RESOLVED_VIRTUAL_CSS_ID) {
-        return generateStylesCss(globalStyles, pseudoUtils, prefix)
+        return generateStylesCss(globalStyles, options.pseudoClassesConfig, options.classPrefix)
       }
       if (id === RESOLVED_VIRTUAL_ATOM_ID) {
-        return generateCsstsAtomModule(globalStyles, prefix)
+        return generateCsstsAtomModule(globalStyles, options.classPrefix)
       }
     },
 
