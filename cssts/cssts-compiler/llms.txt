@@ -1,0 +1,308 @@
+# cssts-compiler LLM 开发指南
+
+> 本文档面向 AI 助手，帮助理解和开发 cssts-compiler 项目
+
+## 1. 项目概述
+
+cssts-compiler 是一个 CSS-in-TS 编译器，将 `css { }` 语法转换为运行时可用的 JavaScript 代码。
+
+**核心功能**：
+- 解析 `.cssts` 文件中的 `css { }` 语法
+- CST → AST 转换，生成 `cssts.$cls(csstsAtom.xxx, ...)` 调用
+- 按需生成 CSS 样式
+- 生成 `.d.ts` 类型定义供 IDE 提示
+
+---
+
+## 2. 用户 vs 开发者
+
+### 用户（使用 cssts 的项目）
+
+用户通过 `vite-plugin-cssts` 使用，**零配置**：
+
+```bash
+npm install vite-plugin-cssts -D
+```
+
+```javascript
+// vite.config.js
+import cssTsPlugin from 'vite-plugin-cssts'
+export default { plugins: [cssTsPlugin(), vue()] }
+```
+
+用户不需要执行任何 cssts-compiler 脚本，所有工作由 Vite 插件自动完成。
+
+### 开发者（开发 cssts-compiler）
+
+开发者需要了解以下内容：
+
+---
+
+## 3. 日常开发工作流
+
+### 📋 大多数时候不需要执行任何脚本！
+
+直接修改源码，使用 `mono` 启动 vite-project 测试：
+
+```bash
+cd cssts/vite-project
+mono ./node_modules/vite/bin/vite.js
+```
+
+`mono` 会自动解析本地源码，无需构建。
+
+### 🧪 测试编译结果
+
+```bash
+cd cssts/vite-project
+mono test-compiler.mjs
+```
+
+该脚本会显示：原始代码、编译后代码、收集的样式。
+
+---
+
+## 4. 项目结构
+
+```
+cssts-compiler/
+├── generator/               # 数据生成脚本（开发时使用）
+│   ├── datajson/            # 原始数据 JSON
+│   ├── generator-data.ts    # 生成 src/data/
+│   └── generator-type.ts    # 生成 src/config/types/
+├── src/
+│   ├── parser/              # 解析器（继承 slime-parser）
+│   ├── factory/             # CST → AST 转换器
+│   ├── transform/           # 核心转换 + CSS 生成
+│   ├── dts/                 # 类型定义生成器
+│   ├── data/                # 自动生成的数据文件
+│   ├── config/              # 配置系统
+│   └── utils/               # 工具函数
+└── tests/                   # 测试文件
+```
+
+### 开发时常用目录
+
+| 目录 | 修改场景 |
+|------|---------|
+| `src/parser/` | 修改 `css {}` 语法解析规则 |
+| `src/factory/` | 修改 CST→AST 转换逻辑 |
+| `src/transform/` | 修改 CSS 生成/转换入口 |
+| `src/dts/` | 修改类型定义生成逻辑 |
+| `src/utils/` | 修改 CSS 类名规则、配置工具 |
+| `generator/datajson/` | 修改原始数据（伪类、继承等） |
+
+---
+
+## 5. 编译流程（4个阶段）
+
+```
+源代码: const btn = css { displayFlex, colorRed }
+         ↓
+① CssTsParser.Program()          → CST
+         ↓
+② CssTsCstToAstUtils.toFileAst() → AST + usedAtoms
+         ↓
+③ SlimeGenerator.generator()      → JavaScript
+         ↓
+④ generateStylesCss()             → CSS
+```
+
+详细说明：
+- **阶段1 解析**: CssTsParser 继承 SlimeParser，添加 CssExpression 语法
+- **阶段2 转换**: CssTsCstToAst 拦截 CssExpression，转换为 cssts.$cls() 调用
+- **阶段3 生成**: SlimeGenerator 将 AST 转回 JavaScript 代码
+- **阶段4 CSS**: generateStylesCss 根据收集的样式名生成 CSS
+
+---
+
+## 6. Generator 脚本详解
+
+### 数据流向
+
+```
+┌─────────────────┐     ┌─────────────────┐
+│    csstree      │     │   datajson/     │
+│  (npm 库)       │     │  (手动维护)      │
+└────────┬────────┘     └────────┬────────┘
+         │                       │
+         └───────────┬───────────┘
+                     ▼
+          ┌─────────────────────┐
+          │ generator-data.ts   │  → src/data/*.ts
+          └──────────┬──────────┘
+                     ▼
+          ┌─────────────────────┐
+          │ generator-type.ts   │  → src/config/types/*.d.ts
+          └─────────────────────┘
+```
+
+### datajson/ 目录（手动维护）
+
+| 文件 | 用途 |
+|------|------|
+| `numberMapping.json` | 单位→分类映射（px→pixel, em→fontRelative） |
+| `pseudo-standards.json` | 伪类列表（hover, focus）和伪元素（before, after） |
+| `propertyInheritance.json` | 属性简写继承（m→margin, mx→marginLeft+marginRight） |
+
+### 何时执行
+
+| 场景 | 执行脚本 |
+|------|---------|
+| 升级 csstree 版本 | 两个脚本都执行 |
+| 添加新伪类 | 修改 pseudo-standards.json 后执行两个脚本 |
+| 修改单位分类 | 修改 numberMapping.json 后执行两个脚本 |
+| 添加属性继承 | 修改 propertyInheritance.json 后执行两个脚本 |
+
+### 执行顺序（必须按顺序）
+
+```bash
+cd cssts/cssts/cssts-compiler
+
+# 1. 先生成数据（读取 csstree + datajson → src/data/）
+tsx generator/generator-data.ts
+
+# 2. 再生成类型（读取 src/data/ → src/config/types/）
+tsx generator/generator-type.ts
+
+# 3. 验证构建
+npm run build
+```
+
+### 生成的文件
+
+**src/data/** (由 generator-data.ts 生成)：
+- `cssPropertyNameMapping.ts` - 属性名映射
+- `cssKeywordsData.ts` - 关键字数据
+- `cssColorData.ts` - 颜色数据
+- `cssPseudoData.ts` - 伪类/伪元素数据
+- `cssNumberData.ts` - 单位和分类
+- `cssPropertyKeywords.ts` - 属性→关键字映射
+- `cssPropertyNumber.ts` - 属性→数值分类映射
+- `cssPropertyColorTypes.ts` - 属性→颜色类型映射
+- `cssPropertyInheritance.ts` - 属性继承关系
+
+**src/config/types/** (由 generator-type.ts 生成)：
+- `cssPropertyConfig.d.ts` - CSS 属性配置类型
+- `csstsConfig.d.ts` - CsstsConfig 接口
+
+---
+
+## 7. 关键设计决策
+
+| 决策 | 原因 |
+|------|------|
+| 继承 slime-parser | 复用成熟的 TS/JS 解析器，只需添加 `css { }` 语法 |
+| 全局注册机制 | 让子类能覆盖转换逻辑，解决继承时内部调用不走子类的问题 |
+| 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
+| 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
+
+---
+
+## 8. 常见问题修复指南
+
+### 问题：css { } 语法无法解析
+
+**检查点**：
+1. CssTsParser 是否正确继承 SlimeParser
+2. CssExpression 语法规则是否定义
+3. CssTsTokenConsumer 是否包含 `css` 关键字
+
+### 问题：转换后代码丢失 TypeScript 类型
+
+**检查点**：
+1. SlimeGenerator 是否处理了相关 AST 节点
+2. 检查 `generatorCallExpression` 是否输出 `typeParameters`
+3. 检查 CST→AST 转换是否保留了 `typeParameters` 字段
+
+### 问题：生成的 CSS 类名不正确
+
+**检查点**：
+1. `utils/cssClassName.ts` 中的 `getCssClassName` 函数
+2. 检查 camelCase → kebab-case 转换逻辑
+3. 检查特殊字符处理（小数点、百分号、负数）
+
+### 问题：IDE 无法自动补全原子类
+
+**检查点**：
+1. 类型定义是否生成到 `node_modules/@types/cssts-ts/`
+2. `tsconfig.json` 是否包含 `@types` 目录
+3. 检查 `dts/atom-generator.ts` 生成逻辑
+
+---
+
+## 9. 核心文件说明
+
+| 文件 | 职责 |
+|------|------|
+| `parser/CssTsParser.ts` | 解析器，添加 css {} 语法 |
+| `factory/CssTsCstToAstUtils.ts` | CST→AST 转换，拦截 CssExpression |
+| `transform/index.ts` | 核心转换入口，CSS 生成 |
+| `dts/atom-generator.ts` | 原子类定义生成 |
+| `dts/dts-writer.ts` | 类型文件写入 |
+| `utils/cssClassName.ts` | CSS 类名生成规则 |
+| `config/CsstsDefaultConfig.ts` | 默认配置 |
+
+---
+
+## 10. 依赖关系
+
+```
+slime-parser (JS/TS 解析器)
+    ↓ 继承
+cssts-compiler (本项目)
+    ↓ 被使用
+vite-plugin-cssts (Vite 插件)
+    ↓ 安装
+用户项目
+```
+
+---
+
+## 11. 调试技巧
+
+### 查看 CST 结构
+
+```typescript
+const parser = new CssTsParser(code)
+const cst = parser.Program()
+console.log(JSON.stringify(cst, null, 2))
+```
+
+### 查看 AST 结构
+
+```typescript
+const ast = CssTsCstToAstUtils.toFileAst(cst)
+console.log(JSON.stringify(ast, null, 2))
+```
+
+### 查看收集的样式
+
+```typescript
+const usedAtoms = CssTsCstToAstUtils.getUsedAtoms()
+console.log([...usedAtoms])
+```
+
+### 测试编译输出
+
+```bash
+# 在 vite-project 中
+mono test-compiler.mjs
+```
+
+---
+
+## 12. 版本兼容
+
+- Node.js >= 18
+- slime-parser >= 0.2.x
+- slime-generator >= 0.2.x
+
+---
+
+## ⚠️ 注意事项
+
+1. **不要手动编辑 `src/data/` 文件** - 这些由 `generator-data.ts` 自动生成
+2. **不要手动编辑 `src/config/types/` 文件** - 这些由 `generator-type.ts` 自动生成
+3. **修改后测试** - 使用 `mono test-compiler.mjs` 验证编译输出
+4. **发布前构建** - 执行 `npm run build` 生成发布包
