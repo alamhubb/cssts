@@ -81,15 +81,26 @@ const link$$active = css { colorRed }
 const card$$hover$$active = css { displayFlex, padding16px }
 ```
 
-### 6. cssts.merge() 合并样式
+### 6. 合并样式（在 css {} 中引用变量）
+
+**重要**：先定义被引用的样式，再定义引用它的样式！
+
 ```typescript
-import { cssts } from 'cssts-ts'
+// ✅ 正确：先定义伪类样式
+const button$$hover = css { backgroundColorBlue }
+const button$$active = css { backgroundColorNavy }
 
-const baseStyle = css { displayFlex, padding16px }
-const activeStyle = css { backgroundColorBlue }
+// 再定义合并样式（引用已定义的变量）
+const buttonStyle = css {
+  padding16px,
+  borderRadius8px,
+  button$$hover,
+  button$$active
+}
 
-// 运行时合并
-const merged = cssts.merge(baseStyle, activeStyle)
+// ❌ 错误：引用未定义的变量（会报错）
+const wrongStyle = css { padding16px, notDefined$$hover }
+const notDefined$$hover = css { colorRed }  // 定义在后面，报错！
 ```
 
 ## ❌ 不支持的语法
@@ -147,8 +158,6 @@ const myStyle = displayFlex
 ## 📝 完整示例
 
 ```typescript
-import { cssts } from 'cssts-ts'
-
 // 1. 基础原子类使用（逗号分隔）
 const container = css { displayFlex, padding16px, margin20px }
 
@@ -160,20 +169,22 @@ const card = css {
   backgroundColorWhite
 }
 
-// 3. 伪类样式
+// 3. 先定义伪类样式
 const button$$hover = css { backgroundColorBlue }
 const button$$active = css { backgroundColorNavy }
 
-// 4. 运行时合并
-const activeButton = cssts.merge(
-  css { padding16px, backgroundColorBlue },
-  css { fontWeightBold }
-)
+// 4. 再定义合并样式（引用已定义的伪类）
+const buttonStyle = css {
+  padding16px,
+  borderRadius8px,
+  button$$hover,
+  button$$active
+}
 
-// 5. Vue 中使用
+// 5. Vue 中使用（直接用变量）
 <template>
   <div :class="container">
-    <button :class="cssts.merge(card, button$$hover, button$$active)">Click me</button>
+    <button :class="buttonStyle">Click me</button>
   </div>
 </template>
 ```
@@ -191,10 +202,10 @@ const style = css { displayFlex padding16px }  // 解析失败
 
 ### 2. 样式组合推荐方式
 ```typescript
-// ✅ 推荐：合并多个 css 块
+// ✅ 推荐：先定义基础样式，再在 css {} 中引用合并
 const base = css { displayFlex, padding16px }
 const colored = css { backgroundColorBlue }
-const final = cssts.merge(base, colored)
+const final = css { base, colored }
 ```
 
 ## 🔧 配置

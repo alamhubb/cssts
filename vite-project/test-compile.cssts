@@ -1,5 +1,6 @@
 import { ref } from 'vue'
-import { cssts } from 'cssts-ts'
+
+defineProps<{ msg: string }>()
 
 const count = ref(0)
 const cardStyle = css { padding20px, borderRadius8px }
