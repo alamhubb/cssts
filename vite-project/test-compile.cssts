@@ -1,0 +1,5 @@
+// 测试多个属性 - 用逗号分隔
+const x = css { 
+  displayFlex,
+  padding20px
+}
