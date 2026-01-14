@@ -7,19 +7,19 @@
 import { CssTsParser } from '../parser/index.ts'
 import { CssTsCstToAstUtils } from '../factory/index.ts'
 import { registerSlimeCstToAstUtil } from 'slime-parser'
+import { SlimeGenerator } from 'slime-generator'
 import { ConfigLookup } from '../config/ConfigLookup'
 import {
   getCssClassName,
   getCssProperty,
   getCssValue,
   camelToKebab,
+  generateAtomCssRule,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
 
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>
-
-import { SlimeGenerator } from 'slime-generator'
 
 // ==================== 类型定义 ====================
 
@@ -146,18 +146,6 @@ export function transformCssTsWithMapping(code: string): TransformResultWithMapp
 }
 
 // ==================== CSS 生成 ====================
-
-/**
- * 生成单条原子类 CSS 规则
- */
-function generateAtomCssRule(atomName: string, prefix: string = ''): string | null {
-  const className = getCssClassName(atomName)
-  const property = getCssProperty(atomName)
-  const value = getCssValue(atomName)
-  if (!property || !value) return null
-  const fullClassName = prefix ? `${prefix}${className}` : className
-  return `.${fullClassName} { ${property}: ${value}; }`
-}
 
 /**
  * 生成伪类 CSS 规则

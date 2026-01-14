@@ -1,5 +1,5 @@
-import type { Plugin, ResolvedConfig } from 'vite'
-import * as path from 'node:path'
+import type { Plugin } from 'vite'
+import * as fs from 'node:fs'
 import {
   transformCssTs,
   generateStylesCss,
@@ -7,6 +7,7 @@ import {
   generateDtsFiles,
   type CsstsCompilerConfig,
 } from 'cssts-compiler'
+import { parse as parseSfc, type SFCDescriptor, type SFCScriptBlock } from '@vue/compiler-sfc'
 
 // ==================== 插件配置 ====================
 
@@ -48,8 +49,6 @@ const VIRTUAL_ATOM_ID = 'virtual:csstsAtom'
 const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
 
 // ==================== Vue SFC 解析（使用官方 @vue/compiler-sfc） ====================
-
-import { parse as parseSfc, type SFCDescriptor, type SFCScriptBlock } from '@vue/compiler-sfc'
 
 /**
  * 解析 Vue SFC 文件，提取 script 信息
@@ -164,16 +163,14 @@ function createEsbuildPlugin() {
     name: 'cssts-esbuild',
     setup(build: any) {
       // 处理 .cssts 文件
-      build.onLoad({ filter: /\.cssts$/ }, async (args: any) => {
-        const fs = await import('node:fs')
+      build.onLoad({ filter: /\.cssts$/ }, (args: any) => {
         const code = fs.readFileSync(args.path, 'utf-8')
         const transformed = stripCssSyntax(code)
         return { contents: transformed, loader: 'ts' }
       })
 
       // 处理 .vue 文件中的 <script lang="cssts">
-      build.onLoad({ filter: /\.vue$/ }, async (args: any) => {
-        const fs = await import('node:fs')
+      build.onLoad({ filter: /\.vue$/ }, (args: any) => {
         const code = fs.readFileSync(args.path, 'utf-8')
 
         // 检查是否有 <script lang="cssts">
@@ -277,11 +274,10 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
       try {
         let codeToTransform = code
-        let isVueFile = id.endsWith('.vue')
         let vueScriptInfo: ReturnType<typeof extractVueCsstsScript> = null
 
         // 对于 .vue 文件，提取 <script lang="cssts"> 内容
-        if (isVueFile) {
+        if (id.endsWith('.vue')) {
           vueScriptInfo = extractVueCsstsScript(code)
           if (!vueScriptInfo) return null
           codeToTransform = vueScriptInfo.script
@@ -298,7 +294,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
         }
 
         // 对于 .vue 文件，重建完整文件
-        if (isVueFile && vueScriptInfo) {
+        if (vueScriptInfo) {
           transformedCode = rebuildVueFile(code, vueScriptInfo, transformedCode)
         }
 
