@@ -1,7 +1,11 @@
 /**
- * 配置查找器
+ * 配置查找器（静态方法模式）
  * 
- * 保持用户配置和默认配置两份，使用时按需查找：
+ * 使用方式：
+ * 1. 调用 ConfigLookup.init(userConfig) 初始化
+ * 2. 之后直接调用 ConfigLookup.xxx 静态方法获取配置
+ * 
+ * 配置策略：
  * - 顶级配置：用户有就用用户的，没有就用默认的
  * - 嵌套配置（numberCategoriesConfig, propertiesConfig）：按名称查找，先用户后默认
  */
@@ -19,9 +23,6 @@ import { csstsDefaultConfig } from './CsstsDefaultConfig';
 
 /**
  * 从配置数组中查找指定 key 的配置
- * @param configArray 配置数组，如 [{ pixel: {...} }, { fontRelative: {...} }]
- * @param key 要查找的 key，如 'pixel'
- * @returns 找到的配置值，如 { min: 0, max: 1000 }
  */
 function findInConfigArray<T extends Record<string, any>>(
     configArray: T[] | undefined,
@@ -38,78 +39,97 @@ function findInConfigArray<T extends Record<string, any>>(
 }
 
 /**
- * 配置查找器
- * 
- * 使用时按需查找配置：
- * - 顶级覆盖：用户有就用用户的，没有就用默认的
- * - 按名称覆盖：先从用户配置查找，找不到再从默认配置查找
+ * 配置查找器（静态方法模式）
  */
 export class ConfigLookup {
-    constructor(
-        private readonly userConfig?: Partial<CsstsConfig>,
-        private readonly defaultConfig: CsstsConfig = csstsDefaultConfig
-    ) { }
+    // 内部存储
+    private static userConfig: Partial<CsstsConfig> | undefined;
+    private static defaultConfig: CsstsConfig = csstsDefaultConfig;
 
-    // ==================== 顶级覆盖 ====================
+    /**
+     * 初始化配置（在入口处调用一次）
+     */
+    static init(userConfig?: Partial<CsstsConfig>): void {
+        ConfigLookup.userConfig = userConfig;
+    }
+
+    /**
+     * 重置配置（用于测试或重新初始化）
+     */
+    static reset(): void {
+        ConfigLookup.userConfig = undefined;
+    }
+
+    // ==================== 顶级覆盖（静态 getter） ====================
 
     /** 支持的属性列表 */
-    get properties(): CssPropertyName[] | undefined {
+    static get properties(): CssPropertyName[] | undefined {
         return this.userConfig?.properties ?? this.defaultConfig.properties;
     }
 
     /** 排除的属性列表 */
-    get excludeProperties(): CssPropertyName[] | undefined {
+    static get excludeProperties(): CssPropertyName[] | undefined {
         return this.userConfig?.excludeProperties ?? this.defaultConfig.excludeProperties;
     }
 
     /** 支持的颜色列表 */
-    get colors(): CssColorName[] | undefined {
+    static get colors(): CssColorName[] | undefined {
         return this.userConfig?.colors ?? this.defaultConfig.colors;
     }
 
     /** 排除的颜色列表 */
-    get excludeColors(): CssColorName[] | undefined {
+    static get excludeColors(): CssColorName[] | undefined {
         return this.userConfig?.excludeColors ?? this.defaultConfig.excludeColors;
     }
 
     /** 渐进步长范围 */
-    get progressiveRanges(): CssProgressiveRange[] | undefined {
+    static get progressiveRanges(): CssProgressiveRange[] | undefined {
         return this.userConfig?.progressiveRanges ?? this.defaultConfig.progressiveRanges;
     }
 
     /** 组合原子类配置 */
-    get groups(): GroupConfig[] | undefined {
+    static get groups(): GroupConfig[] | undefined {
         return this.userConfig?.groups ?? this.defaultConfig.groups;
     }
 
     /** 数值类别列表 */
-    get numberCategories(): CssNumberCategoryName[] | undefined {
+    static get numberCategories(): CssNumberCategoryName[] | undefined {
         return this.userConfig?.numberCategories ?? this.defaultConfig.numberCategories;
     }
 
     /** 排除的数值类别 */
-    get excludeNumberCategories(): CssNumberCategoryName[] | undefined {
+    static get excludeNumberCategories(): CssNumberCategoryName[] | undefined {
         return this.userConfig?.excludeNumberCategories ?? this.defaultConfig.excludeNumberCategories;
     }
 
     /** 类名前缀 */
-    get classPrefix(): string | undefined {
+    static get classPrefix(): string | undefined {
         return this.userConfig?.classPrefix ?? this.defaultConfig.classPrefix;
     }
 
     /** 排除的关键字 */
-    get excludeKeywords() {
+    static get excludeKeywords() {
         return this.userConfig?.excludeKeywords ?? this.defaultConfig.excludeKeywords;
     }
 
-    // ==================== 按名称覆盖（细粒度） ====================
+    /** 颜色类型列表 */
+    static get colorTypes() {
+        return this.userConfig?.colorTypes ?? this.defaultConfig.colorTypes;
+    }
+
+    /** 排除的颜色类型 */
+    static get excludeColorTypes() {
+        return this.userConfig?.excludeColorTypes ?? this.defaultConfig.excludeColorTypes;
+    }
+
+    // ==================== 按名称覆盖（静态方法） ====================
 
     /**
      * 获取数值类别配置（先用户后默认）
      * @param categoryName 类别名，如 'pixel', 'fontRelative'
      * @returns 配置值，如 { min: 0, max: 1000 }
      */
-    getCategoryConfig(categoryName: string): CssStepConfig | undefined {
+    static getCategoryConfig(categoryName: string): CssStepConfig | undefined {
         // 1. 先从用户配置查找
         const userResult = findInConfigArray(
             this.userConfig?.numberCategoriesConfig,
@@ -129,7 +149,7 @@ export class ConfigLookup {
      * @param propertyName 属性名，如 'width', 'height'
      * @returns 配置值，如 { px: { min: 0, max: 10000 } }
      */
-    getPropertyConfig(propertyName: string): Record<string, CssStepConfig> | undefined {
+    static getPropertyConfig(propertyName: string): Record<string, CssStepConfig> | undefined {
         // 1. 先从用户配置查找
         const userResult = findInConfigArray(
             this.userConfig?.propertiesConfig,

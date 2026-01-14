@@ -4,7 +4,6 @@
  * 根据配置生成 CSS 原子类定义，用于 DTS 类型生成
  */
 
-import { csstsDefaultConfig } from '../config/CsstsDefaultConfig';
 import { ConfigLookup } from '../config/ConfigLookup';
 import { PROPERTY_CATEGORIES_MAP } from '../data/cssPropertyNumber';
 import { CATEGORY_UNITS_MAP, ALL_NUMBER_CATEGORIES } from '../data/cssNumberData';
@@ -13,8 +12,8 @@ import { CSS_PROPERTY_NAME_MAP } from '../data/cssPropertyNameMapping';
 import { PROPERTY_PARENT_MAP } from '../data/cssPropertyInheritance';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import { COLOR_TYPE_COLORS_MAP, ALL_COLOR_TYPES } from '../data/cssColorData';
-import type { CsstsConfig, CsstsCompilerConfig } from '../config/types/csstsConfig';
-import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName, GroupConfig, NumberPropertyName, KeywordIterationPropertyConfig } from '../config/types/cssPropertyConfig';
+import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
+import type { CssStepConfig, CssProgressiveRange, CssNumberCategoryName, CssPropertyName, CssColorTypeName, CssColorName, GroupConfig, NumberPropertyName, KeywordIterationPropertyConfig } from '../config/types/cssPropertyConfig';
 
 // 所有 CSS 属性名列表
 const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyName[];
@@ -65,29 +64,12 @@ export interface GeneratorOptions {
 function camelToKebab(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
-
-/** 合并配置 */
-function mergeConfig(userConfig?: Partial<CsstsConfig>): CsstsConfig {
-  if (!userConfig) return csstsDefaultConfig;
-
-  return {
-    ...csstsDefaultConfig,
-    ...userConfig,
-    // 数组类型的配置需要特殊处理
-    properties: userConfig.properties ?? csstsDefaultConfig.properties,
-    excludeProperties: userConfig.excludeProperties ?? csstsDefaultConfig.excludeProperties,
-    numberCategories: userConfig.numberCategories ?? csstsDefaultConfig.numberCategories,
-    excludeNumberCategories: userConfig.excludeNumberCategories ?? csstsDefaultConfig.excludeNumberCategories,
-    numberCategoriesConfig: userConfig.numberCategoriesConfig ?? csstsDefaultConfig.numberCategoriesConfig,
-    propertiesConfig: userConfig.propertiesConfig ?? csstsDefaultConfig.propertiesConfig,
-    progressiveRanges: userConfig.progressiveRanges ?? csstsDefaultConfig.progressiveRanges,
-  };
-}
+// mergeConfig 已删除，改用 ConfigLookup 静态方法进行按需查找
 
 /** 获取有效的属性列表 */
-function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
-  const properties = config.properties;
-  const excludeProperties = config.excludeProperties ?? [];
+function getEffectiveProperties(): CssPropertyName[] {
+  const properties = ConfigLookup.properties;
+  const excludeProperties = ConfigLookup.excludeProperties ?? [];
 
   if (properties && properties.length > 0) {
     return properties;
@@ -101,24 +83,24 @@ function getEffectiveProperties(config: CsstsConfig): CssPropertyName[] {
 }
 
 /** 获取有效的数值类别列表 */
-function getEffectiveCategories(config: CsstsConfig): CssNumberCategoryName[] {
-  const categories = config.numberCategories ?? [...ALL_NUMBER_CATEGORIES];
-  const excludeCategories = config.excludeNumberCategories ?? [];
+function getEffectiveCategories(): CssNumberCategoryName[] {
+  const categories = ConfigLookup.numberCategories ?? [...ALL_NUMBER_CATEGORIES];
+  const excludeCategories = ConfigLookup.excludeNumberCategories ?? [];
 
-  return categories.filter(c => !excludeCategories.includes(c)) as CssNumberCategoryName[];
+  return categories.filter((c: CssNumberCategoryName) => !excludeCategories.includes(c)) as CssNumberCategoryName[];
 }
 
 /** 获取有效的颜色列表 */
-function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly string[]): string[] {
-  if (config.colors && config.colors.length > 0) {
-    const excludeColors = config.excludeColors ?? [];
-    return config.colors.filter(c => !excludeColors.includes(c));
+function getEffectiveColors(propertyColorTypes: readonly string[]): string[] {
+  if (ConfigLookup.colors && ConfigLookup.colors.length > 0) {
+    const excludeColors = ConfigLookup.excludeColors ?? [];
+    return ConfigLookup.colors.filter((c: CssColorName) => !excludeColors.includes(c));
   }
 
   const colors = new Set<string>();
-  const excludeColorTypes = config.excludeColorTypes ?? [];
+  const excludeColorTypes = ConfigLookup.excludeColorTypes ?? [];
 
-  if (!config.colorTypes || config.colorTypes.length === 0) {
+  if (!ConfigLookup.colorTypes || ConfigLookup.colorTypes.length === 0) {
     for (const colorType of ALL_COLOR_TYPES) {
       if (excludeColorTypes.includes(colorType)) continue;
       if (!propertyColorTypes.includes(colorType)) continue;
@@ -131,7 +113,7 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
       }
     }
   } else {
-    for (const item of config.colorTypes) {
+    for (const item of ConfigLookup.colorTypes) {
       if (typeof item === 'string') {
         const colorType = item as CssColorTypeName;
         if (excludeColorTypes.includes(colorType)) continue;
@@ -158,23 +140,8 @@ function getEffectiveColors(config: CsstsConfig, propertyColorTypes: readonly st
     }
   }
 
-  const excludeColors = config.excludeColors ?? [];
+  const excludeColors = ConfigLookup.excludeColors ?? [];
   return Array.from(colors).filter(c => !excludeColors.includes(c as any));
-}
-
-/** 从配置数组中查找特定项的配置 */
-function findConfigInArray<T extends Record<string, any>>(
-  configArray: T[] | undefined,
-  key: string
-): any | undefined {
-  if (!configArray) return undefined;
-
-  for (const item of configArray) {
-    if (key in item) {
-      return item[key];
-    }
-  }
-  return undefined;
 }
 
 /** 从属性配置中查找 category 或 unit 级别的配置 */
@@ -200,27 +167,26 @@ function findCategoryOrUnitConfig(
   return undefined;
 }
 
-/** 获取属性的 category 配置（使用 ConfigLookup 按名称查找） */
+/** 获取属性的 category 配置（使用 ConfigLookup 静态方法） */
 function getPropertyCategoryConfig(
-  lookup: ConfigLookup,
   propertyName: string,
   categoryName: string
 ): CssStepConfig | undefined {
   // 1. 先从属性配置查找
-  const propertyConfig = lookup.getPropertyConfig(propertyName);
+  const propertyConfig = ConfigLookup.getPropertyConfig(propertyName);
   const propResult = findCategoryOrUnitConfig(propertyConfig, categoryName);
   if (propResult) return propResult;
 
   // 2. 查找父属性配置
   const parentProperty = PROPERTY_PARENT_MAP[propertyName];
   if (parentProperty) {
-    const parentConfig = lookup.getPropertyConfig(parentProperty);
+    const parentConfig = ConfigLookup.getPropertyConfig(parentProperty);
     const parentResult = findCategoryOrUnitConfig(parentConfig, categoryName);
     if (parentResult) return parentResult;
   }
 
   // 3. 从 category 全局配置查找
-  return lookup.getCategoryConfig(categoryName);
+  return ConfigLookup.getCategoryConfig(categoryName);
 }
 
 /** 根据步长配置生成数值列表 */
@@ -386,13 +352,12 @@ function formatColorForClassName(color: string): string {
 /** 为单个属性生成原子类定义 */
 function generateAtomsForProperty(
   propertyName: CssPropertyName,
-  config: CsstsConfig,
   effectiveCategories: CssNumberCategoryName[]
 ): AtomDefinition[] {
   const atoms: AtomDefinition[] = [];
   const seenNames = new Set<string>();
   const kebabProperty = camelToKebab(propertyName);
-  const excludeKeywords = config.excludeKeywords ?? [];
+  const excludeKeywords = ConfigLookup.excludeKeywords ?? [];
 
   // 1. 生成 keyword 原子类
   const keywords = PROPERTY_KEYWORDS_MAP[propertyName as keyof typeof PROPERTY_KEYWORDS_MAP];
@@ -419,7 +384,7 @@ function generateAtomsForProperty(
   const hasColors = propertyColorTypes && propertyColorTypes.length > 0;
 
   if (hasColors) {
-    const effectiveColors = getEffectiveColors(config, propertyColorTypes);
+    const effectiveColors = getEffectiveColors(propertyColorTypes);
 
     for (const colorName of effectiveColors) {
       const atomName = `${propertyName}${formatColorForClassName(colorName)}`;
@@ -441,7 +406,7 @@ function generateAtomsForProperty(
       );
 
       for (const category of validCategories) {
-        const categoryConfig = getPropertyCategoryConfig(config, propertyName, category);
+        const categoryConfig = getPropertyCategoryConfig(propertyName, category);
         const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
 
         let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
@@ -453,7 +418,7 @@ function generateAtomsForProperty(
           units = filteredUnits as unknown as typeof units;
         }
 
-        const numbers = generateNumbers(stepConfig, config.progressiveRanges);
+        const numbers = generateNumbers(stepConfig, ConfigLookup.progressiveRanges);
 
         for (const unit of units) {
           for (const num of numbers) {
@@ -499,14 +464,13 @@ function generateAtomsForProperty(
 
 /** 生成所有原子类定义 */
 export function generateAtoms(options?: GeneratorOptions): AtomDefinition[] {
-  const config = mergeConfig(options?.config);
-  const effectiveProperties = getEffectiveProperties(config);
-  const effectiveCategories = getEffectiveCategories(config);
+  const effectiveProperties = getEffectiveProperties();
+  const effectiveCategories = getEffectiveCategories();
 
   const allAtoms: AtomDefinition[] = [];
 
   for (const property of effectiveProperties) {
-    const atoms = generateAtomsForProperty(property, config, effectiveCategories);
+    const atoms = generateAtomsForProperty(property, effectiveCategories);
     allAtoms.push(...atoms);
   }
 
@@ -568,14 +532,13 @@ export interface AtomsByProperty {
 
 /** 生成按属性分组的原子类 */
 export function generateAtomsByProperty(options?: GeneratorOptions): AtomsByProperty {
-  const config = mergeConfig(options?.config);
-  const effectiveProperties = getEffectiveProperties(config);
-  const effectiveCategories = getEffectiveCategories(config);
+  const effectiveProperties = getEffectiveProperties();
+  const effectiveCategories = getEffectiveCategories();
 
   const result: AtomsByProperty = {};
 
   for (const property of effectiveProperties) {
-    const atoms = generateAtomsForProperty(property, config, effectiveCategories);
+    const atoms = generateAtomsForProperty(property, effectiveCategories);
     if (atoms.length > 0) {
       result[property] = atoms;
     }
@@ -674,7 +637,6 @@ function generateGroupAtomName(
 /** 为 numberProperties 生成 group atoms */
 function generateNumberGroupAtoms(
   groupConfig: GroupConfig,
-  config: CsstsConfig,
   effectiveCategories: CssNumberCategoryName[]
 ): GroupAtomDefinition[] {
   const { prefix, name, suffix, numberProperties } = groupConfig;
@@ -709,7 +671,7 @@ function generateNumberGroupAtoms(
   for (const category of validCategories) {
     // 使用第一个属性的配置作为基准
     const firstProp = numberProperties[0];
-    const categoryConfig = getPropertyCategoryConfig(config, firstProp, category);
+    const categoryConfig = getPropertyCategoryConfig(firstProp, category);
     const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
 
     let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
@@ -721,7 +683,7 @@ function generateNumberGroupAtoms(
       units = filteredUnits as unknown as typeof units;
     }
 
-    const numbers = generateNumbers(stepConfig, config.progressiveRanges);
+    const numbers = generateNumbers(stepConfig, ConfigLookup.progressiveRanges);
 
     for (const unit of units) {
       for (const num of numbers) {
@@ -900,18 +862,17 @@ function generateKeywordIterationAtoms(groupConfig: GroupConfig): GroupAtomDefin
 
 /** 生成所有 group atoms */
 export function generateGroupAtoms(options?: GeneratorOptions): GroupAtomDefinition[] {
-  const config = mergeConfig(options?.config);
-  const groups = config.groups;
+  const groups = ConfigLookup.groups;
 
   if (!groups || groups.length === 0) return [];
 
-  const effectiveCategories = getEffectiveCategories(config);
+  const effectiveCategories = getEffectiveCategories();
   const allAtoms: GroupAtomDefinition[] = [];
 
   for (const groupConfig of groups) {
     // numberProperties
     if (groupConfig.numberProperties) {
-      const atoms = generateNumberGroupAtoms(groupConfig, config, effectiveCategories);
+      const atoms = generateNumberGroupAtoms(groupConfig, effectiveCategories);
       allAtoms.push(...atoms);
     }
 

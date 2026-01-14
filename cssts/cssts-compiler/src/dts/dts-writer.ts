@@ -10,6 +10,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { ConfigLookup } from '../config/ConfigLookup';
 import {
   generateDts,
   generateAtoms,
@@ -136,6 +137,9 @@ function generateIndexDtsWithReferences(fileNames: string[]): string {
  */
 export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResult {
   const { config } = options ?? {};
+
+  // 初始化配置查找器（全局唯一入口）
+  ConfigLookup.init(config);
 
   // 从 config 中读取配置，options 中的值作为覆盖（兼容旧用法）
   const outputDir = options?.outputDir ?? config?.dtsOutputDir ?? getDefaultOutputDir();
