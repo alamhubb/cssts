@@ -22,7 +22,7 @@ export default {
 
 | 功能 | 自动化 | 说明 |
 |------|--------|------|
-| 类型定义 | ✅ 自动 | 插件启动时自动生成到 `node_modules/@types/cssts/` |
+| 类型定义 | ✅ 自动 | 插件启动时自动生成到 `node_modules/@types/cssts-ts/` |
 | IDE 提示 | ✅ 自动 | TypeScript 自动发现 `@types` 目录 |
 | CSS 生成 | ✅ 自动 | 按需收集样式，通过 `virtual:cssts.css` 注入 |
 | Vue SFC | ✅ 自动 | `<script lang="cssts">` 自动转换为 `<script lang="ts">` |
@@ -205,7 +205,7 @@ cssts-compiler/
 | **parser/** | 解析 | 继承 slime-parser，添加 `css { }` 语法解析 |
 | **factory/** | CST→AST | 将 CST 转换为 AST，拦截 `CssExpression` 节点 |
 | **transform/** | 核心转换 | 调用 parser + factory + generator 完成完整转换 |
-| **dts/** | 类型生成 | 生成 `@types/cssts/index.d.ts` 供 IDE 提示 |
+| **dts/** | 类型生成 | 生成 `@types/cssts-ts/index.d.ts` 供 IDE 提示 |
 | **utils/** | 工具函数 | CSS 类名生成、配置处理、单位分类等 |
 | **data/** | 数据集 | 所有 CSS 属性、关键字、颜色、伪类等数据 |
 | **config/** | 配置系统 | 原子类生成配置（属性、单位、步长等） |
@@ -741,7 +741,7 @@ const config: CsstsConfig = {
 生成的 `.d.ts` 文件将每个原子类声明为全局常量：
 
 ```typescript
-// node_modules/@types/cssts/index.d.ts
+// node_modules/@types/cssts-ts/index.d.ts
 declare const displayFlex: { 'display_flex': true };
 declare const displayBlock: { 'display_block': true };
 declare const paddingTop16px: { 'padding-top_16px': true };
@@ -848,10 +848,10 @@ export function generateDts(options?: GeneratorOptions): string {
 ```typescript
 // dts-writer.ts
 export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResult {
-  const { outputDir = 'node_modules/@types/cssts' } = options ?? {};
+  const { outputDir = 'node_modules/@types/cssts-ts' } = options ?? {};
   
   // 1. 生成 package.json
-  const packageJson = { name: '@types/cssts', version: '0.0.0', types: 'index.d.ts' };
+  const packageJson = { name: '@types/cssts-ts', version: '0.0.0', types: 'index.d.ts' };
   fs.writeFileSync(path.join(outputDir, 'package.json'), JSON.stringify(packageJson, null, 2));
   
   // 2. 生成 index.d.ts（全局常量声明）
@@ -872,7 +872,7 @@ import { generateDtsFiles } from 'cssts-compiler'
 
 configResolved(resolvedConfig) {
   if (enableDts) {
-    const outputDir = path.join(config.root, 'node_modules/@types/cssts');
+    const outputDir = path.join(config.root, 'node_modules/@types/cssts-ts');
     generateDtsFiles({ outputDir });
   }
 }
@@ -890,7 +890,7 @@ const atoms = generateAtoms({ config: userConfig })
 const dtsContent = generateDts({ config: userConfig })
 
 // 生成 DTS 文件到指定目录
-generateDtsFiles({ outputDir: 'node_modules/@types/cssts' })
+generateDtsFiles({ outputDir: 'node_modules/@types/cssts-ts' })
 
 // 生成统计信息
 const stats = generateStats({ config: userConfig })
@@ -900,15 +900,15 @@ console.log(`总原子类数: ${stats.totalAtoms}`)
 ### 生成文件结构
 
 ```
-node_modules/@types/cssts/
-├── package.json        # { "name": "@types/cssts", "types": "index.d.ts" }
+node_modules/@types/cssts-ts/
+├── package.json        # { "name": "@types/cssts-ts", "types": "index.d.ts" }
 └── index.d.ts          # 全局原子类常量声明
 ```
 
 **只生成一个类型文件**，包含所有原子类的全局常量声明：
 
 ```typescript
-// node_modules/@types/cssts/index.d.ts
+// node_modules/@types/cssts-ts/index.d.ts
 /**
  * CSSTS 原子类全局常量声明（自动生成）
  * 

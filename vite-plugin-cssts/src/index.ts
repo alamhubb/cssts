@@ -212,7 +212,7 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
       config = resolvedConfig
       // 自动生成类型文件
       if (enableDts) {
-        const outputDir = dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts')
+        const outputDir = dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
         generateDtsFiles({ outputDir })
       }
     },

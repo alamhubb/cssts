@@ -169,7 +169,7 @@ export interface CsstsConfig {
 
   /**
    * 类型声明文件输出目录
-   * @default 'node_modules/@types/cssts'
+   * @default 'node_modules/@types/cssts-ts'
    */
   dtsOutputDir?: string;
 }

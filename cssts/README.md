@@ -26,7 +26,7 @@ CssTs 是一个类型安全的原子 CSS 解决方案，通过 TypeScript 提供
 Vite 插件启动时自动生成 `.d.ts` 文件，将每个原子类声明为全局常量：
 
 ```typescript
-// node_modules/@types/cssts/index.d.ts（自动生成）
+// node_modules/@types/cssts-ts/index.d.ts（自动生成）
 declare const displayFlex: { 'display_flex': true };
 declare const displayBlock: { 'display_block': true };
 declare const paddingTop16px: { 'padding-top_16px': true };

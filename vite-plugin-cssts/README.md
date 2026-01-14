@@ -101,7 +101,7 @@ const button$$hover$$active = css { cursorPointer, bgBlue600 }
 
 1. 插件启动时读取用户配置
 2. 调用 cssts-compiler 根据配置生成类型定义
-3. 写入 `node_modules/@types/cssts/`
+3. 写入 `node_modules/@types/cssts-ts/`
 4. TypeScript 自动从 `@types` 目录发现类型
 
 ### Vue 文件处理
@@ -116,13 +116,13 @@ const button$$hover$$active = css { cursorPointer, bgBlue600 }
 ```
 vite-plugin-cssts
 ├── dependencies
-│   ├── cssts          # 运行时（会被提升到用户 node_modules）
+│   ├── cssts-ts       # 运行时（会被提升到用户 node_modules）
 │   └── cssts-compiler # 编译时（用于转换和生成类型）
 ```
 
 用户安装 `vite-plugin-cssts` 后：
-- `cssts` 被 npm 提升到用户的 `node_modules/cssts/`
-- 用户代码可以直接 `import { cssts } from 'cssts'`
+- `cssts-ts` 被 npm 提升到用户的 `node_modules/cssts-ts/`
+- 用户代码可以直接 `import { cssts } from 'cssts-ts'`
 - vite 打包时只打包实际 import 的代码，compiler 不会进入生产构建
 
 ## 生成的虚拟模块

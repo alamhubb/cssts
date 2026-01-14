@@ -5,7 +5,7 @@
  * 
  * @example
  * import { generateDtsFiles } from 'cssts-compiler';
- * generateDtsFiles({ outputDir: 'node_modules/@types/cssts' });
+ * generateDtsFiles({ outputDir: 'node_modules/@types/cssts-ts' });
  */
 
 import * as fs from 'fs';
@@ -27,7 +27,7 @@ import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 
 /** 生成选项 */
 export interface DtsGenerateOptions extends GeneratorOptions {
-  /** 输出目录（绝对路径），默认为 node_modules/@types/cssts */
+  /** 输出目录（绝对路径），默认为 node_modules/@types/cssts-ts */
   outputDir?: string;
   /** 是否生成分文件版本，默认 false */
   splitFiles?: boolean;
@@ -55,7 +55,7 @@ export interface DtsGenerateResult {
  * 获取默认输出目录
  */
 function getDefaultOutputDir(): string {
-  return path.resolve(process.cwd(), 'node_modules/@types/cssts');
+  return path.resolve(process.cwd(), 'node_modules/@types/cssts-ts');
 }
 
 /** camelCase 转 kebab-case */
@@ -78,14 +78,14 @@ function generatePropertyGlobalDts(propertyName: string, atoms: AtomDefinition[]
     ' */',
     '',
   ];
-  
+
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
     lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
   }
-  
+
   lines.push('');
-  
+
   return lines.join('\n');
 }
 
@@ -101,13 +101,13 @@ function generateIndexDtsWithReferences(fileNames: string[]): string {
     ' */',
     '',
   ];
-  
+
   for (const fileName of fileNames.sort()) {
     lines.push(`/// <reference path="./${fileName}" />`);
   }
-  
+
   lines.push('');
-  
+
   return lines.join('\n');
 }
 
@@ -130,44 +130,44 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
     verbose = false,
     config,
   } = options ?? {};
-  
+
   const generatorOptions = config ? { config } : undefined;
   const files: string[] = [];
-  const log = verbose ? console.log : () => {};
-  
+  const log = verbose ? console.log : () => { };
+
   // 确保目录存在
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
-  
+
   log('[cssts] 开始生成类型定义文件...');
-  
+
   const stats = generateStats(generatorOptions);
   const atoms = generateAtoms(generatorOptions);
-  
+
   // 生成 package.json
   const packageJson = {
-    name: '@types/cssts',
+    name: '@types/cssts-ts',
     version: '0.0.0',
     types: 'index.d.ts'
   };
   const packageJsonPath = path.join(outputDir, 'package.json');
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   files.push(packageJsonPath);
-  
+
   if (splitFiles) {
     log('\n📁 生成分文件版本...');
-    
+
     const atomsByProperty = generateAtomsByProperty(generatorOptions);
-    
+
     const generatedFileNames: string[] = [];
     const numberProperties: string[] = [];
     const colorAtoms: AtomDefinition[] = [];
     const keywordAtoms: AtomDefinition[] = [];
-    
+
     for (const [propName, propAtoms] of Object.entries(atomsByProperty)) {
       const hasNumber = propAtoms.some(atom => atom.number !== undefined);
-      
+
       if (hasNumber) {
         numberProperties.push(propName);
         const propDts = generatePropertyGlobalDts(propName, propAtoms);
@@ -178,7 +178,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
         generatedFileNames.push(fileName);
       } else {
         const isColorProperty = propName in PROPERTY_COLOR_TYPES_MAP;
-        
+
         if (isColorProperty) {
           colorAtoms.push(...propAtoms);
         } else {
@@ -186,9 +186,9 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
         }
       }
     }
-    
+
     log(`   ✅ 生成 ${numberProperties.length} 个数值属性文件`);
-    
+
     if (colorAtoms.length > 0) {
       const colorsDts = generatePropertyGlobalDts('colors', colorAtoms);
       const fileName = 'colors.d.ts';
@@ -198,7 +198,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
       generatedFileNames.push(fileName);
       log(`   ✅ 生成 colors.d.ts (${colorAtoms.length} 个原子类)`);
     }
-    
+
     if (keywordAtoms.length > 0) {
       const keywordsDts = generatePropertyGlobalDts('keywords', keywordAtoms);
       const fileName = 'keywords.d.ts';
@@ -208,14 +208,14 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
       generatedFileNames.push(fileName);
       log(`   ✅ 生成 keywords.d.ts (${keywordAtoms.length} 个原子类)`);
     }
-    
+
     // 生成 group atoms
     const groupAtoms = generateGroupAtoms(generatorOptions);
     if (groupAtoms.length > 0) {
       // 分离数值类型和关键字类型的 group atoms
       const numberGroupAtoms = groupAtoms.filter(a => a.isNumber);
       const keywordGroupAtoms = groupAtoms.filter(a => !a.isNumber);
-      
+
       // 数值类型 group：按 groupName 分文件
       if (numberGroupAtoms.length > 0) {
         // 按 groupName 分组（从 atom.name 提取，去掉数值后缀）
@@ -230,7 +230,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
           }
           numberGroupsByName[groupName].push(atom);
         }
-        
+
         for (const [groupName, atoms] of Object.entries(numberGroupsByName)) {
           const groupDts = generateGroupAtomsDts(atoms);
           const fileName = `${groupName}.d.ts`;
@@ -241,7 +241,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
           log(`   ✅ 生成 ${fileName} (${atoms.length} 个组合原子类)`);
         }
       }
-      
+
       // 关键字类型 group：放一个文件
       if (keywordGroupAtoms.length > 0) {
         const keywordGroupsDts = generateGroupAtomsDts(keywordGroupAtoms);
@@ -253,7 +253,7 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
         log(`   ✅ 生成 groups-keyword.d.ts (${keywordGroupAtoms.length} 个组合原子类)`);
       }
     }
-    
+
     // 生成 index.d.ts（使用 reference 引入所有分文件）
     const indexDts = generateIndexDtsWithReferences(generatedFileNames);
     const indexPath = path.join(outputDir, 'index.d.ts');
@@ -263,21 +263,21 @@ export function generateDtsFiles(options?: DtsGenerateOptions): DtsGenerateResul
   } else {
     // 单文件模式
     let dtsContent = generateDts(generatorOptions);
-    
+
     // 添加 group atoms
     const groupAtoms = generateGroupAtoms(generatorOptions);
     if (groupAtoms.length > 0) {
       dtsContent += '\n' + generateGroupAtomsDts(groupAtoms);
     }
-    
+
     const indexPath = path.join(outputDir, 'index.d.ts');
     fs.writeFileSync(indexPath, dtsContent, 'utf-8');
     files.push(indexPath);
     log(`✅ 单文件版本: ${indexPath}`);
   }
-  
+
   log(`[cssts] 已生成类型定义 (${atoms.length} 个原子类)`);
-  
+
   return {
     files,
     atomCount: atoms.length,

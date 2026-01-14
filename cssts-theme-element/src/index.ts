@@ -19,7 +19,7 @@
 
 // 导出 CSS 实现
 export * as css from './css'
-export { 
+export {
   themeVariables as cssThemeVariables,
   generateThemeCss as cssGenerateThemeCss,
   injectTheme as cssInjectTheme,
@@ -42,7 +42,7 @@ export {
 
 import { themeAtoms as _themeAtoms } from './cssts'
 // 导入 cssts runtime 的命名转换函数
-import { getCssClassName } from 'cssts'
+import { getCssClassName } from 'cssts-ts'
 
 /**
  * csstsAtom - 动态原子类代理
@@ -96,49 +96,49 @@ export const themeVariables = {
   '--el-color-primary-light-8': '#d9ecff',
   '--el-color-primary-light-9': '#ecf5ff',
   '--el-color-primary-dark-2': '#337ecc',
-  
+
   // Success 成功色
   '--el-color-success': '#67c23a',
   '--el-color-success-light-3': '#95d475',
   '--el-color-success-light-5': '#b3e19d',
   '--el-color-success-light-9': '#f0f9eb',
   '--el-color-success-dark-2': '#529b2e',
-  
+
   // Warning 警告色
   '--el-color-warning': '#e6a23c',
   '--el-color-warning-light-3': '#eebe77',
   '--el-color-warning-light-5': '#f3d19e',
   '--el-color-warning-light-9': '#fdf6ec',
   '--el-color-warning-dark-2': '#b88230',
-  
+
   // Danger 危险色
   '--el-color-danger': '#f56c6c',
   '--el-color-danger-light-3': '#f89898',
   '--el-color-danger-light-5': '#fab6b6',
   '--el-color-danger-light-9': '#fef0f0',
   '--el-color-danger-dark-2': '#c45656',
-  
+
   // Info 信息色
   '--el-color-info': '#909399',
   '--el-color-info-light-3': '#b1b3b8',
   '--el-color-info-light-5': '#c8c9cc',
   '--el-color-info-light-9': '#f4f4f5',
   '--el-color-info-dark-2': '#73767a',
-  
+
   // 文字颜色
   '--el-text-color-primary': '#303133',
   '--el-text-color-regular': '#606266',
   '--el-text-color-secondary': '#909399',
   '--el-text-color-placeholder': '#a8abb2',
   '--el-text-color-disabled': '#c0c4cc',
-  
+
   // 边框颜色
   '--el-border-color': '#dcdfe6',
   '--el-border-color-light': '#e4e7ed',
   '--el-border-color-lighter': '#ebeef5',
   '--el-border-color-extra-light': '#f2f6fc',
   '--el-border-color-dark': '#d4d7de',
-  
+
   // 填充颜色
   '--el-fill-color': '#f0f2f5',
   '--el-fill-color-light': '#f5f7fa',
@@ -146,7 +146,7 @@ export const themeVariables = {
   '--el-fill-color-extra-light': '#fafcff',
   '--el-fill-color-dark': '#ebedf0',
   '--el-fill-color-blank': '#ffffff',
-  
+
   // 背景颜色
   '--el-bg-color': '#ffffff',
   '--el-bg-color-page': '#f2f3f5',
@@ -269,16 +269,16 @@ export function generateThemeCss(variables: Record<string, string> = themeVariab
  */
 export function injectTheme(variables?: Record<string, string>): void {
   if (typeof document === 'undefined') return
-  
+
   const styleId = 'cssts-theme-element'
   let styleEl = document.getElementById(styleId) as HTMLStyleElement | null
-  
+
   if (!styleEl) {
     styleEl = document.createElement('style')
     styleEl.id = styleId
     document.head.appendChild(styleEl)
   }
-  
+
   styleEl.textContent = generateThemeCss(variables)
 }
 
@@ -287,7 +287,7 @@ export function injectTheme(variables?: Record<string, string>): void {
  */
 export function updateTheme(updates: Partial<typeof themeVariables>): void {
   if (typeof document === 'undefined') return
-  
+
   const root = document.documentElement
   for (const [key, value] of Object.entries(updates)) {
     root.style.setProperty(key, value)

@@ -17,7 +17,7 @@ const primary$hover$active = css { backgroundColorBlue }
 分隔符配置来自 `cssts-runtime`：
 
 ```typescript
-import { CSSTS_CONFIG } from 'cssts'
+import { CSSTS_CONFIG } from 'cssts-ts'
 console.log(CSSTS_CONFIG.PSEUDO_SEPARATOR)  // '$$'
 ```
 
@@ -120,7 +120,7 @@ async function foo() {}  // 可能被误解析
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           输出                                          │
-│  • JS: import { cssts } from 'cssts'                                   │
+│  • JS: import { cssts } from 'cssts-ts'                                 │
 │        import { csstsAtom } from 'virtual:csstsAtom'                   │
 │        const style = cssts.$cls(csstsAtom.displayFlex, ...)            │
 │                                                                         │
@@ -532,11 +532,11 @@ import { CSSTS_CONFIG } from "cssts-runtime"
 **正确代码**：
 ```typescript
 // ✅ 正确：使用实际的包名
-import { CSSTS_CONFIG } from "cssts"
+import { CSSTS_CONFIG } from "cssts-ts"
 ```
 
 **问题原因**：
-- `cssts-runtime` 包的 `package.json` 中 `name` 字段是 `"cssts"`，不是 `"cssts-runtime"`
+- `cssts-runtime` 包的 `package.json` 中 `name` 字段是 `"cssts-ts"`，不是 `"cssts-runtime"`
 - 目录名和包名不一致，容易混淆
 - 在 monorepo 中，workspace 链接使用的是 `package.json` 中的 `name` 字段
 
@@ -792,7 +792,7 @@ npm run package
 ```typescript
 import { generateDtsFiles } from 'cssts-compiler';
 
-// 默认：单文件模式，输出到 node_modules/@types/cssts
+// 默认：单文件模式，输出到 node_modules/@types/cssts-ts
 generateDtsFiles();
 
 // 自定义配置
@@ -807,7 +807,7 @@ generateDtsFiles({
 
 | 场景 | 默认输出目录 |
 |------|-------------|
-| 生产环境（Vite 插件调用） | `node_modules/@types/cssts` |
+| 生产环境（Vite 插件调用） | `node_modules/@types/cssts-ts` |
 | 开发环境（CLI 调试） | `target/cssts-dts`（可配置） |
 
 ### 文件模式
@@ -817,7 +817,7 @@ generateDtsFiles({
 生成单个 `index.d.ts` 文件，包含所有原子类的全局常量声明：
 
 ```
-node_modules/@types/cssts/
+node_modules/@types/cssts-ts/
 ├── package.json
 └── index.d.ts      # 所有 declare const 声明
 ```

@@ -79,7 +79,7 @@ async function main() {
     responseBuffer += data.toString()
     const parsed = parseResponse(responseBuffer)
     responses.push(...parsed)
-    
+
     for (const resp of parsed) {
       console.log('\n📥 Response:', JSON.stringify(resp, null, 2))
     }
@@ -139,9 +139,9 @@ async function main() {
   console.log('\n📤 Opening demo.cssts file...')
   const demoFilePath = path.join(__dirname, '..', 'examples', 'demo.cssts')
   const demoFileUri = `file:///${demoFilePath.replace(/\\/g, '/')}`
-  
+
   const demoContent = `// CSSTS Demo
-import { css } from 'cssts'
+import { css } from 'cssts-ts'
 
 const buttonStyle = css { displayFlex, alignItemsCenter, bgBlue500 }
 
