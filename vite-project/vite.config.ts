@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-// 改为包名导入，让 mono 拦截
-import cssTsPlugin from 'vite-plugin-cssts'
-// import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
-import { viteMono } from 'vite-plugin-mono'   // 同样改为包名导入
+// 开发时使用相对路径，绕过 esbuild 解析问题
+import cssTsPlugin from '../vite-plugin-cssts/src/index.ts'
+import { viteMono } from 'vite-plugin-mono'
 
 // https://vite.dev/config/
 export default defineConfig({
