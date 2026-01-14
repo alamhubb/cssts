@@ -2,7 +2,7 @@
  * CssTs 运行时
  *
  * 零依赖，只做对象操作
- * - $cls(): 合并样式对象
+ * - merge(): 合并样式对象
  * - replace(): 属性冲突检测 + 替换
  *
  * 关键设计：
@@ -25,7 +25,7 @@ export const CSSTS_CONFIG = {
    * 例如: color_red, padding-top_16px
    */
   SEPARATOR: '_',
-  
+
   /**
    * 伪类分隔符（双美元符号）
    * 变量名格式: {className}$${pseudo1}$${pseudo2}
@@ -53,13 +53,13 @@ interface ClassObject {
 // ==================== 样式合并 ====================
 
 /**
- * 合并多个样式对象
+ * 合并多个样式对象（旧实现）
  *
  * @example
- * const style = $cls(csstsAtom.displayFlex, csstsAtom.colorRed)
+ * const style = mergeOld(csstsAtom.displayFlex, csstsAtom.colorRed)
  * // 返回: { 'display_flex': true, 'color_red': true }
  */
-export function $cls(...args: ClassValue[]): ClassObject {
+export function mergeOld(...args: ClassValue[]): ClassObject {
   const result: ClassObject = {}
   for (const arg of args) {
     processValue(arg, result)
@@ -89,6 +89,116 @@ function processValue(value: ClassValue, result: ClassObject): void {
       }
     }
   }
+}
+
+// ==================== 公用方法 ====================
+
+/**
+ * 收集所有类名到数组中（递归展开）
+ */
+function collectClassNames(value: ClassValue, result: string[]): void {
+  if (!value) return
+
+  if (typeof value === 'string') {
+    result.push(value)
+  } else if (typeof value === 'number') {
+    result.push(String(value))
+  } else if (Array.isArray(value)) {
+    for (const item of value) {
+      collectClassNames(item, result)
+    }
+  } else if (typeof value === 'object') {
+    for (const [key, val] of Object.entries(value)) {
+      if (val) {
+        if (typeof val === 'object' && val !== null) {
+          collectClassNames(val as ClassValue, result)
+        } else {
+          result.push(key)
+        }
+      }
+    }
+  }
+}
+
+/**
+ * 对象去重方法（根据 CSS 属性）
+ * 
+ * 当对象中有多个相同 CSS 属性的类名时，只保留最后一个
+ * 
+ * @example
+ * deduplicateByProperty({ 
+ *   'color_red': true, 
+ *   'color_blue': true,
+ *   'font-size_14px': true 
+ * })
+ * // => { 'color_blue': true, 'font-size_14px': true }
+ * //    color_red 被移除（和 color_blue 属性相同）
+ */
+function deduplicateByProperty(obj: ClassObject): ClassObject {
+  const propertyMap = new Map<string, string>()
+
+  // 遍历对象的所有类名
+  for (const className of Object.keys(obj)) {
+    const property = getPropertyFromClassName(className)
+    if (property) {
+      // 有 CSS 属性：用属性作 key（后面的会覆盖前面的）
+      propertyMap.set(property, className)
+    } else {
+      // 无 CSS 属性：用类名本身作 key
+      propertyMap.set(className, className)
+    }
+  }
+
+  // 生成去重后的对象
+  const result: ClassObject = {}
+  for (const className of propertyMap.values()) {
+    result[className] = true
+  }
+
+  return result
+}
+
+/**
+ * 合并多个样式对象（新实现）
+ * 
+ * 自动处理属性冲突：后面的样式覆盖前面的（相同 CSS 属性）
+ * 
+ * @example
+ * merge(csstsAtom.colorRed, csstsAtom.colorBlue)
+ * // => { 'color_blue': true }  // colorRed 被自动替换
+ * 
+ * merge(csstsAtom.colorRed, csstsAtom.fontSize14px)
+ * // => { 'color_red': true, 'font-size_14px': true }  // 不同属性共存
+ */
+export function merge(...args: ClassValue[]): ClassObject {
+  // 使用 Map 自动去重：key = CSS属性，value = 类名
+  const propertyMap = new Map<string, string>()
+
+  // 1. 收集所有类名
+  const allClassNames: string[] = []
+  for (const arg of args) {
+    collectClassNames(arg, allClassNames)
+  }
+
+  // 2. 遍历类名，放入 Map（后面的会覆盖前面的）
+  for (const className of allClassNames) {
+    const property = getPropertyFromClassName(className)
+    if (property) {
+      // 有 CSS 属性的类名：用属性作为 key，相同属性会自动覆盖
+      propertyMap.set(property, className)
+    } else {
+      // 无 CSS 属性的类名（如自定义类）：用类名本身作为 key
+      propertyMap.set(className, className)
+    }
+  }
+
+  // 3. 遍历 Map 生成最终对象
+  const result: ClassObject = {}
+  for (const className of propertyMap.values()) {
+    result[className] = true
+  }
+
+  return result
 }
 
 // ==================== 属性提取 ====================
@@ -205,7 +315,8 @@ export function replaceAll(
 // ==================== 导出 ====================
 
 export const cssts = {
-  $cls,
+  merge,
+  mergeOld,
   replace,
   replaceAll,
   CSSTS_CONFIG,

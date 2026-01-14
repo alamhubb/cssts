@@ -31,7 +31,7 @@ export interface GroupUtilInfo {
  * 
  * 核心职责：
  * 1. 将 CssTsParser 解析出的 CST 转换为标准 ESTree AST
- * 2. 处理 css { } 表达式语法，转换为 cssts.$cls() 调用
+ * 2. 处理 css { } 表达式语法，转换为 cssts.merge() 调用
  * 3. 收集使用的原子类名（usedAtoms），供 vite 插件生成 CSS
  * 4. 处理伪类变量（如 btn$$hover），注入运行时参数
  * 5. 作用域分析：区分局部变量和原子类名，支持自动解构
@@ -131,7 +131,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * 
    * 当使用了 css {} 语法时，需要添加以下三个导入：
    * 1. import 'virtual:cssts.css'        - 虚拟 CSS 模块，包含生成的原子类样式
-   * 2. import {cssts} from 'cssts-ts'    - CSSTS 运行时，提供 $cls 等方法
+   * 2. import {cssts} from 'cssts-ts'    - CSSTS 运行时，提供 merge 等方法
    * 3. import {csstsAtom} from 'virtual:csstsAtom' - 原子类名映射对象
    * 
    * 为什么分开判断每个导入：
@@ -261,8 +261,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
         const callExpr = result.init as any
         if (callExpr.callee?.type === SlimeAstTypeName.MemberExpression) {
           const memberExpr = callExpr.callee as any
-          if (memberExpr.object?.name === 'cssts' && memberExpr.property?.name === '$cls') {
-            const groupUtilRef = this.createCsstsAtomMemberComputed(this.currentVarName)
+          if (memberExpr.object?.name === 'cssts' && memberExpr.property?.name === 'merge') {
+            const groupUtilRef = this.createCsstsAtomMember(this.currentVarName)
             callExpr.arguments = [groupUtilRef, ...callExpr.arguments]
           }
         }
@@ -272,17 +272,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return result
   }
 
-  protected createCsstsAtomMemberComputed(propName: string): SlimeExpression {
-    const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom')
-    const propLiteral = SlimeAstCreateUtils.createStringLiteral(propName)
-    return {
-      type: SlimeAstTypeName.MemberExpression,
-      object: csstsAtomId,
-      property: propLiteral,
-      computed: true,
-      optional: false
-    } as any
-  }
+
 
   createPrimaryExpressionAst(cst: SubhutiCst): SlimeExpression {
     const first = cst.children?.[0]
@@ -315,7 +305,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   protected createCsstsClsCallWithArgs(args: SlimeExpression[], loc?: any): SlimeExpression {
     const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
-    const clsId = SlimeAstCreateUtils.createIdentifier('$cls')
+    const clsId = SlimeAstCreateUtils.createIdentifier('merge')
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
@@ -426,7 +416,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
     // 检查是否是 css replace 模式：
     // 1. 左侧是标识符（变量，不是成员表达式）
-    // 2. 右侧是 cssts.$cls() 调用（由 css { } 语法生成）
+    // 2. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
     if (this.isCssReplacePattern(ast)) {
       return this.transformToCsstsReplace(ast)
     }
@@ -440,7 +430,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * 只有满足以下条件才触发：
    * 1. 是赋值表达式（=）
    * 2. 左侧是简单标识符（变量名）
-   * 3. 右侧是 cssts.$cls() 调用（由 css { } 语法生成）
+   * 3. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
    * 
    * 这样可以避免误触发普通 JS 赋值（如 newTodo.value = ''）
    */
@@ -451,14 +441,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
     // 左侧必须是简单标识符（变量名），不支持成员表达式
     if (ast.left?.type !== SlimeAstTypeName.Identifier) return false
 
-    // 右侧必须是 cssts.$cls() 调用
+    // 右侧必须是 cssts.merge() 调用
     if (!this.isCsstsClsCall(ast.right)) return false
 
     return true
   }
 
   /**
-   * 检查表达式是否是 cssts.$cls() 调用
+   * 检查表达式是否是 cssts.merge() 调用
    */
   private isCsstsClsCall(expr: any): boolean {
     if (expr?.type !== SlimeAstTypeName.CallExpression) return false
@@ -466,12 +456,12 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const callee = expr.callee
     if (callee?.type !== SlimeAstTypeName.MemberExpression) return false
 
-    // 检查是否是 cssts.$cls
+    // 检查是否是 cssts.merge
     const object = callee.object
     const property = callee.property
 
     if (object?.type !== SlimeAstTypeName.Identifier || object?.name !== 'cssts') return false
-    if (property?.type !== SlimeAstTypeName.Identifier || property?.name !== '$cls') return false
+    if (property?.type !== SlimeAstTypeName.Identifier || property?.name !== 'merge') return false
 
     return true
   }
@@ -479,7 +469,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   /**
    * 转换为 cssts.replaceAll() 调用
    * 
-   * 输入：style = cssts.$cls(a, b, c)
+   * 输入：style = cssts.merge(a, b, c)
    * 输出：style = cssts.replaceAll(style, [a, b, c])
    */
   private transformToCsstsReplace(ast: any): SlimeExpression {
