@@ -78,11 +78,46 @@ const buttonStyle = css { displayInlineFlex, padding8px, borderRadius4px }
 
 ## ⚙️ 配置选项
 
+### 完整配置示例
+
+```javascript
+cssTsPlugin({
+  // 📦 编译器配置（控制生成哪些原子类，影响 IDE 提示）
+  config: {
+    properties: ['width', 'height', 'margin', 'padding'],
+    progressiveRanges: [{ max: 100, step: 1 }],
+    colors: ['red', 'blue', 'green'],
+    pseudoClasses: ['hover', 'focus', 'active']
+  },
+
+  // 🔧 插件配置
+  dts: true,
+  dtsOutputDir: 'node_modules/@types/cssts-ts',
+  classPrefix: 'my-',
+  pseudoClassesConfig: { hover: { opacity: '0.9' } }
+})
+```
+
+### 配置项说明
+
 | 选项 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
+| `config` | `Partial<CsstsConfig>` | `undefined` | 编译器配置，控制生成哪些原子类 |
+| `dts` | `boolean` | `true` | 是否自动生成 .d.ts 类型定义 |
+| `dtsOutputDir` | `string` | `node_modules/@types/cssts-ts` | 类型文件输出目录 |
 | `classPrefix` | `string` | `''` | CSS 类名前缀 |
-| `pseudoUtils` | `PseudoUtilsConfig` | `undefined` | 伪类配置 |
-| `dts` | `boolean` | `true` | 是否自动生成类型定义 |
+| `pseudoClassesConfig` | `PseudoUtilsConfig` | `undefined` | 伪类额外样式配置 |
+| `globalStyles` | `Set<string>` | `undefined` | 共享样式集合（多插件共享） |
+
+### config 子配置
+
+| 配置项 | 说明 |
+|-------|------|
+| `properties` | 只生成指定属性的原子类 |
+| `excludeProperties` | 排除指定属性 |
+| `progressiveRanges` | 数值步长配置 |
+| `colors` | 只生成指定颜色 |
+| `pseudoClasses` | 支持的伪类列表 |
 
 ## 伪类语法
 

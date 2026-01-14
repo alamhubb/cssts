@@ -6,6 +6,7 @@ import {
   generateCsstsAtomModule,
   generateDtsFiles,
   type CsstsConfig,
+  type PseudoUtilsConfig,
 } from 'cssts-compiler'
 
 // ==================== 插件配置 ====================
@@ -13,26 +14,59 @@ import {
 /**
  * CSSTS Vite 插件配置
  * 
- * 基于 CsstsConfig 扩展，添加插件特有的配置
- * 
  * @example
  * ```ts
  * // 使用默认配置
  * cssTsPlugin()
  * 
- * // 自定义配置
- * cssTsPlugin({ 
- *   classPrefix: 'my-', 
- *   dts: false,
- *   pseudoClassesConfig: { hover: { filter: 'brightness(1.15)' } }
+ * // 完整配置示例
+ * cssTsPlugin({
+ *   // 编译器配置（控制生成哪些原子类）
+ *   config: {
+ *     properties: ['width', 'height', 'margin'],
+ *     progressiveRanges: [{ max: 100, step: 1 }],
+ *     colors: ['red', 'blue', 'green']
+ *   },
+ *   // 插件配置
+ *   dts: true,
+ *   classPrefix: 'my-',
+ *   pseudoClassesConfig: { hover: { opacity: '0.9' } }
  * })
- * 
- * // 与其他插件共享样式状态
- * const sharedStyles = new Set<string>()
- * cssTsPlugin({ globalStyles: sharedStyles })
  * ```
  */
-export interface CssTsPluginOptions extends Partial<CsstsConfig> {
+export interface CssTsPluginOptions {
+  /**
+   * CssTS 编译器配置
+   * 控制生成哪些原子类、步长、颜色等
+   * 此配置会传递给 generateDtsFiles，影响类型提示
+   */
+  config?: Partial<CsstsConfig>
+
+  /**
+   * 是否生成 .d.ts 类型定义文件
+   * @default true
+   */
+  dts?: boolean
+
+  /**
+   * 类型文件输出目录
+   * @default 'node_modules/@types/cssts-ts'
+   */
+  dtsOutputDir?: string
+
+  /**
+   * CSS 类名前缀
+   * @example 'my-' → .my-display_flex
+   */
+  classPrefix?: string
+
+  /**
+   * 伪类样式配置
+   * 为伪类添加额外的样式属性
+   * @example { hover: { filter: 'brightness(1.15)' } }
+   */
+  pseudoClassesConfig?: PseudoUtilsConfig
+
   /**
    * 外部传入的共享样式集合
    * 用于多个插件共享样式状态（如 vite-plugin-ovs）
@@ -48,40 +82,55 @@ const RESOLVED_VIRTUAL_CSS_ID = '\0' + VIRTUAL_CSS_ID
 const VIRTUAL_ATOM_ID = 'virtual:csstsAtom'
 const RESOLVED_VIRTUAL_ATOM_ID = '\0' + VIRTUAL_ATOM_ID
 
-// ==================== 工具函数 ====================
+// ==================== Vue SFC 解析（使用官方 @vue/compiler-sfc） ====================
+
+import { parse as parseSfc, type SFCDescriptor, type SFCScriptBlock } from '@vue/compiler-sfc'
+
+/**
+ * 解析 Vue SFC 文件，提取 script 信息
+ */
+function parseVueSfc(code: string, filename: string): SFCDescriptor {
+  const { descriptor } = parseSfc(code, { filename })
+  return descriptor
+}
 
 /**
  * 检查 Vue 文件是否有 <script lang="cssts"> 标签
- * 注意：必须确保匹配的是真正的 script 标签，而不是注释中的文本
  */
-function hasScriptLangCssts(code: string): boolean {
-  // 先移除所有注释，避免匹配到注释中的 <script lang="cssts">
-  const codeWithoutComments = code
-    .replace(/\/\/.*$/gm, '') // 移除单行注释
-    .replace(/\/\*[\s\S]*?\*\//g, '') // 移除多行注释
-  return /<script[^>]*\slang\s*=\s*["']cssts["'][^>]*>/.test(codeWithoutComments)
+function hasScriptLangCssts(code: string, filename: string = 'component.vue'): boolean {
+  const descriptor = parseVueSfc(code, filename)
+  return descriptor.script?.lang === 'cssts' || descriptor.scriptSetup?.lang === 'cssts'
+}
+
+/**
+ * 从 Vue SFC 中获取 lang="cssts" 的 script 块
+ */
+function getCsstsScriptBlock(descriptor: SFCDescriptor): SFCScriptBlock | null {
+  if (descriptor.scriptSetup?.lang === 'cssts') return descriptor.scriptSetup
+  if (descriptor.script?.lang === 'cssts') return descriptor.script
+  return null
 }
 
 /**
  * 从 .vue 文件中提取 <script lang="cssts"> 内容
  */
-function extractVueCsstsScript(code: string): {
+function extractVueCsstsScript(code: string, filename: string = 'component.vue'): {
   script: string
   start: number
   end: number
   isSetup: boolean
 } | null {
-  // 匹配 <script lang="cssts"> 或 <script setup lang="cssts">
-  const scriptMatch = code.match(/<script(\s+setup)?[^>]*\slang\s*=\s*["']cssts["'][^>]*>([\s\S]*?)<\/script>/)
-  if (!scriptMatch) return null
+  const descriptor = parseVueSfc(code, filename)
+  const scriptBlock = getCsstsScriptBlock(descriptor)
 
-  const fullMatch = scriptMatch[0]
-  const start = code.indexOf(fullMatch)
-  const end = start + fullMatch.length
-  const isSetup = scriptMatch[1] !== undefined
-  const script = scriptMatch[2]
+  if (!scriptBlock) return null
 
-  return { script, start, end, isSetup }
+  return {
+    script: scriptBlock.content,
+    start: scriptBlock.loc.start.offset,
+    end: scriptBlock.loc.end.offset,
+    isSetup: scriptBlock === descriptor.scriptSetup
+  }
 }
 
 /**
@@ -92,14 +141,14 @@ function rebuildVueFile(
   scriptInfo: { start: number; end: number; isSetup: boolean },
   newScriptContent: string
 ): string {
+  // 使用位置信息精确替换
   const before = originalCode.slice(0, scriptInfo.start)
   const after = originalCode.slice(scriptInfo.end)
 
-  // 构建新的 script 标签，将 lang="cssts" 改为 lang="ts"
+  // 构建新的 script 标签
   const setupAttr = scriptInfo.isSetup ? ' setup' : ''
-  const newOpenTag = `<script${setupAttr} lang="ts">`
 
-  return `${before}${newOpenTag}\n${newScriptContent}\n</script>${after}`
+  return `${before}<script${setupAttr} lang="ts">\n${newScriptContent}\n</script>${after}`
 }
 
 /**
@@ -123,21 +172,18 @@ function createEsbuildPlugin() {
         const fs = await import('node:fs')
         const code = fs.readFileSync(args.path, 'utf-8')
 
-        // 只处理包含 <script lang="cssts"> 的文件
-        if (!hasScriptLangCssts(code)) {
+        // 使用官方解析器检查是否有 <script lang="cssts">
+        if (!hasScriptLangCssts(code, args.path)) {
           return null // 让其他 loader 处理
         }
 
+        // 提取并转换 script 内容
+        const scriptInfo = extractVueCsstsScript(code, args.path)
+        if (!scriptInfo) return null
+
         // 将 css { ... } 替换为 {}，让 esbuild 能解析
-        const transformed = code.replace(
-          /(<script[^>]*lang\s*=\s*["']cssts["'][^>]*>)([\s\S]*?)(<\/script>)/,
-          (match, open, content, close) => {
-            const newContent = content.replace(/\bcss\s*\{[^}]*\}/g, '{}')
-            // 将 lang="cssts" 改为 lang="ts"
-            const newOpen = open.replace(/lang\s*=\s*["']cssts["']/, 'lang="ts"')
-            return newOpen + newContent + close
-          }
-        )
+        const newContent = scriptInfo.script.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+        const transformed = rebuildVueFile(code, scriptInfo, newContent)
 
         return { contents: transformed, loader: 'text' }
       })
@@ -210,10 +256,13 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     configResolved(resolvedConfig) {
       config = resolvedConfig
-      // 自动生成类型文件
+      // 自动生成类型文件（根据用户配置）
       if (enableDts) {
         const outputDir = dtsOutputDir ?? path.join(config.root, 'node_modules/@types/cssts-ts')
-        generateDtsFiles({ outputDir })
+        generateDtsFiles({
+          outputDir,
+          config: options.config  // 传入用户的编译器配置
+        })
       }
     },
 
