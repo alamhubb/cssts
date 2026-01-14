@@ -1,5 +1,25 @@
-// 测试多个属性 - 用逗号分隔
-const x = css { 
-  displayFlex,
-  padding20px
+// 正确语法测试
+const cardStyle = css { padding20px, borderRadius8px }
+
+const buttonBase = css {
+  padding10px,
+  padding20px,
+  borderRadius8px,
+  borderNone,
+  colorWhite,
+  fontSizeLarge,
+  cursorPointer
 }
+
+const button$$hover = css { backgroundColorBlue }
+const button$$active = css { backgroundColorNavy }
+
+const codeStyle = css { 
+  padding2px,
+  padding6px,
+  borderRadius4px
+}
+
+const readTheDocs = css { colorGray }
+const linkStyle = css { colorBlue }
+const linkStyle$$hover = css { colorDodgerblue }
