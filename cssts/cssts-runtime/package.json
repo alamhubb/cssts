@@ -1,6 +1,6 @@
 {
   "name": "cssts-ts",
-  "version": "0.2.5",
+  "version": "0.2.87",
   "description": "CssTs runtime - style merging and conflict resolution",
   "type": "module",
   "local": "./src/index.ts",
@@ -34,5 +34,5 @@
     "tsdown": "^0.18.3",
     "typescript": "^5.8.3"
   },
-  "gitHead": "ff5a24ff2b6715bac6935396648066dc1d417f04"
+  "gitHead": "7b79e06bcccaa6ed7b6b2d6b86fcf4364c27ede3"
 }

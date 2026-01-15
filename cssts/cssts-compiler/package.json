@@ -1,6 +1,6 @@
 {
   "name": "cssts-compiler",
-  "version": "0.2.5",
+  "version": "0.2.87",
   "description": "CssTs compiler - parser, AST transformer, and type generator for CSS-in-TS",
   "type": "module",
   "local": "./src/index.ts",
@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "cssts-ts": "^0.2.5",
+    "cssts-ts": "^0.2.87",
     "slime-ast": "^0.2.7",
     "slime-generator": "^0.2.7",
     "slime-parser": "^0.2.7",
@@ -45,5 +45,5 @@
     "tsdown": "^0.18.0",
     "typescript": "^5.8.3"
   },
-  "gitHead": "ff5a24ff2b6715bac6935396648066dc1d417f04"
+  "gitHead": "7b79e06bcccaa6ed7b6b2d6b86fcf4364c27ede3"
 }
