@@ -73,7 +73,31 @@ const wrong = css {
 
 **注意**：css { } 块**只支持原子类**，不支持 `property: 'value'` 语法。
 
-### 5. 伪类样式（$$ 分隔符）
+### 5. 伪类原子类
+```typescript
+// 使用内置伪类原子类（无需 $$ 语法）
+const buttonStyle = css { 
+  padding16px,
+  backgroundColorBlue,
+  csstsHover,   // .cssts-hover:hover { filter: brightness(1.15) }
+  csstsActive   // .cssts-active:active { filter: brightness(0.85) }
+}
+```
+
+### 6. classGroup 类组合（推荐）
+```typescript
+// 使用预定义的类组合
+const buttonStyle = css { 
+  padding16px,
+  backgroundColorBlue,
+  click  // 包含 hover/active/focus/disabled 效果 + cursor: pointer
+}
+
+// 红色按钮（使用 ddClick = click + colorRed）
+const redButtonStyle = css { ddClick, padding10px }
+```
+
+### 7. 变量名伪类（旧语法，仍支持）
 ```typescript
 // 使用 $$ 分隔符定义伪类样式
 const button$$hover = css { backgroundColorBlue }
@@ -81,7 +105,7 @@ const link$$active = css { colorRed }
 const card$$hover$$active = css { displayFlex, padding16px }
 ```
 
-### 6. 合并样式（在 css {} 中引用变量）
+### 8. 合并样式（在 css {} 中引用变量）
 
 **重要**：先定义被引用的样式，再定义引用它的样式！
 

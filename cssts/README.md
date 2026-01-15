@@ -103,58 +103,69 @@ const buttonStyle = css { colorWhite, backgroundColorBlue, csstsHover }
 </style>
 ```
 
-### 🚧 待完成功能：classGroup 类组合
+### ✅ classGroup 类组合
 
-未来版本将支持 `classGroup` 配置，可以将多个原子类（包括伪类）组合成一个新类：
+`classGroup` 配置可以将多个原子类（包括伪类）组合成一个新类：
 
 ```typescript
 // vite.config.ts
 cssTsPlugin({
-  // 默认前缀（默认 'cssts_'）
-  classPrefix: 'cssts_',
-  
   // 伪类配置
   pseudoClassConfig: {
     hover: { filter: 'brightness(1.15)' },
-    active: { filter: 'brightness(0.85)' }
+    active: { filter: 'brightness(0.85)' },
+    focus: { outline: '2px solid var(--el-color-primary-light-5)' },
+    disabled: { opacity: '0.5', cursor: 'not-allowed' }
   },
   
   // 类组合配置
   classGroup: {
-    click: ['hover', 'active', 'cursorPointer'],
+    click: ['hover', 'active', 'focus', 'disabled', 'cursorPointer'],
     ddClick: ['click', 'colorRed']  // 可引用其他组合
   }
 })
+```
+
+**使用**：
+
+```typescript
+// 按钮样式：使用 click 类组合
+const buttonStyle = css {
+  padding10px,
+  borderRadius8px,
+  colorWhite,
+  backgroundColorBlue,
+  click  // 包含 hover/active/focus/disabled 效果 + cursor: pointer
+}
+
+// 红色按钮：使用 ddClick（继承 click + 添加红色）
+const redButtonStyle = css { ddClick, padding10px }
 ```
 
 **生成的 CSS**：
 
 ```css
 /* click 组合 */
-.cssts_click:hover { filter: brightness(1.15); }
-.cssts_click:active { filter: brightness(0.85); }
-.cssts_click { cursor: pointer; }
+.click:hover { filter: brightness(1.15); }
+.click:active { filter: brightness(0.85); }
+.click:focus { outline: 2px solid var(--el-color-primary-light-5); }
+.click:disabled { opacity: 0.5; cursor: not-allowed; }
+.click { cursor: pointer; }
 
-/* ddClick 组合（展开 click 的内容）*/
-.cssts_ddClick:hover { filter: brightness(1.15); }
-.cssts_ddClick:active { filter: brightness(0.85); }
-.cssts_ddClick { cursor: pointer; color: red; }
-```
-
-**使用**：
-
-```typescript
-const buttonStyle = css { click, paddingTop10px }
-const specialBtn = css { ddClick, backgroundColorBlue }
+/* ddClick 组合（展开 click 的内容 + colorRed）*/
+.ddClick:hover { filter: brightness(1.15); }
+.ddClick:active { filter: brightness(0.85); }
+.ddClick:focus { outline: 2px solid var(--el-color-primary-light-5); }
+.ddClick:disabled { opacity: 0.5; cursor: not-allowed; }
+.ddClick { cursor: pointer; color: red; }
 ```
 
 **处理规则**：
 1. 遍历组合配置的每个元素
 2. 如果在 `classGroup` 中找到 → 递归展开
-3. 如果在原子类中找到 → 使用其 `{ property, value }`
-4. 如果找不到 → 跳过并警告
-
-此功能暂未实现，待后续版本支持。
+3. 如果在 `pseudoClassConfig` 中找到 → 生成伪类规则
+4. 如果在原子类中找到 → 使用其属性和值
+5. 如果找不到 → 跳过
 
 ### 🚧 待完成功能：伪类原子类后缀
 

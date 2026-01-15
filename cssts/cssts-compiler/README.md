@@ -172,6 +172,30 @@ const buttonStyle = css {
 
 ---
 
+## classGroup 类组合
+
+`classGroup` 可以将多个原子类（包括伪类）组合成一个新类：
+
+```typescript
+// 配置
+classGroup: {
+  click: ['hover', 'active', 'focus', 'disabled', 'cursorPointer'],
+  ddClick: ['click', 'colorRed']  // 可引用其他组合
+}
+```
+
+**生成流程**：
+1. 解析组合配置，递归展开引用的组合
+2. 对于伪类项（如 `hover`）：查找 `pseudoClassConfig`，生成 `.click:hover { ... }`
+3. 对于原子类项（如 `colorRed`）：查找原子类定义，生成 `.click { color: red }`
+
+**核心函数**：
+- `generateClassGroupAtoms()` - 生成类组合原子类定义
+- `generateClassGroupDts()` - 生成 DTS 声明
+- `expandClassGroup()` - 递归展开组合配置
+
+---
+
 ## 模块结构
 
 ```

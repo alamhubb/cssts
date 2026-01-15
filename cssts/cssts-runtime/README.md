@@ -107,45 +107,44 @@ CSSTS_CONFIG.SEPARATOR        // '_'   - 类名分隔符
 CSSTS_CONFIG.PSEUDO_SEPARATOR // '$$'  - 伪类分隔符（双美元符号）
 ```
 
-### $cls - 样式合并
+### merge - 样式合并
 
-纯对象合并，不做任何转换：
+核心合并函数，支持同属性去重：
 
 ```typescript
-import { $cls } from 'cssts-ts'
+import { cssts } from 'cssts-ts'
 
-const style = $cls(
+// 基础合并
+const style = cssts.merge(
   csstsAtom.displayFlex,
-  csstsAtom.alignItemsCenter,
-  csstsAtom.gap16px
+  csstsAtom.colorRed,
+  csstsAtom.colorBlue  // 同属性，会替换 colorRed
 )
-// 返回: { 'display_flex': true, 'align-items_center': true, 'gap_16px': true }
+// 返回: { 'display_flex': true, 'color_blue': 'color' }
 ```
 
-### replace - 样式替换
+**合并规则**：
+- 有属性的类名（value 是 string）：同属性只保留最后一个
+- 无属性的类名（value 是 true）：全部保留
+- 返回值兼容 Vue `:class` 绑定（truthy 值会添加类名）
 
-通过字符串分割提取属性名，检测冲突并替换：
+### classGroup 类组合
+
+预定义的类组合，直接在 `css {}` 中使用：
 
 ```typescript
-import { replace } from 'cssts-ts'
+// 使用 click 类组合
+const buttonStyle = css { 
+  padding16px, 
+  backgroundColorBlue,
+  click  // 包含 hover/active/focus/disabled 效果 + cursor: pointer
+}
 
-const style = { 'color_red': true, 'font-weight_bold': true }
-const newStyle = replace(style, csstsAtom.colorBlue)
-// 返回: { 'color_blue': true, 'font-weight_bold': true }
+// 使用 ddClick（继承 click + colorRed）
+const redBtn = css { ddClick, padding10px }
 ```
 
-### replaceAll - 批量替换
-
-```typescript
-import { replaceAll } from 'cssts-ts'
-
-const style = { 'color_red': true, 'font-size_14px': true }
-const newStyle = replaceAll(style, [
-  csstsAtom.colorBlue,
-  csstsAtom.fontSize16px
-])
-// 返回: { 'color_blue': true, 'font-size_16px': true }
-```
+**注意**：classGroup 的类名在 merge 结果中值为 `true`（不参与同属性替换）。
 
 ## 伪类语法
 
