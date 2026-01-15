@@ -470,12 +470,13 @@ export function generateAtoms(): AtomDefinition[] {
 }
 
 /** 生成 CSS 类名（prefix + property_value 格式） */
-export function generateCssClassName(atom: AtomDefinition): string {
-  return `${ConfigLookup.classPrefix}${atom.property}_${atom.value}`;
+export function generateCssClassName(atom: AtomDefinition, prefix: string): string {
+  return `${prefix}${atom.property}_${atom.value}`;
 }
 
 /** 生成 DTS 内容（全局常量声明格式） */
 export function generateDts(): string {
+  const prefix = ConfigLookup.classPrefix;
   const atoms = generateAtoms();
 
   const lines: string[] = [
@@ -488,15 +489,15 @@ export function generateDts(): string {
   ];
 
   for (const atom of atoms) {
-    const cssClassName = generateCssClassName(atom);
+    const cssClassName = generateCssClassName(atom, prefix);
     lines.push(`declare const ${atom.name}: { '${cssClassName}': '${atom.property}' };`);
   }
 
   // 添加伪类原子类声明
-  lines.push(generatePseudoDts());
+  lines.push(generatePseudoDts(prefix));
 
   // 添加类组合原子类声明
-  lines.push(generateClassGroupDts());
+  lines.push(generateClassGroupDts(prefix));
 
   lines.push('');
 
@@ -548,7 +549,7 @@ export function generatePseudoAtoms(): PseudoAtomDefinition[] {
 /**
  * 生成伪类原子类的 DTS 内容
  */
-export function generatePseudoDts(): string {
+export function generatePseudoDts(prefix: string): string {
   const pseudoAtoms = generatePseudoAtoms();
   if (pseudoAtoms.length === 0) return '';
 
@@ -560,7 +561,7 @@ export function generatePseudoDts(): string {
   ];
 
   for (const atom of pseudoAtoms) {
-    const fullClassName = `${ConfigLookup.classPrefix}${atom.className}`;
+    const fullClassName = `${prefix}${atom.className}`;
     // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
     lines.push(`declare const ${atom.name}: { '${fullClassName}': ':${atom.pseudo}' };`);
   }
@@ -603,7 +604,7 @@ export function generateClassGroupAtoms(): ClassGroupAtomDefinition[] {
 /**
  * 生成类组合的 DTS 内容
  */
-export function generateClassGroupDts(): string {
+export function generateClassGroupDts(prefix: string): string {
   const classGroupAtoms = generateClassGroupAtoms();
   if (classGroupAtoms.length === 0) return '';
 
@@ -615,7 +616,7 @@ export function generateClassGroupDts(): string {
   ];
 
   for (const atom of classGroupAtoms) {
-    const fullClassName = `${ConfigLookup.classPrefix}${atom.className}`;
+    const fullClassName = `${prefix}${atom.className}`;
     // 类组合不参与属性替换，property 为 true（必须是 truthy 值）
     lines.push(`declare const ${atom.name}: { '${fullClassName}': true };`);
   }
@@ -666,7 +667,7 @@ export function generateAtomsByProperty(): AtomsByProperty {
 }
 
 /** 生成单个属性的 DTS 内容 */
-export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[]): string {
+export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[], prefix: string): string {
   const lines: string[] = [
     '/**',
     ` * ${propertyName} 原子类类型定义（自动生成）`,
@@ -679,7 +680,7 @@ export function generatePropertyDts(propertyName: string, atoms: AtomDefinition[
   let lastUnit: string | undefined;
 
   for (const atom of atoms) {
-    const cssClassName = generateCssClassName(atom);
+    const cssClassName = generateCssClassName(atom, prefix);
 
     if (lastProperty !== undefined) {
       if (atom.property !== lastProperty) {

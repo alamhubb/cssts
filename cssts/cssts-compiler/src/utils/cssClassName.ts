@@ -198,13 +198,13 @@ export function getCssClassName(atomName: string): string {
  * 生成单条 CSS 规则
  * 
  * @example
- * generateAtomCssRule('displayFlex') // '.cssts_display_flex { display: flex; }'
+ * generateAtomCssRule('displayFlex', 'cssts_') // '.cssts_display_flex { display: flex; }'
  */
-export function generateAtomCssRule(atomName: string): string | null {
+export function generateAtomCssRule(atomName: string, prefix: string): string | null {
   const className = getCssClassName(atomName)
   const property = getCssProperty(atomName)
   const value = getCssValue(atomName)
   if (!property || !value) return null
-  const fullClassName = `${ConfigLookup.classPrefix}${className}`
+  const fullClassName = `${prefix}${className}`
   return `.${fullClassName} { ${property}: ${value}; }`
 }
