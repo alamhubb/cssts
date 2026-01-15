@@ -425,21 +425,19 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
-   * 检查是否是 css replace 模式
+   * 检查是否是 css 赋值模式
    * 
-   * 只有满足以下条件才触发：
+   * 满足以下条件时触发：
    * 1. 是赋值表达式（=）
-   * 2. 左侧是简单标识符（变量名）
-   * 3. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
+   * 2. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
    * 
-   * 这样可以避免误触发普通 JS 赋值（如 newTodo.value = ''）
+   * 支持：
+   * - style = css { }  → style = merge(style, ...)
+   * - obj.style = css { }  → obj.style = merge(obj.style, ...)
    */
   private isCssReplacePattern(ast: any): boolean {
     if (ast.type !== SlimeAstTypeName.AssignmentExpression) return false
     if (ast.operator !== '=') return false
-
-    // 左侧必须是简单标识符（变量名），不支持成员表达式
-    if (ast.left?.type !== SlimeAstTypeName.Identifier) return false
 
     // 右侧必须是 cssts.merge() 调用
     if (!this.isCsstsClsCall(ast.right)) return false
@@ -467,56 +465,51 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
-   * 转换为 cssts.replaceAll() 调用
+   * 转换为 cssts.merge() 调用（带原值合并）
    * 
-   * 输入：style = cssts.merge(a, b, c)
-   * 输出：style = cssts.replaceAll(style, [a, b, c])
+   * 输入：leftExpr = cssts.merge(a, b, c)
+   * 输出：leftExpr = cssts.merge(leftExpr, a, b, c)
+   * 
+   * 支持任意左侧表达式：
+   * - style = css { } → style = merge(style, ...)
+   * - obj.style = css { } → obj.style = merge(obj.style, ...)
    */
   private transformToCsstsReplace(ast: any): SlimeExpression {
-    const varName = ast.left.name
+    const leftExpr = ast.left  // 可以是 Identifier 或 MemberExpression
     const clsCallArgs = ast.right.arguments || []
 
-    // 创建 cssts.replaceAll 调用
+    // 创建 cssts.merge 调用
     const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
-    const replaceAllId = SlimeAstCreateUtils.createIdentifier('replaceAll')
+    const mergeId = SlimeAstCreateUtils.createIdentifier('merge')
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
-      property: replaceAllId,
+      property: mergeId,
       computed: false,
       optional: false
     } as any
 
-    // 创建参数数组：[a, b, c]
-    const arrayElements = clsCallArgs.map((arg: any, index: number) => {
-      const isLast = index === clsCallArgs.length - 1
-      return SlimeAstCreateUtils.createArrayElement(
-        arg,
-        isLast ? undefined : { type: 'Comma', value: ',' } as any
-      )
-    })
-    const argsArray = SlimeAstCreateUtils.createArrayExpression(arrayElements)
-
-    // replaceAll(style, [a, b, c])
-    const replaceCall: SlimeExpression = {
+    // merge(leftExpr, a, b, c) - 将原值作为第一个参数
+    const mergeCall: SlimeExpression = {
       type: SlimeAstTypeName.CallExpression,
       callee,
       arguments: [
-        SlimeAstCreateUtils.createIdentifier(varName),
-        argsArray
+        leftExpr,  // 第一个参数：原值（可以是任意表达式）
+        ...clsCallArgs  // 后续参数：新值
       ],
       optional: false
     } as any
 
-    // style = replaceAll(...)
+    // leftExpr = merge(...)
     return {
       type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
-      left: SlimeAstCreateUtils.createIdentifier(varName),
-      right: replaceCall,
+      left: leftExpr,
+      right: mergeCall,
       loc: ast.loc
     } as any
   }
+
 
 }
 
