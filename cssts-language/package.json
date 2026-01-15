@@ -100,7 +100,8 @@
     "vscode-languageserver-textdocument": "^1.0.12"
   },
   "dependencies": {
-    "cssts-ts": "0.2.5",
+    "cssts-ts": "^0.2.87",
+    "cssts-compiler": "^0.2.87",
     "vscode-uri": "^3.1.0"
   },
   "license": "MIT",

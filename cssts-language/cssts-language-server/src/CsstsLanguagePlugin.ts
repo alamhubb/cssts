@@ -8,6 +8,37 @@ import type { IScriptSnapshot } from 'typescript'
 import { URI } from 'vscode-uri'
 import { logToFile } from './logutil'
 import { transformCssTsWithMapping } from 'cssts-compiler'
+import { SlimeCodeMapping } from 'slime-generator'
+
+// 映射段信息
+interface SegmentInfo {
+  offset: number
+  length: number
+}
+
+// 增强的映射格式
+interface EnhancedMapping {
+  generated: SegmentInfo
+  original: SegmentInfo
+}
+
+// 映射转换器（参照 os-language）
+export class MappingConverter {
+  static convertMappings(mappings: SlimeCodeMapping[]): EnhancedMapping[] {
+    return mappings
+      .filter(mapping => mapping.source && mapping.generate)
+      .map(mapping => ({
+        original: {
+          offset: mapping.source.index,
+          length: mapping.source.length,
+        },
+        generated: {
+          offset: mapping.generate.index,
+          length: mapping.generate.length,
+        },
+      }))
+  }
+}
 
 // TypeScript ScriptKind 枚举值
 const ScriptKind = {
@@ -48,7 +79,7 @@ export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
     },
     getExtraServiceScripts(fileName, root) {
       const scripts: TypeScriptExtraServiceScript[] = []
-      
+
       function collectScripts(code: VirtualCode) {
         if (code.languageId === 'typescript') {
           scripts.push({
@@ -64,7 +95,7 @@ export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
           }
         }
       }
-      
+
       collectScripts(root)
       return scripts
     },
@@ -95,7 +126,7 @@ export class CsstsVirtualCode implements VirtualCode {
 
     const sourceCode = snapshot.getText(0, snapshot.getLength())
     let generatedCode = sourceCode
-    let mappingData: Array<{ source: { start: number; length: number }; generated: { start: number; length: number } }> = []
+    let mapping: any[] = []
 
     logToFile('=== CSSTS Transform Start ===')
     logToFile('Input code length: ' + sourceCode.length)
@@ -104,39 +135,37 @@ export class CsstsVirtualCode implements VirtualCode {
       // 使用 cssts-compiler 的 transformCssTsWithMapping
       const result = transformCssTsWithMapping(sourceCode)
       generatedCode = result.code
-      mappingData = result.mapping
-      
+      mapping = result.mapping
+
       logToFile('=== CSSTS Transform Success ===')
       logToFile('Output code length: ' + generatedCode.length)
-      logToFile('Mapping count: ' + mappingData.length)
+      logToFile('Mapping count: ' + mapping.length)
       logToFile('Generated code preview: ' + generatedCode.substring(0, 300))
     } catch (e: unknown) {
       logToFile('=== CSSTS Transform Error ===')
       if (e instanceof Error) {
-        logToFile('Error: ' + e.message)
+        logToFile('Error type: ' + e.constructor.name)
+        logToFile('Error message: ' + e.message)
+        logToFile('Error stack: ' + e.stack)
+      } else {
+        logToFile('Unknown error: ' + String(e))
       }
       generatedCode = sourceCode
-      mappingData = []
+      mapping = []
     }
 
-    // 创建嵌入的 TypeScript 虚拟代码
-    const tsMappings: CodeMapping[] = mappingData.length > 0 ? [{
-      sourceOffsets: mappingData.map(m => m.source.start),
-      generatedOffsets: mappingData.map(m => m.generated.start),
-      lengths: mappingData.map(m => m.source.length),
-      generatedLengths: mappingData.map(m => m.generated.length),
-      data: {
-        completion: true,
-        format: true,
-        navigation: true,
-        semantic: true,
-        structure: true,
-        verification: true,
-      },
-    }] : [{
-      sourceOffsets: [0],
-      generatedOffsets: [0],
-      lengths: [Math.min(sourceCode.length, generatedCode.length)],
+    // 使用 MappingConverter 转换映射（参照 os-language）
+    const offsets = MappingConverter.convertMappings(mapping)
+
+    logToFile('=== Mapping Debug ===')
+    logToFile('Raw mapping count: ' + mapping.length)
+    logToFile('Converted offsets count: ' + offsets.length)
+
+    const tsMappings: CodeMapping[] = [{
+      sourceOffsets: offsets.map(item => item.original.offset),
+      generatedOffsets: offsets.map(item => item.generated.offset),
+      lengths: offsets.map(item => item.original.length),
+      generatedLengths: offsets.map(item => item.generated.length),
       data: {
         completion: true,
         format: true,
