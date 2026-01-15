@@ -41,20 +41,35 @@ export const CSSTS_CONFIG = {
  * 
  * key: CSS 类名
  * value: 
- *   - true/false: 启用/禁用该类名
- *   - string: 类名的别名或动态值
- *   - null: 显式禁用
+ *   - undefined: 跳过
+ *   - null: 无属性
+ *   - string: 属性名
+ *   - boolean: true 保留，false 跳过
+ *   - number: 非0 保留，0 跳过
  */
-export type CssClassRecord = { [key: string]: null | string | boolean }
+export type CssClassRecord = {
+  [key: string]: undefined | null | string | boolean | number
+}
 
 /**
  * CSS 类名输入
  * 
- * 可以是：
- * - CssClassValue: 单个值（string 或 CssClassRecord）
- * - CssClassValue[]: 值数组
+ * 支持的类型：
+ * - string: 单个类名
+ * - string[]: 类名数组
+ * - CssClassRecord: 类名对象
+ * - undefined/null: 会被跳过
+ * - CssClassInput[]: 支持嵌套数组
+ * 
+ * 注意：如需传入其他类型，请使用类型断言 `as any`
  */
-export type CssClassInput = CssClassRecord | string | string[]
+export type CssClassInput =
+  | CssClassRecord
+  | string
+  | string[]
+  | CssClassInput[]
+  | undefined
+  | null
 
 interface ClassObject {
   [key: string]: string | null
@@ -121,20 +136,44 @@ function processToMap(
   } else if (typeof value === 'object') {
     // 对象：遍历键值对
     for (const [className, val] of Object.entries(value)) {
-      if (typeof val === 'boolean') {
-        // boolean 值：true → 保留，false → 跳过
-        if (val) {
-          map.set(className, { className, property: null })
-        }
-      } else {
-        // string | null：根据是否有属性决定 key
-        const key = val !== null ? val : className
-        map.set(key, { className, property: val })
+      const property = normalizeValue(val)
+
+      if (property === undefined) {
+        continue  // 跳过
       }
+
+      // 保留
+      const key = property !== null ? property : className
+      map.set(key, { className, property })
     }
   }
 
   return map
+}
+
+/**
+ * 规范化值类型
+ * 
+ * @param val - 输入值
+ * @returns 
+ *   - undefined → 跳过此条目
+ *   - null → 保留，property 为 null（无属性）
+ *   - string → 保留，property 为该字符串（属性名）
+ */
+function normalizeValue(val: any): undefined | null | string {
+  if (val === undefined) return undefined  // 跳过
+  if (val === null) return null            // 无属性
+  if (typeof val === 'string') return val  // 有属性
+
+  if (typeof val === 'boolean') {
+    return val ? null : undefined          // true → 保留，false → 跳过
+  }
+
+  if (typeof val === 'number') {
+    return val !== 0 ? null : undefined    // 非0 → 保留，0 → 跳过
+  }
+
+  return undefined  // 其他类型 → 跳过
 }
 
 // ==================== 导出 ====================
