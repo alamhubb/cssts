@@ -25,7 +25,7 @@ const buttonStyle = css {
 }
 
 // 先定义伪类
-const linkStyle$$hover = css { colorDodgerblue }
+const linkStyle$$hover = css { colorSkyblue }
 // 再定义合并样式
 const linkStyle = css { colorBlue, linkStyle$$hover }
 
