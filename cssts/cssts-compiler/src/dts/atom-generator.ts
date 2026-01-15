@@ -469,9 +469,9 @@ export function generateAtoms(): AtomDefinition[] {
   return allAtoms;
 }
 
-/** 生成 CSS 类名（property_value 格式） */
-function generateCssClassName(atom: AtomDefinition): string {
-  return `${atom.property}_${atom.value}`;
+/** 生成 CSS 类名（prefix + property_value 格式） */
+export function generateCssClassName(atom: AtomDefinition): string {
+  return `${ConfigLookup.classPrefix}${atom.property}_${atom.value}`;
 }
 
 /** 生成 DTS 内容（全局常量声明格式） */
@@ -531,7 +531,7 @@ export function generatePseudoAtoms(): PseudoAtomDefinition[] {
   for (const [pseudo, styles] of Object.entries(pseudoConfig)) {
     // 名称：直接使用伪类名（如 hover, active）
     const name = pseudo;
-    // 类名：直接使用伪类名（如 hover, active）
+    // 类名：不添加前缀，由调用方统一处理
     const className = pseudo;
 
     result.push({
@@ -560,8 +560,9 @@ export function generatePseudoDts(): string {
   ];
 
   for (const atom of pseudoAtoms) {
+    const fullClassName = `${ConfigLookup.classPrefix}${atom.className}`;
     // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
-    lines.push(`declare const ${atom.name}: { '${atom.className}': ':${atom.pseudo}' };`);
+    lines.push(`declare const ${atom.name}: { '${fullClassName}': ':${atom.pseudo}' };`);
   }
 
   return lines.join('\n');
@@ -586,13 +587,12 @@ export function generateClassGroupAtoms(): ClassGroupAtomDefinition[] {
   const classGroup = ConfigLookup.classGroup;
   if (!classGroup) return [];
 
-  const prefix = ConfigLookup.classPrefix || '';
   const result: ClassGroupAtomDefinition[] = [];
 
   for (const [name, items] of Object.entries(classGroup)) {
     result.push({
       name,
-      className: prefix ? `${prefix}${name}` : name,
+      className: name,  // 不添加前缀，由调用方统一处理
       items
     });
   }
@@ -615,8 +615,9 @@ export function generateClassGroupDts(): string {
   ];
 
   for (const atom of classGroupAtoms) {
+    const fullClassName = `${ConfigLookup.classPrefix}${atom.className}`;
     // 类组合不参与属性替换，property 为 true（必须是 truthy 值）
-    lines.push(`declare const ${atom.name}: { '${atom.className}': true };`);
+    lines.push(`declare const ${atom.name}: { '${fullClassName}': true };`);
   }
 
   return lines.join('\n');

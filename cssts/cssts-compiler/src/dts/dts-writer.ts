@@ -22,6 +22,7 @@ import {
   generatePseudoDts,
   generateClassGroupAtoms,
   generateClassGroupDts,
+  generateCssClassName,
   type AtomDefinition,
   type GroupAtomDefinition,
 } from './atom-generator.ts';
@@ -56,11 +57,6 @@ function getDefaultOutputDir(): string {
 /** camelCase 转 kebab-case */
 function camelToKebab(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-}
-
-/** 生成 CSS 类名（property_value 格式） */
-function generateCssClassName(atom: AtomDefinition): string {
-  return `${camelToKebab(atom.property)}_${atom.value}`;
 }
 
 /**

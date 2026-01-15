@@ -425,8 +425,8 @@ export const csstsDefaultConfig: CsstsConfig = {
         },
     ],
 
-    // 默认类名前缀
-    classPrefix: '',
+    // 默认类名前缀（不含分隔符，内部会自动添加 _）
+    classPrefix: 'cssts',
 
     // 类组合配置
     classGroup: {

@@ -102,9 +102,10 @@ export class ConfigLookup {
         return this.userConfig?.excludeNumberCategories ?? this.defaultConfig.excludeNumberCategories;
     }
 
-    /** 类名前缀 */
-    static get classPrefix(): string | undefined {
-        return this.userConfig?.classPrefix ?? this.defaultConfig.classPrefix;
+    /** 类名前缀（自动添加 _ 分隔符，无配置时返回空字符串） */
+    static get classPrefix(): string {
+        const raw = this.userConfig?.classPrefix ?? this.defaultConfig.classPrefix;
+        return raw ? `${raw}_` : '';
     }
 
     /** 排除的关键字 */
