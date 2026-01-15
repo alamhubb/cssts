@@ -358,49 +358,58 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   /**
-   * 转换 css { } 内部的属性表达式
+   * 转换 css { } 内部的表达式
    * 
-   * 使用作用域分析 + 命名规则判断：
-   * - 在作用域中的标识符 → 保持原样（是变量）
-   * - 符合原子类命名规则 → 转换为 csstsAtom.xxx
+   * 规则：
+   * - 标识符 + 是全局样式类 → csstsAtom.xxx
    * - 其他 → 保持原样
    */
   private transformCssPropertyExpression(expr: SlimeExpression): SlimeExpression {
     if (!expr) return expr
 
-    // 标识符：使用 isAtomName 判断
+    // 标识符：判断是否是全局样式类
     if (expr.type === SlimeAstTypeName.Identifier) {
       const name = (expr as any).name || ''
       if (name && this.isAtomName(name)) {
+        // 是全局样式类：转换为 csstsAtom.xxx
         this.usedAtoms.add(name)
         return this.createCsstsAtomMember(name)
       }
-      // 不是原子类，保持原样（变量引用）
+      // 不是样式类（变量引用）：保持原样
       return expr
     }
 
-    // SpreadElement 保持不变
-    if ((expr as any).type === SlimeAstTypeName.SpreadElement) return expr
-
-    // LogicalExpression：递归转换右侧
+    // 逻辑表达式：递归处理两侧
     if (expr.type === SlimeAstTypeName.LogicalExpression) {
       const logicalExpr = expr as any
-      return { ...logicalExpr, right: this.transformCssPropertyExpression(logicalExpr.right) }
+      return {
+        ...logicalExpr,
+        left: this.transformCssPropertyExpression(logicalExpr.left),
+        right: this.transformCssPropertyExpression(logicalExpr.right)
+      }
     }
 
-    // ConditionalExpression：递归转换两个分支
+    // 三元表达式：递归处理三个部分
     if (expr.type === SlimeAstTypeName.ConditionalExpression) {
       const condExpr = expr as any
       return {
         ...condExpr,
+        test: this.transformCssPropertyExpression(condExpr.test),
         consequent: this.transformCssPropertyExpression(condExpr.consequent),
         alternate: condExpr.alternate ? this.transformCssPropertyExpression(condExpr.alternate) : condExpr.alternate
       }
     }
 
-    // CallExpression 保持不变
-    if (expr.type === SlimeAstTypeName.CallExpression) return expr
+    // 函数调用：递归处理参数
+    if (expr.type === SlimeAstTypeName.CallExpression) {
+      const callExpr = expr as any
+      return {
+        ...callExpr,
+        arguments: callExpr.arguments?.map((arg: any) => this.transformCssPropertyExpression(arg)) || []
+      }
+    }
 
+    // 其他：保持原样（字符串、展开等）
     return expr
   }
 
@@ -438,32 +447,12 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * - obj.style = css { } → obj.style = merge(obj.style, ...)
    */
   private transformToCssMerge(ast: any): SlimeExpression {
-    const leftExpr = ast.left  // 可以是 Identifier 或 MemberExpression
-    const clsCallArgs = ast.right.arguments || []
+    const leftExpr = ast.left
+    const rightArgs = ast.right.arguments || []
 
-    // 创建 cssts.merge 调用
-    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
-    const mergeId = SlimeAstCreateUtils.createIdentifier('merge')
-    const callee: SlimeExpression = {
-      type: SlimeAstTypeName.MemberExpression,
-      object: csstsId,
-      property: mergeId,
-      computed: false,
-      optional: false
-    } as any
+    // 复用 createCsstsClsCallWithArgs，将左侧表达式作为第一个参数
+    const mergeCall = this.createCsstsClsCallWithArgs([leftExpr, ...rightArgs], ast.loc)
 
-    // merge(leftExpr, a, b, c) - 将原值作为第一个参数
-    const mergeCall: SlimeExpression = {
-      type: SlimeAstTypeName.CallExpression,
-      callee,
-      arguments: [
-        leftExpr,  // 第一个参数：原值（可以是任意表达式）
-        ...clsCallArgs  // 后续参数：新值
-      ],
-      optional: false
-    } as any
-
-    // leftExpr = merge(...)
     return {
       type: SlimeAstTypeName.AssignmentExpression,
       operator: '=',
