@@ -163,8 +163,8 @@ CSS 代码
 const buttonStyle = css { 
   colorWhite, 
   backgroundColorBlue,
-  csstsHover,   // .cssts-hover:hover { filter: brightness(1.15) }
-  csstsActive   // .cssts-active:active { filter: brightness(0.85) }
+  hover,        // .hover:hover { filter: brightness(1.15) }
+  active        // .active:active { filter: brightness(0.85) }
 }
 ```
 

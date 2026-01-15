@@ -251,7 +251,7 @@ export function generateStylesCss(
   }
 
   // 3. 生成伪类原子类 CSS（始终生成）
-  // 如 csstsHover → .cssts-hover:hover { filter: brightness(1.15) }
+  // 如 hover → .hover:hover { filter: brightness(1.15) }
   const pseudoAtoms = generatePseudoAtoms()
   if (pseudoAtoms.length > 0) {
     lines.push('/* CSSTS Pseudo-class atoms */')
@@ -356,7 +356,7 @@ export function generateCsstsAtomModule(
     }
   }
 
-  // 添加伪类原子类（csstsHover, csstsActive 等）
+  // 添加伪类原子类（hover, active 等）
   const pseudoAtoms = generatePseudoAtoms()
   for (const atom of pseudoAtoms) {
     const fullClassName = prefix ? `${prefix}${atom.className}` : atom.className

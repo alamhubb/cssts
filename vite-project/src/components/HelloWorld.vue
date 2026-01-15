@@ -23,7 +23,7 @@ const buttonStyle = css {
 const ddClickStyle = css { ddClick, padding10px }
 
 // 链接样式：添加 hover 效果
-const linkStyle = css { colorBlue, csstsHover }
+const linkStyle = css { colorBlue, hover }
 
 const codeStyle = css { padding2px, padding6px, borderRadius4px }
 

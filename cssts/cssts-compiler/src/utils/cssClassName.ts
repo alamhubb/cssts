@@ -34,7 +34,7 @@ function getAtomNameSet(): Set<string> {
       _atomNameSet.add(group.name)
     }
 
-    // 伪类原子类（csstsHover, csstsActive 等）
+    // 伪类原子类（hover, active 等）
     for (const pseudo of generatePseudoAtoms()) {
       _atomNameSet.add(pseudo.name)
     }

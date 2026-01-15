@@ -65,22 +65,22 @@ IDE 识别为全局常量，提供补全和类型检查
 const buttonStyle = css { 
   colorWhite, 
   backgroundColorBlue, 
-  csstsHover,   // hover 时亮度增加
-  csstsActive   // active 时亮度降低
+  hover,        // hover 时亮度增加
+  active        // active 时亮度降低
 }
 
 // 输入框：添加 focus 效果
-const inputStyle = css { borderColorGray, cssstsFocus }
+const inputStyle = css { borderColorGray, focus }
 ```
 
 ### 内置伪类原子类
 
 | 原子类名 | CSS 规则 | 效果 |
 |----------|----------|------|
-| `csstsHover` | `.cssts-hover:hover { filter: brightness(1.15) }` | 悬停时变亮 |
-| `csstsActive` | `.cssts-active:active { filter: brightness(0.85) }` | 按下时变暗 |
-| `cssstsFocus` | `.cssts-focus:focus { outline: 2px solid ... }` | 聚焦时显示轮廓 |
-| `csstsDisabled` | `.cssts-disabled:disabled { opacity: 0.5 ... }` | 禁用时变灰 |
+| `hover` | `.hover:hover { filter: brightness(1.15) }` | 悬停时变亮 |
+| `active` | `.active:active { filter: brightness(0.85) }` | 按下时变暗 |
+| `focus` | `.focus:focus { outline: 2px solid ... }` | 聚焦时显示轮廓 |
+| `disabled` | `.disabled:disabled { opacity: 0.5 ... }` | 禁用时变灰 |
 
 ### 自定义伪类样式
 
@@ -88,7 +88,7 @@ const inputStyle = css { borderColorGray, cssstsFocus }
 
 ```vue
 <script setup lang="cssts">
-const buttonStyle = css { colorWhite, backgroundColorBlue, csstsHover }
+const buttonStyle = css { colorWhite, backgroundColorBlue, hover }
 </script>
 
 <template>
@@ -280,7 +280,7 @@ import { buttonStyle } from './Button.cssts'
 ```typescript
 const styles = new Set<string>()
 styles.add('displayFlex')     // 原子类
-styles.add('csstsHover')      // 伪类原子类
+styles.add('hover')           // 伪类原子类
 ```
 
 **优点**：
@@ -317,8 +317,8 @@ const buttonStyle = css { displayFlex, padding16px, cursorPointer }
 const buttonStyle = css { 
   colorWhite, 
   backgroundColorBlue,
-  csstsHover,   // hover 效果
-  csstsActive   // active 效果
+  hover,        // hover 效果
+  active        // active 效果
 }
 ```
 

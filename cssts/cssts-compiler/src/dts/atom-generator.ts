@@ -505,9 +505,9 @@ export function generateDts(): string {
 
 /** 伪类原子类定义 */
 export interface PseudoAtomDefinition {
-  /** 原子类名称 (camelCase)，如 csstsHover */
+  /** 原子类名称 (camelCase)，如 hover */
   name: string;
-  /** CSS 类名 (kebab-case)，如 cssts-hover */
+  /** CSS 类名，如 hover */
   className: string;
   /** 伪类名称，如 hover */
   pseudo: string;
@@ -519,8 +519,8 @@ export interface PseudoAtomDefinition {
  * 生成伪类原子类定义
  * 
  * 根据 pseudoClassConfig 配置生成伪类原子类：
- * - csstsHover → .cssts-hover:hover { filter: brightness(1.15) }
- * - csstsActive → .cssts-active:active { filter: brightness(0.85) }
+ * - hover → .hover:hover { filter: brightness(1.15) }
+ * - active → .active:active { filter: brightness(0.85) }
  */
 export function generatePseudoAtoms(): PseudoAtomDefinition[] {
   const pseudoConfig = ConfigLookup.pseudoClassConfig;
@@ -529,10 +529,10 @@ export function generatePseudoAtoms(): PseudoAtomDefinition[] {
   const result: PseudoAtomDefinition[] = [];
 
   for (const [pseudo, styles] of Object.entries(pseudoConfig)) {
-    // 名称：cssts + PascalCase(pseudo)
-    const name = 'cssts' + pseudo.charAt(0).toUpperCase() + pseudo.slice(1);
-    // 类名：cssts-pseudo
-    const className = 'cssts-' + pseudo;
+    // 名称：直接使用伪类名（如 hover, active）
+    const name = pseudo;
+    // 类名：直接使用伪类名（如 hover, active）
+    const className = pseudo;
 
     result.push({
       name,
