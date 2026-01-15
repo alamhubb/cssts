@@ -1,142 +1,124 @@
-import { SourceMap } from '@volar/source-map';
-import type * as CompilerDOM from '@vue/compiler-dom';
-import type { VueLanguagePlugin } from '@vue/language-core';
-import { baseParse } from './lib/baseParse';
+import type { VueLanguagePlugin } from '@vue/language-core'
+import { transformCssTsWithMapping, CsstsInit } from 'cssts-compiler'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 
-const classRegex = /^class\s*=/;
+// 日志文件路径
+const LOG_FILE = path.join(process.cwd(), 'cssts-plugin-debug.log')
+const LOG_PREFIX = '[language-plugin-cssts]'
 
+function log(...args: any[]) {
+	const message = `${new Date().toISOString()} ${LOG_PREFIX} ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
+	try {
+		fs.appendFileSync(LOG_FILE, message)
+	} catch (e) {
+		// 忽略写入错误
+	}
+	console.log(LOG_PREFIX, ...args)
+}
+
+function logError(...args: any[]) {
+	const message = `${new Date().toISOString()} ${LOG_PREFIX} ERROR: ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
+	try {
+		fs.appendFileSync(LOG_FILE, message)
+	} catch (e) {
+		// 忽略写入错误
+	}
+	console.error(LOG_PREFIX, ...args)
+}
+
+// 初始化日志文件
+try {
+	fs.writeFileSync(LOG_FILE, `=== CSSTS Plugin Log Started at ${new Date().toISOString()} ===\n`)
+	fs.appendFileSync(LOG_FILE, `Working directory: ${process.cwd()}\n`)
+} catch (e) {
+	// 忽略错误
+}
+
+// 初始化 CSSTS（使用默认配置，LSP 环境不生成 DTS）
+try {
+	CsstsInit.init({ dts: false })
+	log('✅ CsstsInit initialized')
+} catch (e) {
+	logError('CsstsInit failed:', e)
+}
+
+/**
+ * CSSTS Vue Language Plugin
+ *
+ * 核心思路：在 resolveEmbeddedCode 中修改 Volar 已有的脚本块内容
+ */
 const plugin: VueLanguagePlugin = ({ modules }) => {
-	const CompilerDOM = modules['@vue/compiler-dom'];
+	const ts = modules.typescript
+	log('🚀 Plugin factory called - plugin is being loaded!')
 
 	return {
-		name: require('./package.json').name,
-
+		name: 'language-plugin-cssts',
 		version: 2.2,
 
-		getEmbeddedCodes(_fileName, sfc) {
-			if (sfc.template?.lang === 'pug') {
-				return [{
-					id: 'template',
-					lang: sfc.template.lang,
-				}];
-			}
-			return [];
+		/**
+		 * 不添加新的嵌入代码，而是拦截现有的
+		 */
+		getEmbeddedCodes(fileName, sfc) {
+			log('📂 getEmbeddedCodes called, fileName:', fileName)
+			log('   script lang:', sfc.script?.lang, 'scriptSetup lang:', sfc.scriptSetup?.lang)
+
+			// 不返回新的代码块，让 Volar 使用默认的
+			// 但我们会在 resolveEmbeddedCode 中修改内容
+			return []
 		},
 
-		resolveEmbeddedCode(_fileName, sfc, embeddedFile) {
-			if (embeddedFile.id === 'template' && sfc.template?.lang === 'pug') {
-				const minIndent = calculateMinIndent(sfc.template.content);
-				if (minIndent !== 0) {
-					embeddedFile.content.push(`template\n`);
-				}
-				embeddedFile.content.push([
-					sfc.template.content,
-					sfc.template.name,
-					0,
-					{
-						verification: true,
-						completion: true,
-						semantic: true,
-						navigation: true,
-						structure: true,
-						format: true,
-					},
-				]);
-			}
-		},
+		/**
+		 * 拦截所有嵌入代码块的解析
+		 * 
+		 * 当 Volar 处理默认的脚本块时，我们替换其内容为转换后的 TypeScript
+		 */
+		resolveEmbeddedCode(fileName, sfc, embeddedFile) {
+			log('🔧 resolveEmbeddedCode called')
+			log('   fileName:', fileName)
+			log('   embeddedFile.id:', embeddedFile.id)
+			log('   embeddedFile.lang:', embeddedFile.lang)
 
-		compileSFCTemplate(lang, template, options) {
-			if (lang === 'pug') {
-				let parsed: ReturnType<typeof baseParse>;
-				let baseOffset = 0;
+			// 检查是否是脚本相关的嵌入代码
+			// Volar 默认为 script setup 生成的嵌入代码 id 可能是 'script_ts' 或类似的
+			if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
+				log('   🔍 Detected script embedded code')
 
-				const minIndent = calculateMinIndent(template);
-				if (minIndent === 0) {
-					parsed = baseParse(template);
-				}
-				else {
-					parsed = baseParse(`template\n${template}`);
-					baseOffset = 'template\n'.length;
-					parsed.htmlCode = ' '.repeat('<template>'.length)
-						+ parsed.htmlCode.slice('<template>'.length, -'</template>'.length)
-						+ ' '.repeat('</template>'.length);
-				}
+				// 检查源文件是否有 cssts 脚本
+				const scriptBlock = sfc.scriptSetup || sfc.script
+				if (scriptBlock && scriptBlock.lang === 'cssts') {
+					log('   ✅ Found cssts script, need to transform')
+					log('   Script content length:', scriptBlock.content.length)
 
-				const map = new SourceMap(parsed.mappings);
-				let ast = CompilerDOM.parse(parsed.htmlCode, {
-					...options,
-					comments: true,
-					onWarn(warning) {
-						if (warning.loc) {
-							warning.loc.start.offset = toPugOffset(warning.loc.start.offset);
-							warning.loc.end.offset = toPugOffset(warning.loc.end.offset);
-						}
-						options.onWarn?.(warning);
-					},
-					onError(error) {
-						// #5099
-						if (
-							error.code === 2 satisfies CompilerDOM.ErrorCodes.DUPLICATE_ATTRIBUTE
-							&& classRegex.test(parsed.htmlCode.slice(error.loc?.start.offset))
-						) {
-							return;
-						}
-						if (error.loc) {
-							error.loc.start.offset = toPugOffset(error.loc.start.offset);
-							error.loc.end.offset = toPugOffset(error.loc.end.offset);
-						}
-						options.onError?.(error);
-					},
-				});
-				CompilerDOM.transform(ast, options);
+					try {
+						// 转换 cssts 为 TypeScript
+						const result = transformCssTsWithMapping(scriptBlock.content)
+						const tsCode = result.code
+						log('   ✅ Transform success, tsCode length:', tsCode.length)
 
-				const visited = new Set<object>();
-				visit(ast);
-
-				return {
-					ast,
-					code: '',
-					preamble: '',
-				};
-
-				function visit(obj: object) {
-					for (const key in obj) {
-						const value = (obj as any)[key];
-						if (value && typeof value === 'object') {
-							if (visited.has(value)) {
-								continue;
-							}
-							visited.add(value);
-							if ('offset' in value && typeof value.offset === 'number') {
-								const originalOffset = value.offset;
-								value.offset = toPugOffset(originalOffset);
-							}
-							visit(value);
-						}
+						// 清空现有内容，替换为转换后的代码
+						embeddedFile.content.length = 0
+						embeddedFile.content.push([
+							tsCode,
+							scriptBlock.name,
+							0,
+							{
+								verification: true,
+								completion: true,
+								semantic: true,
+								navigation: true,
+								structure: true,
+								format: true,
+							},
+						])
+						log('   ✅ Replaced embeddedFile content')
+					} catch (e) {
+						logError('Transform error:', e)
 					}
 				}
-
-				function toPugOffset(htmlOffset: number) {
-					const nums: number[] = [];
-					for (const mapped of map.toSourceLocation(htmlOffset)) {
-						nums.push(mapped[0] - baseOffset);
-					}
-					return Math.max(-1, ...nums);
-				}
 			}
 		},
-	};
-};
-export = plugin;
-
-function calculateMinIndent(s: string) {
-	const lines = s.split('\n');
-	const minIndent = lines.reduce(function(minIndent, line) {
-		if (line.trim() === '') {
-			return minIndent;
-		}
-		const indent = line.match(/^\s*/)?.[0]?.length || 0;
-		return Math.min(indent, minIndent);
-	}, Infinity);
-	return minIndent;
+	}
 }
+
+export default plugin

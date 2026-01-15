@@ -4,7 +4,7 @@ import {
   transformCssTs,
   generateStylesCss,
   generateCsstsAtomModule,
-  generateDtsFiles,
+  CsstsInit,
   type CsstsCompilerConfig,
 } from 'cssts-compiler'
 import { parse as parseSfc, type SFCDescriptor, type SFCScriptBlock } from '@vue/compiler-sfc'
@@ -246,9 +246,8 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
     },
 
     configResolved(_resolvedConfig) {
-      if (options.dts !== false) {
-        generateDtsFiles(options)
-      }
+      // 使用 CsstsInit 统一初始化（自动生成 DTS）
+      CsstsInit.init(options)
     },
 
     configureServer(_server) {

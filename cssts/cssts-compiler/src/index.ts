@@ -1,6 +1,9 @@
 // Parser
 export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTypes } from './parser'
 
+// 统一初始化
+export { CsstsInit, type RuntimeAtomData } from './init/CsstsInit'
+
 // AST Transformer
 export { CssTsCstToAstUtils, CssTsCstToAst } from './factory'
 
@@ -21,7 +24,7 @@ export {
 /** CSS 属性值映射类型 */
 export type CssPropertyValueMap = Record<string, string | undefined>
 
-/** 伪类工具配置类型 */
+/**伪类工具配置类型 */
 export type PseudoUtilsConfig = Record<string, CssPropertyValueMap>
 
 // CSS class name utilities

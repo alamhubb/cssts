@@ -5,6 +5,9 @@ import { atomicCssProperties } from "./CsstsDefaultSupportCssProperties.ts";
 // ==================== 系统级别默认配置 ====================
 
 export const csstsDefaultConfig: CsstsConfig = {
+    // 默认类名前缀（不含分隔符，内部会自动添加 _）
+    classPrefix: 'cssts',
+
     // 默认支持的属性列表
     properties: atomicCssProperties,
 
@@ -424,9 +427,6 @@ export const csstsDefaultConfig: CsstsConfig = {
             }
         },
     ],
-
-    // 默认类名前缀（不含分隔符，内部会自动添加 _）
-    classPrefix: 'cssts',
 
     // 类组合配置
     classGroup: {

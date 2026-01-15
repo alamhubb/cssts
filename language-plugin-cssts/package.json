@@ -1,27 +1,36 @@
 {
-	"name": "@vue/language-plugin-pug",
-	"version": "3.2.2",
+	"name": "language-plugin-cssts",
+	"version": "0.2.87",
+	"description": "Vue Language Plugin for CSSTS - provides LSP support for <script lang=\"cssts\"> in Vue SFC",
 	"license": "MIT",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.cts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
 	"files": [
-		"**/*.js",
-		"**/*.d.ts"
+		"dist"
 	],
 	"sideEffects": false,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/vuejs/language-tools.git",
-		"directory": "packages/language-plugin-pug"
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch"
 	},
 	"dependencies": {
-		"@volar/source-map": "2.4.27",
-		"muggle-string": "^0.4.1",
-		"pug-lexer": "^5.0.1",
-		"pug-parser": "^6.0.0",
-		"vscode-languageserver-textdocument": "^1.0.11"
+		"cssts-compiler": "^0.2.87"
 	},
 	"devDependencies": {
 		"@types/node": "^22.10.4",
-		"@vue/compiler-dom": "^3.5.0",
-		"@vue/language-core": "workspace:*"
+		"@vue/language-core": "^3.2.2",
+		"tsdown": "^0.18.0",
+		"typescript": "^5.8.3"
+	},
+	"peerDependencies": {
+		"@vue/language-core": "^3.0.0"
 	}
 }

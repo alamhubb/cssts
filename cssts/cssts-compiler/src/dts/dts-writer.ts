@@ -104,20 +104,26 @@ function generateIndexDtsWithReferences(fileNames: string[]): string {
 }
 
 /**
- * 生成 DTS 文件到指定目录
+ * DTS 生成工具函数
  * 
- * 从 config 中读取配置：
- * - config.dtsOutputDir: 输出目录
- * - config.dtsSplitFiles: 是否拆分文件
- * - config.debug: 是否打印日志
+ * 职责：接收完整数据，生成 .d.ts 文件
  * 
- * 支持两种模式：
- * 1. dtsSplitFiles=false（默认）：单个 index.d.ts 文件
- * 2. dtsSplitFiles=true：拆分为多个文件，每个属性一个文件
+ * @param params - 生成参数
+ * @param params.config - 配置
+ * @param params.atoms - 普通原子类完整定义
+ * @param params.groups - Group 原子类完整定义
+ * @param params.pseudos - 伪类原子类完整定义
+ * @param params.classGroups - 类组合完整定义
+ * @returns 生成结果
  */
-export function generateDtsFiles(config?: Partial<CsstsCompilerConfig>): DtsGenerateResult {
-  // 初始化配置查找器（全局唯一入口）
-  ConfigLookup.init(config);
+export function generateDtsFiles(params: {
+  config?: Partial<CsstsCompilerConfig>
+  atoms: AtomDefinition[]
+  groups: GroupAtomDefinition[]
+  pseudos: PseudoAtomDefinition[]
+  classGroups: ClassGroupAtomDefinition[]
+}): DtsGenerateResult {
+  const { config, atoms, groups, pseudos, classGroups } = params;
 
   // 从 config 中读取配置
   const outputDir = config?.dtsOutputDir ?? getDefaultOutputDir();
@@ -134,8 +140,18 @@ export function generateDtsFiles(config?: Partial<CsstsCompilerConfig>): DtsGene
 
   log('[cssts] 开始生成类型定义文件...');
 
-  const stats = generateStats();
-  const atoms = generateAtoms();
+  // 使用传入的数据生成统计信息
+  const stats = {
+    totalAtoms: atoms.length,
+    byProperty: {} as Record<string, number>,
+    byCategory: {} as Record<string, number>
+  };
+
+  for (const atom of atoms) {
+    stats.byProperty[atom.property] = (stats.byProperty[atom.property] || 0) + 1;
+    const category = atom.unit || 'keyword';
+    stats.byCategory[category] = (stats.byCategory[category] || 0) + 1;
+  }
 
   // 生成 package.json
   const packageJson = {
