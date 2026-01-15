@@ -290,7 +290,12 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
     if (styleObjectCst) {
       const args = this.extractCssPropertyExpressions(styleObjectCst)
-      return this.createCsstsClsCallWithArgs(args, cst.loc)
+      const callExpr = this.createCsstsClsCallWithArgs(args, cst.loc)
+
+        // 添加标记：标识这是 css 语法生成的表达式
+        ; (callExpr as any).__isCssSyntax = true
+
+      return callExpr
     }
 
     const identifierCsts = children.filter(c => c.name === 'IdentifierName')
@@ -414,58 +419,16 @@ export class CssTsCstToAst extends SlimeCstToAst {
   createAssignmentExpressionAst(cst: SubhutiCst): SlimeExpression {
     const ast = super.createAssignmentExpressionAst(cst)
 
-    // 检查是否是 css replace 模式：
-    // 1. 左侧是标识符（变量，不是成员表达式）
-    // 2. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
-    if (this.isCssReplacePattern(ast)) {
-      return this.transformToCsstsReplace(ast)
+    // 如果右侧是 css 语法，转换为带合并的 merge
+    if (ast.right?.__isCssSyntax) {
+      return this.transformToCssMerge(ast)
     }
 
     return ast
   }
 
   /**
-   * 检查是否是 css 赋值模式
-   * 
-   * 满足以下条件时触发：
-   * 1. 是赋值表达式（=）
-   * 2. 右侧是 cssts.merge() 调用（由 css { } 语法生成）
-   * 
-   * 支持：
-   * - style = css { }  → style = merge(style, ...)
-   * - obj.style = css { }  → obj.style = merge(obj.style, ...)
-   */
-  private isCssReplacePattern(ast: any): boolean {
-    if (ast.type !== SlimeAstTypeName.AssignmentExpression) return false
-    if (ast.operator !== '=') return false
-
-    // 右侧必须是 cssts.merge() 调用
-    if (!this.isCsstsClsCall(ast.right)) return false
-
-    return true
-  }
-
-  /**
-   * 检查表达式是否是 cssts.merge() 调用
-   */
-  private isCsstsClsCall(expr: any): boolean {
-    if (expr?.type !== SlimeAstTypeName.CallExpression) return false
-
-    const callee = expr.callee
-    if (callee?.type !== SlimeAstTypeName.MemberExpression) return false
-
-    // 检查是否是 cssts.merge
-    const object = callee.object
-    const property = callee.property
-
-    if (object?.type !== SlimeAstTypeName.Identifier || object?.name !== 'cssts') return false
-    if (property?.type !== SlimeAstTypeName.Identifier || property?.name !== 'merge') return false
-
-    return true
-  }
-
-  /**
-   * 转换为 cssts.merge() 调用（带原值合并）
+   * 转换为带合并的 merge 调用
    * 
    * 输入：leftExpr = cssts.merge(a, b, c)
    * 输出：leftExpr = cssts.merge(leftExpr, a, b, c)
@@ -474,7 +437,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * - style = css { } → style = merge(style, ...)
    * - obj.style = css { } → obj.style = merge(obj.style, ...)
    */
-  private transformToCsstsReplace(ast: any): SlimeExpression {
+  private transformToCssMerge(ast: any): SlimeExpression {
     const leftExpr = ast.left  // 可以是 Identifier 或 MemberExpression
     const clsCallArgs = ast.right.arguments || []
 
