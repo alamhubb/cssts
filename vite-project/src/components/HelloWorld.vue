@@ -7,7 +7,7 @@ const count = ref(0)
 
 const cardStyle = css { padding20px, borderRadius8px }
 
-// 按钮样式：直接添加伪类原子类
+// 按钮样式：使用 click 类组合（包含 hover, active, focus, disabled, cursorPointer）
 const buttonStyle = css {
   padding10px,
   padding20px,
@@ -16,10 +16,11 @@ const buttonStyle = css {
   colorWhite,
   backgroundColorBlue,
   fontSizeLarge,
-  cursorPointer,
-  csstsHover,   // hover 效果（filter: brightness(1.15)）
-  csstsActive   // active 效果（filter: brightness(0.85)）
+  click  // 使用类组合！
 }
+
+// 测试 ddClick：引用 click + colorRed
+const ddClickStyle = css { ddClick, padding10px }
 
 // 链接样式：添加 hover 效果
 const linkStyle = css { colorBlue, csstsHover }
@@ -42,7 +43,10 @@ cosColor = css { colorGreen }  // 预期：应该替换为 colorGreen（同属�
 
   <div :class="cardStyle">
     <button type="button" :class="buttonStyle" @click="count++">
-      count is {{ count }}
+      count is {{ count }} (click 组合)
+    </button>
+    <button type="button" :class="ddClickStyle" @click="count++">
+      ddClick 测试 (应该有红色文字 + hover 效果)
     </button>
     <p>
       Edit

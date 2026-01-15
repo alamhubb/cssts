@@ -17,7 +17,7 @@ import {
   generateAtomCssRule,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
-import { generateAtomPropertyMap, generatePseudoAtoms } from '../dts/atom-generator.ts'
+import { generateAtomPropertyMap, generatePseudoAtoms, generateClassGroupAtoms } from '../dts/atom-generator.ts'
 
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>
@@ -78,6 +78,35 @@ export function parseStyleName(name: string): ParsedStyleInfo {
  */
 export function hasPseudos(name: string): boolean {
   return name.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)
+}
+
+/**
+ * 递归展开类组合
+ * 
+ * @param items 要展开的项目列表
+ * @param classGroup 类组合配置
+ * @param visited 已访问的组合名（防止循环引用）
+ */
+export function expandClassGroup(
+  items: string[],
+  classGroup: Record<string, string[]>,
+  visited: Set<string> = new Set()
+): string[] {
+  const result: string[] = []
+
+  for (const item of items) {
+    // 检查是否是类组合（且未访问过）
+    if (item in classGroup && !visited.has(item)) {
+      visited.add(item)
+      // 递归展开
+      result.push(...expandClassGroup(classGroup[item], classGroup, visited))
+    } else {
+      // 普通项目或伪类
+      result.push(item)
+    }
+  }
+
+  return result
 }
 
 // ==================== 核心转换 ====================
@@ -236,6 +265,47 @@ export function generateStylesCss(
     lines.push('')
   }
 
+  // 4. 生成类组合 CSS（展开组合内容）
+  const classGroupAtoms = generateClassGroupAtoms()
+  const pseudoConfig = ConfigLookup.pseudoClassConfig
+  const atomPropertyMap = generateAtomPropertyMap()
+
+  if (classGroupAtoms.length > 0) {
+    lines.push('/* CSSTS Class Group atoms */')
+    for (const group of classGroupAtoms) {
+      const fullClassName = prefix ? `${prefix}${group.className}` : group.className
+      const normalProps: string[] = []
+
+      // 展开组合内容
+      const expandedItems = expandClassGroup(group.items, ConfigLookup.classGroup || {})
+
+      for (const item of expandedItems) {
+        // 检查是否是伪类
+        if (pseudoConfig && item in pseudoConfig) {
+          const pseudoStyles = (pseudoConfig as Record<string, CssPropertyValueMap>)[item]
+          const styleEntries = Object.entries(pseudoStyles)
+            .map(([prop, val]) => `${camelToKebab(prop)}: ${val}`)
+            .join('; ')
+          lines.push(`.${fullClassName}:${item} { ${styleEntries}; }`)
+        }
+        // 检查是否是普通原子类
+        else if (atomPropertyMap.has(item)) {
+          const property = getCssProperty(item)
+          const value = getCssValue(item)
+          if (property && value) {
+            normalProps.push(`${property}: ${value}`)
+          }
+        }
+      }
+
+      // 生成普通样式规则
+      if (normalProps.length > 0) {
+        lines.push(`.${fullClassName} { ${normalProps.join('; ')}; }`)
+      }
+    }
+    lines.push('')
+  }
+
   return lines.join('\n')
 }
 
@@ -292,6 +362,14 @@ export function generateCsstsAtomModule(
     const fullClassName = prefix ? `${prefix}${atom.className}` : atom.className
     // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
     entries.push(`  ${atom.name}: { '${fullClassName}': ':${atom.pseudo}' }`)
+  }
+
+  // 添加类组合原子类（click, ddClick 等）
+  const classGroupAtoms = generateClassGroupAtoms()
+  for (const atom of classGroupAtoms) {
+    const fullClassName = prefix ? `${prefix}${atom.className}` : atom.className
+    // 类组合不参与属性替换，property 为 true（必须是 truthy 值，否则 Vue :class 不会添加）
+    entries.push(`  ${atom.name}: { '${fullClassName}': true }`)
   }
 
   lines.push(entries.join(',\n'))

@@ -103,7 +103,60 @@ const buttonStyle = css { colorWhite, backgroundColorBlue, csstsHover }
 </style>
 ```
 
-### 🚧 待定方案：伪类原子类后缀
+### 🚧 待完成功能：classGroup 类组合
+
+未来版本将支持 `classGroup` 配置，可以将多个原子类（包括伪类）组合成一个新类：
+
+```typescript
+// vite.config.ts
+cssTsPlugin({
+  // 默认前缀（默认 'cssts_'）
+  classPrefix: 'cssts_',
+  
+  // 伪类配置
+  pseudoClassConfig: {
+    hover: { filter: 'brightness(1.15)' },
+    active: { filter: 'brightness(0.85)' }
+  },
+  
+  // 类组合配置
+  classGroup: {
+    click: ['hover', 'active', 'cursorPointer'],
+    ddClick: ['click', 'colorRed']  // 可引用其他组合
+  }
+})
+```
+
+**生成的 CSS**：
+
+```css
+/* click 组合 */
+.cssts_click:hover { filter: brightness(1.15); }
+.cssts_click:active { filter: brightness(0.85); }
+.cssts_click { cursor: pointer; }
+
+/* ddClick 组合（展开 click 的内容）*/
+.cssts_ddClick:hover { filter: brightness(1.15); }
+.cssts_ddClick:active { filter: brightness(0.85); }
+.cssts_ddClick { cursor: pointer; color: red; }
+```
+
+**使用**：
+
+```typescript
+const buttonStyle = css { click, paddingTop10px }
+const specialBtn = css { ddClick, backgroundColorBlue }
+```
+
+**处理规则**：
+1. 遍历组合配置的每个元素
+2. 如果在 `classGroup` 中找到 → 递归展开
+3. 如果在原子类中找到 → 使用其 `{ property, value }`
+4. 如果找不到 → 跳过并警告
+
+此功能暂未实现，待后续版本支持。
+
+### 🚧 待完成功能：伪类原子类后缀
 
 未来可能支持类似 Tailwind 的伪类语法：
 
@@ -111,8 +164,8 @@ const buttonStyle = css { colorWhite, backgroundColorBlue, csstsHover }
 // 待定语法
 const buttonStyle = css { colorWhite, colorBlue$$hover, colorNavy$$active }
 // 生成：
-// .color_blue$$hover:hover { color: blue }
-// .color_navy$$active:active { color: navy }
+// .cssts_color_blue$$hover:hover { color: blue }
+// .cssts_color_navy$$active:active { color: navy }
 ```
 
 此功能暂未实现，待后续版本支持。

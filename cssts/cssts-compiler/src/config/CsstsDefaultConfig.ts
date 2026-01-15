@@ -1,5 +1,5 @@
-import type {CsstsConfig} from "./types/csstsConfig";
-import {atomicCssProperties} from "./CsstsDefaultSupportCssProperties.ts";
+import type { CsstsConfig } from "./types/csstsConfig";
+import { atomicCssProperties } from "./CsstsDefaultSupportCssProperties.ts";
 
 
 // ==================== 系统级别默认配置 ====================
@@ -9,113 +9,113 @@ export const csstsDefaultConfig: CsstsConfig = {
     properties: atomicCssProperties,
 
     progressiveRanges: [
-        {max: 100, divisors: [1]},         // 0-100: 每个整数
-        {max: 200, divisors: [2, 5]},      // 100-200: 能被 2 或 5 整除
-        {max: 500, divisors: [5]},         // 200-500: 能被 5 整除
-        {max: 1000, divisors: [10]},       // 500-1000: 能被 10 整除
-        {max: 2000, divisors: [20, 50]},   // 1000-2000: 能被 20 或 50 整除
-        {max: 5000, divisors: [50]},       // 2000-5000: 能被 50 整除
-        {max: 10000, divisors: [100]},     // 5000-10000: 能被 100 整除
-        {max: Infinity, divisors: [1000]}, // 10000+: 能被 1000 整除
+        { max: 100, divisors: [1] },         // 0-100: 每个整数
+        { max: 200, divisors: [2, 5] },      // 100-200: 能被 2 或 5 整除
+        { max: 500, divisors: [5] },         // 200-500: 能被 5 整除
+        { max: 1000, divisors: [10] },       // 500-1000: 能被 10 整除
+        { max: 2000, divisors: [20, 50] },   // 1000-2000: 能被 20 或 50 整除
+        { max: 5000, divisors: [50] },       // 2000-5000: 能被 50 整除
+        { max: 10000, divisors: [100] },     // 5000-10000: 能被 100 整除
+        { max: Infinity, divisors: [1000] }, // 10000+: 能被 1000 整除
     ],
 
     pseudoClassConfig: {
-        hover: {filter: 'brightness(1.15)'},
-        active: {filter: 'brightness(0.85)'},
+        hover: { filter: 'brightness(1.15)' },
+        active: { filter: 'brightness(0.85)' },
         focus: {
             outline: '2px solid var(--el-color-primary-light-5, #79bbff)',
             outlineOffset: '1px'
         },
-        disabled: {opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)'}
+        disabled: { opacity: '0.5', cursor: 'not-allowed', filter: 'grayscale(0.2)' }
     },
 
     groups: [
-        {name: 'size', numberProperties: ['height', 'width']},
-        {name: 'marginX', numberProperties: ['marginLeft', 'marginRight']},
-        {name: 'marginY', numberProperties: ['marginTop', 'marginBottom']},
-        {name: 'paddingX', numberProperties: ['paddingLeft', 'paddingRight']},
-        {name: 'paddingY', numberProperties: ['paddingTop', 'paddingBottom']},
+        { name: 'size', numberProperties: ['height', 'width'] },
+        { name: 'marginX', numberProperties: ['marginLeft', 'marginRight'] },
+        { name: 'marginY', numberProperties: ['marginTop', 'marginBottom'] },
+        { name: 'paddingX', numberProperties: ['paddingLeft', 'paddingRight'] },
+        { name: 'paddingY', numberProperties: ['paddingTop', 'paddingBottom'] },
         {
-            name: 'flexRow', keywordProperties: {display: 'flex', flexDirection: 'row'},
+            name: 'flexRow', keywordProperties: { display: 'flex', flexDirection: 'row' },
         },
         {
-            name: 'flexCol', keywordProperties: {display: 'flex', flexDirection: 'column'},
+            name: 'flexCol', keywordProperties: { display: 'flex', flexDirection: 'column' },
         },
         // row + flex
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'row'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'row' }],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
         // col + flex
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'column'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'column' }],
                 flex: [0, 1, 'auto', 'none'],
             }
         },
         // row + wrap
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'row'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'row' }],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
         // col + wrap
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'column'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'column' }],
                 flexWrap: ['nowrap', 'wrap'],
             }
         },
         // row + justifyContent (x轴)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'row'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'row' }],
                 justifyContent: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'space-between'},
-                    {value: 'space-evenly'},
-                    {value: 'space-around'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'space-between' },
+                    { value: 'space-evenly' },
+                    { value: 'space-around' },
                 ],
             }
         },
         // col + justifyContent (y轴)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'column'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'column' }],
                 justifyContent: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'space-between'},
-                    {value: 'space-evenly'},
-                    {value: 'space-around'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'space-between' },
+                    { value: 'space-evenly' },
+                    { value: 'space-around' },
                 ],
             }
         },
         // row + alignItems (y轴)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'row'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'row' }],
                 alignItems: {
                     prefix: 'y',
                     values: [
-                        {value: 'start'},
-                        {value: 'center'},
-                        {value: 'end'},
-                        {value: 'stretch'},
-                        {value: 'baseline'},
+                        { value: 'start' },
+                        { value: 'center' },
+                        { value: 'end' },
+                        { value: 'stretch' },
+                        { value: 'baseline' },
                     ]
                 },
             }
@@ -123,16 +123,16 @@ export const csstsDefaultConfig: CsstsConfig = {
         // col + alignItems (x轴)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'column'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'column' }],
                 alignItems: {
                     prefix: 'x',
                     values: [
-                        {value: 'start'},
-                        {value: 'center'},
-                        {value: 'end'},
-                        {value: 'stretch'},
-                        {value: 'baseline'},
+                        { value: 'start' },
+                        { value: 'center' },
+                        { value: 'end' },
+                        { value: 'stretch' },
+                        { value: 'baseline' },
                     ]
                 }
             }
@@ -140,44 +140,44 @@ export const csstsDefaultConfig: CsstsConfig = {
         // row + justifyContent(x) + alignItems(y)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'row'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'row' }],
                 justifyContent: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'space-between'},
-                    {value: 'space-evenly'},
-                    {value: 'space-around'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'space-between' },
+                    { value: 'space-evenly' },
+                    { value: 'space-around' },
                 ],
                 alignItems: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'stretch'},
-                    {value: 'baseline'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'stretch' },
+                    { value: 'baseline' },
                 ],
             }
         },
         // col + justifyContent(y) + alignItems(x)
         {
             keywordIterations: {
-                display: [{value: 'flex'}],
-                flexDirection: [{value: 'column'}],
+                display: [{ value: 'flex' }],
+                flexDirection: [{ value: 'column' }],
                 justifyContent: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'space-between'},
-                    {value: 'space-evenly'},
-                    {value: 'space-around'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'space-between' },
+                    { value: 'space-evenly' },
+                    { value: 'space-around' },
                 ],
                 alignItems: [
-                    {value: 'start'},
-                    {value: 'center'},
-                    {value: 'end'},
-                    {value: 'stretch'},
-                    {value: 'baseline'},
+                    { value: 'start' },
+                    { value: 'center' },
+                    { value: 'end' },
+                    { value: 'stretch' },
+                    { value: 'baseline' },
                 ],
             }
         },
@@ -424,4 +424,13 @@ export const csstsDefaultConfig: CsstsConfig = {
             }
         },
     ],
+
+    // 默认类名前缀
+    classPrefix: '',
+
+    // 类组合配置
+    classGroup: {
+        click: ['hover', 'active', 'focus', 'disabled', 'cursorPointer'],
+        ddClick: ['click', 'colorRed'],  // 引用 click 组合 + colorRed
+    },
 };

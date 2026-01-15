@@ -127,6 +127,11 @@ export class ConfigLookup {
         return this.userConfig?.pseudoClassConfig ?? this.defaultConfig.pseudoClassConfig;
     }
 
+    /** 类组合配置 */
+    static get classGroup(): Record<string, string[]> | undefined {
+        return this.userConfig?.classGroup ?? this.defaultConfig.classGroup;
+    }
+
     // ==================== 按名称覆盖（静态方法） ====================
 
     /**

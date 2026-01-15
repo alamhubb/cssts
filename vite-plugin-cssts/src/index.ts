@@ -138,11 +138,11 @@ function rebuildVueFile(
 }
 
 /**
- * 简单替换 css { ... } 语法为 {}
+ * 简单替换 css { 为 {
  * 用于 esbuild 依赖扫描阶段，让 esbuild 能解析 import 语句
  */
 function stripCssSyntax(code: string): string {
-  return code.replace(/\bcss\s*\{[^}]*\}/g, '{}')
+  return code.replace(/\bcss\s*\{/g, '{')
 }
 
 /**

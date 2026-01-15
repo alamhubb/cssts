@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, generateGroupAtoms, generatePseudoAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
+import { generateAtoms, generateGroupAtoms, generatePseudoAtoms, generateClassGroupAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）
@@ -37,6 +37,11 @@ function getAtomNameSet(): Set<string> {
     // 伪类原子类（csstsHover, csstsActive 等）
     for (const pseudo of generatePseudoAtoms()) {
       _atomNameSet.add(pseudo.name)
+    }
+
+    // 类组合原子类（click, ddClick 等）
+    for (const group of generateClassGroupAtoms()) {
+      _atomNameSet.add(group.name)
     }
   }
   return _atomNameSet

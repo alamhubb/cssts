@@ -20,6 +20,8 @@ import {
   generateGroupAtomsDts,
   generatePseudoAtoms,
   generatePseudoDts,
+  generateClassGroupAtoms,
+  generateClassGroupDts,
   type AtomDefinition,
   type GroupAtomDefinition,
 } from './atom-generator.ts';
@@ -74,7 +76,8 @@ function generatePropertyGlobalDts(propertyName: string, atoms: AtomDefinition[]
 
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
-    lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
+    const kebabProperty = camelToKebab(atom.property);
+    lines.push(`declare const ${atom.name}: { '${cssClassName}': '${kebabProperty}' };`);
   }
 
   lines.push('');
@@ -257,6 +260,18 @@ export function generateDtsFiles(config?: Partial<CsstsCompilerConfig>): DtsGene
       files.push(pseudoPath);
       generatedFileNames.push(fileName);
       log(`   ✅ 生成 pseudo.d.ts (${pseudoAtoms.length} 个伪类原子类)`);
+    }
+
+    // 生成类组合原子类文件
+    const classGroupAtoms = generateClassGroupAtoms();
+    if (classGroupAtoms.length > 0) {
+      const classGroupDts = generateClassGroupDts();
+      const fileName = 'classGroup.d.ts';
+      const classGroupPath = path.join(outputDir, fileName);
+      fs.writeFileSync(classGroupPath, classGroupDts, 'utf-8');
+      files.push(classGroupPath);
+      generatedFileNames.push(fileName);
+      log(`   ✅ 生成 classGroup.d.ts (${classGroupAtoms.length} 个类组合原子类)`);
     }
 
     // 生成 index.d.ts（使用 reference 引入所有分文件）

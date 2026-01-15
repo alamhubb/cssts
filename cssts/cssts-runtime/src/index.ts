@@ -72,19 +72,19 @@ export type CssClassInput =
   | null
 
 interface ClassObject {
-  [key: string]: string | null
+  [key: string]: string | true  // null 改为 true，兼容 Vue :class
 }
 
 
 // ==================== 样式合并 ====================
 
 /**
- * 合并多个样式对象（带属性去重）
- *
- * 去重规则：
+ * 合并多个 CSS 类名输入
+ * 
+ * 核心规则：
  * - 有属性的类名（value 是 string）：同属性只保留最后一个
- * - 无属性的类名（value 是 null）：全部保留
- * - 字符串输入：视为无属性（value = null）
+ * - 无属性的类名（value 是 null/true）：全部保留
+ * - 字符串输入：视为无属性（value = true）
  * - 按原顺序输出
  * 
  * @example
@@ -93,7 +93,7 @@ interface ClassObject {
  *   { 'color_red': 'color' },
  *   { 'color_blue': 'color' }  // 同属性，会替换 color_red
  * )
- * // => { 'display_flex': 'display', 'color_blue': 'color' }
+ * // => { 'display_flex': true, 'color_blue': 'color' }
  */
 export function merge(...args: CssClassInput[]): ClassObject {
   const map = new Map<string, { className: string; property: string | null }>()
@@ -103,10 +103,10 @@ export function merge(...args: CssClassInput[]): ClassObject {
     processToMap(arg, map)
   }
 
-  // 转换为 ClassObject
+  // 转换为 ClassObject（null → true，兼容 Vue :class）
   const result: ClassObject = {}
   for (const { className, property } of map.values()) {
-    result[className] = property
+    result[className] = property !== null ? property : true
   }
 
   return result

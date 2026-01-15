@@ -180,9 +180,17 @@ export interface CsstsConfig {
 
   /**
    * CSS 类名前缀
+   * @default 'cssts_'
    * @example 'my-' => .my-display-flex
    */
   classPrefix?: string;
+
+  /**
+   * 类组合配置
+   * 将多个原子类（包括伪类）组合成一个新类
+   * @example { click: ['hover', 'active', 'cursorPointer'] }
+   */
+  classGroup?: Record<string, string[]>;
 }
 
 // ==================== 编译器配置 ====================

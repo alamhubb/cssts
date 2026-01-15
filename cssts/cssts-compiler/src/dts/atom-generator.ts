@@ -495,6 +495,9 @@ export function generateDts(): string {
   // 添加伪类原子类声明
   lines.push(generatePseudoDts());
 
+  // 添加类组合原子类声明
+  lines.push(generateClassGroupDts());
+
   lines.push('');
 
   return lines.join('\n');
@@ -559,6 +562,61 @@ export function generatePseudoDts(): string {
   for (const atom of pseudoAtoms) {
     // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
     lines.push(`declare const ${atom.name}: { '${atom.className}': ':${atom.pseudo}' };`);
+  }
+
+  return lines.join('\n');
+}
+
+// ==================== 类组合 ====================
+
+/** 类组合原子类定义 */
+export interface ClassGroupAtomDefinition {
+  /** 原子类名称（camelCase），如 click */
+  name: string;
+  /** CSS 类名（kebab-case），如 cssts_click */
+  className: string;
+  /** 组合的原子类名称列表 */
+  items: string[];
+}
+
+/**
+ * 生成类组合原子类定义
+ */
+export function generateClassGroupAtoms(): ClassGroupAtomDefinition[] {
+  const classGroup = ConfigLookup.classGroup;
+  if (!classGroup) return [];
+
+  const prefix = ConfigLookup.classPrefix || '';
+  const result: ClassGroupAtomDefinition[] = [];
+
+  for (const [name, items] of Object.entries(classGroup)) {
+    result.push({
+      name,
+      className: prefix ? `${prefix}${name}` : name,
+      items
+    });
+  }
+
+  return result;
+}
+
+/**
+ * 生成类组合的 DTS 内容
+ */
+export function generateClassGroupDts(): string {
+  const classGroupAtoms = generateClassGroupAtoms();
+  if (classGroupAtoms.length === 0) return '';
+
+  const lines: string[] = [
+    '',
+    '// ==================== 类组合原子类 ====================',
+    '// 用于 classGroup 配置',
+    '',
+  ];
+
+  for (const atom of classGroupAtoms) {
+    // 类组合不参与属性替换，property 为 true（必须是 truthy 值）
+    lines.push(`declare const ${atom.name}: { '${atom.className}': true };`);
   }
 
   return lines.join('\n');
