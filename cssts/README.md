@@ -56,17 +56,66 @@ IDE 识别为全局常量，提供补全和类型检查
 运行时从虚拟模块获取 { 'display_flex': true }
 ```
 
-## ⚠️ 重要：伪类分隔符是双美元符号 `$`
+## 伪类原子类
 
-**伪类语法使用双美元符号 `$`，不是单美元符号！**
+内置的伪类原子类，让元素在交互时有视觉反馈：
 
 ```typescript
-// ✅ 正确：使用双美元符号 $
-const primary$hover$active = css { backgroundColorBlue }
+// 按钮样式：添加 hover 和 active 效果
+const buttonStyle = css { 
+  colorWhite, 
+  backgroundColorBlue, 
+  csstsHover,   // hover 时亮度增加
+  csstsActive   // active 时亮度降低
+}
 
-// ❌ 错误：使用单美元符号 $（伪类不会生效！）
-const primary$hover$active = css { backgroundColorBlue }
+// 输入框：添加 focus 效果
+const inputStyle = css { borderColorGray, cssstsFocus }
 ```
+
+### 内置伪类原子类
+
+| 原子类名 | CSS 规则 | 效果 |
+|----------|----------|------|
+| `csstsHover` | `.cssts-hover:hover { filter: brightness(1.15) }` | 悬停时变亮 |
+| `csstsActive` | `.cssts-active:active { filter: brightness(0.85) }` | 按下时变暗 |
+| `cssstsFocus` | `.cssts-focus:focus { outline: 2px solid ... }` | 聚焦时显示轮廓 |
+| `csstsDisabled` | `.cssts-disabled:disabled { opacity: 0.5 ... }` | 禁用时变灰 |
+
+### 自定义伪类样式
+
+内置伪类提供通用效果。如需自定义伪类样式，可在 `<style>` 中编写：
+
+```vue
+<script setup lang="cssts">
+const buttonStyle = css { colorWhite, backgroundColorBlue, csstsHover }
+</script>
+
+<template>
+  <button :class="[buttonStyle, 'my-btn']">Click</button>
+</template>
+
+<style>
+/* 自定义 hover 效果 */
+.my-btn:hover {
+  background-color: lightblue;
+}
+</style>
+```
+
+### 🚧 待定方案：伪类原子类后缀
+
+未来可能支持类似 Tailwind 的伪类语法：
+
+```typescript
+// 待定语法
+const buttonStyle = css { colorWhite, colorBlue$$hover, colorNavy$$active }
+// 生成：
+// .color_blue$$hover:hover { color: blue }
+// .color_navy$$active:active { color: navy }
+```
+
+此功能暂未实现，待后续版本支持。
 
 ## 包结构
 
@@ -162,26 +211,18 @@ import { buttonStyle } from './Button.cssts'
 
 ## 核心设计：统一的样式存储
 
-使用单一的 `Set<string>` 存储所有样式名，按需解析：
+使用单一的 `Set<string>` 存储所有样式名：
 
 ```typescript
-// 存储
 const styles = new Set<string>()
-styles.add('displayFlex')                   // 普通原子类
-styles.add('clickable$hover$active')      // 带伪类的样式（双美元符号 $）
-
-// 解析（按需）
-parseStyleName('displayFlex')
-// { baseName: 'displayFlex', pseudos: [] }
-
-parseStyleName('clickable$hover$active')
-// { baseName: 'clickable', pseudos: ['hover', 'active'] }
+styles.add('displayFlex')     // 原子类
+styles.add('csstsHover')      // 伪类原子类
 ```
 
 **优点**：
 - 数据结构简单
-- 不存储冗余数据
-- 按需解析，更灵活
+- 自动去重
+- 按需生成 CSS
 
 ## 核心概念
 
@@ -204,25 +245,20 @@ const buttonStyle = css { displayFlex, padding16px, cursorPointer }
 // 运行时：{ 'display_flex': true, 'padding_16px': true, 'cursor_pointer': true }
 ```
 
-### $ 伪类语法
+### 伪类原子类
 
-通过变量名声明伪类（使用 `$` 双美元符号分隔）：
+使用内置的伪类原子类添加交互效果：
 
 ```typescript
-// 变量名格式：{baseName}${pseudo1}${pseudo2}...
-const clickable$hover$active = css { cursorPointer }
-
-// 解析结果
-parseStyleName('clickable$hover$active')
-// { baseName: 'clickable', pseudos: ['hover', 'active'] }
-
-// 生成的 CSS：
-// .cursor_pointer { cursor: pointer; }     ← 原子类
-// .clickable:hover { opacity: 0.9; }       ← 伪类（来自配置）
-// .clickable:active { opacity: 0.6; }      ← 伪类（来自配置）
+const buttonStyle = css { 
+  colorWhite, 
+  backgroundColorBlue,
+  csstsHover,   // hover 效果
+  csstsActive   // active 效果
+}
 ```
 
-伪类的 CSS 属性来自 vite 配置，不是来自 `css { }` 内容。
+伪类效果来自配置（`pseudoClassConfig`），可在 vite 配置中自定义。
 
 ## 值转换规则
 
@@ -272,13 +308,12 @@ parseStyleName('clickable$hover$active')
 
 ## 分隔符配置
 
-所有分隔符统一在 `cssts-ts` 中配置，compiler 和 runtime 共用：
+类名分隔符在 `cssts-ts` 中配置：
 
 ```typescript
 import { CSSTS_CONFIG } from 'cssts-ts'
 
-CSSTS_CONFIG.SEPARATOR        // '_'    - 类名分隔符：property_value
-CSSTS_CONFIG.PSEUDO_SEPARATOR // '$'   - 伪类分隔符：baseName$pseudo（双美元符号）
+CSSTS_CONFIG.SEPARATOR  // '_' - 类名分隔符：property_value
 ```
 
 ## License

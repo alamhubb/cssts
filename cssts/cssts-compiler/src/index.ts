@@ -56,8 +56,11 @@ export {
   generatePropertyDts,
   generateIndexDts,
   generateAtomPropertyMap,
+  generatePseudoAtoms,
+  generatePseudoDts,
   type AtomDefinition,
   type AtomsByProperty,
+  type PseudoAtomDefinition,
 } from './dts/atom-generator.ts'
 
 export {

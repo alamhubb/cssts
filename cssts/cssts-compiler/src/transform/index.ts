@@ -17,7 +17,7 @@ import {
   generateAtomCssRule,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
-import { generateAtomPropertyMap } from '../dts/atom-generator.ts'
+import { generateAtomPropertyMap, generatePseudoAtoms } from '../dts/atom-generator.ts'
 
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>
@@ -221,6 +221,21 @@ export function generateStylesCss(
     lines.push('')
   }
 
+  // 3. 生成伪类原子类 CSS（始终生成）
+  // 如 csstsHover → .cssts-hover:hover { filter: brightness(1.15) }
+  const pseudoAtoms = generatePseudoAtoms()
+  if (pseudoAtoms.length > 0) {
+    lines.push('/* CSSTS Pseudo-class atoms */')
+    for (const atom of pseudoAtoms) {
+      const fullClassName = prefix ? `${prefix}${atom.className}` : atom.className
+      const styleEntries = Object.entries(atom.styles)
+        .map(([prop, val]) => `${camelToKebab(prop)}: ${val}`)
+        .join('; ')
+      lines.push(`.${fullClassName}:${atom.pseudo} { ${styleEntries}; }`)
+    }
+    lines.push('')
+  }
+
   return lines.join('\n')
 }
 
@@ -269,6 +284,14 @@ export function generateCsstsAtomModule(
         entries.push(`  ${name}: { '${fullClassName}': null }`)
       }
     }
+  }
+
+  // 添加伪类原子类（csstsHover, csstsActive 等）
+  const pseudoAtoms = generatePseudoAtoms()
+  for (const atom of pseudoAtoms) {
+    const fullClassName = prefix ? `${prefix}${atom.className}` : atom.className
+    // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
+    entries.push(`  ${atom.name}: { '${fullClassName}': ':${atom.pseudo}' }`)
   }
 
   lines.push(entries.join(',\n'))

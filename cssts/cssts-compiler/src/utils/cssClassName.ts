@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, generateGroupAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
+import { generateAtoms, generateGroupAtoms, generatePseudoAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）
@@ -23,15 +23,20 @@ let _atomNameSet: Set<string> | null = null
 function getAtomNameSet(): Set<string> {
   if (!_atomNameSet) {
     _atomNameSet = new Set<string>()
-    
+
     // 普通原子类
     for (const atom of generateAtoms()) {
       _atomNameSet.add(atom.name)
     }
-    
+
     // Group 原子类
     for (const group of generateGroupAtoms()) {
       _atomNameSet.add(group.name)
+    }
+
+    // 伪类原子类（csstsHover, csstsActive 等）
+    for (const pseudo of generatePseudoAtoms()) {
+      _atomNameSet.add(pseudo.name)
     }
   }
   return _atomNameSet
@@ -120,7 +125,7 @@ function tsValueToCSS(tsValue: string): string {
 export function parseTsAtomName(tsName: string): { property: string; value: string } | null {
   const properties = getProperties()
   const sortedNames = getSortedPropertyNames()
-  
+
   for (const propName of sortedNames) {
     if (tsName.startsWith(propName) && tsName.length > propName.length) {
       const valuePart = tsName.slice(propName.length)

@@ -18,6 +18,8 @@ import {
   generateAtomsByProperty,
   generateGroupAtoms,
   generateGroupAtomsDts,
+  generatePseudoAtoms,
+  generatePseudoDts,
   type AtomDefinition,
   type GroupAtomDefinition,
 } from './atom-generator.ts';
@@ -243,6 +245,18 @@ export function generateDtsFiles(config?: Partial<CsstsCompilerConfig>): DtsGene
         generatedFileNames.push(fileName);
         log(`   ✅ 生成 groups-keyword.d.ts (${keywordGroupAtoms.length} 个组合原子类)`);
       }
+    }
+
+    // 生成伪类原子类文件
+    const pseudoAtoms = generatePseudoAtoms();
+    if (pseudoAtoms.length > 0) {
+      const pseudoDts = generatePseudoDts();
+      const fileName = 'pseudo.d.ts';
+      const pseudoPath = path.join(outputDir, fileName);
+      fs.writeFileSync(pseudoPath, pseudoDts, 'utf-8');
+      files.push(pseudoPath);
+      generatedFileNames.push(fileName);
+      log(`   ✅ 生成 pseudo.d.ts (${pseudoAtoms.length} 个伪类原子类)`);
     }
 
     // 生成 index.d.ts（使用 reference 引入所有分文件）

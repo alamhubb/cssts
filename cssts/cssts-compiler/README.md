@@ -154,18 +154,21 @@ CSS 代码
 
 ---
 
-## ⚠️ 重要：伪类分隔符是双美元符号
+## 伪类原子类
 
+内置的伪类原子类，提供交互视觉反馈：
 
 ```typescript
-// ✅ 正确：使用双美元符号 $
-const btn$$hover$$active = css { cursorPointer }
-
-// ❌ 错误：使用单美元符号（伪类不会生效！）
-const btn$hover$active = css { cursorPointer }
+// 使用内置伪类原子类
+const buttonStyle = css { 
+  colorWhite, 
+  backgroundColorBlue,
+  csstsHover,   // .cssts-hover:hover { filter: brightness(1.15) }
+  csstsActive   // .cssts-active:active { filter: brightness(0.85) }
+}
 ```
 
-分隔符配置来自 `cssts-runtime`：`CSSTS_CONFIG.PSEUDO_SEPARATOR = '$$'`
+伪类效果来自 `pseudoClassConfig` 配置，可自定义。
 
 ---
 

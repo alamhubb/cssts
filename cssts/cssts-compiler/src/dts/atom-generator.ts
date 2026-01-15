@@ -492,7 +492,74 @@ export function generateDts(): string {
     lines.push(`declare const ${atom.name}: { '${cssClassName}': '${atom.property}' };`);
   }
 
+  // 添加伪类原子类声明
+  lines.push(generatePseudoDts());
+
   lines.push('');
+
+  return lines.join('\n');
+}
+
+/** 伪类原子类定义 */
+export interface PseudoAtomDefinition {
+  /** 原子类名称 (camelCase)，如 csstsHover */
+  name: string;
+  /** CSS 类名 (kebab-case)，如 cssts-hover */
+  className: string;
+  /** 伪类名称，如 hover */
+  pseudo: string;
+  /** CSS 样式属性和值 */
+  styles: Record<string, string>;
+}
+
+/**
+ * 生成伪类原子类定义
+ * 
+ * 根据 pseudoClassConfig 配置生成伪类原子类：
+ * - csstsHover → .cssts-hover:hover { filter: brightness(1.15) }
+ * - csstsActive → .cssts-active:active { filter: brightness(0.85) }
+ */
+export function generatePseudoAtoms(): PseudoAtomDefinition[] {
+  const pseudoConfig = ConfigLookup.pseudoClassConfig;
+  if (!pseudoConfig) return [];
+
+  const result: PseudoAtomDefinition[] = [];
+
+  for (const [pseudo, styles] of Object.entries(pseudoConfig)) {
+    // 名称：cssts + PascalCase(pseudo)
+    const name = 'cssts' + pseudo.charAt(0).toUpperCase() + pseudo.slice(1);
+    // 类名：cssts-pseudo
+    const className = 'cssts-' + pseudo;
+
+    result.push({
+      name,
+      className,
+      pseudo,
+      styles: styles as Record<string, string>
+    });
+  }
+
+  return result;
+}
+
+/**
+ * 生成伪类原子类的 DTS 内容
+ */
+export function generatePseudoDts(): string {
+  const pseudoAtoms = generatePseudoAtoms();
+  if (pseudoAtoms.length === 0) return '';
+
+  const lines: string[] = [
+    '',
+    '// ==================== 伪类原子类 ====================',
+    '// 用于 $$hover/$$active 等伪类语法',
+    '',
+  ];
+
+  for (const atom of pseudoAtoms) {
+    // 伪类原子类的 property 为 :pseudo（如 :hover），支持同伪类去重覆盖
+    lines.push(`declare const ${atom.name}: { '${atom.className}': ':${atom.pseudo}' };`);
+  }
 
   return lines.join('\n');
 }

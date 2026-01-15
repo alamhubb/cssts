@@ -7,27 +7,22 @@ const count = ref(0)
 
 const cardStyle = css { padding20px, borderRadius8px }
 
-// 先定义伪类样式
-const button$$hover = css { backgroundColorBlue }
-const button$$active = css { backgroundColorNavy }
-
-// 再定义合并样式（引用已定义的伪类）
+// 按钮样式：直接添加伪类原子类
 const buttonStyle = css {
   padding10px,
   padding20px,
   borderRadius8px,
   borderNone,
   colorWhite,
+  backgroundColorBlue,
   fontSizeLarge,
   cursorPointer,
-  button$$hover,
-  button$$active
+  csstsHover,   // hover 效果（filter: brightness(1.15)）
+  csstsActive   // active 效果（filter: brightness(0.85)）
 }
 
-// 先定义伪类
-const linkStyle$$hover = css { colorSkyblue }
-// 再定义合并样式
-const linkStyle = css { colorBlue, linkStyle$$hover }
+// 链接样式：添加 hover 效果
+const linkStyle = css { colorBlue, csstsHover }
 
 const codeStyle = css { padding2px, padding6px, borderRadius4px }
 
