@@ -9,7 +9,7 @@ import {
   type SlimeProgram,
   SlimeAstCreateUtils,
 } from "slime-ast"
-import { CSSTS_CONFIG, parseTsAtomName } from "../utils/cssClassName.js"
+import { CSSTS_CONFIG, isBuiltinAtom } from "../utils/cssClassName.js"
 
 export interface CssStyleInfo {
   name: string
@@ -79,14 +79,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
   /**
    * 判断标识符是否是原子类名
    * 
-   * 判断逻辑（作用域 + 命名规则）：
+   * 判断逻辑（作用域 + 白名单）：
    * 1. 如果在作用域中 → 不是原子类（是变量）
-   * 2. 如果符合原子类命名规则 → 是原子类
+   * 2. 如果在内置原子类白名单中 → 是原子类
    * 3. 否则 → 不是原子类（保持原样）
    */
   private isAtomName(name: string): boolean {
     if (this.isInScope(name)) return false
-    return parseTsAtomName(name) !== null
+    return isBuiltinAtom(name)
   }
 
   get hasCsstsSyntax(): boolean {

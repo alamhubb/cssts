@@ -55,6 +55,7 @@ export {
   generateAtomsByProperty,
   generatePropertyDts,
   generateIndexDts,
+  generateAtomPropertyMap,
   type AtomDefinition,
   type AtomsByProperty,
 } from './dts/atom-generator.ts'

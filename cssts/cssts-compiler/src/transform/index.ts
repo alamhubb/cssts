@@ -17,6 +17,7 @@ import {
   generateAtomCssRule,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
+import { generateAtomPropertyMap } from '../dts/atom-generator.ts'
 
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>
@@ -225,6 +226,10 @@ export function generateStylesCss(
 
 /**
  * 生成 csstsAtom 虚拟模块内容
+ * 
+ * 格式：{ 原子类名: { CSS类名: CSS属性 | null } }
+ * - 普通原子类：属性名（用于同属性替换）
+ * - Group/伪类：null（不参与同属性替换）
  */
 export function generateCsstsAtomModule(
   styles: Set<string>,
@@ -236,6 +241,9 @@ export function generateCsstsAtomModule(
     'export const csstsAtom = {',
   ]
 
+  // 获取原子类名 → CSS 属性的映射
+  const atomPropertyMap = generateAtomPropertyMap()
+
   const entries: string[] = []
   const sortedStyles = [...styles].sort()
 
@@ -243,15 +251,23 @@ export function generateCsstsAtomModule(
     const parsed = parseStyleName(name)
 
     if (parsed.pseudos.length > 0) {
-      // 伪类样式：使用 kebab-case 的基础类名
+      // 伪类样式：使用 kebab-case 的基础类名，属性为 null
       const className = camelToKebab(parsed.baseName)
       const fullClassName = prefix ? `${prefix}${className}` : className
-      entries.push(`  ${name}: { '${fullClassName}': true }`)
+      entries.push(`  ${name}: { '${fullClassName}': null }`)
     } else {
-      // 普通原子类
+      // 普通原子类：从映射获取属性
       const className = getCssClassName(name)
       const fullClassName = prefix ? `${prefix}${className}` : className
-      entries.push(`  ${name}: { '${fullClassName}': true }`)
+      const property = atomPropertyMap.get(name)
+
+      if (property) {
+        // 有属性：用于同属性替换
+        entries.push(`  ${name}: { '${fullClassName}': '${property}' }`)
+      } else {
+        // 无属性（Group 或未知）：不参与替换
+        entries.push(`  ${name}: { '${fullClassName}': null }`)
+      }
     }
   }
 

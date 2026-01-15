@@ -489,7 +489,7 @@ export function generateDts(): string {
 
   for (const atom of atoms) {
     const cssClassName = generateCssClassName(atom);
-    lines.push(`declare const ${atom.name}: { '${cssClassName}': true };`);
+    lines.push(`declare const ${atom.name}: { '${cssClassName}': '${atom.property}' };`);
   }
 
   lines.push('');
@@ -896,9 +896,9 @@ export function generateGroupAtomsDts(atoms: GroupAtomDefinition[]): string {
   ];
 
   for (const atom of atoms) {
-    // 生成 CSS 类名：每个属性_值单独一个 key
+    // 生成 CSS 类名：每个属性_值单独一个 key，value 为 null（Group 不参与同属性替换）
     const cssClassParts = Object.entries(atom.styles)
-      .map(([prop, value]) => `'${prop}_${value}': true`)
+      .map(([prop, value]) => `'${prop}_${value}': null`)
       .join('; ');
 
     lines.push(`declare const ${atom.name}: { ${cssClassParts} };`);
@@ -908,3 +908,28 @@ export function generateGroupAtomsDts(atoms: GroupAtomDefinition[]): string {
 
   return lines.join('\n');
 }
+
+/**
+ * 生成原子类名 → CSS 属性的映射
+ * 
+ * - 普通原子类：name → property（如 'displayFlex' → 'display'）
+ * - Group 原子类：name → null（不参与同属性替换）
+ * 
+ * @returns Map<原子类名, CSS属性 | null>
+ */
+export function generateAtomPropertyMap(): Map<string, string | null> {
+  const map = new Map<string, string | null>();
+
+  // 普通原子类：有明确的 CSS 属性
+  for (const atom of generateAtoms()) {
+    map.set(atom.name, atom.property);
+  }
+
+  // Group 原子类：属性为 null（不参与同属性替换）
+  for (const group of generateGroupAtoms()) {
+    map.set(group.name, null);
+  }
+
+  return map;
+}
+

@@ -4,7 +4,7 @@
  * 提供原子类名到 CSS 类名的转换
  */
 
-import { generateAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
+import { generateAtoms, generateGroupAtoms, type AtomDefinition } from "../dts/atom-generator.ts"
 import { CSSTS_CONFIG } from "cssts-ts"
 
 // 重新导出分隔符配置（供其他模块使用）
@@ -13,6 +13,40 @@ export { CSSTS_CONFIG }
 // 从生成器获取 properties 映射（懒加载）
 let _properties: Record<string, string> | null = null
 let _sortedPropertyNames: string[] | null = null
+
+// 原子类名白名单（懒加载）
+let _atomNameSet: Set<string> | null = null
+
+/**
+ * 获取所有原子类名的白名单 Set
+ */
+function getAtomNameSet(): Set<string> {
+  if (!_atomNameSet) {
+    _atomNameSet = new Set<string>()
+    
+    // 普通原子类
+    for (const atom of generateAtoms()) {
+      _atomNameSet.add(atom.name)
+    }
+    
+    // Group 原子类
+    for (const group of generateGroupAtoms()) {
+      _atomNameSet.add(group.name)
+    }
+  }
+  return _atomNameSet
+}
+
+/**
+ * 判断标识符是否是内置原子类
+ * 
+ * @example
+ * isBuiltinAtom('displayFlex') // true
+ * isBuiltinAtom('myVariable') // false
+ */
+export function isBuiltinAtom(name: string): boolean {
+  return getAtomNameSet().has(name)
+}
 
 function generatePropertiesJson(atoms: AtomDefinition[]): Record<string, string> {
   const properties = new Set<string>();
