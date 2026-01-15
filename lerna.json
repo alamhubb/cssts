@@ -4,6 +4,7 @@
   "packages": [
     "cssts/cssts-compiler",
     "cssts/cssts-runtime",
-    "vite-plugin-cssts"
+    "vite-plugin-cssts",
+    "language-plugin-cssts"
   ]
 }
