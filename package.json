@@ -3,11 +3,6 @@
   "version": "0.2.86",
   "type": "module",
   "description": "Slime - TypeScript/JavaScript Parser and Code Generator",
-  "workspaces": [
-    "cssts/cssts-compiler",
-    "cssts/cssts-runtime",
-    "vite-plugin-cssts"
-  ],
   "scripts": {
     "build": "lerna run build",
     "release": "npx lerna publish --no-git-reset --no-push --no-git-tag-version"

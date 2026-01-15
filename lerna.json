@@ -1,4 +1,9 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "version": "0.2.87"
+  "version": "0.2.87",
+  "packages": [
+    "cssts/cssts-compiler",
+    "cssts/cssts-runtime",
+    "vite-plugin-cssts"
+  ]
 }
