@@ -1,7 +1,8 @@
-import type {
-  LanguagePlugin,
-  VirtualCode,
-  CodeMapping,
+import {
+  forEachEmbeddedCode,
+  type LanguagePlugin,
+  type VirtualCode,
+  type CodeMapping,
 } from '@volar/language-core'
 import type { TypeScriptExtraServiceScript } from '@volar/typescript'
 import type { IScriptSnapshot } from 'typescript'
@@ -79,8 +80,8 @@ export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
     },
     getExtraServiceScripts(fileName, root) {
       const scripts: TypeScriptExtraServiceScript[] = []
-
-      function collectScripts(code: VirtualCode) {
+      // 使用 forEachEmbeddedCode 遍历所有嵌入代码（与 ovs-language 保持一致）
+      for (const code of forEachEmbeddedCode(root)) {
         if (code.languageId === 'typescript') {
           scripts.push({
             fileName: fileName + '.' + code.id + '.ts',
@@ -88,15 +89,15 @@ export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
             extension: '.ts',
             scriptKind: ScriptKind.TS,
           })
-        }
-        if (code.embeddedCodes) {
-          for (const embedded of code.embeddedCodes) {
-            collectScripts(embedded)
-          }
+        } else if (code.languageId === 'js') {
+          scripts.push({
+            fileName: fileName + '.' + code.id + '.js',
+            code,
+            extension: '.js',
+            scriptKind: ScriptKind.JS,
+          })
         }
       }
-
-      collectScripts(root)
       return scripts
     },
   },
@@ -177,7 +178,7 @@ export class CsstsVirtualCode implements VirtualCode {
     }]
 
     this.embeddedCodes = [{
-      id: 'ts',
+      id: 'cssts-script',
       languageId: 'typescript',
       snapshot: {
         getText: (start, end) => generatedCode.substring(start, end),
