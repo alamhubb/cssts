@@ -30,6 +30,8 @@ import {
 } from './atom-generator.ts';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
+import { generateModulesDtsFromStyles } from '../utils/csstsAtomCore';
+import { CsstsInit } from '../init/CsstsInit';
 
 // ==================== 类型定义 ====================
 
@@ -62,24 +64,18 @@ function camelToKebab(str: string): string {
 }
 
 /**
- * 判断是否在 Vite 环境中运行
- */
-function isViteEnvironment(): boolean {
-  try {
-    return typeof import.meta !== 'undefined' && (import.meta as any).env?.MODE !== undefined
-  } catch {
-    return false
-  }
-}
-
-/**
  * 生成虚拟模块的类型声明文件内容
  * 
- * 非 Vite 环境需要这个文件来声明虚拟模块的类型
+ * @param usedAtomNames - 使用的原子类名称集合（可选，如果不传则生成空壳）
+ * @returns DTS 内容
  */
-function generateModulesDts(atoms: AtomDefinition[]): string {
-  const prefix = ConfigLookup.classPrefix;
+export function generateModulesDts(usedAtomNames?: Set<string>): string {
+  // 如果传了 usedAtomNames，使用核心方法
+  if (usedAtomNames && usedAtomNames.size > 0) {
+    return generateModulesDtsFromStyles(usedAtomNames);
+  }
 
+  // 生成空壳（初始化时使用）
   const lines: string[] = [
     '/**',
     ' * CSSTS 虚拟模块类型声明（自动生成）',
@@ -88,23 +84,15 @@ function generateModulesDts(atoms: AtomDefinition[]): string {
     "declare module 'virtual:cssts.css' {}",
     '',
     "declare module 'virtual:csstsAtom' {",
-    '  export const csstsAtom: {',
+    '  export const csstsAtom: {}',
+    '  export default csstsAtom',
+    '}',
+    '',
   ];
-
-  // 生成每个原子类的精确类型
-  for (const atom of atoms) {
-    const cssClassName = generateCssClassName(atom, prefix);
-    const kebabProperty = camelToKebab(atom.property);
-    lines.push(`    ${atom.name}: { '${cssClassName}': '${kebabProperty}' };`);
-  }
-
-  lines.push('  }');
-  lines.push('  export default csstsAtom');
-  lines.push('}');
-  lines.push('');
 
   return lines.join('\n');
 }
+
 
 /**
  * 生成单个属性的全局声明 DTS 内容
@@ -289,13 +277,14 @@ export function generateDtsFiles(params: {
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   files.push(packageJsonPath);
 
-  // 非 Vite 环境：生成 modules.d.ts（虚拟模块类型声明）
-  if (!isViteEnvironment()) {
-    const modulesDts = generateModulesDts(atoms);
+  // 非 Vite 环境：生成 modules.d.ts（虚拟模块类型声明，初始为空壳）
+  // 实际内容由 LSP 在转换代码时动态更新
+  if (!CsstsInit.isViteEnvironment()) {
+    const modulesDts = generateModulesDts();  // 不传参数，生成空壳
     const modulesPath = path.join(outputDir, 'modules.d.ts');
     fs.writeFileSync(modulesPath, modulesDts, 'utf-8');
     files.push(modulesPath);
-    log('   ✅ 生成 modules.d.ts（虚拟模块类型声明）');
+    log('   ✅ 生成 modules.d.ts（虚拟模块类型声明，初始为空壳）');
   }
 
   if (splitFiles) {

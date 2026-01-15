@@ -246,6 +246,9 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
     },
 
     configResolved(_resolvedConfig) {
+      // 设置 Vite 环境标志（在初始化前调用）
+      CsstsInit.setViteEnvironment(true)
+
       // 使用 CsstsInit 统一初始化（自动生成 DTS）
       CsstsInit.init(options)
     },

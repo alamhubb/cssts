@@ -19,6 +19,9 @@ import {
 } from '../utils/cssClassName.ts'
 import { generateAtomPropertyMap, generatePseudoAtoms, generateClassGroupAtoms } from '../dts/atom-generator.ts'
 
+// 从核心文件重新导出
+export { generateModulesDtsFromStyles } from '../utils/csstsAtomCore'
+
 /** CSS 属性值映射类型 */
 type CssPropertyValueMap = Record<string, string | undefined>
 

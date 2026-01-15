@@ -19,6 +19,7 @@ export {
   transformCssTsWithMapping,
   generateStylesCss,
   generateCsstsAtomModule,
+  generateModulesDtsFromStyles,
 } from './transform'
 
 /** CSS 属性值映射类型 */
@@ -71,6 +72,7 @@ export {
 
 export {
   generateDtsFiles,
+  generateModulesDts,
   type DtsGenerateResult,
 } from './dts/dts-writer.ts'
 
