@@ -30,8 +30,7 @@ import {
 } from './atom-generator.ts';
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
-import { generateModulesDtsFromStyles } from '../utils/csstsAtomCore';
-import { CsstsInit } from '../init/CsstsInit';
+import { RuntimeStore } from '../store/RuntimeStore';
 
 // ==================== 类型定义 ====================
 
@@ -69,11 +68,8 @@ function camelToKebab(str: string): string {
  * @param usedAtomNames - 使用的原子类名称集合（可选，如果不传则生成空壳）
  * @returns DTS 内容
  */
-export function generateModulesDts(usedAtomNames?: Set<string>): string {
-  // 如果传了 usedAtomNames，使用核心方法
-  if (usedAtomNames && usedAtomNames.size > 0) {
-    return generateModulesDtsFromStyles(usedAtomNames);
-  }
+export function generateModulesDts(): string {
+  // 初始化时生成空壳，实际内容由 LSP 在转换代码时动态更新
 
   // 生成空壳（初始化时使用）
   const lines: string[] = [
@@ -279,7 +275,7 @@ export function generateDtsFiles(params: {
 
   // 非 Vite 环境：生成 modules.d.ts（虚拟模块类型声明，初始为空壳）
   // 实际内容由 LSP 在转换代码时动态更新
-  if (!CsstsInit.isViteEnvironment()) {
+  if (!RuntimeStore.isViteEnvironment()) {
     const modulesDts = generateModulesDts();  // 不传参数，生成空壳
     const modulesPath = path.join(outputDir, 'modules.d.ts');
     fs.writeFileSync(modulesPath, modulesDts, 'utf-8');

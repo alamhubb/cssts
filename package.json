@@ -1,10 +1,19 @@
 {
   "name": "csstsparent",
   "version": "0.2.86",
+  "private": true,
   "type": "module",
-  "description": "Slime - TypeScript/JavaScript Parser and Code Generator",
+  "description": "CSSTS - CSS-in-TypeScript Solution",
+  "workspaces": [
+    "cssts/*",
+    "language-plugin-cssts",
+    "vite-plugin-cssts",
+    "cssts-language",
+    "create-cssts",
+    "cssts-theme-element"
+  ],
   "scripts": {
-    "build": "lerna run build",
+    "build": "npm run build --workspaces --if-present",
     "release": "npx lerna publish --no-git-reset --no-push --no-git-tag-version"
   },
   "devDependencies": {
