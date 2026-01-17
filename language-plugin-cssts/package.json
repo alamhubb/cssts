@@ -25,6 +25,7 @@
 	"dependencies": {
 		"cssts-compiler": "^0.2.87",
 		"find-up": "^8.0.0",
+		"glogjs": "^0.1.0",
 		"pkg-dir": "^4.2.0",
 		"slime-generator": "^0.2.87"
 	},

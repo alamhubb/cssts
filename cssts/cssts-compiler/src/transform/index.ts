@@ -8,6 +8,7 @@ import { CssTsParser } from '../parser/index.ts'
 import { CssTsCstToAstUtils } from '../factory/index.ts'
 import { registerSlimeCstToAstUtil } from 'slime-parser'
 import { SlimeGenerator } from 'slime-generator'
+import Glog from 'glogjs'
 import { ConfigLookup } from '../config/ConfigLookup'
 import {
   getCssClassName,
@@ -161,7 +162,7 @@ let _transformLoggedVersion = false
 export function transformCssTsWithMapping(code: string): TransformResultWithMapping {
   // 版本日志（只打印一次）
   if (!_transformLoggedVersion) {
-    console.log(`[transformCssTsWithMapping] v${TRANSFORM_VERSION}`)
+    Glog.debug(`transformCssTsWithMapping v${TRANSFORM_VERSION}`)
     _transformLoggedVersion = true
   }
 

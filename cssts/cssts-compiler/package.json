@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "cssts-ts": "^0.2.87",
+    "glogjs": "^0.1.0",
     "slime-ast": "^0.2.7",
     "slime-generator": "^0.2.7",
     "slime-parser": "^0.2.7",
