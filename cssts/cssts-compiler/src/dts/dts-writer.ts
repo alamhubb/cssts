@@ -439,6 +439,16 @@ export function generateDtsFiles(params: {
     fs.writeFileSync(indexPath, indexContent, 'utf-8');
     files.push(indexPath);
     log(`✅ 生成索引文件: index.d.ts`);
+
+    // 非 Vite 环境：生成空的 atomUsedCssts.d.ts 占位
+    // LSP 会在运行时更新这个文件的内容
+    if (!RuntimeStore.isViteEnvironment()) {
+      const emptyModulesDts = generateModulesDts();  // 不传参数，生成空壳
+      const atomUsedPath = path.join(outputDir, 'atomUsedCssts.d.ts');
+      fs.writeFileSync(atomUsedPath, emptyModulesDts, 'utf-8');
+      files.push(atomUsedPath);
+      log(`✅ 生成 atomUsedCssts.d.ts（初始为空壳，LSP 会动态更新）`);
+    }
   }
 
   log(`[cssts] 已生成类型定义 (${atoms.length} 个原子类)`);
