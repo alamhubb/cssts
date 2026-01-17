@@ -21,8 +21,8 @@ export {
   transformCssTs,
   generateStylesCss,
   generateCsstsAtomModule,
-  generateModulesDtsFromStyles,
 } from './transform'
+
 
 /** CSS 属性值映射类型 */
 export type CssPropertyValueMap = Record<string, string | undefined>

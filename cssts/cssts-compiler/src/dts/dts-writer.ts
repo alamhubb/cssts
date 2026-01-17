@@ -31,6 +31,8 @@ import {
 import { PROPERTY_COLOR_TYPES_MAP } from '../data/cssPropertyColorTypes';
 import type { CsstsCompilerConfig } from '../config/types/csstsConfig';
 import { RuntimeStore } from '../store/RuntimeStore';
+import { generateCsstsAtomEntries } from '../utils/csstsAtomCore';
+
 
 // ==================== 类型定义 ====================
 
@@ -114,14 +116,14 @@ function generateAtomDeclarations(atoms: AtomDefinition[]): string[] {
 
 /**
  * 生成虚拟模块的类型声明文件内容
+ * - 初始化时 RuntimeStore 为空 → 生成 csstsAtom: {}
+ * - LSP 运行时 RuntimeStore 有数据 → 生成 csstsAtom: { displayFlex: {...}, ... }
  * 
- * @param usedAtomNames - 使用的原子类名称集合（可选，如果不传则生成空壳）
  * @returns DTS 内容
  */
 export function generateModulesDts(): string {
-  // 初始化时生成空壳，实际内容由 LSP 在转换代码时动态更新
+  const usedStyles = RuntimeStore.getUsedStyles();
 
-  // 生成空壳（初始化时使用）
   const lines: string[] = [
     '/**',
     ' * CSSTS 虚拟模块类型声明（自动生成）',
@@ -130,11 +132,20 @@ export function generateModulesDts(): string {
     "declare module 'virtual:cssts.css' {}",
     '',
     "declare module 'virtual:csstsAtom' {",
-    '  export const csstsAtom: {}',
-    '  export default csstsAtom',
-    '}',
-    '',
+    '  export const csstsAtom: {',
   ];
+
+  // 使用核心方法生成 entries（空 Set 会返回空数组，自动生成空对象）
+  const entries = generateCsstsAtomEntries(usedStyles, '    ', ';');
+
+  if (entries.length > 0) {
+    lines.push(entries.join('\n'));
+  }
+
+  lines.push('  }');
+  lines.push('  export default csstsAtom');
+  lines.push('}');
+  lines.push('');
 
   return lines.join('\n');
 }
@@ -426,15 +437,15 @@ export function generateDtsFiles(params: {
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   files.push(packageJsonPath);
 
-  // 非 Vite 环境：modules.d.ts 由 LSP 的 updateModulesDts 动态生成
-  // 不在这里生成空壳，避免覆盖 updateModulesDts 写入的内容
-  // if (!RuntimeStore.isViteEnvironment()) {
-  //   const modulesDts = generateModulesDts();  // 不传参数，生成空壳
-  //   const modulesPath = path.join(outputDir, 'modules.d.ts');
-  //   fs.writeFileSync(modulesPath, modulesDts, 'utf-8');
-  //   files.push(modulesPath);
-  //   log('   ✅ 生成 modules.d.ts（虚拟模块类型声明，初始为空壳）');
-  // }
+  // 非 Vite 环境：生成空的 atomUsedCssts.d.ts 占位
+  // LSP 会在运行时更新这个文件的内容
+  if (!RuntimeStore.isViteEnvironment()) {
+    const emptyModulesDts = generateModulesDts();
+    const atomUsedPath = path.join(outputDir, 'atomUsedCssts.d.ts');
+    fs.writeFileSync(atomUsedPath, emptyModulesDts, 'utf-8');
+    files.push(atomUsedPath);
+    log(`✅ 生成 atomUsedCssts.d.ts（初始为空壳，LSP 会动态更新）`);
+  }
 
   if (splitFiles) {
     log('\n📁 生成分文件版本...');
@@ -482,16 +493,6 @@ export function generateDtsFiles(params: {
     fs.writeFileSync(indexPath, indexContent, 'utf-8');
     files.push(indexPath);
     log(`✅ 生成索引文件: index.d.ts`);
-
-    // 非 Vite 环境：生成空的 atomUsedCssts.d.ts 占位
-    // LSP 会在运行时更新这个文件的内容
-    if (!RuntimeStore.isViteEnvironment()) {
-      const emptyModulesDts = generateModulesDts();  // 不传参数，生成空壳
-      const atomUsedPath = path.join(outputDir, 'atomUsedCssts.d.ts');
-      fs.writeFileSync(atomUsedPath, emptyModulesDts, 'utf-8');
-      files.push(atomUsedPath);
-      log(`✅ 生成 atomUsedCssts.d.ts（初始为空壳，LSP 会动态更新）`);
-    }
   }
 
   log(`[cssts] 已生成类型定义 (${atoms.length} 个原子类)`);

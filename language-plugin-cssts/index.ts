@@ -1,5 +1,6 @@
 import type { VueLanguagePlugin } from '@vue/language-core'
-import { transformCssTs, CsstsInit, generateModulesDtsFromStyles, RuntimeStore } from 'cssts-compiler'
+import { transformCssTs, CsstsInit, RuntimeStore } from 'cssts-compiler'
+import { generateModulesDts } from 'cssts-compiler'
 import { SlimeMappingConverter } from 'slime-generator'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
@@ -11,6 +12,7 @@ const PLUGIN_VERSION = '2.2.1-test'
 // 初始化 Glog（只设置 debug 级别以便调试）
 Glog.init({ level: 'debug' })
 Glog.info(`[language-plugin-cssts v${PLUGIN_VERSION}] initialized`)
+
 
 /**
  * 从指定路径向上查找最近的 node_modules 目录
@@ -46,12 +48,12 @@ function initCssts(fileName: string): void {
 
     const nodeModulesDir = findNearestNodeModules(fileName)
     if (!nodeModulesDir) {
-        throw new Error(`Cannot find node_modules from path: ${fileName}`)
+        throw new Error(`Cannot find node_modules from path: ${fileName} `)
     }
 
     dtsOutputDir = path.join(nodeModulesDir, '@types', 'cssts-ts')
-    Glog.debug(`Found node_modules: ${nodeModulesDir}`)
-    Glog.debug(`DTS output dir: ${dtsOutputDir}`)
+    Glog.debug(`Found node_modules: ${nodeModulesDir} `)
+    Glog.debug(`DTS output dir: ${dtsOutputDir} `)
 
     CsstsInit.init({ dtsOutputDir })
     Glog.debug('CsstsInit initialized')
@@ -71,7 +73,7 @@ function updateModulesDts(): void {
     }
 
     Glog.debug(`[updateModulesDts] 开始生成 atomUsedCssts.d.ts...`)
-    const dtsContent = generateModulesDtsFromStyles(usedStyles)
+    const dtsContent = generateModulesDts() // 从 RuntimeStore 自动获取
     const modulesPath = path.join(dtsOutputDir, 'atomUsedCssts.d.ts')
 
     try {
@@ -92,17 +94,17 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
         getEmbeddedCodes(fileName, sfc) {
             // 动态更新 filePath，让日志输出到正确的项目
             Glog.filePath = fileName
-            Glog.debug(`getEmbeddedCodes: ${fileName}`)
+            Glog.debug(`getEmbeddedCodes: ${fileName} `)
             return []
         },
 
         resolveEmbeddedCode(fileName, sfc, embeddedFile) {
-            Glog.debug(`resolveEmbeddedCode: ${embeddedFile.id}`)
+            Glog.debug(`resolveEmbeddedCode: ${embeddedFile.id} `)
 
             if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
                 const scriptBlock = sfc.scriptSetup || sfc.script
                 if (scriptBlock && scriptBlock.lang === 'cssts') {
-                    Glog.debug(`Found cssts script, content length: ${scriptBlock.content.length}`)
+                    Glog.debug(`Found cssts script, content length: ${scriptBlock.content.length} `)
 
                     try {
                         initCssts(fileName)
@@ -113,17 +115,17 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         const offsets = SlimeMappingConverter.convertMappings(rawMappings)
 
                         // 详细 token 统计
-                        Glog.debug(`=== Token 统计 ===`)
-                        Glog.debug(`源码长度: ${scriptBlock.content.length}, 生成码长度: ${tsCode.length}`)
-                        Glog.debug(`原始 mapping 数量: ${rawMappings.length}`)
-                        Glog.debug(`转换后 mapping 数量: ${offsets.length}`)
+                        Glog.debug(`=== Token 统计 === `)
+                        Glog.debug(`源码长度: ${scriptBlock.content.length}, 生成码长度: ${tsCode.length} `)
+                        Glog.debug(`原始 mapping 数量: ${rawMappings.length} `)
+                        Glog.debug(`转换后 mapping 数量: ${offsets.length} `)
 
                         // 显示每个 token 的对应关系
-                        Glog.debug(`=== Token 对应关系（共 ${offsets.length} 个）===`)
+                        Glog.debug(`=== Token 对应关系（共 ${offsets.length} 个）=== `)
                         offsets.forEach((m, i) => {
                             const srcText = scriptBlock.content.substring(m.original.offset, m.original.offset + m.original.length)
                             const genText = tsCode.substring(m.generated.offset, m.generated.offset + m.generated.length)
-                            Glog.debug(`[${i}] src@${m.original.offset}:"${srcText}" -> gen@${m.generated.offset}:"${genText}"`)
+                            Glog.debug(`[${i}] src @${m.original.offset}: "${srcText}" -> gen@${m.generated.offset}: "${genText}"`)
                         })
 
                         // 检查映射覆盖

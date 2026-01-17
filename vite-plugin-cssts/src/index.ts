@@ -272,10 +272,10 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
 
     load(id) {
       if (id === RESOLVED_VIRTUAL_CSS_ID) {
-        return generateStylesCss(globalStyles)
+        return generateStylesCss()
       }
       if (id === RESOLVED_VIRTUAL_ATOM_ID) {
-        return generateCsstsAtomModule(globalStyles)
+        return generateCsstsAtomModule()
       }
     },
 
