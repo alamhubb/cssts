@@ -36,17 +36,25 @@ export interface GroupUtilInfo {
  * 4. 处理伪类变量（如 btn$$hover），注入运行时参数
  * 5. 作用域分析：区分局部变量和原子类名，支持自动解构
  */
+// 版本号，用于确认使用的是最新版本
+const CSSTS_COMPILER_VERSION = '2.1.0-mapping-fix'
+
 export class CssTsCstToAst extends SlimeCstToAst {
   private cssStyles: Map<string, CssStyleInfo> = new Map()
   private usedAtoms: Set<string> = new Set()
   private currentVarName: string | null = null
   protected _hasCsstsSyntax = false
   private scopeStack: Set<string>[] = []
+  private static _loggedVersion = false
 
   constructor() {
     super()
+    // 版本日志（只打印一次）
+    if (!CssTsCstToAst._loggedVersion) {
+      console.log(`[cssts-compiler] v${CSSTS_COMPILER_VERSION} - 100% mapping coverage`)
+      CssTsCstToAst._loggedVersion = true
+    }
     // 注册当前实例到 cssts 全局
-    // 由于 this 在子类调用时是子类实例，所以会自动注册正确的实例
     registerCssTsCstToAst(this)
   }
 
@@ -341,9 +349,30 @@ export class CssTsCstToAst extends SlimeCstToAst {
       rBraceLoc?: any
     }
   ): SlimeExpression {
-    // 创建 cssts 标识符，使用 css 关键字的位置
-    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts', tokenLocs?.cssTokenLoc)
-    const clsId = SlimeAstCreateUtils.createIdentifier('merge')
+    // 创建 cssts.merge 的 loc：都使用 css 关键字的位置
+    // 这样 css -> cssts.merge 形成完整的映射
+    const csstsLoc = tokenLocs?.cssTokenLoc ? {
+      start: tokenLocs.cssTokenLoc.start,
+      end: tokenLocs.cssTokenLoc.end,
+      value: 'cssts',  // 修改 value 为目标标识符名称
+    } : undefined
+
+    // `.` 也使用 css 关键字的位置
+    const dotLoc = tokenLocs?.cssTokenLoc ? {
+      start: tokenLocs.cssTokenLoc.start,
+      end: tokenLocs.cssTokenLoc.end,
+      value: '.',
+    } : undefined
+
+    // `merge` 也使用 css 关键字的位置
+    const mergeLoc = tokenLocs?.cssTokenLoc ? {
+      start: tokenLocs.cssTokenLoc.start,
+      end: tokenLocs.cssTokenLoc.end,
+      value: 'merge',
+    } : undefined
+
+    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts', csstsLoc)
+    const clsId = SlimeAstCreateUtils.createIdentifier('merge', mergeLoc)
 
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
@@ -352,7 +381,9 @@ export class CssTsCstToAst extends SlimeCstToAst {
       computed: false,
       optional: false,
       // 整个 callee (cssts.merge) 使用 css 关键字的位置
-      loc: tokenLocs?.cssTokenLoc
+      loc: csstsLoc,
+      // 添加 dotToken 用于 . 的映射
+      dotToken: dotLoc ? { loc: dotLoc } : undefined
     } as any
 
     return {

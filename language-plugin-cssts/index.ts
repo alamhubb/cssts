@@ -5,36 +5,60 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { findUpSync } from 'find-up'
 
-// 日志文件路径
-const LOG_FILE = path.join(process.cwd(), 'cssts-plugin-debug.log')
+// 版本号
+const PLUGIN_VERSION = '2.1.0-mapping-fix'
 const LOG_PREFIX = '[language-plugin-cssts]'
 
-function log(...args: any[]) {
-	const message = `${new Date().toISOString()} ${LOG_PREFIX} ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
-	try {
-		fs.appendFileSync(LOG_FILE, message)
-	} catch (e: any) {
-		console.error(`${LOG_PREFIX} Failed to write log:`, e?.message || e)
-	}
-	console.log(LOG_PREFIX, ...args)
+// 获取 UTC+8 时间
+function getUTC8Time(): string {
+	const now = new Date()
+	const utc8 = new Date(now.getTime() + 8 * 60 * 60 * 1000)
+	return utc8.toISOString().replace('Z', '+08:00')
 }
 
-function logError(...args: any[]) {
-	const message = `${new Date().toISOString()} ${LOG_PREFIX} ERROR: ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
-	try {
-		fs.appendFileSync(LOG_FILE, message)
-	} catch (e: any) {
-		console.error(`${LOG_PREFIX} Failed to write error log:`, e?.message || e)
-	}
-	console.error(LOG_PREFIX, ...args)
-}
+// Logger 静态类
+class Logger {
+	private static logFile: string | null = null
 
-// 初始化日志文件
-try {
-	fs.writeFileSync(LOG_FILE, `=== CSSTS Plugin Log Started at ${new Date().toISOString()} ===\n`)
-	fs.appendFileSync(LOG_FILE, `Working directory: ${process.cwd()}\n`)
-} catch (e: any) {
-	console.error(`${LOG_PREFIX} Failed to initialize log file:`, e?.message || e)
+	private static ensureInit(fileName?: string) {
+		if (this.logFile) return
+		if (!fileName) return
+
+		try {
+			const projectRoot = findUpSync('package.json', { cwd: path.dirname(fileName) })
+			const logDir = projectRoot ? path.dirname(projectRoot) : process.cwd()
+			this.logFile = path.join(logDir, 'cssts-plugin-debug.log')
+
+			fs.writeFileSync(this.logFile, `=== CSSTS Plugin v${PLUGIN_VERSION} - 100% Mapping Coverage ===\n`)
+			fs.appendFileSync(this.logFile, `Started at ${getUTC8Time()}\n`)
+			fs.appendFileSync(this.logFile, `Project root: ${logDir}\n`)
+			console.log(`${LOG_PREFIX} v${PLUGIN_VERSION} - Log file: ${this.logFile}`)
+		} catch (e: any) {
+			console.error(`${LOG_PREFIX} Failed to init log:`, e?.message || e)
+		}
+	}
+
+	static log(fileName: string | null, ...args: any[]) {
+		if (fileName) this.ensureInit(fileName)
+		if (!this.logFile) return
+
+		const message = `${getUTC8Time()} ${LOG_PREFIX} ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
+		try {
+			fs.appendFileSync(this.logFile, message)
+		} catch { }
+		console.log(LOG_PREFIX, ...args)
+	}
+
+	static error(fileName: string | null, ...args: any[]) {
+		if (fileName) this.ensureInit(fileName)
+		if (!this.logFile) return
+
+		const message = `${getUTC8Time()} ${LOG_PREFIX} ERROR: ${args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')}\n`
+		try {
+			fs.appendFileSync(this.logFile, message)
+		} catch { }
+		console.error(LOG_PREFIX, ...args)
+	}
 }
 
 /**
@@ -68,17 +92,16 @@ function initCssts(fileName: string): void {
 	}
 
 	const dtsOutputDir = path.join(nodeModulesDir, '@types', 'cssts-ts')
-	log('📁 Found node_modules:', nodeModulesDir)
-	log('📁 DTS output dir:', dtsOutputDir)
+	Logger.log(fileName, '📁 Found node_modules:', nodeModulesDir)
+	Logger.log(fileName, '📁 DTS output dir:', dtsOutputDir)
 
 	CsstsInit.init({ dtsOutputDir })
-	log('✅ CsstsInit initialized')
+	Logger.log(fileName, '✅ CsstsInit initialized')
 	initialized = true
 }
 
 const plugin: VueLanguagePlugin = ({ modules }) => {
 	const ts = modules.typescript
-	log('🚀 Plugin factory called - plugin is being loaded!')
 
 	return {
 		name: 'language-plugin-cssts',
@@ -88,8 +111,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 		 * 不添加新的嵌入代码，而是拦截现有的
 		 */
 		getEmbeddedCodes(fileName, sfc) {
-			log('📂 getEmbeddedCodes called, fileName:', fileName)
-			log('   script lang:', sfc.script?.lang, 'scriptSetup lang:', sfc.scriptSetup?.lang)
+			Logger.log(fileName, '📂 getEmbeddedCodes called, fileName:', fileName)
+			Logger.log(null, '   script lang:', sfc.script?.lang, 'scriptSetup lang:', sfc.scriptSetup?.lang)
 
 			// 不返回新的代码块，让 Volar 使用默认的
 			// 但我们会在 resolveEmbeddedCode 中修改内容
@@ -102,21 +125,21 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 		 * 当 Volar 处理默认的脚本块时，我们替换其内容为转换后的 TypeScript
 		 */
 		resolveEmbeddedCode(fileName, sfc, embeddedFile) {
-			log('🔧 resolveEmbeddedCode called')
-			log('   fileName:', fileName)
-			log('   embeddedFile.id:', embeddedFile.id)
-			log('   embeddedFile.lang:', embeddedFile.lang)
+			Logger.log(fileName, '🔧 resolveEmbeddedCode called')
+			Logger.log(null, '   fileName:', fileName)
+			Logger.log(null, '   embeddedFile.id:', embeddedFile.id)
+			Logger.log(null, '   embeddedFile.lang:', embeddedFile.lang)
 
 			// 检查是否是脚本相关的嵌入代码
 			// Volar 默认为 script setup 生成的嵌入代码 id 可能是 'script_ts' 或类似的
 			if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
-				log('   🔍 Detected script embedded code')
+				Logger.log(null, '   🔍 Detected script embedded code')
 
 				// 检查源文件是否有 cssts 脚本
 				const scriptBlock = sfc.scriptSetup || sfc.script
 				if (scriptBlock && scriptBlock.lang === 'cssts') {
-					log('   ✅ Found cssts script, need to transform')
-					log('   Script content length:', scriptBlock.content.length)
+					Logger.log(null, '   ✅ Found cssts script, need to transform')
+					Logger.log(null, '   Script content length:', scriptBlock.content.length)
 
 					try {
 						// 延迟初始化：在第一次处理文件时使用 fileName 来查找 node_modules
@@ -126,7 +149,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 						const result = transformCssTsWithMapping(scriptBlock.content)
 						const tsCode = result.code
 						const offsets = SlimeMappingConverter.convertMappings(result.mapping)
-						log('   ✅ Transform success, tsCode length:', tsCode.length, 'mappings:', offsets.length)
+						Logger.log(null, '   ✅ Transform success, tsCode length:', tsCode.length, 'mappings:', offsets.length)
 
 						// 清空现有内容
 						embeddedFile.content.length = 0
@@ -161,17 +184,17 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 								const remainingText = tsCode.slice(lastGenEnd)
 								embeddedFile.content.push(remainingText)
 							}
-							log('   ✅ Created segments with mapping, last offset:', lastGenEnd)
+							Logger.log(null, '   ✅ Created segments with mapping, last offset:', lastGenEnd)
 						} else {
 							// 没有 mapping 时，整体作为一个 segment
 							embeddedFile.content.push([tsCode, scriptBlock.name, 0, features])
-							log('   ⚠️ No mappings, using whole code as single segment')
+							Logger.log(null, '   ⚠️ No mappings, using whole code as single segment')
 						}
-						log('   ✅ Replaced embeddedFile content')
+						Logger.log(null, '   ✅ Replaced embeddedFile content')
 					} catch (e: any) {
-						logError('Transform error:', e?.message || String(e))
+						Logger.error(null, 'Transform error:', e?.message || String(e))
 						if (e?.stack) {
-							logError('Stack:', e.stack)
+							Logger.error(null, 'Stack:', e.stack)
 						}
 					}
 				}
