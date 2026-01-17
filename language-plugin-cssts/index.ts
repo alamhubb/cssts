@@ -92,6 +92,14 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         Glog.debug(`原始 mapping 数量: ${rawMappings.length}`)
                         Glog.debug(`转换后 mapping 数量: ${offsets.length}`)
 
+                        // 显示每个 token 的对应关系
+                        Glog.debug(`=== Token 对应关系（共 ${offsets.length} 个）===`)
+                        offsets.forEach((m, i) => {
+                            const srcText = scriptBlock.content.substring(m.original.offset, m.original.offset + m.original.length)
+                            const genText = tsCode.substring(m.generated.offset, m.generated.offset + m.generated.length)
+                            Glog.debug(`[${i}] src@${m.original.offset}:"${srcText}" -> gen@${m.generated.offset}:"${genText}"`)
+                        })
+
                         // 检查映射覆盖
                         const srcCoverage = new Set<number>()
                         const genCoverage = new Set<number>()
