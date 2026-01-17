@@ -150,6 +150,16 @@ export function generateModulesDts(): string {
   return lines.join('\n');
 }
 
+/**
+ * 写入 atomUsedCssts.d.ts 文件（公共方法）
+ * @param outputDir - 输出目录
+ */
+export function writeAtomUsedDts(outputDir: string): void {
+  const dtsContent = generateModulesDts();
+  const atomUsedPath = path.join(outputDir, 'atomUsedCssts.d.ts');
+  fs.writeFileSync(atomUsedPath, dtsContent, 'utf-8');
+}
+
 
 /**
  * 生成单个属性的全局声明 DTS 内容
@@ -440,10 +450,8 @@ export function generateDtsFiles(params: {
   // 非 Vite 环境：生成空的 atomUsedCssts.d.ts 占位
   // LSP 会在运行时更新这个文件的内容
   if (!RuntimeStore.isViteEnvironment()) {
-    const emptyModulesDts = generateModulesDts();
-    const atomUsedPath = path.join(outputDir, 'atomUsedCssts.d.ts');
-    fs.writeFileSync(atomUsedPath, emptyModulesDts, 'utf-8');
-    files.push(atomUsedPath);
+    writeAtomUsedDts(outputDir);
+    files.push(path.join(outputDir, 'atomUsedCssts.d.ts'));
     log(`✅ 生成 atomUsedCssts.d.ts（初始为空壳，LSP 会动态更新）`);
   }
 

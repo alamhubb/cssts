@@ -74,8 +74,10 @@ export {
 export {
   generateDtsFiles,
   generateModulesDts,
+  writeAtomUsedDts,
   type DtsGenerateResult,
 } from './dts/dts-writer.ts'
+
 
 // ==================== 类型导出 ====================
 export type {

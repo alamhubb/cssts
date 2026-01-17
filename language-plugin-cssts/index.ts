@@ -1,10 +1,11 @@
 import type { VueLanguagePlugin } from '@vue/language-core'
-import { transformCssTs, CsstsInit, RuntimeStore } from 'cssts-compiler'
-import { generateModulesDts } from 'cssts-compiler'
+import { transformCssTs, CsstsInit, RuntimeStore, writeAtomUsedDts } from 'cssts-compiler'
 import { SlimeMappingConverter } from 'slime-generator'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 import Glog from 'glogjs'
+
+
 
 // 版本号
 const PLUGIN_VERSION = '2.2.1-test'
@@ -73,16 +74,14 @@ function updateModulesDts(): void {
     }
 
     Glog.debug(`[updateModulesDts] 开始生成 atomUsedCssts.d.ts...`)
-    const dtsContent = generateModulesDts() // 从 RuntimeStore 自动获取
-    const modulesPath = path.join(dtsOutputDir, 'atomUsedCssts.d.ts')
-
     try {
-        fs.writeFileSync(modulesPath, dtsContent, 'utf-8')
+        writeAtomUsedDts(dtsOutputDir)
         Glog.info(`[updateModulesDts] ✅ 已更新 atomUsedCssts.d.ts，共 ${usedStyles.size} 个样式类`)
     } catch (e: any) {
         Glog.error(`[updateModulesDts] ❌ 写入失败: ${e?.message}`)
     }
 }
+
 
 const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
