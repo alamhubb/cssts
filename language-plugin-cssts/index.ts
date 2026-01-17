@@ -3,11 +3,27 @@ import { transformCssTsWithMapping, CsstsInit } from 'cssts-compiler'
 import { SlimeMappingConverter } from 'slime-generator'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-import { findUpSync } from 'find-up'
+// find-up removed, using native implementation
 
-// 版本号
-const PLUGIN_VERSION = '2.1.0-mapping-fix'
+// 版本号 - 递增确保使用最新版
+const PLUGIN_VERSION = '2.1.11'
 const LOG_PREFIX = '[language-plugin-cssts]'
+
+// 向上查找文件
+function findUp(filename: string, startDir: string): string | null {
+	let currentDir = startDir
+	while (true) {
+		const filePath = path.join(currentDir, filename)
+		if (fs.existsSync(filePath)) {
+			return filePath
+		}
+		const parentDir = path.dirname(currentDir)
+		if (parentDir === currentDir) {
+			return null // 已到根目录
+		}
+		currentDir = parentDir
+	}
+}
 
 // 获取 UTC+8 时间
 function getUTC8Time(): string {
@@ -25,7 +41,7 @@ class Logger {
 		if (!fileName) return
 
 		try {
-			const projectRoot = findUpSync('package.json', { cwd: path.dirname(fileName) })
+			const projectRoot = findUp('package.json', path.dirname(fileName))
 			const logDir = projectRoot ? path.dirname(projectRoot) : process.cwd()
 			this.logFile = path.join(logDir, 'cssts-plugin-debug.log')
 
@@ -63,14 +79,20 @@ class Logger {
 
 /**
  * 从指定路径向上查找最近的 node_modules 目录
- * 使用 find-up 库，支持 monorepo 中 node_modules 被 hoist 到根目录的情况
  */
 function findNearestNodeModules(startPath: string): string | null {
-	const result = findUpSync('node_modules', {
-		cwd: path.dirname(startPath),
-		type: 'directory'
-	})
-	return result || null
+	let currentDir = path.dirname(startPath)
+	while (true) {
+		const nodeModulesPath = path.join(currentDir, 'node_modules')
+		if (fs.existsSync(nodeModulesPath) && fs.statSync(nodeModulesPath).isDirectory()) {
+			return nodeModulesPath
+		}
+		const parentDir = path.dirname(currentDir)
+		if (parentDir === currentDir) {
+			return null
+		}
+		currentDir = parentDir
+	}
 }
 
 /**
