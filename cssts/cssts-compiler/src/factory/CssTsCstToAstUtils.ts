@@ -37,7 +37,7 @@ export interface GroupUtilInfo {
  * 5. 作用域分析：区分局部变量和原子类名，支持自动解构
  */
 // 版本号，用于确认使用的是最新版本
-const CSSTS_COMPILER_VERSION = '2.1.0-mapping-fix'
+const CSSTS_COMPILER_VERSION = '2.1.1-commaToken-fix'
 
 export class CssTsCstToAst extends SlimeCstToAst {
   private cssStyles: Map<string, CssStyleInfo> = new Map()
@@ -462,8 +462,14 @@ export class CssTsCstToAst extends SlimeCstToAst {
       const name = (expr as any).name || ''
       if (name && this.isAtomName(name)) {
         // 是全局样式类：转换为 csstsAtom.xxx
+        // 保留原始标识符的 loc，用于 source map 映射
         this.usedAtoms.add(name)
-        return this.createCsstsAtomMember(name)
+        const result = this.createCsstsAtomMember(name, (expr as any).loc)
+        // 保留原始表达式的 commaToken（逗号位置信息）
+        if ((expr as any).commaToken) {
+          (result as any).commaToken = (expr as any).commaToken
+        }
+        return result
       }
       // 不是样式类（变量引用）：保持原样
       return expr
@@ -503,15 +509,23 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return expr
   }
 
-  protected createCsstsAtomMember(propName: string): SlimeExpression {
+  /**
+   * 创建 csstsAtom.xxx 成员表达式
+   * @param propName 属性名（原子类名）
+   * @param propLoc 原始标识符的位置信息，用于 source map 映射
+   */
+  protected createCsstsAtomMember(propName: string, propLoc?: any): SlimeExpression {
     const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom')
-    const propId = SlimeAstCreateUtils.createIdentifier(propName)
+    // 传递原始 loc，确保 property 能正确映射回源代码
+    const propId = SlimeAstCreateUtils.createIdentifier(propName, propLoc)
     return {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsAtomId,
       property: propId,
       computed: false,
-      optional: false
+      optional: false,
+      // 整个成员表达式也使用原始 loc
+      loc: propLoc
     } as any
   }
 

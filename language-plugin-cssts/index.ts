@@ -6,7 +6,7 @@ import * as path from 'node:path'
 // find-up removed, using native implementation
 
 // 版本号 - 递增确保使用最新版
-const PLUGIN_VERSION = '2.1.11'
+const PLUGIN_VERSION = '2.1.14'
 const LOG_PREFIX = '[language-plugin-cssts]'
 
 // 向上查找文件
@@ -170,8 +170,30 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 						// 转换 cssts 为 TypeScript
 						const result = transformCssTsWithMapping(scriptBlock.content)
 						const tsCode = result.code
+						Logger.log(null, '   📊 transformCssTsWithMapping result:', 'code.length:', tsCode.length, 'mapping.length:', result.mapping.length)
 						const offsets = SlimeMappingConverter.convertMappings(result.mapping)
+						Logger.log(null, '   📊 SlimeMappingConverter result:', 'offsets.length:', offsets.length)
 						Logger.log(null, '   ✅ Transform success, tsCode length:', tsCode.length, 'mappings:', offsets.length)
+
+						// 打印前10个映射
+						Logger.log(null, '   📊 First 10 mappings:')
+						offsets.slice(0, 10).forEach((m, i) => {
+							const srcText = scriptBlock.content.substring(m.original.offset, m.original.offset + m.original.length)
+							const genText = tsCode.substring(m.generated.offset, m.generated.offset + m.generated.length)
+							Logger.log(null, `      [${i}] "${srcText}" @${m.original.offset} -> "${genText}" @${m.generated.offset}`)
+						})
+
+						// 统计不同类型的映射
+						const cssKeywords = offsets.filter(m => {
+							const text = tsCode.substring(m.generated.offset, m.generated.offset + m.generated.length)
+							return text === 'cssts' || text === 'merge' || text === '.' || text === '(' || text === ')' || text === ','
+						})
+						Logger.log(null, `   📈 CSS keyword/punctuation mappings: ${cssKeywords.length}`)
+						cssKeywords.forEach(m => {
+							const srcText = scriptBlock.content.substring(m.original.offset, m.original.offset + m.original.length)
+							const genText = tsCode.substring(m.generated.offset, m.generated.offset + m.generated.length)
+							Logger.log(null, `      "${srcText}" @${m.original.offset} -> "${genText}" @${m.generated.offset}`)
+						})
 
 						// 清空现有内容
 						embeddedFile.content.length = 0

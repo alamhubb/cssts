@@ -154,7 +154,17 @@ export function transformCssTs(code: string, context: TransformContext): Transfo
  * @param code - 源代码
  * @returns 转换结果（包含 code 和 mapping）
  */
+// 版本号，在 transformCssTsWithMapping 中输出
+const TRANSFORM_VERSION = '2.1.2-debug'
+let _transformLoggedVersion = false
+
 export function transformCssTsWithMapping(code: string): TransformResultWithMapping {
+  // 版本日志（只打印一次）
+  if (!_transformLoggedVersion) {
+    console.log(`[transformCssTsWithMapping] v${TRANSFORM_VERSION}`)
+    _transformLoggedVersion = true
+  }
+
   const parser = new CssTsParser(code)
   const cst = parser.Program()  // 使用默认的 module 模式
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
@@ -167,8 +177,10 @@ export function transformCssTsWithMapping(code: string): TransformResultWithMapp
   const result = SlimeGenerator.generator(ast, tokens)
 
   // 过滤无效的 mapping
+  // 只检查 source 和 generate 存在，以及 source.length > 0
+  // 不再要求 source.value，因为新创建的节点可能没有 value
   const mapping = result.mapping.filter(
-    (m: any) => m.source && m.source.value && m.source.value !== '' && m.source.length > 0
+    (m: any) => m.source && m.generate && m.source.length > 0
   )
 
   return {

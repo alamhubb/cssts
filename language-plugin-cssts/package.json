@@ -26,7 +26,7 @@
 		"cssts-compiler": "^0.2.87",
 		"find-up": "^8.0.0",
 		"pkg-dir": "^4.2.0",
-		"slime-generator": "file:../../slime/slime-generator"
+		"slime-generator": "^0.2.87"
 	},
 	"devDependencies": {
 		"@types/node": "^22.10.4",
