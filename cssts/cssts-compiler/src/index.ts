@@ -61,7 +61,6 @@ export {
   generateAtomsByProperty,
   generatePropertyDts,
   generateIndexDts,
-  generateAtomPropertyMap,
   generatePseudoAtoms,
   generatePseudoDts,
   generateClassGroupAtoms,
