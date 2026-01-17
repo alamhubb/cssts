@@ -656,7 +656,7 @@ document.querySelector('button').className
 
 ### 与 cssts-compiler 的关系
 
-`cssts-language` 使用 `cssts-compiler` 的 `transformCssTsWithMapping` 函数进行代码转换，确保：
+`cssts-language` 使用 `cssts-compiler` 的 `transformCssTs` 函数进行代码转换，确保：
 
 - 编辑器中的语法检查与 Vite 构建时一致
 - 代码补全基于实际的转换结果

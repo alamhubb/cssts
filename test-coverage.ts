@@ -3,7 +3,7 @@
  * 使用 CSSTS 编译器检查源码中的每一个 token 是否有对应的映射
  */
 import { SlimeMappingConverter } from 'slime-generator'
-import { transformCssTsWithMapping } from 'cssts-compiler'
+import { transformCssTs } from 'cssts-compiler'
 
 // TestCsstsPlugin.vue 的 script 内容
 const sourceCode = `import { ref } from 'vue'
@@ -27,7 +27,7 @@ console.log()
 
 // 1. 使用 CSSTS 编译器转换
 console.log('=== 1. CSSTS 编译 ===')
-const result = transformCssTsWithMapping(sourceCode)
+const result = transformCssTs(sourceCode)
 console.log('生成代码长度:', result.code.length, '字符')
 console.log('原始 mapping 数量:', result.mapping.length)
 

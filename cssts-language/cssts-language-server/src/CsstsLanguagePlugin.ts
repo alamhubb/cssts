@@ -8,7 +8,7 @@ import type { TypeScriptExtraServiceScript } from '@volar/typescript'
 import type { IScriptSnapshot } from 'typescript'
 import { URI } from 'vscode-uri'
 import { logToFile } from './logutil'
-import { transformCssTsWithMapping } from 'cssts-compiler'
+import { transformCssTs } from 'cssts-compiler'
 import { SlimeCodeMapping } from 'slime-generator'
 
 // 映射段信息
@@ -133,8 +133,8 @@ export class CsstsVirtualCode implements VirtualCode {
     logToFile('Input code length: ' + sourceCode.length)
 
     try {
-      // 使用 cssts-compiler 的 transformCssTsWithMapping
-      const result = transformCssTsWithMapping(sourceCode)
+      // 使用 cssts-compiler 的 transformCssTs
+      const result = transformCssTs(sourceCode)
       generatedCode = result.code
       mapping = result.mapping
 
