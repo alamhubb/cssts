@@ -228,6 +228,21 @@ export interface CsstsCompilerConfig extends CsstsConfig {
    * @default false
    */
   debug?: boolean;
+
+  // ==================== 运行时状态配置 ====================
+
+  /**
+   * 使用过的原子类集合
+   * 
+   * 用于收集转换过程中使用的原子类名称。
+   * - 如果传入，则使用传入的 Set（如 Vite 的 globalStyles）
+   * - 如果不传，则使用 RuntimeStore 的内部 Set
+   * 
+   * @example
+   * const myStyles = new Set<string>()
+   * cssTsPlugin({ usedStyles: myStyles })
+   */
+  usedStyles?: Set<string>;
 }
 
 // ==================== 辅助类型 ====================

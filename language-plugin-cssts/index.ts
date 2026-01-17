@@ -1,5 +1,5 @@
 import type { VueLanguagePlugin } from '@vue/language-core'
-import { transformCssTsWithMapping, CsstsInit } from 'cssts-compiler'
+import { transformCssTs, CsstsInit, generateModulesDtsFromStyles, RuntimeStore } from 'cssts-compiler'
 import { SlimeMappingConverter } from 'slime-generator'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
@@ -39,6 +39,8 @@ let initialized = false
 /**
  * 初始化 CsstsInit（延迟到第一次处理文件时调用）
  */
+let dtsOutputDir: string | null = null
+
 function initCssts(fileName: string): void {
     if (initialized) return
 
@@ -47,13 +49,33 @@ function initCssts(fileName: string): void {
         throw new Error(`Cannot find node_modules from path: ${fileName}`)
     }
 
-    const dtsOutputDir = path.join(nodeModulesDir, '@types', 'cssts-ts')
+    dtsOutputDir = path.join(nodeModulesDir, '@types', 'cssts-ts')
     Glog.debug(`Found node_modules: ${nodeModulesDir}`)
     Glog.debug(`DTS output dir: ${dtsOutputDir}`)
 
     CsstsInit.init({ dtsOutputDir })
     Glog.debug('CsstsInit initialized')
     initialized = true
+}
+
+/**
+ * 更新 modules.d.ts（每次处理 Vue 文件后调用）
+ */
+function updateModulesDts(): void {
+    if (!dtsOutputDir) return
+
+    const usedStyles = RuntimeStore.getUsedStyles()
+    if (usedStyles.size === 0) return
+
+    const dtsContent = generateModulesDtsFromStyles(usedStyles)
+    const modulesPath = path.join(dtsOutputDir, 'modules.d.ts')
+
+    try {
+        fs.writeFileSync(modulesPath, dtsContent, 'utf-8')
+        Glog.debug(`Updated modules.d.ts with ${usedStyles.size} atoms`)
+    } catch (e: any) {
+        Glog.error(`Failed to write modules.d.ts: ${e?.message}`)
+    }
 }
 
 const plugin: VueLanguagePlugin = ({ modules }) => {
@@ -81,7 +103,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                     try {
                         initCssts(fileName)
 
-                        const result = transformCssTsWithMapping(scriptBlock.content)
+                        const result = transformCssTs(scriptBlock.content)
                         const tsCode = result.code
                         const rawMappings = result.mapping
                         const offsets = SlimeMappingConverter.convertMappings(rawMappings)
@@ -145,6 +167,9 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                             embeddedFile.content.push([tsCode, scriptBlock.name, 0, features])
                             Glog.warn('No mappings, using whole code')
                         }
+
+                        // 更新 modules.d.ts（累加使用的原子类）
+                        updateModulesDts()
                     } catch (e: any) {
                         Glog.error(`Transform error: ${e?.message || String(e)}`)
                     }

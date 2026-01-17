@@ -10,6 +10,7 @@ import { registerSlimeCstToAstUtil } from 'slime-parser'
 import { SlimeGenerator } from 'slime-generator'
 import Glog from 'glogjs'
 import { ConfigLookup } from '../config/ConfigLookup'
+import { RuntimeStore } from '../store/RuntimeStore'
 import {
   getCssClassName,
   getCssProperty,
@@ -119,50 +120,16 @@ export function expandClassGroup(
  * 转换 .cssts 文件
  * 
  * @param code - 源代码
- * @param context - 转换上下文（用于写入 styles）
- * @returns 转换结果
+ * @returns 转换结果（包含 code、mapping 和 hasStyles）
  */
-export function transformCssTs(code: string, context: TransformContext): TransformResult {
-  const parser = new CssTsParser(code)
-  const cst = parser.Program()  // 使用默认的 module 模式
-
-  // 注意：cssTsCstToAst 是一个 live binding，当子类（如 OvsCstToSlimeAst）
-  // 调用 registerCssTsCstToAst() 注册自己后，这里会自动使用新的实例
-  // 这样 toProgram 和 getUsedAtoms 使用的是同一个实例
-  const ast = CssTsCstToAstUtils.toFileAst(cst)
-
-  // 收集使用的样式（原子类 + 伪类样式，直接写入 context）
-  // 注：伪类样式（如 clickable$$hover$$active）在 CssTsCstToAst 中已自动收集
-  const localUsedAtoms = CssTsCstToAstUtils.getUsedAtoms()
-
-  for (const atom of localUsedAtoms) {
-    context.styles.add(atom)
-  }
-
-  // 生成代码
-  const tokens = parser.parsedTokens
-  const result = SlimeGenerator.generator(ast, tokens)
-
-  return {
-    code: result.code,
-    hasStyles: localUsedAtoms.size > 0
-  }
-}
-
-/**
- * 转换 .cssts 文件（带 mapping，用于 LSP）
- * 
- * @param code - 源代码
- * @returns 转换结果（包含 code 和 mapping）
- */
-// 版本号，在 transformCssTsWithMapping 中输出
-const TRANSFORM_VERSION = '2.1.2-debug'
+// 版本号
+const TRANSFORM_VERSION = '2.2.0'
 let _transformLoggedVersion = false
 
-export function transformCssTsWithMapping(code: string): TransformResultWithMapping {
+export function transformCssTs(code: string): TransformResultWithMapping {
   // 版本日志（只打印一次）
   if (!_transformLoggedVersion) {
-    Glog.debug(`transformCssTsWithMapping v${TRANSFORM_VERSION}`)
+    Glog.debug(`transformCssTs v${TRANSFORM_VERSION}`)
     _transformLoggedVersion = true
   }
 
@@ -172,6 +139,9 @@ export function transformCssTsWithMapping(code: string): TransformResultWithMapp
   const ast = CssTsCstToAstUtils.toFileAst(cst)
 
   const localUsedAtoms = CssTsCstToAstUtils.getUsedAtoms()
+
+  // 将使用的原子类累加到全局 RuntimeStore.usedStyles
+  RuntimeStore.addUsedStyles(localUsedAtoms)
 
   // 生成代码
   const tokens = parser.parsedTokens

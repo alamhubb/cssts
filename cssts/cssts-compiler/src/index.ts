@@ -4,6 +4,9 @@ export { CssTsParser, CssTsTokenConsumer, cssTsTokens, CssTsContextualKeywordTyp
 // 统一初始化
 export { CsstsInit, type RuntimeAtomData } from './init/CsstsInit'
 
+// 运行时存储
+export { RuntimeStore } from './store/RuntimeStore'
+
 // AST Transformer
 export { CssTsCstToAstUtils, CssTsCstToAst } from './factory'
 
@@ -16,7 +19,6 @@ export {
   parseStyleName,
   hasPseudos,
   transformCssTs,
-  transformCssTsWithMapping,
   generateStylesCss,
   generateCsstsAtomModule,
   generateModulesDtsFromStyles,

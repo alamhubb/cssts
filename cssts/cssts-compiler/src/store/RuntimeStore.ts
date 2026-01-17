@@ -32,6 +32,9 @@ export class RuntimeStore {
     // 是否在 Vite 环境中运行
     private static _isVite: boolean = false
 
+    // 使用过的原子类集合（全局累加）
+    private static _usedStyles: Set<string> = new Set()
+
     /**
      * 设置运行时数据
      */
@@ -93,11 +96,55 @@ export class RuntimeStore {
         return this._isVite
     }
 
+    // ==================== usedStyles 管理 ====================
+
+    /**
+     * 设置使用的原子类集合（支持外部传入）
+     * 
+     * @param set - 外部传入的 Set，如果不传则使用内部默认 Set
+     */
+    static setUsedStyles(set?: Set<string>): void {
+        if (set) {
+            this._usedStyles = set
+        }
+    }
+
+    /**
+     * 添加使用的原子类
+     */
+    static addUsedStyle(name: string): void {
+        this._usedStyles.add(name)
+    }
+
+    /**
+     * 批量添加使用的原子类
+     */
+    static addUsedStyles(names: Iterable<string>): void {
+        for (const name of names) {
+            this._usedStyles.add(name)
+        }
+    }
+
+    /**
+     * 获取所有使用过的原子类
+     */
+    static getUsedStyles(): Set<string> {
+        return this._usedStyles
+    }
+
+    /**
+     * 清空使用过的原子类
+     */
+    static clearUsedStyles(): void {
+        this._usedStyles.clear()
+    }
+
     /**
      * 重置
      */
     static reset(): void {
         this._runtimeMap = null
         this._isVite = false
+        this._usedStyles.clear()
     }
 }

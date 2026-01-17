@@ -1,6 +1,6 @@
 /**
  * CSSTS 统一初始化入口
- * 
+ *
  * 职责：
  * 1. 初始化配置（ConfigLookup）
  * 2. 生成并缓存运行时白名单（存储到 RuntimeStore）
@@ -41,12 +41,18 @@ export class CsstsInit {
 
     /**
      * 初始化
-     * 
+     *
      * @param config - 用户配置
      */
     static init(config?: Partial<CsstsCompilerConfig>): void {
+        CsstsInit.reset()
         // 1. 初始化配置
         ConfigLookup.init(config)
+
+        // 1.5 设置 usedStyles（如果用户传入了自己的 Set）
+        if (config?.usedStyles) {
+            RuntimeStore.setUsedStyles(config.usedStyles)
+        }
 
         // 2. 生成完整数据（临时变量，用完即丢）
         const fullAtoms = generateAtoms()

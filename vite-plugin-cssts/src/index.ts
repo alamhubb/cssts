@@ -250,7 +250,8 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
       CsstsInit.setViteEnvironment(true)
 
       // 使用 CsstsInit 统一初始化（自动生成 DTS）
-      CsstsInit.init(options)
+      // 传入 usedStyles，让 RuntimeStore 使用 globalStyles
+      CsstsInit.init({ ...options, usedStyles: globalStyles })
     },
 
     configureServer(_server) {
