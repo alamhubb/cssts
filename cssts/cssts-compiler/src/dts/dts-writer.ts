@@ -48,6 +48,38 @@ export interface DtsGenerateResult {
   };
 }
 
+/** DTS 写入上下文 */
+interface DtsWriterContext {
+  outputDir: string;
+  files: string[];
+  fileNames: string[];
+  log: (msg: string) => void;
+  singleFile: boolean;
+}
+
+/**
+ * 写入文件或返回内容
+ * - singleFile=true：返回内容，不写入文件
+ * - singleFile=false：写入文件，返回空字符串
+ */
+function writeOrReturn(
+  ctx: DtsWriterContext,
+  fileName: string,
+  content: string,
+  label: string,
+  count: number
+): string {
+  if (ctx.singleFile) {
+    return content;
+  }
+  const filePath = path.join(ctx.outputDir, fileName);
+  fs.writeFileSync(filePath, content, 'utf-8');
+  ctx.files.push(filePath);
+  ctx.fileNames.push(fileName);
+  ctx.log(`   ✅ 生成 ${fileName} (${count} 个${label})`);
+  return '';
+}
+
 // ==================== 核心方法 ====================
 
 /**
@@ -60,6 +92,24 @@ function getDefaultOutputDir(): string {
 /** camelCase 转 kebab-case */
 function camelToKebab(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+/**
+ * 生成原子类声明列表（公共方法）
+ * @param atoms - 原子类定义列表
+ * @returns 声明语句数组
+ */
+function generateAtomDeclarations(atoms: AtomDefinition[]): string[] {
+  const declarations: string[] = [];
+  const prefix = ConfigLookup.classPrefix;
+
+  for (const atom of atoms) {
+    const cssClassName = generateCssClassName(atom, prefix);
+    const kebabProperty = camelToKebab(atom.property);
+    declarations.push(`declare const ${atom.name}: { '${cssClassName}': '${kebabProperty}' };`);
+  }
+
+  return declarations;
 }
 
 /**
@@ -101,12 +151,8 @@ function generatePropertyGlobalDts(propertyName: string, atoms: AtomDefinition[]
     '',
   ];
 
-  for (const atom of atoms) {
-    const cssClassName = generateCssClassName(atom, ConfigLookup.classPrefix);
-    const kebabProperty = camelToKebab(atom.property);
-    lines.push(`declare const ${atom.name}: { '${cssClassName}': '${kebabProperty}' };`);
-  }
-
+  // 使用公共方法生成声明
+  lines.push(...generateAtomDeclarations(atoms));
   lines.push('');
 
   return lines.join('\n');
@@ -174,6 +220,118 @@ function generateClassGroupDtsFromData(classGroups: ClassGroupAtomDefinition[]):
   return lines.join('\n');
 }
 
+// ==================== 类型生成辅助方法 ====================
+
+/** 生成颜色原子类 DTS */
+function generateColorsDts(ctx: DtsWriterContext, atoms: AtomDefinition[]): string {
+  if (atoms.length === 0) return '';
+  const content = generatePropertyGlobalDts('colors', atoms);
+  return writeOrReturn(ctx, 'colors.d.ts', content, '颜色原子类', atoms.length);
+}
+
+/** 生成关键字原子类 DTS */
+function generateKeywordsDts(ctx: DtsWriterContext, atoms: AtomDefinition[]): string {
+  if (atoms.length === 0) return '';
+  const content = generatePropertyGlobalDts('keywords', atoms);
+  return writeOrReturn(ctx, 'keywords.d.ts', content, '关键字原子类', atoms.length);
+}
+
+/** 生成伪类原子类 DTS */
+function generatePseudosDts(ctx: DtsWriterContext, pseudos: PseudoAtomDefinition[]): string {
+  if (pseudos.length === 0) return '';
+  const content = generatePseudoDtsFromData(pseudos);
+  return writeOrReturn(ctx, 'pseudo.d.ts', content, '伪类原子类', pseudos.length);
+}
+
+/** 生成类组合原子类 DTS */
+function generateClassGroupsDts(ctx: DtsWriterContext, classGroups: ClassGroupAtomDefinition[]): string {
+  if (classGroups.length === 0) return '';
+  const content = generateClassGroupDtsFromData(classGroups);
+  return writeOrReturn(ctx, 'classGroup.d.ts', content, '类组合原子类', classGroups.length);
+}
+
+/** 生成单个属性的 DTS（用于分文件模式的数值属性） */
+function generatePropertyDts(ctx: DtsWriterContext, propName: string, atoms: AtomDefinition[]): string {
+  if (atoms.length === 0) return '';
+  const content = generatePropertyGlobalDts(propName, atoms);
+  return writeOrReturn(ctx, `${propName}.d.ts`, content, '原子类', atoms.length);
+}
+
+/** 生成 Group 原子类 DTS */
+function generateGroupsDts(ctx: DtsWriterContext, groups: GroupAtomDefinition[]): string {
+  if (groups.length === 0) return '';
+
+  // 分离数值类型和关键字类型
+  const numberGroupAtoms = groups.filter(a => a.isNumber);
+  const keywordGroupAtoms = groups.filter(a => !a.isNumber);
+
+  let result = '';
+
+  // 数值类型：按 groupName 分文件
+  if (numberGroupAtoms.length > 0) {
+    const numberGroupsByName: Record<string, GroupAtomDefinition[]> = {};
+    for (const atom of numberGroupAtoms) {
+      const match = atom.name.match(/^([a-zA-Z]+?)(?:N?\d|$)/);
+      const groupName = match ? match[1] : atom.name.replace(/N?\d.*$/, '');
+      if (!numberGroupsByName[groupName]) {
+        numberGroupsByName[groupName] = [];
+      }
+      numberGroupsByName[groupName].push(atom);
+    }
+
+    for (const [groupName, atoms] of Object.entries(numberGroupsByName)) {
+      const content = generateGroupAtomsDts(atoms);
+      result += writeOrReturn(ctx, `${groupName}.d.ts`, content, '组合原子类', atoms.length);
+    }
+  }
+
+  // 关键字类型：放一个文件
+  if (keywordGroupAtoms.length > 0) {
+    const content = generateGroupAtomsDts(keywordGroupAtoms);
+    result += writeOrReturn(ctx, 'groups-keyword.d.ts', content, '组合原子类', keywordGroupAtoms.length);
+  }
+
+  return result;
+}
+
+/** 按属性分组原子类并生成分文件 DTS */
+function generateAtomsByPropertyDts(
+  ctx: DtsWriterContext,
+  atoms: AtomDefinition[]
+): { colorAtoms: AtomDefinition[]; keywordAtoms: AtomDefinition[] } {
+  // 按属性分组
+  const atomsByProperty: Record<string, AtomDefinition[]> = {};
+  for (const atom of atoms) {
+    if (!atomsByProperty[atom.property]) {
+      atomsByProperty[atom.property] = [];
+    }
+    atomsByProperty[atom.property].push(atom);
+  }
+
+  const colorAtoms: AtomDefinition[] = [];
+  const keywordAtoms: AtomDefinition[] = [];
+
+  // 按属性生成分文件
+  for (const [propName, propAtoms] of Object.entries(atomsByProperty)) {
+    const hasNumber = propAtoms.some(atom => atom.number !== undefined);
+
+    if (hasNumber) {
+      // 数值属性：单独生成文件
+      generatePropertyDts(ctx, propName, propAtoms);
+    } else {
+      // 非数值属性：分类到颜色或关键字
+      const isColorProperty = propName in PROPERTY_COLOR_TYPES_MAP;
+      if (isColorProperty) {
+        colorAtoms.push(...propAtoms);
+      } else {
+        keywordAtoms.push(...propAtoms);
+      }
+    }
+  }
+
+  return { colorAtoms, keywordAtoms };
+}
+
 /**
  * 使用传入的数据生成单文件 DTS 内容
  */
@@ -182,8 +340,6 @@ function generateDtsFromData(
   pseudos: PseudoAtomDefinition[],
   classGroups: ClassGroupAtomDefinition[]
 ): string {
-  const prefix = ConfigLookup.classPrefix;
-
   const lines: string[] = [
     '/**',
     ' * CSSTS 原子类全局常量声明（自动生成）',
@@ -193,11 +349,8 @@ function generateDtsFromData(
     '',
   ];
 
-  for (const atom of atoms) {
-    const cssClassName = generateCssClassName(atom, prefix);
-    const kebabProperty = camelToKebab(atom.property);
-    lines.push(`declare const ${atom.name}: { '${cssClassName}': '${kebabProperty}' };`);
-  }
+  // 使用公共方法生成原子类声明
+  lines.push(...generateAtomDeclarations(atoms));
 
   // 添加伪类
   if (pseudos.length > 0) {
@@ -286,129 +439,19 @@ export function generateDtsFiles(params: {
   if (splitFiles) {
     log('\n📁 生成分文件版本...');
 
-    // 使用传入的 atoms 数据，按属性分组
-    const atomsByProperty: Record<string, AtomDefinition[]> = {};
-    for (const atom of atoms) {
-      if (!atomsByProperty[atom.property]) {
-        atomsByProperty[atom.property] = [];
-      }
-      atomsByProperty[atom.property].push(atom);
-    }
-
+    // 创建上下文
     const generatedFileNames: string[] = [];
-    const numberProperties: string[] = [];
-    const colorAtoms: AtomDefinition[] = [];
-    const keywordAtoms: AtomDefinition[] = [];
+    const ctx: DtsWriterContext = { outputDir, files, fileNames: generatedFileNames, log, singleFile: false };
 
-    for (const [propName, propAtoms] of Object.entries(atomsByProperty)) {
-      const hasNumber = propAtoms.some(atom => atom.number !== undefined);
+    // 按属性分组并生成分文件 DTS
+    const { colorAtoms, keywordAtoms } = generateAtomsByPropertyDts(ctx, atoms);
 
-      if (hasNumber) {
-        numberProperties.push(propName);
-        const propDts = generatePropertyGlobalDts(propName, propAtoms);
-        const fileName = `${propName}.d.ts`;
-        const propPath = path.join(outputDir, fileName);
-        fs.writeFileSync(propPath, propDts, 'utf-8');
-        files.push(propPath);
-        generatedFileNames.push(fileName);
-      } else {
-        const isColorProperty = propName in PROPERTY_COLOR_TYPES_MAP;
-
-        if (isColorProperty) {
-          colorAtoms.push(...propAtoms);
-        } else {
-          keywordAtoms.push(...propAtoms);
-        }
-      }
-    }
-
-    log(`   ✅ 生成 ${numberProperties.length} 个数值属性文件`);
-
-    if (colorAtoms.length > 0) {
-      const colorsDts = generatePropertyGlobalDts('colors', colorAtoms);
-      const fileName = 'colors.d.ts';
-      const colorsPath = path.join(outputDir, fileName);
-      fs.writeFileSync(colorsPath, colorsDts, 'utf-8');
-      files.push(colorsPath);
-      generatedFileNames.push(fileName);
-      log(`   ✅ 生成 colors.d.ts (${colorAtoms.length} 个原子类)`);
-    }
-
-    if (keywordAtoms.length > 0) {
-      const keywordsDts = generatePropertyGlobalDts('keywords', keywordAtoms);
-      const fileName = 'keywords.d.ts';
-      const keywordsPath = path.join(outputDir, fileName);
-      fs.writeFileSync(keywordsPath, keywordsDts, 'utf-8');
-      files.push(keywordsPath);
-      generatedFileNames.push(fileName);
-      log(`   ✅ 生成 keywords.d.ts (${keywordAtoms.length} 个原子类)`);
-    }
-
-    // 使用传入的 groups 数据
-    if (groups.length > 0) {
-      // 分离数值类型和关键字类型的 group atoms
-      const numberGroupAtoms = groups.filter(a => a.isNumber);
-      const keywordGroupAtoms = groups.filter(a => !a.isNumber);
-
-      // 数值类型 group：按 groupName 分文件
-      if (numberGroupAtoms.length > 0) {
-        // 按 groupName 分组（从 atom.name 提取，去掉数值后缀）
-        const numberGroupsByName: Record<string, GroupAtomDefinition[]> = {};
-        for (const atom of numberGroupAtoms) {
-          // 从 atom.name 提取 groupName（去掉数值和单位后缀，包括负数前缀 N）
-          // marginX10px → marginX, marginXN10px → marginX
-          const match = atom.name.match(/^([a-zA-Z]+?)(?:N?\d|$)/);
-          const groupName = match ? match[1] : atom.name.replace(/N?\d.*$/, '');
-          if (!numberGroupsByName[groupName]) {
-            numberGroupsByName[groupName] = [];
-          }
-          numberGroupsByName[groupName].push(atom);
-        }
-
-        for (const [groupName, atoms] of Object.entries(numberGroupsByName)) {
-          const groupDts = generateGroupAtomsDts(atoms);
-          const fileName = `${groupName}.d.ts`;
-          const groupPath = path.join(outputDir, fileName);
-          fs.writeFileSync(groupPath, groupDts, 'utf-8');
-          files.push(groupPath);
-          generatedFileNames.push(fileName);
-          log(`   ✅ 生成 ${fileName} (${atoms.length} 个组合原子类)`);
-        }
-      }
-
-      // 关键字类型 group：放一个文件
-      if (keywordGroupAtoms.length > 0) {
-        const keywordGroupsDts = generateGroupAtomsDts(keywordGroupAtoms);
-        const fileName = 'groups-keyword.d.ts';
-        const groupsPath = path.join(outputDir, fileName);
-        fs.writeFileSync(groupsPath, keywordGroupsDts, 'utf-8');
-        files.push(groupsPath);
-        generatedFileNames.push(fileName);
-        log(`   ✅ 生成 groups-keyword.d.ts (${keywordGroupAtoms.length} 个组合原子类)`);
-      }
-    }
-
-    // 使用传入的 pseudos 数据
-    if (pseudos.length > 0) {
-      const pseudoDts = generatePseudoDtsFromData(pseudos);
-      const fileName = 'pseudo.d.ts';
-      const pseudoPath = path.join(outputDir, fileName);
-      fs.writeFileSync(pseudoPath, pseudoDts, 'utf-8');
-      files.push(pseudoPath);
-      generatedFileNames.push(fileName);
-      log(`   ✅ 生成 pseudo.d.ts (${pseudos.length} 个伪类原子类)`);
-    }
-
-    // 使用传入的 classGroups 数据
-    if (classGroups.length > 0) {
-      const classGroupDts = generateClassGroupDtsFromData(classGroups);
-      const fileName = 'classGroup.d.ts';
-      const classGroupPath = path.join(outputDir, fileName);
-      fs.writeFileSync(classGroupPath, classGroupDts, 'utf-8');
-      files.push(classGroupPath);
-      generatedFileNames.push(fileName);
-      log(`   ✅ 生成 classGroup.d.ts (${classGroups.length} 个类组合原子类)`);
-    }
+    // 生成颜色、关键字、伪类、类组合、Group 的 DTS
+    generateColorsDts(ctx, colorAtoms);
+    generateKeywordsDts(ctx, keywordAtoms);
+    generatePseudosDts(ctx, pseudos);
+    generateClassGroupsDts(ctx, classGroups);
+    generateGroupsDts(ctx, groups);
 
     // 生成 index.d.ts（使用 reference 引入所有分文件）
     const indexDts = generateIndexDtsWithReferences(generatedFileNames);
