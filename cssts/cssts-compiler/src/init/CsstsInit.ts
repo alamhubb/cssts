@@ -18,6 +18,7 @@ import {
 } from '../dts/atom-generator'
 import { generateDtsFiles } from '../dts/dts-writer'
 import { RuntimeStore, type RuntimeAtomData } from '../store/RuntimeStore'
+import Glog from 'glogjs'
 
 // 重新导出类型
 export type { RuntimeAtomData } from '../store/RuntimeStore'
@@ -98,6 +99,7 @@ export class CsstsInit {
         }
 
         // 存储到 RuntimeStore
+        Glog.debug(`[CsstsInit] 设置 RuntimeStore.runtimeMap，共 ${runtimeMap.size} 个条目`)
         RuntimeStore.setRuntimeMap(runtimeMap)
 
         // 4. 调用 DTS 生成工具（传递完整数据，不保留引用）

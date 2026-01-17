@@ -126,7 +126,7 @@ let _transformLoggedVersion = false
 export function transformCssTs(code: string): TransformResultWithMapping {
   // 版本日志（只打印一次）
   if (!_transformLoggedVersion) {
-    Glog.debug(`transformCssTs v${TRANSFORM_VERSION}`)
+    Glog.debug(`[transformCssTs v${TRANSFORM_VERSION}] initialized`)
     _transformLoggedVersion = true
   }
 

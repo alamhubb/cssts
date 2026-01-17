@@ -6,11 +6,11 @@ import * as path from 'node:path'
 import Glog from 'glogjs'
 
 // 版本号
-const PLUGIN_VERSION = '2.1.15'
+const PLUGIN_VERSION = '2.2.0'
 
 // 初始化 Glog（只设置 debug 级别以便调试）
 Glog.init({ level: 'debug' })
-Glog.info(`v${PLUGIN_VERSION} initialized`)
+Glog.info(`[language-plugin-cssts v${PLUGIN_VERSION}] initialized`)
 
 /**
  * 从指定路径向上查找最近的 node_modules 目录
@@ -65,16 +65,23 @@ function updateModulesDts(): void {
     if (!dtsOutputDir) return
 
     const usedStyles = RuntimeStore.getUsedStyles()
-    if (usedStyles.size === 0) return
+    if (usedStyles.size === 0) {
+        Glog.debug(`[updateModulesDts] 没有使用的样式类，跳过生成`)
+        return
+    }
 
+    Glog.debug(`[updateModulesDts] 开始生成 modules.d.ts...`)
     const dtsContent = generateModulesDtsFromStyles(usedStyles)
     const modulesPath = path.join(dtsOutputDir, 'modules.d.ts')
 
     try {
+        Glog.debug(`[updateModulesDts] 即将写入 ${modulesPath}，内容长度: ${dtsContent.length}`)
         fs.writeFileSync(modulesPath, dtsContent, 'utf-8')
-        Glog.debug(`Updated modules.d.ts with ${usedStyles.size} atoms`)
+        const readBack = fs.readFileSync(modulesPath, 'utf-8')
+        Glog.debug(`[updateModulesDts] 写入后读回内容长度: ${readBack.length}`)
+        Glog.info(`[updateModulesDts] ✅ 已更新 modules.d.ts，共 ${usedStyles.size} 个样式类`)
     } catch (e: any) {
-        Glog.error(`Failed to write modules.d.ts: ${e?.message}`)
+        Glog.error(`[updateModulesDts] ❌ 写入失败: ${e?.message}`)
     }
 }
 

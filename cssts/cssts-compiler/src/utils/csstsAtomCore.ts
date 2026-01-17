@@ -6,6 +6,10 @@
 
 import { ConfigLookup } from '../config/ConfigLookup'
 import { RuntimeStore } from '../store/RuntimeStore'
+import Glog from 'glogjs'
+
+// 版本号
+const CSSTS_ATOM_CORE_VERSION = '2.2.0'
 
 /**
  * 生成 csstsAtom 对象的 entries 数组
@@ -24,14 +28,17 @@ export function generateCsstsAtomEntries(
 ): string[] {
     const prefix = ConfigLookup.classPrefix
     const entries: string[] = []
-    const sortedStyles = [...styles].sort()
+    const sortedStyles = styles
 
     for (const name of sortedStyles) {
         // 从初始化的 Map 中获取数据
         const data = RuntimeStore.getRuntimeData(name)
 
+        Glog.info(`执行了判断 ${name}`)
+
         if (!data) {
             // 不在白名单中，跳过
+            Glog.warn(`[generateCsstsAtomEntries] ⚠️ "${name}" 不在 RuntimeStore 中，跳过`)
             continue
         }
 
@@ -63,6 +70,7 @@ export function generateCsstsAtomEntries(
         }
     }
 
+    Glog.debug(`[generateCsstsAtomEntries] 输入 ${styles.size} 个，输出 ${entries.length} 个 entries`)
     return entries
 }
 
@@ -92,6 +100,11 @@ export function generateCsstsAtomModule(
 export function generateModulesDtsFromStyles(
     styles: Set<string>
 ): string {
+    // 打印日志：版本号和生成的样式类
+    const sortedStyles = [...styles].sort()
+    Glog.debug(`[csstsAtomCore v${CSSTS_ATOM_CORE_VERSION}] generateModulesDtsFromStyles`)
+    Glog.debug(`  生成 ${styles.size} 个样式类: ${sortedStyles.join(', ')}`)
+
     const lines: string[] = [
         '/**',
         ' * CSSTS 虚拟模块类型声明（自动生成）',
@@ -112,5 +125,7 @@ export function generateModulesDtsFromStyles(
     lines.push('}')
     lines.push('')
 
-    return lines.join('\n')
+    const result = lines.join('\n')
+    Glog.debug(`[generateModulesDtsFromStyles] 生成的 DTS 内容 (${result.length} 字符):\n${result}`)
+    return result
 }

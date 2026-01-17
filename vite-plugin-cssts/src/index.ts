@@ -8,6 +8,10 @@ import {
   type CsstsCompilerConfig,
 } from 'cssts-compiler'
 import { parse as parseSfc, type SFCDescriptor, type SFCScriptBlock } from '@vue/compiler-sfc'
+import Glog from 'glogjs'
+
+// 版本号
+const VITE_PLUGIN_VERSION = '2.2.0'
 
 // ==================== 插件配置 ====================
 
@@ -246,6 +250,9 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
     },
 
     configResolved(_resolvedConfig) {
+      // 版本日志
+      Glog.info(`[vite-plugin-cssts v${VITE_PLUGIN_VERSION}] initialized`)
+
       // 设置 Vite 环境标志（在初始化前调用）
       CsstsInit.setViteEnvironment(true)
 
@@ -286,8 +293,8 @@ export default function cssTsPlugin(options: CssTsPluginOptions = {}): Plugin {
           codeToTransform = vueScriptInfo.script
         }
 
-        // 调用 compiler 进行转换
-        const result = transformCssTs(codeToTransform, { styles: globalStyles })
+        // 调用 compiler 进行转换（usedStyles 已通过 RuntimeStore 管理）
+        const result = transformCssTs(codeToTransform)
 
         let transformedCode = result.code
 
