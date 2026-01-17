@@ -83,8 +83,29 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
                         const result = transformCssTsWithMapping(scriptBlock.content)
                         const tsCode = result.code
-                        const offsets = SlimeMappingConverter.convertMappings(result.mapping)
-                        Glog.debug(`Transform: code=${tsCode.length}, mappings=${offsets.length}`)
+                        const rawMappings = result.mapping
+                        const offsets = SlimeMappingConverter.convertMappings(rawMappings)
+
+                        // 详细 token 统计
+                        Glog.debug(`=== Token 统计 ===`)
+                        Glog.debug(`源码长度: ${scriptBlock.content.length}, 生成码长度: ${tsCode.length}`)
+                        Glog.debug(`原始 mapping 数量: ${rawMappings.length}`)
+                        Glog.debug(`转换后 mapping 数量: ${offsets.length}`)
+
+                        // 检查映射覆盖
+                        const srcCoverage = new Set<number>()
+                        const genCoverage = new Set<number>()
+                        offsets.forEach(m => {
+                            for (let i = m.original.offset; i < m.original.offset + m.original.length; i++) {
+                                srcCoverage.add(i)
+                            }
+                            for (let i = m.generated.offset; i < m.generated.offset + m.generated.length; i++) {
+                                genCoverage.add(i)
+                            }
+                        })
+                        Glog.debug(`源码覆盖字符数: ${srcCoverage.size}/${scriptBlock.content.length}`)
+                        Glog.debug(`生成码覆盖字符数: ${genCoverage.size}/${tsCode.length}`)
+                        Glog.debug(`=== Token 统计结束 ===`)
 
                         embeddedFile.content.length = 0
 
