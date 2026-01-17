@@ -273,15 +273,15 @@ export function generateDtsFiles(params: {
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
   files.push(packageJsonPath);
 
-  // 非 Vite 环境：生成 modules.d.ts（虚拟模块类型声明，初始为空壳）
-  // 实际内容由 LSP 在转换代码时动态更新
-  if (!RuntimeStore.isViteEnvironment()) {
-    const modulesDts = generateModulesDts();  // 不传参数，生成空壳
-    const modulesPath = path.join(outputDir, 'modules.d.ts');
-    fs.writeFileSync(modulesPath, modulesDts, 'utf-8');
-    files.push(modulesPath);
-    log('   ✅ 生成 modules.d.ts（虚拟模块类型声明，初始为空壳）');
-  }
+  // 非 Vite 环境：modules.d.ts 由 LSP 的 updateModulesDts 动态生成
+  // 不在这里生成空壳，避免覆盖 updateModulesDts 写入的内容
+  // if (!RuntimeStore.isViteEnvironment()) {
+  //   const modulesDts = generateModulesDts();  // 不传参数，生成空壳
+  //   const modulesPath = path.join(outputDir, 'modules.d.ts');
+  //   fs.writeFileSync(modulesPath, modulesDts, 'utf-8');
+  //   files.push(modulesPath);
+  //   log('   ✅ 生成 modules.d.ts（虚拟模块类型声明，初始为空壳）');
+  // }
 
   if (splitFiles) {
     log('\n📁 生成分文件版本...');
@@ -425,10 +425,20 @@ export function generateDtsFiles(params: {
       dtsContent += '\n' + generateGroupAtomsDts(groups);
     }
 
+    // 生成 atomAllCssts.d.ts（所有原子类的全局声明）
+    const atomAllPath = path.join(outputDir, 'atomAllCssts.d.ts');
+    fs.writeFileSync(atomAllPath, dtsContent, 'utf-8');
+    files.push(atomAllPath);
+    log(`✅ 生成所有原子类声明: atomAllCssts.d.ts`);
+
+    // 生成 index.d.ts（引用所有 DTS 文件）
+    const indexContent = `/// <reference path="./atomAllCssts.d.ts" />
+/// <reference path="./atomUsedCssts.d.ts" />
+`;
     const indexPath = path.join(outputDir, 'index.d.ts');
-    fs.writeFileSync(indexPath, dtsContent, 'utf-8');
+    fs.writeFileSync(indexPath, indexContent, 'utf-8');
     files.push(indexPath);
-    log(`✅ 单文件版本: ${indexPath}`);
+    log(`✅ 生成索引文件: index.d.ts`);
   }
 
   log(`[cssts] 已生成类型定义 (${atoms.length} 个原子类)`);

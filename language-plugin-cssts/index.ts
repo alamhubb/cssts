@@ -6,7 +6,7 @@ import * as path from 'node:path'
 import Glog from 'glogjs'
 
 // 版本号
-const PLUGIN_VERSION = '2.2.0'
+const PLUGIN_VERSION = '2.2.1-test'
 
 // 初始化 Glog（只设置 debug 级别以便调试）
 Glog.init({ level: 'debug' })
@@ -59,7 +59,7 @@ function initCssts(fileName: string): void {
 }
 
 /**
- * 更新 modules.d.ts（每次处理 Vue 文件后调用）
+ * 更新 atomUsedCssts.d.ts（每次处理 Vue 文件后调用）
  */
 function updateModulesDts(): void {
     if (!dtsOutputDir) return
@@ -70,16 +70,13 @@ function updateModulesDts(): void {
         return
     }
 
-    Glog.debug(`[updateModulesDts] 开始生成 modules.d.ts...`)
+    Glog.debug(`[updateModulesDts] 开始生成 atomUsedCssts.d.ts...`)
     const dtsContent = generateModulesDtsFromStyles(usedStyles)
-    const modulesPath = path.join(dtsOutputDir, 'modules.d.ts')
+    const modulesPath = path.join(dtsOutputDir, 'atomUsedCssts.d.ts')
 
     try {
-        Glog.debug(`[updateModulesDts] 即将写入 ${modulesPath}，内容长度: ${dtsContent.length}`)
         fs.writeFileSync(modulesPath, dtsContent, 'utf-8')
-        const readBack = fs.readFileSync(modulesPath, 'utf-8')
-        Glog.debug(`[updateModulesDts] 写入后读回内容长度: ${readBack.length}`)
-        Glog.info(`[updateModulesDts] ✅ 已更新 modules.d.ts，共 ${usedStyles.size} 个样式类`)
+        Glog.info(`[updateModulesDts] ✅ 已更新 atomUsedCssts.d.ts，共 ${usedStyles.size} 个样式类`)
     } catch (e: any) {
         Glog.error(`[updateModulesDts] ❌ 写入失败: ${e?.message}`)
     }
