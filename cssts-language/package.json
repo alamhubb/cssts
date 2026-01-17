@@ -92,7 +92,7 @@
     "@volar/typescript": "^2.4.14",
     "@volar/vscode": "^2.4.14",
     "@vscode/vsce": "^3.4.2",
-    "tsdown": "^0.18.0",
+    "tsdown": "^0.20.0-beta.3",
     "typescript": "^5.8.3",
     "volar-service-typescript": "^0.0.62",
     "vscode-languageclient": "^9.0.1",
