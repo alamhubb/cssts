@@ -288,9 +288,23 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const children = cst.children || []
     const styleObjectCst = children.find(c => c.name === CssTsParser.prototype.CssStyleObject.name)
 
+    // 提取 css 关键字的位置
+    const cssTokenCst = children.find(c => c.name === 'Css' || c.value === 'css')
+    const cssTokenLoc = cssTokenCst?.loc
+
     if (styleObjectCst) {
+      // 提取 { 和 } 的位置
+      const lBraceCst = styleObjectCst.children?.find(c => c.name === 'LBrace' || c.value === '{')
+      const rBraceCst = styleObjectCst.children?.find(c => c.name === 'RBrace' || c.value === '}')
+      const lBraceLoc = lBraceCst?.loc
+      const rBraceLoc = rBraceCst?.loc
+
       const args = this.extractCssPropertyExpressions(styleObjectCst)
-      const callExpr = this.createCsstsClsCallWithArgs(args, cst.loc)
+      const callExpr = this.createCsstsClsCallWithArgs(args, cst.loc, {
+        cssTokenLoc,
+        lBraceLoc,
+        rBraceLoc
+      })
 
         // 添加标记：标识这是 css 语法生成的表达式
         ; (callExpr as any).__isCssSyntax = true
@@ -308,22 +322,48 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return SlimeAstCreateUtils.createStringLiteral('')
   }
 
-  protected createCsstsClsCallWithArgs(args: SlimeExpression[], loc?: any): SlimeExpression {
-    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts')
+  /**
+   * 创建 cssts.merge(...) 调用
+   * 
+   * @param args 参数列表
+   * @param loc 整体位置
+   * @param tokenLocs CSSTS 语法 token 位置，用于 source map 映射
+   *   - cssTokenLoc: css 关键字位置 -> 对应生成代码中的 "cssts.merge"
+   *   - lBraceLoc: { 位置 -> 对应生成代码中的 "("
+   *   - rBraceLoc: } 位置 -> 对应生成代码中的 ")"
+   */
+  protected createCsstsClsCallWithArgs(
+    args: SlimeExpression[],
+    loc?: any,
+    tokenLocs?: {
+      cssTokenLoc?: any
+      lBraceLoc?: any
+      rBraceLoc?: any
+    }
+  ): SlimeExpression {
+    // 创建 cssts 标识符，使用 css 关键字的位置
+    const csstsId = SlimeAstCreateUtils.createIdentifier('cssts', tokenLocs?.cssTokenLoc)
     const clsId = SlimeAstCreateUtils.createIdentifier('merge')
+
     const callee: SlimeExpression = {
       type: SlimeAstTypeName.MemberExpression,
       object: csstsId,
       property: clsId,
       computed: false,
-      optional: false
+      optional: false,
+      // 整个 callee (cssts.merge) 使用 css 关键字的位置
+      loc: tokenLocs?.cssTokenLoc
     } as any
+
     return {
       type: SlimeAstTypeName.CallExpression,
       callee,
       arguments: args,
       optional: false,
-      loc
+      loc,
+      // 附加 token 位置信息，供 generator 使用
+      lParenToken: tokenLocs?.lBraceLoc ? { loc: tokenLocs.lBraceLoc } : undefined,
+      rParenToken: tokenLocs?.rBraceLoc ? { loc: tokenLocs.rBraceLoc } : undefined
     } as any
   }
 
@@ -336,11 +376,30 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return elements.map(expr => this.transformCssPropertyExpression(expr))
   }
 
+  /**
+   * 处理 ElementList，提取表达式并保留逗号位置信息
+   * 逗号位置会被附加到前一个表达式的 commaToken 属性上
+   */
   private processElementList(cst: SubhutiCst): SlimeExpression[] {
     if (!cst.children) return []
     const expressions: SlimeExpression[] = []
-    for (const child of cst.children) {
-      if (child.name === 'Comma' || child.value === ',' || child.name === 'Elision') continue
+
+    for (let i = 0; i < cst.children.length; i++) {
+      const child = cst.children[i]
+
+      // 处理逗号：将其位置附加到前一个表达式
+      if (child.name === 'Comma' || child.value === ',') {
+        if (expressions.length > 0) {
+          const lastExpr = expressions[expressions.length - 1] as any
+          lastExpr.commaToken = { loc: child.loc }
+        }
+        continue
+      }
+
+      // 跳过 Elision
+      if (child.name === 'Elision') continue
+
+      // 处理表达式
       if (child.name === 'AssignmentExpression') {
         expressions.push(this.createAssignmentExpressionAst(child))
       } else if (child.name === 'SpreadElement') {
