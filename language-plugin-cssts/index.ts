@@ -86,6 +86,8 @@ function updateModulesDts(): void {
 const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
 
+    Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
+
     return {
         name: 'language-plugin-cssts',
         version: 2.2,
@@ -93,17 +95,30 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
         getEmbeddedCodes(fileName, sfc) {
             // 动态更新 filePath，让日志输出到正确的项目
             Glog.filePath = fileName
-            Glog.debug(`getEmbeddedCodes: ${fileName} `)
+            Glog.debug(`getEmbeddedCodes: ${fileName}`)
+
+            // 检查是否有 cssts 脚本
+            const scriptBlock = sfc.scriptSetup || sfc.script
+            if (scriptBlock) {
+                Glog.debug(`[getEmbeddedCodes] Script lang: "${scriptBlock.lang}", content preview: ${scriptBlock.content.substring(0, 100)}...`)
+            } else {
+                Glog.debug(`[getEmbeddedCodes] No script block found`)
+            }
             return []
         },
 
         resolveEmbeddedCode(fileName, sfc, embeddedFile) {
-            Glog.debug(`resolveEmbeddedCode: ${embeddedFile.id} `)
+            Glog.debug(`resolveEmbeddedCode: embeddedFile.id="${embeddedFile.id}"`)
+
+            // 打印所有可能的 embeddedFile ID，帮助调试
+            Glog.debug(`[resolveEmbeddedCode] embeddedFile details: id=${embeddedFile.id}, lang=${(embeddedFile as any).lang || 'N/A'}`)
 
             if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
                 const scriptBlock = sfc.scriptSetup || sfc.script
+                Glog.debug(`[resolveEmbeddedCode] scriptBlock.lang="${scriptBlock?.lang}", checking for cssts...`)
+
                 if (scriptBlock && scriptBlock.lang === 'cssts') {
-                    Glog.debug(`Found cssts script, content length: ${scriptBlock.content.length} `)
+                    Glog.info(`✅ Found cssts script block! content length: ${scriptBlock.content.length}`)
 
                     try {
                         initCssts(fileName)
