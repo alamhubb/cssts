@@ -10,6 +10,8 @@ console.log(message)
 function increment() {
   count.value++
 }
+
+console.log(me)
 </script>
 
 <template>
