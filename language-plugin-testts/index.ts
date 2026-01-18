@@ -20,7 +20,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
     return {
         name: 'language-plugin-testts',
-        version: 1,
+        version: 2.2,
 
         getEmbeddedCodes(fileName, sfc) {
             Glog.filePath = fileName
