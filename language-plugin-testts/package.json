@@ -23,7 +23,9 @@
 		"dev": "tsdown --watch"
 	},
 	"dependencies": {
-		"glogjs": "^0.1.0"
+		"glogjs": "^0.1.0",
+		"slime-generator": "^0.2.87",
+		"slime-parser": "^0.2.87"
 	},
 	"devDependencies": {
 		"@types/node": "^22.10.4",
