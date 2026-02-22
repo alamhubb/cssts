@@ -80,8 +80,8 @@
   "scripts": {
     "build": "tsdown",
     "watch": "tsdown --watch",
-    "package": "vsce package --no-dependencies",
-    "publish": "vsce publish --no-dependencies"
+    "package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository",
+    "publish": "npx @vscode/vsce publish --no-dependencies --allow-missing-repository"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
@@ -108,6 +108,7 @@
   "files": [
     "dist",
     "syntaxes",
-    "language-configuration.json"
+    "language-configuration.json",
+    "LICENSE"
   ]
 }

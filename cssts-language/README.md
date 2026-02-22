@@ -65,7 +65,7 @@ cssts-language/
 
 - [Volar](https://github.com/volarjs/volar.js) - 语言服务框架
 - [TypeScript](https://www.typescriptlang.org/) - 类型系统
-- [cssts-compiler](../cssts/cssts-compiler) - CSSTS 编译器（代码转换）
+- `cssts-compiler` - CSSTS 编译器（代码转换）
 
 ## 与 Vite 插件的关系
 
