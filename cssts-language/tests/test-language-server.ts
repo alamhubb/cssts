@@ -1,116 +1,142 @@
 /**
- * CSSTS Language Server 测试脚本
- * 模拟 LSP 客户端测试语言服务器功能
+ * CSSTS Language Server smoke test.
+ * Works with both mono and node.
  */
 
-import { spawn, ChildProcess } from 'child_process'
-import * as path from 'path'
-import * as readline from 'readline'
-import { fileURLToPath } from 'url'
+const { spawn } = require('child_process')
+const path = require('path')
+const fs = require('fs')
 
-// ESM 兼容的 __dirname
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-// LSP 消息 ID
 let messageId = 0
 
-// 创建 LSP 消息
-function createMessage(method: string, params: any): string {
+function createRequest(method: string, params: any): string {
   const id = ++messageId
-  const message = JSON.stringify({
+  const body = JSON.stringify({
     jsonrpc: '2.0',
     id,
     method,
     params,
   })
-  const header = `Content-Length: ${Buffer.byteLength(message)}\r\n\r\n`
-  return header + message
+  return `Content-Length: ${Buffer.byteLength(body)}\r\n\r\n${body}`
 }
 
-// 创建 LSP 通知
 function createNotification(method: string, params: any): string {
-  const message = JSON.stringify({
+  const body = JSON.stringify({
     jsonrpc: '2.0',
     method,
     params,
   })
-  const header = `Content-Length: ${Buffer.byteLength(message)}\r\n\r\n`
-  return header + message
+  return `Content-Length: ${Buffer.byteLength(body)}\r\n\r\n${body}`
 }
 
-// 解析 LSP 响应
-function parseResponse(data: string): any[] {
+function extractResponses(raw: string): { responses: any[]; rest: string } {
   const responses: any[] = []
-  const parts = data.split(/Content-Length: \d+\r\n\r\n/)
-  for (const part of parts) {
-    if (part.trim()) {
-      try {
-        responses.push(JSON.parse(part))
-      } catch (e) {
-        // 忽略解析错误
-      }
+  let rest = raw
+
+  while (true) {
+    const headerEnd = rest.indexOf('\r\n\r\n')
+    if (headerEnd < 0) break
+
+    const header = rest.slice(0, headerEnd)
+    const lengthMatch = header.match(/Content-Length:\s*(\d+)/i)
+    if (!lengthMatch) {
+      rest = rest.slice(headerEnd + 4)
+      continue
+    }
+
+    const bodyLength = Number(lengthMatch[1])
+    const bodyStart = headerEnd + 4
+    const packetEnd = bodyStart + bodyLength
+    if (rest.length < packetEnd) break
+
+    const body = rest.slice(bodyStart, packetEnd)
+    try {
+      responses.push(JSON.parse(body))
+    } catch {
+      // Ignore malformed packet and continue parsing.
+    }
+    rest = rest.slice(packetEnd)
+  }
+
+  return { responses, rest }
+}
+
+function resolveServerPath(): string {
+  const cjsPath = path.join(__dirname, '..', 'dist', 'language-server.cjs')
+  const jsPath = path.join(__dirname, '..', 'dist', 'language-server.js')
+  if (fs.existsSync(cjsPath)) return cjsPath
+  if (fs.existsSync(jsPath)) return jsPath
+  return cjsPath
+}
+
+function resolveTsdkPath(): string {
+  const candidates = [
+    path.join(__dirname, '..', 'node_modules', 'typescript', 'lib'),
+    path.join(__dirname, '..', '..', '..', 'node_modules', 'typescript', 'lib'),
+    path.join(process.cwd(), 'node_modules', 'typescript', 'lib'),
+  ]
+
+  for (const candidate of candidates) {
+    if (
+      fs.existsSync(path.join(candidate, 'typescript.js')) ||
+      fs.existsSync(path.join(candidate, 'tsserverlibrary.js'))
+    ) {
+      return candidate
     }
   }
-  return responses
+
+  return candidates[0]
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 async function main() {
-  console.log('=== CSSTS Language Server Test ===\n')
+  console.log('=== CSSTS Language Server Test ===')
 
-  // 启动语言服务器
-  const serverPath = path.join(__dirname, '..', 'dist', 'language-server.cjs')
-  console.log(`Starting server: ${serverPath}`)
+  const serverPath = resolveServerPath()
+  console.log(`Server path: ${serverPath}`)
 
-  const server: ChildProcess = spawn('node', [serverPath, '--stdio'], {
+  const server = spawn('node', [serverPath, '--stdio'], {
     stdio: ['pipe', 'pipe', 'pipe'],
   })
 
   if (!server.stdin || !server.stdout || !server.stderr) {
-    console.error('Failed to create server process')
-    process.exit(1)
+    throw new Error('Failed to create language server process')
   }
 
-  // 收集响应
-  let responseBuffer = ''
+  let buffer = ''
   const responses: any[] = []
 
-  server.stdout.on('data', (data: Buffer) => {
-    responseBuffer += data.toString()
-    const parsed = parseResponse(responseBuffer)
-    responses.push(...parsed)
-
-    for (const resp of parsed) {
-      console.log('\n📥 Response:', JSON.stringify(resp, null, 2))
+  server.stdout.on('data', (chunk: Buffer) => {
+    buffer += chunk.toString()
+    const { responses: parsed, rest } = extractResponses(buffer)
+    buffer = rest
+    for (const response of parsed) {
+      responses.push(response)
+      console.log('Response:', JSON.stringify(response))
     }
   })
 
-  server.stderr.on('data', (data: Buffer) => {
-    console.error('Server stderr:', data.toString())
+  server.stderr.on('data', (chunk: Buffer) => {
+    console.error('Server stderr:', chunk.toString())
   })
 
-  server.on('error', (err) => {
-    console.error('Server error:', err)
-  })
-
-  server.on('exit', (code) => {
+  server.on('exit', (code: number) => {
     console.log(`Server exited with code ${code}`)
   })
 
-  // 等待服务器启动
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await sleep(1000)
 
-  // 1. 发送 initialize 请求
-  console.log('\n📤 Sending initialize request...')
+  const tsdkPath = resolveTsdkPath()
+  console.log(`TSDK path: ${tsdkPath}`)
+
   const initializeParams = {
     processId: process.pid,
     capabilities: {
       textDocument: {
-        completion: {
-          completionItem: {
-            snippetSupport: true,
-          },
-        },
+        completion: { completionItem: { snippetSupport: true } },
         hover: {},
         definition: {},
         references: {},
@@ -118,35 +144,21 @@ async function main() {
     },
     rootUri: `file:///${path.join(__dirname, '..').replace(/\\/g, '/')}`,
     initializationOptions: {
-      typescript: {
-        tsdk: path.join(__dirname, '..', 'node_modules', 'typescript', 'lib'),
-      },
+      typescript: { tsdk: tsdkPath },
     },
   }
 
-  server.stdin.write(createMessage('initialize', initializeParams))
-
-  // 等待响应
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
-  // 2. 发送 initialized 通知
-  console.log('\n📤 Sending initialized notification...')
+  server.stdin.write(createRequest('initialize', initializeParams))
+  await sleep(1500)
   server.stdin.write(createNotification('initialized', {}))
+  await sleep(500)
 
-  await new Promise((resolve) => setTimeout(resolve, 500))
-
-  // 3. 打开一个 .cssts 文件
-  console.log('\n📤 Opening demo.cssts file...')
   const demoFilePath = path.join(__dirname, '..', 'examples', 'demo.cssts')
   const demoFileUri = `file:///${demoFilePath.replace(/\\/g, '/')}`
-
   const demoContent = `// CSSTS Demo
 import { css } from 'cssts-ts'
-
 const buttonStyle = css { displayFlex, alignItemsCenter, bgBlue500 }
-
 const hoverStyle = css { cursorPointer, bgBlue600 }
-
 export { buttonStyle, hoverStyle }
 `
 
@@ -160,70 +172,45 @@ export { buttonStyle, hoverStyle }
       },
     })
   )
+  await sleep(1000)
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
-  // 4. 请求补全
-  console.log('\n📤 Requesting completion at position (4, 2)...')
   server.stdin.write(
-    createMessage('textDocument/completion', {
+    createRequest('textDocument/completion', {
       textDocument: { uri: demoFileUri },
-      position: { line: 4, character: 2 },
+      position: { line: 2, character: 8 },
     })
   )
+  await sleep(1000)
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
-  // 5. 请求悬停信息
-  console.log('\n📤 Requesting hover at position (4, 5)...')
   server.stdin.write(
-    createMessage('textDocument/hover', {
+    createRequest('textDocument/hover', {
       textDocument: { uri: demoFileUri },
-      position: { line: 4, character: 5 },
+      position: { line: 2, character: 10 },
     })
   )
+  await sleep(1000)
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
-  // 6. 关闭文件
-  console.log('\n📤 Closing file...')
   server.stdin.write(
     createNotification('textDocument/didClose', {
       textDocument: { uri: demoFileUri },
     })
   )
+  await sleep(300)
 
-  await new Promise((resolve) => setTimeout(resolve, 500))
-
-  // 7. 发送 shutdown 请求
-  console.log('\n📤 Sending shutdown request...')
-  server.stdin.write(createMessage('shutdown', null))
-
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  // 8. 发送 exit 通知
-  console.log('\n📤 Sending exit notification...')
+  server.stdin.write(createRequest('shutdown', null))
+  await sleep(500)
   server.stdin.write(createNotification('exit', null))
+  await sleep(500)
 
-  // 等待服务器退出
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
-  console.log('\n=== Test Complete ===')
-  console.log(`Total responses received: ${responses.length}`)
-
-  // 检查是否收到 initialize 响应
-  const initResponse = responses.find((r) => r.id === 1)
-  if (initResponse?.result?.capabilities) {
-    console.log('\n✅ Server initialized successfully!')
-    console.log('Server capabilities:', Object.keys(initResponse.result.capabilities))
-  } else {
-    console.log('\n❌ Server initialization failed or no capabilities returned')
+  const initResponse = responses.find((r) => r.id === 1 && r.result?.capabilities)
+  if (!initResponse) {
+    throw new Error('Initialize did not return capabilities')
   }
 
-  process.exit(0)
+  console.log('Initialize success. Capability keys:', Object.keys(initResponse.result.capabilities))
 }
 
-main().catch((err) => {
-  console.error('Test failed:', err)
+main().catch((err: Error) => {
+  console.error('Test failed:', err.message)
   process.exit(1)
 })
