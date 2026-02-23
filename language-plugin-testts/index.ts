@@ -67,6 +67,35 @@ function getSnippetAround(sourceCode: string, index: number, radius: number = 25
     return sourceCode.slice(start, end).replace(/\r?\n/g, '\\n')
 }
 
+function toLineCol(sourceCode: string, index: number): { line: number, column: number } {
+    const safeIndex = Math.max(0, Math.min(index, sourceCode.length))
+    let line = 1
+    let column = 1
+    for (let i = 0; i < safeIndex; i++) {
+        if (sourceCode[i] === '\n') {
+            line++
+            column = 1
+        } else {
+            column++
+        }
+    }
+    return { line, column }
+}
+
+function findStandalonePlusIndexes(sourceCode: string): number[] {
+    const indexes: number[] = []
+    for (let i = 0; i < sourceCode.length; i++) {
+        if (sourceCode[i] !== '+') continue
+        const prev = i > 0 ? sourceCode[i - 1] : ''
+        const next = i + 1 < sourceCode.length ? sourceCode[i + 1] : ''
+        const isDoublePlus = prev === '+' || next === '+'
+        if (!isDoublePlus) {
+            indexes.push(i)
+        }
+    }
+    return indexes
+}
+
 function buildIdentityFallbackContent(
     embeddedFile: any,
     scriptBlock: any,
@@ -272,6 +301,20 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                                 `[testts] Transform failed around codeIndex=${failedCodeIndex}, ` +
                                 `snippet="${getSnippetAround(scriptBlock.content, failedCodeIndex)}"`
                             )
+                        }
+                        if (/UnaryExpression CST不完整/.test(message)) {
+                            const standalonePlus = findStandalonePlusIndexes(scriptBlock.content)
+                            if (standalonePlus.length) {
+                                const top = standalonePlus.slice(0, 3).map((idx, i) => {
+                                    const lc = toLineCol(scriptBlock.content, idx)
+                                    return `#${i + 1}@${idx}(L${lc.line}:C${lc.column}) "${getSnippetAround(scriptBlock.content, idx, 18)}"`
+                                })
+                                Glog.warn(
+                                    `[testts] UnaryExpression debug: standalone '+' candidates(${standalonePlus.length}) -> ${top.join(' | ')}`
+                                )
+                            } else {
+                                Glog.warn('[testts] UnaryExpression debug: no standalone "+" candidate found in current source')
+                            }
                         }
                         buildIdentityFallbackContent(
                             embeddedFile,
