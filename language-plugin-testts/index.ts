@@ -10,7 +10,7 @@ import { existsSync, readFileSync } from 'node:fs'
 const PLUGIN_VERSION = '1.0.8-precise-multi-segment'
 const require = createRequire(import.meta.url)
 
-// 鍒濆鍖?Glog
+// Initialize Glog
 Glog.init({ level: 'debug' })
 Glog.info(`[language-plugin-testts v${PLUGIN_VERSION}] initialized`)
 
@@ -117,7 +117,7 @@ function buildIdentityFallbackContent(
         0,
         features
     ])
-    Glog.warn(`[testts] Fallback to identity mapping. reason=${reason}, sourceLength=${sourceCode.length}`)
+    Glog.debug(`[testts] Identity mapping. reason=${reason}, sourceLength=${sourceCode.length}`)
 }
 
 function calcMappedCoverage(mappings: any[], generatedLength: number): number {
@@ -131,26 +131,25 @@ function calcMappedCoverage(mappings: any[], generatedLength: number): number {
     return Math.min(1, covered / generatedLength)
 }
 
-
 /**
- * 浣跨敤 slime-parser 鍜?slime-generator 杞崲浠ｇ爜
- * 妯℃嫙 cssts 鐨?transformCssTs() 娴佺▼
+ * Transform code via slime-parser + slime-generator.
+ * Mirrors the cssts transformCssTs() pipeline.
  */
 function transformTestTs(code: string) {
-    // 1. 浣跨敤 SlimeParser 瑙ｆ瀽浠ｇ爜
+    // 1) Parse source code
     const parser = new SlimeParser(code)
     const cst = parser.Program()
 
-    // 2. CST 杞崲涓?AST锛堜娇鐢?toProgram 鏂规硶锛?
+    // 2) Convert CST to AST
     const ast = SlimeCstToAstUtils.toProgram(cst)
 
-    // 3. 鑾峰彇瑙ｆ瀽鍚庣殑 tokens
+    // 3) Collect parsed tokens
     const tokens = parser.parsedTokens
 
-    // 4. 浣跨敤 SlimeGenerator 鐢熸垚浠ｇ爜
+    // 4) Generate target code
     const result = SlimeGenerator.generator(ast, tokens)
 
-    // 5. 杩囨护鏃犳晥鐨?mapping
+    // 5) Remove invalid mappings
     const mapping = result.mapping.filter(
         (m: any) => m.source && m.generate && m.source.length > 0
     )
@@ -162,9 +161,9 @@ function transformTestTs(code: string) {
 }
 
 /**
- * 娴嬭瘯鐢?Vue Language Plugin
- * 浣跨敤 slime-parser + slime-generator 瑙ｆ瀽鍜岀敓鎴愪唬鐮?
- * 鍗曚釜 segment 杈撳嚭
+ * Vue language plugin for testts.
+ * Uses slime-parser + slime-generator for parse + generate.
+ * Emits multi-segment mapped content.
  */
 const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
@@ -199,35 +198,34 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 const scriptBlock = sfc.scriptSetup || sfc.script
 
                 if (scriptBlock && scriptBlock.lang === 'testts') {
-                    Glog.info(`[testts] 鉁?Found testts script block! length: ${scriptBlock.content.length}`)
-
+                    Glog.info(`[testts] 检测到 testts 脚本块，长度=${scriptBlock.content.length}`)
                     try {
                         const sourceCode = scriptBlock.content
 
-                        // 浣跨敤 slime-parser + slime-generator 杞崲浠ｇ爜
+                        // Transform code with slime-parser + slime-generator
                         const result = transformTestTs(sourceCode)
                         const tsCode = result.code
                         const offsets = SlimeMappingConverter.convertMappings(result.mapping)
                         const mappingCoverage = calcMappedCoverage(result.mapping, tsCode.length)
                         Glog.debug(`[testts] mapping coverage(generate): ${(mappingCoverage * 100).toFixed(1)}%`)
 
-                        Glog.debug(`[testts] 婧愮爜闀垮害: ${sourceCode.length}, 鐢熸垚鐮侀暱搴? ${tsCode.length}`)
-                        Glog.debug(`[testts] 闀垮害宸紓: ${sourceCode.length - tsCode.length}`)
-                        Glog.debug(`[testts] mapping 鏁伴噺: ${offsets.length}`)
-                        Glog.debug(`[testts] 婧愮爜 === 鐢熸垚鐮? ${sourceCode === tsCode}`)
+                        Glog.debug(`[testts] 源码长度: ${sourceCode.length}, 生成码长度: ${tsCode.length}`)
+                        Glog.debug(`[testts] 长度差异: ${sourceCode.length - tsCode.length}`)
+                        Glog.debug(`[testts] mapping 数量: ${offsets.length}`)
+                        Glog.debug(`[testts] 源码 === 生成码: ${sourceCode === tsCode}`)
 
-                        // 鎵撳嵃鍓?涓?mapping 璇︾粏淇℃伅
-                        Glog.debug(`[testts] === Mapping 璇︽儏 (鍓?涓? ===`)
+                        // Print first few mapping details
+                        Glog.debug(`[testts] === Mapping 详情 (前5条) ===`)
                         for (let i = 0; i < Math.min(5, result.mapping.length); i++) {
                             const m = result.mapping[i]
                             Glog.debug(`[testts] mapping[${i}]: source=[${m.source?.index}, len=${m.source?.length}] -> generate=[${m.generate?.index}, len=${m.generate?.length}]`)
                         }
 
-                        // 鎵撳嵃婧愮爜鍜岀敓鎴愮爜瀵规瘮锛堝墠100瀛楃锛?
-                        Glog.debug(`[testts] 婧愮爜鍓?00: ${JSON.stringify(sourceCode.substring(0, 100))}`)
-                        Glog.debug(`[testts] 鐢熸垚鍓?00: ${JSON.stringify(tsCode.substring(0, 100))}`)
+                        // Print source/generated preview (first 100 chars)
+                        Glog.debug(`[testts] 源码前100: ${JSON.stringify(sourceCode.substring(0, 100))}`)
+                        Glog.debug(`[testts] 生成码前100: ${JSON.stringify(tsCode.substring(0, 100))}`)
 
-                        // 娓呯┖鐜版湁鍐呭
+                        // Clear current embedded content
                         if (!result.mapping.length) {
                             buildIdentityFallbackContent(
                                 embeddedFile,
@@ -239,7 +237,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         }
                         embeddedFile.content.length = 0
 
-                        // 鍚敤鎵€鏈夎瑷€鍔熻兘
+                        // Enable all language features
                         const features = {
                             verification: true,
                             completion: true,
@@ -302,7 +300,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                                 `snippet="${getSnippetAround(scriptBlock.content, failedCodeIndex)}"`
                             )
                         }
-                        if (/UnaryExpression CST不完整/.test(message)) {
+                        if (/UnaryExpression CST(?:不完整|incomplete)/i.test(message)) {
                             const standalonePlus = findStandalonePlusIndexes(scriptBlock.content)
                             if (standalonePlus.length) {
                                 const top = standalonePlus.slice(0, 3).map((idx, i) => {
