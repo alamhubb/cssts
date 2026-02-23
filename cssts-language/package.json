@@ -80,6 +80,8 @@
   "scripts": {
     "build": "tsdown",
     "watch": "tsdown --watch",
+    "test:lsp": "mono tests/test-language-server.ts",
+    "vscode:prepublish": "npm run build",
     "package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository",
     "publish": "npx @vscode/vsce publish --no-dependencies --allow-missing-repository"
   },

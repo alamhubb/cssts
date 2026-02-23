@@ -1,65 +1,71 @@
-# language-plugin-cssts
+# language-plugin-testts
 
-Vue Language Plugin for CSSTS - 为 Vue SFC 中的 `<script lang="cssts">` 提供 LSP 支持。
+Vue language plugin for `<script lang="testts">` in Vue SFC files.
 
-## 安装
+## Install
 
 ```bash
-npm install language-plugin-cssts -D
+npm install language-plugin-testts -D
 ```
 
-## 配置
+## Configure in tsconfig
 
-在 `tsconfig.json` 中添加：
+Use `vueCompilerOptions.plugins` so Volar and `vue-tsc` can load the plugin.
 
 ```json
 {
   "vueCompilerOptions": {
-    "plugins": ["language-plugin-cssts"]
+    "plugins": ["language-plugin-testts"]
   }
 }
 ```
 
-## 使用
+For this monorepo local test project, the path form is also valid:
 
-配置完成后，即可在 Vue SFC 中使用 CSSTS：
+```json
+{
+  "vueCompilerOptions": {
+    "plugins": ["../language-plugin-testts"]
+  }
+}
+```
+
+## Usage
 
 ```vue
-<script setup lang="cssts">
+<script setup lang="testts">
 import { ref } from 'vue'
 
 const count = ref(0)
-const buttonStyle = css { displayFlex, alignItemsCenter, bgBlue500 }
+console.log(me)
 </script>
-
-<template>
-  <button :class="buttonStyle" @click="count++">
-    Count: {{ count }}
-  </button>
-</template>
 ```
 
-## 功能
+The plugin transforms `testts` to TS and provides mapping for:
 
-- ✅ 自动补全
-- ✅ 类型检查
-- ✅ 跳转定义
-- ✅ 悬停提示
-- ✅ 错误诊断
+- diagnostics
+- completion
+- navigation
+- semantic features
 
-## 注意
+## Editor trigger checklist
 
-此插件仅提供 IDE 智能提示功能。要在 Vite 项目中编译 CSSTS，还需要安装 `vite-plugin-cssts`：
+1. Open the workspace that contains the target `tsconfig`.
+2. Enable `Vue - Official` (Volar).
+3. Ensure the SFC block is `lang="testts"`.
+4. Ensure plugin build output exists (`dist/index.mjs` or `dist/index.cjs`).
+5. Reload TS Server or reload VSCode window after plugin changes.
+
+## Local development
+
+Build plugin output:
 
 ```bash
-npm install vite-plugin-cssts -D
+npm run build --workspace=cssts/language-plugin-testts
 ```
 
-```ts
-// vite.config.ts
-import cssTsPlugin from 'vite-plugin-cssts'
+Watch mode:
 
-export default {
-  plugins: [cssTsPlugin()]
-}
+```bash
+npm run dev --workspace=cssts/language-plugin-testts
 ```

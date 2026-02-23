@@ -11,7 +11,7 @@ function increment() {
   count.value++
 }
 
-console.log(me)
+console.log(message)
 </script>
 
 <template>
