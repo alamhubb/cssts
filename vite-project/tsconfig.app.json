@@ -2,7 +2,7 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "vueCompilerOptions": {
     "plugins": [
-      "../language-plugin-testts"
+      "../language-plugin-cssts"
     ]
   },
   "compilerOptions": {
