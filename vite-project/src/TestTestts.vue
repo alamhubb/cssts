@@ -8,7 +8,7 @@ const message = 'Hello World'
 console.log(message)
 
 function increment() {
-  count.value++
+  count.value+
 }
 
 console.log(message)
