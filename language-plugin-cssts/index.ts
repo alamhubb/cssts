@@ -44,6 +44,26 @@ let initialized = false
  */
 let dtsOutputDir: string | null = null
 
+function checkTokenStatsConsistency(sourceLength: number, generatedLength: number, rawMappingCount: number, offsetMappingCount: number): void {
+    if (generatedLength <= sourceLength) {
+        Glog.error(
+            `[token-check] generated length must be greater than source length: source=${sourceLength}, generated=${generatedLength}`
+        )
+    }
+
+    if (rawMappingCount !== offsetMappingCount) {
+        Glog.error(
+            `[token-check] mapping count mismatch: raw=${rawMappingCount}, converted=${offsetMappingCount}`
+        )
+    }
+
+    if (sourceLength > 0 && rawMappingCount === 0) {
+        Glog.error(
+            `[token-check] source has content but no mappings: sourceLength=${sourceLength}, rawMappings=${rawMappingCount}`
+        )
+    }
+}
+
 function initCssts(fileName: string): void {
     if (initialized) return
 
@@ -133,6 +153,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         Glog.debug(`源码长度: ${scriptBlock.content.length}, 生成码长度: ${tsCode.length} `)
                         Glog.debug(`原始 mapping 数量: ${rawMappings.length} `)
                         Glog.debug(`转换后 mapping 数量: ${offsets.length} `)
+                        checkTokenStatsConsistency(scriptBlock.content.length, tsCode.length, rawMappings.length, offsets.length)
 
                         // 显示每个 token 的对应关系
                         Glog.debug(`=== Token 对应关系（共 ${offsets.length} 个）=== `)
