@@ -3,6 +3,7 @@ import { transformCssTs, CsstsInit, RuntimeStore, writeAtomUsedDts } from 'cssts
 import { SlimeMappingConverter } from 'slime-generator'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { createRequire } from 'node:module'
 import Glog from 'glogjs'
 
 
@@ -13,6 +14,7 @@ const PLUGIN_VERSION = '2.2.1-test'
 // 初始化 Glog（只设置 debug 级别以便调试）
 Glog.init({ level: 'debug' })
 Glog.info(`[language-plugin-cssts v${PLUGIN_VERSION}] initialized`)
+const require = createRequire(import.meta.url)
 
 
 /**
@@ -70,6 +72,70 @@ function formatErrorForLog(error: unknown): string {
         return `name=${error.name}\nmessage=${error.message}\nstack=${error.stack ?? '(no stack)'}${causeText}`
     }
     return `non-error thrown: ${formatUnknownForLog(error)}`
+}
+
+function findPackageJsonPath(entryFilePath: string): string | null {
+    let current = path.dirname(entryFilePath)
+    while (true) {
+        const candidate = path.join(current, 'package.json')
+        if (fs.existsSync(candidate)) {
+            return candidate
+        }
+        const parent = path.dirname(current)
+        if (parent === current) {
+            return null
+        }
+        current = parent
+    }
+}
+
+function readPackageMeta(packageName: string): { version: string, entryPath: string } {
+    try {
+        const entryPath = require.resolve(packageName)
+        const packageJsonPath = findPackageJsonPath(entryPath)
+        if (!packageJsonPath) {
+            return { version: 'unknown', entryPath }
+        }
+        const pkgText = fs.readFileSync(packageJsonPath, 'utf8')
+        const pkg = JSON.parse(pkgText)
+        return {
+            version: pkg?.version ?? 'unknown',
+            entryPath,
+        }
+    } catch {
+        return { version: 'unresolved', entryPath: 'unresolved' }
+    }
+}
+
+function formatPackageMeta(packageName: string): string {
+    const meta = readPackageMeta(packageName)
+    return `${packageName}=${meta.version} (${meta.entryPath})`
+}
+
+function summarizeEmbeddedContent(content: any[]): string {
+    let textSegments = 0
+    let mappedSegments = 0
+    let anchorSegments = 0
+    let textChars = 0
+    let mappedChars = 0
+
+    for (const seg of content || []) {
+        if (typeof seg === 'string') {
+            textSegments++
+            textChars += seg.length
+            continue
+        }
+        if (Array.isArray(seg)) {
+            const text = typeof seg[0] === 'string' ? seg[0] : ''
+            if (text.length === 0) {
+                anchorSegments++
+            } else {
+                mappedSegments++
+                mappedChars += text.length
+            }
+        }
+    }
+    return `segments(total=${content.length}, mapped=${mappedSegments}, anchors=${anchorSegments}, text=${textSegments}, mappedChars=${mappedChars}, textChars=${textChars})`
 }
 
 function countTokensIgnoringWhitespaceAndComments(code: string): number {
@@ -211,6 +277,12 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
 
     Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
+    Glog.info(
+        `[language-plugin-cssts] Runtime deps: `
+        + `${formatPackageMeta('cssts-compiler')}, `
+        + `${formatPackageMeta('slime-generator')}, `
+        + `${formatPackageMeta('slime-parser')}`
+    )
 
     return {
         name: 'language-plugin-cssts',
@@ -240,6 +312,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
             if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
                 const scriptBlock = sfc.scriptSetup || sfc.script
                 Glog.debug(`[resolveEmbeddedCode] scriptBlock.lang="${scriptBlock?.lang}", checking for cssts...`)
+                Glog.debug(`[compare] before resolve ${embeddedFile.id}: ${summarizeEmbeddedContent(embeddedFile.content as any[])}`)
 
                 if (scriptBlock && scriptBlock.lang === 'cssts') {
                     Glog.info(`✅ Found cssts script block! content length: ${scriptBlock.content.length}`)
@@ -344,10 +417,12 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                             }
                             Glog.debug(`[segment-summary] mapped=${offsets.length}, gaps=${gapCount}, gapChars=${gapChars}`)
                             Glog.debug(`Created ${offsets.length} segments`)
+                            Glog.debug(`[compare] after transform(mapped): ${summarizeEmbeddedContent(embeddedFile.content as any[])}`)
                         } else {
                             embeddedFile.content.push([tsCode, scriptBlock.name, 0, features])
                             embeddedFile.content.push(['', scriptBlock.name, scriptBlock.content.length, features])
                             Glog.warn('No mappings, using whole code')
+                            Glog.debug(`[compare] after transform(no-mapping): ${summarizeEmbeddedContent(embeddedFile.content as any[])}`)
                         }
 
                         // 更新 modules.d.ts（累加使用的原子类）
@@ -367,7 +442,13 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         embeddedFile.content.push([scriptBlock.content, scriptBlock.name, 0, fallbackFeatures])
                         embeddedFile.content.push(['', scriptBlock.name, scriptBlock.content.length, fallbackFeatures])
                         Glog.warn(`[resolveEmbeddedCode] fallback to raw cssts source for language service: length=${scriptBlock.content.length}`)
+                        Glog.debug(`[compare] after fallback: ${summarizeEmbeddedContent(embeddedFile.content as any[])}`)
                     }
+                } else {
+                    Glog.debug(
+                        `[compare] skip transform for non-cssts lang="${scriptBlock?.lang ?? 'N/A'}", `
+                        + `${summarizeEmbeddedContent(embeddedFile.content as any[])}`
+                    )
                 }
             }
         },
