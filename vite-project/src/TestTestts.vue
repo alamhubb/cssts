@@ -5,7 +5,7 @@ const count = ref(0)
 const message = 'Hello World'
 
 
-console.log(message)
+console.
 
 function increment() {
   count.value+
