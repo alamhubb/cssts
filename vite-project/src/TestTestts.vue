@@ -4,8 +4,7 @@ import { ref } from 'vue'
 const count = ref(0)
 const message = 'Hello World'
 
-
-console.
+console.log(message)
 
 function increment() {
   count.value+

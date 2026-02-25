@@ -51,6 +51,12 @@ type OffsetMapping = {
     generated: { offset: number, length: number }
 }
 
+type TypeScriptLike = {
+    ScriptTarget?: { Latest?: number }
+    createSourceFile?: (fileName: string, sourceText: string, languageVersion: number, setParentNodes?: boolean) => { parseDiagnostics?: any[] }
+    flattenDiagnosticMessageText?: (messageText: any, newLine: string) => string
+}
+
 function formatUnknownForLog(value: unknown): string {
     if (value instanceof Error) {
         return `name=${value.name}, message=${value.message}, stack=${value.stack ?? '(no stack)'}`
@@ -211,27 +217,172 @@ function findFirstCoveringMapping(mappings: OffsetMapping[], sourceOffset: numbe
     )
 }
 
+function findNearestSourceMapping(
+    mappings: OffsetMapping[],
+    sourceOffset: number
+): { mapping: OffsetMapping, distance: number } | undefined {
+    let best: { mapping: OffsetMapping, distance: number } | undefined
+    for (const mapping of mappings) {
+        const start = mapping.original.offset
+        const end = mapping.original.offset + mapping.original.length
+        const distance = sourceOffset < start
+            ? start - sourceOffset
+            : sourceOffset > end
+                ? sourceOffset - end
+                : 0
+        if (!best || distance < best.distance) {
+            best = { mapping, distance }
+        }
+    }
+    return best
+}
+
+function toLineColumn(text: string, offset: number): { line: number, column: number } {
+    const safeOffset = Math.max(0, Math.min(offset, text.length))
+    let line = 1
+    let column = 1
+    for (let i = 0; i < safeOffset; i++) {
+        if (text[i] === '\n') {
+            line++
+            column = 1
+        } else {
+            column++
+        }
+    }
+    return { line, column }
+}
+
+function snippetAround(text: string, start: number, end: number, radius: number = 16): string {
+    const left = Math.max(0, start - radius)
+    const right = Math.min(text.length, end + radius)
+    return previewText(text.slice(left, right), 200)
+}
+
+function collectProbeIndexes(sourceCode: string, probe: string, maxCount: number = 6): number[] {
+    const indexes: number[] = []
+    let from = 0
+    while (indexes.length < maxCount) {
+        const index = sourceCode.indexOf(probe, from)
+        if (index < 0) break
+        indexes.push(index)
+        from = index + 1
+    }
+    return indexes
+}
+
 function logCompletionProbeMappings(sourceCode: string, generatedCode: string, mappings: OffsetMapping[]): void {
     const probes = ['con', 'cons', 'conso', 'console']
     for (const probe of probes) {
-        const index = sourceCode.indexOf(probe)
-        if (index < 0) continue
+        const indexes = collectProbeIndexes(sourceCode, probe)
+        if (indexes.length === 0) continue
+        Glog.debug(`[completion-probe] "${probe}" occurrences=${indexes.length}`)
 
-        const mapping = findFirstCoveringMapping(mappings, index)
-        if (!mapping) {
-            Glog.warn(`[completion-probe] "${probe}" @src ${index} has no covering mapping`)
-            continue
+        for (const index of indexes) {
+            const start = index
+            const end = index + probe.length
+            const points = [
+                { label: 'start', sourceOffset: start },
+                { label: 'end-1', sourceOffset: Math.max(start, end - 1) },
+                { label: 'end', sourceOffset: end },
+            ]
+            const sourceLineCol = toLineColumn(sourceCode, start)
+            Glog.debug(
+                `[completion-probe-detail] "${probe}" @src ${start} (L${sourceLineCol.line}:C${sourceLineCol.column}) `
+                + `sourceSnippet="${snippetAround(sourceCode, start, end)}"`
+            )
+
+            for (const point of points) {
+                const mapping = findFirstCoveringMapping(mappings, point.sourceOffset)
+                if (!mapping) {
+                    const nearest = findNearestSourceMapping(mappings, point.sourceOffset)
+                    if (!nearest) {
+                        Glog.warn(
+                            `[completion-probe-gap] "${probe}" ${point.label} @src ${point.sourceOffset} has no mapping and no nearest segment`
+                        )
+                        continue
+                    }
+                    Glog.warn(
+                        `[completion-probe-gap] "${probe}" ${point.label} @src ${point.sourceOffset} is unmapped; `
+                        + `nearest src[${nearest.mapping.original.offset},${nearest.mapping.original.offset + nearest.mapping.original.length}) `
+                        + `distance=${nearest.distance}`
+                    )
+                    continue
+                }
+
+                const srcText = sourceCode.slice(mapping.original.offset, mapping.original.offset + mapping.original.length)
+                const genStart = mapping.generated.offset
+                const genEnd = mapping.generated.offset + mapping.generated.length
+                const genText = generatedCode.slice(genStart, genEnd)
+                const after = generatedCode.slice(genEnd, Math.min(generatedCode.length, genEnd + 12))
+                Glog.debug(
+                    `[completion-probe-map] "${probe}" ${point.label} @src ${point.sourceOffset} `
+                    + `-> src[${mapping.original.offset},${mapping.original.offset + mapping.original.length})="${previewText(srcText)}", `
+                    + `gen[${genStart},${genEnd})="${previewText(genText)}", next="${previewText(after)}"`
+                )
+            }
         }
-
-        const srcText = sourceCode.slice(mapping.original.offset, mapping.original.offset + mapping.original.length)
-        const genText = generatedCode.slice(mapping.generated.offset, mapping.generated.offset + mapping.generated.length)
-        const genEnd = mapping.generated.offset + mapping.generated.length
-        const after = generatedCode.slice(genEnd, Math.min(generatedCode.length, genEnd + 8))
-        Glog.debug(
-            `[completion-probe] "${probe}" @src ${index} -> src[${mapping.original.offset},${mapping.original.offset + mapping.original.length})="${previewText(srcText)}", `
-            + `gen[${mapping.generated.offset},${genEnd})="${previewText(genText)}", next="${previewText(after)}"`
-        )
     }
+}
+
+function flattenDiagnosticMessage(ts: TypeScriptLike, messageText: any): string {
+    if (typeof messageText === 'string') return messageText
+    if (typeof ts.flattenDiagnosticMessageText === 'function') {
+        return ts.flattenDiagnosticMessageText(messageText, '\n')
+    }
+    if (messageText && typeof messageText.messageText === 'string') {
+        return messageText.messageText
+    }
+    return String(messageText)
+}
+
+function logSuspiciousGeneratedPatterns(generatedCode: string): void {
+    const plusSemicolon = /\+\s*;/g
+    let match: RegExpExecArray | null
+    let count = 0
+    while ((match = plusSemicolon.exec(generatedCode)) && count < 12) {
+        const start = match.index
+        const end = match.index + match[0].length
+        const lc = toLineColumn(generatedCode, start)
+        Glog.warn(
+            `[generated-pattern] suspicious "+ ;" at gen[${start},${end}) `
+            + `(L${lc.line}:C${lc.column}) snippet="${snippetAround(generatedCode, start, end)}"`
+        )
+        count++
+    }
+    if (count > 0) {
+        Glog.warn(`[generated-pattern] total suspicious "+ ;" occurrences=${count}`)
+    }
+}
+
+function logGeneratedParseDiagnostics(ts: TypeScriptLike, fileName: string, generatedCode: string): void {
+    const createSourceFile = ts?.createSourceFile
+    const latest = ts?.ScriptTarget?.Latest
+    if (typeof createSourceFile !== 'function' || typeof latest !== 'number') {
+        Glog.warn('[generated-parse] TypeScript parser API unavailable, skip parse diagnostics')
+        return
+    }
+
+    const virtualFileName = `${path.basename(fileName)}.__generated.ts`
+    const sourceFile = createSourceFile(virtualFileName, generatedCode, latest, true)
+    const diagnostics = sourceFile.parseDiagnostics ?? []
+    if (diagnostics.length === 0) {
+        Glog.debug(`[generated-parse] OK: no parse diagnostics for ${virtualFileName}`)
+        return
+    }
+
+    Glog.error(`[generated-parse] parse diagnostics=${diagnostics.length} for ${virtualFileName}`)
+    diagnostics.slice(0, 12).forEach((diag, index) => {
+        const start = typeof diag.start === 'number' ? diag.start : 0
+        const length = typeof diag.length === 'number' && diag.length > 0 ? diag.length : 1
+        const end = Math.min(generatedCode.length, start + length)
+        const lc = toLineColumn(generatedCode, start)
+        const message = flattenDiagnosticMessage(ts, diag.messageText)
+        Glog.error(
+            `[generated-parse][${index}] code=${diag.code ?? 'unknown'} `
+            + `at gen[${start},${end}) (L${lc.line}:C${lc.column}) message="${previewText(message, 160)}" `
+            + `snippet="${snippetAround(generatedCode, start, end)}"`
+        )
+    })
 }
 
 function initCssts(fileName: string): void {
@@ -331,6 +482,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         Glog.debug(`原始 mapping 数量: ${rawMappings.length} `)
                         Glog.debug(`转换后 mapping 数量: ${offsets.length} `)
                         checkTokenStatsConsistency(scriptBlock.content, tsCode, rawMappings.length, offsets.length)
+                        logSuspiciousGeneratedPatterns(tsCode)
+                        logGeneratedParseDiagnostics(ts as TypeScriptLike, fileName, tsCode)
 
                         // 显示每个 token 的对应关系
                         Glog.debug(`=== Token 对应关系（共 ${offsets.length} 个）=== `)

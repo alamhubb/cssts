@@ -1,17 +1,18 @@
 <script setup lang="cssts">
 import { ref } from 'vue'
 
-// 测试 CSSTS 语法
 const count = ref(0)
+const message = 'Hello World'
 
-console.l
+console.log(message)
+
+function increment() {
+  count.value+
+}
+
+console.log(message)
 </script>
 
 <template>
-  <div>
-    <h1>CSSTS Language Plugin Test</h1>
-    <button :class="[buttonStyle, hoverStyle]" @click="increment">
-      Count: {{ count }}
-    </button>
-  </div>
+  <div>{{ message }} - {{ count }}</div>
 </template>
