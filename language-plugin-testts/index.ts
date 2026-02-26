@@ -7,8 +7,22 @@ import { dirname, join } from 'node:path'
 import { existsSync, readFileSync } from 'node:fs'
 
 // version
-const PLUGIN_VERSION = '1.0.8-precise-multi-segment'
+const PLUGIN_VERSION = '1.0.9-trend-diagnostics'
 const require = createRequire(import.meta.url)
+
+type TypeScriptLike = {
+    ScriptTarget?: { Latest?: number }
+    createSourceFile?: (fileName: string, sourceText: string, languageVersion: number, setParentNodes?: boolean) => { parseDiagnostics?: any[] }
+    flattenDiagnosticMessageText?: (messageText: any, newLine: string) => string
+}
+
+type FileTrendState = {
+    sourceHash: string
+    generatedHash: string
+    sourceLength: number
+    generatedLength: number
+    parseDiagCount: number
+}
 
 // Initialize Glog
 Glog.init({ level: 'debug' })
@@ -59,6 +73,102 @@ function extractErrorCodeIndex(errorMessage: string): number | null {
     }
     const parsed = Number(match[1])
     return Number.isFinite(parsed) ? parsed : null
+}
+
+function previewText(text: string, maxLength: number = 160): string {
+    return text
+        .replace(/\r/g, '\\r')
+        .replace(/\n/g, '\\n')
+        .slice(0, maxLength)
+}
+
+function hashString(input: string): string {
+    let hash = 2166136261 >>> 0
+    for (let i = 0; i < input.length; i++) {
+        hash ^= input.charCodeAt(i)
+        hash = Math.imul(hash, 16777619)
+    }
+    return (hash >>> 0).toString(16).padStart(8, '0')
+}
+
+function countLines(input: string): number {
+    if (input.length === 0) return 0
+    return input.split(/\r?\n/).length
+}
+
+function flattenDiagnosticMessage(ts: TypeScriptLike, messageText: any): string {
+    if (typeof messageText === 'string') return messageText
+    if (typeof ts.flattenDiagnosticMessageText === 'function') {
+        return ts.flattenDiagnosticMessageText(messageText, '\n')
+    }
+    if (messageText && typeof messageText.messageText === 'string') {
+        return messageText.messageText
+    }
+    return String(messageText)
+}
+
+function logSuspiciousPlusPattern(tag: 'source' | 'generated', code: string): number {
+    let count = 0
+    for (let i = 0; i < code.length && count < 12; i++) {
+        if (code[i] !== '+') continue
+
+        const prev = i > 0 ? code[i - 1] : ''
+        const next = i + 1 < code.length ? code[i + 1] : ''
+        if (prev === '+' || next === '+') continue
+
+        let j = i + 1
+        while (j < code.length && (code[j] === ' ' || code[j] === '\t')) {
+            j++
+        }
+        const near = j >= code.length || code[j] === '\n' || code[j] === '\r' || code[j] === '}' || code[j] === ';'
+        if (!near) continue
+
+        const lc = toLineCol(code, i)
+        Glog.warn(
+            `[testts-pattern][${tag}] suspicious '+' at idx=${i} (L${lc.line}:C${lc.column}), `
+            + `snippet="${previewText(getSnippetAround(code, i, 18))}"`
+        )
+        count++
+    }
+    if (count > 0) {
+        Glog.warn(`[testts-pattern][${tag}] suspicious '+' total=${count}`)
+    }
+    return count
+}
+
+function logGeneratedParseDiagnostics(
+    ts: TypeScriptLike,
+    fileName: string,
+    generatedCode: string
+): number {
+    const createSourceFile = ts?.createSourceFile
+    const latest = ts?.ScriptTarget?.Latest
+    if (typeof createSourceFile !== 'function' || typeof latest !== 'number') {
+        Glog.warn('[testts-generated-parse] TypeScript parser API unavailable, skip parse diagnostics')
+        return -1
+    }
+
+    const virtualName = `${fileName.split(/[\\/]/).pop() || 'unknown'}.testts.generated.ts`
+    const sourceFile = createSourceFile(virtualName, generatedCode, latest, true)
+    const diagnostics = sourceFile.parseDiagnostics ?? []
+    if (diagnostics.length === 0) {
+        Glog.debug(`[testts-generated-parse] OK: no parse diagnostics for ${virtualName}`)
+        return 0
+    }
+
+    Glog.error(`[testts-generated-parse] diagnostics=${diagnostics.length} for ${virtualName}`)
+    diagnostics.slice(0, 12).forEach((diag, index) => {
+        const start = typeof diag.start === 'number' ? diag.start : 0
+        const length = typeof diag.length === 'number' && diag.length > 0 ? diag.length : 1
+        const message = flattenDiagnosticMessage(ts, diag.messageText)
+        const lc = toLineCol(generatedCode, start)
+        Glog.error(
+            `[testts-generated-parse][${index}] code=${diag.code ?? 'unknown'} `
+            + `at idx=${start} len=${length} (L${lc.line}:C${lc.column}) `
+            + `message="${previewText(message)}" snippet="${previewText(getSnippetAround(generatedCode, start, 20))}"`
+        )
+    })
+    return diagnostics.length
 }
 
 function getSnippetAround(sourceCode: string, index: number, radius: number = 25): string {
@@ -167,6 +277,7 @@ function transformTestTs(code: string) {
  */
 const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
+    const fileTrend = new Map<string, FileTrendState>()
 
     Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
     Glog.info(
@@ -201,10 +312,16 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                     Glog.info(`[testts] 检测到 testts 脚本块，长度=${scriptBlock.content.length}`)
                     try {
                         const sourceCode = scriptBlock.content
+                        const sourceHash = hashString(sourceCode)
+                        Glog.debug(
+                            `[testts] source fingerprint: hash=${sourceHash}, length=${sourceCode.length}, lines=${countLines(sourceCode)}`
+                        )
+                        logSuspiciousPlusPattern('source', sourceCode)
 
                         // Transform code with slime-parser + slime-generator
                         const result = transformTestTs(sourceCode)
                         const tsCode = result.code
+                        const generatedHash = hashString(tsCode)
                         const offsets = SlimeMappingConverter.convertMappings(result.mapping)
                         const mappingCoverage = calcMappedCoverage(result.mapping, tsCode.length)
                         Glog.debug(`[testts] mapping coverage(generate): ${(mappingCoverage * 100).toFixed(1)}%`)
@@ -224,6 +341,47 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         // Print source/generated preview (first 100 chars)
                         Glog.debug(`[testts] 源码前100: ${JSON.stringify(sourceCode.substring(0, 100))}`)
                         Glog.debug(`[testts] 生成码前100: ${JSON.stringify(tsCode.substring(0, 100))}`)
+                        logSuspiciousPlusPattern('generated', tsCode)
+                        const parseDiagCount = logGeneratedParseDiagnostics(ts as TypeScriptLike, fileName, tsCode)
+
+                        const prev = fileTrend.get(fileName)
+                        if (prev) {
+                            if (
+                                prev.sourceHash !== sourceHash
+                                || prev.generatedHash !== generatedHash
+                                || prev.parseDiagCount !== parseDiagCount
+                                || prev.sourceLength !== sourceCode.length
+                                || prev.generatedLength !== tsCode.length
+                            ) {
+                                Glog.warn(
+                                    `[testts-trend] changed for ${fileName}: `
+                                    + `srcHash ${prev.sourceHash}->${sourceHash}, `
+                                    + `genHash ${prev.generatedHash}->${generatedHash}, `
+                                    + `parseDiag ${prev.parseDiagCount}->${parseDiagCount}, `
+                                    + `srcLen ${prev.sourceLength}->${sourceCode.length}, `
+                                    + `genLen ${prev.generatedLength}->${tsCode.length}`
+                                )
+                            }
+                            if (prev.parseDiagCount === 0 && parseDiagCount > 0) {
+                                Glog.error(
+                                    `[testts-trend] regression detected: parse diagnostics changed from 0 to ${parseDiagCount}. `
+                                    + 'This often explains why completion used to work but now degrades.'
+                                )
+                            } else if (prev.parseDiagCount > 0 && parseDiagCount === 0) {
+                                Glog.info('[testts-trend] recovered: parse diagnostics dropped to 0.')
+                            }
+                        } else {
+                            Glog.debug(
+                                `[testts-trend] first snapshot for ${fileName}: srcHash=${sourceHash}, genHash=${generatedHash}, parseDiag=${parseDiagCount}`
+                            )
+                        }
+                        fileTrend.set(fileName, {
+                            sourceHash,
+                            generatedHash,
+                            sourceLength: sourceCode.length,
+                            generatedLength: tsCode.length,
+                            parseDiagCount,
+                        })
 
                         // Clear current embedded content
                         if (!result.mapping.length) {
