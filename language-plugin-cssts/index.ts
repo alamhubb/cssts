@@ -1,5 +1,6 @@
 ﻿import type { VueLanguagePlugin } from '@vue/language-core'
 import { SlimeParser, SlimeCstToAstUtils } from 'slime-parser'
+import { transformCssTs, CsstsInit, RuntimeStore, writeAtomUsedDts } from 'cssts-compiler'
 import { SlimeGenerator, SlimeMappingConverter } from 'slime-generator'
 import Glog from 'glogjs'
 import { createRequire } from 'node:module'
@@ -245,7 +246,7 @@ function calcMappedCoverage(mappings: any[], generatedLength: number): number {
  * Transform code via slime-parser + slime-generator.
  * Mirrors the cssts transformCssts() pipeline.
  */
-function transformCssts(code: string) {
+/*function transformCssts(code: string) {
     // 1) Parse source code
     const parser = new SlimeParser(code)
     const cst = parser.Program()
@@ -268,7 +269,7 @@ function transformCssts(code: string) {
         code: result.code,
         mapping
     }
-}
+}*/
 
 /**
  * Vue language plugin for cssts.
@@ -319,7 +320,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         logSuspiciousPlusPattern('source', sourceCode)
 
                         // Transform code with slime-parser + slime-generator
-                        const result = transformCssts(sourceCode)
+                        const result = transformCssTs(sourceCode)
                         const tsCode = result.code
                         const generatedHash = hashString(tsCode)
                         const offsets = SlimeMappingConverter.convertMappings(result.mapping)
