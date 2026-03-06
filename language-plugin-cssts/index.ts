@@ -386,12 +386,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
                         // Clear current embedded content
                         if (!result.mapping.length) {
-                            buildIdentityFallbackContent(
-                                embeddedFile,
-                                scriptBlock,
-                                sourceCode,
-                                'transform returned empty mapping'
-                            )
+                            Glog.error('[cssts] transform returned empty mapping; fallback disabled, keep existing embedded content')
                             return
                         }
                         embeddedFile.content.length = 0
@@ -473,12 +468,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                                 Glog.warn('[cssts] UnaryExpression debug: no standalone "+" candidate found in current source')
                             }
                         }
-                        buildIdentityFallbackContent(
-                            embeddedFile,
-                            scriptBlock,
-                            scriptBlock.content,
-                            'transform exception'
-                        )
+                        Glog.error('[cssts] transform exception; fallback disabled, keep existing embedded content')
+                        return
                     }
                 }
             }
@@ -487,6 +478,5 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 }
 
 export default plugin
-
 
 
