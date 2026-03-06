@@ -263,15 +263,108 @@ function findStandalonePlusIndexes(sourceCode: string): number[] {
     return indexes
 }
 
-function calcMappedCoverage(mappings: any[], generatedLength: number): number {
-    if (generatedLength <= 0) return 0
-    let covered = 0
-    for (const m of mappings) {
-        const g = m?.generate
-        if (!g || typeof g.length !== 'number') continue
-        covered += Math.max(0, g.length)
+type CoverageStats = {
+    coverage: number
+    covered: number
+    total: number
+    rawRangeCount: number
+    mergedRangeCount: number
+    gaps: Array<{ start: number, end: number }>
+}
+
+function calcMappingCoverageStats(
+    mappings: any[],
+    side: 'source' | 'generate',
+    totalLength: number
+): CoverageStats {
+    if (totalLength <= 0) {
+        return {
+            coverage: 0,
+            covered: 0,
+            total: totalLength,
+            rawRangeCount: 0,
+            mergedRangeCount: 0,
+            gaps: [],
+        }
     }
-    return Math.min(1, covered / generatedLength)
+
+    const ranges: Array<{ start: number, end: number }> = []
+    for (const m of mappings) {
+        const node = m?.[side]
+        const start = node?.index
+        const length = node?.length
+        if (!Number.isFinite(start) || !Number.isFinite(length)) continue
+        if (length <= 0) continue
+
+        const safeStart = Math.max(0, Math.min(totalLength, start))
+        const safeEnd = Math.max(safeStart, Math.min(totalLength, start + length))
+        if (safeEnd <= safeStart) continue
+        ranges.push({ start: safeStart, end: safeEnd })
+    }
+
+    if (ranges.length === 0) {
+        return {
+            coverage: 0,
+            covered: 0,
+            total: totalLength,
+            rawRangeCount: 0,
+            mergedRangeCount: 0,
+            gaps: [{ start: 0, end: totalLength }],
+        }
+    }
+
+    ranges.sort((a, b) => a.start - b.start)
+
+    const merged: Array<{ start: number, end: number }> = []
+    for (const range of ranges) {
+        const last = merged[merged.length - 1]
+        if (!last || range.start > last.end) {
+            merged.push({ ...range })
+        } else {
+            last.end = Math.max(last.end, range.end)
+        }
+    }
+
+    let covered = 0
+    for (const range of merged) {
+        covered += (range.end - range.start)
+    }
+
+    const gaps: Array<{ start: number, end: number }> = []
+    let cursor = 0
+    for (const range of merged) {
+        if (range.start > cursor) {
+            gaps.push({ start: cursor, end: range.start })
+        }
+        cursor = Math.max(cursor, range.end)
+    }
+    if (cursor < totalLength) {
+        gaps.push({ start: cursor, end: totalLength })
+    }
+
+    return {
+        coverage: Math.min(1, covered / totalLength),
+        covered,
+        total: totalLength,
+        rawRangeCount: ranges.length,
+        mergedRangeCount: merged.length,
+        gaps,
+    }
+}
+
+function logCoverageGaps(tag: 'source' | 'generated', code: string, gaps: Array<{ start: number, end: number }>): void {
+    if (gaps.length === 0) return
+    const top = gaps.slice(0, 8)
+    top.forEach((gap, index) => {
+        const lc = toLineCol(code, gap.start)
+        Glog.error(
+            `[cssts-map-check][${tag}][gap#${index + 1}] start=${gap.start} end=${gap.end} len=${gap.end - gap.start} `
+            + `(L${lc.line}:C${lc.column}) snippet="${previewText(getSnippetAround(code, gap.start, 24))}"`
+        )
+    })
+    if (gaps.length > top.length) {
+        Glog.error(`[cssts-map-check][${tag}] additional gaps=${gaps.length - top.length} (omitted)`)
+    }
 }
 
 /**
@@ -339,7 +432,12 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
         resolveEmbeddedCode(fileName, sfc, embeddedFile) {
             Glog.debug(`[cssts] resolveEmbeddedCode: id="${embeddedFile.id}"`)
 
-            if (embeddedFile.id === 'script_ts' || embeddedFile.id === 'scriptsetup_raw') {
+            if (embeddedFile.id === 'scriptsetup_raw') {
+                Glog.debug('[cssts] skip transform for scriptsetup_raw (script_ts only)')
+                return
+            }
+
+            if (embeddedFile.id === 'script_ts') {
                 const scriptBlock = sfc.scriptSetup || sfc.script
 
                 if (scriptBlock && scriptBlock.lang === 'cssts') {
@@ -359,13 +457,36 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         const tsCode = result.code
                         const generatedHash = hashString(tsCode)
                         const offsets = SlimeMappingConverter.convertMappings(result.mapping)
-                        const mappingCoverage = calcMappedCoverage(result.mapping, tsCode.length)
-                        Glog.debug(`[cssts] mapping coverage(generate): ${(mappingCoverage * 100).toFixed(1)}%`)
+                        const generatedCoverage = calcMappingCoverageStats(result.mapping, 'generate', tsCode.length)
+                        const sourceCoverage = calcMappingCoverageStats(result.mapping, 'source', sourceCode.length)
+                        Glog.debug(
+                            `[cssts] mapping coverage(generate/source): `
+                            + `${(generatedCoverage.coverage * 100).toFixed(1)}% / ${(sourceCoverage.coverage * 100).toFixed(1)}%`
+                        )
 
                         Glog.debug(`[cssts] 源码长度: ${sourceCode.length}, 生成码长度: ${tsCode.length}`)
                         Glog.debug(`[cssts] 长度差异: ${sourceCode.length - tsCode.length}`)
-                        Glog.debug(`[cssts] mapping 数量: ${offsets.length}`)
+                        Glog.debug(`[cssts] mapping 数量(raw/offset): ${result.mapping.length}/${offsets.length}`)
                         Glog.debug(`[cssts] 源码 === 生成码: ${sourceCode === tsCode}`)
+
+                        const isFullGeneratedCoverage = generatedCoverage.coverage >= 0.999999
+                        const isFullSourceCoverage = sourceCoverage.coverage >= 0.999999
+                        if (!isFullGeneratedCoverage || !isFullSourceCoverage) {
+                            Glog.error(
+                                `[cssts-map-check] NON-100% coverage detected: `
+                                + `generated=${(generatedCoverage.coverage * 100).toFixed(2)}% `
+                                + `(${generatedCoverage.covered}/${generatedCoverage.total}), `
+                                + `source=${(sourceCoverage.coverage * 100).toFixed(2)}% `
+                                + `(${sourceCoverage.covered}/${sourceCoverage.total}), `
+                                + `rawMapping=${result.mapping.length}, offsetMapping=${offsets.length}, `
+                                + `generateRanges(raw/merged)=${generatedCoverage.rawRangeCount}/${generatedCoverage.mergedRangeCount}, `
+                                + `sourceRanges(raw/merged)=${sourceCoverage.rawRangeCount}/${sourceCoverage.mergedRangeCount}`
+                            )
+                            logCoverageGaps('generated', tsCode, generatedCoverage.gaps)
+                            logCoverageGaps('source', sourceCode, sourceCoverage.gaps)
+                        } else {
+                            Glog.info('[cssts-map-check] 100% mapping coverage confirmed (source & generated)')
+                        }
 
                         // Print first few mapping details
                         Glog.debug(`[cssts] === Mapping 详情 (前5条) ===`)
@@ -476,7 +597,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         Glog.info(
                             `[cssts] Created ${embeddedFile.content.length} segments; ` +
                             `mappedSegments=${mappedSegments}, mode=precise-multi-segment, ` +
-                            `coverage=${(mappingCoverage * 100).toFixed(1)}%`
+                            `coverage=${(generatedCoverage.coverage * 100).toFixed(1)}%`
                         )
                     } catch (e: any) {
                         const message = e?.message || String(e)
