@@ -25,6 +25,9 @@ type FileTrendState = {
     parseDiagCount: number
 }
 
+let initialized = false
+let dtsOutputDir: string | null = null
+
 // Initialize Glog
 Glog.init({ level: 'debug' })
 Glog.info(`[language-plugin-cssts v${PLUGIN_VERSION}] initialized`)
@@ -65,6 +68,59 @@ function readPackageMeta(packageName: string): { version: string, entryPath: str
 function formatPackageMeta(packageName: string): string {
     const meta = readPackageMeta(packageName)
     return `${packageName}=${meta.version} (${meta.entryPath})`
+}
+
+function findNearestNodeModules(startPath: string): string | null {
+    let currentDir = dirname(startPath)
+    while (true) {
+        const nodeModulesPath = join(currentDir, 'node_modules')
+        if (existsSync(nodeModulesPath)) {
+            return nodeModulesPath
+        }
+        const parentDir = dirname(currentDir)
+        if (parentDir === currentDir) {
+            return null
+        }
+        currentDir = parentDir
+    }
+}
+
+function initCssts(fileName: string): void {
+    if (initialized) return
+
+    const nodeModulesDir = findNearestNodeModules(fileName)
+    if (!nodeModulesDir) {
+        throw new Error(`[cssts] Cannot find node_modules from path: ${fileName}`)
+    }
+
+    dtsOutputDir = join(nodeModulesDir, '@types', 'cssts-ts')
+    Glog.debug(`[cssts] Found node_modules: ${nodeModulesDir}`)
+    Glog.debug(`[cssts] DTS output dir: ${dtsOutputDir}`)
+
+    CsstsInit.init({ dtsOutputDir })
+    Glog.debug('[cssts] CsstsInit initialized')
+    initialized = true
+}
+
+function updateModulesDts(): void {
+    if (!dtsOutputDir) return
+
+    const usedStyles = RuntimeStore.getUsedStyles()
+    if (usedStyles.size === 0) {
+        Glog.debug('[cssts] No used styles, skip atomUsedCssts.d.ts generation')
+        return
+    }
+
+    try {
+        writeAtomUsedDts(dtsOutputDir)
+        Glog.info(`[cssts] Updated atomUsedCssts.d.ts with ${usedStyles.size} styles`)
+    } catch (e: any) {
+        const message = e?.message || String(e)
+        Glog.error(`[cssts] writeAtomUsedDts failed: ${message}`)
+        if (e?.stack) {
+            Glog.error(`[cssts] writeAtomUsedDts stack: ${e.stack}`)
+        }
+    }
 }
 
 function extractErrorCodeIndex(errorMessage: string): number | null {
@@ -259,6 +315,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
     Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
     Glog.info(
         `[language-plugin-cssts] Runtime deps: ` +
+        `${formatPackageMeta('cssts-compiler')}, ` +
         `${formatPackageMeta('slime-parser')}, ` +
         `${formatPackageMeta('slime-generator')}, ` +
         `${formatPackageMeta('subhuti')}`
@@ -288,6 +345,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 if (scriptBlock && scriptBlock.lang === 'cssts') {
                     Glog.info(`[cssts] 检测到 cssts 脚本块，长度=${scriptBlock.content.length}`)
                     try {
+                        initCssts(fileName)
+
                         const sourceCode = scriptBlock.content
                         const sourceHash = hashString(sourceCode)
                         Glog.debug(
@@ -359,6 +418,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                             generatedLength: tsCode.length,
                             parseDiagCount,
                         })
+
+                        updateModulesDts()
 
                         // Clear current embedded content
                         if (!result.mapping.length) {
