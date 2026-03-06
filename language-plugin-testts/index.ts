@@ -206,30 +206,6 @@ function findStandalonePlusIndexes(sourceCode: string): number[] {
     return indexes
 }
 
-function buildIdentityFallbackContent(
-    embeddedFile: any,
-    scriptBlock: any,
-    sourceCode: string,
-    reason: string
-): void {
-    const features = {
-        verification: true,
-        completion: true,
-        semantic: true,
-        navigation: true,
-        structure: true,
-        format: true,
-    }
-    embeddedFile.content.length = 0
-    embeddedFile.content.push([
-        sourceCode,
-        scriptBlock.name,
-        0,
-        features
-    ])
-    Glog.debug(`[testts] Identity mapping. reason=${reason}, sourceLength=${sourceCode.length}`)
-}
-
 function calcMappedCoverage(mappings: any[], generatedLength: number): number {
     if (generatedLength <= 0) return 0
     let covered = 0
@@ -385,13 +361,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
                         // Clear current embedded content
                         if (!result.mapping.length) {
-                            buildIdentityFallbackContent(
-                                embeddedFile,
-                                scriptBlock,
-                                sourceCode,
-                                'transform returned empty mapping'
-                            )
-                            return
+                            throw new Error('[testts] transform returned empty mapping')
                         }
                         embeddedFile.content.length = 0
 
@@ -472,12 +442,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                                 Glog.warn('[testts] UnaryExpression debug: no standalone "+" candidate found in current source')
                             }
                         }
-                        buildIdentityFallbackContent(
-                            embeddedFile,
-                            scriptBlock,
-                            scriptBlock.content,
-                            'transform exception'
-                        )
+                        throw e
                     }
                 }
             }
