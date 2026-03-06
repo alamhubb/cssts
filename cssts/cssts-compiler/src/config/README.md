@@ -246,7 +246,7 @@ lightgray, darkgray, gold, salmon, tomato, violet
 
 **使用示例**：
 ```typescript
-const button$$hover$$active = css({ bgBlue600, colorWhite })
+const button$$hover$$active = css({ backgroundColorNavy, colorWhite })
 // 生成：
 // .button { background: blue-600; color: white; }
 // .button:hover { filter: brightness(1.15); }

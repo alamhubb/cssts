@@ -29,7 +29,7 @@ npm install language-plugin-cssts -D
 import { ref } from 'vue'
 
 const count = ref(0)
-const buttonStyle = css { displayFlex, alignItemsCenter, bgBlue500 }
+const buttonStyle = css { displayFlex, alignItemsCenter, backgroundColorBlue }
 </script>
 
 <template>

@@ -116,7 +116,7 @@ cssTsPlugin({
 
 ```javascript
 // 变量名中的 $$hover 会生成 :hover 伪类（注意是双美元符号 $$）
-const button$$hover$$active = css { cursorPointer, bgBlue600 }
+const button$$hover$$active = css { cursorPointer, backgroundColorNavy }
 ```
 
 > **重要**：伪类分隔符是 `$$`（双美元符号），不是 `$`（单美元符号）！

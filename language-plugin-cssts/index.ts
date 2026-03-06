@@ -423,7 +423,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
                         // Clear current embedded content
                         if (!result.mapping.length) {
-                            throw new Error('[cssts] transform returned empty mapping')
+                            Glog.error('[cssts] transform returned empty mapping; keep existing embedded content')
+                            return
                         }
                         embeddedFile.content.length = 0
 
@@ -504,7 +505,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                                 Glog.warn('[cssts] UnaryExpression debug: no standalone "+" candidate found in current source')
                             }
                         }
-                        throw e
+                        Glog.warn('[cssts] transform failed; keep existing embedded content')
+                        return
                     }
                 }
             }

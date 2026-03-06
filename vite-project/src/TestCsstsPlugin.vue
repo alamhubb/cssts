@@ -7,13 +7,13 @@ const count = ref(0)
 console.log(count)
 
 // 使用 css { } 语法定义样式
-const buttonStyle = css { displayFlex, alignItemsCenter, px16, py8, bgBlue500, textWhite, rounded }
+const buttonStyle = css { displayFlex, alignItemsCenter, paddingX16px, paddingY8px, backgroundColorBlue, colorWhite, borderRadius8px }
 
 // 悬停样式
-const hoverStyle = css { bgBlue600, cursorPointer }
+const hoverStyle = css { backgroundColorNavy, cursorPointer }
 
 function increment() {
-  count.value+
+  count.value++
 }
 </script>
 

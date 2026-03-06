@@ -157,8 +157,8 @@ async function main() {
   const demoFileUri = `file:///${demoFilePath.replace(/\\/g, '/')}`
   const demoContent = `// CSSTS Demo
 import { css } from 'cssts-ts'
-const buttonStyle = css { displayFlex, alignItemsCenter, bgBlue500 }
-const hoverStyle = css { cursorPointer, bgBlue600 }
+const buttonStyle = css { displayFlex, alignItemsCenter, backgroundColorBlue }
+const hoverStyle = css { cursorPointer, backgroundColorNavy }
 export { buttonStyle, hoverStyle }
 `
 
