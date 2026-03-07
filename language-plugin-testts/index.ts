@@ -10,12 +10,13 @@ import { existsSync, readFileSync } from 'node:fs'
 const PLUGIN_VERSION = '1.0.11-bisect-modes'
 type TesttsBisectMode =
     | 'identity_script_ts'
+    | 'parse_only_minimal'
     | 'transform_script_ts_no_cache'
     | 'transform_script_ts_cache'
     | 'transform_both_cache'
-const TESTTS_BISECT_MODE: TesttsBisectMode = 'identity_script_ts'
+const TESTTS_BISECT_MODE: TesttsBisectMode = 'parse_only_minimal'
 type TesttsTransformStage = 'parse_only' | 'parse_ast_only' | 'parse_ast_generate'
-const TESTTS_TRANSFORM_STAGE: TesttsTransformStage = 'parse_ast_only'
+const TESTTS_TRANSFORM_STAGE: TesttsTransformStage = 'parse_only'
 const require = createRequire(import.meta.url)
 
 type TypeScriptLike = {
@@ -466,6 +467,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
             const allowScriptSetupRaw = TESTTS_BISECT_MODE === 'transform_both_cache'
             const useIdentityMode = TESTTS_BISECT_MODE === 'identity_script_ts'
+            const useParseOnlyMinimal = TESTTS_BISECT_MODE === 'parse_only_minimal'
             const useCache = TESTTS_BISECT_MODE === 'transform_script_ts_cache'
                 || TESTTS_BISECT_MODE === 'transform_both_cache'
 
@@ -483,6 +485,25 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 applyIdentitySegments(embeddedFile, scriptBlock.name, sourceCode)
                 Glog.info(
                     `[testts-bisect] identity mode applied: id=${embeddedFile.id}, `
+                    + `length=${sourceCode.length}, lines=${countLines(sourceCode)}`
+                )
+                return
+            }
+
+            // Minimal parser-only bisection mode:
+            // parse once, keep identity mapping, skip diagnostics/cache/trend extras.
+            if (useParseOnlyMinimal) {
+                const sourceCode = scriptBlock.content
+                try {
+                    const parser = new SlimeParser(sourceCode)
+                    parser.Program()
+                } catch (e: any) {
+                    const message = e?.message || String(e)
+                    Glog.warn(`[testts-bisect] parse-only-minimal parse failed: ${message}`)
+                }
+                applyIdentitySegments(embeddedFile, scriptBlock.name, sourceCode)
+                Glog.info(
+                    `[testts-bisect] parse-only-minimal applied: id=${embeddedFile.id}, `
                     + `length=${sourceCode.length}, lines=${countLines(sourceCode)}`
                 )
                 return
