@@ -7,7 +7,13 @@ import { dirname, join } from 'node:path'
 import { existsSync, readFileSync } from 'node:fs'
 
 // version
-const PLUGIN_VERSION = '1.0.9-trend-diagnostics'
+const PLUGIN_VERSION = '1.0.11-bisect-modes'
+type TesttsBisectMode =
+    | 'identity_script_ts'
+    | 'transform_script_ts_no_cache'
+    | 'transform_script_ts_cache'
+    | 'transform_both_cache'
+const TESTTS_BISECT_MODE: TesttsBisectMode = 'identity_script_ts'
 const require = createRequire(import.meta.url)
 
 type TypeScriptLike = {
@@ -287,6 +293,25 @@ function applyMappedSegments(
     return { mappedSegments }
 }
 
+function applyIdentitySegments(
+    embeddedFile: { content: any[] },
+    scriptBlockName: string,
+    sourceCode: string
+) {
+    embeddedFile.content.length = 0
+    const features = {
+        verification: true,
+        completion: true,
+        semantic: true,
+        navigation: true,
+        structure: true,
+        format: true,
+    }
+    embeddedFile.content.push([sourceCode, scriptBlockName, 0, features])
+    // Boundary anchor for completion/navigation stability at file end.
+    embeddedFile.content.push(['', scriptBlockName, sourceCode.length, features])
+}
+
 /**
  * Transform code via slime-parser + slime-generator.
  * Mirrors the cssts transformCssTs() pipeline.
@@ -327,6 +352,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
     const transformSnapshots = new Map<string, TransformSnapshot>()
 
     Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
+    Glog.info(`[language-plugin-testts] bisect mode=${TESTTS_BISECT_MODE}`)
     Glog.info(
         `[language-plugin-testts] Runtime deps: ` +
         `${formatPackageMeta('slime-parser')}, ` +
@@ -352,7 +378,12 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
         resolveEmbeddedCode(fileName, sfc, embeddedFile) {
             Glog.debug(`[testts] resolveEmbeddedCode: id="${embeddedFile.id}"`)
 
-            if (embeddedFile.id !== 'script_ts' && embeddedFile.id !== 'scriptsetup_raw') {
+            const allowScriptSetupRaw = TESTTS_BISECT_MODE === 'transform_both_cache'
+            const useIdentityMode = TESTTS_BISECT_MODE === 'identity_script_ts'
+            const useCache = TESTTS_BISECT_MODE === 'transform_script_ts_cache'
+                || TESTTS_BISECT_MODE === 'transform_both_cache'
+
+            if (embeddedFile.id !== 'script_ts' && !(allowScriptSetupRaw && embeddedFile.id === 'scriptsetup_raw')) {
                 return
             }
 
@@ -361,12 +392,23 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 return
             }
 
+            if (useIdentityMode) {
+                const sourceCode = scriptBlock.content
+                applyIdentitySegments(embeddedFile, scriptBlock.name, sourceCode)
+                Glog.info(
+                    `[testts-bisect] identity mode applied: id=${embeddedFile.id}, `
+                    + `length=${sourceCode.length}, lines=${countLines(sourceCode)}`
+                )
+                return
+            }
+
             Glog.info(`[testts] 检测到 testts 脚本块，长度=${scriptBlock.content.length}, id=${embeddedFile.id}`)
             const sourceCode = scriptBlock.content
             const sourceHash = hashString(sourceCode)
-            const cachedBefore = transformSnapshots.get(fileName)
+            const cachedBefore = useCache ? transformSnapshots.get(fileName) : undefined
+            let transientSnapshot: TransformSnapshot | undefined
 
-            if (!cachedBefore || cachedBefore.sourceHash !== sourceHash) {
+            if (!useCache || !cachedBefore || cachedBefore.sourceHash !== sourceHash) {
                 try {
                     Glog.debug(
                         `[testts] source fingerprint: hash=${sourceHash}, length=${sourceCode.length}, lines=${countLines(sourceCode)}`
@@ -441,19 +483,25 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         parseDiagCount,
                     })
 
-                    const preferCache = parseDiagCount > 0 && cachedBefore && cachedBefore.parseDiagCount === 0
+                    const preferCache = useCache && parseDiagCount > 0 && cachedBefore && cachedBefore.parseDiagCount === 0
                     if (preferCache) {
                         Glog.warn('[testts-cache] generated parse diagnostics > 0; reusing last clean snapshot')
                     } else {
-                        transformSnapshots.set(fileName, {
+                        const nextSnapshot: TransformSnapshot = {
                             sourceHash,
                             sourceLength: sourceCode.length,
                             parseDiagCount,
                             mappingCoverage,
                             tsCode,
                             offsets,
-                        })
-                        Glog.debug(`[testts-cache] updated snapshot for ${fileName}, id=${embeddedFile.id}`)
+                        }
+                        if (useCache) {
+                            transformSnapshots.set(fileName, nextSnapshot)
+                            Glog.debug(`[testts-cache] updated snapshot for ${fileName}, id=${embeddedFile.id}`)
+                        } else {
+                            transientSnapshot = nextSnapshot
+                            Glog.debug(`[testts-bisect] transient snapshot ready for ${fileName}, id=${embeddedFile.id}`)
+                        }
                     }
                 } catch (e: any) {
                     const message = e?.message || String(e)
@@ -483,6 +531,11 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                         }
                     }
 
+                    if (!useCache) {
+                        Glog.warn('[testts-bisect] no-cache mode transform failed; skip this update')
+                        return
+                    }
+
                     if (cachedBefore) {
                         Glog.warn('[testts-cache] transform failed; reusing last snapshot')
                     } else {
@@ -494,7 +547,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 Glog.debug(`[testts-cache] hit for ${fileName}, id=${embeddedFile.id}`)
             }
 
-            const snapshot = transformSnapshots.get(fileName)
+            const snapshot = useCache ? transformSnapshots.get(fileName) : transientSnapshot
             if (!snapshot) {
                 Glog.warn('[testts-cache] missing snapshot after transform; keep existing embedded content')
                 return
