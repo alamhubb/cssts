@@ -14,6 +14,8 @@ type TesttsBisectMode =
     | 'transform_script_ts_cache'
     | 'transform_both_cache'
 const TESTTS_BISECT_MODE: TesttsBisectMode = 'identity_script_ts'
+type TesttsTransformStage = 'parse_only' | 'parse_ast_only' | 'parse_ast_generate'
+const TESTTS_TRANSFORM_STAGE: TesttsTransformStage = 'parse_ast_only'
 const require = createRequire(import.meta.url)
 
 type TypeScriptLike = {
@@ -33,6 +35,18 @@ type FileTrendState = {
 type OffsetMapping = {
     original: { offset: number, length: number }
     generated: { offset: number, length: number }
+}
+
+type MappingLike = {
+    source?: { index?: number, length?: number }
+    generate?: { index?: number, length?: number }
+}
+
+type NonWhitespaceCoverage = {
+    total: number
+    mapped: number
+    ratio: number
+    missingIndexes: number[]
 }
 
 type TransformSnapshot = {
@@ -237,6 +251,41 @@ function calcMappedCoverage(mappings: any[], generatedLength: number): number {
     return Math.min(1, covered / generatedLength)
 }
 
+function calcSourceNonWhitespaceCoverage(sourceCode: string, mappings: MappingLike[]): NonWhitespaceCoverage {
+    const coverage = new Uint8Array(sourceCode.length)
+    for (const m of mappings) {
+        const start = m?.source?.index
+        const length = m?.source?.length
+        if (!Number.isFinite(start) || !Number.isFinite(length)) continue
+        const safeStart = Math.max(0, Math.min(sourceCode.length, start as number))
+        const safeEnd = Math.max(safeStart, Math.min(sourceCode.length, (start as number) + (length as number)))
+        for (let i = safeStart; i < safeEnd; i++) {
+            coverage[i] = 1
+        }
+    }
+
+    let total = 0
+    let mapped = 0
+    const missingIndexes: number[] = []
+    for (let i = 0; i < sourceCode.length; i++) {
+        const char = sourceCode[i]
+        if (/\s/.test(char)) continue
+        total++
+        if (coverage[i]) {
+            mapped++
+        } else if (missingIndexes.length < 20) {
+            missingIndexes.push(i)
+        }
+    }
+
+    return {
+        total,
+        mapped,
+        ratio: total > 0 ? mapped / total : 1,
+        missingIndexes,
+    }
+}
+
 function applyMappedSegments(
     embeddedFile: { content: any[] },
     scriptBlockName: string,
@@ -313,30 +362,66 @@ function applyIdentitySegments(
 }
 
 /**
- * Transform code via slime-parser + slime-generator.
- * Mirrors the cssts transformCssTs() pipeline.
+ * Parse/AST-only transform for bisection:
+ * run parser (+ optional CST->AST) but keep output as identity code/mapping.
  */
+type RawMapping = {
+    source?: { index?: number, length?: number }
+    generate?: { index?: number, length?: number }
+}
+
+function isValidRawMapping(mapping: RawMapping): boolean {
+    const srcIndex = mapping.source?.index
+    const srcLength = mapping.source?.length
+    const genIndex = mapping.generate?.index
+    const genLength = mapping.generate?.length
+    return Number.isFinite(srcIndex)
+        && Number.isFinite(srcLength)
+        && Number.isFinite(genIndex)
+        && Number.isFinite(genLength)
+        && (srcLength as number) > 0
+        && (genLength as number) > 0
+}
+
 function transformTestTs(code: string) {
-    // 1) Parse source code
+    if (TESTTS_TRANSFORM_STAGE === 'parse_only') {
+        const parser = new SlimeParser(code)
+        parser.Program()
+        return {
+            code,
+            mapping: code.length > 0
+                ? [{
+                    source: { index: 0, length: code.length },
+                    generate: { index: 0, length: code.length },
+                }]
+                : []
+        }
+    }
+
+    if (TESTTS_TRANSFORM_STAGE === 'parse_ast_only') {
+        const parser = new SlimeParser(code)
+        const cst = parser.Program()
+        SlimeCstToAstUtils.toProgram(cst)
+        return {
+            code,
+            mapping: code.length > 0
+                ? [{
+                    source: { index: 0, length: code.length },
+                    generate: { index: 0, length: code.length },
+                }]
+                : []
+        }
+    }
+
     const parser = new SlimeParser(code)
     const cst = parser.Program()
-
-    // 2) Convert CST to AST
     const ast = SlimeCstToAstUtils.toProgram(cst)
-
-    // 3) Collect parsed tokens
-    const tokens = parser.parsedTokens
-
-    // 4) Generate target code
-    const result = SlimeGenerator.generator(ast, tokens)
-
-    // 5) Remove invalid mappings
-    const mapping = result.mapping.filter(
-        (m: any) => m.source && m.generate && m.source.length > 0
-    )
+    const generated = SlimeGenerator.generator(ast, parser.parsedTokens)
+    const rawMappings = Array.isArray(generated.mapping) ? generated.mapping as RawMapping[] : []
+    const mapping = rawMappings.filter(isValidRawMapping)
 
     return {
-        code: result.code,
+        code: typeof generated.code === 'string' ? generated.code : code,
         mapping
     }
 }
@@ -353,6 +438,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
     Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
     Glog.info(`[language-plugin-testts] bisect mode=${TESTTS_BISECT_MODE}`)
+    Glog.info(`[language-plugin-testts] transform stage=${TESTTS_TRANSFORM_STAGE}`)
     Glog.info(
         `[language-plugin-testts] Runtime deps: ` +
         `${formatPackageMeta('slime-parser')}, ` +
@@ -423,7 +509,28 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                     const generatedHash = hashString(tsCode)
                     const offsets = SlimeMappingConverter.convertMappings(result.mapping) as OffsetMapping[]
                     const mappingCoverage = calcMappedCoverage(result.mapping, tsCode.length)
+                    const sourceNonWhitespaceCoverage = calcSourceNonWhitespaceCoverage(sourceCode, result.mapping as MappingLike[])
                     Glog.debug(`[testts] mapping coverage(generate): ${(mappingCoverage * 100).toFixed(1)}%`)
+                    Glog.debug(
+                        `[testts] source non-whitespace coverage: ${sourceNonWhitespaceCoverage.mapped}/${sourceNonWhitespaceCoverage.total} `
+                        + `(${(sourceNonWhitespaceCoverage.ratio * 100).toFixed(1)}%)`
+                    )
+                    if (sourceNonWhitespaceCoverage.ratio < 1) {
+                        Glog.error(
+                            `[testts-map-check] source non-whitespace coverage must be 100%: `
+                            + `${sourceNonWhitespaceCoverage.mapped}/${sourceNonWhitespaceCoverage.total} `
+                            + `(${(sourceNonWhitespaceCoverage.ratio * 100).toFixed(1)}%)`
+                        )
+                        for (const sourceIndex of sourceNonWhitespaceCoverage.missingIndexes) {
+                            const lc = toLineCol(sourceCode, sourceIndex)
+                            const token = sourceCode[sourceIndex]
+                            Glog.error(
+                                `[testts-map-check] unmapped source char idx=${sourceIndex} `
+                                + `(L${lc.line}:C${lc.column}) token=${JSON.stringify(token)} `
+                                + `snippet="${previewText(getSnippetAround(sourceCode, sourceIndex, 20))}"`
+                            )
+                        }
+                    }
 
                     Glog.debug(`[testts] 源码长度: ${sourceCode.length}, 生成码长度: ${tsCode.length}`)
                     Glog.debug(`[testts] 长度差异: ${sourceCode.length - tsCode.length}`)
