@@ -25,6 +25,20 @@ type FileTrendState = {
     parseDiagCount: number
 }
 
+type OffsetMapping = {
+    original: { offset: number, length: number }
+    generated: { offset: number, length: number }
+}
+
+type TransformSnapshot = {
+    sourceHash: string
+    sourceLength: number
+    tsCode: string
+    offsets: OffsetMapping[]
+    sourceCoverage: CoverageStats
+    generatedCoverageFromSource: CoverageStats
+}
+
 let initialized = false
 let dtsOutputDir: string | null = null
 
@@ -352,7 +366,7 @@ function calcMappingCoverageStats(
     }
 }
 
-function logCoverageGaps(tag: 'source' | 'generated', code: string, gaps: Array<{ start: number, end: number }>): void {
+function logCoverageGaps(tag: string, code: string, gaps: Array<{ start: number, end: number }>): void {
     if (gaps.length === 0) return
     const top = gaps.slice(0, 8)
     top.forEach((gap, index) => {
@@ -365,6 +379,126 @@ function logCoverageGaps(tag: 'source' | 'generated', code: string, gaps: Array<
     if (gaps.length > top.length) {
         Glog.error(`[cssts-map-check][${tag}] additional gaps=${gaps.length - top.length} (omitted)`)
     }
+}
+
+function applyLayeredSegments(
+    embeddedFile: { content: any[] },
+    scriptBlockName: string,
+    tsCode: string,
+    offsets: OffsetMapping[],
+    sourceLength: number
+): { sourceOriginSegments: number, syntheticSegments: number, gapMappedSegments: number, gapAnchorSegments: number } {
+    embeddedFile.content.length = 0
+
+    const features = {
+        verification: true,
+        completion: true,
+        semantic: true,
+        navigation: true,
+        structure: true,
+        format: true,
+    }
+    const syntheticFeatures = {
+        verification: false,
+        completion: false,
+        semantic: false,
+        navigation: false,
+        structure: false,
+        format: false,
+    }
+    const gapFeatures = {
+        verification: false,
+        completion: true,
+        semantic: false,
+        navigation: true,
+        structure: false,
+        format: false,
+    }
+
+    const sortedOffsets = [...offsets]
+        .filter(m => m.generated.length > 0)
+        .sort((a, b) => a.generated.offset - b.generated.offset)
+
+    let lastGenEnd = 0
+    let lastSrcEnd = 0
+    let sourceOriginSegments = 0
+    let syntheticSegments = 0
+    let gapMappedSegments = 0
+    let gapAnchorSegments = 0
+
+    const clampSourceOffset = (value: number) => Math.max(0, Math.min(sourceLength, value))
+    const appendGapWithCompletionNavigationMapping = (
+        gapText: string,
+        srcGapStart: number,
+        srcGapEnd: number
+    ): void => {
+        if (!gapText) return
+
+        if (srcGapEnd <= srcGapStart) {
+            embeddedFile.content.push([gapText, undefined, 0, syntheticFeatures])
+            syntheticSegments++
+            return
+        }
+
+        embeddedFile.content.push(['', scriptBlockName, srcGapStart, gapFeatures])
+        gapAnchorSegments++
+
+        const srcGapLength = srcGapEnd - srcGapStart
+        const mappedLength = Math.min(gapText.length, srcGapLength)
+        if (mappedLength > 0) {
+            embeddedFile.content.push([gapText.slice(0, mappedLength), scriptBlockName, srcGapStart, gapFeatures])
+            gapMappedSegments++
+        }
+
+        if (mappedLength < gapText.length) {
+            embeddedFile.content.push([gapText.slice(mappedLength), undefined, 0, syntheticFeatures])
+            syntheticSegments++
+        }
+
+        embeddedFile.content.push(['', scriptBlockName, srcGapEnd, gapFeatures])
+        gapAnchorSegments++
+    }
+
+    for (const m of sortedOffsets) {
+        const genStart = m.generated.offset
+        const genEnd = m.generated.offset + m.generated.length
+        const srcStart = clampSourceOffset(m.original.offset)
+        const srcLength = Math.max(0, m.original.length)
+        const srcEnd = clampSourceOffset(m.original.offset + srcLength)
+
+        if (genStart > lastGenEnd) {
+            const gapText = tsCode.slice(lastGenEnd, genStart)
+            const srcGapStart = clampSourceOffset(lastSrcEnd)
+            const srcGapEnd = clampSourceOffset(srcStart)
+            appendGapWithCompletionNavigationMapping(gapText, srcGapStart, srcGapEnd)
+        }
+
+        const code = tsCode.slice(genStart, genEnd)
+        if (code) {
+            if (srcLength > 0) {
+                embeddedFile.content.push([code, scriptBlockName, srcStart, features])
+                embeddedFile.content.push(['', scriptBlockName, srcEnd, features])
+                sourceOriginSegments++
+                lastSrcEnd = Math.max(lastSrcEnd, srcEnd)
+            } else {
+                embeddedFile.content.push([code, undefined, 0, syntheticFeatures])
+                syntheticSegments++
+            }
+        }
+
+        lastGenEnd = Math.max(lastGenEnd, genEnd)
+    }
+
+    if (lastGenEnd < tsCode.length) {
+        const tailText = tsCode.slice(lastGenEnd)
+        appendGapWithCompletionNavigationMapping(
+            tailText,
+            clampSourceOffset(lastSrcEnd),
+            sourceLength
+        )
+    }
+
+    return { sourceOriginSegments, syntheticSegments, gapMappedSegments, gapAnchorSegments }
 }
 
 /**
@@ -404,6 +538,7 @@ function logCoverageGaps(tag: 'source' | 'generated', code: string, gaps: Array<
 const plugin: VueLanguagePlugin = ({ modules }) => {
     const ts = modules.typescript
     const fileTrend = new Map<string, FileTrendState>()
+    const transformSnapshots = new Map<string, TransformSnapshot>()
 
     Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
     Glog.info(
@@ -432,205 +567,218 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
         resolveEmbeddedCode(fileName, sfc, embeddedFile) {
             Glog.debug(`[cssts] resolveEmbeddedCode: id="${embeddedFile.id}"`)
 
-            if (embeddedFile.id === 'scriptsetup_raw') {
-                Glog.debug('[cssts] skip transform for scriptsetup_raw (script_ts only)')
+            if (embeddedFile.id !== 'script_ts' && embeddedFile.id !== 'scriptsetup_raw') {
                 return
             }
 
-            if (embeddedFile.id === 'script_ts') {
-                const scriptBlock = sfc.scriptSetup || sfc.script
+            const scriptBlock = sfc.scriptSetup || sfc.script
+            if (!scriptBlock || scriptBlock.lang !== 'cssts') {
+                return
+            }
 
-                if (scriptBlock && scriptBlock.lang === 'cssts') {
-                    Glog.info(`[cssts] 检测到 cssts 脚本块，长度=${scriptBlock.content.length}`)
-                    try {
-                        initCssts(fileName)
+            Glog.info(`[cssts] 检测到 cssts 脚本块，长度=${scriptBlock.content.length}, id=${embeddedFile.id}`)
 
-                        const sourceCode = scriptBlock.content
-                        const sourceHash = hashString(sourceCode)
-                        Glog.debug(
-                            `[cssts] source fingerprint: hash=${sourceHash}, length=${sourceCode.length}, lines=${countLines(sourceCode)}`
+            const sourceCode = scriptBlock.content
+            const sourceHash = hashString(sourceCode)
+            const cachedBefore = transformSnapshots.get(fileName)
+
+            if (!cachedBefore || cachedBefore.sourceHash !== sourceHash) {
+                try {
+                    initCssts(fileName)
+
+                    Glog.debug(
+                        `[cssts] source fingerprint: hash=${sourceHash}, length=${sourceCode.length}, lines=${countLines(sourceCode)}`
+                    )
+                    logSuspiciousPlusPattern('source', sourceCode)
+
+                    const result = transformCssTs(sourceCode)
+                    if (!result.mapping.length) {
+                        throw new Error('[cssts] transform returned empty mapping')
+                    }
+
+                    const tsCode = result.code
+                    const generatedHash = hashString(tsCode)
+                    const offsets = SlimeMappingConverter.convertMappings(result.mapping) as OffsetMapping[]
+                    const sourceOriginMappings = result.mapping.filter(
+                        m => (m?.source?.length ?? 0) > 0 && (m?.generate?.length ?? 0) > 0
+                    )
+                    const sourceCoverage = calcMappingCoverageStats(sourceOriginMappings, 'source', sourceCode.length)
+                    const generatedCoverageFromSource = calcMappingCoverageStats(sourceOriginMappings, 'generate', tsCode.length)
+                    const generatedCoverageTotal = calcMappingCoverageStats(result.mapping, 'generate', tsCode.length)
+
+                    Glog.debug(
+                        `[cssts] mapping coverage(source / generated-from-source / generated-total): `
+                        + `${(sourceCoverage.coverage * 100).toFixed(1)}% / `
+                        + `${(generatedCoverageFromSource.coverage * 100).toFixed(1)}% / `
+                        + `${(generatedCoverageTotal.coverage * 100).toFixed(1)}%`
+                    )
+                    Glog.debug(`[cssts] 源码长度: ${sourceCode.length}, 生成码长度: ${tsCode.length}`)
+                    Glog.debug(`[cssts] 长度差异: ${sourceCode.length - tsCode.length}`)
+                    Glog.debug(`[cssts] mapping 数量(raw/offset): ${result.mapping.length}/${offsets.length}`)
+                    Glog.debug(`[cssts] 源码 === 生成码: ${sourceCode === tsCode}`)
+
+                    const isFullSourceCoverage = sourceCoverage.coverage >= 0.999999
+                    if (!isFullSourceCoverage) {
+                        Glog.error(
+                            `[cssts-map-check] SOURCE coverage is NOT 100%: `
+                            + `source=${(sourceCoverage.coverage * 100).toFixed(2)}% `
+                            + `(${sourceCoverage.covered}/${sourceCoverage.total}), `
+                            + `generated-from-source=${(generatedCoverageFromSource.coverage * 100).toFixed(2)}% `
+                            + `(${generatedCoverageFromSource.covered}/${generatedCoverageFromSource.total}), `
+                            + `generated-total=${(generatedCoverageTotal.coverage * 100).toFixed(2)}% `
+                            + `(${generatedCoverageTotal.covered}/${generatedCoverageTotal.total}), `
+                            + `rawMapping=${result.mapping.length}, offsetMapping=${offsets.length}, `
+                            + `sourceOriginMappings=${sourceOriginMappings.length}, `
+                            + `sourceRanges(raw/merged)=${sourceCoverage.rawRangeCount}/${sourceCoverage.mergedRangeCount}`
                         )
-                        logSuspiciousPlusPattern('source', sourceCode)
-
-                        // Transform code with slime-parser + slime-generator
-                        const result = transformCssTs(sourceCode)
-                        const tsCode = result.code
-                        const generatedHash = hashString(tsCode)
-                        const offsets = SlimeMappingConverter.convertMappings(result.mapping)
-                        const generatedCoverage = calcMappingCoverageStats(result.mapping, 'generate', tsCode.length)
-                        const sourceCoverage = calcMappingCoverageStats(result.mapping, 'source', sourceCode.length)
-                        Glog.debug(
-                            `[cssts] mapping coverage(generate/source): `
-                            + `${(generatedCoverage.coverage * 100).toFixed(1)}% / ${(sourceCoverage.coverage * 100).toFixed(1)}%`
-                        )
-
-                        Glog.debug(`[cssts] 源码长度: ${sourceCode.length}, 生成码长度: ${tsCode.length}`)
-                        Glog.debug(`[cssts] 长度差异: ${sourceCode.length - tsCode.length}`)
-                        Glog.debug(`[cssts] mapping 数量(raw/offset): ${result.mapping.length}/${offsets.length}`)
-                        Glog.debug(`[cssts] 源码 === 生成码: ${sourceCode === tsCode}`)
-
-                        const isFullGeneratedCoverage = generatedCoverage.coverage >= 0.999999
-                        const isFullSourceCoverage = sourceCoverage.coverage >= 0.999999
-                        if (!isFullGeneratedCoverage || !isFullSourceCoverage) {
-                            Glog.error(
-                                `[cssts-map-check] NON-100% coverage detected: `
-                                + `generated=${(generatedCoverage.coverage * 100).toFixed(2)}% `
-                                + `(${generatedCoverage.covered}/${generatedCoverage.total}), `
-                                + `source=${(sourceCoverage.coverage * 100).toFixed(2)}% `
-                                + `(${sourceCoverage.covered}/${sourceCoverage.total}), `
-                                + `rawMapping=${result.mapping.length}, offsetMapping=${offsets.length}, `
-                                + `generateRanges(raw/merged)=${generatedCoverage.rawRangeCount}/${generatedCoverage.mergedRangeCount}, `
-                                + `sourceRanges(raw/merged)=${sourceCoverage.rawRangeCount}/${sourceCoverage.mergedRangeCount}`
-                            )
-                            logCoverageGaps('generated', tsCode, generatedCoverage.gaps)
-                            logCoverageGaps('source', sourceCode, sourceCoverage.gaps)
-                        } else {
-                            Glog.info('[cssts-map-check] 100% mapping coverage confirmed (source & generated)')
-                        }
-
-                        // Print first few mapping details
-                        Glog.debug(`[cssts] === Mapping 详情 (前5条) ===`)
-                        for (let i = 0; i < Math.min(5, result.mapping.length); i++) {
-                            const m = result.mapping[i]
-                            Glog.debug(`[cssts] mapping[${i}]: source=[${m.source?.index}, len=${m.source?.length}] -> generate=[${m.generate?.index}, len=${m.generate?.length}]`)
-                        }
-
-                        // Print source/generated preview (first 100 chars)
-                        Glog.debug(`[cssts] 源码前100: ${JSON.stringify(sourceCode.substring(0, 100))}`)
-                        Glog.debug(`[cssts] 生成码前100: ${JSON.stringify(tsCode.substring(0, 100))}`)
-                        logSuspiciousPlusPattern('generated', tsCode)
-                        const parseDiagCount = logGeneratedParseDiagnostics(ts as TypeScriptLike, fileName, tsCode)
-
-                        const prev = fileTrend.get(fileName)
-                        if (prev) {
-                            if (
-                                prev.sourceHash !== sourceHash
-                                || prev.generatedHash !== generatedHash
-                                || prev.parseDiagCount !== parseDiagCount
-                                || prev.sourceLength !== sourceCode.length
-                                || prev.generatedLength !== tsCode.length
-                            ) {
-                                Glog.warn(
-                                    `[cssts-trend] changed for ${fileName}: `
-                                    + `srcHash ${prev.sourceHash}->${sourceHash}, `
-                                    + `genHash ${prev.generatedHash}->${generatedHash}, `
-                                    + `parseDiag ${prev.parseDiagCount}->${parseDiagCount}, `
-                                    + `srcLen ${prev.sourceLength}->${sourceCode.length}, `
-                                    + `genLen ${prev.generatedLength}->${tsCode.length}`
-                                )
-                            }
-                            if (prev.parseDiagCount === 0 && parseDiagCount > 0) {
-                                Glog.error(
-                                    `[cssts-trend] regression detected: parse diagnostics changed from 0 to ${parseDiagCount}. `
-                                    + 'This often explains why completion used to work but now degrades.'
-                                )
-                            } else if (prev.parseDiagCount > 0 && parseDiagCount === 0) {
-                                Glog.info('[cssts-trend] recovered: parse diagnostics dropped to 0.')
-                            }
-                        } else {
-                            Glog.debug(
-                                `[cssts-trend] first snapshot for ${fileName}: srcHash=${sourceHash}, genHash=${generatedHash}, parseDiag=${parseDiagCount}`
-                            )
-                        }
-                        fileTrend.set(fileName, {
-                            sourceHash,
-                            generatedHash,
-                            sourceLength: sourceCode.length,
-                            generatedLength: tsCode.length,
-                            parseDiagCount,
-                        })
-
-                        updateModulesDts()
-
-                        // Clear current embedded content
-                        if (!result.mapping.length) {
-                            Glog.error('[cssts] transform returned empty mapping; keep existing embedded content')
-                            return
-                        }
-                        embeddedFile.content.length = 0
-
-                        // Enable all language features
-                        const features = {
-                            verification: true,
-                            completion: true,
-                            semantic: true,
-                            navigation: true,
-                            structure: true,
-                            format: true,
-                        }
-
-                        const sortedOffsets = [...offsets]
-                            .filter(m => m.generated.length > 0 && m.original.length > 0)
-                            .sort((a, b) => a.generated.offset - b.generated.offset)
-
-                        let lastGenEnd = 0
-                        let mappedSegments = 0
-
-                        for (const m of sortedOffsets) {
-                            const genStart = m.generated.offset
-                            const genEnd = m.generated.offset + m.generated.length
-                            const srcStart = m.original.offset
-
-                            if (genStart > lastGenEnd) {
-                                const gapText = tsCode.slice(lastGenEnd, genStart)
-                                if (gapText) {
-                                    embeddedFile.content.push(gapText)
-                                }
-                            }
-
-                            const code = tsCode.slice(genStart, genEnd)
-                            if (code) {
-                                embeddedFile.content.push([code, scriptBlock.name, srcStart, features])
-                                mappedSegments++
-                            }
-
-                            lastGenEnd = Math.max(lastGenEnd, genEnd)
-                        }
-
-                        if (lastGenEnd < tsCode.length) {
-                            const tailText = tsCode.slice(lastGenEnd)
-                            if (tailText) {
-                                embeddedFile.content.push(tailText)
-                            }
-                        }
-
+                        logCoverageGaps('source', sourceCode, sourceCoverage.gaps)
+                    } else {
                         Glog.info(
-                            `[cssts] Created ${embeddedFile.content.length} segments; ` +
-                            `mappedSegments=${mappedSegments}, mode=precise-multi-segment, ` +
-                            `coverage=${(generatedCoverage.coverage * 100).toFixed(1)}%`
+                            `[cssts-map-check] SOURCE coverage is 100%; `
+                            + `generated-from-source=${(generatedCoverageFromSource.coverage * 100).toFixed(2)}%, `
+                            + `generated-total=${(generatedCoverageTotal.coverage * 100).toFixed(2)}%`
                         )
-                    } catch (e: any) {
-                        const message = e?.message || String(e)
-                        Glog.error(`[cssts] Transform error: ${message}`)
-                        if (e?.stack) {
-                            Glog.error(`[cssts] Transform stack: ${e.stack}`)
-                        }
-                        const failedCodeIndex = extractErrorCodeIndex(message)
-                        if (failedCodeIndex !== null) {
+                    }
+
+                    if (generatedCoverageFromSource.coverage < 0.999999) {
+                        Glog.warn(
+                            `[cssts-map-check] generated-from-source coverage below 100%: `
+                            + `${(generatedCoverageFromSource.coverage * 100).toFixed(2)}% `
+                            + `(${generatedCoverageFromSource.covered}/${generatedCoverageFromSource.total})`
+                        )
+                        logCoverageGaps('generated-from-source', tsCode, generatedCoverageFromSource.gaps)
+                    }
+
+                    Glog.debug('[cssts] === Mapping 详情 (前5条) ===')
+                    for (let i = 0; i < Math.min(5, result.mapping.length); i++) {
+                        const m = result.mapping[i]
+                        Glog.debug(
+                            `[cssts] mapping[${i}]: source=[${m.source?.index}, len=${m.source?.length}] `
+                            + `-> generate=[${m.generate?.index}, len=${m.generate?.length}]`
+                        )
+                    }
+
+                    Glog.debug(`[cssts] 源码前100: ${JSON.stringify(sourceCode.substring(0, 100))}`)
+                    Glog.debug(`[cssts] 生成码前100: ${JSON.stringify(tsCode.substring(0, 100))}`)
+                    logSuspiciousPlusPattern('generated', tsCode)
+                    const parseDiagCount = logGeneratedParseDiagnostics(ts as TypeScriptLike, fileName, tsCode)
+
+                    const prev = fileTrend.get(fileName)
+                    if (prev) {
+                        if (
+                            prev.sourceHash !== sourceHash
+                            || prev.generatedHash !== generatedHash
+                            || prev.parseDiagCount !== parseDiagCount
+                            || prev.sourceLength !== sourceCode.length
+                            || prev.generatedLength !== tsCode.length
+                        ) {
                             Glog.warn(
-                                `[cssts] Transform failed around codeIndex=${failedCodeIndex}, ` +
-                                `snippet="${getSnippetAround(scriptBlock.content, failedCodeIndex)}"`
+                                `[cssts-trend] changed for ${fileName}: `
+                                + `srcHash ${prev.sourceHash}->${sourceHash}, `
+                                + `genHash ${prev.generatedHash}->${generatedHash}, `
+                                + `parseDiag ${prev.parseDiagCount}->${parseDiagCount}, `
+                                + `srcLen ${prev.sourceLength}->${sourceCode.length}, `
+                                + `genLen ${prev.generatedLength}->${tsCode.length}`
                             )
                         }
-                        if (/UnaryExpression CST(?:不完整|incomplete)/i.test(message)) {
-                            const standalonePlus = findStandalonePlusIndexes(scriptBlock.content)
-                            if (standalonePlus.length) {
-                                const top = standalonePlus.slice(0, 3).map((idx, i) => {
-                                    const lc = toLineCol(scriptBlock.content, idx)
-                                    return `#${i + 1}@${idx}(L${lc.line}:C${lc.column}) "${getSnippetAround(scriptBlock.content, idx, 18)}"`
-                                })
-                                Glog.warn(
-                                    `[cssts] UnaryExpression debug: standalone '+' candidates(${standalonePlus.length}) -> ${top.join(' | ')}`
-                                )
-                            } else {
-                                Glog.warn('[cssts] UnaryExpression debug: no standalone "+" candidate found in current source')
-                            }
+                        if (prev.parseDiagCount === 0 && parseDiagCount > 0) {
+                            Glog.error(
+                                `[cssts-trend] regression detected: parse diagnostics changed from 0 to ${parseDiagCount}. `
+                                + 'This often explains why completion used to work but now degrades.'
+                            )
+                        } else if (prev.parseDiagCount > 0 && parseDiagCount === 0) {
+                            Glog.info('[cssts-trend] recovered: parse diagnostics dropped to 0.')
                         }
-                        Glog.warn('[cssts] transform failed; keep existing embedded content')
+                    } else {
+                        Glog.debug(
+                            `[cssts-trend] first snapshot for ${fileName}: srcHash=${sourceHash}, genHash=${generatedHash}, parseDiag=${parseDiagCount}`
+                        )
+                    }
+
+                    fileTrend.set(fileName, {
+                        sourceHash,
+                        generatedHash,
+                        sourceLength: sourceCode.length,
+                        generatedLength: tsCode.length,
+                        parseDiagCount,
+                    })
+
+                    transformSnapshots.set(fileName, {
+                        sourceHash,
+                        sourceLength: sourceCode.length,
+                        tsCode,
+                        offsets,
+                        sourceCoverage,
+                        generatedCoverageFromSource,
+                    })
+                    Glog.debug(`[cssts-cache] updated snapshot for ${fileName}, id=${embeddedFile.id}`)
+                    updateModulesDts()
+                } catch (e: any) {
+                    const message = e?.message || String(e)
+                    Glog.error(`[cssts] Transform error: ${message}`)
+                    if (e?.stack) {
+                        Glog.error(`[cssts] Transform stack: ${e.stack}`)
+                    }
+                    const failedCodeIndex = extractErrorCodeIndex(message)
+                    if (failedCodeIndex !== null) {
+                        Glog.warn(
+                            `[cssts] Transform failed around codeIndex=${failedCodeIndex}, `
+                            + `snippet="${getSnippetAround(sourceCode, failedCodeIndex)}"`
+                        )
+                    }
+                    if (/UnaryExpression CST(?:不完整|incomplete)/i.test(message)) {
+                        const standalonePlus = findStandalonePlusIndexes(sourceCode)
+                        if (standalonePlus.length) {
+                            const top = standalonePlus.slice(0, 3).map((idx, i) => {
+                                const lc = toLineCol(sourceCode, idx)
+                                return `#${i + 1}@${idx}(L${lc.line}:C${lc.column}) "${getSnippetAround(sourceCode, idx, 18)}"`
+                            })
+                            Glog.warn(
+                                `[cssts] UnaryExpression debug: standalone '+' candidates(${standalonePlus.length}) -> ${top.join(' | ')}`
+                            )
+                        } else {
+                            Glog.warn('[cssts] UnaryExpression debug: no standalone "+" candidate found in current source')
+                        }
+                    }
+
+                    if (cachedBefore) {
+                        Glog.warn('[cssts-cache] transform failed; reusing last successful snapshot')
+                    } else {
+                        Glog.warn('[cssts-cache] transform failed and no cached snapshot exists; keep existing embedded content')
                         return
                     }
                 }
+            } else {
+                Glog.debug(`[cssts-cache] hit for ${fileName}, id=${embeddedFile.id}`)
             }
+
+            const snapshot = transformSnapshots.get(fileName)
+            if (!snapshot) {
+                Glog.warn('[cssts-cache] missing snapshot after transform; keep existing embedded content')
+                return
+            }
+
+            if (snapshot.sourceHash !== sourceHash) {
+                Glog.warn(
+                    `[cssts-cache] using stale snapshot for ${fileName}: `
+                    + `snapshotHash=${snapshot.sourceHash}, sourceHash=${sourceHash}`
+                )
+            }
+
+            const { sourceOriginSegments, syntheticSegments, gapMappedSegments, gapAnchorSegments } = applyLayeredSegments(
+                embeddedFile,
+                scriptBlock.name,
+                snapshot.tsCode,
+                snapshot.offsets,
+                snapshot.sourceLength
+            )
+            Glog.info(
+                `[cssts] Applied snapshot to ${embeddedFile.id}; Created ${embeddedFile.content.length} segments; `
+                + `sourceOriginSegments=${sourceOriginSegments}, syntheticSegments=${syntheticSegments}, `
+                + `gapMappedSegments=${gapMappedSegments}, gapAnchorSegments=${gapAnchorSegments}, `
+                + `mode=layered-multi-segment, sourceCoverage=${(snapshot.sourceCoverage.coverage * 100).toFixed(1)}%, `
+                + `generatedFromSourceCoverage=${(snapshot.generatedCoverageFromSource.coverage * 100).toFixed(1)}%`
+            )
         },
     }
 }
