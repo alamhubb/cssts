@@ -4,11 +4,13 @@ import type { VueLanguagePlugin } from '@vue/language-core'
 import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
 // C 层需要执行 parser，因此引入 slime-parser 的 parser 与 CST->AST 工具。
 import { SlimeParser, SlimeCstToAstUtils } from 'slime-parser'
+// G 层需要真实生成代码，因此引入 slime-generator。
+import { SlimeGenerator } from 'slime-generator'
 // 统一用 glog 输出调试信息，方便在 .glog 里确认插件是否生效。
 import Glog from 'glogjs'
 
 // 固定版本号用于日志定位，排查时能明确当前运行的是哪一版代码。
-const PLUGIN_VERSION = '1.0.20-testts-C-parser-only'
+const PLUGIN_VERSION = '1.0.21-testts-G-real-transform'
 
 // 初始化日志系统并开启 debug 级别，保证关键路径日志不会丢。
 Glog.init({ level: 'debug' })
@@ -36,6 +38,26 @@ type ParsedSfcLike = {
     // <script setup> 同理，也需要同样处理。
     scriptSetup?: SfcScriptLike | null
   }
+}
+
+// 定义 generator 返回 mapping 的最小结构，便于后续统一处理。
+type RawMapping = {
+  // source 保存原始文本坐标。
+  source?: { index?: number, length?: number }
+  // generate 保存生成文本坐标。
+  generate?: { index?: number, length?: number }
+}
+
+// 归一化后的 mapping 结构，字段均为已校验的数字坐标。
+type NormalizedMapping = {
+  // 原文起始 offset。
+  sourceStart: number
+  // 原文结束 offset。
+  sourceEnd: number
+  // 生成文本起始 offset。
+  generatedStart: number
+  // 生成文本结束 offset。
+  generatedEnd: number
 }
 
 // 抽成函数避免判定逻辑在多处重复。
@@ -96,14 +118,158 @@ function applyIdentitySegments(
   embeddedFile.content.push(['', scriptBlockName, sourceCode.length, features])
 }
 
-// C 层只执行 parser，不消费结果，用于验证 parser 本身是否影响提示链路。
-function runParserOnly(sourceCode: string) {
+// 真实执行 parse + ast + generate，返回生成文本与原始 mapping。
+function runRealTransform(sourceCode: string): { generatedCode: string, rawMappings: RawMapping[], changed: boolean } {
   // 构造 parser，输入就是当前脚本原文。
   const parser = new SlimeParser(sourceCode)
   // 执行 Program 规则得到 CST。
   const cst = parser.Program()
-  // 把 CST 转成 AST；结果故意不使用，仅确认链路可跑通。
-  SlimeCstToAstUtils.toProgram(cst)
+  // 把 CST 转成 AST，供 generator 使用。
+  const ast = SlimeCstToAstUtils.toProgram(cst)
+  // 执行代码生成，得到生成文本与 mapping。
+  const generated = SlimeGenerator.generator(ast, parser.parsedTokens)
+  // 兜底确保 generatedCode 永远是字符串。
+  const generatedCode = typeof generated.code === 'string' ? generated.code : sourceCode
+  // 兜底确保 mappings 永远是数组。
+  const rawMappings = Array.isArray(generated.mapping) ? (generated.mapping as RawMapping[]) : []
+  // 标记生成文本是否与原文不同，便于日志观察行为。
+  const changed = generatedCode !== sourceCode
+  // 返回 transform 结果给 resolveEmbeddedCode。
+  return { generatedCode, rawMappings, changed }
+}
+
+// 过滤并归一化 raw mapping，移除无效区间与重叠区间。
+function normalizeMappings(
+  // 原始 mapping 数组。
+  rawMappings: RawMapping[],
+  // 原文总长度，用于越界校验。
+  sourceLength: number,
+  // 生成文本总长度，用于越界校验。
+  generatedLength: number
+): NormalizedMapping[] {
+  // 先收集通过基础校验的 mapping。
+  const normalized: NormalizedMapping[] = []
+  // 遍历原始 mapping 并做数值化与边界校验。
+  for (const mapping of rawMappings) {
+    // 读取 source 起点。
+    const sourceStart = Number(mapping.source?.index)
+    // 读取 source 长度。
+    const sourceLen = Number(mapping.source?.length)
+    // 读取 generate 起点。
+    const generatedStart = Number(mapping.generate?.index)
+    // 读取 generate 长度。
+    const generatedLen = Number(mapping.generate?.length)
+    // 任何非数字输入都直接丢弃。
+    if (!Number.isFinite(sourceStart) || !Number.isFinite(sourceLen) || !Number.isFinite(generatedStart) || !Number.isFinite(generatedLen)) continue
+    // 非正长度区间直接丢弃。
+    if (sourceLen <= 0 || generatedLen <= 0) continue
+    // 计算 source 结束位置。
+    const sourceEnd = sourceStart + sourceLen
+    // 计算 generate 结束位置。
+    const generatedEnd = generatedStart + generatedLen
+    // 任一越界都丢弃，避免写入非法区间。
+    if (sourceStart < 0 || generatedStart < 0 || sourceEnd > sourceLength || generatedEnd > generatedLength) continue
+    // 收集有效区间。
+    normalized.push({ sourceStart, sourceEnd, generatedStart, generatedEnd })
+  }
+  // 按生成区间排序，便于后续去重叠和按顺序写入。
+  normalized.sort((a, b) => {
+    // 优先按生成起点排序。
+    if (a.generatedStart !== b.generatedStart) return a.generatedStart - b.generatedStart
+    // 起点相同则按终点排序。
+    return a.generatedEnd - b.generatedEnd
+  })
+  // 二次过滤：去掉与前一区间重叠的映射，保证输出单调。
+  const nonOverlapping: NormalizedMapping[] = []
+  // 记录上一个区间的生成终点。
+  let lastGeneratedEnd = -1
+  // 顺序扫描并剔除重叠段。
+  for (const mapping of normalized) {
+    // 与已有区间重叠则跳过。
+    if (mapping.generatedStart < lastGeneratedEnd) continue
+    // 保留当前区间。
+    nonOverlapping.push(mapping)
+    // 更新终点游标。
+    lastGeneratedEnd = mapping.generatedEnd
+  }
+  // 返回最终可用 mapping。
+  return nonOverlapping
+}
+
+// 按 mapping 将生成文本写入 embedded content，同时保留未映射 gap 文本。
+function applyMappedSegments(
+  // 目标 embedded file（只使用 content）。
+  embeddedFile: { content: any[] },
+  // segment 来源块名。
+  scriptBlockName: string,
+  // 生成后的完整文本。
+  generatedCode: string,
+  // 已归一化映射区间。
+  mappings: NormalizedMapping[]
+): { mappedSegments: number, gapSegments: number } {
+  // features 与 identity 保持一致，保证能力面不变。
+  const features = {
+    verification: true,
+    completion: true,
+    semantic: true,
+    navigation: true,
+    structure: true,
+    format: true,
+  }
+  // 清空旧内容，准备写入新分段。
+  embeddedFile.content.length = 0
+  // 记录映射段数量。
+  let mappedSegments = 0
+  // 记录 gap 段数量。
+  let gapSegments = 0
+  // 生成文本游标。
+  let lastGeneratedEnd = 0
+  // 顺序应用每一个 mapping。
+  for (const mapping of mappings) {
+    // 若当前 mapping 前存在 gap，先写入纯文本 gap。
+    if (mapping.generatedStart > lastGeneratedEnd) {
+      // 取出 gap 文本。
+      const gapText = generatedCode.slice(lastGeneratedEnd, mapping.generatedStart)
+      // 仅非空文本才写入。
+      if (gapText) {
+        // gap 写为纯字符串段（无映射）。
+        embeddedFile.content.push(gapText)
+        // 统计 gap 数量。
+        gapSegments++
+      }
+    }
+    // 取出当前 mapping 对应的生成文本。
+    const mappedText = generatedCode.slice(mapping.generatedStart, mapping.generatedEnd)
+    // 空文本段直接跳过，避免噪音映射。
+    if (!mappedText) {
+      // 推进游标避免重复处理。
+      lastGeneratedEnd = Math.max(lastGeneratedEnd, mapping.generatedEnd)
+      // 继续下一个映射。
+      continue
+    }
+    // 写入映射主段，锚定到 sourceStart。
+    embeddedFile.content.push([mappedText, scriptBlockName, mapping.sourceStart, features])
+    // 写入空尾段，锚定到 sourceEnd，维持边界行为稳定。
+    embeddedFile.content.push(['', scriptBlockName, mapping.sourceEnd, features])
+    // 统计映射段数量。
+    mappedSegments++
+    // 推进游标到当前映射末尾。
+    lastGeneratedEnd = Math.max(lastGeneratedEnd, mapping.generatedEnd)
+  }
+  // 若末尾仍有未映射文本，作为 tail gap 写入。
+  if (lastGeneratedEnd < generatedCode.length) {
+    // 取出 tail 文本。
+    const tailText = generatedCode.slice(lastGeneratedEnd)
+    // 非空才写入，避免空串段。
+    if (tailText) {
+      // 写入 tail 纯文本段。
+      embeddedFile.content.push(tailText)
+      // 统计 gap 数量。
+      gapSegments++
+    }
+  }
+  // 返回写入统计，便于日志分析。
+  return { mappedSegments, gapSegments }
 }
 
 // 按 VueLanguagePlugin 工厂签名创建插件实例。
@@ -112,8 +278,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
   const ts = modules.typescript
   // 打印 TS 版本，排查环境差异。
   Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
-  // 明确当前模式是 C 层：parseSFC2 改 lang + parser only + identity 写入。
-  Glog.info('[language-plugin-testts] mode=C_PARSER_ONLY (parseSFC2 alias + parser only + identity write)')
+  // 明确当前模式是 G 层：真实 transform + mapping。
+  Glog.info('[language-plugin-testts] mode=G_REAL_TRANSFORM (parse+ast+generate+mapping with identity fallback)')
 
   // 返回真正给 Volar 使用的插件对象。
   return {
@@ -142,7 +308,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
       return sfc
     },
 
-    // C 层：先跑 parser（结果不用），再对脚本 embedded 写入 identity 文本。
+    // G 层：执行真实 transform，成功应用 mapping，失败回退 identity。
     resolveEmbeddedCode(fileName, sfc, embeddedFile) {
       // 仅处理脚本虚拟文件，避免影响模板或样式链路。
       if (embeddedFile.id !== 'script_ts' && embeddedFile.id !== 'scriptsetup_raw') return
@@ -156,24 +322,48 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
       const sourceCode = typeof (scriptBlock as SfcScriptLike | undefined)?.content === 'string'
         ? ((scriptBlock as SfcScriptLike).content as string)
         : ''
-      // C 层只验证 parser 可执行；解析失败只记录日志，不改变输出策略。
+      // 给 segment 设置稳定脚本名，缺失时用 scriptSetup 作为兜底名。
+      const scriptBlockName = ((scriptBlock as SfcScriptLike | undefined)?.name || 'scriptSetup')
+      // 真实 transform 过程全部放在 try 内，异常时统一回退 identity。
       try {
-        // 执行 parser + CST->AST，但不使用解析结果。
-        runParserOnly(sourceCode)
+        // 执行 parse+ast+generate，拿到生成文本与原始 mapping。
+        const transformed = runRealTransform(sourceCode)
+        // 对 mapping 做归一化与清洗，避免非法区间影响服务。
+        const mappings = normalizeMappings(transformed.rawMappings, sourceCode.length, transformed.generatedCode.length)
+        // 只要生成文本为空或 mapping 为空，就回退 identity 保持稳定。
+        if (!transformed.generatedCode.length || mappings.length === 0) {
+          // 记录回退原因，方便定位是生成空还是 mapping 丢失。
+          Glog.warn(
+            `[testts] resolveEmbeddedCode(G) fallback identity: file=${fileName}, id=${embeddedFile.id}, `
+            + `srcLen=${sourceCode.length}, genLen=${transformed.generatedCode.length}, rawMappings=${transformed.rawMappings.length}, validMappings=${mappings.length}`
+          )
+          // 回退到 identity，确保提示链路不断。
+          applyIdentitySegments(embeddedFile as { content: any[] }, scriptBlockName, sourceCode)
+          // 回退后直接结束。
+          return
+        }
+        // 应用 mapping 分段写入，生成最终 embedded 内容。
+        const applied = applyMappedSegments(
+          embeddedFile as { content: any[] },
+          scriptBlockName,
+          transformed.generatedCode,
+          mappings
+        )
+        // 输出 G 层日志，记录 transform 与 mapping 的关键统计。
+        Glog.info(
+          `[testts] resolveEmbeddedCode(G): file=${fileName}, id=${embeddedFile.id}, `
+          + `srcLen=${sourceCode.length}, genLen=${transformed.generatedCode.length}, changed=${transformed.changed}, `
+          + `rawMappings=${transformed.rawMappings.length}, validMappings=${mappings.length}, `
+          + `mappedSegments=${applied.mappedSegments}, gapSegments=${applied.gapSegments}, segments=${embeddedFile.content.length}`
+        )
       } catch (error: any) {
         // 收敛错误信息，避免异常中断编辑链路。
         const message = error?.message || String(error)
-        // 记录 parser 失败，便于和 B 层对比。
-        Glog.warn(`[testts] parser-only failed: file=${fileName}, id=${embeddedFile.id}, error=${message}`)
+        // 记录 transform 异常并回退 identity。
+        Glog.warn(`[testts] resolveEmbeddedCode(G) transform failed: file=${fileName}, id=${embeddedFile.id}, error=${message}`)
+        // 异常时必须回退 identity，确保语法提示不中断。
+        applyIdentitySegments(embeddedFile as { content: any[] }, scriptBlockName, sourceCode)
       }
-      // 给 segment 设置稳定脚本名，缺失时用 scriptSetup 作为兜底名。
-      const scriptBlockName = ((scriptBlock as SfcScriptLike | undefined)?.name || 'scriptSetup')
-      // 执行 identity 写入：文本完全不变，仅显式写入 embedded content。
-      applyIdentitySegments(embeddedFile as { content: any[] }, scriptBlockName, sourceCode)
-      // 输出 C 层日志，确认 parser-only 与 identity 写入都已执行。
-      Glog.info(
-        `[testts] resolveEmbeddedCode(C): file=${fileName}, id=${embeddedFile.id}, sourceLen=${sourceCode.length}, segments=${embeddedFile.content.length}`
-      )
       // 返回结束，避免额外逻辑干扰。
       return
     },
