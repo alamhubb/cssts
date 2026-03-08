@@ -7,13 +7,13 @@ import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { existsSync, readFileSync } from 'node:fs'
 
-const PLUGIN_VERSION = '1.0.15-testts-lang-intercept'
+const PLUGIN_VERSION = '1.0.16-testts-identity-baseline'
 type TesttsBisectMode =
     | 'identity_script_ts'
     | 'parse_ast_script_ts'
     | 'generate_only_script_ts'
     | 'apply_mapping_no_cache'
-const TESTTS_BISECT_MODE: TesttsBisectMode = 'apply_mapping_no_cache'
+const TESTTS_BISECT_MODE: TesttsBisectMode = 'identity_script_ts'
 const require = createRequire(import.meta.url)
 
 Glog.init({ level: 'debug' })
