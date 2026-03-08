@@ -10,7 +10,7 @@ import { SlimeGenerator } from 'slime-generator'
 import Glog from 'glogjs'
 
 // 固定版本号用于日志定位，排查时能明确当前运行的是哪一版代码。
-const PLUGIN_VERSION = '1.0.21-testts-G-real-transform'
+const PLUGIN_VERSION = '1.0.22-testts-G-script-ts-only'
 
 // 初始化日志系统并开启 debug 级别，保证关键路径日志不会丢。
 Glog.init({ level: 'debug' })
@@ -278,8 +278,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
   const ts = modules.typescript
   // 打印 TS 版本，排查环境差异。
   Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
-  // 明确当前模式是 G 层：真实 transform + mapping。
-  Glog.info('[language-plugin-testts] mode=G_REAL_TRANSFORM (parse+ast+generate+mapping with identity fallback)')
+  // 明确当前模式：仅 script_ts 做 G 变换，scriptsetup_raw 保持默认行为。
+  Glog.info('[language-plugin-testts] mode=G_REAL_TRANSFORM_SCRIPT_TS_ONLY (transform/mapping only for script_ts)')
 
   // 返回真正给 Volar 使用的插件对象。
   return {
@@ -308,14 +308,12 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
       return sfc
     },
 
-    // G 层：执行真实 transform，成功应用 mapping，失败回退 identity。
+    // G 层：仅对 script_ts 执行真实 transform，成功应用 mapping，失败回退 identity。
     resolveEmbeddedCode(fileName, sfc, embeddedFile) {
-      // 仅处理脚本虚拟文件，避免影响模板或样式链路。
-      if (embeddedFile.id !== 'script_ts' && embeddedFile.id !== 'scriptsetup_raw') return
-      // 按 embedded id 优先选择对应脚本块，保证 script 与 script setup 对齐。
-      const scriptBlock = embeddedFile.id === 'scriptsetup_raw'
-        ? (sfc.scriptSetup || sfc.script)
-        : (sfc.script || sfc.scriptSetup)
+      // 只处理 script_ts，避免污染 scriptsetup_raw 展示层。
+      if (embeddedFile.id !== 'script_ts') return
+      // 对应到 SFC 的主脚本来源，优先 script setup。
+      const scriptBlock = (sfc.scriptSetup || sfc.script)
       // 只有 testts 来源脚本才接管，普通 ts/js 继续走默认流程。
       if (!isTesttsScriptBlock(scriptBlock as SfcScriptLike | null | undefined)) return
       // 拿到原文；缺失时降级为空字符串，保证结构稳定。
