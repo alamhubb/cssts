@@ -1,27 +1,18 @@
-<script setup lang="cssts">
+<script setup lang="testts">
 import { ref } from 'vue'
 
-// 测试 CSSTS 语法
 const count = ref(0)
+const message = 'Hello World'
 
 console.log(count)
-
-// 使用 css { } 语法定义样式
-const buttonStyle = css { displayFlex, alignItemsCenter, paddingX16px, paddingY8px, backgroundColorBlue, colorWhite, borderRadius8px }
-
-// 悬停样式
-const hoverStyle = css { backgroundColorNavy, cursorPointer }
 
 function increment() {
   count.value++
 }
+
+console.log(message)
 </script>
 
 <template>
-  <div>
-    <h1>CSSTS Language Plugin Test</h1>
-    <button :class="[buttonStyle, hoverStyle]" @click="increment">
-      Count: {{ count }}
-    </button>
-  </div>
+  <div>{{ message }} - {{ count }}</div>
 </template>

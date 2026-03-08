@@ -1,4 +1,5 @@
 import type { VueLanguagePlugin } from '@vue/language-core'
+import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
 import { SlimeParser, SlimeCstToAstUtils } from 'slime-parser'
 import { SlimeGenerator } from 'slime-generator'
 import Glog from 'glogjs'
@@ -6,7 +7,7 @@ import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { existsSync, readFileSync } from 'node:fs'
 
-const PLUGIN_VERSION = '1.0.14-step3-apply-mapping'
+const PLUGIN_VERSION = '1.0.15-testts-lang-intercept'
 type TesttsBisectMode =
     | 'identity_script_ts'
     | 'parse_ast_script_ts'
@@ -87,6 +88,45 @@ type SourceCoverage = {
     totalNonWhitespace: number
     mappedNonWhitespace: number
     ratio: number
+}
+
+type SfcScriptLike = {
+    lang?: string
+    attrs?: Record<string, string | true>
+}
+
+type ParsedSfcLike = {
+    descriptor: {
+        script?: SfcScriptLike | null
+        scriptSetup?: SfcScriptLike | null
+    }
+}
+
+function contentMayContainTestts(content: string): boolean {
+    return content.includes('lang="testts"')
+        || content.includes("lang='testts'")
+        || content.includes('lang=testts')
+}
+
+function isTesttsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
+    if (!block) return false
+    if (block.lang === 'testts') return true
+    return block.attrs?.lang === 'testts'
+}
+
+function patchSfcScriptLangForVolar(sfc: ParsedSfcLike): boolean {
+    let patched = false
+    const blocks = [sfc.descriptor.script, sfc.descriptor.scriptSetup]
+    for (const block of blocks) {
+        if (!isTesttsScriptBlock(block)) {
+            continue
+        }
+        if (block && block.lang !== 'ts') {
+            block.lang = 'ts'
+            patched = true
+        }
+    }
+    return patched
 }
 
 function materializeEmbeddedText(content: any[]): string {
@@ -312,6 +352,23 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
     return {
         name: 'language-plugin-testts',
         version: 2.2,
+        order: -10000,
+
+        parseSFC2(fileName, languageId, content) {
+            if (languageId !== 'vue') {
+                return
+            }
+            if (!contentMayContainTestts(content)) {
+                return
+            }
+            const sfc = parseSfc(content) as ParsedSfcLike
+            const patched = patchSfcScriptLangForVolar(sfc)
+            if (!patched) {
+                return
+            }
+            Glog.info(`[testts] parseSFC2 intercepted: patched script lang testts->ts for ${fileName}`)
+            return sfc
+        },
 
         getEmbeddedCodes(fileName, sfc) {
             Glog.filePath = fileName
@@ -331,7 +388,7 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
             }
 
             const scriptBlock = sfc.scriptSetup || sfc.script
-            if (!scriptBlock || scriptBlock.lang !== 'testts') {
+            if (!scriptBlock || !isTesttsScriptBlock(scriptBlock as SfcScriptLike)) {
                 return
             }
 
