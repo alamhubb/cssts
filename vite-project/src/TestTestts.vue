@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="testts">
 import { ref } from 'vue'
 
 const count = ref(0)
