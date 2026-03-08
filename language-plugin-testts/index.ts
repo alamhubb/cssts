@@ -6,7 +6,7 @@ import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
 import Glog from 'glogjs'
 
 // 固定版本号用于日志定位，排查时能明确当前运行的是哪一版代码。
-const PLUGIN_VERSION = '1.0.17-testts-lang-alias-only'
+const PLUGIN_VERSION = '1.0.18-testts-A-resolve-log-only'
 
 // 初始化日志系统并开启 debug 级别，保证关键路径日志不会丢。
 Glog.init({ level: 'debug' })
@@ -70,8 +70,8 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
   const ts = modules.typescript
   // 打印 TS 版本，排查环境差异。
   Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
-  // 明确当前模式是“只改名字”，避免误判走了复杂路径。
-  Glog.info('[language-plugin-testts] mode=lang_alias_only (parseSFC2 only, no transform/mapping/embedded writes)')
+  // 明确当前模式是 A 层：parseSFC2 改 lang + resolveEmbeddedCode 仅日志。
+  Glog.info('[language-plugin-testts] mode=A_RESOLVE_LOG_ONLY (parseSFC2 alias + resolve logs, no embedded writes)')
 
   // 返回真正给 Volar 使用的插件对象。
   return {
@@ -98,6 +98,18 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
       Glog.info(`[testts] parseSFC2 intercepted: patched script lang testts->ts for ${fileName}`)
       // 返回改写后的 descriptor，让后续链路像原生 ts 一样工作。
       return sfc
+    },
+
+    // A 层仅加日志：观察 resolveEmbeddedCode 调用顺序与 id，不修改内容。
+    resolveEmbeddedCode(fileName, _sfc, embeddedFile) {
+      // 先过滤，只记录脚本相关 embedded，避免日志噪音过大。
+      if (!String(embeddedFile.id).includes('script')) return
+      // 记录关键定位信息：文件、embedded id、当前 content 段数量。
+      Glog.info(
+        `[testts] resolveEmbeddedCode(A): file=${fileName}, id=${embeddedFile.id}, segments=${embeddedFile.content.length}`
+      )
+      // 明确不做任何写入，保持 baseline 行为不变。
+      return
     },
   }
 }
