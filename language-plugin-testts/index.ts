@@ -210,15 +210,6 @@ function normalizeMappings(
     return { mappings: noOverlap, stats }
 }
 
-function calcGeneratedCoverage(mappings: NormalizedMapping[], generatedLength: number): number {
-    if (generatedLength <= 0) return 1
-    let covered = 0
-    for (const mapping of mappings) {
-        covered += Math.max(0, mapping.generatedEnd - mapping.generatedStart)
-    }
-    return Math.min(1, covered / generatedLength)
-}
-
 function calcSourceNonWhitespaceCoverage(sourceCode: string, mappings: NormalizedMapping[]): SourceCoverage {
     const coverage = new Uint8Array(sourceCode.length)
     for (const mapping of mappings) {
@@ -346,7 +337,6 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                 try {
                     const res = runParseAstGenerate(sourceCode)
                     const normalized = normalizeMappings(res.rawMappings, sourceCode.length, res.generatedCode.length)
-                    const generatedCoverage = calcGeneratedCoverage(normalized.mappings, res.generatedCode.length)
                     const sourceCoverage = calcSourceNonWhitespaceCoverage(sourceCode, normalized.mappings)
 
                     if (normalized.mappings.length === 0) {
@@ -363,7 +353,6 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                             `[testts-map] apply done: raw=${normalized.stats.rawCount}, valid=${normalized.stats.validCount}, `
                             + `segments=${embeddedFile.content.length}, mappedSegments=${applied.mappedSegments}, `
                             + `srcLen=${sourceCode.length}, genLen=${res.generatedCode.length}, changed=${res.changed}, `
-                            + `generatedCoverage=${(generatedCoverage * 100).toFixed(1)}%, `
                             + `sourceNonWs=${sourceCoverage.mappedNonWhitespace}/${sourceCoverage.totalNonWhitespace} `
                             + `(${(sourceCoverage.ratio * 100).toFixed(1)}%), invalidNonNumeric=${normalized.stats.invalidNonNumeric}, `
                             + `invalidNonPositive=${normalized.stats.invalidNonPositive}, outOfRange=${normalized.stats.outOfRange}, `
