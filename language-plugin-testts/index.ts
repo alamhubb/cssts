@@ -89,6 +89,27 @@ type SourceCoverage = {
     ratio: number
 }
 
+function materializeEmbeddedText(content: any[]): string {
+    return content
+        .map(segment => Array.isArray(segment) ? (segment[0] ?? '') : (segment ?? ''))
+        .join('')
+}
+
+function findFirstDiffIndex(a: string, b: string): number {
+    const len = Math.min(a.length, b.length)
+    for (let i = 0; i < len; i++) {
+        if (a[i] !== b[i]) return i
+    }
+    return a.length === b.length ? -1 : len
+}
+
+function previewAround(text: string, index: number, radius: number = 20): string {
+    if (index < 0) return ''
+    const start = Math.max(0, index - radius)
+    const end = Math.min(text.length, index + radius)
+    return text.slice(start, end).replace(/\r/g, '\\r').replace(/\n/g, '\\n')
+}
+
 function applyIdentitySegments(
     embeddedFile: { content: any[] },
     scriptBlockName: string,
@@ -349,6 +370,20 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
                             res.generatedCode,
                             normalized.mappings
                         )
+                        const reconstructed = materializeEmbeddedText(embeddedFile.content)
+                        if (reconstructed !== res.generatedCode) {
+                            const diffIndex = findFirstDiffIndex(reconstructed, res.generatedCode)
+                            Glog.error(
+                                `[testts-map] reconstructed code mismatch: diffIndex=${diffIndex}, `
+                                + `reconstructedLen=${reconstructed.length}, generatedLen=${res.generatedCode.length}, `
+                                + `reconstructedPreview="${previewAround(reconstructed, diffIndex)}", `
+                                + `generatedPreview="${previewAround(res.generatedCode, diffIndex)}"`
+                            )
+                        } else {
+                            Glog.debug(
+                                `[testts-map] reconstructed code matches generated code: len=${reconstructed.length}`
+                            )
+                        }
                         Glog.info(
                             `[testts-map] apply done: raw=${normalized.stats.rawCount}, valid=${normalized.stats.validCount}, `
                             + `segments=${embeddedFile.content.length}, mappedSegments=${applied.mappedSegments}, `
