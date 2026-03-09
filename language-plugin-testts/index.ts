@@ -1,195 +1,308 @@
-// 导入 Vue 的代码信息和插件类型。
 import type { VueCodeInformation, VueLanguagePlugin } from '@vue/language-core'
-// 导入 testts 解析和 CST->AST 工具。
+import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
 import { SlimeParser, SlimeCstToAstUtils } from 'slime-parser'
-// 导入代码生成器和 mapping 转换器。
 import { SlimeGenerator, SlimeMappingConverter } from 'slime-generator'
-// 导入增强映射类型定义。
 import type { EnhancedMapping } from 'slime-generator'
-// 导入日志库用于调试。
 import Glog from 'glogjs'
 
-// 定义当前插件版本号。
-const PLUGIN_VERSION = '4.1.0-testts-minimal-no-defensive'
+const PLUGIN_VERSION = '4.2.0-testts-parseSFC2-ts-then-resolve-merge'
 
-// 初始化日志级别为 debug。
 Glog.init({ level: 'debug' })
-// 记录插件初始化日志。
 Glog.info(`[language-plugin-testts v${PLUGIN_VERSION}] initialized`)
 
-// 定义脚本块最小结构。
 type SfcScriptLike = {
-  // 脚本块名称。
   name?: string
-  // 脚本语言。
   lang?: string
-  // 标签属性。
   attrs?: Record<string, string | true>
-  // 脚本内容。
   content?: string
 }
 
-// 定义 SFC 中关心的脚本容器。
-type SfcLike = {
-  // 普通 script。
-  script?: SfcScriptLike | null
-  // script setup。
-  scriptSetup?: SfcScriptLike | null
+type ParsedSfcLike = {
+  descriptor: {
+    script?: SfcScriptLike | null
+    scriptSetup?: SfcScriptLike | null
+  }
 }
 
-// 定义转换结果结构。
 type SlimeTransformResult = {
-  // 转换后的代码。
   code: string
-  // 归一化后的映射数组。
   mapping: EnhancedMapping[]
 }
 
-// 定义统一的代码能力开关。
+type ReplacementItem = {
+  sourceName: 'script' | 'scriptSetup'
+  transformed: SlimeTransformResult
+}
+
+type Segment = string | [string, string, number, VueCodeInformation]
+
 const ALL_CODE_FEATURES: VueCodeInformation = {
-  // 开启诊断能力。
   verification: true,
-  // 开启补全能力。
   completion: true,
-  // 开启语义能力。
   semantic: true,
-  // 开启导航能力。
   navigation: true,
 }
 
-// 判断给定块是否是 testts。
+const fileReplacementCache = new Map<string, ReplacementItem[]>()
+
 function isTesttsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
-  // 通过 lang 或 attrs.lang 判断 testts。
   return block?.lang === 'testts' || block?.attrs?.lang === 'testts'
 }
 
-// 获取优先处理的 testts 脚本块。
-function getPrimaryTesttsBlock(sfc: SfcLike): SfcScriptLike | undefined {
-  // 优先 scriptSetup。
-  if (isTesttsScriptBlock(sfc.scriptSetup)) return sfc.scriptSetup ?? undefined
-  // 次选 script。
-  if (isTesttsScriptBlock(sfc.script)) return sfc.script ?? undefined
-}
-
-// 执行 testts 到 ts 的转换并产出 mapping。
-function transformTesttsToTs(sourceCode: string): SlimeTransformResult {
-  // 创建解析器。
-  const parser = new SlimeParser(sourceCode)
-  // 解析 Program。
-  const cst = parser.Program()
-  // CST 转 AST。
-  const ast = SlimeCstToAstUtils.toProgram(cst)
-  // 生成代码和原始 mapping。
-  const generated = SlimeGenerator.generator(ast, parser.parsedTokens)
-  // 返回转换结果。
+function createIdentityResult(sourceCode: string): SlimeTransformResult {
   return {
-    // 返回生成代码字符串。
-    code: generated.code as string,
-    // 返回归一化映射。
-    mapping: SlimeMappingConverter.convertMappings((generated as any).mapping),
+    code: sourceCode,
+    mapping: [
+      {
+        original: { offset: 0, length: sourceCode.length },
+        generated: { offset: 0, length: sourceCode.length },
+      },
+    ],
   }
 }
 
-// 将增强映射转换为 Volar segments。
+function removeWhitespace(text: string): string {
+  return text.replace(/\s+/g, '')
+}
+
+function isSubsequence(needle: string, haystack: string): boolean {
+  if (needle.length === 0) return true
+  let i = 0
+  for (let j = 0; j < haystack.length; j++) {
+    if (haystack[j] === needle[i]) i++
+    if (i === needle.length) return true
+  }
+  return false
+}
+
+function hasTokenLoss(sourceCode: string, generatedCode: string): boolean {
+  const sourceNoWs = removeWhitespace(sourceCode)
+  const generatedNoWs = removeWhitespace(generatedCode)
+  return !isSubsequence(sourceNoWs, generatedNoWs)
+}
+
+type ParsedTokenLike = {
+  codeIndex?: number
+  tokenValue?: string
+}
+
+function getConsumedRanges(parsedTokens: unknown[]): Array<{ start: number; end: number }> {
+  const ranges: Array<{ start: number; end: number }> = []
+
+  for (const token of parsedTokens) {
+    const t = token as ParsedTokenLike | undefined
+    if (!t || typeof t.codeIndex !== 'number' || typeof t.tokenValue !== 'string') continue
+    if (t.tokenValue.length === 0) continue
+    ranges.push({ start: t.codeIndex, end: t.codeIndex + t.tokenValue.length })
+  }
+
+  ranges.sort((a, b) => a.start - b.start)
+  const merged: Array<{ start: number; end: number }> = []
+  for (const range of ranges) {
+    const last = merged[merged.length - 1]
+    if (!last || range.start > last.end) {
+      merged.push({ ...range })
+      continue
+    }
+    last.end = Math.max(last.end, range.end)
+  }
+  return merged
+}
+
+function hasUnconsumedNonWhitespace(sourceCode: string, parsedTokens: unknown[]): boolean {
+  const ranges = getConsumedRanges(parsedTokens)
+  let rangeIndex = 0
+
+  for (let i = 0; i < sourceCode.length; i++) {
+    const ch = sourceCode[i]
+    if (/\s/.test(ch)) continue
+
+    while (rangeIndex < ranges.length && ranges[rangeIndex].end <= i) {
+      rangeIndex++
+    }
+
+    const current = ranges[rangeIndex]
+    const covered = current && i >= current.start && i < current.end
+    if (!covered) return true
+  }
+
+  return false
+}
+
+function transformTesttsToTs(sourceCode: string): SlimeTransformResult {
+  try {
+    const parser = new SlimeParser(sourceCode)
+    const cst = parser.Program()
+    const ast = SlimeCstToAstUtils.toProgram(cst)
+    const generated = SlimeGenerator.generator(ast, parser.parsedTokens)
+    const generatedCode = generated.code as string
+
+    const parserDroppedTokens = hasUnconsumedNonWhitespace(sourceCode, parser.parsedTokens as unknown[])
+    const generatorDroppedChars = hasTokenLoss(sourceCode, generatedCode)
+    if (parserDroppedTokens || generatorDroppedChars) {
+      Glog.warn(
+        `[testts][transform] token loss detected, fallback to identity; parserDropped=${String(parserDroppedTokens)}, generatorDropped=${String(generatorDroppedChars)}`
+      )
+      return createIdentityResult(sourceCode)
+    }
+
+    return {
+      code: generatedCode,
+      mapping: SlimeMappingConverter.convertMappings((generated as any).mapping),
+    }
+  } catch (error) {
+    Glog.warn(`[testts][transform] exception fallback to identity: ${String(error)}`)
+    return createIdentityResult(sourceCode)
+  }
+}
+
 function buildSegmentsFromMapping(
-  // 生成后的完整代码。
   generatedCode: string,
-  // 增强映射数组。
   mapping: EnhancedMapping[],
-  // 源块名称。
   sourceName: string
-): (string | [string, string, number, VueCodeInformation])[] {
-  // 初始化 segment 容器。
-  const segments: (string | [string, string, number, VueCodeInformation])[] = []
-  // 按 generated offset 排序映射。
+): Segment[] {
+  const segments: Segment[] = []
   const sorted = [...mapping].sort((a, b) => a.generated.offset - b.generated.offset)
-  // 初始化遍历游标。
   let cursor = 0
 
-  // 遍历每个映射项。
   for (const item of sorted) {
-    // 取生成起点。
     const generatedStart = item.generated.offset
-    // 取生成终点。
     const generatedEnd = item.generated.offset + item.generated.length
-    // 取源代码起点。
     const sourceStart = item.original.offset
-    // 计算生成代码中的间隙文本。
     const gap = generatedCode.slice(cursor, generatedStart)
-    // 截取映射文本。
     const mapped = generatedCode.slice(generatedStart, generatedEnd)
 
-    // 有间隙则先写入纯文本段。
     if (gap) segments.push(gap)
-    // 写入带映射的 segment。
     segments.push([mapped, sourceName, sourceStart, ALL_CODE_FEATURES])
-    // 更新游标到当前终点。
     cursor = generatedEnd
   }
 
-  // 取尾部剩余文本。
   const tail = generatedCode.slice(cursor)
-  // 尾部非空则追加。
   if (tail) segments.push(tail)
-  // 返回完整 segments。
   return segments
 }
 
-// 定义插件主入口。
-const plugin: VueLanguagePlugin = ({ modules }) => {
-  // 获取 typescript 模块。
-  const ts = modules.typescript
-  // 打印 typescript 版本日志。
-  Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
-  // 打印当前模式日志。
-  Glog.info('[language-plugin-testts] mode=minimal_no_defensive')
+function mergeReplacementsIntoContent(baseContent: any[], replacements: Map<string, Segment[]>): any[] {
+  const merged: any[] = []
+  const injectedBySource = new Set<string>()
+  const sourceBlockNames = new Set<string>()
+  let tupleCount = 0
 
-  // 返回插件实现对象。
-  return {
-    // 插件名称。
-    name: 'language-plugin-testts',
-    // 插件 API 版本。
-    version: 2.2,
-    // 设置执行顺序。
-    order: 10000,
+  for (const segment of baseContent) {
+    const isTupleSegment = Array.isArray(segment)
+    if (isTupleSegment) tupleCount++
+    const sourceBlockName = isTupleSegment ? segment[1] : undefined
+    if (typeof sourceBlockName === 'string') sourceBlockNames.add(sourceBlockName)
 
-    // 定义 testts 的脚本编译钩子。
-    compileSFCScript(lang, script) {
-      // 仅处理 testts。
-      if (lang !== 'testts') return
-      // 执行转换。
-      const transformed = transformTesttsToTs(script)
-      // 生成 TS SourceFile。
-      return ts.createSourceFile('.ts', transformed.code, 99)
-    },
+    const replacement = typeof sourceBlockName === 'string' ? replacements.get(sourceBlockName) : undefined
+    if (replacement) {
+      if (!injectedBySource.has(sourceBlockName)) {
+        merged.push(...replacement)
+        injectedBySource.add(sourceBlockName)
+      }
+      continue
+    }
 
-    // 定义嵌入代码解析钩子。
-    resolveEmbeddedCode(fileName, sfc, embeddedFile) {
-      // 仅处理 script_ts 虚拟文件。
-      if (embeddedFile.id !== 'script_ts') return
-      // 获取目标 testts 块。
-      const target = getPrimaryTesttsBlock(sfc as SfcLike)
-      // 无目标块则退出。
-      if (!target) return
-
-      // 读取源代码文本。
-      const sourceCode = target.content as string
-      // 计算 sourceName。
-      const sourceName = target.name || (target === (sfc as SfcLike).scriptSetup ? 'scriptSetup' : 'script')
-      // 执行转换。
-      const transformed = transformTesttsToTs(sourceCode)
-      // 构建 segments。
-      const segments = buildSegmentsFromMapping(transformed.code, transformed.mapping, sourceName)
-
-      // 写回 script_ts 内容。
-      embeddedFile.content = segments as any
-      // 打印转换日志。
-      Glog.info(
-        `[testts] resolveEmbeddedCode(script_ts) transformed: file=${fileName}, source=${sourceName}, codeLen=${transformed.code.length}, mapTokens=${transformed.mapping.length}`
-      )
-    },
+    merged.push(segment)
   }
+
+  Glog.info(
+    `[testts][merge] baseSegments=${baseContent.length}, tupleSegments=${tupleCount}, sourceBlocks=${Array.from(sourceBlockNames).join(',')}, replacementKeys=${Array.from(replacements.keys()).join(',')}, injectedKeys=${Array.from(injectedBySource).join(',')}`
+  )
+
+  const uninjected = Array.from(replacements.keys()).filter(key => !injectedBySource.has(key))
+  if (uninjected.length) {
+    Glog.warn(`[testts][merge] replacements not injected: ${uninjected.join(',')}`)
+  }
+
+  return merged
 }
 
-// 默认导出插件。
+const plugin: VueLanguagePlugin = ({ modules }) => {
+  const ts = modules.typescript
+  Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
+  Glog.info('[language-plugin-testts] mode=parseSFC2_lang_to_ts_then_resolve_merge')
+
+  return [
+    {
+      name: 'language-plugin-testts-parse',
+      version: 2.2,
+      order: -10000,
+
+      parseSFC2(fileName, languageId, content) {
+        if (languageId !== 'vue') return
+
+        const sfc = parseSfc(content) as ParsedSfcLike
+        const replacements: ReplacementItem[] = []
+        const scriptSetup = sfc.descriptor.scriptSetup
+        const script = sfc.descriptor.script
+
+        if (isTesttsScriptBlock(scriptSetup)) {
+          const source = scriptSetup?.content as string
+          const transformed = transformTesttsToTs(source)
+          scriptSetup!.content = transformed.code
+          scriptSetup!.lang = 'ts'
+          scriptSetup!.attrs = { ...(scriptSetup!.attrs || {}), lang: 'ts' }
+          replacements.push({ sourceName: 'scriptSetup', transformed })
+        }
+
+        if (isTesttsScriptBlock(script)) {
+          const source = script?.content as string
+          const transformed = transformTesttsToTs(source)
+          script!.content = transformed.code
+          script!.lang = 'ts'
+          script!.attrs = { ...(script!.attrs || {}), lang: 'ts' }
+          replacements.push({ sourceName: 'script', transformed })
+        }
+
+        if (replacements.length === 0) {
+          fileReplacementCache.delete(fileName)
+          return
+        }
+
+        fileReplacementCache.set(fileName, replacements)
+        Glog.info(
+          `[testts][parse] file=${fileName}, replacements=${replacements.map(item => item.sourceName).join(',')}, cacheSize=${fileReplacementCache.size}`
+        )
+        return sfc as any
+      },
+    },
+    {
+      name: 'language-plugin-testts-resolve',
+      version: 2.2,
+      order: 10000,
+
+      resolveEmbeddedCode(fileName, _sfc, embeddedFile) {
+        if (embeddedFile.id !== 'script_ts') return
+
+        const replacementItems = fileReplacementCache.get(fileName)
+        if (!replacementItems?.length) return
+
+        const replacements = new Map<string, Segment[]>()
+        for (const item of replacementItems) {
+          replacements.set(
+            item.sourceName,
+            buildSegmentsFromMapping(item.transformed.code, item.transformed.mapping, item.sourceName)
+          )
+        }
+
+        const baseContent = embeddedFile.content as any[]
+        const baseTupleSourceBlocks = Array.from(new Set(
+          baseContent
+            .filter(item => Array.isArray(item) && typeof item[1] === 'string')
+            .map(item => item[1] as string)
+        ))
+        Glog.info(
+          `[testts][resolve] file=${fileName}, baseSegments=${baseContent.length}, baseTupleBlocks=${baseTupleSourceBlocks.join(',')}, replacementKeys=${Array.from(replacements.keys()).join(',')}`
+        )
+
+        const mergedContent = mergeReplacementsIntoContent(baseContent, replacements)
+        embeddedFile.content = mergedContent as any
+
+        Glog.info(`[testts][resolve] mergedSegments=${mergedContent.length}`)
+      },
+    },
+  ]
+}
+
 export default plugin

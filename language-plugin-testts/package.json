@@ -20,7 +20,8 @@
 	"sideEffects": false,
 	"scripts": {
 		"build": "tsdown",
-		"dev": "tsdown --watch"
+		"dev": "tsdown --watch",
+		"test:transform": "node ./test-transform-regression.mjs"
 	},
 	"dependencies": {
 		"glogjs": "^0.1.0",
