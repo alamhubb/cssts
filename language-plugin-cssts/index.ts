@@ -1,9 +1,10 @@
 import type { VueCodeInformation, VueLanguagePlugin } from '@vue/language-core'
 import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
-import { transformCssTs } from 'cssts-compiler'
+import { transformCssTs, CsstsInit, writeAtomUsedDts, RuntimeStore } from 'cssts-compiler'
 import { SlimeMappingConverter } from 'slime-generator'
 import type { EnhancedMapping } from 'slime-generator'
 import Glog from 'glogjs'
+import path from 'node:path'
 
 const PLUGIN_VERSION = '4.2.1-cssts-parseSFC2-ts-then-resolve-merge'
 
@@ -141,6 +142,28 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
   Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
   Glog.info('[language-plugin-cssts] mode=parseSFC2_lang_to_ts_then_resolve_merge')
 
+  // Hardcoded language-plugin settings (not overridden by tsconfig plugin options).
+  const dtsEnabled = true
+  const dtsOutputDir = path.resolve(process.cwd(), 'node_modules/@types/cssts-ts')
+  const autoUpdateAtomUsedDts = true
+
+  // Initialize runtime atom registry for language-service transforms.
+  // This is not the Vite runtime, keep Vite mode off.
+  CsstsInit.setViteEnvironment(false)
+  CsstsInit.init({
+    dtsOutputDir,
+  })
+
+  function refreshAtomUsedDts() {
+    if (!dtsEnabled || !autoUpdateAtomUsedDts) return
+    try {
+      writeAtomUsedDts(dtsOutputDir)
+      Glog.info(`[cssts] Updated atomUsedCssts.d.ts with ${RuntimeStore.getUsedStyles().size} styles`)
+    } catch (error) {
+      Glog.warn(`[cssts] Failed to update atomUsedCssts.d.ts: ${String(error)}`)
+    }
+  }
+
   return [
     {
       name: 'language-plugin-cssts-parse',
@@ -177,6 +200,9 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
           fileReplacementCache.delete(fileName)
           return
         }
+
+        // Keep IDE hint module in sync with transformed used atoms.
+        refreshAtomUsedDts()
 
         fileReplacementCache.set(fileName, replacements)
         Glog.info(
