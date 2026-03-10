@@ -4,6 +4,7 @@ import { transformCssTs, CsstsInit, writeAtomUsedDts, RuntimeStore } from 'cssts
 import { SlimeMappingConverter } from 'slime-generator'
 import type { EnhancedMapping } from 'slime-generator'
 import Glog from 'glogjs'
+import fs from 'node:fs'
 import path from 'node:path'
 
 const PLUGIN_VERSION = '4.2.1-cssts-parseSFC2-ts-then-resolve-merge'
@@ -45,6 +46,21 @@ const ALL_CODE_FEATURES: VueCodeInformation = {
 }
 
 const fileReplacementCache = new Map<string, ReplacementItem[]>()
+
+function resolveDtsOutputDir(): string {
+  let current = process.cwd()
+  while (true) {
+    const candidate = path.resolve(current, 'node_modules/@types/cssts-ts')
+    if (fs.existsSync(candidate)) {
+      return candidate
+    }
+    const parent = path.dirname(current)
+    if (parent === current) break
+    current = parent
+  }
+
+  return path.resolve(process.cwd(), 'node_modules/@types/cssts-ts')
+}
 
 function isCsstsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
   return block?.lang === 'cssts' || block?.attrs?.lang === 'cssts'
@@ -144,8 +160,10 @@ const plugin: VueLanguagePlugin = ({ modules }) => {
 
   // Hardcoded language-plugin settings (not overridden by tsconfig plugin options).
   const dtsEnabled = true
-  const dtsOutputDir = path.resolve(process.cwd(), 'node_modules/@types/cssts-ts')
+  const dtsOutputDir = resolveDtsOutputDir()
   const autoUpdateAtomUsedDts = true
+
+  fs.mkdirSync(dtsOutputDir, { recursive: true })
 
   // Initialize runtime atom registry for language-service transforms.
   // This is not the Vite runtime, keep Vite mode off.

@@ -17,5 +17,8 @@
     "vite-plugin-cssts": "^0.2.0",
     "vue": "^3.5.28",
     "vue-tsc": "^3.2.5"
+  },
+  "dependencies": {
+    "cssts-ts": "file:../cssts/cssts-runtime"
   }
 }
