@@ -1,308 +1,216 @@
-﻿import type { VueCodeInformation, VueLanguagePlugin } from '@vue/language-core'
+import type { VueCodeInformation, VueLanguagePlugin } from '@vue/language-core'
 import { parse as parseSfc } from '@vue/language-core/lib/utils/parseSfc.js'
-import { SlimeParser, SlimeCstToAstUtils } from 'slime-parser'
-import { SlimeGenerator, SlimeMappingConverter } from 'slime-generator'
+import { transformCssTs } from 'cssts-compiler'
+import { SlimeMappingConverter } from 'slime-generator'
 import type { EnhancedMapping } from 'slime-generator'
 import Glog from 'glogjs'
 
-const PLUGIN_VERSION = '4.2.0-testts-parseSFC2-ts-then-resolve-merge'
+const PLUGIN_VERSION = '4.2.1-cssts-parseSFC2-ts-then-resolve-merge'
 
 Glog.init({ level: 'debug' })
-Glog.info(`[language-plugin-testts v${PLUGIN_VERSION}] initialized`)
+Glog.info(`[language-plugin-cssts v${PLUGIN_VERSION}] initialized`)
 
 type SfcScriptLike = {
-    name?: string
-    lang?: string
-    attrs?: Record<string, string | true>
-    content?: string
+  name?: string
+  lang?: string
+  attrs?: Record<string, string | true>
+  content?: string
 }
 
 type ParsedSfcLike = {
-    descriptor: {
-        script?: SfcScriptLike | null
-        scriptSetup?: SfcScriptLike | null
-    }
+  descriptor: {
+    script?: SfcScriptLike | null
+    scriptSetup?: SfcScriptLike | null
+  }
 }
 
-type SlimeTransformResult = {
-    code: string
-    mapping: EnhancedMapping[]
+type CsstsTransformResult = {
+  code: string
+  mapping: EnhancedMapping[]
 }
 
 type ReplacementItem = {
-    sourceName: 'script' | 'scriptSetup'
-    transformed: SlimeTransformResult
+  sourceName: 'script' | 'scriptSetup'
+  transformed: CsstsTransformResult
 }
 
 type Segment = string | [string, string, number, VueCodeInformation]
 
 const ALL_CODE_FEATURES: VueCodeInformation = {
-    verification: true,
-    completion: true,
-    semantic: true,
-    navigation: true,
+  verification: true,
+  completion: true,
+  semantic: true,
+  navigation: true,
 }
 
 const fileReplacementCache = new Map<string, ReplacementItem[]>()
 
-function isTesttsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
-    return block?.lang === 'testts' || block?.attrs?.lang === 'testts'
+function isCsstsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
+  return block?.lang === 'cssts' || block?.attrs?.lang === 'cssts'
 }
 
-function createIdentityResult(sourceCode: string): SlimeTransformResult {
+function createIdentityResult(sourceCode: string): CsstsTransformResult {
+  return {
+    code: sourceCode,
+    mapping: [
+      {
+        original: { offset: 0, length: sourceCode.length },
+        generated: { offset: 0, length: sourceCode.length },
+      },
+    ],
+  }
+}
+
+function transformCsstsToTs(sourceCode: string): CsstsTransformResult {
+  try {
+    const transformed = transformCssTs(sourceCode)
+    const generatedCode = typeof transformed?.code === 'string' ? transformed.code : ''
+    const rawMappings = Array.isArray((transformed as any)?.mapping) ? (transformed as any).mapping : []
+
+    if (!generatedCode.length || !rawMappings.length) {
+      Glog.warn('[cssts][transform] empty transform output, fallback to identity')
+      return createIdentityResult(sourceCode)
+    }
+
+    const mapping = SlimeMappingConverter.convertMappings(rawMappings) as EnhancedMapping[]
+    if (!mapping.length) {
+      Glog.warn('[cssts][transform] empty converted mapping, fallback to identity')
+      return createIdentityResult(sourceCode)
+    }
+
     return {
-        code: sourceCode,
-        mapping: [
-            {
-                original: { offset: 0, length: sourceCode.length },
-                generated: { offset: 0, length: sourceCode.length },
-            },
-        ],
+      code: generatedCode,
+      mapping,
     }
-}
-
-function removeWhitespace(text: string): string {
-    return text.replace(/\s+/g, '')
-}
-
-function isSubsequence(needle: string, haystack: string): boolean {
-    if (needle.length === 0) return true
-    let i = 0
-    for (let j = 0; j < haystack.length; j++) {
-        if (haystack[j] === needle[i]) i++
-        if (i === needle.length) return true
-    }
-    return false
-}
-
-function hasTokenLoss(sourceCode: string, generatedCode: string): boolean {
-    const sourceNoWs = removeWhitespace(sourceCode)
-    const generatedNoWs = removeWhitespace(generatedCode)
-    return !isSubsequence(sourceNoWs, generatedNoWs)
-}
-
-type ParsedTokenLike = {
-    codeIndex?: number
-    tokenValue?: string
-}
-
-function getConsumedRanges(parsedTokens: unknown[]): Array<{ start: number; end: number }> {
-    const ranges: Array<{ start: number; end: number }> = []
-
-    for (const token of parsedTokens) {
-        const t = token as ParsedTokenLike | undefined
-        if (!t || typeof t.codeIndex !== 'number' || typeof t.tokenValue !== 'string') continue
-        if (t.tokenValue.length === 0) continue
-        ranges.push({ start: t.codeIndex, end: t.codeIndex + t.tokenValue.length })
-    }
-
-    ranges.sort((a, b) => a.start - b.start)
-    const merged: Array<{ start: number; end: number }> = []
-    for (const range of ranges) {
-        const last = merged[merged.length - 1]
-        if (!last || range.start > last.end) {
-            merged.push({ ...range })
-            continue
-        }
-        last.end = Math.max(last.end, range.end)
-    }
-    return merged
-}
-
-function hasUnconsumedNonWhitespace(sourceCode: string, parsedTokens: unknown[]): boolean {
-    const ranges = getConsumedRanges(parsedTokens)
-    let rangeIndex = 0
-
-    for (let i = 0; i < sourceCode.length; i++) {
-        const ch = sourceCode[i]
-        if (/\s/.test(ch)) continue
-
-        while (rangeIndex < ranges.length && ranges[rangeIndex].end <= i) {
-            rangeIndex++
-        }
-
-        const current = ranges[rangeIndex]
-        const covered = current && i >= current.start && i < current.end
-        if (!covered) return true
-    }
-
-    return false
-}
-
-function transformTesttsToTs(sourceCode: string): SlimeTransformResult {
-    try {
-        const parser = new SlimeParser(sourceCode)
-        const cst = parser.Program()
-        const ast = SlimeCstToAstUtils.toProgram(cst)
-        const generated = SlimeGenerator.generator(ast, parser.parsedTokens)
-        const generatedCode = generated.code as string
-
-        const parserDroppedTokens = hasUnconsumedNonWhitespace(sourceCode, parser.parsedTokens as unknown[])
-        const generatorDroppedChars = hasTokenLoss(sourceCode, generatedCode)
-        if (parserDroppedTokens || generatorDroppedChars) {
-            Glog.warn(
-                `[testts][transform] token loss detected, fallback to identity; parserDropped=${String(parserDroppedTokens)}, generatorDropped=${String(generatorDroppedChars)}`
-            )
-            return createIdentityResult(sourceCode)
-        }
-
-        return {
-            code: generatedCode,
-            mapping: SlimeMappingConverter.convertMappings((generated as any).mapping),
-        }
-    } catch (error) {
-        Glog.warn(`[testts][transform] exception fallback to identity: ${String(error)}`)
-        return createIdentityResult(sourceCode)
-    }
+  } catch (error) {
+    Glog.warn(`[cssts][transform] exception fallback to identity: ${String(error)}`)
+    return createIdentityResult(sourceCode)
+  }
 }
 
 function buildSegmentsFromMapping(
-    generatedCode: string,
-    mapping: EnhancedMapping[],
-    sourceName: string
+  generatedCode: string,
+  mapping: EnhancedMapping[],
+  sourceName: string
 ): Segment[] {
-    const segments: Segment[] = []
-    const sorted = [...mapping].sort((a, b) => a.generated.offset - b.generated.offset)
-    let cursor = 0
+  const segments: Segment[] = []
+  const sorted = [...mapping].sort((a, b) => a.generated.offset - b.generated.offset)
+  let cursor = 0
 
-    for (const item of sorted) {
-        const generatedStart = item.generated.offset
-        const generatedEnd = item.generated.offset + item.generated.length
-        const sourceStart = item.original.offset
-        const gap = generatedCode.slice(cursor, generatedStart)
-        const mapped = generatedCode.slice(generatedStart, generatedEnd)
+  for (const item of sorted) {
+    const generatedStart = item.generated.offset
+    const generatedEnd = item.generated.offset + item.generated.length
+    const sourceStart = item.original.offset
+    const gap = generatedCode.slice(cursor, generatedStart)
+    const mapped = generatedCode.slice(generatedStart, generatedEnd)
 
-        if (gap) segments.push(gap)
-        segments.push([mapped, sourceName, sourceStart, ALL_CODE_FEATURES])
-        cursor = generatedEnd
-    }
+    if (gap) segments.push(gap)
+    segments.push([mapped, sourceName, sourceStart, ALL_CODE_FEATURES])
+    cursor = generatedEnd
+  }
 
-    const tail = generatedCode.slice(cursor)
-    if (tail) segments.push(tail)
-    return segments
+  const tail = generatedCode.slice(cursor)
+  if (tail) segments.push(tail)
+  return segments
 }
 
 function mergeReplacementsIntoContent(baseContent: any[], replacements: Map<string, Segment[]>): any[] {
-    const merged: any[] = []
-    const injectedBySource = new Set<string>()
-    const sourceBlockNames = new Set<string>()
-    let tupleCount = 0
+  const merged: any[] = []
+  const injectedBySource = new Set<string>()
 
-    for (const segment of baseContent) {
-        const isTupleSegment = Array.isArray(segment)
-        if (isTupleSegment) tupleCount++
-        const sourceBlockName = isTupleSegment ? segment[1] : undefined
-        if (typeof sourceBlockName === 'string') sourceBlockNames.add(sourceBlockName)
+  for (const segment of baseContent) {
+    const sourceBlockName = Array.isArray(segment) ? segment[1] : undefined
+    const replacement = typeof sourceBlockName === 'string' ? replacements.get(sourceBlockName) : undefined
 
-        const replacement = typeof sourceBlockName === 'string' ? replacements.get(sourceBlockName) : undefined
-        if (replacement) {
-            if (!injectedBySource.has(sourceBlockName)) {
-                merged.push(...replacement)
-                injectedBySource.add(sourceBlockName)
-            }
-            continue
-        }
-
-        merged.push(segment)
+    if (replacement) {
+      if (!injectedBySource.has(sourceBlockName)) {
+        merged.push(...replacement)
+        injectedBySource.add(sourceBlockName)
+      }
+      continue
     }
 
-    Glog.info(
-        `[testts][merge] baseSegments=${baseContent.length}, tupleSegments=${tupleCount}, sourceBlocks=${Array.from(sourceBlockNames).join(',')}, replacementKeys=${Array.from(replacements.keys()).join(',')}, injectedKeys=${Array.from(injectedBySource).join(',')}`
-    )
+    merged.push(segment)
+  }
 
-    const uninjected = Array.from(replacements.keys()).filter(key => !injectedBySource.has(key))
-    if (uninjected.length) {
-        Glog.warn(`[testts][merge] replacements not injected: ${uninjected.join(',')}`)
-    }
-
-    return merged
+  return merged
 }
 
 const plugin: VueLanguagePlugin = ({ modules }) => {
-    const ts = modules.typescript
-    Glog.info(`[language-plugin-testts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
-    Glog.info('[language-plugin-testts] mode=parseSFC2_lang_to_ts_then_resolve_merge')
+  const ts = modules.typescript
+  Glog.info(`[language-plugin-cssts] Plugin loaded, TypeScript version: ${ts?.version || 'unknown'}`)
+  Glog.info('[language-plugin-cssts] mode=parseSFC2_lang_to_ts_then_resolve_merge')
 
-    return [
-        {
-            name: 'language-plugin-testts-parse',
-            version: 2.2,
-            order: -10000,
+  return [
+    {
+      name: 'language-plugin-cssts-parse',
+      version: 2.2,
+      order: -10000,
 
-            parseSFC2(fileName, languageId, content) {
-                if (languageId !== 'vue') return
+      parseSFC2(fileName, languageId, content) {
+        if (languageId !== 'vue') return
 
-                const sfc = parseSfc(content) as ParsedSfcLike
-                const replacements: ReplacementItem[] = []
-                const scriptSetup = sfc.descriptor.scriptSetup
-                const script = sfc.descriptor.script
+        const sfc = parseSfc(content) as ParsedSfcLike
+        const replacements: ReplacementItem[] = []
+        const scriptSetup = sfc.descriptor.scriptSetup
+        const script = sfc.descriptor.script
 
-                if (isTesttsScriptBlock(scriptSetup)) {
-                    const source = scriptSetup?.content as string
-                    const transformed = transformTesttsToTs(source)
-                    scriptSetup!.content = transformed.code
-                    scriptSetup!.lang = 'ts'
-                    scriptSetup!.attrs = { ...(scriptSetup!.attrs || {}), lang: 'ts' }
-                    replacements.push({ sourceName: 'scriptSetup', transformed })
-                }
+        if (isCsstsScriptBlock(scriptSetup)) {
+          const source = scriptSetup?.content as string
+          const transformed = transformCsstsToTs(source)
+          scriptSetup!.content = transformed.code
+          scriptSetup!.lang = 'ts'
+          scriptSetup!.attrs = { ...(scriptSetup!.attrs || {}), lang: 'ts' }
+          replacements.push({ sourceName: 'scriptSetup', transformed })
+        }
 
-                if (isTesttsScriptBlock(script)) {
-                    const source = script?.content as string
-                    const transformed = transformTesttsToTs(source)
-                    script!.content = transformed.code
-                    script!.lang = 'ts'
-                    script!.attrs = { ...(script!.attrs || {}), lang: 'ts' }
-                    replacements.push({ sourceName: 'script', transformed })
-                }
+        if (isCsstsScriptBlock(script)) {
+          const source = script?.content as string
+          const transformed = transformCsstsToTs(source)
+          script!.content = transformed.code
+          script!.lang = 'ts'
+          script!.attrs = { ...(script!.attrs || {}), lang: 'ts' }
+          replacements.push({ sourceName: 'script', transformed })
+        }
 
-                if (replacements.length === 0) {
-                    fileReplacementCache.delete(fileName)
-                    return
-                }
+        if (replacements.length === 0) {
+          fileReplacementCache.delete(fileName)
+          return
+        }
 
-                fileReplacementCache.set(fileName, replacements)
-                Glog.info(
-                    `[testts][parse] file=${fileName}, replacements=${replacements.map(item => item.sourceName).join(',')}, cacheSize=${fileReplacementCache.size}`
-                )
-                return sfc as any
-            },
-        },
-        {
-            name: 'language-plugin-testts-resolve',
-            version: 2.2,
-            order: 10000,
+        fileReplacementCache.set(fileName, replacements)
+        Glog.info(
+          `[cssts][parse] file=${fileName}, replacements=${replacements.map(item => item.sourceName).join(',')}, cacheSize=${fileReplacementCache.size}`
+        )
+        return sfc as any
+      },
+    },
+    {
+      name: 'language-plugin-cssts-resolve',
+      version: 2.2,
+      order: 10000,
 
-            resolveEmbeddedCode(fileName, _sfc, embeddedFile) {
-                if (embeddedFile.id !== 'script_ts') return
+      resolveEmbeddedCode(fileName, _sfc, embeddedFile) {
+        if (embeddedFile.id !== 'script_ts') return
 
-                const replacementItems = fileReplacementCache.get(fileName)
-                if (!replacementItems?.length) return
+        const replacementItems = fileReplacementCache.get(fileName)
+        if (!replacementItems?.length) return
 
-                const replacements = new Map<string, Segment[]>()
-                for (const item of replacementItems) {
-                    replacements.set(
-                        item.sourceName,
-                        buildSegmentsFromMapping(item.transformed.code, item.transformed.mapping, item.sourceName)
-                    )
-                }
+        const replacements = new Map<string, Segment[]>()
+        for (const item of replacementItems) {
+          replacements.set(
+            item.sourceName,
+            buildSegmentsFromMapping(item.transformed.code, item.transformed.mapping, item.sourceName)
+          )
+        }
 
-                const baseContent = embeddedFile.content as any[]
-                const baseTupleSourceBlocks = Array.from(new Set(
-                    baseContent
-                        .filter(item => Array.isArray(item) && typeof item[1] === 'string')
-                        .map(item => item[1] as string)
-                ))
-                Glog.info(
-                    `[testts][resolve] file=${fileName}, baseSegments=${baseContent.length}, baseTupleBlocks=${baseTupleSourceBlocks.join(',')}, replacementKeys=${Array.from(replacements.keys()).join(',')}`
-                )
+        const mergedContent = mergeReplacementsIntoContent(embeddedFile.content as any[], replacements)
+        embeddedFile.content = mergedContent as any
 
-                const mergedContent = mergeReplacementsIntoContent(baseContent, replacements)
-                embeddedFile.content = mergedContent as any
-
-                Glog.info(`[testts][resolve] mergedSegments=${mergedContent.length}`)
-            },
-        },
-    ]
+        Glog.info(`[cssts][resolve] file=${fileName}, mergedSegments=${mergedContent.length}`)
+      },
+    },
+  ]
 }
 
 export default plugin
