@@ -515,7 +515,20 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * @param propLoc 原始标识符的位置信息，用于 source map 映射
    */
   protected createCsstsAtomMember(propName: string, propLoc?: any): SlimeExpression {
-    const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom')
+    // Keep injected tokens aligned to the same source position as the atom name,
+    // so virtual output does not split after `csstsAtom.`.
+    const atomLoc = propLoc ? {
+      start: propLoc.start,
+      end: propLoc.end,
+      value: 'csstsAtom',
+    } : undefined
+    const dotLoc = propLoc ? {
+      start: propLoc.start,
+      end: propLoc.end,
+      value: '.',
+    } : undefined
+
+    const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom', atomLoc)
     // 传递原始 loc，确保 property 能正确映射回源代码
     const propId = SlimeAstCreateUtils.createIdentifier(propName, propLoc)
     return {
@@ -525,7 +538,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
       computed: false,
       optional: false,
       // 整个成员表达式也使用原始 loc
-      loc: propLoc
+      loc: propLoc,
+      dotToken: dotLoc ? { loc: dotLoc } : undefined,
     } as any
   }
 
