@@ -521,11 +521,13 @@ export class CssTsCstToAst extends SlimeCstToAst {
       start: propLoc.start,
       end: propLoc.end,
       value: 'csstsAtom',
+      synthetic: true,
     } : undefined
     const dotLoc = propLoc ? {
       start: propLoc.start,
       end: propLoc.end,
       value: '.',
+      synthetic: true,
     } : undefined
 
     const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom', atomLoc)
