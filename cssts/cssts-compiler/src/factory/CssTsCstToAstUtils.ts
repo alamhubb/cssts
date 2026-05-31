@@ -283,8 +283,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
 
   createPrimaryExpressionAst(cst: SubhutiCst): SlimeExpression {
+    if (cst.name === "CssExpression") {
+      return this.createCssExpressionAst(cst)
+    }
     const first = cst.children?.[0]
-    if (first && first.name === CssTsParser.prototype.CssExpression.name) {
+    if (first && first.name === "CssExpression") {
       return this.createCssExpressionAst(first)
     }
     // 直接调用基类逻辑，不再进行拦截复制
@@ -600,6 +603,7 @@ _cssTsCstToAstUtils = new CssTsCstToAst()
  */
 export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
   _cssTsCstToAstUtils = instance
+  registerSlimeCstToAstUtil(instance)
 }
 
 // Proxy: 保持 cssTsCstToAst.xxx() 调用方式，同时支持动态替换
