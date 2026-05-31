@@ -2,7 +2,7 @@ import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
 import { SlimeParser } from "slime-parser"
-import type { ExpressionParams } from "slime-parser"
+import type { ExpressionParams, StatementParams } from "slime-parser"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -26,6 +26,54 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
       tokenConsumer: CssTsTokenConsumer as any,
       tokenDefinitions: cssTsTokens
     })
+  }
+
+  @SubhutiRule
+  ModuleItemList() {
+    this.Many(() => this.ModuleItem())
+    return this.curCst
+  }
+
+  @SubhutiRule
+  StatementList(
+    params: StatementParams = {},
+    stopTokens: Array<{ tokenName: string; tokenValue?: string }> = []
+  ) {
+    this.Many(() => this.StatementListItem(params))
+    return this.curCst
+  }
+
+  @SubhutiRule
+  override ImportDeclaration() {
+    this.Or([
+      {
+        alt: () => {
+          this.tokenConsumer.Import()
+          this.tokenConsumer.TSType()
+          this.ImportClause()
+          this.FromClause()
+          this.Option(() => this.tokenConsumer.Semicolon())
+        }
+      },
+      {
+        alt: () => {
+          this.tokenConsumer.Import()
+          this.ImportClause()
+          this.FromClause()
+          this.Option(() => this.WithClause())
+          this.Option(() => this.tokenConsumer.Semicolon())
+        }
+      },
+      {
+        alt: () => {
+          this.tokenConsumer.Import()
+          this.ModuleSpecifier()
+          this.Option(() => this.WithClause())
+          this.Option(() => this.tokenConsumer.Semicolon())
+        }
+      }
+    ])
+    return this.curCst
   }
 
   /**
