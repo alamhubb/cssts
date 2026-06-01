@@ -294,10 +294,23 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return super.createPrimaryExpressionAst(cst)
   }
 
+  createExpressionAstUncached(cst: SubhutiCst): SlimeExpression {
+    if (cst.getName() === "CssExpression") {
+      return this.createCssExpressionAst(cst)
+    }
+    const first = cst.getChildren()?.[0]
+    if (first && first.getName() === "CssExpression") {
+      return this.createCssExpressionAst(first)
+    }
+    return super.createExpressionAstUncached(cst)
+  }
+
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
     this._hasCsstsSyntax = true
     const children = cst.getChildren() || []
-    const styleObjectCst = children.find(c => c.getName() === CssTsParser.prototype.CssStyleObject.name)
+    const styleObjectCst = children.find(c =>
+      c.getName() === CssTsParser.prototype.CssStyleObject?.name || c.getName() === 'CssStyleObject'
+    )
 
     // 提取 css 关键字的位置
     const cssTokenCst = children.find(c => c.getName() === 'Css' || c.getValue() === 'css')
@@ -323,10 +336,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
       return callExpr
     }
 
-    const identifierCsts = children.filter(c => c.name === 'IdentifierName')
+    const identifierCsts = children.filter(c => c.getName() === 'IdentifierName')
     if (identifierCsts.length >= 2) {
       const atomCst = identifierCsts[1]
-      const atomName = atomCst.value || atomCst.children?.[0]?.value || ''
+      const atomName = atomCst.getValue() || atomCst.getChildren()?.[0]?.getValue() || ''
       this.usedAtoms.add(atomName)
       return SlimeAstCreateUtils.createStringLiteral(atomName)
     }
@@ -405,9 +418,40 @@ export class CssTsCstToAst extends SlimeCstToAst {
   private extractCssPropertyExpressions(styleObjectCst: SubhutiCst | undefined): SlimeExpression[] {
     if (!styleObjectCst) return []
     const elementListCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'ElementList')
-    if (!elementListCst) return []
+    if (!elementListCst) {
+      const atomListCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'CssAtomList')
+      return this.processCssAtomList(atomListCst)
+    }
     const elements = this.processElementList(elementListCst)
     return elements.map(expr => this.transformCssPropertyExpression(expr))
+  }
+
+  private extractCstValue(cst: SubhutiCst | undefined): string {
+    if (!cst) return ''
+    const value = cst.getValue()
+    if (value !== undefined && value !== null) return String(value)
+    return (cst.getChildren() || []).map(child => this.extractCstValue(child)).join('')
+  }
+
+  private processCssAtomList(cst: SubhutiCst | undefined): SlimeExpression[] {
+    if (!cst) return []
+    const expressions: SlimeExpression[] = []
+    for (const child of cst.getChildren() || []) {
+      if (child.getName() === 'Comma' || child.getValue() === ',') {
+        if (expressions.length > 0) {
+          const lastExpr = expressions[expressions.length - 1] as any
+          lastExpr.commaToken = { loc: child.getLoc() }
+        }
+        continue
+      }
+      if (child.getName() === 'IdentifierName') {
+        const name = this.extractCstValue(child)
+        expressions.push(this.transformCssPropertyExpression(
+          SlimeAstCreateUtils.createIdentifier(name, child.getLoc())
+        ))
+      }
+    }
+    return expressions
   }
 
   /**

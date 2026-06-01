@@ -55,9 +55,22 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
   CssStyleObject(params: ExpressionParams = {}) {
     this.getTokenConsumer().LBrace()
     this.Option(() => {
-      this.ElementList(params)
+      this.Or(
+        Alternative.of(() => this.ElementList(params)),
+        Alternative.of(() => this.CssAtomList())
+      )
     })
     this.getTokenConsumer().RBrace()
+    return this.getCurCst()
+  }
+
+  @SubhutiRule
+  CssAtomList() {
+    this.getTokenConsumer().IdentifierName()
+    this.Many(() => {
+      this.getTokenConsumer().Comma()
+      this.getTokenConsumer().IdentifierName()
+    })
     return this.getCurCst()
   }
 
