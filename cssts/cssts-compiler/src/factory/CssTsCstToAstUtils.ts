@@ -246,11 +246,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   /** 收集变量声明到作用域，处理伪类变量 */
   createLexicalBindingAst(cst: SubhutiCst): any {
-    const firstChild = cst.children?.[0]
+    const firstChild = cst.getChildren()?.[0]
     let varName: string | null = null
-    if (firstChild?.name === 'BindingIdentifier') {
-      const idChild = firstChild.children?.[0]
-      varName = idChild?.value || idChild?.children?.[0]?.value || null
+    if (firstChild?.getName() === 'BindingIdentifier') {
+      const idChild = firstChild.getChildren()?.[0]
+      varName = idChild?.getValue() || idChild?.getChildren()?.[0]?.getValue() || null
     }
 
     // 收集变量名到作用域
@@ -283,11 +283,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
 
   createPrimaryExpressionAst(cst: SubhutiCst): SlimeExpression {
-    if (cst.name === "CssExpression") {
+    if (cst.getName() === "CssExpression") {
       return this.createCssExpressionAst(cst)
     }
-    const first = cst.children?.[0]
-    if (first && first.name === "CssExpression") {
+    const first = cst.getChildren()?.[0]
+    if (first && first.getName() === "CssExpression") {
       return this.createCssExpressionAst(first)
     }
     // 直接调用基类逻辑，不再进行拦截复制
@@ -296,22 +296,22 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
     this._hasCsstsSyntax = true
-    const children = cst.children || []
-    const styleObjectCst = children.find(c => c.name === CssTsParser.prototype.CssStyleObject.name)
+    const children = cst.getChildren() || []
+    const styleObjectCst = children.find(c => c.getName() === CssTsParser.prototype.CssStyleObject.name)
 
     // 提取 css 关键字的位置
-    const cssTokenCst = children.find(c => c.name === 'Css' || c.value === 'css')
-    const cssTokenLoc = cssTokenCst?.loc
+    const cssTokenCst = children.find(c => c.getName() === 'Css' || c.getValue() === 'css')
+    const cssTokenLoc = cssTokenCst?.getLoc()
 
     if (styleObjectCst) {
       // 提取 { 和 } 的位置
-      const lBraceCst = styleObjectCst.children?.find(c => c.name === 'LBrace' || c.value === '{')
-      const rBraceCst = styleObjectCst.children?.find(c => c.name === 'RBrace' || c.value === '}')
-      const lBraceLoc = lBraceCst?.loc
-      const rBraceLoc = rBraceCst?.loc
+      const lBraceCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'LBrace' || c.getValue() === '{')
+      const rBraceCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'RBrace' || c.getValue() === '}')
+      const lBraceLoc = lBraceCst?.getLoc()
+      const rBraceLoc = rBraceCst?.getLoc()
 
       const args = this.extractCssPropertyExpressions(styleObjectCst)
-      const callExpr = this.createCsstsClsCallWithArgs(args, cst.loc, {
+      const callExpr = this.createCsstsClsCallWithArgs(args, cst.getLoc(), {
         cssTokenLoc,
         lBraceLoc,
         rBraceLoc
@@ -404,7 +404,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   private extractCssPropertyExpressions(styleObjectCst: SubhutiCst | undefined): SlimeExpression[] {
     if (!styleObjectCst) return []
-    const elementListCst = styleObjectCst.children?.find(c => c.name === 'ElementList')
+    const elementListCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'ElementList')
     if (!elementListCst) return []
     const elements = this.processElementList(elementListCst)
     return elements.map(expr => this.transformCssPropertyExpression(expr))
@@ -415,28 +415,31 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * 逗号位置会被附加到前一个表达式的 commaToken 属性上
    */
   private processElementList(cst: SubhutiCst): SlimeExpression[] {
-    if (!cst.children) return []
+    const children = cst.getChildren()
+    if (!children) return []
     const expressions: SlimeExpression[] = []
 
-    for (let i = 0; i < cst.children.length; i++) {
-      const child = cst.children[i]
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i]
+      const childName = child.getName()
+      const childValue = child.getValue()
 
       // 处理逗号：将其位置附加到前一个表达式
-      if (child.name === 'Comma' || child.value === ',') {
+      if (childName === 'Comma' || childValue === ',') {
         if (expressions.length > 0) {
           const lastExpr = expressions[expressions.length - 1] as any
-          lastExpr.commaToken = { loc: child.loc }
+          lastExpr.commaToken = { loc: child.getLoc() }
         }
         continue
       }
 
       // 跳过 Elision
-      if (child.name === 'Elision') continue
+      if (childName === 'Elision') continue
 
       // 处理表达式
-      if (child.name === 'AssignmentExpression') {
+      if (childName === 'AssignmentExpression') {
         expressions.push(this.createAssignmentExpressionAst(child))
-      } else if (child.name === 'SpreadElement') {
+      } else if (childName === 'SpreadElement') {
         expressions.push(this.createSpreadElementAst(child) as any)
       }
     }
@@ -444,10 +447,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   createSpreadElementAst(cst: SubhutiCst): any {
-    const assignExprCst = cst.children?.find(c => c.name === 'AssignmentExpression')
+    const assignExprCst = cst.getChildren()?.find(c => c.getName() === 'AssignmentExpression')
     if (!assignExprCst) throw new Error('SpreadElement: missing AssignmentExpression')
     const argument = this.createAssignmentExpressionAst(assignExprCst)
-    return { type: SlimeAstTypeName.SpreadElement, argument, loc: cst.loc }
+    return { type: SlimeAstTypeName.SpreadElement, argument, loc: cst.getLoc() }
   }
 
   /**

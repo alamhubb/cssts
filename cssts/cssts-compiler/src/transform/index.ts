@@ -141,7 +141,7 @@ export function transformCssTs(code: string): TransformResultWithMapping {
   RuntimeStore.addUsedStyles(localUsedAtoms)
 
   // 生成代码
-  const tokens = parser.parsedTokens
+  const tokens = parser.getParsedTokens()
   const result = SlimeGenerator.generator(ast, tokens)
 
   // 过滤无效的 mapping

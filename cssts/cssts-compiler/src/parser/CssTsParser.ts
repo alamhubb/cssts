@@ -3,6 +3,7 @@ import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
 import { SlimeParser } from "slime-parser"
 import type { ExpressionParams } from "slime-parser"
+import { Alternative } from "java:com.subhuti.parser"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -37,12 +38,12 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssExpression(params: ExpressionParams = {}) {
-    this.tokenConsumer.Css()
-    this.Or([
-      { alt: () => this.CssStyleObject(params) },
-      { alt: () => this.tokenConsumer.IdentifierName() }
-    ])
-    return this.curCst
+    this.consumeIdentifierValue("css")
+    this.Or(
+      Alternative.of(() => this.CssStyleObject(params)),
+      Alternative.of(() => this.getTokenConsumer().IdentifierName())
+    )
+    return this.getCurCst()
   }
 
   /**
@@ -52,12 +53,12 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssStyleObject(params: ExpressionParams = {}) {
-    this.tokenConsumer.LBrace()
+    this.getTokenConsumer().LBrace()
     this.Option(() => {
       this.ElementList(params)
     })
-    this.tokenConsumer.RBrace()
-    return this.curCst
+    this.getTokenConsumer().RBrace()
+    return this.getCurCst()
   }
 
   /**
@@ -68,36 +69,36 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   PrimaryExpression(params: ExpressionParams = {}) {
-    return this.Or([
+    return this.Or(
       // === 1. 硬关键字表达式 ===
-      { alt: () => this.tokenConsumer.This() },
+      Alternative.of(() => this.getTokenConsumer().This()),
 
       // === 2. async 开头（软关键字，必须在 IdentifierReference 之前）===
-      { alt: () => this.AsyncGeneratorExpression() },
-      { alt: () => this.AsyncFunctionExpression() },
+      Alternative.of(() => this.AsyncGeneratorExpression()),
+      Alternative.of(() => this.AsyncFunctionExpression()),
 
       // === 3. css 表达式（软关键字，必须在 IdentifierReference 之前）===
-      { alt: () => this.CssExpression(params) },
+      Alternative.of(() => this.CssExpression(params)),
 
       // === 4. 标识符（在所有软关键字表达式之后）===
-      { alt: () => this.IdentifierReference(params) },
+      Alternative.of(() => this.IdentifierReference(params)),
 
       // === 5. 字面量 ===
-      { alt: () => this.Literal() },
+      Alternative.of(() => this.Literal()),
 
       // === 6. function 开头（硬关键字）===
-      { alt: () => this.GeneratorExpression() },
-      { alt: () => this.FunctionExpression() },
+      Alternative.of(() => this.GeneratorExpression()),
+      Alternative.of(() => this.FunctionExpression()),
 
       // === 7. class 表达式（硬关键字）===
-      { alt: () => this.ClassExpression(params) },
+      Alternative.of(() => this.ClassExpression(params)),
 
       // === 8. 符号开头 ===
-      { alt: () => this.ArrayLiteral(params) },
-      { alt: () => this.ObjectLiteral(params) },
-      { alt: () => this.consumeRegularExpressionLiteral() },
-      { alt: () => this.TemplateLiteral({ ...params, Tagged: false }) },
-      { alt: () => this.CoverParenthesizedExpressionAndArrowParameterList(params) }
-    ])
+      Alternative.of(() => this.ArrayLiteral(params)),
+      Alternative.of(() => this.ObjectLiteral(params)),
+      Alternative.of(() => this.consumeRegularExpressionLiteral()),
+      Alternative.of(() => this.TemplateLiteral({ ...params, Tagged: false })),
+      Alternative.of(() => this.CoverParenthesizedExpressionAndArrowParameterList(params))
+    )
   }
 }
