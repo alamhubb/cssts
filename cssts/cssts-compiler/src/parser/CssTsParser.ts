@@ -1,9 +1,8 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
-import { SlimeParser } from "slime-parser"
+import { SlimeJavascriptParser as SlimeParser } from "slime-parser"
 import type { ExpressionParams } from "slime-parser"
-import { Alternative } from "java:com.subhuti.parser"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -38,12 +37,12 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssExpression(params: ExpressionParams = {}) {
-    this.consumeIdentifierValue("css")
-    this.Or(
-      Alternative.of(() => this.CssStyleObject(params)),
-      Alternative.of(() => this.getTokenConsumer().IdentifierName())
-    )
-    return this.getCurCst()
+    this.tokenConsumer.Css()
+    this.Or([
+      { alt: () => this.CssStyleObject(params) },
+      { alt: () => this.tokenConsumer.IdentifierName() }
+    ])
+    return this.curCst
   }
 
   /**
@@ -53,25 +52,25 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssStyleObject(params: ExpressionParams = {}) {
-    this.getTokenConsumer().LBrace()
+    this.tokenConsumer.LBrace()
     this.Option(() => {
-      this.Or(
-        Alternative.of(() => this.ElementList(params)),
-        Alternative.of(() => this.CssAtomList())
-      )
+      this.Or([
+        { alt: () => this.ElementList(params) },
+        { alt: () => this.CssAtomList() }
+      ])
     })
-    this.getTokenConsumer().RBrace()
-    return this.getCurCst()
+    this.tokenConsumer.RBrace()
+    return this.curCst
   }
 
   @SubhutiRule
   CssAtomList() {
-    this.getTokenConsumer().IdentifierName()
+    this.tokenConsumer.IdentifierName()
     this.Many(() => {
-      this.getTokenConsumer().Comma()
-      this.getTokenConsumer().IdentifierName()
+      this.tokenConsumer.Comma()
+      this.tokenConsumer.IdentifierName()
     })
-    return this.getCurCst()
+    return this.curCst
   }
 
   /**
@@ -82,36 +81,36 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   PrimaryExpression(params: ExpressionParams = {}) {
-    return this.Or(
+    return this.Or([
       // === 1. 硬关键字表达式 ===
-      Alternative.of(() => this.getTokenConsumer().This()),
+      { alt: () => this.tokenConsumer.This() },
 
       // === 2. async 开头（软关键字，必须在 IdentifierReference 之前）===
-      Alternative.of(() => this.AsyncGeneratorExpression()),
-      Alternative.of(() => this.AsyncFunctionExpression()),
+      { alt: () => this.AsyncGeneratorExpression() },
+      { alt: () => this.AsyncFunctionExpression() },
 
       // === 3. css 表达式（软关键字，必须在 IdentifierReference 之前）===
-      Alternative.of(() => this.CssExpression(params)),
+      { alt: () => this.CssExpression(params) },
 
       // === 4. 标识符（在所有软关键字表达式之后）===
-      Alternative.of(() => this.IdentifierReference(params)),
+      { alt: () => this.IdentifierReference(params) },
 
       // === 5. 字面量 ===
-      Alternative.of(() => this.Literal()),
+      { alt: () => this.Literal() },
 
       // === 6. function 开头（硬关键字）===
-      Alternative.of(() => this.GeneratorExpression()),
-      Alternative.of(() => this.FunctionExpression()),
+      { alt: () => this.GeneratorExpression() },
+      { alt: () => this.FunctionExpression() },
 
       // === 7. class 表达式（硬关键字）===
-      Alternative.of(() => this.ClassExpression(params)),
+      { alt: () => this.ClassExpression(params) },
 
       // === 8. 符号开头 ===
-      Alternative.of(() => this.ArrayLiteral(params)),
-      Alternative.of(() => this.ObjectLiteral(params)),
-      Alternative.of(() => this.consumeRegularExpressionLiteral()),
-      Alternative.of(() => this.TemplateLiteral({ ...params, Tagged: false })),
-      Alternative.of(() => this.CoverParenthesizedExpressionAndArrowParameterList(params))
-    )
+      { alt: () => this.ArrayLiteral(params) },
+      { alt: () => this.ObjectLiteral(params) },
+      { alt: () => this.consumeRegularExpressionLiteral() },
+      { alt: () => this.TemplateLiteral({ ...params, Tagged: false }) },
+      { alt: () => this.CoverParenthesizedExpressionAndArrowParameterList(params) }
+    ])
   }
 }

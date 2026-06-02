@@ -8,7 +8,6 @@ import { CssTsParser } from '../parser/index.ts'
 import { CssTsCstToAstUtils } from '../factory/index.ts'
 import { registerSlimeCstToAstUtil } from 'slime-parser'
 import { SlimeGenerator } from 'slime-generator'
-import { SubhutiParser as JavaSubhutiParser } from 'java:com.subhuti.parser'
 import Glog from 'glogjs'
 import { ConfigLookup } from '../config/ConfigLookup'
 import { RuntimeStore } from '../store/RuntimeStore'
@@ -131,7 +130,7 @@ export function transformCssTs(code: string): TransformResultWithMapping {
     _transformLoggedVersion = true
   }
 
-  const parser = JavaSubhutiParser.create(CssTsParser, code)
+  const parser = new CssTsParser(code)
   const cst = parser.Program()  // 使用默认的 module 模式
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
   const ast = CssTsCstToAstUtils.toFileAst(cst)
@@ -142,7 +141,7 @@ export function transformCssTs(code: string): TransformResultWithMapping {
   RuntimeStore.addUsedStyles(localUsedAtoms)
 
   // 生成代码
-  const tokens = parser.getParsedTokens()
+  const tokens = parser.parsedTokens
   const result = SlimeGenerator.generator(ast, tokens)
 
   // 过滤无效的 mapping
