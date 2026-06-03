@@ -7,6 +7,6 @@ export default defineConfig({
     clean: true,
     outDir: 'dist',
     target: 'es2022',
-    external: [/node_modules/],
+    external: [/node_modules/, 'glogjs', 'globalthis', 'find-up'],
 })
 

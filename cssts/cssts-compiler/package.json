@@ -33,12 +33,12 @@
   "license": "MIT",
   "dependencies": {
     "cssts-ts": "^0.2.87",
-    "glogjs": "^0.1.0",
+    "glogjs": "file:../../../glogjs",
     "slime-ast": "^0.2.7",
     "slime-generator": "^0.2.7",
     "slime-parser": "^0.2.7",
     "slime-token": "^0.2.7",
-    "subhuti": "^0.2.86"
+    "subhuti": "file:../../../subhuti"
   },
   "devDependencies": {
     "css-tree": "^3.1.0",
