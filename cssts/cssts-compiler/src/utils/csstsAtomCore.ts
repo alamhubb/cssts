@@ -6,6 +6,7 @@
 
 import { ConfigLookup } from '../config/ConfigLookup'
 import { RuntimeStore } from '../store/RuntimeStore'
+import { CSSTS_CONFIG, camelToKebab } from './cssClassName.ts'
 import Glog from 'glogjs'
 
 // 版本号
@@ -31,6 +32,13 @@ export function generateCsstsAtomEntries(
     const sortedStyles = styles
 
     for (const name of sortedStyles) {
+        if (name.includes(CSSTS_CONFIG.PSEUDO_SEPARATOR)) {
+            const baseName = name.split(CSSTS_CONFIG.PSEUDO_SEPARATOR)[0]
+            const cssClassName = `${prefix}${camelToKebab(baseName)}`
+            entries.push(`${indent}${name}: { '${cssClassName}': null }${suffix}`)
+            continue
+        }
+
         // 从初始化的 Map 中获取数据
         const data = RuntimeStore.getRuntimeData(name)
 
