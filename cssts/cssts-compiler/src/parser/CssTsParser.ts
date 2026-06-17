@@ -1,7 +1,7 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
-import { SlimeJavascriptParser as SlimeParser } from "slime-parser"
+import { SlimeJavascriptParser as SlimeParser } from "java:com.slime.parser"
 import type { ExpressionParams } from "slime-parser"
 
 /**
@@ -22,10 +22,7 @@ import type { ExpressionParams } from "slime-parser"
 @Subhuti
 export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsumer> extends SlimeParser<T> {
   constructor(sourceCode: string = '', options?: SubhutiParserOptions<T>) {
-    super(sourceCode, options ?? {
-      tokenConsumer: CssTsTokenConsumer as any,
-      tokenDefinitions: cssTsTokens
-    })
+    super(sourceCode)
   }
 
   /**
@@ -37,7 +34,7 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssExpression(params: ExpressionParams = {}) {
-    this.tokenConsumer.Css()
+    this.consumeIdentifierValue('css')
     this.Or([
       { alt: () => this.CssStyleObject(params) },
       { alt: () => this.tokenConsumer.IdentifierName() }
