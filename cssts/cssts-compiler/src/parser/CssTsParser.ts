@@ -23,6 +23,11 @@ import type { ExpressionParams } from "slime-parser"
 export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsumer> extends SlimeParser<T> {
   constructor(sourceCode: string = '', options?: SubhutiParserOptions<T>) {
     super(sourceCode)
+    const Consumer = (options?.tokenConsumer ?? CssTsTokenConsumer) as any
+    const consumer = new Consumer()
+    consumer.setParser(this)
+    ;(this as any).__qin_field_tokenConsumer = consumer
+    ;(this as any).tokenConsumer = consumer
   }
 
   /**
