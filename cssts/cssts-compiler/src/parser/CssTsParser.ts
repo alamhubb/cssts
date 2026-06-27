@@ -1,8 +1,7 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
-import { SlimeJavascriptParser as SlimeParser } from "java:com.slime.parser"
-import type { ExpressionParams } from "slime-parser"
+import { SlimeJavascriptParser as SlimeParser, type ExpressionParams } from "@qin/generated-qin-parser-ts"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器

@@ -32,6 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@qin/generated-qin-parser-ts": "file:../../../qin/packages/qin-language/generated/qin-parser-ts",
     "cssts-ts": "^0.2.87",
     "glogjs": "file:../../../glogjs",
     "slime-ast": "^0.2.7",

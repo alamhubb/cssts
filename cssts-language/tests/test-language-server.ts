@@ -72,6 +72,7 @@ function resolveServerPath(): string {
 function resolveTsdkPath(): string {
   const candidates = [
     path.join(__dirname, '..', 'node_modules', 'typescript', 'lib'),
+    path.join(__dirname, '..', '..', 'node_modules', 'typescript', 'lib'),
     path.join(__dirname, '..', '..', '..', 'node_modules', 'typescript', 'lib'),
     path.join(process.cwd(), 'node_modules', 'typescript', 'lib'),
   ]
