@@ -51,9 +51,13 @@ const ScriptKind = {
 // 定义 CSSTS 文件的语言 ID
 const CSSTS_LANGUAGE_ID = 'cssts'
 
-function createTransformErrorCode(error: unknown): string {
+export function formatCsstsTransformErrorMessage(error: unknown): string {
   const message = error instanceof Error ? error.message : String(error)
-  return `throw new Error(${JSON.stringify(`CSSTS transform failed: ${message}`)});\n`
+  return `CSSTS transform failed: ${message}`
+}
+
+function createTransformErrorCode(error: unknown): string {
+  return `throw new Error(${JSON.stringify(formatCsstsTransformErrorMessage(error))});\n`
 }
 
 // 创建 CSSTS 语言插件

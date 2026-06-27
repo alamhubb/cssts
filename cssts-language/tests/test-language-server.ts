@@ -109,6 +109,7 @@ async function main() {
 
   let buffer = ''
   const responses: any[] = []
+  const diagnostics: any[] = []
 
   server.stdout.on('data', (chunk: Buffer) => {
     buffer += chunk.toString()
@@ -116,6 +117,9 @@ async function main() {
     buffer = rest
     for (const response of parsed) {
       responses.push(response)
+      if (response.method === 'textDocument/publishDiagnostics') {
+        diagnostics.push(response.params)
+      }
       console.log('Response:', JSON.stringify(response))
     }
   })
@@ -175,6 +179,23 @@ export { buttonStyle, hoverStyle }
   )
   await sleep(1000)
 
+  const badFilePath = path.join(__dirname, '..', 'examples', 'bad.cssts')
+  const badFileUri = `file:///${badFilePath.replace(/\\/g, '/')}`
+  const badContent = `import { css } from 'cssts-ts'
+const broken = css { displayFlex,
+`
+  server.stdin.write(
+    createNotification('textDocument/didOpen', {
+      textDocument: {
+        uri: badFileUri,
+        languageId: 'cssts',
+        version: 1,
+        text: badContent,
+      },
+    })
+  )
+  await sleep(1500)
+
   server.stdin.write(
     createRequest('textDocument/completion', {
       textDocument: { uri: demoFileUri },
@@ -208,7 +229,25 @@ export { buttonStyle, hoverStyle }
     throw new Error('Initialize did not return capabilities')
   }
 
+  const demoDiagnostics = diagnostics
+    .filter(item => item.uri === demoFileUri)
+    .flatMap(item => item.diagnostics ?? [])
+  const demoTransformDiagnostic = demoDiagnostics
+    .find(item => String(item.message ?? '').includes('CSSTS transform failed'))
+  if (demoTransformDiagnostic) {
+    throw new Error(`Valid CSSTS demo published transform diagnostic: ${demoTransformDiagnostic.message}`)
+  }
+
+  const badTransformDiagnostic = diagnostics
+    .filter(item => item.uri === badFileUri)
+    .flatMap(item => item.diagnostics ?? [])
+    .find(item => String(item.message ?? '').includes('CSSTS transform failed'))
+  if (!badTransformDiagnostic) {
+    throw new Error('Bad CSSTS file did not publish transform diagnostics')
+  }
+
   console.log('Initialize success. Capability keys:', Object.keys(initResponse.result.capabilities))
+  console.log('CSSTS diagnostics distinguish valid and invalid files')
 }
 
 main().catch((err: Error) => {

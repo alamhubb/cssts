@@ -39,10 +39,10 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
   @SubhutiRule
   CssExpression(params: ExpressionParams = {}) {
     this.consumeIdentifierValue('css')
-    this.Or([
-      { alt: () => this.CssStyleObject(params) },
-      { alt: () => this.tokenConsumer.IdentifierName() }
-    ])
+    this.Or(
+      () => this.CssStyleObject(params),
+      () => this.tokenConsumer.IdentifierName()
+    )
     return this.curCst
   }
 
@@ -55,10 +55,10 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
   CssStyleObject(params: ExpressionParams = {}) {
     this.tokenConsumer.LBrace()
     this.Option(() => {
-      this.Or([
-        { alt: () => this.ElementList(params) },
-        { alt: () => this.CssAtomList() }
-      ])
+      this.Or(
+        () => this.ElementList(params),
+        () => this.CssAtomList()
+      )
     })
     this.tokenConsumer.RBrace()
     return this.curCst
@@ -82,36 +82,36 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   PrimaryExpression(params: ExpressionParams = {}) {
-    return this.Or([
+    return this.Or(
       // === 1. 硬关键字表达式 ===
-      { alt: () => this.tokenConsumer.This() },
+      () => this.tokenConsumer.This(),
 
       // === 2. async 开头（软关键字，必须在 IdentifierReference 之前）===
-      { alt: () => this.AsyncGeneratorExpression() },
-      { alt: () => this.AsyncFunctionExpression() },
+      () => this.AsyncGeneratorExpression(),
+      () => this.AsyncFunctionExpression(),
 
       // === 3. css 表达式（软关键字，必须在 IdentifierReference 之前）===
-      { alt: () => this.CssExpression(params) },
+      () => this.CssExpression(params),
 
       // === 4. 标识符（在所有软关键字表达式之后）===
-      { alt: () => this.IdentifierReference(params) },
+      () => this.IdentifierReference(params),
 
       // === 5. 字面量 ===
-      { alt: () => this.Literal() },
+      () => this.Literal(),
 
       // === 6. function 开头（硬关键字）===
-      { alt: () => this.GeneratorExpression() },
-      { alt: () => this.FunctionExpression() },
+      () => this.GeneratorExpression(),
+      () => this.FunctionExpression(),
 
       // === 7. class 表达式（硬关键字）===
-      { alt: () => this.ClassExpression(params) },
+      () => this.ClassExpression(params),
 
       // === 8. 符号开头 ===
-      { alt: () => this.ArrayLiteral(params) },
-      { alt: () => this.ObjectLiteral(params) },
-      { alt: () => this.consumeRegularExpressionLiteral() },
-      { alt: () => this.TemplateLiteral({ ...params, Tagged: false }) },
-      { alt: () => this.CoverParenthesizedExpressionAndArrowParameterList(params) }
-    ])
+      () => this.ArrayLiteral(params),
+      () => this.ObjectLiteral(params),
+      () => this.consumeRegularExpressionLiteral(),
+      () => this.TemplateLiteral({ ...params, Tagged: false }),
+      () => this.CoverParenthesizedExpressionAndArrowParameterList(params)
+    )
   }
 }
