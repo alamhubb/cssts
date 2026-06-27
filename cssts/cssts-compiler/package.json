@@ -37,7 +37,7 @@
     "glogjs": "file:../../../glogjs",
     "slime-ast": "^0.2.7",
     "slime-generator": "^0.2.7",
-    "slime-parser": "^0.2.7",
+    "slime-parser": "file:../../../slime/slime-parser",
     "slime-token": "^0.2.7",
     "subhuti": "file:../../../subhuti"
   },

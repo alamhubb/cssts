@@ -657,7 +657,8 @@ export const CssTsCstToAstUtils = {} as CssTsCstToAst
 
 function bindCssTsCstToAstUtilsForwarders() {
   let proto: any = CssTsCstToAst.prototype
-  while (proto != null) {
+  const stopProto = Object.getPrototypeOf(SlimeCstToAst.prototype)
+  while (proto != null && proto !== stopProto) {
     for (const prop of Object.getOwnPropertyNames(proto)) {
       const descriptor = Object.getOwnPropertyDescriptor(proto, prop)
       if (prop === 'constructor' || typeof descriptor?.value !== 'function') {
