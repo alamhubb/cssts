@@ -103,6 +103,7 @@
     "vscode-languageserver-textdocument": "^1.0.12"
   },
   "dependencies": {
+    "@qin/generated-qin-parser-ts": "file:../../qin/packages/qin-language/generated/qin-parser-ts",
     "cssts-compiler": "file:../cssts/cssts-compiler",
     "cssts-ts": "^0.2.87",
     "vscode-uri": "^3.1.0"

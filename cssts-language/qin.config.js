@@ -14,6 +14,7 @@ export default {
     "@volar/language-server": "^2.4.14",
     "@volar/language-service": "^2.4.14",
     "@volar/typescript": "^2.4.14",
+    "@qin/generated-qin-parser-ts": "file:../../qin/packages/qin-language/generated/qin-parser-ts",
     "cssts-compiler": "file:../cssts/cssts-compiler",
     "cssts-ts": "^0.2.87",
     "volar-service-typescript": "^0.0.62",
@@ -32,7 +33,8 @@ export default {
     extension: ".cssts",
     server: "cssts-language-server/src/index.ts",
     serverBundle: "dist/language-server.cjs",
-    parser: "../cssts/cssts-compiler",
+    parser: "@qin/generated-qin-parser-ts",
+    compiler: "../cssts/cssts-compiler",
     ideaLspClient: "../../qin/packages/qin-idea-plugin-debug"
   }
 }
