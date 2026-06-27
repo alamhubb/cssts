@@ -51,6 +51,11 @@ const ScriptKind = {
 // 定义 CSSTS 文件的语言 ID
 const CSSTS_LANGUAGE_ID = 'cssts'
 
+function createTransformErrorCode(error: unknown): string {
+  const message = error instanceof Error ? error.message : String(error)
+  return `throw new Error(${JSON.stringify(`CSSTS transform failed: ${message}`)});\n`
+}
+
 // 创建 CSSTS 语言插件
 export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
   getLanguageId(uri) {
@@ -128,6 +133,7 @@ export class CsstsVirtualCode implements VirtualCode {
     const sourceCode = snapshot.getText(0, snapshot.getLength())
     let generatedCode = sourceCode
     let mapping: any[] = []
+    let transformError: unknown = null
 
     logToFile('=== CSSTS Transform Start ===')
     logToFile('Input code length: ' + sourceCode.length)
@@ -151,12 +157,18 @@ export class CsstsVirtualCode implements VirtualCode {
       } else {
         logToFile('Unknown error: ' + String(e))
       }
-      generatedCode = sourceCode
+      transformError = e
+      generatedCode = createTransformErrorCode(e)
       mapping = []
     }
 
     // 使用 MappingConverter 转换映射（参照 os-language）
-    const offsets = MappingConverter.convertMappings(mapping)
+    const offsets = transformError
+      ? [{
+        original: { offset: 0, length: sourceCode.length },
+        generated: { offset: 0, length: generatedCode.length },
+      }]
+      : MappingConverter.convertMappings(mapping)
 
     logToFile('=== Mapping Debug ===')
     logToFile('Raw mapping count: ' + mapping.length)
