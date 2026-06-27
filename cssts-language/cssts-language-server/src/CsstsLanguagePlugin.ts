@@ -162,9 +162,8 @@ export class CsstsVirtualCode implements VirtualCode {
       mapping = []
     }
 
-    // 使用 MappingConverter 转换映射（参照 os-language）
-    const offsets = transformError
-      ? [{
+    // Convert compiler source mappings into Volar virtual-code mappings.
+    const offsets = transformError ? [{
         original: { offset: 0, length: sourceCode.length },
         generated: { offset: 0, length: generatedCode.length },
       }]

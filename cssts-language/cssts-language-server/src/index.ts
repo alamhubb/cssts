@@ -35,7 +35,7 @@ connection.onInitialize((params) => {
     logToFile('TSDK path from client: ' + tsdkPath)
 
     if (!tsdkPath) {
-      logToFile('WARNING: No tsdk path provided, using fallback')
+      throw new Error('CSSTS language server requires initializationOptions.typescript.tsdk')
     }
 
     logToFile('Loading TSDK...')

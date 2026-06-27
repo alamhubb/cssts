@@ -14,7 +14,7 @@ export default {
     "@volar/language-server": "^2.4.14",
     "@volar/language-service": "^2.4.14",
     "@volar/typescript": "^2.4.14",
-    "cssts-compiler": "^0.2.87",
+    "cssts-compiler": "file:../cssts/cssts-compiler",
     "cssts-ts": "^0.2.87",
     "volar-service-typescript": "^0.0.62",
     "vscode-languageserver": "^9.0.1",
