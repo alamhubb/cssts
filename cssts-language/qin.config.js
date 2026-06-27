@@ -7,7 +7,7 @@ export default {
   scripts: {
     build: "npm run build",
     dev: "tsx cssts-language-server/src/index.ts --stdio",
-    test: "npm run test:lsp"
+    test: "npm run build; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; npm run test:lsp"
   },
   dependencies: {
     "@volar/language-core": "^2.4.14",
