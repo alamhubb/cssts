@@ -66,18 +66,6 @@ function isCsstsScriptBlock(block: SfcScriptLike | null | undefined): boolean {
   return block?.lang === 'cssts' || block?.attrs?.lang === 'cssts'
 }
 
-function createIdentityResult(sourceCode: string): CsstsTransformResult {
-  return {
-    code: sourceCode,
-    mapping: [
-      {
-        original: { offset: 0, length: sourceCode.length },
-        generated: { offset: 0, length: sourceCode.length },
-      },
-    ],
-  }
-}
-
 function transformCsstsToTs(sourceCode: string): CsstsTransformResult {
   try {
     const transformed = transformCssTs(sourceCode)
@@ -85,14 +73,12 @@ function transformCsstsToTs(sourceCode: string): CsstsTransformResult {
     const rawMappings = Array.isArray((transformed as any)?.mapping) ? (transformed as any).mapping : []
 
     if (!generatedCode.length || !rawMappings.length) {
-      Glog.warn('[cssts][transform] empty transform output, fallback to identity')
-      return createIdentityResult(sourceCode)
+      throw new Error('CSSTS transform produced empty code or mapping')
     }
 
     const mapping = SlimeMappingConverter.convertMappings(rawMappings) as EnhancedMapping[]
     if (!mapping.length) {
-      Glog.warn('[cssts][transform] empty converted mapping, fallback to identity')
-      return createIdentityResult(sourceCode)
+      throw new Error('CSSTS transform produced empty converted mapping')
     }
 
     return {
@@ -100,8 +86,8 @@ function transformCsstsToTs(sourceCode: string): CsstsTransformResult {
       mapping,
     }
   } catch (error) {
-    Glog.warn(`[cssts][transform] exception fallback to identity: ${String(error)}`)
-    return createIdentityResult(sourceCode)
+    const message = error instanceof Error ? error.message : String(error)
+    throw new Error(`CSSTS transform failed: ${message}`, { cause: error })
   }
 }
 
