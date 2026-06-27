@@ -30,6 +30,7 @@ export default {
   language: {
     id: "cssts",
     extension: ".cssts",
-    server: "cssts-language-server/src/index.ts"
+    server: "cssts-language-server/src/index.ts",
+    ideaLspClient: "../qin/packages/qin-idea-plugin-debug"
   }
 }
