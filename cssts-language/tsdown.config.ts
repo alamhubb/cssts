@@ -16,7 +16,7 @@ export default defineConfig({
     target: 'es2022',
     inlineOnly: false,
     alias: {
-        'cssts-ts': path.join(__dirname, '..', 'cssts', 'cssts-runtime', 'dist', 'index.js'),
+        'cssts-ts': path.join(__dirname, '..', 'cssts', 'cssts-runtime', 'dist', 'index.mjs'),
     },
     noExternal: [
         /^@volar\/vscode$/,
