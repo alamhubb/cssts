@@ -131,7 +131,7 @@ export class CsstsVirtualCode implements VirtualCode {
     }]
 
     const sourceCode = snapshot.getText(0, snapshot.getLength())
-    let generatedCode = sourceCode
+    let generatedCode: string
     let mapping: any[] = []
     let transformError: unknown = null
 

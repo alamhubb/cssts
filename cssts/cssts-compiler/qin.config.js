@@ -12,15 +12,15 @@ export default {
     "@qin/generated-qin-parser-ts": "file:../../../qin/packages/qin-language/generated/qin-parser-ts",
     "cssts-ts": "^0.2.87",
     "glogjs": "file:../../../glogjs",
-    "slime-ast": "^0.2.7",
-    "slime-generator": "^0.2.7",
+    "slime-ast": "file:../../../slime/slime-ast",
+    "slime-generator": "file:../../../slime/slime-generator",
     "slime-parser": "file:../../../slime/slime-parser",
-    "slime-token": "^0.2.7",
+    "slime-token": "file:../../../slime/slime-token",
     "subhuti": "file:../../../subhuti"
   },
   devDependencies: {
     "css-tree": "^3.1.0",
-    "slime-test": "^0.2.7",
+    "slime-test": "file:../../../slime/slime-test",
     "tsdown": "^0.20.0-beta.3",
     "typescript": "^5.8.3"
   },

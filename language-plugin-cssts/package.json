@@ -23,11 +23,11 @@
 		"dev": "tsdown --watch"
 	},
 	"dependencies": {
-		"cssts-compiler": "^0.2.87",
+		"cssts-compiler": "file:../cssts/cssts-compiler",
 		"find-up": "^8.0.0",
 		"glogjs": "file:../../glogjs",
 		"pkg-dir": "^4.2.0",
-		"slime-generator": "^0.2.87"
+		"slime-generator": "file:../../slime/slime-generator"
 	},
 	"devDependencies": {
 		"@types/node": "^22.10.4",
