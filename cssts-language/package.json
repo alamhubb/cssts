@@ -80,7 +80,7 @@
   "scripts": {
     "build": "tsdown",
     "watch": "tsdown --watch",
-    "test:lsp": "npx tsx tests/test-transform-error-bundle.ts && npx tsx tests/test-language-server.ts",
+    "test:lsp": "npx tsx tests/test-generated-parser-chain.ts && npx tsx tests/test-transform-error-bundle.ts && npx tsx tests/test-language-server.ts",
     "vscode:prepublish": "npm run build",
     "package": "npx @vscode/vsce package --no-dependencies --allow-missing-repository",
     "publish": "npx @vscode/vsce publish --no-dependencies --allow-missing-repository"
