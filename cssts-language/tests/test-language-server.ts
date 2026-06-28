@@ -97,6 +97,32 @@ function collectSymbolNames(symbols: any[]): string[] {
   return names
 }
 
+function semanticTokenCovers(result: any, line: number, character: number): boolean {
+  const data = result?.data
+  if (!Array.isArray(data) || data.length % 5 !== 0) {
+    return false
+  }
+  let currentLine = 0
+  let currentCharacter = 0
+  for (let index = 0; index < data.length; index += 5) {
+    const deltaLine = data[index]
+    const deltaStart = data[index + 1]
+    const length = data[index + 2]
+    currentLine += deltaLine
+    currentCharacter = deltaLine === 0 ? currentCharacter + deltaStart : deltaStart
+    if (currentLine === line && currentCharacter <= character && character < currentCharacter + length) {
+      return true
+    }
+  }
+  return false
+}
+
+function requireSemanticTokenAt(result: any, line: number, character: number, label: string) {
+  if (!semanticTokenCovers(result, line, character)) {
+    throw new Error(`${label} semanticTokens did not cover ${line}:${character}: ${JSON.stringify(result)}`)
+  }
+}
+
 async function waitFor(description: string, predicate: () => boolean, timeoutMs = 10000): Promise<void> {
   const startedAt = Date.now()
   while (Date.now() - startedAt < timeoutMs) {
@@ -432,6 +458,8 @@ async function main() {
   if (!Array.isArray(cssSemanticTokensResponse.result?.data) || cssSemanticTokensResponse.result.data.length === 0) {
     throw new Error(`CSSTS css syntax semanticTokens did not return token data: ${JSON.stringify(cssSemanticTokensResponse.result)}`)
   }
+  requireSemanticTokenAt(cssSemanticTokensResponse.result, 0, 6, 'CSSTS css syntax baseStyle declaration')
+  requireSemanticTokenAt(cssSemanticTokensResponse.result, 1, 26, 'CSSTS css syntax baseStyle usage')
 
   const shutdown = createRequest('shutdown', null)
   server.stdin.write(shutdown.packet)
