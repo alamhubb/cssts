@@ -187,9 +187,17 @@ function configurationForSection(section: string | undefined): any {
   return {}
 }
 
+function languageServerEnvironment(): NodeJS.ProcessEnv {
+  return {
+    ...process.env,
+    NODE_OPTIONS: [process.env.NODE_OPTIONS, '--max-old-space-size=512'].filter(Boolean).join(' '),
+  }
+}
+
 async function main() {
   const server = spawn('node', [resolveServerPath(), '--stdio'], {
     cwd: path.join(__dirname, '..'),
+    env: languageServerEnvironment(),
     stdio: ['pipe', 'pipe', 'pipe'],
   })
 
