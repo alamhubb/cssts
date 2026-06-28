@@ -58,12 +58,12 @@ import { CssCls, cls } from './cssts/CssCls'
 ## Development
 
 ```bash
-npm install
-npm run dev
+qin install
+qin dev
 ```
 
 ## Build
 
 ```bash
-npm run build
+qin build
 ```
