@@ -42,4 +42,8 @@ if (compilerConfig.includes('npm run')) {
   throw new Error('cssts-compiler qin.config.js must run compiler tasks directly through Qin scripts, not npm run forwarding')
 }
 
+if (languageConfig.includes('npm run')) {
+  throw new Error('cssts-language qin.config.js must run language tasks directly through Qin scripts, not npm run forwarding')
+}
+
 console.log('test-generated-parser-chain passed')
