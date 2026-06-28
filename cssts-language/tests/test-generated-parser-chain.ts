@@ -55,6 +55,18 @@ function requireDependency(packageJson: any, dependencyName: string, label: stri
   }
 }
 
+function requireNoDependency(packageJson: any, dependencyName: string, label: string) {
+  const dependencySections = [
+    packageJson.dependencies ?? {},
+    packageJson.devDependencies ?? {},
+    packageJson.peerDependencies ?? {},
+    packageJson.optionalDependencies ?? {},
+  ]
+  if (dependencySections.some(section => typeof section[dependencyName] === 'string')) {
+    throw new Error(`${label} must not depend directly on ${dependencyName}; use @qin/generated-qin-parser-ts through cssts-compiler`)
+  }
+}
+
 async function main() {
   const languageConfigObject = await loadQinConfig(languageConfigPath)
   const compilerConfigObject = await loadQinConfig(compilerConfigPath)
@@ -65,6 +77,10 @@ async function main() {
   requireEquals(generatedParserPackage.name, generatedParserTarget, 'resolved generated parser package name')
   requireDependency(languagePackage, generatedParserTarget, 'cssts-language package.json')
   requireDependency(compilerPackage, generatedParserTarget, 'cssts-compiler package.json')
+
+  for (const legacyParserPackage of ['slime-ast', 'slime-parser', 'slime-token', 'subhuti']) {
+    requireNoDependency(languagePackage, legacyParserPackage, 'cssts-language package.json')
+  }
 
   requireIncludes(languageConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-language qin.config.js')
   requireIncludes(compilerConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-compiler qin.config.js')
