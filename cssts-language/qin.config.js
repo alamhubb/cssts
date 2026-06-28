@@ -5,9 +5,9 @@ export default {
   type: "library",
   entry: "cssts-language-server/src/index.ts",
   scripts: {
-    build: "npm run build",
+    build: "tsdown",
     dev: "tsx cssts-language-server/src/index.ts --stdio",
-    test: "npm run build && npm run test:lsp"
+    test: "tsdown && tsx tests/test-generated-parser-chain.ts && tsx tests/test-transform-error-bundle.ts && tsx tests/test-language-server.ts"
   },
   dependencies: {
     "@volar/language-core": "^2.4.14",
