@@ -79,6 +79,7 @@ async function main() {
   requireDependency(compilerPackage, generatedParserTarget, 'cssts-compiler package.json')
 
   for (const legacyParserPackage of ['slime-ast', 'slime-parser', 'slime-token', 'subhuti']) {
+    requireNoDependency(languageConfigObject, legacyParserPackage, 'cssts-language qin.config.js')
     requireNoDependency(languagePackage, legacyParserPackage, 'cssts-language package.json')
   }
 
