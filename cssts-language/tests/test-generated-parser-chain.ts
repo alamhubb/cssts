@@ -24,6 +24,8 @@ function requireIncludes(source: string, needle: string, label: string) {
 
 requireIncludes(languageConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-language qin.config.js')
 requireIncludes(compilerConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-compiler qin.config.js')
+requireIncludes(compilerConfig, 'build: "tsdown"', 'cssts-compiler qin.config.js')
+requireIncludes(compilerConfig, 'test: "vitest run"', 'cssts-compiler qin.config.js')
 requireIncludes(parserSource, 'from "@qin/generated-qin-parser-ts"', 'CssTsParser.ts')
 requireIncludes(parserSource, 'normalizeGeneratedTokens', 'CssTsParser.ts')
 requireIncludes(parserSource, 'extends SlimeParser', 'CssTsParser.ts')
@@ -34,6 +36,10 @@ requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'tra
 
 if (parserSource.includes('alt:')) {
   throw new Error('CssTsParser.ts must use generated parser Or semantics, not legacy { alt } alternatives')
+}
+
+if (compilerConfig.includes('npm run')) {
+  throw new Error('cssts-compiler qin.config.js must run compiler tasks directly through Qin scripts, not npm run forwarding')
 }
 
 console.log('test-generated-parser-chain passed')
