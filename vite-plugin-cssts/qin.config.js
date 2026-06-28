@@ -25,7 +25,7 @@ export default {
   language: {
     id: "cssts",
     extension: ".cssts",
-    compiler: "cssts-compiler",
+    compiler: "../cssts/cssts-compiler",
     plugin: "src/index.ts"
   }
 }
