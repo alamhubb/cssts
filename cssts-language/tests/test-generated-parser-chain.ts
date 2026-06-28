@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { CssTsParser } from 'cssts-compiler'
 
 const languageRoot = path.join(__dirname, '..')
 const workspaceRoot = path.join(languageRoot, '..')
@@ -44,6 +45,18 @@ if (compilerConfig.includes('npm run')) {
 
 if (languageConfig.includes('npm run')) {
   throw new Error('cssts-language qin.config.js must run language tasks directly through Qin scripts, not npm run forwarding')
+}
+
+const inheritedSyntaxSource = [
+  'const baseStyle = css { colorRed, displayFlex }',
+  'const derivedStyle = css { baseStyle, backgroundBlue }',
+  '',
+].join('\n')
+const parser = new CssTsParser(inheritedSyntaxSource)
+parser.Program()
+
+if (!parser.parsedTokens.length) {
+  throw new Error('CssTsParser must parse through the generated Qin/Slime -> CSSTS parser chain')
 }
 
 console.log('test-generated-parser-chain passed')
