@@ -19,11 +19,6 @@
     "dist",
     "template"
   ],
-  "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "prepublishOnly": "npm run build"
-  },
   "keywords": [
     "cssts",
     "css",
