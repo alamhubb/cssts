@@ -36,5 +36,11 @@ export default {
     parser: "@qin/generated-qin-parser-ts",
     compiler: "../cssts/cssts-compiler",
     ideaLspClient: "../../qin/packages/qin-idea-plugin-debug"
+  },
+  languageServer: {
+    sourceExtension: ".cssts",
+    serviceExtension: ".ts",
+    generatedParserTarget: "@qin/generated-qin-parser-ts",
+    compilerPackage: "cssts-compiler"
   }
 }
