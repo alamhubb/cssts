@@ -6,7 +6,7 @@ export default {
   entry: "src/index.ts",
   scripts: {
     build: "tsdown",
-    test: "vitest run"
+    test: "tsx tests/test-generated-parser-chain.ts && tsdown"
   },
   dependencies: {
     "@qin/generated-qin-parser-ts": "file:../../../qin/packages/qin-language/generated/qin-parser-ts",
@@ -22,6 +22,7 @@ export default {
     "css-tree": "^3.1.0",
     "slime-test": "file:../../../slime/slime-test",
     "tsdown": "^0.20.0-beta.3",
+    "tsx": "^4.19.2",
     "typescript": "^5.8.3"
   },
   language: {
