@@ -33,9 +33,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsdown"
-  },
   "keywords": [
     "cssts",
     "element-plus",

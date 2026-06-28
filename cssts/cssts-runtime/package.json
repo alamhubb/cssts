@@ -18,10 +18,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsdown",
-    "test": "vitest run"
-  },
   "keywords": [
     "cssts",
     "runtime",

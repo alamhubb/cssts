@@ -6,7 +6,7 @@ export default {
   entry: "src/index.ts",
   scripts: {
     build: "tsdown",
-    test: "vitest run"
+    test: "tsdown"
   },
   devDependencies: {
     "@types/node": "^25.0.8",
