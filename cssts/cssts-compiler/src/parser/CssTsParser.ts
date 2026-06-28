@@ -2,6 +2,7 @@ import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
 import { SlimeJavascriptParser as SlimeParser, type ExpressionParams } from "@qin/generated-qin-parser-ts"
+import { normalizeGeneratedTokens } from "./generated-runtime-adapter.ts"
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -27,6 +28,13 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
     consumer.setParser(this)
     ;(this as any).__qin_field_tokenConsumer = consumer
     ;(this as any).tokenConsumer = consumer
+  }
+
+  get parsedTokens(): any[] {
+    const tokens = typeof (this as any).getParsedTokens === 'function'
+      ? (this as any).getParsedTokens()
+      : (this as any).__qin_field_parsedTokens
+    return normalizeGeneratedTokens(tokens)
   }
 
   /**

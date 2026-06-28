@@ -11,12 +11,14 @@ import { SlimeGenerator } from 'slime-generator'
 import Glog from 'glogjs'
 import { ConfigLookup } from '../config/ConfigLookup'
 import { RuntimeStore } from '../store/RuntimeStore'
+import { CsstsInit } from '../init/CsstsInit'
 import {
   camelToKebab,
   generateAtomCssRule,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
 import { generatePseudoAtoms, generateClassGroupAtoms } from '../dts/atom-generator.ts'
+import { normalizeGeneratedCst } from '../parser/generated-runtime-adapter.ts'
 
 // 从核心文件重新导出
 export { generateCsstsAtomModule } from '../utils/csstsAtomCore'
@@ -130,8 +132,10 @@ export function transformCssTs(code: string): TransformResultWithMapping {
     _transformLoggedVersion = true
   }
 
+  CsstsInit.init({ dts: false } as any)
+
   const parser = new CssTsParser(code)
-  const cst = parser.Program()  // 使用默认的 module 模式
+  const cst = normalizeGeneratedCst(parser.Program())  // 使用默认的 module 模式
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
   const ast = CssTsCstToAstUtils.toFileAst(cst)
 
