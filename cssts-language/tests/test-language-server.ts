@@ -215,6 +215,14 @@ async function main() {
     rootUri: toFileUri(path.join(__dirname, '..')),
     initializationOptions: {
       typescript: { tsdk: resolveTsdkPath() },
+      qin: {
+        languageServer: {
+          sourceExtension: '.cssts',
+          serviceExtension: '.ts',
+          generatedParserTarget: '@qin/generated-qin-parser-ts',
+          compilerPackage: 'cssts-compiler',
+        },
+      },
     },
   })
   server.stdin.write(init.packet)

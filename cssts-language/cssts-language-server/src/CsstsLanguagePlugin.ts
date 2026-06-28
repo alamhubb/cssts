@@ -7,6 +7,8 @@ import {
 import type { TypeScriptExtraServiceScript } from '@volar/typescript'
 import type { IScriptSnapshot } from 'typescript'
 import { URI } from 'vscode-uri'
+import type { LanguageServerMetadata } from './LanguageServerMetadata'
+import { extensionWithoutDot } from './LanguageServerMetadata'
 import { logToFile } from './logutil'
 import { transformCssTs } from 'cssts-compiler'
 import { SlimeCodeMapping } from 'slime-generator'
@@ -61,66 +63,69 @@ function createTransformErrorCode(error: unknown): string {
 }
 
 // 创建 CSSTS 语言插件
-export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
-  getLanguageId(uri) {
-    if (uri.path.endsWith('.cssts')) {
-      return CSSTS_LANGUAGE_ID
-    }
-    return undefined
-  },
+export function CsstsLanguagePlugin(metadata: LanguageServerMetadata): LanguagePlugin<URI> {
+  const sourceExtension = extensionWithoutDot(metadata.sourceExtension)
+  return {
+    getLanguageId(uri) {
+      if (uri.path.endsWith(`.${sourceExtension}`)) {
+        return CSSTS_LANGUAGE_ID
+      }
+      return undefined
+    },
 
-  createVirtualCode(_uri, languageId, snapshot) {
-    if (languageId === CSSTS_LANGUAGE_ID) {
-      return new CsstsVirtualCode(snapshot)
-    }
-    return undefined
-  },
+    createVirtualCode(_uri, languageId, snapshot) {
+      if (languageId === CSSTS_LANGUAGE_ID) {
+        return new CsstsVirtualCode(snapshot)
+      }
+      return undefined
+    },
 
-  typescript: {
-    extraFileExtensions: [
-      {
-        extension: 'cssts',
-        isMixedContent: true,
-        scriptKind: ScriptKind.Deferred,
+    typescript: {
+      extraFileExtensions: [
+        {
+          extension: sourceExtension,
+          isMixedContent: true,
+          scriptKind: ScriptKind.Deferred,
+        },
+      ],
+      getServiceScript(root) {
+        const code = root.embeddedCodes.find(item => item.id === 'cssts-script' && item.languageId === 'typescript')
+        if (!code) {
+          return undefined
+        }
+        return {
+          code,
+          extension: metadata.serviceExtension,
+          scriptKind: ScriptKind.TS,
+        }
       },
-    ],
-    getServiceScript(root) {
-      const code = root.embeddedCodes.find(item => item.id === 'cssts-script' && item.languageId === 'typescript')
-      if (!code) {
-        return undefined
-      }
-      return {
-        code,
-        extension: '.ts',
-        scriptKind: ScriptKind.TS,
-      }
-    },
-    getExtraServiceScripts(fileName, root) {
-      const scripts: TypeScriptExtraServiceScript[] = []
-      // 使用 forEachEmbeddedCode 遍历所有嵌入代码（与 ovs-language 保持一致）
-      for (const code of forEachEmbeddedCode(root)) {
-        if (code.id === 'cssts-script') {
-          continue
+      getExtraServiceScripts(fileName, root) {
+        const scripts: TypeScriptExtraServiceScript[] = []
+        // 使用 forEachEmbeddedCode 遍历所有嵌入代码（与 ovs-language 保持一致）
+        for (const code of forEachEmbeddedCode(root)) {
+          if (code.id === 'cssts-script') {
+            continue
+          }
+          if (code.languageId === 'typescript') {
+            scripts.push({
+              fileName: fileName + '.' + code.id + metadata.serviceExtension,
+              code,
+              extension: metadata.serviceExtension,
+              scriptKind: ScriptKind.TS,
+            })
+          } else if (code.languageId === 'js') {
+            scripts.push({
+              fileName: fileName + '.' + code.id + '.js',
+              code,
+              extension: '.js',
+              scriptKind: ScriptKind.JS,
+            })
+          }
         }
-        if (code.languageId === 'typescript') {
-          scripts.push({
-            fileName: fileName + '.' + code.id + '.ts',
-            code,
-            extension: '.ts',
-            scriptKind: ScriptKind.TS,
-          })
-        } else if (code.languageId === 'js') {
-          scripts.push({
-            fileName: fileName + '.' + code.id + '.js',
-            code,
-            extension: '.js',
-            scriptKind: ScriptKind.JS,
-          })
-        }
-      }
-      return scripts
+        return scripts
+      },
     },
-  },
+  }
 }
 
 // CSSTS 虚拟代码类
