@@ -12,10 +12,6 @@
     "create-cssts",
     "cssts-theme-element"
   ],
-  "scripts": {
-    "build": "npm run build --workspaces --if-present",
-    "release": "npx lerna publish --no-git-reset --no-push --no-git-tag-version"
-  },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.5.26",
     "lerna": "^9.0.3"
