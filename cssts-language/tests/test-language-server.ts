@@ -260,6 +260,21 @@ async function main() {
     },
   }))
 
+  const cssSyntaxUri = toFileUri(path.join(__dirname, 'css-syntax.cssts'))
+  server.stdin.write(createNotification('textDocument/didOpen', {
+    textDocument: {
+      uri: cssSyntaxUri,
+      languageId: 'cssts',
+      version: 1,
+      text: [
+        'const baseStyle = css { colorRed, displayFlex }',
+        'const derivedStyle = css { baseStyle, backgroundBlue }',
+        'der',
+        '',
+      ].join('\n'),
+    },
+  }))
+
   await waitFor('CSSTS diagnostics for valid and invalid documents', () => {
     const diagnostics = messages.filter(message => message.method === 'textDocument/publishDiagnostics')
     return diagnostics.some(message => sameUri(message.params?.uri, validUri))
@@ -350,6 +365,49 @@ async function main() {
   const semanticTokensResponse = await waitForResponse(semanticTokens.id, messages, 'CSSTS semanticTokens response')
   if (!Array.isArray(semanticTokensResponse.result?.data) || semanticTokensResponse.result.data.length === 0) {
     throw new Error(`CSSTS semanticTokens did not return token data: ${JSON.stringify(semanticTokensResponse.result)}`)
+  }
+
+  const cssCompletion = createRequest('textDocument/completion', {
+    textDocument: { uri: cssSyntaxUri },
+    position: { line: 2, character: 3 },
+    context: { triggerKind: 1 },
+  })
+  server.stdin.write(cssCompletion.packet)
+  const cssCompletionResponse = await waitForResponse(cssCompletion.id, messages, 'CSSTS css syntax completion response')
+  const cssCompletionItems = Array.isArray(cssCompletionResponse.result) ? cssCompletionResponse.result : cssCompletionResponse.result?.items ?? []
+  const cssCompletionLabels = cssCompletionItems.map((item: any) => item.label)
+  if (!cssCompletionLabels.includes('derivedStyle')) {
+    throw new Error(`CSSTS css syntax completion did not include derivedStyle: ${JSON.stringify(cssCompletionLabels.slice(0, 30))}`)
+  }
+
+  const cssDefinition = createRequest('textDocument/definition', {
+    textDocument: { uri: cssSyntaxUri },
+    position: { line: 1, character: 33 },
+  })
+  server.stdin.write(cssDefinition.packet)
+  const cssDefinitionResponse = await waitForResponse(cssDefinition.id, messages, 'CSSTS css syntax definition response')
+  const cssDefinitions = Array.isArray(cssDefinitionResponse.result) ? cssDefinitionResponse.result : cssDefinitionResponse.result ? [cssDefinitionResponse.result] : []
+  if (!cssDefinitions.some(item => sameUri(locationUri(item), cssSyntaxUri) && rangeContains(item, 0, 6))) {
+    throw new Error(`CSSTS css syntax definition did not resolve baseStyle declaration: ${JSON.stringify(cssDefinitionResponse.result)}`)
+  }
+
+  const cssSymbols = createRequest('textDocument/documentSymbol', {
+    textDocument: { uri: cssSyntaxUri },
+  })
+  server.stdin.write(cssSymbols.packet)
+  const cssSymbolsResponse = await waitForResponse(cssSymbols.id, messages, 'CSSTS css syntax documentSymbol response')
+  const cssSymbolNames = collectSymbolNames(Array.isArray(cssSymbolsResponse.result) ? cssSymbolsResponse.result : [])
+  if (!cssSymbolNames.includes('baseStyle') || !cssSymbolNames.includes('derivedStyle')) {
+    throw new Error(`CSSTS css syntax documentSymbol did not include style symbols: ${JSON.stringify(cssSymbolsResponse.result)}`)
+  }
+
+  const cssSemanticTokens = createRequest('textDocument/semanticTokens/full', {
+    textDocument: { uri: cssSyntaxUri },
+  })
+  server.stdin.write(cssSemanticTokens.packet)
+  const cssSemanticTokensResponse = await waitForResponse(cssSemanticTokens.id, messages, 'CSSTS css syntax semanticTokens response')
+  if (!Array.isArray(cssSemanticTokensResponse.result?.data) || cssSemanticTokensResponse.result.data.length === 0) {
+    throw new Error(`CSSTS css syntax semanticTokens did not return token data: ${JSON.stringify(cssSemanticTokensResponse.result)}`)
   }
 
   const shutdown = createRequest('shutdown', null)
