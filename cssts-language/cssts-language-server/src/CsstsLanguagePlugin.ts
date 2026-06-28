@@ -84,13 +84,24 @@ export const CsstsLanguagePlugin: LanguagePlugin<URI> = {
         scriptKind: ScriptKind.Deferred,
       },
     ],
-    getServiceScript() {
-      return undefined
+    getServiceScript(root) {
+      const code = root.embeddedCodes.find(item => item.id === 'cssts-script' && item.languageId === 'typescript')
+      if (!code) {
+        return undefined
+      }
+      return {
+        code,
+        extension: '.ts',
+        scriptKind: ScriptKind.TS,
+      }
     },
     getExtraServiceScripts(fileName, root) {
       const scripts: TypeScriptExtraServiceScript[] = []
       // 使用 forEachEmbeddedCode 遍历所有嵌入代码（与 ovs-language 保持一致）
       for (const code of forEachEmbeddedCode(root)) {
+        if (code.id === 'cssts-script') {
+          continue
+        }
         if (code.languageId === 'typescript') {
           scripts.push({
             fileName: fileName + '.' + code.id + '.ts',

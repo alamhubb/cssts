@@ -33,9 +33,11 @@ function normalizeGeneratedLocation(location: any, value?: string, type?: string
   const start = readPosition(typeof location.getStart === 'function' ? location.getStart() : existingStart)
   const end = readPosition(typeof location.getEnd === 'function' ? location.getEnd() : existingEnd)
   if (!start || !end) return undefined
+  const rawValue = typeof location.getValue === 'function' ? location.getValue() : location.value
+  const rawType = typeof location.getType === 'function' ? location.getType() : location.type
   return {
-    type: typeof location.getType === 'function' ? location.getType() : (location.type || type),
-    value: typeof location.getValue === 'function' ? location.getValue() : (location.value || value),
+    type: rawType ?? type,
+    value: rawValue ?? value,
     newLine: typeof location.getNewLine === 'function' ? location.getNewLine() : location.newLine,
     index: start.index,
     length: Math.max(0, end.index - start.index),
