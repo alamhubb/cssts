@@ -5,8 +5,8 @@ export default {
   type: "library",
   entry: "src/index.ts",
   scripts: {
-    build: "npm run build",
-    test: "npm run test"
+    build: "tsdown",
+    test: "vitest run"
   },
   devDependencies: {
     "@types/node": "^25.0.8",

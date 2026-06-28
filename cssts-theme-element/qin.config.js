@@ -5,8 +5,11 @@ export default {
   type: "library",
   entry: "src/index.ts",
   scripts: {
-    build: "npm run build",
-    test: "npm run build"
+    build: "tsdown",
+    test: "tsdown"
+  },
+  dependencies: {
+    "cssts-ts": "^0.2.87"
   },
   devDependencies: {
     "tsdown": "^0.20.0-beta.3",

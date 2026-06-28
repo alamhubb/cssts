@@ -43,6 +43,9 @@
     "typescript"
   ],
   "license": "MIT",
+  "dependencies": {
+    "cssts-ts": "^0.2.87"
+  },
   "devDependencies": {
     "tsdown": "^0.20.0-beta.3",
     "typescript": "~5.5.0"

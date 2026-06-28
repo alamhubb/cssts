@@ -5,7 +5,7 @@ export default {
   type: "library",
   entry: "index.ts",
   scripts: {
-    build: "npm run build",
+    build: "tsdown",
     test: "node test-transform-error.cjs"
   },
   dependencies: {
