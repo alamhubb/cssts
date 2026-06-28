@@ -1,8 +1,45 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
 import type { SubhutiParserOptions } from 'subhuti'
-import { SlimeJavascriptParser as SlimeParser, type ExpressionParams } from "@qin/generated-qin-parser-ts"
+import { QinParser, type ExpressionParams } from "@qin/generated-qin-parser-ts"
 import { normalizeGeneratedTokens } from "./generated-runtime-adapter.ts"
+
+function expressionParamsWith(params: any = {}, overrides: Record<string, boolean> = {}) {
+  const read = (key: string, fallback = false) => {
+    const value = params?.[key]
+    if (typeof value === 'function') return !!value.call(params)
+    if (typeof value === 'boolean') return value
+    return fallback
+  }
+  const inValue = Object.prototype.hasOwnProperty.call(overrides, 'In')
+    ? !!overrides.In
+    : read('in', true)
+  const yieldValue = Object.prototype.hasOwnProperty.call(overrides, 'Yield')
+    ? !!overrides.Yield
+    : read('yield')
+  const awaitValue = Object.prototype.hasOwnProperty.call(overrides, 'Await')
+    ? !!overrides.Await
+    : read('await')
+  return {
+    in: () => inValue,
+    yield: () => yieldValue,
+    await: () => awaitValue,
+    withIn: (value: boolean) => expressionParamsWith(params, { ...overrides, In: value }),
+    withYield: (value: boolean) => expressionParamsWith(params, { ...overrides, Yield: value }),
+    withAwait: (value: boolean) => expressionParamsWith(params, { ...overrides, Await: value }),
+  }
+}
+
+function templateLiteralParamsWith(params: any = {}, tagged = false) {
+  const expressionParams = expressionParamsWith(params)
+  return {
+    in: () => expressionParams.in(),
+    yield: () => expressionParams.yield(),
+    await: () => expressionParams.await(),
+    tagged: () => tagged,
+    expressionParams: () => expressionParams,
+  }
+}
 
 /**
  * CssTsParser - CSS-in-TS 样式解析器
@@ -20,7 +57,7 @@ import { normalizeGeneratedTokens } from "./generated-runtime-adapter.ts"
  * 推荐使用表达式语法，更灵活且不会破坏 JS 兼容性。
  */
 @Subhuti
-export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsumer> extends SlimeParser<T> {
+export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsumer> extends QinParser<T> {
   constructor(sourceCode: string = '', options?: SubhutiParserOptions<T>) {
     super(sourceCode)
     const Consumer = (options?.tokenConsumer ?? CssTsTokenConsumer) as any
@@ -118,7 +155,7 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
       () => this.ArrayLiteral(params),
       () => this.ObjectLiteral(params),
       () => this.consumeRegularExpressionLiteral(),
-      () => this.TemplateLiteral({ ...params, Tagged: false }),
+      () => this.TemplateLiteral(templateLiteralParamsWith(params, false) as any),
       () => this.CoverParenthesizedExpressionAndArrowParameterList(params)
     )
   }

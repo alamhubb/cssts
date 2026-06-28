@@ -72,7 +72,7 @@ async function main() {
   requireIncludes(compilerConfig, 'test: "tsx tests/test-generated-parser-chain.ts && tsdown"', 'cssts-compiler qin.config.js')
   requireIncludes(parserSource, 'from "@qin/generated-qin-parser-ts"', 'CssTsParser.ts')
   requireIncludes(parserSource, 'normalizeGeneratedTokens', 'CssTsParser.ts')
-  requireIncludes(parserSource, 'extends SlimeParser', 'CssTsParser.ts')
+  requireIncludes(parserSource, 'extends QinParser', 'CssTsParser.ts')
   requireIncludes(parserSource, 'this.Or(', 'CssTsParser.ts')
   requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
   requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
@@ -91,6 +91,15 @@ async function main() {
   }
 
   const inheritedSyntaxSource = [
+    'object Labeler {',
+    '  label(name: string, flag: boolean): string {',
+    '    const prefix = "hello "',
+    '    if (flag) {',
+    '      return prefix + name',
+    '    }',
+    '    return "bye " + name',
+    '  }',
+    '}',
     'const baseStyle = css { colorRed, displayFlex }',
     'const derivedStyle = css { baseStyle, backgroundBlue }',
     '',
@@ -105,6 +114,14 @@ async function main() {
 
   if (!parser.parsedTokens.length) {
     throw new Error('CssTsParser must parse through the generated Qin/Slime -> CSSTS parser chain')
+  }
+
+  if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'object')) {
+    throw new Error('CssTsParser chain must preserve Qin object declaration syntax from the generated parser')
+  }
+
+  if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'css')) {
+    throw new Error('CssTsParser chain must preserve CSSTS css expression syntax')
   }
 
   console.log('test-generated-parser-chain passed')
