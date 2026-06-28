@@ -391,6 +391,21 @@ async function main() {
     throw new Error(`CSSTS css syntax definition did not resolve baseStyle declaration: ${JSON.stringify(cssDefinitionResponse.result)}`)
   }
 
+  const cssReferences = createRequest('textDocument/references', {
+    textDocument: { uri: cssSyntaxUri },
+    position: { line: 1, character: 33 },
+    context: { includeDeclaration: true },
+  })
+  server.stdin.write(cssReferences.packet)
+  const cssReferencesResponse = await waitForResponse(cssReferences.id, messages, 'CSSTS css syntax references response')
+  const cssReferenceItems = Array.isArray(cssReferencesResponse.result) ? cssReferencesResponse.result : []
+  if (
+    !cssReferenceItems.some(item => sameUri(locationUri(item), cssSyntaxUri) && rangeStartsAt(item, 0, 6))
+    || !cssReferenceItems.some(item => sameUri(locationUri(item), cssSyntaxUri) && rangeStartsAt(item, 1, 26))
+  ) {
+    throw new Error(`CSSTS css syntax references did not include baseStyle declaration and css usage: ${JSON.stringify(cssReferencesResponse.result)}`)
+  }
+
   const cssSymbols = createRequest('textDocument/documentSymbol', {
     textDocument: { uri: cssSyntaxUri },
   })
