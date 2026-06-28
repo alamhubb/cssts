@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { CssTsParser } from 'cssts-compiler'
+import { SlimeJavascriptParser } from '@qin/generated-qin-parser-ts'
 
 const languageRoot = path.join(__dirname, '..')
 const workspaceRoot = path.join(languageRoot, '..')
@@ -53,6 +54,11 @@ const inheritedSyntaxSource = [
   '',
 ].join('\n')
 const parser = new CssTsParser(inheritedSyntaxSource)
+
+if (!(parser instanceof SlimeJavascriptParser)) {
+  throw new Error('CssTsParser must inherit the shared generated SlimeJavascriptParser export')
+}
+
 parser.Program()
 
 if (!parser.parsedTokens.length) {
