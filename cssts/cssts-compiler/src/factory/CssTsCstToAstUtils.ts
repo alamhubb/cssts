@@ -1,4 +1,4 @@
-﻿import { SlimeCstToAst, registerSlimeCstToAstUtil } from "slime-parser"
+import { SlimeCstToAst, SlimeCstToAstUtils, registerSlimeCstToAstUtil } from "slime-parser"
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
@@ -8,8 +8,11 @@ import {
   type SlimeModuleDeclaration,
   type SlimeProgram,
   SlimeAstCreateUtils,
+  SlimeTokenCreateUtils,
 } from "slime-ast"
 import { CSSTS_CONFIG, isBuiltinAtom } from "../utils/cssClassName.js"
+
+const QIN_OBJECT_INTERNAL_PREFIX = "__QinObject_"
 
 export interface CssStyleInfo {
   name: string
@@ -303,6 +306,22 @@ export class CssTsCstToAst extends SlimeCstToAst {
       return this.createCssExpressionAst(first)
     }
     return super.createExpressionAstUncached(cst)
+  }
+
+  createStatementListItemAst(cst: SubhutiCst): Array<SlimeStatement> {
+    const qinObject = this.findDirectQinObjectDeclaration(cst)
+    if (qinObject) {
+      return this.createQinObjectNodes(qinObject) as any
+    }
+    return super.createStatementListItemAst(cst)
+  }
+
+  createDeclarationAst(cst: SubhutiCst): any {
+    const qinObject = this.unwrapQinObjectDeclaration(cst)
+    if (qinObject) {
+      return this.createQinObjectNodes(qinObject)[0]
+    }
+    return super.createDeclarationAst(cst)
   }
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
@@ -630,6 +649,89 @@ export class CssTsCstToAst extends SlimeCstToAst {
       right: mergeCall,
       loc: ast.loc
     } as any
+  }
+
+  private createQinObjectNodes(qinObject: SubhutiCst): any[] {
+    const body = qinObject.getName() === 'QinObjectDeclarationBody'
+      ? qinObject
+      : this.findFirstByName(qinObject, 'QinObjectDeclarationBody') ?? qinObject
+    const binding = this.findFirstByName(body, 'BindingIdentifier')
+    if (!binding) {
+      throw new Error('Qin object declaration must have a binding identifier')
+    }
+
+    const publicId = (SlimeCstToAstUtils as any).createBindingIdentifierAst(binding)
+    const publicName = publicId?.name
+    if (!publicName) {
+      throw new Error('Qin object declaration must have a binding identifier name')
+    }
+
+    const internalName = `${QIN_OBJECT_INTERNAL_PREFIX}${publicName}`
+    const internalClassId = SlimeAstCreateUtils.createIdentifier(internalName, publicId.loc)
+    const classTail = SlimeCstToAstUtils.createClassTailAst(
+      this.findFirstByName(body, 'ClassTail')
+        ?? (() => { throw new Error('Qin object declaration must have a ClassTail') })()
+    )
+    const internalClass = SlimeAstCreateUtils.createClassDeclaration(
+      internalClassId,
+      classTail.body,
+      classTail.superClass,
+      body.getLoc(),
+      undefined,
+      classTail.extendsToken
+    )
+
+    const initializer = SlimeAstCreateUtils.createNewExpression(
+      SlimeAstCreateUtils.createIdentifier(internalName, publicId.loc),
+      [],
+      publicId.loc,
+      SlimeTokenCreateUtils.createNewToken(publicId.loc)
+    )
+    const declarator = SlimeAstCreateUtils.createVariableDeclarator(
+      publicId,
+      SlimeTokenCreateUtils.createAssignToken(publicId.loc),
+      initializer,
+      publicId.loc
+    )
+    const singleton = SlimeAstCreateUtils.createVariableDeclaration(
+      SlimeTokenCreateUtils.createConstToken(publicId.loc),
+      [declarator],
+      qinObject.getLoc()
+    )
+
+    return [internalClass, singleton]
+  }
+
+  private findDirectQinObjectDeclaration(cst: SubhutiCst): SubhutiCst | undefined {
+    for (const child of cst.getChildren() || []) {
+      const qinObject = this.unwrapQinObjectDeclaration(child)
+      if (qinObject) return qinObject
+    }
+    return undefined
+  }
+
+  private unwrapQinObjectDeclaration(cst: SubhutiCst): SubhutiCst | undefined {
+    const name = cst.getName()
+    if (name === 'QinObjectDeclaration' || name === 'QinObjectDeclarationBody') {
+      return cst
+    }
+    if (name === 'Declaration') {
+      const first = cst.getChildren()?.[0]
+      if (first?.getName() === 'QinObjectDeclaration' || first?.getName() === 'QinObjectDeclarationBody') {
+        return first
+      }
+    }
+    return undefined
+  }
+
+  private findFirstByName(cst: SubhutiCst | undefined, name: string): SubhutiCst | undefined {
+    if (!cst) return undefined
+    if (cst.getName() === name) return cst
+    for (const child of cst.getChildren() || []) {
+      const found = this.findFirstByName(child, name)
+      if (found) return found
+    }
+    return undefined
   }
 
 

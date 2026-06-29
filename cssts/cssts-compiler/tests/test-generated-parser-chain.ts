@@ -51,7 +51,7 @@ requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapt
 requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
 requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'transform/index.ts')
 requireIncludes(transformSource, "import { registerSlimeCstToAstUtil } from 'slime-parser'", 'transform/index.ts')
-requireIncludes(cstToAstSource, 'import { SlimeCstToAst, registerSlimeCstToAstUtil } from "slime-parser"', 'CssTsCstToAstUtils.ts')
+requireIncludes(cstToAstSource, 'import { SlimeCstToAst, SlimeCstToAstUtils, registerSlimeCstToAstUtil } from "slime-parser"', 'CssTsCstToAstUtils.ts')
 requireIncludes(cstToAstSource, 'extends SlimeCstToAst', 'CssTsCstToAstUtils.ts')
 
 if (!fs.existsSync(generatedParserPath)) {

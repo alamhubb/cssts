@@ -276,6 +276,34 @@ async function main() {
     },
   }))
 
+  const qinRichUri = toFileUri(path.join(__dirname, 'qin-rich-valid.cssts'))
+  server.stdin.write(createNotification('textDocument/didOpen', {
+    textDocument: {
+      uri: qinRichUri,
+      languageId: 'cssts',
+      version: 1,
+      text: [
+        'object NestedLabeler {',
+        '  label(name: string, premium: boolean, active: boolean): string {',
+        '    const base = "hello "',
+        '    if (active) {',
+        '      if (premium) {',
+        '        const label = "vip "',
+        '        return label + name',
+        '      }',
+        '      const standard = "std "',
+        '      return standard + name',
+        '    }',
+        '    return base + name',
+        '  }',
+        '}',
+        'const baseStyle = css { colorRed, displayFlex }',
+        'const derivedStyle = css { baseStyle, backgroundBlue }',
+        '',
+      ].join('\n'),
+    },
+  }))
+
   const invalidUri = toFileUri(path.join(__dirname, 'invalid.cssts'))
   server.stdin.write(createNotification('textDocument/didOpen', {
     textDocument: {
@@ -320,8 +348,15 @@ async function main() {
   await waitFor('CSSTS diagnostics for valid and invalid documents', () => {
     const diagnostics = messages.filter(message => message.method === 'textDocument/publishDiagnostics')
     return diagnostics.some(message => sameUri(message.params?.uri, validUri))
+      && diagnostics.some(message => sameUri(message.params?.uri, qinRichUri))
       && diagnostics.some(message => sameUri(message.params?.uri, invalidUri))
   }, 15000)
+
+  const qinRichDiagnosticRequest = createRequest('textDocument/diagnostic', {
+    textDocument: { uri: qinRichUri },
+  })
+  server.stdin.write(qinRichDiagnosticRequest.packet)
+  const qinRichDiagnosticResponse = await waitForResponse(qinRichDiagnosticRequest.id, messages, 'CSSTS Qin-rich valid diagnostic response')
 
   const invalidDiagnosticRequest = createRequest('textDocument/diagnostic', {
     textDocument: { uri: invalidUri },
@@ -331,11 +366,17 @@ async function main() {
 
   const diagnostics = messages.filter(message => message.method === 'textDocument/publishDiagnostics')
   const validDiagnostics = diagnostics.filter(message => sameUri(message.params?.uri, validUri)).at(-1)?.params?.diagnostics ?? []
+  const qinRichDiagnostics = qinRichDiagnosticResponse.result?.items
+    ?? diagnostics.filter(message => sameUri(message.params?.uri, qinRichUri)).at(-1)?.params?.diagnostics
+    ?? []
   const invalidDiagnostics = invalidDiagnosticResponse.result?.items
     ?? diagnostics.filter(message => sameUri(message.params?.uri, invalidUri)).at(-1)?.params?.diagnostics
     ?? []
   if (validDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
     throw new Error(`Valid CSSTS source produced transform diagnostics: ${JSON.stringify(validDiagnostics)}`)
+  }
+  if (qinRichDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
+    throw new Error(`Qin-rich valid CSSTS source produced transform diagnostics: ${JSON.stringify(qinRichDiagnostics)}`)
   }
   if (!invalidDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
     throw new Error(`Invalid CSSTS source did not produce transform diagnostics: ${JSON.stringify(invalidDiagnostics)}`)

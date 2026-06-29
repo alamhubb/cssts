@@ -94,6 +94,8 @@ async function main() {
   requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
   requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
   requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'transform/index.ts')
+  requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
+  requireIncludes(parserSource, 'extends QinParser', 'CssTsParser.ts')
 
   if (parserSource.includes('alt:')) {
     throw new Error('CssTsParser.ts must use generated parser Or semantics, not legacy { alt } alternatives')
