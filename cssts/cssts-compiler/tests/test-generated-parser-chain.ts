@@ -1,14 +1,18 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createRequire } from 'node:module'
+import { pathToFileURL } from 'node:url'
 import { CssTsParser } from '../src/index.ts'
 import { SlimeJavascriptParser } from '@qin/generated-qin-parser-ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const require = createRequire(import.meta.url)
 const compilerRoot = path.join(__dirname, '..')
 const workspaceRoot = path.join(compilerRoot, '..', '..', '..')
 
 const compilerConfigPath = path.join(compilerRoot, 'qin.config.js')
+const compilerPackagePath = path.join(compilerRoot, 'package.json')
 const parserPath = path.join(compilerRoot, 'src', 'parser', 'CssTsParser.ts')
 const adapterPath = path.join(compilerRoot, 'src', 'parser', 'generated-runtime-adapter.ts')
 const transformPath = path.join(compilerRoot, 'src', 'transform', 'index.ts')
@@ -16,10 +20,47 @@ const cstToAstPath = path.join(compilerRoot, 'src', 'factory', 'CssTsCstToAstUti
 const generatedParserPath = path.join(workspaceRoot, 'qin', 'packages', 'qin-language', 'generated', 'qin-parser-ts')
 
 const compilerConfig = fs.readFileSync(compilerConfigPath, 'utf-8')
+const compilerPackage = readJson(compilerPackagePath)
+const generatedParserPackage = readJson(require.resolve('@qin/generated-qin-parser-ts/package.json'))
 const parserSource = fs.readFileSync(parserPath, 'utf-8')
 const adapterSource = fs.readFileSync(adapterPath, 'utf-8')
 const transformSource = fs.readFileSync(transformPath, 'utf-8')
 const cstToAstSource = fs.readFileSync(cstToAstPath, 'utf-8')
+
+async function loadQinConfig(configPath: string): Promise<any> {
+  const moduleUrl = pathToFileURL(configPath).href
+  const module = await import(`${moduleUrl}?mtime=${fs.statSync(configPath).mtimeMs}`)
+  return module.default
+}
+
+function readJson(filePath: string): any {
+  return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+}
+
+function requireEquals(actual: unknown, expected: unknown, label: string) {
+  if (actual !== expected) {
+    throw new Error(`${label} must be ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`)
+  }
+}
+
+function requireDependency(packageJson: any, dependencyName: string, label: string) {
+  const dependencies = packageJson.dependencies ?? {}
+  if (typeof dependencies[dependencyName] !== 'string') {
+    throw new Error(`${label} must depend on ${dependencyName}`)
+  }
+}
+
+function requireNoDependency(packageJson: any, dependencyName: string, label: string) {
+  const dependencySections = [
+    packageJson.dependencies ?? {},
+    packageJson.devDependencies ?? {},
+    packageJson.peerDependencies ?? {},
+    packageJson.optionalDependencies ?? {},
+  ]
+  if (dependencySections.some(section => typeof section[dependencyName] === 'string')) {
+    throw new Error(`${label} must not depend on ${dependencyName}`)
+  }
+}
 
 function requireIncludes(source: string, needle: string, label: string) {
   if (!source.includes(needle)) {
@@ -31,6 +72,22 @@ function requireExcludes(source: string, needle: string, label: string) {
   if (source.includes(needle)) {
     throw new Error(`${label} must not include ${needle}`)
   }
+}
+
+const compilerConfigObject = await loadQinConfig(compilerConfigPath)
+const generatedParserTarget = compilerConfigObject.language?.parser
+
+requireEquals(compilerConfigObject.name, compilerPackage.name, 'cssts-compiler qin.config.js name')
+requireEquals(compilerConfigObject.version, compilerPackage.version, 'cssts-compiler qin.config.js version')
+requireEquals(compilerConfigObject.entry, 'src/index.ts', 'cssts-compiler qin.config.js entry')
+requireEquals(compilerConfigObject.scripts?.build, 'tsdown', 'cssts-compiler qin.config.js build script')
+requireEquals(compilerConfigObject.scripts?.test, 'tsx tests/test-generated-parser-chain.ts && tsdown', 'cssts-compiler qin.config.js test script')
+requireEquals(generatedParserTarget, '@qin/generated-qin-parser-ts', 'cssts-compiler language.parser')
+requireEquals(generatedParserPackage.name, generatedParserTarget, 'resolved generated parser package name')
+requireDependency(compilerPackage, generatedParserTarget, 'cssts-compiler package.json')
+for (const unusedCompilerDependency of ['slime-generator', 'slime-token']) {
+  requireNoDependency(compilerConfigObject, unusedCompilerDependency, 'cssts-compiler qin.config.js')
+  requireNoDependency(compilerPackage, unusedCompilerDependency, 'cssts-compiler package.json')
 }
 
 requireIncludes(compilerConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-compiler qin.config.js')
