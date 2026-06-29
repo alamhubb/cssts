@@ -9,6 +9,8 @@ function expressionParamsWith(params: any = {}, overrides: Record<string, boolea
     const value = params?.[key]
     if (typeof value === 'function') return !!value.call(params)
     if (typeof value === 'boolean') return value
+    const qinValue = params?.[`__qin_${key}`]
+    if (typeof qinValue === 'function') return !!qinValue.call(params)
     return defaultValue
   }
   const inValue = Object.prototype.hasOwnProperty.call(overrides, 'In')
@@ -20,14 +22,18 @@ function expressionParamsWith(params: any = {}, overrides: Record<string, boolea
   const awaitValue = Object.prototype.hasOwnProperty.call(overrides, 'Await')
     ? !!overrides.Await
     : read('await')
-  return {
-    in: () => inValue,
-    yield: () => yieldValue,
-    await: () => awaitValue,
-    withIn: (value: boolean) => expressionParamsWith(params, { ...overrides, In: value }),
-    withYield: (value: boolean) => expressionParamsWith(params, { ...overrides, Yield: value }),
-    withAwait: (value: boolean) => expressionParamsWith(params, { ...overrides, Await: value }),
-  }
+  const stableParams: Record<string, any> = {}
+  stableParams.in = () => inValue
+  stableParams.yield = () => yieldValue
+  stableParams.await = () => awaitValue
+  stableParams.__qin_in = () => inValue
+  stableParams.__qin_yield = () => yieldValue
+  stableParams.__qin_await = () => awaitValue
+  stableParams.withIn = (value: boolean) => expressionParamsWith(stableParams, { In: value })
+  stableParams.withYield = (value: boolean) => expressionParamsWith(stableParams, { Yield: value })
+  stableParams.withAwait = (value: boolean) => expressionParamsWith(stableParams, { Await: value })
+  stableParams.expressionParams = () => stableParams
+  return stableParams
 }
 
 function templateLiteralParamsWith(params: any = {}, tagged = false) {

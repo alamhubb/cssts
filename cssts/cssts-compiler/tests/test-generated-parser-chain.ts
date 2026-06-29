@@ -126,6 +126,9 @@ const inheritedSyntaxSource = [
   '    return total',
   '  }',
   '}',
+  'const optionalName = user?.profile?.name',
+  'const fallbackName = user.name ?? "anonymous"',
+  'const templateName = `hello ${name}`',
   'const moduleUrl = import.meta.url',
   'const loadedModule = import("./dep.qin")',
   'const baseStyle = css { colorRed, displayFlex }',
@@ -191,6 +194,22 @@ if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'import')
 
 if (!parser.parsedTokens.some((token: any) => String(token.tokenValue).includes('./dep.qin'))) {
   throw new Error('CssTsParser chain must preserve dynamic import syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenName === 'QuestionDot' && token.tokenValue === '?.')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'optionalName')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'profile')) {
+  throw new Error('CssTsParser chain must preserve optional chaining syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenName === 'NullishCoalescing' && token.tokenValue === '??')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'fallbackName')) {
+  throw new Error('CssTsParser chain must preserve nullish coalescing syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenName === 'TemplateHead' && String(token.tokenValue).includes('hello'))
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'templateName')) {
+  throw new Error('CssTsParser chain must preserve template literal syntax from the generated parser')
 }
 
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'css')) {
