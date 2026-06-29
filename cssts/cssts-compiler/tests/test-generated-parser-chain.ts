@@ -194,6 +194,13 @@ if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'for')
   throw new Error('CssTsParser chain must preserve Qin for...of syntax from the generated parser')
 }
 
+if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'switch')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'case')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'default')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'switchStatus')) {
+  throw new Error('CssTsParser chain must preserve Qin switch/case/default syntax from the generated parser')
+}
+
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'import')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'meta')) {
   throw new Error('CssTsParser chain must preserve import.meta syntax from the generated parser')
