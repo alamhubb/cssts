@@ -111,6 +111,13 @@ const inheritedSyntaxSource = [
   '    }',
   '    return total',
   '  }',
+  '  countAtLeastOnce(limit: number): number {',
+  '    let i = 0',
+  '    do {',
+  '      i = i + 1',
+  '    } while (i < limit)',
+  '    return i',
+  '  }',
   '}',
   'const moduleUrl = import.meta.url',
   'const loadedModule = import("./dep.qin")',
@@ -155,6 +162,12 @@ if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'for')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'continue')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'break')) {
   throw new Error('CssTsParser chain must preserve Qin for/break/continue syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'do')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'while')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'countAtLeastOnce')) {
+  throw new Error('CssTsParser chain must preserve Qin do-while syntax from the generated parser')
 }
 
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'import')
