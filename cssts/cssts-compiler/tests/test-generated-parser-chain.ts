@@ -81,6 +81,16 @@ const inheritedSyntaxSource = [
   '    }',
   '    return base + name',
   '  }',
+  '  risky(flag: boolean): string {',
+  '    try {',
+  '      if (flag) {',
+  '        throw new Error("boom")',
+  '      }',
+  '      return "ok"',
+  '    } catch (error) {',
+  '      return "caught"',
+  '    }',
+  '  }',
   '}',
   'const baseStyle = css { colorRed, displayFlex }',
   'const derivedStyle = css { baseStyle, backgroundBlue }',
@@ -105,6 +115,12 @@ if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'object')) {
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'premium')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'standard')) {
   throw new Error('CssTsParser chain must preserve nested Qin object method-body syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'try')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'catch')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'throw')) {
+  throw new Error('CssTsParser chain must preserve Qin try/catch/throw syntax from the generated parser')
 }
 
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'css')) {
