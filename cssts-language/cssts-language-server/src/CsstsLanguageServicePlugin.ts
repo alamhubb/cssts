@@ -3,6 +3,7 @@ import { DiagnosticSeverity } from 'vscode-languageserver-protocol'
 import type { TextDocument } from 'vscode-languageserver-textdocument'
 import { transformCssTs } from 'cssts-compiler'
 import { formatCsstsTransformErrorMessage } from './CsstsLanguagePlugin'
+import { provideSourceDocumentSymbols } from './SourceDocumentSymbols'
 
 function isCsstsDocument(document: TextDocument): boolean {
   return document.languageId === 'cssts' || document.uri.toLowerCase().endsWith('.cssts')
@@ -15,9 +16,16 @@ export const CsstsLanguageServicePlugin: LanguageServicePlugin = {
       interFileDependencies: false,
       workspaceDiagnostics: false,
     },
+    documentSymbolProvider: true,
   },
   create() {
     return {
+      provideDocumentSymbols(document: TextDocument) {
+        if (!isCsstsDocument(document)) {
+          return
+        }
+        return provideSourceDocumentSymbols(document)
+      },
       provideDiagnostics(document: TextDocument) {
         if (!isCsstsDocument(document)) {
           return []

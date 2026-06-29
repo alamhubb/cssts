@@ -450,6 +450,108 @@ async function main() {
     throw new Error(`CSSTS semanticTokens did not return token data: ${JSON.stringify(semanticTokensResponse.result)}`)
   }
 
+  const tsRichUri = toFileUri(path.join(__dirname, 'ts-rich.cssts'))
+  server.stdin.write(createNotification('textDocument/didOpen', {
+    textDocument: {
+      uri: tsRichUri,
+      languageId: 'cssts',
+      version: 1,
+      text: [
+        'export interface ChainUser {',
+        '  id: string',
+        '  active?: boolean',
+        '}',
+        'export type ChainPair<T, U> = { left: T, right: U }',
+        'class ChainService {',
+        '  name: string = "qin"',
+        '  count = 0',
+        '  constructor(name: string) {',
+        '    this.name = name',
+        '  }',
+        '  label(): string {',
+        '    return this.name',
+        '  }',
+        '}',
+        'const config = { name: "qin", values: [1, 2, 3] }',
+        'const { name: destructuredName, values: [firstValue] } = config',
+        'const service = new ChainService(destructuredName)',
+        'const finalLabel = service.label() + firstValue',
+        'des',
+        '',
+      ].join('\n'),
+    },
+  }))
+
+  const tsRichDiagnostic = createRequest('textDocument/diagnostic', {
+    textDocument: { uri: tsRichUri },
+  })
+  server.stdin.write(tsRichDiagnostic.packet)
+  const tsRichDiagnosticResponse = await waitForResponse(tsRichDiagnostic.id, messages, 'CSSTS TS-rich diagnostic response')
+  const tsRichDiagnostics = tsRichDiagnosticResponse.result?.items ?? []
+  if (tsRichDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
+    throw new Error(`CSSTS TS-rich source produced transform diagnostics: ${JSON.stringify(tsRichDiagnostics)}`)
+  }
+
+  const tsRichCompletion = createRequest('textDocument/completion', {
+    textDocument: { uri: tsRichUri },
+    position: { line: 19, character: 3 },
+    context: { triggerKind: 1 },
+  })
+  server.stdin.write(tsRichCompletion.packet)
+  const tsRichCompletionResponse = await waitForResponse(tsRichCompletion.id, messages, 'CSSTS TS-rich completion response')
+  const tsRichCompletionItems = Array.isArray(tsRichCompletionResponse.result) ? tsRichCompletionResponse.result : tsRichCompletionResponse.result?.items ?? []
+  const tsRichCompletionLabels = tsRichCompletionItems.map((item: any) => item.label)
+  if (!tsRichCompletionLabels.includes('destructuredName')) {
+    throw new Error(`CSSTS TS-rich completion did not include destructuredName: ${JSON.stringify(tsRichCompletionLabels.slice(0, 30))}`)
+  }
+
+  const tsRichDefinition = createRequest('textDocument/definition', {
+    textDocument: { uri: tsRichUri },
+    position: { line: 17, character: 38 },
+  })
+  server.stdin.write(tsRichDefinition.packet)
+  const tsRichDefinitionResponse = await waitForResponse(tsRichDefinition.id, messages, 'CSSTS TS-rich definition response')
+  const tsRichDefinitions = Array.isArray(tsRichDefinitionResponse.result) ? tsRichDefinitionResponse.result : tsRichDefinitionResponse.result ? [tsRichDefinitionResponse.result] : []
+  if (!tsRichDefinitions.some(item => sameUri(locationUri(item), tsRichUri) && rangeContains(item, 16, 14))) {
+    throw new Error(`CSSTS TS-rich definition did not resolve destructuredName declaration: ${JSON.stringify(tsRichDefinitionResponse.result)}`)
+  }
+
+  const tsRichReferences = createRequest('textDocument/references', {
+    textDocument: { uri: tsRichUri },
+    position: { line: 17, character: 38 },
+    context: { includeDeclaration: true },
+  })
+  server.stdin.write(tsRichReferences.packet)
+  const tsRichReferencesResponse = await waitForResponse(tsRichReferences.id, messages, 'CSSTS TS-rich references response')
+  const tsRichReferenceItems = Array.isArray(tsRichReferencesResponse.result) ? tsRichReferencesResponse.result : []
+  if (
+    !tsRichReferenceItems.some(item => sameUri(locationUri(item), tsRichUri) && rangeStartsAt(item, 16, 14))
+    || !tsRichReferenceItems.some(item => sameUri(locationUri(item), tsRichUri) && rangeStartsAt(item, 17, 33))
+  ) {
+    throw new Error(`CSSTS TS-rich references did not include destructuredName declaration and usage: ${JSON.stringify(tsRichReferencesResponse.result)}`)
+  }
+
+  const tsRichSymbols = createRequest('textDocument/documentSymbol', {
+    textDocument: { uri: tsRichUri },
+  })
+  server.stdin.write(tsRichSymbols.packet)
+  const tsRichSymbolsResponse = await waitForResponse(tsRichSymbols.id, messages, 'CSSTS TS-rich documentSymbol response')
+  const tsRichSymbolNames = collectSymbolNames(Array.isArray(tsRichSymbolsResponse.result) ? tsRichSymbolsResponse.result : [])
+  if (!tsRichSymbolNames.includes('ChainUser') || !tsRichSymbolNames.includes('ChainPair') || !tsRichSymbolNames.includes('ChainService')) {
+    throw new Error(`CSSTS TS-rich documentSymbol did not include inherited TS declarations: ${JSON.stringify(tsRichSymbolsResponse.result)}`)
+  }
+
+  const tsRichSemanticTokens = createRequest('textDocument/semanticTokens/full', {
+    textDocument: { uri: tsRichUri },
+  })
+  server.stdin.write(tsRichSemanticTokens.packet)
+  const tsRichSemanticTokensResponse = await waitForResponse(tsRichSemanticTokens.id, messages, 'CSSTS TS-rich semanticTokens response')
+  if (!Array.isArray(tsRichSemanticTokensResponse.result?.data) || tsRichSemanticTokensResponse.result.data.length === 0) {
+    throw new Error(`CSSTS TS-rich semanticTokens did not return token data: ${JSON.stringify(tsRichSemanticTokensResponse.result)}`)
+  }
+  requireSemanticTokenAt(tsRichSemanticTokensResponse.result, 16, 14, 'CSSTS TS-rich destructuredName declaration')
+  requireSemanticTokenAt(tsRichSemanticTokensResponse.result, 17, 33, 'CSSTS TS-rich destructuredName usage')
+
   const cssCompletion = createRequest('textDocument/completion', {
     textDocument: { uri: cssSyntaxUri },
     position: { line: 2, character: 3 },
