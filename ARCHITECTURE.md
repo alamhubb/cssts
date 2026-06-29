@@ -748,11 +748,10 @@ cssts-language/
 # 进入目录
 cd cssts/cssts-language
 
-# 安装依赖
-npm install
-
-# 构建
-npm run build
+# Qin 管理构建、测试和语言服务入口
+..\..\qin\qin.bat language build
+..\..\qin\qin.bat language test
+..\..\qin\qin.bat language server --dry-run
 
 # 在 VSCode 中按 F5 启动扩展开发主机
 ```
@@ -760,7 +759,8 @@ npm run build
 ### 打包发布
 
 ```bash
-npm run package
+..\..\qin\qin.bat language build
+npx vsce package
 # 生成 cssts-language-x.x.x.vsix 文件
 ```
 

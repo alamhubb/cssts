@@ -20,26 +20,29 @@
 
 扩展使用 `cssts-compiler` 包将 `.cssts` 文件转换为 TypeScript，然后利用 TypeScript 语言服务提供智能功能。这确保了编辑器中的行为与 Vite 构建时的行为一致。
 
-## 安装
+## 开发
 
-### 开发模式
+`cssts-language` 由 `qin.config.js` 管理。构建、测试、语言服务启动都从 Qin
+入口进入：
 
-1. 安装依赖：
 ```bash
-npm install
+cd cssts/cssts-language
+..\..\qin\qin.bat language build
+..\..\qin\qin.bat language test
+..\..\qin\qin.bat language server --dry-run
 ```
 
-2. 构建扩展：
-```bash
-npm run build
-```
+Volar 语言服务器运行在 Node/TypeScript 上，这是编辑器/LSP 生态的运行环境。
+CSSTS 语法权威仍来自 `qin.config.js` 中声明的 generated Qin parser 和
+`cssts-compiler`，不要在语言包里新增独立 parser、正则扫描或 fallback 路径。
 
-3. 在 VSCode 中按 F5 启动扩展开发主机
+在 VSCode 中调试扩展时，先用上面的 Qin 命令构建语言服务器，然后按 F5 启动扩展开发主机。
 
 ### 打包发布
 
 ```bash
-npm run package
+..\..\qin\qin.bat language build
+npx vsce package
 ```
 
 ## 文件结构
