@@ -42,23 +42,23 @@ export default { plugins: [cssTsPlugin(), vue()] }
 
 ### 📋 大多数时候不需要执行任何脚本！
 
-直接修改源码，使用 `mono` 启动 vite-project 测试：
+直接修改源码，通过 Qin 管理相关插件构建：
 
 ```bash
-cd cssts/vite-project
-mono ./node_modules/vite/bin/vite.js
+cd D:\project\qkyproject\qinall\cssts
+..\qin\qin.bat language build --root vite-plugin-cssts
 ```
 
-`mono` 会自动解析本地源码，无需构建。
+通过 Qin 管理 Vite 插件相关构建，不把外部运行器作为 CSSTS 语言能力入口。
 
 ### 🧪 测试编译结果
 
 ```bash
-cd cssts/vite-project
-mono test-compiler.mjs
+cd D:\project\qkyproject\qinall\cssts
+..\qin\qin.bat language test --root cssts/cssts-compiler
 ```
 
-该脚本会显示：原始代码、编译后代码、收集的样式。
+该命令会运行 generated parser chain smoke 并构建编译器输出。
 
 ---
 
@@ -71,7 +71,7 @@ cssts-compiler/
 │   ├── generator-data.ts    # 生成 src/data/
 │   └── generator-type.ts    # 生成 src/config/types/
 ├── src/
-│   ├── parser/              # 解析器（继承 slime-parser）
+│   ├── parser/              # 解析器（继承 generated Qin parser）
 │   ├── factory/             # CST → AST 转换器
 │   ├── transform/           # 核心转换 + CSS 生成
 │   ├── dts/                 # 类型定义生成器
@@ -109,7 +109,7 @@ cssts-compiler/
 ```
 
 详细说明：
-- **阶段1 解析**: CssTsParser 继承 SlimeParser，添加 CssExpression 语法
+- **阶段1 解析**: CssTsParser 继承 generated Qin parser 中的 QinParser，添加 CssExpression 语法
 - **阶段2 转换**: CssTsCstToAst 拦截 CssExpression，转换为 cssts.$cls() 调用
 - **阶段3 生成**: SlimeGenerator 将 AST 转回 JavaScript 代码
 - **阶段4 CSS**: generateStylesCss 根据收集的样式名生成 CSS
@@ -166,7 +166,8 @@ tsx generator/generator-data.ts
 tsx generator/generator-type.ts
 
 # 3. 验证构建
-npm run build
+cd D:\project\qkyproject\qinall\cssts
+..\qin\qin.bat language build --root cssts/cssts-compiler
 ```
 
 ### 生成的文件
@@ -192,8 +193,8 @@ npm run build
 
 | 决策 | 原因 |
 |------|------|
-| 继承 slime-parser | 复用成熟的 TS/JS 解析器，只需添加 `css { }` 语法 |
-| 全局注册机制 | 让子类能覆盖转换逻辑，解决继承时内部调用不走子类的问题 |
+| 继承 generated Qin parser | 语法权威来自 Java QinParser 生成的 TS parser，CSSTS 只扩展 `css { }` 语法 |
+| CST-to-AST 全局注册机制 | 只在 CST-to-AST 转换边界复用 `slime-parser` 注册机制，让子类能覆盖转换逻辑 |
 | 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
 | 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
 
@@ -204,7 +205,7 @@ npm run build
 ### 问题：css { } 语法无法解析
 
 **检查点**：
-1. CssTsParser 是否正确继承 SlimeParser
+1. CssTsParser 是否正确继承 generated Qin parser 中的 QinParser
 2. CssExpression 语法规则是否定义
 3. CssTsTokenConsumer 是否包含 `css` 关键字
 
@@ -248,8 +249,8 @@ npm run build
 ## 10. 依赖关系
 
 ```
-slime-parser (JS/TS 解析器)
-    ↓ 继承
+Java QinParser -> generated Qin parser TS
+    ↓ 继承并扩展 css {}
 cssts-compiler (本项目)
     ↓ 被使用
 vite-plugin-cssts (Vite 插件)
@@ -286,17 +287,17 @@ console.log([...usedAtoms])
 ### 测试编译输出
 
 ```bash
-# 在 vite-project 中
-mono test-compiler.mjs
+cd D:\project\qkyproject\qinall\cssts
+..\qin\qin.bat language test --root cssts/cssts-compiler
 ```
 
 ---
 
 ## 12. 版本兼容
 
-- Node.js >= 18
-- slime-parser >= 0.2.x
-- slime-generator >= 0.2.x
+- Node.js >= 18（仅用于 TS/Volar/tooling）
+- @qin/generated-qin-parser-ts（来自 Java QinParser 生成结果）
+- slime-parser / slime-generator 仅用于 CST-to-AST 与代码生成边界
 
 ---
 
@@ -304,5 +305,5 @@ mono test-compiler.mjs
 
 1. **不要手动编辑 `src/data/` 文件** - 这些由 `generator-data.ts` 自动生成
 2. **不要手动编辑 `src/config/types/` 文件** - 这些由 `generator-type.ts` 自动生成
-3. **修改后测试** - 使用 `mono test-compiler.mjs` 验证编译输出
-4. **发布前构建** - 执行 `npm run build` 生成发布包
+3. **修改后测试** - 使用 `..\qin\qin.bat language test --root cssts/cssts-compiler` 验证编译输出
+4. **发布前构建** - 执行 `..\qin\qin.bat language build --root cssts/cssts-compiler` 生成发布包

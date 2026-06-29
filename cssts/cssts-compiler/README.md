@@ -73,7 +73,7 @@ export default {
 // 输入源代码
 const button$$hover = css { cursorPointer, backgroundColorBlue }
 
-// CssTsParser 继承 SlimeParser，添加 CssExpression 语法
+// CssTsParser 继承 generated Qin parser 中的 QinParser，添加 CssExpression 语法
 const parser = new CssTsParser(code)
 const cst = parser.Program()   // -> 解析成 CST (Concrete Syntax Tree)
 ```
@@ -229,7 +229,7 @@ cssts-compiler/
 
 | 目录 | 职责 | 说明 |
 |------|------|------|
-| **parser/** | 解析 | 继承 slime-parser，添加 `css { }` 语法解析 |
+| **parser/** | 解析 | 继承 generated Qin parser 中的 `QinParser`，添加 `css { }` 语法解析 |
 | **factory/** | CST→AST | 将 CST 转换为 AST，拦截 `CssExpression` 节点 |
 | **transform/** | 核心转换 | 调用 parser + factory + generator 完成完整转换 |
 | **dts/** | 类型生成 | 生成 `@types/cssts-ts/index.d.ts` 供 IDE 提示 |
@@ -241,8 +241,8 @@ cssts-compiler/
 
 | 决策 | 原因 |
 |------|------|
-| 继承 slime-parser | 复用成熟的 TS/JS 解析器，只需添加 `css { }` 语法 |
-| 全局注册机制 | 让子类能覆盖转换逻辑，解决继承时内部调用不走子类的问题 |
+| 继承 generated Qin parser | 语法权威来自 Java QinParser 生成的 TS parser，CSSTS 只扩展 `css { }` 语法 |
+| CST-to-AST 全局注册机制 | 只在 CST-to-AST 转换边界复用 `slime-parser` 注册机制，让子类能覆盖转换逻辑 |
 | 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
 | 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
 
