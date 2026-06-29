@@ -26,7 +26,6 @@
         ]
     },
     "include": [
-        "cssts-vscode-client/src",
         "cssts-language-server/src",
         "tests"
     ],

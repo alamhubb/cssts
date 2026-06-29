@@ -6,7 +6,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
     entry: {
-        'extension': 'cssts-vscode-client/src/extension.ts',
         'language-server': 'cssts-language-server/src/index.ts',
     },
     format: ['cjs'],
@@ -20,11 +19,8 @@ export default defineConfig({
         'cssts-ts': path.join(__dirname, '..', 'cssts', 'cssts-runtime', 'dist', 'index.mjs'),
     },
     noExternal: [
-        /^@volar\/vscode$/,
-        /^@volar\/vscode\/node$/,
         'cssts-compiler',
         'cssts-ts',
         'vscode-uri',
     ],
-    external: ['vscode'],
 })

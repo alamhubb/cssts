@@ -652,7 +652,7 @@ document.querySelector('button').className
 
 ### 概述
 
-`cssts-language` 是一个 VSCode 扩展，为 `.cssts` 文件提供语言服务支持（LSP）。基于 [Volar](https://github.com/volarjs/volar.js) 框架构建。
+`cssts-language` 是一个由 Qin 管理的 Volar 语言服务器，为 `.cssts` 文件提供语言服务支持（LSP）。它不再作为独立 VSCode 扩展发布；编辑器接入由 `qin/packages/qin-idea-plugin-debug` 中的 IDEA LSP client 统一负责。
 
 ### 与 cssts-compiler 的关系
 
@@ -681,15 +681,10 @@ cssts-language/
 │       ├── index.ts           # 服务器入口
 │       ├── CsstsLanguagePlugin.ts  # Volar 语言插件
 │       └── logutil.ts         # 日志工具
-├── cssts-vscode-client/       # VSCode 客户端扩展
-│   └── src/
-│       └── extension.ts       # 扩展入口
-├── syntaxes/                  # TextMate 语法定义
-│   └── cssts.tmLanguage.json
 ├── examples/                  # 示例文件
 │   └── demo.cssts
-├── language-configuration.json # 语言配置（括号匹配、注释等）
-├── package.json               # 扩展清单
+├── package.json               # 依赖元数据
+├── qin.config.js              # Qin 管理入口
 ├── tsdown.config.mts          # 构建配置
 └── README.md
 ```
@@ -698,12 +693,12 @@ cssts-language/
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        VSCode                                    │
+│                        IDEA                                     │
 │  ┌─────────────────────────────────────────────────────────┐   │
-│  │  cssts-vscode-client (extension.ts)                      │   │
-│  │  • 启动语言客户端                                         │   │
-│  │  • 连接语言服务器                                         │   │
-│  │  • 获取 TypeScript SDK 路径                              │   │
+│  │  qin-idea-plugin-debug                                   │   │
+│  │  • 只作为 LSP client                                      │   │
+│  │  • 从 qin.config.js 读取 language.serverBundle            │   │
+│  │  • 不重新实现 CSSTS 语法                                  │   │
 │  └─────────────────────────────────────────────────────────┘   │
 │                              │                                   │
 │                              │ IPC                               │
@@ -727,20 +722,18 @@ cssts-language/
 
 ### 工作原理
 
-1. **文件识别**：当用户打开 `.cssts` 文件时，VSCode 根据 `package.json` 中的语言配置识别文件类型
+1. **文件识别**：IDEA LSP client 从 `qin.config.js` 注册 `.cssts` 与语言服务器 bundle 的映射
 
-2. **语法高亮**：TextMate 语法定义 (`cssts.tmLanguage.json`) 提供基础的语法着色
-
-3. **语言服务**：
-   - 客户端启动语言服务器进程
+2. **语言服务**：
+   - IDEA LSP client 启动语言服务器进程
    - 服务器加载 `CsstsLanguagePlugin`
    - 插件将 `.cssts` 文件映射为虚拟 TypeScript 文件
    - TypeScript 语言服务提供智能功能
 
-4. **虚拟代码映射**：
-   - `.cssts` 文件内容直接作为 TypeScript 处理
-   - 创建 1:1 的源码映射
-   - 所有 TypeScript 功能（补全、诊断等）自动可用
+3. **虚拟代码映射**：
+   - `cssts-compiler` 将 `css { ... }` 转换为 TypeScript 虚拟代码
+   - Volar 映射保留源文件位置
+   - 诊断、补全、跳转、引用和语义令牌通过 LSP 返回给 IDEA
 
 ### 开发
 
@@ -752,25 +745,13 @@ cd cssts/cssts-language
 ..\..\qin\qin.bat language build
 ..\..\qin\qin.bat language test
 ..\..\qin\qin.bat language server --dry-run
-
-# 在 VSCode 中按 F5 启动扩展开发主机
-```
-
-### 打包发布
-
-```bash
-..\..\qin\qin.bat language build
-npx vsce package
-# 生成 cssts-language-x.x.x.vsix 文件
 ```
 
 ### 依赖
 
 - `@volar/language-core` - Volar 语言核心
 - `@volar/language-server` - Volar 语言服务器
-- `@volar/vscode` - Volar VSCode 集成
 - `volar-service-typescript` - TypeScript 语言服务
-- `vscode-languageclient` - LSP 客户端
 - `vscode-languageserver` - LSP 服务器
 
 ---

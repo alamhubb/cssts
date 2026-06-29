@@ -1,29 +1,28 @@
 # CSSTS Language Support
 
-为 CSSTS (CSS TypeScript) 文件提供语言支持的 VSCode 扩展。
+`cssts-language` is the Qin-managed Volar language server for `.cssts` files.
+It is not a standalone editor extension package. Editor integration is provided
+by the shared IDEA LSP client in `qin/packages/qin-idea-plugin-debug`.
 
-## 支持的文件类型
+## Supported Files
 
-- `.cssts` 文件 - 完整的语言服务支持
+- `.cssts` files with diagnostics, completion, hover, definition, references,
+  document symbols, and semantic tokens through Volar and TypeScript services.
 
-## 功能
+## Architecture
 
-- 语法高亮
-- 智能补全（CSS 属性名、值）
-- 悬停提示
-- 跳转到定义
-- 查找引用
-- 语义令牌
-- 错误诊断
+The language server uses `cssts-compiler` to transform CSSTS syntax into
+TypeScript virtual code. `cssts-compiler` owns the CSSTS parser and inherits the
+generated Qin parser declared in `qin.config.js`; do not add a separate parser,
+regex scanner, string patch, or fallback path in this package.
 
-## 工作原理
+Node/TypeScript is used here only because Volar LSP tooling runs in that
+ecosystem. Qin/CSSTS syntax authority remains in the Java parser chain that is
+generated to TypeScript.
 
-扩展使用 `cssts-compiler` 包将 `.cssts` 文件转换为 TypeScript，然后利用 TypeScript 语言服务提供智能功能。这确保了编辑器中的行为与 Vite 构建时的行为一致。
+## Development
 
-## 开发
-
-`cssts-language` 由 `qin.config.js` 管理。构建、测试、语言服务启动都从 Qin
-入口进入：
+Build, test, and language-server startup all enter through Qin:
 
 ```bash
 cd cssts/cssts-language
@@ -32,51 +31,26 @@ cd cssts/cssts-language
 ..\..\qin\qin.bat language server --dry-run
 ```
 
-Volar 语言服务器运行在 Node/TypeScript 上，这是编辑器/LSP 生态的运行环境。
-CSSTS 语法权威仍来自 `qin.config.js` 中声明的 generated Qin parser 和
-`cssts-compiler`，不要在语言包里新增独立 parser、正则扫描或 fallback 路径。
+## Files
 
-在 VSCode 中调试扩展时，先用上面的 Qin 命令构建语言服务器，然后按 F5 启动扩展开发主机。
-
-### 打包发布
-
-```bash
-..\..\qin\qin.bat language build
-npx vsce package
-```
-
-## 文件结构
-
-```
+```text
 cssts-language/
-├── cssts-language-server/     # 语言服务器
+├── cssts-language-server/     # Volar language server
 │   └── src/
-│       ├── index.ts           # 服务器入口
-│       ├── CsstsLanguagePlugin.ts  # 语言插件
-│       └── logutil.ts         # 日志工具
-├── cssts-vscode-client/       # VSCode 客户端
-│   └── src/
-│       └── extension.ts       # 扩展入口
-├── syntaxes/                  # 语法定义
-│   └── cssts.tmLanguage.json
-├── language-configuration.json # 语言配置
-├── package.json               # 扩展配置
-└── tsdown.config.mts          # 构建配置
+│       ├── index.ts
+│       ├── CsstsLanguagePlugin.ts
+│       ├── CsstsLanguageServicePlugin.ts
+│       └── logutil.ts
+├── tests/                     # LSP and generated parser chain smokes
+├── package.json               # dependency metadata only
+├── qin.config.js              # canonical Qin manifest and command entrypoint
+└── tsdown.config.mts          # language-server bundle config
 ```
 
-## 依赖
+## Relationship To Vite
 
-- [Volar](https://github.com/volarjs/volar.js) - 语言服务框架
-- [TypeScript](https://www.typescriptlang.org/) - 类型系统
-- `cssts-compiler` - CSSTS 编译器（代码转换）
-
-## 与 Vite 插件的关系
-
-`cssts-language` 和 `vite-plugin-cssts` 都使用 `cssts-compiler` 进行代码转换，确保：
-
-- 编辑器中的语法检查与构建时一致
-- 代码补全基于实际的转换结果
-- 错误提示准确反映编译问题
+`cssts-language` and `vite-plugin-cssts` both use `cssts-compiler`, so editor
+diagnostics and build-time transforms stay aligned.
 
 ## License
 
