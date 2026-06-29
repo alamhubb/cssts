@@ -141,6 +141,8 @@ async function main() {
     '    }',
     '  }',
     '}',
+    'const moduleUrl = import.meta.url',
+    'const loadedModule = import("./dep.qin")',
     'const baseStyle = css { colorRed, displayFlex }',
     'const derivedStyle = css { baseStyle, backgroundBlue }',
     '',
@@ -170,6 +172,15 @@ async function main() {
     || !parser.parsedTokens.some((token: any) => token.tokenValue === 'catch')
     || !parser.parsedTokens.some((token: any) => token.tokenValue === 'throw')) {
     throw new Error('CssTsParser chain must preserve Qin try/catch/throw syntax from the generated parser')
+  }
+
+  if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'import')
+    || !parser.parsedTokens.some((token: any) => token.tokenValue === 'meta')) {
+    throw new Error('CssTsParser chain must preserve import.meta syntax from the generated parser')
+  }
+
+  if (!parser.parsedTokens.some((token: any) => String(token.tokenValue).includes('./dep.qin'))) {
+    throw new Error('CssTsParser chain must preserve dynamic import syntax from the generated parser')
   }
 
   if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'css')) {
