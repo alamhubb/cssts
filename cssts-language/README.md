@@ -61,7 +61,7 @@ cssts-language/
 │   └── cssts.tmLanguage.json
 ├── language-configuration.json # 语言配置
 ├── package.json               # 扩展配置
-└── tsdown.config.ts           # 构建配置
+└── tsdown.config.mts          # 构建配置
 ```
 
 ## 依赖

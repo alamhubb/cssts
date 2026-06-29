@@ -690,7 +690,7 @@ cssts-language/
 │   └── demo.cssts
 ├── language-configuration.json # 语言配置（括号匹配、注释等）
 ├── package.json               # 扩展清单
-├── tsdown.config.ts           # 构建配置
+├── tsdown.config.mts          # 构建配置
 └── README.md
 ```
 
