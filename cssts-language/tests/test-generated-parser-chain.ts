@@ -32,6 +32,12 @@ function requireIncludes(source: string, needle: string, label: string) {
   }
 }
 
+function requireExcludes(source: string, needle: string, label: string) {
+  if (source.includes(needle)) {
+    throw new Error(`${label} must not include ${needle}`)
+  }
+}
+
 async function loadQinConfig(configPath: string): Promise<any> {
   const moduleUrl = pathToFileURL(configPath).href
   const module = await import(`${moduleUrl}?mtime=${fs.statSync(configPath).mtimeMs}`)
@@ -91,6 +97,7 @@ async function main() {
   requireIncludes(parserSource, 'normalizeGeneratedTokens', 'CssTsParser.ts')
   requireIncludes(parserSource, 'extends QinParser', 'CssTsParser.ts')
   requireIncludes(parserSource, 'this.Or(', 'CssTsParser.ts')
+  requireExcludes(parserSource, 'fallback', 'CssTsParser.ts')
   requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
   requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
   requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'transform/index.ts')

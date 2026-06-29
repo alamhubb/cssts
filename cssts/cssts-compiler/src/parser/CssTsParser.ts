@@ -5,11 +5,11 @@ import { QinParser, type ExpressionParams } from "@qin/generated-qin-parser-ts"
 import { normalizeGeneratedTokens } from "./generated-runtime-adapter.ts"
 
 function expressionParamsWith(params: any = {}, overrides: Record<string, boolean> = {}) {
-  const read = (key: string, fallback = false) => {
+  const read = (key: string, defaultValue = false) => {
     const value = params?.[key]
     if (typeof value === 'function') return !!value.call(params)
     if (typeof value === 'boolean') return value
-    return fallback
+    return defaultValue
   }
   const inValue = Object.prototype.hasOwnProperty.call(overrides, 'In')
     ? !!overrides.In
