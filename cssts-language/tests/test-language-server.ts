@@ -510,6 +510,95 @@ async function main() {
   requireSemanticTokenAt(cssSemanticTokensResponse.result, 0, 6, 'CSSTS css syntax baseStyle declaration')
   requireSemanticTokenAt(cssSemanticTokensResponse.result, 1, 26, 'CSSTS css syntax baseStyle usage')
 
+  const forOfUri = toFileUri(path.join(__dirname, 'for-of.cssts'))
+  server.stdin.write(createNotification('textDocument/didOpen', {
+    textDocument: {
+      uri: forOfUri,
+      languageId: 'cssts',
+      version: 1,
+      text: [
+        'const baseStyle = css { colorRed, displayFlex }',
+        'const rows = [{ name: "Ada" }, { name: "Lin" }]',
+        'let selectedName = ""',
+        'for (const row of rows) {',
+        '  selectedName = row.name',
+        '}',
+        'sele',
+        '',
+      ].join('\n'),
+    },
+  }))
+
+  const forOfDiagnostic = createRequest('textDocument/diagnostic', {
+    textDocument: { uri: forOfUri },
+  })
+  server.stdin.write(forOfDiagnostic.packet)
+  const forOfDiagnosticResponse = await waitForResponse(forOfDiagnostic.id, messages, 'CSSTS for...of diagnostic response')
+  const forOfDiagnostics = forOfDiagnosticResponse.result?.items ?? []
+  if (forOfDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
+    throw new Error(`CSSTS for...of source produced transform diagnostics: ${JSON.stringify(forOfDiagnostics)}`)
+  }
+
+  const forOfCompletion = createRequest('textDocument/completion', {
+    textDocument: { uri: forOfUri },
+    position: { line: 6, character: 4 },
+    context: { triggerKind: 1 },
+  })
+  server.stdin.write(forOfCompletion.packet)
+  const forOfCompletionResponse = await waitForResponse(forOfCompletion.id, messages, 'CSSTS for...of completion response')
+  const forOfCompletionItems = Array.isArray(forOfCompletionResponse.result) ? forOfCompletionResponse.result : forOfCompletionResponse.result?.items ?? []
+  const forOfCompletionLabels = forOfCompletionItems.map((item: any) => item.label)
+  if (!forOfCompletionLabels.includes('selectedName')) {
+    throw new Error(`CSSTS for...of completion did not include selectedName: ${JSON.stringify(forOfCompletionLabels.slice(0, 30))}`)
+  }
+
+  const forOfDefinition = createRequest('textDocument/definition', {
+    textDocument: { uri: forOfUri },
+    position: { line: 4, character: 19 },
+  })
+  server.stdin.write(forOfDefinition.packet)
+  const forOfDefinitionResponse = await waitForResponse(forOfDefinition.id, messages, 'CSSTS for...of definition response')
+  const forOfDefinitions = Array.isArray(forOfDefinitionResponse.result) ? forOfDefinitionResponse.result : forOfDefinitionResponse.result ? [forOfDefinitionResponse.result] : []
+  if (!forOfDefinitions.some(item => sameUri(locationUri(item), forOfUri) && rangeContains(item, 3, 11))) {
+    throw new Error(`CSSTS for...of definition did not resolve row declaration: ${JSON.stringify(forOfDefinitionResponse.result)}`)
+  }
+
+  const forOfReferences = createRequest('textDocument/references', {
+    textDocument: { uri: forOfUri },
+    position: { line: 4, character: 19 },
+    context: { includeDeclaration: true },
+  })
+  server.stdin.write(forOfReferences.packet)
+  const forOfReferencesResponse = await waitForResponse(forOfReferences.id, messages, 'CSSTS for...of references response')
+  const forOfReferenceItems = Array.isArray(forOfReferencesResponse.result) ? forOfReferencesResponse.result : []
+  if (
+    !forOfReferenceItems.some(item => sameUri(locationUri(item), forOfUri) && rangeStartsAt(item, 3, 11))
+    || !forOfReferenceItems.some(item => sameUri(locationUri(item), forOfUri) && rangeStartsAt(item, 4, 17))
+  ) {
+    throw new Error(`CSSTS for...of references did not include row declaration and usage: ${JSON.stringify(forOfReferencesResponse.result)}`)
+  }
+
+  const forOfSymbols = createRequest('textDocument/documentSymbol', {
+    textDocument: { uri: forOfUri },
+  })
+  server.stdin.write(forOfSymbols.packet)
+  const forOfSymbolsResponse = await waitForResponse(forOfSymbols.id, messages, 'CSSTS for...of documentSymbol response')
+  const forOfSymbolNames = collectSymbolNames(Array.isArray(forOfSymbolsResponse.result) ? forOfSymbolsResponse.result : [])
+  if (!forOfSymbolNames.includes('baseStyle') || !forOfSymbolNames.includes('rows') || !forOfSymbolNames.includes('selectedName')) {
+    throw new Error(`CSSTS for...of documentSymbol did not include source symbols: ${JSON.stringify(forOfSymbolsResponse.result)}`)
+  }
+
+  const forOfSemanticTokens = createRequest('textDocument/semanticTokens/full', {
+    textDocument: { uri: forOfUri },
+  })
+  server.stdin.write(forOfSemanticTokens.packet)
+  const forOfSemanticTokensResponse = await waitForResponse(forOfSemanticTokens.id, messages, 'CSSTS for...of semanticTokens response')
+  if (!Array.isArray(forOfSemanticTokensResponse.result?.data) || forOfSemanticTokensResponse.result.data.length === 0) {
+    throw new Error(`CSSTS for...of semanticTokens did not return token data: ${JSON.stringify(forOfSemanticTokensResponse.result)}`)
+  }
+  requireSemanticTokenAt(forOfSemanticTokensResponse.result, 3, 11, 'CSSTS for...of row declaration')
+  requireSemanticTokenAt(forOfSemanticTokensResponse.result, 4, 17, 'CSSTS for...of row usage')
+
   const shutdown = createRequest('shutdown', null)
   server.stdin.write(shutdown.packet)
   await waitForResponse(shutdown.id, messages, 'CSSTS shutdown response')
