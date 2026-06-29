@@ -91,6 +91,13 @@ const inheritedSyntaxSource = [
   '      return "caught"',
   '    }',
   '  }',
+  '  count(limit: number): number {',
+  '    let total = 0',
+  '    while (total < limit) {',
+  '      total = total + 1',
+  '    }',
+  '    return total',
+  '  }',
   '}',
   'const moduleUrl = import.meta.url',
   'const loadedModule = import("./dep.qin")',
@@ -123,6 +130,12 @@ if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'try')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'catch')
   || !parser.parsedTokens.some((token: any) => token.tokenValue === 'throw')) {
   throw new Error('CssTsParser chain must preserve Qin try/catch/throw syntax from the generated parser')
+}
+
+if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'while')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === 'total')
+  || !parser.parsedTokens.some((token: any) => token.tokenValue === '=')) {
+  throw new Error('CssTsParser chain must preserve Qin mutable while local and assignment syntax from the generated parser')
 }
 
 if (!parser.parsedTokens.some((token: any) => token.tokenValue === 'import')
