@@ -94,9 +94,10 @@ for (const unusedCompilerDependency of ['slime-generator', 'slime-token']) {
 requireIncludes(compilerConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-compiler qin.config.js')
 requireIncludes(compilerConfig, '"@qin/generated-qin-parser-ts": "file:../../../qin/packages/qin-language/generated/qin-parser-ts"', 'cssts-compiler qin.config.js')
 requireIncludes(compilerConfig, 'test: "tsx tests/test-generated-parser-chain.ts && tsdown"', 'cssts-compiler qin.config.js')
-for (const requiredCompilerDependency of ['"subhuti"', '"slime-ast"', '"slime-parser"']) {
+for (const requiredCompilerDependency of ['"subhuti"', '"slime-ast"']) {
   requireIncludes(compilerConfig, requiredCompilerDependency, 'cssts-compiler qin.config.js')
 }
+requireExcludes(compilerConfig, '"slime-parser"', 'cssts-compiler qin.config.js')
 for (const unusedCompilerDependency of ['"slime-generator"', '"slime-token"']) {
   requireExcludes(compilerConfig, unusedCompilerDependency, 'cssts-compiler qin.config.js')
 }
@@ -109,8 +110,9 @@ requireExcludes(parserSource, 'fallback', 'CssTsParser.ts')
 requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
 requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
 requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'transform/index.ts')
-requireIncludes(transformSource, "import { registerSlimeCstToAstUtil } from 'slime-parser'", 'transform/index.ts')
-requireIncludes(cstToAstSource, 'import { SlimeCstToAst, SlimeCstToAstUtils, registerSlimeCstToAstUtil } from "slime-parser"', 'CssTsCstToAstUtils.ts')
+requireIncludes(transformSource, "import { registerSlimeCstToAstUtil } from '@qin/generated-qin-parser-ts/SlimeCstToAstBridge'", 'transform/index.ts')
+requireIncludes(cstToAstSource, 'from "@qin/generated-qin-parser-ts/SlimeCstToAstBridge"', 'CssTsCstToAstUtils.ts')
+requireExcludes(cstToAstSource, 'from "slime-parser"', 'CssTsCstToAstUtils.ts')
 requireIncludes(cstToAstSource, 'extends SlimeCstToAst', 'CssTsCstToAstUtils.ts')
 
 if (!fs.existsSync(generatedParserPath)) {

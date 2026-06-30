@@ -1,4 +1,4 @@
-import { SlimeCstToAst, SlimeCstToAstUtils, registerSlimeCstToAstUtil } from "slime-parser"
+import { SlimeCstToAst, SlimeCstToAstUtils, registerSlimeCstToAstUtil } from "@qin/generated-qin-parser-ts/SlimeCstToAstBridge"
 import { SubhutiCst } from "subhuti"
 import CssTsParser from "../parser/CssTsParser.js"
 import {
@@ -748,7 +748,7 @@ _cssTsCstToAstUtils = new CssTsCstToAst()
  * 注册 CssTsCstToAst 实例到全局
  * 
  * 子类构造函数会自动调用此方法，所以会注册最终的子类实例
- * 父层（slime-parser）的注册已通过 super() 中的父类构造函数自动完成
+ * 父层（generated SlimeCstToAstBridge）的注册已通过 super() 中的父类构造函数自动完成
  */
 export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
   _cssTsCstToAstUtils = instance

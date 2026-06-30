@@ -6,7 +6,7 @@
 
 import { CssTsParser } from '../parser/index.ts'
 import { CssTsCstToAstUtils } from '../factory/index.ts'
-import { registerSlimeCstToAstUtil } from 'slime-parser'
+import { registerSlimeCstToAstUtil } from '@qin/generated-qin-parser-ts/SlimeCstToAstBridge'
 import { SlimeGenerator } from 'slime-generator'
 import Glog from 'glogjs'
 import { ConfigLookup } from '../config/ConfigLookup'

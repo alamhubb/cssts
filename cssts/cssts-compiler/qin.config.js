@@ -13,7 +13,6 @@ export default {
     "cssts-ts": "^0.2.87",
     "glogjs": "file:../../../glogjs",
     "slime-ast": "file:../../../slime/slime-ast",
-    "slime-parser": "file:../../../slime/slime-parser",
     "subhuti": "file:../../../subhuti"
   },
   devDependencies: {
