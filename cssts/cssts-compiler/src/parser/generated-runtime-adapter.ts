@@ -17,9 +17,15 @@ function javaListToArray<T = any>(list: any): T[] {
 
 function readPosition(position: any): any {
   if (!position) return undefined
-  const line = typeof position.getLine === 'function' ? position.getLine() : position.line
-  const column = typeof position.getColumn === 'function' ? position.getColumn() : position.column
-  const index = typeof position.getIndex === 'function' ? position.getIndex() : position.index
+  const line = typeof position.getLine === 'function'
+    ? position.getLine()
+    : (typeof position.line === 'function' ? position.line() : position.line)
+  const column = typeof position.getColumn === 'function'
+    ? position.getColumn()
+    : (typeof position.column === 'function' ? position.column() : position.column)
+  const index = typeof position.getIndex === 'function'
+    ? position.getIndex()
+    : (typeof position.index === 'function' ? position.index() : position.index)
   if (line === undefined || line === null || column === undefined || column === null || index === undefined || index === null) {
     return undefined
   }
@@ -28,23 +34,33 @@ function readPosition(position: any): any {
 
 function normalizeGeneratedLocation(location: any, value?: string, type?: string): any {
   if (!location) return undefined
-  const existingStart = location.start || (typeof location.start === 'function' ? location.start() : undefined)
-  const existingEnd = location.end || (typeof location.end === 'function' ? location.end() : undefined)
+  const existingStart = typeof location.start === 'function' ? location.start() : location.start
+  const existingEnd = typeof location.end === 'function' ? location.end() : location.end
   const start = readPosition(typeof location.getStart === 'function' ? location.getStart() : existingStart)
   const end = readPosition(typeof location.getEnd === 'function' ? location.getEnd() : existingEnd)
   if (!start || !end) return undefined
-  const rawValue = typeof location.getValue === 'function' ? location.getValue() : location.value
-  const rawType = typeof location.getType === 'function' ? location.getType() : location.type
+  const rawValue = typeof location.getValue === 'function'
+    ? location.getValue()
+    : (typeof location.value === 'function' ? location.value() : location.value)
+  const rawType = typeof location.getType === 'function'
+    ? location.getType()
+    : (typeof location.type === 'function' ? location.type() : location.type)
   return {
     type: rawType ?? type,
     value: rawValue ?? value,
-    newLine: typeof location.getNewLine === 'function' ? location.getNewLine() : location.newLine,
+    newLine: typeof location.getNewLine === 'function'
+      ? location.getNewLine()
+      : (typeof location.newLine === 'function' ? location.newLine() : location.newLine),
     index: start.index,
     length: Math.max(0, end.index - start.index),
     start,
     end,
-    filename: typeof location.getFilename === 'function' ? location.getFilename() : location.filename,
-    identifierName: typeof location.getIdentifierName === 'function' ? location.getIdentifierName() : location.identifierName
+    filename: typeof location.getFilename === 'function'
+      ? location.getFilename()
+      : (typeof location.filename === 'function' ? location.filename() : location.filename),
+    identifierName: typeof location.getIdentifierName === 'function'
+      ? location.getIdentifierName()
+      : (typeof location.identifierName === 'function' ? location.identifierName() : location.identifierName)
   }
 }
 
@@ -198,7 +214,11 @@ function normalizeGeneratedAstList(value: any): any[] {
 function normalizeGeneratedWrappedAstList(value: any, wrapperName: string): any[] {
   return javaListToArray(value).map(item => {
     const normalized = normalizeGeneratedAst(item)
-    if (normalized == null || typeof normalized !== 'object' || wrapperName in normalized) {
+    if (normalized == null || typeof normalized !== 'object') {
+      return normalized
+    }
+    if (wrapperName in normalized) {
+      normalized[wrapperName] = normalizeGeneratedAst(normalized[wrapperName])
       return normalized
     }
     return { [wrapperName]: normalized }
@@ -225,19 +245,58 @@ function isGeneratedAstListField(nodeType: string, publicName: string): boolean 
     || publicName === 'implementsTypes'
 }
 
+const generatedAstArrayFields = [
+  'body',
+  'params',
+  'specifiers',
+  'declarations',
+  'arguments',
+  'elements',
+  'properties',
+  'expressions',
+  'decorators',
+  'typeParameters',
+  'implementsTypes'
+]
+
+const generatedAstNodeFields = [
+  'source',
+  'imported',
+  'local',
+  'object',
+  'property',
+  'key',
+  'value',
+  'expression',
+  'element',
+  'argument',
+  'callee',
+  'left',
+  'right',
+  'test',
+  'consequent',
+  'alternate',
+  'init',
+  'id',
+  'declaration',
+  'discriminant'
+]
+
 function normalizeGeneratedAstChildren(node: any) {
-  if (Array.isArray(node.body)) {
-    node.body = node.body.map((item: any) => normalizeGeneratedAst(item)).filter((item: any) => item && item.type)
+  for (const field of generatedAstArrayFields) {
+    const value = readGeneratedField(node, field)
+    if (Array.isArray(value)) {
+      defineAstProperty(
+        node,
+        field,
+        value.map((item: any) => normalizeGeneratedAst(item)).filter((item: any) => field !== 'body' || (item && item.type))
+      )
+    }
   }
-  if (Array.isArray(node.params)) node.params = node.params.map((item: any) => normalizeGeneratedAst(item))
-  if (Array.isArray(node.specifiers)) node.specifiers = node.specifiers.map((item: any) => normalizeGeneratedAst(item))
-  if (Array.isArray(node.declarations)) node.declarations = node.declarations.map((item: any) => normalizeGeneratedAst(item))
-  if (Array.isArray(node.arguments)) node.arguments = node.arguments.map((item: any) => normalizeGeneratedAst(item))
-  if (node.source) node.source = normalizeGeneratedAst(node.source)
-  if (node.imported) node.imported = normalizeGeneratedAst(node.imported)
-  if (node.local) node.local = normalizeGeneratedAst(node.local)
-  if (node.object) node.object = normalizeGeneratedAst(node.object)
-  if (node.property) node.property = normalizeGeneratedAst(node.property)
+  for (const field of generatedAstNodeFields) {
+    const value = readGeneratedField(node, field)
+    if (value) defineAstProperty(node, field, normalizeGeneratedAst(value))
+  }
 }
 
 function defineAstProperty(target: any, name: string, value: any) {

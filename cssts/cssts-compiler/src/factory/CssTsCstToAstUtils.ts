@@ -61,7 +61,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     }
     // 版本日志（只打印一次）
     if (!CssTsCstToAst._loggedVersion) {
-      console.log(`[cssts-compiler] v${CSSTS_COMPILER_VERSION} - 100% mapping coverage`)
+      console.error(`[cssts-compiler] v${CSSTS_COMPILER_VERSION} - 100% mapping coverage`)
       CssTsCstToAst._loggedVersion = true
     }
     // 注册当前实例到 cssts 全局
