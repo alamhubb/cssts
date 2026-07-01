@@ -194,7 +194,7 @@ cd D:\project\qkyproject\qinall\cssts
 | 决策 | 原因 |
 |------|------|
 | 继承 generated Qin parser | 语法权威来自 Java QinParser 生成的 TS parser，CSSTS 只扩展 `css { }` 语法 |
-| CST-to-AST 全局注册机制 | 只在 CST-to-AST 转换边界复用 `slime-parser` 注册机制，让子类能覆盖转换逻辑 |
+| CST-to-AST bridge facade | 只在 CST-to-AST 转换边界接入 generated `SlimeCstToAstBridge`，业务扩展仍走类继承和实例方法 |
 | 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
 | 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
 
@@ -297,7 +297,8 @@ cd D:\project\qkyproject\qinall\cssts
 
 - Node.js >= 18（仅用于 TS/Volar/tooling）
 - @qin/generated-qin-parser-ts（来自 Java QinParser 生成结果）
-- slime-parser / slime-generator 仅用于 CST-to-AST 与代码生成边界
+- @qin/generated-qin-parser-ts/SlimeCstToAstBridge 用于 CST-to-AST bridge 边界
+- slime-generator 仅用于代码生成边界
 
 ---
 

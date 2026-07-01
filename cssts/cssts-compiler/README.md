@@ -242,7 +242,7 @@ cssts-compiler/
 | 决策 | 原因 |
 |------|------|
 | 继承 generated Qin parser | 语法权威来自 Java QinParser 生成的 TS parser，CSSTS 只扩展 `css { }` 语法 |
-| CST-to-AST 全局注册机制 | 只在 CST-to-AST 转换边界复用 `slime-parser` 注册机制，让子类能覆盖转换逻辑 |
+| CST-to-AST bridge facade | 只在 CST-to-AST 转换边界接入 generated `SlimeCstToAstBridge`，业务扩展仍走类继承和实例方法 |
 | 原子类按需收集 | 只生成实际使用的 CSS，减少打包体积 |
 | 伪类用 `$$` 分隔 | 避免与 JS 变量命名冲突（`$` 是合法标识符） |
 
@@ -250,32 +250,27 @@ cssts-compiler/
 
 ## CssTsCstToAst 扩展机制
 
-`CssTsCstToAst` 继承自 `slime-parser` 的 `SlimeCstToAst`，使用**全局注册模式**扩展 CST → AST 转换。
+`CssTsCstToAst` 继承自 generated `SlimeCstToAstBridge` 导出的 `SlimeCstToAst`，使用类继承和实例方法扩展 CST → AST 转换。
 
-### 为什么需要全局注册
+### Bridge 边界
 
-`slime-parser` 内部各转换器通过 `SlimeCstToAstUtils.xxx()` 调用。直接继承重写方法**不会生效**，因为内部调用不经过子类。
+generated parser 包导出 `SlimeCstToAstBridge`，CSSTS 在转换入口显式注册当前 `CssTsCstToAst` 实例。这个 bridge 只负责让 generated lowering 入口拿到当前实例；业务扩展代码不要再增加 Proxy、动态代理或新的服务定位器。
 
 ### 架构设计：继承链自动注册
 
 #### 核心机制
 
-1. **Proxy 代理模式**：导出的 `cssTsCstToAstUtils` 是 Proxy，动态代理到全局注册的实例
-2. **构造函数自动注册**：`SlimeCstToAst` 和 `CssTsCstToAst` 构造函数自动调用注册
-3. **继承链传递**：子类调用 `super()` 时，`this` 是子类实例，自动注册到所有层
+1. **实例继承**：`CssTsCstToAst` 通过普通 `extends SlimeCstToAst` 覆盖需要的转换方法。
+2. **显式 facade**：导出的 `CssTsCstToAstUtils` 是固定对象，方法 forward 到当前注册实例，保持旧调用形状但不使用 Proxy。
+3. **generated bridge 注册**：`registerCssTsCstToAst(instance)` 同步调用 `registerSlimeCstToAstUtil(instance)`，让 generated lowering 入口使用同一个实例。
 
 #### 实现方式
 
 ```typescript
 // cssts-compiler/src/factory/CssTsCstToAstUtils.ts
-import { SlimeCstToAst, registerSlimeCstToAstUtil } from 'slime-parser'
+import { SlimeCstToAst, registerSlimeCstToAstUtil } from '@qin/generated-qin-parser-ts/SlimeCstToAstBridge'
 
 export class CssTsCstToAst extends SlimeCstToAst {
-  constructor() {
-    super()  // 父类构造中会调用 registerSlimeCstToAstUtil(this)
-    registerCssTsCstToAst(this)  // 注册到 cssts 层
-  }
-
   // 重写方法，拦截 CssExpression 节点
   createPrimaryExpressionAst(cst) {
     const first = cst.children?.[0]
@@ -297,20 +292,14 @@ let _cssTsCstToAstUtils: CssTsCstToAst
 
 export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
   _cssTsCstToAstUtils = instance
+  registerSlimeCstToAstUtil(instance)
 }
 
-// Proxy: 动态代理到当前注册的实例
-export const cssTsCstToAstUtils = new Proxy({} as CssTsCstToAst, {
-  get(_, prop) {
-    const val = (_cssTsCstToAstUtils as any)[prop]
-    return typeof val === 'function' ? val.bind(_cssTsCstToAstUtils) : val
-  }
-})
+// Facade: 启动时绑定类原型上的方法，调用时转发到当前注册实例
+export const CssTsCstToAstUtils = {} as CssTsCstToAst
 
 // 初始化默认实例
-new CssTsCstToAst()
-
-export default cssTsCstToAstUtils
+registerCssTsCstToAst(new CssTsCstToAst())
 ```
 
 ### 继承链示例（OVS 扩展）
@@ -318,51 +307,22 @@ export default cssTsCstToAstUtils
 ```typescript
 // ovs-compiler 继承 cssts-compiler
 class OvsCstToSlimeAst extends CssTsCstToAst {
-  constructor() {
-    super()  // 继承链自动注册到 cssts 和 slime 层
-    registerOvsCstToSlimeAst(this)  // 只注册到 ovs 层
-  }
+  // 只覆盖 OVS 节点，其他节点通过 super 调回 CSSTS/generated Slime
 }
 
-// 实例化时的注册流程：
-// new OvsCstToSlimeAst()
-//   → OvsCstToSlimeAst.constructor()
-//     → super() → CssTsCstToAst.constructor()
-//       → super() → SlimeCstToAst.constructor()
-//         → registerSlimeCstToAstUtil(this)  // this = OvsCstToSlimeAst 实例 ✅
-//       → registerCssTsCstToAst(this)  // this = OvsCstToSlimeAst 实例 ✅
-//     → registerOvsCstToSlimeAst(this)  // this = OvsCstToSlimeAst 实例 ✅
-// 结果：三层全局变量都指向同一个 OvsCstToSlimeAst 实例
+const ovs = new OvsCstToSlimeAst()
+registerCssTsCstToAst(ovs)
+registerOvsCstToSlimeAst(ovs)
+// 结果：CSSTS/generated bridge 和 OVS facade 都指向同一个 OvsCstToSlimeAst 实例
 ```
 
 ### 工作原理
 
-1. `CssTsCstToAst` 构造函数调用 `super()`，触发父类构造
-2. 父类 `SlimeCstToAst` 构造中调用 `registerSlimeCstToAstUtil(this)`
-3. 此时 `this` 是 `CssTsCstToAst` 实例（或更深层的子类实例）
-4. 父类注册完成后，`CssTsCstToAst` 构造继续，调用 `registerCssTsCstToAst(this)`
-5. 所有层的全局变量都指向同一个最终子类实例
-6. `createPrimaryExpressionAst` 拦截 `CssExpression` 节点，转换为 `cssts.$cls()` 调用
-
-### 注意事项
-
-⚠️ **避免循环引用**：全局变量必须先声明再初始化
-
-```typescript
-// ❌ 错误：循环引用
-let _cssTsCstToAstUtils: CssTsCstToAst = new CssTsCstToAst()
-
-// ✅ 正确：分两步
-let _cssTsCstToAstUtils: CssTsCstToAst  // 先声明
-
-export function registerCssTsCstToAst(instance: CssTsCstToAst): void {
-  _cssTsCstToAstUtils = instance
-}
-
-// ... Proxy 定义 ...
-
-new CssTsCstToAst()  // 再初始化
-```
+1. 先通过 generated Qin parser 生成 CST。
+2. 转换入口注册当前 `CssTsCstToAst` 或更深层子类实例。
+3. facade 和 generated bridge 都把调用转到同一个实例。
+4. 实例方法内部使用 `this` / `super` 保持标准多态。
+5. `createPrimaryExpressionAst` 拦截 `CssExpression` 节点，转换为 `cssts.$cls()` 调用。
 
 ---
 
