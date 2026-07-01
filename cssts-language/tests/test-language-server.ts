@@ -244,6 +244,7 @@ async function main() {
       textDocument: {
         completion: { completionItem: { snippetSupport: true, insertReplaceSupport: true } },
         hover: {},
+        declaration: {},
         definition: {},
         references: {},
         documentSymbol: {},
@@ -266,8 +267,12 @@ async function main() {
   })
   server.stdin.write(init.packet)
   await waitFor('initialize response', () => messages.some(message => message.id === init.id) || exitCode !== null)
-  if (!messages.find(message => message.id === init.id)?.result?.capabilities) {
+  const initResponse = messages.find(message => message.id === init.id)
+  if (!initResponse?.result?.capabilities) {
     throw new Error(`CSSTS initialize failed. exitCode=${exitCode} stderr=${stderr} messages=${JSON.stringify(messages)}`)
+  }
+  if (!initResponse.result.capabilities.declarationProvider) {
+    throw new Error(`CSSTS initialize did not expose declarationProvider: ${JSON.stringify(initResponse.result.capabilities)}`)
   }
   server.stdin.write(createNotification('initialized', {}))
 
@@ -413,6 +418,17 @@ async function main() {
   const definitions = Array.isArray(definitionResponse.result) ? definitionResponse.result : definitionResponse.result ? [definitionResponse.result] : []
   if (!definitions.some(item => sameUri(locationUri(item), tsSubsetUri) && rangeContains(item, 0, 6))) {
     throw new Error(`CSSTS definition did not resolve alphaNumber declaration: ${JSON.stringify(definitionResponse.result)}`)
+  }
+
+  const declaration = createRequest('textDocument/declaration', {
+    textDocument: { uri: tsSubsetUri },
+    position: { line: 1, character: 20 },
+  })
+  server.stdin.write(declaration.packet)
+  const declarationResponse = await waitForResponse(declaration.id, messages, 'CSSTS declaration response')
+  const declarations = Array.isArray(declarationResponse.result) ? declarationResponse.result : declarationResponse.result ? [declarationResponse.result] : []
+  if (!declarations.some(item => sameUri(locationUri(item), tsSubsetUri) && rangeContains(item, 0, 6))) {
+    throw new Error(`CSSTS declaration did not resolve alphaNumber declaration: ${JSON.stringify(declarationResponse.result)}`)
   }
 
   const references = createRequest('textDocument/references', {

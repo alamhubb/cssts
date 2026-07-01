@@ -4,6 +4,7 @@ import {
   createTypeScriptProject,
   loadTsdkByPath,
 } from '@volar/language-server/node'
+import type { LanguageServicePlugin } from '@volar/language-service'
 import { create as createTypeScriptServices } from 'volar-service-typescript'
 import { CsstsLanguagePlugin } from './CsstsLanguagePlugin'
 import { CsstsLanguageServicePlugin } from './CsstsLanguageServicePlugin'
@@ -39,12 +40,12 @@ connection.onInitialize((params) => {
   const languagePlugins = [CsstsLanguagePlugin(languageServerMetadata)]
   const languageServicePlugins = [
     CsstsLanguageServicePlugin,
-    ...createTypeScriptServices(tsdk.typescript, {
+    ...withTypeScriptDeclarationProvider(createTypeScriptServices(tsdk.typescript, {
       disableAutoImportCache: true,
       isValidationEnabled(document) {
         return document.languageId !== 'cssts' && !isCsstsDocumentUri(document.uri, sourceExtension)
       },
-    }),
+    })),
   ]
   const tsProject = createTypeScriptProject(
     tsdk.typescript,
@@ -82,4 +83,26 @@ function isCsstsDocumentUri(uri: string, sourceExtension: string): boolean {
     || lowerUri.includes(`.${sourceExtension}%`)
     || lowerUri.includes(`%2e${sourceExtension}`)
     || lowerUri.includes(`%252e${sourceExtension}`)
+}
+
+function withTypeScriptDeclarationProvider(plugins: LanguageServicePlugin[]): LanguageServicePlugin[] {
+  return plugins.map(plugin => {
+    if (!plugin.capabilities.definitionProvider || plugin.capabilities.declarationProvider) {
+      return plugin
+    }
+    return {
+      ...plugin,
+      capabilities: {
+        ...plugin.capabilities,
+        declarationProvider: true,
+      },
+      create(context) {
+        const service = plugin.create(context)
+        return {
+          ...service,
+          provideDeclaration: service.provideDefinition,
+        }
+      },
+    }
+  })
 }
