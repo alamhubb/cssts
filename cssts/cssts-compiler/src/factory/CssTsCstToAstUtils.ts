@@ -376,11 +376,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
   /** 收集导入的标识符到作用域 */
   createImportDeclarationAst(cst: SubhutiCst): any {
     const result = super.createImportDeclarationAst(cst)
-    if (result.specifiers) {
-      for (const spec of result.specifiers) {
-        const localName = (spec as any).local?.name
-        if (localName) this.addToScope(localName)
-      }
+    for (const spec of this.javaListToArray(result.specifiers ?? (result as any).__specifiers)) {
+      const normalizedSpec = normalizeGeneratedAst(spec as any) as any
+      const localName = normalizedSpec.local?.name
+      if (localName) this.addToScope(localName)
     }
     return result
   }

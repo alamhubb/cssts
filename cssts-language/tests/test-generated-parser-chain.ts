@@ -94,6 +94,11 @@ async function main() {
   requireIncludes(compilerConfig, 'parser: "@qin/generated-qin-parser-ts"', 'cssts-compiler qin.config.js')
   requireIncludes(compilerConfig, 'build: "tsdown"', 'cssts-compiler qin.config.js')
   requireIncludes(compilerConfig, 'test: "tsx tests/test-generated-parser-chain.ts && tsdown"', 'cssts-compiler qin.config.js')
+  requireIncludes(
+    fs.readFileSync(path.join(workspaceRoot, 'cssts', 'cssts-compiler', 'tsdown.config.ts'), 'utf-8'),
+    '@qin\\/generated-qin-parser-ts',
+    'cssts-compiler tsdown.config.ts',
+  )
   requireIncludes(parserSource, 'from "@qin/generated-qin-parser-ts"', 'CssTsParser.ts')
   requireIncludes(parserSource, 'normalizeGeneratedTokens', 'CssTsParser.ts')
   requireIncludes(parserSource, 'extends QinParser', 'CssTsParser.ts')

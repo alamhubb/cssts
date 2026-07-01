@@ -17,6 +17,7 @@ export default {
     "@qin/generated-qin-parser-ts": "file:../../qin/packages/qin-language/generated/qin-parser-ts",
     "cssts-compiler": "file:../cssts/cssts-compiler",
     "cssts-ts": "^0.2.87",
+    "slime-generator": "file:../../slime/slime-generator",
     "volar-service-typescript": "^0.0.62",
     "vscode-languageserver": "^9.0.1",
     "vscode-languageserver-textdocument": "^1.0.12",
