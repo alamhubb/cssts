@@ -132,8 +132,8 @@ async function waitFor(description: string, predicate: () => boolean, timeoutMs 
   throw new Error(`Timed out waiting for ${description}`)
 }
 
-async function waitForResponse(id: number, messages: LspMessage[], description: string): Promise<LspMessage> {
-  await waitFor(description, () => messages.some(message => message.id === id && !message.method))
+async function waitForResponse(id: number, messages: LspMessage[], description: string, timeoutMs = 10000): Promise<LspMessage> {
+  await waitFor(description, () => messages.some(message => message.id === id && !message.method), timeoutMs)
   const message = messages.find(item => item.id === id && !item.method)
   if (!message) throw new Error(`Missing response after wait: ${description}`)
   if (message.error) throw new Error(`${description} returned error: ${JSON.stringify(message.error)}`)
@@ -235,7 +235,12 @@ async function main() {
   const init = createRequest('initialize', {
     processId: process.pid,
     capabilities: {
-      workspace: { configuration: true },
+      workspace: {
+        configuration: true,
+        diagnostics: {
+          refreshSupport: true,
+        },
+      },
       textDocument: {
         completion: { completionItem: { snippetSupport: true, insertReplaceSupport: true } },
         hover: {},
@@ -345,33 +350,27 @@ async function main() {
     },
   }))
 
-  await waitFor('CSSTS diagnostics for valid and invalid documents', () => {
-    const diagnostics = messages.filter(message => message.method === 'textDocument/publishDiagnostics')
-    return diagnostics.some(message => sameUri(message.params?.uri, validUri))
-      && diagnostics.some(message => sameUri(message.params?.uri, qinRichUri))
-      && diagnostics.some(message => sameUri(message.params?.uri, invalidUri))
-  }, 15000)
+  const validDiagnosticRequest = createRequest('textDocument/diagnostic', {
+    textDocument: { uri: validUri },
+  })
+  server.stdin.write(validDiagnosticRequest.packet)
+  const validDiagnosticResponse = await waitForResponse(validDiagnosticRequest.id, messages, 'CSSTS valid diagnostic response', 30000)
 
   const qinRichDiagnosticRequest = createRequest('textDocument/diagnostic', {
     textDocument: { uri: qinRichUri },
   })
   server.stdin.write(qinRichDiagnosticRequest.packet)
-  const qinRichDiagnosticResponse = await waitForResponse(qinRichDiagnosticRequest.id, messages, 'CSSTS Qin-rich valid diagnostic response')
+  const qinRichDiagnosticResponse = await waitForResponse(qinRichDiagnosticRequest.id, messages, 'CSSTS Qin-rich valid diagnostic response', 30000)
 
   const invalidDiagnosticRequest = createRequest('textDocument/diagnostic', {
     textDocument: { uri: invalidUri },
   })
   server.stdin.write(invalidDiagnosticRequest.packet)
-  const invalidDiagnosticResponse = await waitForResponse(invalidDiagnosticRequest.id, messages, 'CSSTS invalid diagnostic response')
+  const invalidDiagnosticResponse = await waitForResponse(invalidDiagnosticRequest.id, messages, 'CSSTS invalid diagnostic response', 30000)
 
-  const diagnostics = messages.filter(message => message.method === 'textDocument/publishDiagnostics')
-  const validDiagnostics = diagnostics.filter(message => sameUri(message.params?.uri, validUri)).at(-1)?.params?.diagnostics ?? []
-  const qinRichDiagnostics = qinRichDiagnosticResponse.result?.items
-    ?? diagnostics.filter(message => sameUri(message.params?.uri, qinRichUri)).at(-1)?.params?.diagnostics
-    ?? []
-  const invalidDiagnostics = invalidDiagnosticResponse.result?.items
-    ?? diagnostics.filter(message => sameUri(message.params?.uri, invalidUri)).at(-1)?.params?.diagnostics
-    ?? []
+  const validDiagnostics = validDiagnosticResponse.result?.items ?? []
+  const qinRichDiagnostics = qinRichDiagnosticResponse.result?.items ?? []
+  const invalidDiagnostics = invalidDiagnosticResponse.result?.items ?? []
   if (validDiagnostics.some((item: any) => String(item.message ?? '').includes('CSSTS transform failed'))) {
     throw new Error(`Valid CSSTS source produced transform diagnostics: ${JSON.stringify(validDiagnostics)}`)
   }

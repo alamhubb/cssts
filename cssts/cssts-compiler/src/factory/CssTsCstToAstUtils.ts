@@ -7,12 +7,15 @@ import {
   type SlimeStatement,
   type SlimeModuleDeclaration,
   type SlimeProgram,
-  SlimeAstCreateUtils,
-  SlimeTokenCreateUtils,
 } from "slime-ast"
+import { com_slime_parser_cstToAst_SlimeAstCreateUtils as SlimeAstCreateUtils } from "@qin/generated-qin-parser-ts/SlimeAstCreateUtils"
+import { com_subhuti_struct_SubhutiSourceLocation as SubhutiSourceLocation } from "@qin/generated-qin-parser-ts/SubhutiSourceLocation"
 import { CSSTS_CONFIG, isBuiltinAtom } from "../utils/cssClassName.js"
+import { CsstsInit } from "../init/CsstsInit.js"
+import { normalizeGeneratedAst } from "../parser/generated-runtime-adapter.js"
 
 const QIN_OBJECT_INTERNAL_PREFIX = "__QinObject_"
+let _csstsRuntimeAtomsInitialized = false
 
 export interface CssStyleInfo {
   name: string
@@ -52,6 +55,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   constructor() {
     super()
+    if (!_csstsRuntimeAtomsInitialized) {
+      CsstsInit.init({ dts: false } as any)
+      _csstsRuntimeAtomsInitialized = true
+    }
     // 版本日志（只打印一次）
     if (!CssTsCstToAst._loggedVersion) {
       console.log(`[cssts-compiler] v${CSSTS_COMPILER_VERSION} - 100% mapping coverage`)
@@ -66,6 +73,135 @@ export class CssTsCstToAst extends SlimeCstToAst {
       this.scopeStack.push(new Set())
     }
     return this.scopeStack[this.scopeStack.length - 1]
+  }
+
+  private cstChildren(cst: SubhutiCst | undefined | null): SubhutiCst[] {
+    if (!cst) return []
+    const node = cst as any
+    const children = Array.isArray(node.children) ? node.children : node.getChildren?.()
+    if (!children) return []
+    if (Array.isArray(children)) return children
+    if (Array.isArray(children.__items)) return children.__items
+    if (typeof children.size === 'function' && typeof children.get === 'function') {
+      const result: SubhutiCst[] = []
+      for (let i = 0; i < children.size(); i++) {
+        result.push(children.get(i))
+      }
+      return result
+    }
+    return typeof children[Symbol.iterator] === 'function' ? Array.from(children) : []
+  }
+
+  private javaListToArray<T = any>(list: any): T[] {
+    if (!list) return []
+    if (Array.isArray(list)) return list as T[]
+    if (Array.isArray(list.__items)) return list.__items as T[]
+    if (typeof list.size === 'function' && typeof list.get === 'function') {
+      const result: T[] = []
+      for (let i = 0; i < list.size(); i++) {
+        result.push(list.get(i))
+      }
+      return result
+    }
+    return typeof list[Symbol.iterator] === 'function' ? Array.from(list) as T[] : []
+  }
+
+  private setGeneratedList(owner: any, fieldName: string, values: any[]): void {
+    const publicValue = owner?.[fieldName]
+    const escapedFieldName = fieldName === 'arguments' ? '__qin_arguments' : fieldName
+    const qinFieldName = `__qin_field_${escapedFieldName}`
+    const current = publicValue && typeof publicValue !== 'function'
+      ? publicValue
+      : owner?.[`__${fieldName}`] ?? owner?.[qinFieldName]
+    if (current && Array.isArray(current.__items)) {
+      current.__items = values
+      owner[fieldName] = values
+      return
+    }
+    owner[fieldName] = values
+    if (qinFieldName in owner) {
+      owner[qinFieldName] = values
+    }
+    if (`__${fieldName}` in owner) {
+      owner[`__${fieldName}`] = values
+    }
+  }
+
+  private sourceLocationOf(loc: any, type?: string, value?: string): any {
+    if (!loc) return null
+    const start = typeof loc.start === 'function' ? loc.start() : loc.start
+    const end = typeof loc.end === 'function' ? loc.end() : loc.end
+    if (!start || !end) return null
+    const resolvedType = type ?? (typeof loc.getType === 'function' ? loc.getType() : loc.type)
+    if (value !== undefined) {
+      return SubhutiSourceLocation.ofWithValue(resolvedType ?? null, value, start, end)
+    }
+    return resolvedType
+      ? SubhutiSourceLocation.of(resolvedType, start, end)
+      : SubhutiSourceLocation.of(start, end)
+  }
+
+  private sourceLocFromAstLoc(loc: any): any {
+    if (!loc) return null
+    const start = loc.start
+    const end = loc.end
+    if (!start || !end) return null
+    return SubhutiSourceLocation.ofWithValue(
+      typeof loc.type === 'function' ? loc.type() : loc.type ?? null,
+      typeof loc.value === 'function' ? loc.value() : loc.value ?? null,
+      start,
+      end
+    )
+  }
+
+  private generatorLoc(loc: any, value?: string, type?: string): any {
+    if (!loc) return undefined
+    const subhutiLoc = this.sourceLocationOf(loc, type, value)
+    if (!subhutiLoc) return undefined
+    const start = subhutiLoc.start()
+    const end = subhutiLoc.end()
+    return {
+      type: subhutiLoc.getType(),
+      value: subhutiLoc.getValue(),
+      newLine: subhutiLoc.getNewLine(),
+      index: start.index(),
+      length: Math.max(0, end.index() - start.index()),
+      start: { line: start.line(), column: start.column(), index: start.index() },
+      end: { line: end.line(), column: end.column(), index: end.index() },
+      filename: subhutiLoc.getFilename(),
+      identifierName: subhutiLoc.getIdentifierName()
+    }
+  }
+
+  private identifier(name: string, loc?: any): any {
+    return SlimeAstCreateUtils.createIdentifier(name, this.sourceLocationOf(loc))
+  }
+
+  private stringLiteral(value: string, loc?: any): any {
+    return SlimeAstCreateUtils.createStringLiteral(value, this.sourceLocationOf(loc), JSON.stringify(value))
+  }
+
+  private astType(expr: any): string {
+    if (!expr) return ''
+    const rawType = typeof expr.type === 'function' ? expr.type() : expr.type
+    if (typeof rawType === 'string') return rawType
+    const enumName = typeof rawType?.name === 'function'
+      ? rawType.name()
+      : typeof rawType?.toString === 'function'
+        ? String(rawType)
+        : ''
+    if (enumName) {
+      return enumName.toLowerCase().replace(/(^|_)([a-z])/g, (_match: string, _sep: string, char: string) => char.toUpperCase())
+    }
+    const recordName = expr.__qinJavaRecordClass
+    return typeof recordName === 'string' ? recordName.slice(recordName.lastIndexOf('.') + 1) : ''
+  }
+
+  private identifierName(expr: any): string {
+    if (!expr) return ''
+    if (typeof expr.__name === 'string') return expr.__name
+    if (typeof expr.name === 'function') return expr.name()
+    return typeof expr.name === 'string' ? expr.name : ''
   }
 
   private isInScope(name: string): boolean {
@@ -124,9 +260,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
   toFileAst(cst: SubhutiCst): SlimeProgram {
     const program = this.toProgram(cst)
     if (this.usedAtoms.size > 0) {
-      program.body = this.ensureCsstsImports(program.body)
+      const normalizedProgram = normalizeGeneratedAst(program as any) as any
+      const body = this.ensureCsstsImports(this.javaListToArray(normalizedProgram.body))
+      this.setGeneratedList(program as any, 'body', body)
     }
-    return program
+    return normalizeGeneratedAst(program as any) as SlimeProgram
   }
 
   protected processCsstsPostTransform(body: Array<SlimeStatement | SlimeModuleDeclaration>): Array<SlimeStatement | SlimeModuleDeclaration> {
@@ -207,10 +345,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
         type: SlimeAstTypeName.ImportSpecifier,
-        imported: SlimeAstCreateUtils.createIdentifier('cssts'),
-        local: SlimeAstCreateUtils.createIdentifier('cssts')
+        imported: this.identifier('cssts'),
+        local: this.identifier('cssts')
       }],
-      source: SlimeAstCreateUtils.createStringLiteral('cssts-ts')
+      source: this.stringLiteral('cssts-ts')
     } as any
   }
 
@@ -219,10 +357,10 @@ export class CssTsCstToAst extends SlimeCstToAst {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [{
         type: SlimeAstTypeName.ImportSpecifier,
-        imported: SlimeAstCreateUtils.createIdentifier('csstsAtom'),
-        local: SlimeAstCreateUtils.createIdentifier('csstsAtom')
+        imported: this.identifier('csstsAtom'),
+        local: this.identifier('csstsAtom')
       }],
-      source: SlimeAstCreateUtils.createStringLiteral('virtual:csstsAtom')
+      source: this.stringLiteral('virtual:csstsAtom')
     } as any
   }
 
@@ -231,7 +369,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return {
       type: SlimeAstTypeName.ImportDeclaration,
       specifiers: [],
-      source: SlimeAstCreateUtils.createStringLiteral('virtual:cssts.css')
+      source: this.stringLiteral('virtual:cssts.css')
     } as any
   }
 
@@ -249,11 +387,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   /** 收集变量声明到作用域，处理伪类变量 */
   createLexicalBindingAst(cst: SubhutiCst): any {
-    const firstChild = cst.getChildren()?.[0]
+    const firstChild = this.cstChildren(cst)[0]
     let varName: string | null = null
     if (firstChild?.getName() === 'BindingIdentifier') {
-      const idChild = firstChild.getChildren()?.[0]
-      varName = idChild?.getValue() || idChild?.getChildren()?.[0]?.getValue() || null
+      const idChild = this.cstChildren(firstChild)[0]
+      varName = idChild?.getValue() || this.cstChildren(idChild)[0]?.getValue() || null
     }
 
     // 收集变量名到作用域
@@ -289,7 +427,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (cst.getName() === "CssExpression") {
       return this.createCssExpressionAst(cst)
     }
-    const first = cst.getChildren()?.[0]
+    const first = this.cstChildren(cst)[0]
     if (first && first.getName() === "CssExpression") {
       return this.createCssExpressionAst(first)
     }
@@ -297,11 +435,22 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return super.createPrimaryExpressionAst(cst)
   }
 
+  createExpressionAst(cst: SubhutiCst): SlimeExpression {
+    if (cst.getName() === "CssExpression") {
+      return this.createCssExpressionAst(cst)
+    }
+    const first = this.cstChildren(cst)[0]
+    if (first && first.getName() === "CssExpression") {
+      return this.createCssExpressionAst(first)
+    }
+    return super.createExpressionAst(cst)
+  }
+
   createExpressionAstUncached(cst: SubhutiCst): SlimeExpression {
     if (cst.getName() === "CssExpression") {
       return this.createCssExpressionAst(cst)
     }
-    const first = cst.getChildren()?.[0]
+    const first = this.cstChildren(cst)[0]
     if (first && first.getName() === "CssExpression") {
       return this.createCssExpressionAst(first)
     }
@@ -326,7 +475,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   createCssExpressionAst(cst: SubhutiCst): SlimeExpression {
     this._hasCsstsSyntax = true
-    const children = cst.getChildren() || []
+    const children = this.cstChildren(cst)
     const styleObjectCst = children.find(c =>
       c.getName() === CssTsParser.prototype.CssStyleObject?.name || c.getName() === 'CssStyleObject'
     )
@@ -337,8 +486,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
     if (styleObjectCst) {
       // 提取 { 和 } 的位置
-      const lBraceCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'LBrace' || c.getValue() === '{')
-      const rBraceCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'RBrace' || c.getValue() === '}')
+      const lBraceCst = this.cstChildren(styleObjectCst).find(c => c.getName() === 'LBrace' || c.getValue() === '{')
+      const rBraceCst = this.cstChildren(styleObjectCst).find(c => c.getName() === 'RBrace' || c.getValue() === '}')
       const lBraceLoc = lBraceCst?.getLoc()
       const rBraceLoc = rBraceCst?.getLoc()
 
@@ -358,11 +507,11 @@ export class CssTsCstToAst extends SlimeCstToAst {
     const identifierCsts = children.filter(c => c.getName() === 'IdentifierName')
     if (identifierCsts.length >= 2) {
       const atomCst = identifierCsts[1]
-      const atomName = atomCst.getValue() || atomCst.getChildren()?.[0]?.getValue() || ''
+      const atomName = atomCst.getValue() || this.cstChildren(atomCst)[0]?.getValue() || ''
       this.usedAtoms.add(atomName)
-      return SlimeAstCreateUtils.createStringLiteral(atomName)
+      return this.stringLiteral(atomName, atomCst.getLoc())
     }
-    return SlimeAstCreateUtils.createStringLiteral('')
+    return this.stringLiteral('', cst.getLoc())
   }
 
   /**
@@ -386,59 +535,30 @@ export class CssTsCstToAst extends SlimeCstToAst {
   ): SlimeExpression {
     // 创建 cssts.merge 的 loc：都使用 css 关键字的位置
     // 这样 css -> cssts.merge 形成完整的映射
-    const csstsLoc = tokenLocs?.cssTokenLoc ? {
-      start: tokenLocs.cssTokenLoc.start,
-      end: tokenLocs.cssTokenLoc.end,
-      value: 'cssts',  // 修改 value 为目标标识符名称
-    } : undefined
+    const csstsLoc = this.sourceLocationOf(tokenLocs?.cssTokenLoc, 'IdentifierName', 'cssts')
 
     // `.` 也使用 css 关键字的位置
-    const dotLoc = tokenLocs?.cssTokenLoc ? {
-      start: tokenLocs.cssTokenLoc.start,
-      end: tokenLocs.cssTokenLoc.end,
-      value: '.',
-    } : undefined
-
     // `merge` 也使用 css 关键字的位置
-    const mergeLoc = tokenLocs?.cssTokenLoc ? {
-      start: tokenLocs.cssTokenLoc.start,
-      end: tokenLocs.cssTokenLoc.end,
-      value: 'merge',
-    } : undefined
+    const mergeLoc = this.sourceLocationOf(tokenLocs?.cssTokenLoc, 'IdentifierName', 'merge')
 
     const csstsId = SlimeAstCreateUtils.createIdentifier('cssts', csstsLoc)
     const clsId = SlimeAstCreateUtils.createIdentifier('merge', mergeLoc)
 
-    const callee: SlimeExpression = {
-      type: SlimeAstTypeName.MemberExpression,
-      object: csstsId,
-      property: clsId,
-      computed: false,
-      optional: false,
-      // 整个 callee (cssts.merge) 使用 css 关键字的位置
-      loc: csstsLoc,
-      // 添加 dotToken 用于 . 的映射
-      dotToken: dotLoc ? { loc: dotLoc } : undefined
-    } as any
+    const callee = SlimeAstCreateUtils.createMemberExpression(csstsId, clsId, false, false, csstsLoc) as any
+    callee.dotToken = tokenLocs?.cssTokenLoc ? { loc: this.generatorLoc(tokenLocs.cssTokenLoc, '.', 'Dot') } : undefined
 
-    return {
-      type: SlimeAstTypeName.CallExpression,
-      callee,
-      arguments: args,
-      optional: false,
-      loc,
-      // 附加 token 位置信息，供 generator 使用
-      lParenToken: tokenLocs?.lBraceLoc ? { loc: tokenLocs.lBraceLoc } : undefined,
-      rParenToken: tokenLocs?.rBraceLoc ? { loc: tokenLocs.rBraceLoc } : undefined
-    } as any
+    const callExpr = SlimeAstCreateUtils.createCallExpression(callee, args as any, false, this.sourceLocationOf(loc)) as any
+    callExpr.lParenToken = tokenLocs?.lBraceLoc ? { loc: this.generatorLoc(tokenLocs.lBraceLoc, '(', 'LParen') } : undefined
+    callExpr.rParenToken = tokenLocs?.rBraceLoc ? { loc: this.generatorLoc(tokenLocs.rBraceLoc, ')', 'RParen') } : undefined
+    return callExpr
   }
 
 
   private extractCssPropertyExpressions(styleObjectCst: SubhutiCst | undefined): SlimeExpression[] {
     if (!styleObjectCst) return []
-    const elementListCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'ElementList')
+    const elementListCst = this.cstChildren(styleObjectCst).find(c => c.getName() === 'ElementList')
     if (!elementListCst) {
-      const atomListCst = styleObjectCst.getChildren()?.find(c => c.getName() === 'CssAtomList')
+      const atomListCst = this.cstChildren(styleObjectCst).find(c => c.getName() === 'CssAtomList')
       return this.processCssAtomList(atomListCst)
     }
     const elements = this.processElementList(elementListCst)
@@ -449,13 +569,13 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (!cst) return ''
     const value = cst.getValue()
     if (value !== undefined && value !== null) return String(value)
-    return (cst.getChildren() || []).map(child => this.extractCstValue(child)).join('')
+    return this.cstChildren(cst).map(child => this.extractCstValue(child)).join('')
   }
 
   private processCssAtomList(cst: SubhutiCst | undefined): SlimeExpression[] {
     if (!cst) return []
     const expressions: SlimeExpression[] = []
-    for (const child of cst.getChildren() || []) {
+    for (const child of this.cstChildren(cst)) {
       if (child.getName() === 'Comma' || child.getValue() === ',') {
         if (expressions.length > 0) {
           const lastExpr = expressions[expressions.length - 1] as any
@@ -466,7 +586,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
       if (child.getName() === 'IdentifierName') {
         const name = this.extractCstValue(child)
         expressions.push(this.transformCssPropertyExpression(
-          SlimeAstCreateUtils.createIdentifier(name, child.getLoc())
+          SlimeAstCreateUtils.createIdentifier(name, this.sourceLocationOf(child.getLoc()))
         ))
       }
     }
@@ -478,8 +598,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
    * 逗号位置会被附加到前一个表达式的 commaToken 属性上
    */
   private processElementList(cst: SubhutiCst): SlimeExpression[] {
-    const children = cst.getChildren()
-    if (!children) return []
+    const children = this.cstChildren(cst)
+    if (!children.length) return []
     const expressions: SlimeExpression[] = []
 
     for (let i = 0; i < children.length; i++) {
@@ -510,7 +630,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   }
 
   createSpreadElementAst(cst: SubhutiCst): any {
-    const assignExprCst = cst.getChildren()?.find(c => c.getName() === 'AssignmentExpression')
+    const assignExprCst = this.cstChildren(cst).find(c => c.getName() === 'AssignmentExpression')
     if (!assignExprCst) throw new Error('SpreadElement: missing AssignmentExpression')
     const argument = this.createAssignmentExpressionAst(assignExprCst)
     return { type: SlimeAstTypeName.SpreadElement, argument, loc: cst.getLoc() }
@@ -527,8 +647,8 @@ export class CssTsCstToAst extends SlimeCstToAst {
     if (!expr) return expr
 
     // 标识符：判断是否是全局样式类
-    if (expr.type === SlimeAstTypeName.Identifier) {
-      const name = (expr as any).name || ''
+    if (this.astType(expr) === SlimeAstTypeName.Identifier) {
+      const name = this.identifierName(expr)
       if (name && this.isAtomName(name)) {
         // 是全局样式类：转换为 csstsAtom.xxx
         // 保留原始标识符的 loc，用于 source map 映射
@@ -545,33 +665,34 @@ export class CssTsCstToAst extends SlimeCstToAst {
     }
 
     // 逻辑表达式：递归处理两侧
-    if (expr.type === SlimeAstTypeName.LogicalExpression) {
+    if (this.astType(expr) === SlimeAstTypeName.LogicalExpression) {
       const logicalExpr = expr as any
-      return {
-        ...logicalExpr,
-        left: this.transformCssPropertyExpression(logicalExpr.left),
-        right: this.transformCssPropertyExpression(logicalExpr.right)
-      }
+      logicalExpr.left = this.transformCssPropertyExpression(logicalExpr.left)
+      logicalExpr.right = this.transformCssPropertyExpression(logicalExpr.right)
+      if ('__left' in logicalExpr) logicalExpr.__left = logicalExpr.left
+      if ('__right' in logicalExpr) logicalExpr.__right = logicalExpr.right
+      return logicalExpr
     }
 
     // 三元表达式：递归处理三个部分
-    if (expr.type === SlimeAstTypeName.ConditionalExpression) {
+    if (this.astType(expr) === SlimeAstTypeName.ConditionalExpression) {
       const condExpr = expr as any
-      return {
-        ...condExpr,
-        test: this.transformCssPropertyExpression(condExpr.test),
-        consequent: this.transformCssPropertyExpression(condExpr.consequent),
-        alternate: condExpr.alternate ? this.transformCssPropertyExpression(condExpr.alternate) : condExpr.alternate
-      }
+      condExpr.test = this.transformCssPropertyExpression(condExpr.test)
+      condExpr.consequent = this.transformCssPropertyExpression(condExpr.consequent)
+      condExpr.alternate = condExpr.alternate ? this.transformCssPropertyExpression(condExpr.alternate) : condExpr.alternate
+      if ('__test' in condExpr) condExpr.__test = condExpr.test
+      if ('__consequent' in condExpr) condExpr.__consequent = condExpr.consequent
+      if ('__alternate' in condExpr) condExpr.__alternate = condExpr.alternate
+      return condExpr
     }
 
     // 函数调用：递归处理参数
-    if (expr.type === SlimeAstTypeName.CallExpression) {
+    if (this.astType(expr) === SlimeAstTypeName.CallExpression) {
       const callExpr = expr as any
-      return {
-        ...callExpr,
-        arguments: callExpr.arguments?.map((arg: any) => this.transformCssPropertyExpression(arg)) || []
-      }
+      const args = this.javaListToArray(callExpr.arguments ?? callExpr.__arguments)
+        .map((arg: any) => this.transformCssPropertyExpression(arg))
+      this.setGeneratedList(callExpr, 'arguments', args)
+      return callExpr
     }
 
     // 其他：保持原样（字符串、展开等）
@@ -586,32 +707,15 @@ export class CssTsCstToAst extends SlimeCstToAst {
   protected createCsstsAtomMember(propName: string, propLoc?: any): SlimeExpression {
     // Keep injected tokens aligned to the same source position as the atom name,
     // so virtual output does not split after `csstsAtom.`.
-    const atomLoc = propLoc ? {
-      start: propLoc.start,
-      end: propLoc.end,
-      value: 'csstsAtom',
-      synthetic: true,
-    } : undefined
-    const dotLoc = propLoc ? {
-      start: propLoc.start,
-      end: propLoc.end,
-      value: '.',
-      synthetic: true,
-    } : undefined
+    const sourcePropLoc = this.sourceLocFromAstLoc(propLoc) ?? this.sourceLocationOf(propLoc)
+    const atomLoc = this.sourceLocationOf(sourcePropLoc, 'IdentifierName', 'csstsAtom')
 
     const csstsAtomId = SlimeAstCreateUtils.createIdentifier('csstsAtom', atomLoc)
     // 传递原始 loc，确保 property 能正确映射回源代码
-    const propId = SlimeAstCreateUtils.createIdentifier(propName, propLoc)
-    return {
-      type: SlimeAstTypeName.MemberExpression,
-      object: csstsAtomId,
-      property: propId,
-      computed: false,
-      optional: false,
-      // 整个成员表达式也使用原始 loc
-      loc: propLoc,
-      dotToken: dotLoc ? { loc: dotLoc } : undefined,
-    } as any
+    const propId = SlimeAstCreateUtils.createIdentifier(propName, sourcePropLoc)
+    const member = SlimeAstCreateUtils.createMemberExpression(csstsAtomId, propId, false, false, sourcePropLoc) as any
+    member.dotToken = sourcePropLoc ? { loc: this.generatorLoc(sourcePropLoc, '.', 'Dot') } : undefined
+    return member
   }
 
   createAssignmentExpressionAst(cst: SubhutiCst): SlimeExpression {
@@ -660,50 +764,48 @@ export class CssTsCstToAst extends SlimeCstToAst {
       throw new Error('Qin object declaration must have a binding identifier')
     }
 
-    const publicId = (SlimeCstToAstUtils as any).createBindingIdentifierAst(binding)
-    const publicName = publicId?.name
+    const publicId = this.createBindingIdentifierAst(binding)
+    const publicName = this.identifierName(publicId)
     if (!publicName) {
       throw new Error('Qin object declaration must have a binding identifier name')
     }
 
     const internalName = `${QIN_OBJECT_INTERNAL_PREFIX}${publicName}`
-    const internalClassId = SlimeAstCreateUtils.createIdentifier(internalName, publicId.loc)
-    const classTail = SlimeCstToAstUtils.createClassTailAst(
-      this.findFirstByName(body, 'ClassTail')
-        ?? (() => { throw new Error('Qin object declaration must have a ClassTail') })()
-    )
+    const publicLoc = this.sourceLocFromAstLoc(publicId.loc)
+    const internalClassId = SlimeAstCreateUtils.createIdentifier(internalName, publicLoc)
+    const parsedClass = this.createClassDeclarationAst(body) as any
     const internalClass = SlimeAstCreateUtils.createClassDeclaration(
       internalClassId,
-      classTail.body,
-      classTail.superClass,
-      body.getLoc(),
-      undefined,
-      classTail.extendsToken
+      parsedClass.superClass(),
+      parsedClass.body(),
+      parsedClass.decorators() ?? [],
+      parsedClass.typeParameters(),
+      parsedClass.implementsTypes() ?? [],
+      this.sourceLocationOf(body.getLoc())
     )
 
     const initializer = SlimeAstCreateUtils.createNewExpression(
-      SlimeAstCreateUtils.createIdentifier(internalName, publicId.loc),
+      SlimeAstCreateUtils.createIdentifier(internalName, publicLoc),
       [],
-      publicId.loc,
-      SlimeTokenCreateUtils.createNewToken(publicId.loc)
+      false,
+      publicLoc
     )
     const declarator = SlimeAstCreateUtils.createVariableDeclarator(
       publicId,
-      SlimeTokenCreateUtils.createAssignToken(publicId.loc),
       initializer,
-      publicId.loc
+      publicLoc
     )
     const singleton = SlimeAstCreateUtils.createVariableDeclaration(
-      SlimeTokenCreateUtils.createConstToken(publicId.loc),
       [declarator],
-      qinObject.getLoc()
+      'const',
+      this.sourceLocationOf(qinObject.getLoc())
     )
 
     return [internalClass, singleton]
   }
 
   private findDirectQinObjectDeclaration(cst: SubhutiCst): SubhutiCst | undefined {
-    for (const child of cst.getChildren() || []) {
+    for (const child of this.cstChildren(cst)) {
       const qinObject = this.unwrapQinObjectDeclaration(child)
       if (qinObject) return qinObject
     }
@@ -716,7 +818,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
       return cst
     }
     if (name === 'Declaration') {
-      const first = cst.getChildren()?.[0]
+      const first = this.cstChildren(cst)[0]
       if (first?.getName() === 'QinObjectDeclaration' || first?.getName() === 'QinObjectDeclarationBody') {
         return first
       }
@@ -727,7 +829,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
   private findFirstByName(cst: SubhutiCst | undefined, name: string): SubhutiCst | undefined {
     if (!cst) return undefined
     if (cst.getName() === name) return cst
-    for (const child of cst.getChildren() || []) {
+    for (const child of this.cstChildren(cst)) {
       const found = this.findFirstByName(child, name)
       if (found) return found
     }

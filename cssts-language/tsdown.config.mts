@@ -15,7 +15,6 @@ export default defineConfig({
     target: 'es2022',
     inlineOnly: false,
     alias: {
-        'cssts-compiler': path.join(__dirname, '..', 'cssts', 'cssts-compiler', 'src', 'index.ts'),
         'cssts-ts': path.join(__dirname, '..', 'cssts', 'cssts-runtime', 'dist', 'index.mjs'),
     },
     noExternal: [

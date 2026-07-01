@@ -131,23 +131,182 @@ export function normalizeGeneratedCst<T = any>(cst: T): T {
       : (originalGetLocation ? originalGetLocation() : node.__qin_field_loc)
     return normalizeGeneratedLocation(raw, node.value, node.name)
   }
-  node.getLoc = readNormalizedLoc
-  node.getLocation = readNormalizedLoc
-  node.getChildren = (name?: string) => {
-    const children = node.children
-    if (name === undefined) return children
-    return children.filter((child: any) => child.name === name)
+  if (!originalGetLoc) node.getLoc = readNormalizedLoc
+  if (!originalGetLocation) node.getLocation = readNormalizedLoc
+  if (!originalGetChildren) {
+    node.getChildren = (name?: string) => {
+      const children = node.children
+      if (name === undefined) return children
+      return children.filter((child: any) => child.name === name)
+    }
   }
-  node.getChild = (name: string, index = 0) => {
-    const child = node.getChildren(name)[index]
-    if (child !== undefined) return child
-    return originalGetChild ? normalizeGeneratedCst(originalGetChild(name, index)) : undefined
+  if (!originalGetChild) {
+    node.getChild = (name: string, index = 0) => node.children.filter((child: any) => child.name === name)[index]
   }
-  node.getToken = (tokenName: string) => {
-    const token = node.children.find((child: any) => child.name === tokenName && child.value !== undefined && child.value !== null)
-    if (token !== undefined) return token
-    return originalGetToken ? normalizeGeneratedCst(originalGetToken(tokenName)) : undefined
+  if (!originalGetToken) {
+    node.getToken = (tokenName: string) => node.children.find((child: any) => child.name === tokenName && child.value !== undefined && child.value !== null)
   }
   node.children.forEach((child: any) => normalizeGeneratedCst(child))
   return cst
+}
+
+function recordClassSimpleName(value: any): string | undefined {
+  const recordName = value?.__qinJavaRecordClass
+  if (typeof recordName !== 'string') return undefined
+  const dotIndex = recordName.lastIndexOf('.')
+  const simpleName = dotIndex >= 0 ? recordName.slice(dotIndex + 1) : recordName
+  const nestedIndex = simpleName.lastIndexOf('$')
+  return nestedIndex >= 0 ? simpleName.slice(nestedIndex + 1) : simpleName
+}
+
+function readGeneratedField(value: any, fieldName: string): any {
+  if (!value || typeof value !== 'object') return undefined
+  const direct = value[fieldName]
+  if (direct !== undefined && typeof direct !== 'function') return direct
+  const internal = value[`__${fieldName}`]
+  if (internal !== undefined) return internal
+  const qinField = value[`__qin_field_${fieldName}`]
+  if (qinField !== undefined) return qinField
+  if (typeof direct === 'function') return direct.call(value)
+  const method = value[fieldName]
+  if (typeof method === 'function') return method.call(value)
+  const getterName = `get${fieldName.slice(0, 1).toUpperCase()}${fieldName.slice(1)}`
+  const getter = value[getterName]
+  return typeof getter === 'function' ? getter.call(value) : undefined
+}
+
+function pascalCaseEnumName(name: string): string {
+  const parts = name.split('_').filter(Boolean)
+  return parts.map(part => {
+    if (part === 'TS') return 'TS'
+    const lower = part.toLowerCase()
+    return lower.slice(0, 1).toUpperCase() + lower.slice(1)
+  }).join('')
+}
+
+function normalizeGeneratedAstType(value: any): string | undefined {
+  if (typeof value === 'string') return value
+  const enumName = typeof value?.name === 'function' ? value.name() : value?.__qinEnumName
+  if (typeof enumName === 'string' && enumName.length > 0) return pascalCaseEnumName(enumName)
+  return undefined
+}
+
+function normalizeGeneratedAstList(value: any): any[] {
+  return javaListToArray(value).map(item => normalizeGeneratedAst(item))
+}
+
+function normalizeGeneratedWrappedAstList(value: any, wrapperName: string): any[] {
+  return javaListToArray(value).map(item => {
+    const normalized = normalizeGeneratedAst(item)
+    if (normalized == null || typeof normalized !== 'object' || wrapperName in normalized) {
+      return normalized
+    }
+    return { [wrapperName]: normalized }
+  })
+}
+
+function isGeneratedAstListField(nodeType: string, publicName: string): boolean {
+  if (publicName === 'body') {
+    return nodeType === 'Program'
+      || nodeType === 'ClassBody'
+      || nodeType === 'BlockStatement'
+      || nodeType === 'StaticBlock'
+      || nodeType === 'SwitchCase'
+  }
+  return publicName === 'params'
+    || publicName === 'specifiers'
+    || publicName === 'declarations'
+    || publicName === 'arguments'
+    || publicName === 'elements'
+    || publicName === 'properties'
+    || publicName === 'expressions'
+    || publicName === 'decorators'
+    || publicName === 'typeParameters'
+    || publicName === 'implementsTypes'
+}
+
+function normalizeGeneratedAstChildren(node: any) {
+  if (Array.isArray(node.body)) {
+    node.body = node.body.map((item: any) => normalizeGeneratedAst(item)).filter((item: any) => item && item.type)
+  }
+  if (Array.isArray(node.params)) node.params = node.params.map((item: any) => normalizeGeneratedAst(item))
+  if (Array.isArray(node.specifiers)) node.specifiers = node.specifiers.map((item: any) => normalizeGeneratedAst(item))
+  if (Array.isArray(node.declarations)) node.declarations = node.declarations.map((item: any) => normalizeGeneratedAst(item))
+  if (Array.isArray(node.arguments)) node.arguments = node.arguments.map((item: any) => normalizeGeneratedAst(item))
+  if (node.source) node.source = normalizeGeneratedAst(node.source)
+  if (node.imported) node.imported = normalizeGeneratedAst(node.imported)
+  if (node.local) node.local = normalizeGeneratedAst(node.local)
+  if (node.object) node.object = normalizeGeneratedAst(node.object)
+  if (node.property) node.property = normalizeGeneratedAst(node.property)
+}
+
+function defineAstProperty(target: any, name: string, value: any) {
+  if (value === undefined) return
+  Object.defineProperty(target, name, {
+    value,
+    configurable: true,
+    enumerable: true,
+    writable: true
+  })
+}
+
+function generatedFieldPublicName(key: string): string | undefined {
+  if (key.startsWith('__qin_field___qin_')) return key.slice('__qin_field___qin_'.length)
+  if (key.startsWith('__qin_field_')) return key.slice('__qin_field_'.length)
+  if (key.startsWith('___qin_')) return key.slice('___qin_'.length)
+  if (key.startsWith('__')) return key.slice(2)
+  return undefined
+}
+
+export function normalizeGeneratedAst<T = any>(ast: T): T {
+  if (!ast || typeof ast !== 'object') return ast
+  const node: any = ast
+  if (node.__csstsLegacyAst === true) {
+    normalizeGeneratedAstChildren(node)
+    return ast
+  }
+
+  const type = normalizeGeneratedAstType(readGeneratedField(node, 'type')) ?? recordClassSimpleName(node)
+  if (!type) {
+    if (Array.isArray(node)) {
+      for (let i = 0; i < node.length; i++) node[i] = normalizeGeneratedAst(node[i])
+      return ast
+    }
+    for (const key of Object.keys(node)) {
+      const value = node[key]
+      node[key] = Array.isArray(value)
+        ? value.map(item => normalizeGeneratedAst(item))
+        : normalizeGeneratedAst(value)
+    }
+    return ast
+  }
+  Object.defineProperty(node, '__csstsLegacyAst', { value: true, configurable: true })
+  defineAstProperty(node, 'type', type)
+
+  const value = readGeneratedField(node, 'value')
+  defineAstProperty(node, 'value', node.value ?? value)
+
+  const loc = normalizeGeneratedLocation(readGeneratedField(node, 'location'))
+  defineAstProperty(node, 'loc', node.loc ?? loc)
+
+  for (const key of Object.keys(node)) {
+    if (key === '__qinJavaRecordClass' || key === '__csstsLegacyAst') continue
+    const publicName = generatedFieldPublicName(key)
+    if (!publicName) continue
+    const value = (node as any)[key]
+    if (publicName === 'location') continue
+    if (type === 'ArrayExpression' && publicName === 'elements') {
+      defineAstProperty(node, publicName, normalizeGeneratedWrappedAstList(value, 'element'))
+    } else if (type === 'ObjectExpression' && publicName === 'properties') {
+      defineAstProperty(node, publicName, normalizeGeneratedWrappedAstList(value, 'property'))
+    } else if (isGeneratedAstListField(type, publicName)) {
+      defineAstProperty(node, publicName, normalizeGeneratedAstList(value))
+    } else {
+      defineAstProperty(node, publicName, normalizeGeneratedAst(value))
+    }
+  }
+
+  normalizeGeneratedAstChildren(node)
+
+  return ast
 }

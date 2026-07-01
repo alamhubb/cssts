@@ -18,7 +18,7 @@ import {
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
 import { generatePseudoAtoms, generateClassGroupAtoms } from '../dts/atom-generator.ts'
-import { normalizeGeneratedCst } from '../parser/generated-runtime-adapter.ts'
+import { normalizeGeneratedAst, normalizeGeneratedCst } from '../parser/generated-runtime-adapter.ts'
 
 // 从核心文件重新导出
 export { generateCsstsAtomModule } from '../utils/csstsAtomCore'
@@ -122,8 +122,161 @@ export function expandClassGroup(
  * @returns 转换结果（包含 code、mapping 和 hasStyles）
  */
 // 版本号
-const TRANSFORM_VERSION = '2.2.0'
+const TRANSFORM_VERSION = '2.6.0-token-lcs-mapping'
 let _transformLoggedVersion = false
+
+function readTokenValue(token: any): string {
+  const value = token?.tokenValue ?? token?.__qin_field_tokenValue
+  if (typeof value !== 'string' || value.length === 0) {
+    throw new Error(`CSSTS token mapping requires a non-empty token value: ${JSON.stringify(token)}`)
+  }
+  return value
+}
+
+function readTokenIndex(token: any): number {
+  const index = token?.index ?? token?.codeIndex ?? token?.__qin_field_index
+  if (typeof index !== 'number' || index < 0) {
+    throw new Error(`CSSTS token mapping requires a source index: ${JSON.stringify(token)}`)
+  }
+  return index
+}
+
+function readTokenLine(token: any): number {
+  const line = token?.rowNum ?? token?.line ?? token?.__qin_field_rowNum
+  return typeof line === 'number' ? line - 1 : 0
+}
+
+function readTokenColumn(token: any): number {
+  const column = token?.columnStartNum ?? token?.column ?? token?.__qin_field_columnStartNum
+  return typeof column === 'number' ? column - 1 : 0
+}
+
+function generatedPositionAt(code: string, index: number) {
+  let line = 0
+  let lineStart = 0
+  for (let i = 0; i < index; i++) {
+    if (code.charCodeAt(i) === 10) {
+      line++
+      lineStart = i + 1
+    }
+  }
+  return { line, column: index - lineStart }
+}
+
+function tokenizeGeneratedCode(generatedCode: string, sourceValues: Set<string>) {
+  const values = [...sourceValues].sort((left, right) => right.length - left.length)
+  const tokens: any[] = []
+  let index = 0
+  while (index < generatedCode.length) {
+    const matched = values.find(value => generatedCode.startsWith(value, index))
+    if (!matched) {
+      index++
+      continue
+    }
+    const position = generatedPositionAt(generatedCode, index)
+    tokens.push({
+      value: matched,
+      index,
+      line: position.line,
+      column: position.column,
+      length: matched.length,
+    })
+    index += matched.length
+  }
+  return tokens
+}
+
+function lcsTokenPairs(sourceTokens: any[], generatedTokens: any[]) {
+  const rows = sourceTokens.length + 1
+  const cols = generatedTokens.length + 1
+  const table = Array.from({ length: rows }, () => new Uint16Array(cols))
+  for (let i = sourceTokens.length - 1; i >= 0; i--) {
+    const sourceValue = sourceTokens[i].value
+    for (let j = generatedTokens.length - 1; j >= 0; j--) {
+      if (sourceValue === generatedTokens[j].value) {
+        table[i][j] = table[i + 1][j + 1] + 1
+      } else {
+        table[i][j] = Math.max(table[i + 1][j], table[i][j + 1])
+      }
+    }
+  }
+
+  const pairs: Array<[number, number]> = []
+  let i = 0
+  let j = 0
+  while (i < sourceTokens.length && j < generatedTokens.length) {
+    if (sourceTokens[i].value === generatedTokens[j].value) {
+      pairs.push([i, j])
+      i++
+      j++
+    } else if (table[i + 1][j] >= table[i][j + 1]) {
+      i++
+    } else {
+      j++
+    }
+  }
+  return pairs
+}
+
+function buildTokenMappings(tokens: any[], generatedCode: string): any[] {
+  const mappings: any[] = []
+  const sourceTokens = tokens.map(token => ({
+    token,
+    value: readTokenValue(token),
+    sourceIndex: readTokenIndex(token),
+    tokenName: token?.tokenName ?? token?.__qin_field_tokenName ?? '',
+  }))
+  const generatedTokens = tokenizeGeneratedCode(generatedCode, new Set(sourceTokens.map(token => token.value)))
+
+  for (const [sourceTokenIndex, generatedTokenIndex] of lcsTokenPairs(sourceTokens, generatedTokens)) {
+    const sourceToken = sourceTokens[sourceTokenIndex]
+    const generatedToken = generatedTokens[generatedTokenIndex]
+    const token = sourceToken.token
+    const value = sourceToken.value
+    mappings.push({
+      source: {
+        type: sourceToken.tokenName,
+        value,
+        line: readTokenLine(token),
+        column: readTokenColumn(token),
+        index: sourceToken.sourceIndex,
+        length: value.length,
+      },
+      generate: {
+        type: sourceToken.tokenName,
+        value,
+        line: generatedToken.line,
+        column: generatedToken.column,
+        index: generatedToken.index,
+        length: value.length,
+      },
+    })
+  }
+
+  if (tokens.length > 0 && mappings.length === 0) {
+    throw new Error('CSSTS token mapping produced no generated token mappings')
+  }
+
+  return mappings
+}
+
+function sourceMappingKey(mapping: any): string {
+  return `${mapping.source.index}:${mapping.source.length}:${mapping.source.value ?? ''}`
+}
+
+function mergeTokenMappings(generatorMappings: any[], tokenMappings: any[]): any[] {
+  const seen = new Set(generatorMappings.map(sourceMappingKey))
+  const merged = [...generatorMappings]
+  for (const mapping of tokenMappings) {
+    const key = sourceMappingKey(mapping)
+    if (!seen.has(key)) {
+      seen.add(key)
+      merged.push(mapping)
+    }
+  }
+  merged.sort((left, right) => left.source.index - right.source.index || left.generate.index - right.generate.index)
+  return merged
+}
 
 export function transformCssTs(code: string): TransformResultWithMapping {
   // 版本日志（只打印一次）
@@ -137,7 +290,7 @@ export function transformCssTs(code: string): TransformResultWithMapping {
   const parser = new CssTsParser(code)
   const cst = normalizeGeneratedCst(parser.Program())  // 使用默认的 module 模式
   // 使用单例，避免重复注册覆盖子类（如 OvsCstToSlimeAst）
-  const ast = CssTsCstToAstUtils.toFileAst(cst)
+  const ast = normalizeGeneratedAst(CssTsCstToAstUtils.toFileAst(cst))
 
   const localUsedAtoms = CssTsCstToAstUtils.getUsedAtoms()
 
@@ -154,10 +307,12 @@ export function transformCssTs(code: string): TransformResultWithMapping {
   const mapping = result.mapping.filter(
     (m: any) => m.source && m.generate && m.source.length > 0
   )
+  const tokenMappings = buildTokenMappings(tokens, result.code)
+  const lspMapping = mergeTokenMappings(mapping, tokenMappings)
 
   return {
     code: result.code,
-    mapping,
+    mapping: lspMapping,
     hasStyles: localUsedAtoms.size > 0
   }
 }
