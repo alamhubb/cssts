@@ -11,11 +11,9 @@ import {
 import { com_slime_parser_cstToAst_SlimeAstCreateUtils as SlimeAstCreateUtils } from "@qin/generated-qin-parser-ts/SlimeAstCreateUtils"
 import { com_subhuti_struct_SubhutiSourceLocation as SubhutiSourceLocation } from "@qin/generated-qin-parser-ts/SubhutiSourceLocation"
 import { CSSTS_CONFIG, isBuiltinAtom } from "../utils/cssClassName.js"
-import { CsstsInit } from "../init/CsstsInit.js"
 import { normalizeGeneratedAst } from "../parser/generated-runtime-adapter.js"
 
 const QIN_OBJECT_INTERNAL_PREFIX = "__QinObject_"
-let _csstsRuntimeAtomsInitialized = false
 
 export interface CssStyleInfo {
   name: string
@@ -55,10 +53,6 @@ export class CssTsCstToAst extends SlimeCstToAst {
 
   constructor() {
     super()
-    if (!_csstsRuntimeAtomsInitialized) {
-      CsstsInit.init({ dts: false } as any)
-      _csstsRuntimeAtomsInitialized = true
-    }
     // 版本日志（只打印一次）
     if (!CssTsCstToAst._loggedVersion) {
       console.error(`[cssts-compiler] v${CSSTS_COMPILER_VERSION} - 100% mapping coverage`)
@@ -92,7 +86,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return typeof children[Symbol.iterator] === 'function' ? Array.from(children) : []
   }
 
-  private javaListToArray<T = any>(list: any): T[] {
+  protected javaListToArray<T = any>(list: any): T[] {
     if (!list) return []
     if (Array.isArray(list)) return list as T[]
     if (Array.isArray(list.__items)) return list.__items as T[]
@@ -106,7 +100,7 @@ export class CssTsCstToAst extends SlimeCstToAst {
     return typeof list[Symbol.iterator] === 'function' ? Array.from(list) as T[] : []
   }
 
-  private setGeneratedList(owner: any, fieldName: string, values: any[]): void {
+  protected setGeneratedList(owner: any, fieldName: string, values: any[]): void {
     const publicValue = owner?.[fieldName]
     const escapedFieldName = fieldName === 'arguments' ? '__qin_arguments' : fieldName
     const qinFieldName = `__qin_field_${escapedFieldName}`

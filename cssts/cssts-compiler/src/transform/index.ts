@@ -15,6 +15,7 @@ import { CsstsInit } from '../init/CsstsInit'
 import {
   camelToKebab,
   generateAtomCssRule,
+  ensureRuntimeAtomData,
   CSSTS_CONFIG
 } from '../utils/cssClassName.ts'
 import { generatePseudoAtoms, generateClassGroupAtoms } from '../dts/atom-generator.ts'
@@ -285,7 +286,7 @@ export function transformCssTs(code: string): TransformResultWithMapping {
     _transformLoggedVersion = true
   }
 
-  CsstsInit.init({ dts: false } as any)
+  ConfigLookup.init({ dts: false } as any)
 
   const parser = new CssTsParser(code)
   const cst = normalizeGeneratedCst(parser.Program())  // 使用默认的 module 模式
@@ -296,6 +297,9 @@ export function transformCssTs(code: string): TransformResultWithMapping {
 
   // 将使用的原子类累加到全局 RuntimeStore.usedStyles
   RuntimeStore.addUsedStyles(localUsedAtoms)
+  for (const atomName of localUsedAtoms) {
+    ensureRuntimeAtomData(atomName)
+  }
 
   // 生成代码
   const tokens = parser.parsedTokens
@@ -357,6 +361,7 @@ export function generateStylesCss(): string {
   // 1. 生成原子类 CSS（按属性分组）
   const grouped = new Map<string, string[]>()
   for (const atomName of atomStyles) {
+    ensureRuntimeAtomData(atomName)
     const rule = generateAtomCssRule(atomName, prefix)
     if (rule) {
       const data = RuntimeStore.getRuntimeData(atomName)

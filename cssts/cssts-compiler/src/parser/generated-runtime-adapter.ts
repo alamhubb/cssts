@@ -9,6 +9,13 @@ function javaListToArray<T = any>(list: any): T[] {
     }
     return result
   }
+  if (typeof list.size === 'number' && typeof list.get === 'function') {
+    const result: T[] = []
+    for (let i = 0; i < list.size; i++) {
+      result.push(list.get(i))
+    }
+    return result
+  }
   if (typeof list[Symbol.iterator] === 'function') {
     return Array.from(list) as T[]
   }
@@ -201,7 +208,9 @@ function pascalCaseEnumName(name: string): string {
 }
 
 function normalizeGeneratedAstType(value: any): string | undefined {
-  if (typeof value === 'string') return value
+  if (typeof value === 'string') {
+    return /^[A-Z][A-Z0-9_]*$/.test(value) ? pascalCaseEnumName(value) : value
+  }
   const enumName = typeof value?.name === 'function' ? value.name() : value?.__qinEnumName
   if (typeof enumName === 'string' && enumName.length > 0) return pascalCaseEnumName(enumName)
   return undefined
@@ -279,17 +288,19 @@ const generatedAstNodeFields = [
   'init',
   'id',
   'declaration',
-  'discriminant'
+  'discriminant',
+  'body'
 ]
 
 function normalizeGeneratedAstChildren(node: any) {
+  const nodeType = normalizeGeneratedAstType(readGeneratedField(node, 'type')) ?? recordClassSimpleName(node)
   for (const field of generatedAstArrayFields) {
     const value = readGeneratedField(node, field)
-    if (Array.isArray(value)) {
+    if (value !== undefined && nodeType && isGeneratedAstListField(nodeType, field)) {
       defineAstProperty(
         node,
         field,
-        value.map((item: any) => normalizeGeneratedAst(item)).filter((item: any) => field !== 'body' || (item && item.type))
+        javaListToArray(value).map((item: any) => normalizeGeneratedAst(item)).filter((item: any) => field !== 'body' || (item && item.type))
       )
     }
   }
@@ -343,7 +354,7 @@ export function normalizeGeneratedAst<T = any>(ast: T): T {
   defineAstProperty(node, 'type', type)
 
   const value = readGeneratedField(node, 'value')
-  defineAstProperty(node, 'value', node.value ?? value)
+  defineAstProperty(node, 'value', value)
 
   const loc = normalizeGeneratedLocation(readGeneratedField(node, 'location'))
   defineAstProperty(node, 'loc', node.loc ?? loc)
@@ -363,6 +374,11 @@ export function normalizeGeneratedAst<T = any>(ast: T): T {
     } else {
       defineAstProperty(node, publicName, normalizeGeneratedAst(value))
     }
+  }
+
+  if (type === 'Property' || type === 'MethodDefinition') {
+    const propertyValue = readGeneratedField(node, 'value')
+    if (propertyValue !== undefined) defineAstProperty(node, 'value', normalizeGeneratedAst(propertyValue))
   }
 
   normalizeGeneratedAstChildren(node)

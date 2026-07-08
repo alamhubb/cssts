@@ -77,6 +77,7 @@ function requireExcludes(source: string, needle: string, label: string) {
 
 const compilerConfigObject = await loadQinConfig(compilerConfigPath)
 const generatedParserTarget = compilerConfigObject.language?.parser
+const adapterModule = await import('../src/parser/generated-runtime-adapter.ts')
 
 requireEquals(compilerConfigObject.name, compilerPackage.name, 'cssts-compiler qin.config.js name')
 requireEquals(compilerConfigObject.version, compilerPackage.version, 'cssts-compiler qin.config.js version')
@@ -109,6 +110,7 @@ requireIncludes(parserSource, 'this.Or(', 'CssTsParser.ts')
 requireExcludes(parserSource, 'fallback', 'CssTsParser.ts')
 requireIncludes(adapterSource, 'normalizeGeneratedCst', 'generated-runtime-adapter.ts')
 requireIncludes(adapterSource, 'javaListToArray', 'generated-runtime-adapter.ts')
+requireIncludes(adapterSource, 'pascalCaseEnumName(value)', 'generated-runtime-adapter.ts')
 requireIncludes(transformSource, 'normalizeGeneratedCst(parser.Program())', 'transform/index.ts')
 requireIncludes(transformSource, "import { registerSlimeCstToAstUtil } from '@qin/generated-qin-parser-ts/SlimeCstToAstBridge'", 'transform/index.ts')
 requireIncludes(cstToAstSource, 'from "@qin/generated-qin-parser-ts/SlimeCstToAstBridge"', 'CssTsCstToAstUtils.ts')
@@ -117,6 +119,24 @@ requireIncludes(cstToAstSource, 'extends SlimeCstToAst', 'CssTsCstToAstUtils.ts'
 
 if (!fs.existsSync(generatedParserPath)) {
   throw new Error(`CSSTS compiler must resolve the shared generated Qin parser package: ${generatedParserPath}`)
+}
+
+const normalizedEnumStringAst = adapterModule.normalizeGeneratedAst({
+  type() { return 'EXPRESSION_STATEMENT' },
+  expression() {
+    return {
+      type() { return 'STRING_LITERAL' },
+      value() { return 'enum-string' }
+    }
+  }
+} as any) as any
+
+if (normalizedEnumStringAst.type !== 'ExpressionStatement'
+  || normalizedEnumStringAst.expression?.type !== 'StringLiteral') {
+  throw new Error(`generated-runtime-adapter must normalize Java enum string AST types, got ${JSON.stringify({
+    type: normalizedEnumStringAst.type,
+    expressionType: normalizedEnumStringAst.expression?.type
+  })}`)
 }
 
 if (parserSource.includes('alt:')) {
