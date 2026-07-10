@@ -1,6 +1,7 @@
 /.idea/
 /node_modules/
 /dist/
+.qin/
 node_modules
 dist
 package-lock.json
