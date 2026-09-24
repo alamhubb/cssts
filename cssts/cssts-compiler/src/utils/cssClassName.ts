@@ -8,6 +8,7 @@ import { ConfigLookup } from "../config/ConfigLookup"
 import { RuntimeStore, type RuntimeAtomData } from "../store/RuntimeStore"
 import { CSSTS_CONFIG } from "cssts-ts"
 import { CSS_PROPERTY_NAME_MAP } from "../data/cssPropertyNameMapping"
+import { COLOR_TYPE_COLORS_MAP } from "../data/cssColorData"
 
 // 重新导出分隔符配置（供其他模块使用）
 export { CSSTS_CONFIG }
@@ -34,6 +35,12 @@ const KEYWORD_VALUES = new Set([
   'solid',
   'white'
 ])
+
+const NAMED_COLOR_VALUES = new Set(COLOR_TYPE_COLORS_MAP.namedColor)
+
+function isColorLikeProperty(property: string): boolean {
+  return property.includes('color') || property === 'fill' || property === 'stroke'
+}
 
 /**
  * 判断标识符是否是内置原子类
@@ -129,6 +136,7 @@ export function parseTsAtomName(tsName: string): { property: string; value: stri
         if (
           /^[+-]?\d/.test(value)
           || KEYWORD_VALUES.has(value)
+          || (isColorLikeProperty(properties[propName]) && NAMED_COLOR_VALUES.has(value))
           || value.includes('-')
           || value.includes('%')
           || value.includes('/')

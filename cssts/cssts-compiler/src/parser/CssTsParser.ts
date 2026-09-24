@@ -1,56 +1,20 @@
 import CssTsTokenConsumer, { cssTsTokens } from "./CssTsTokenConsumer.js"
 import { Subhuti, SubhutiRule } from 'subhuti'
-import type { SubhutiParserOptions } from 'subhuti'
 import {
   QinParser,
   ExpressionParams as GeneratedExpressionParams,
-  TemplateLiteralParams as GeneratedTemplateLiteralParams,
   type ExpressionParams
 } from "@qin/generated-qin-parser-ts"
 import { normalizeGeneratedTokens } from "./generated-runtime-adapter.ts"
 
-const expressionParamsCache = new Map<string, any>()
-const templateLiteralParamsCache = new Map<string, any>()
+export class CssTsParserOptions<T extends CssTsTokenConsumer = CssTsTokenConsumer> {
+  tokenConsumer: CssTsTokenConsumer
+  tokenDefinitions: any
 
-function expressionParamsWith(params: any = {}, overrides: Record<string, boolean> = {}) {
-  const read = (key: string, defaultValue = false) => {
-    const value = params?.[key]
-    if (typeof value === 'function') return !!value.call(params)
-    if (typeof value === 'boolean') return value
-    const qinValue = params?.[`__qin_${key}`]
-    if (typeof qinValue === 'function') return !!qinValue.call(params)
-    return defaultValue
+  constructor(tokenConsumer: CssTsTokenConsumer = new CssTsTokenConsumer(), tokenDefinitions: any = cssTsTokens) {
+    this.tokenConsumer = tokenConsumer
+    this.tokenDefinitions = tokenDefinitions
   }
-  const inValue = Object.prototype.hasOwnProperty.call(overrides, 'In')
-    ? !!overrides.In
-    : read('in', true)
-  const yieldValue = Object.prototype.hasOwnProperty.call(overrides, 'Yield')
-    ? !!overrides.Yield
-    : read('yield')
-  const awaitValue = Object.prototype.hasOwnProperty.call(overrides, 'Await')
-    ? !!overrides.Await
-    : read('await')
-  const key = `${inValue}:${yieldValue}:${awaitValue}`
-  let stableParams = expressionParamsCache.get(key)
-  if (!stableParams) {
-    stableParams = new GeneratedExpressionParams(inValue, yieldValue, awaitValue)
-    expressionParamsCache.set(key, stableParams)
-  }
-  return stableParams
-}
-
-function templateLiteralParamsWith(params: any = {}, tagged = false) {
-  const expressionParams = expressionParamsWith(params)
-  const inValue = typeof (expressionParams as any).__qin_in === 'function' ? !!(expressionParams as any).__qin_in() : true
-  const yieldValue = typeof (expressionParams as any).__qin_yield === 'function' ? !!(expressionParams as any).__qin_yield() : false
-  const awaitValue = typeof (expressionParams as any).__qin_await === 'function' ? !!(expressionParams as any).__qin_await() : false
-  const key = `${inValue}:${yieldValue}:${awaitValue}:${tagged}`
-  let stableParams = templateLiteralParamsCache.get(key)
-  if (!stableParams) {
-    stableParams = new GeneratedTemplateLiteralParams(inValue, yieldValue, awaitValue, tagged)
-    templateLiteralParamsCache.set(key, stableParams)
-  }
-  return stableParams
 }
 
 /**
@@ -70,13 +34,17 @@ function templateLiteralParamsWith(params: any = {}, tagged = false) {
  */
 @Subhuti
 export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsumer> extends QinParser<T> {
-  constructor(sourceCode: string = '', options?: SubhutiParserOptions<T>) {
+  tokenConsumer: CssTsTokenConsumer
+
+  constructor(sourceCode: string = '', options: CssTsParserOptions<T> | null = null) {
     super(sourceCode)
-    const Consumer = (options?.tokenConsumer ?? CssTsTokenConsumer) as any
-    const consumer = new Consumer()
+    const effectiveOptions: CssTsParserOptions<T> = options == null
+      ? new CssTsParserOptions<T>()
+      : options
+    const consumer: CssTsTokenConsumer = effectiveOptions.tokenConsumer
     consumer.setParser(this)
     ;(this as any).__qin_field_tokenConsumer = consumer
-    ;(this as any).tokenConsumer = consumer
+    this.tokenConsumer = consumer
   }
 
   get parsedTokens(): any[] {
@@ -84,6 +52,13 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
       ? (this as any).getParsedTokens()
       : (this as any).__qin_field_parsedTokens
     return normalizeGeneratedTokens(tokens)
+  }
+
+  expressionParamsWith(params: ExpressionParams | null = null): ExpressionParams {
+    const effectiveParams: ExpressionParams = params == null
+      ? new GeneratedExpressionParams() as ExpressionParams
+      : params
+    return new GeneratedExpressionParams(effectiveParams.in(), effectiveParams.yield(), effectiveParams.await()) as ExpressionParams
   }
 
   /**
@@ -95,13 +70,14 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssExpression(params: ExpressionParams = {} as any) {
-    const expressionParams = expressionParamsWith(params) as ExpressionParams
+    const expressionParams: ExpressionParams = this.expressionParamsWith(params)
     this.consumeIdentifierValue('css')
-    this.Or(
-      () => this.CssStyleObject(expressionParams),
-      () => this.tokenConsumer.IdentifierName()
-    )
-    return this.curCst
+    if (this.tokenNameAt(1) === 'LBrace') {
+      this.CssStyleObject(expressionParams)
+    } else {
+      this.tokenConsumer.IdentifierName()
+    }
+    return this.getCurCst()
   }
 
   /**
@@ -111,26 +87,22 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   CssStyleObject(params: ExpressionParams = {} as any) {
-    const expressionParams = expressionParamsWith(params) as ExpressionParams
     this.tokenConsumer.LBrace()
-    this.Option(() => {
-      this.Or(
-        () => this.ElementList(expressionParams),
-        () => this.CssAtomList()
-      )
-    })
+    if (this.tokenNameAt(1) !== 'RBrace') {
+      this.CssAtomList()
+    }
     this.tokenConsumer.RBrace()
-    return this.curCst
+    return this.getCurCst()
   }
 
   @SubhutiRule
   CssAtomList() {
     this.tokenConsumer.IdentifierName()
-    this.Many(() => {
+    while (this.tokenNameAt(1) === 'Comma') {
       this.tokenConsumer.Comma()
       this.tokenConsumer.IdentifierName()
-    })
-    return this.curCst
+    }
+    return this.getCurCst()
   }
 
   /**
@@ -141,37 +113,10 @@ export default class CssTsParser<T extends CssTsTokenConsumer = CssTsTokenConsum
    */
   @SubhutiRule
   PrimaryExpression(params: ExpressionParams = {} as any) {
-    const expressionParams = expressionParamsWith(params) as ExpressionParams
-    return this.Or(
-      // === 1. 硬关键字表达式 ===
-      () => this.tokenConsumer.This(),
-
-      // === 2. async 开头（软关键字，必须在 IdentifierReference 之前）===
-      () => this.AsyncGeneratorExpression(),
-      () => this.AsyncFunctionExpression(),
-
-      // === 3. css 表达式（软关键字，必须在 IdentifierReference 之前）===
-      () => this.CssExpression(expressionParams),
-
-      // === 4. 标识符（在所有软关键字表达式之后）===
-      () => this.IdentifierReference(expressionParams),
-
-      // === 5. 字面量 ===
-      () => this.Literal(),
-
-      // === 6. function 开头（硬关键字）===
-      () => this.GeneratorExpression(),
-      () => this.FunctionExpression(),
-
-      // === 7. class 表达式（硬关键字）===
-      () => this.ClassExpression(expressionParams),
-
-      // === 8. 符号开头 ===
-      () => this.ArrayLiteral(expressionParams),
-      () => this.ObjectLiteral(expressionParams),
-      () => this.consumeRegularExpressionLiteral(),
-      () => this.TemplateLiteral(templateLiteralParamsWith(expressionParams, false) as any),
-      () => this.CoverParenthesizedExpressionAndArrowParameterList(expressionParams)
-    )
+    const expressionParams: ExpressionParams = this.expressionParamsWith(params)
+    if (this.matchIdentifierValue('css')) {
+      return this.CssExpression(expressionParams)
+    }
+    return super.PrimaryExpression(expressionParams)
   }
 }

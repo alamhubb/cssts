@@ -12,8 +12,9 @@ export type UnitCategoryName = typeof ALL_NUMBER_CATEGORIES[number];
 
 // 构建反向映射：单位 -> 分类
 const CATEGORY_BY_UNIT: Record<string, UnitCategoryName> = {};
-for (const [category, units] of Object.entries(CATEGORY_UNITS_MAP)) {
-  for (const unit of units) {
+for (const category of Object.keys(CATEGORY_UNITS_MAP) as Array<keyof typeof CATEGORY_UNITS_MAP>) {
+  const units = CATEGORY_UNITS_MAP[category];
+  for (const unit of Array.isArray(units) ? units : []) {
     CATEGORY_BY_UNIT[unit] = category as UnitCategoryName;
   }
 }
@@ -48,7 +49,7 @@ export function getUnitsFromCategories(categories: UnitCategoryName[]): string[]
   const units = new Set<string>();
   for (const cat of categories) {
     const catUnits = CATEGORY_UNITS_MAP[cat];
-    if (catUnits) catUnits.forEach((u: string) => units.add(u));
+    if (Array.isArray(catUnits)) catUnits.forEach((u: string) => units.add(u));
   }
   return Array.from(units);
 }

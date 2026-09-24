@@ -10,7 +10,6 @@
  * - 嵌套配置（numberCategoriesConfig, propertiesConfig）：按名称查找，先用户后默认
  */
 
-import type { CsstsConfig } from './types/csstsConfig';
 import type {
     CssPropertyName,
     CssNumberCategoryName,
@@ -18,8 +17,33 @@ import type {
     CssProgressiveRange,
     GroupConfig,
     CssStepConfig,
+    CssPropertyConfig,
+    CssNumberCategoryConfig,
 } from './types/cssPropertyConfig';
-import { csstsDefaultConfig } from './CsstsDefaultConfig';
+
+export interface CsstsRuntimeConfigShape {
+    properties: CssPropertyName[] | undefined;
+    excludeProperties: CssPropertyName[] | undefined;
+    colors: CssColorName[] | undefined;
+    excludeColors: CssColorName[] | undefined;
+    progressiveRanges: CssProgressiveRange[] | undefined;
+    groups: GroupConfig[] | undefined;
+    numberCategories: CssNumberCategoryName[] | undefined;
+    excludeNumberCategories: CssNumberCategoryName[] | undefined;
+    classPrefix: string | undefined;
+    excludeKeywords: string[] | undefined;
+    colorTypes: string[] | undefined;
+    excludeColorTypes: string[] | undefined;
+    pseudoClassConfig: Record<string, Record<string, string | undefined>> | undefined;
+    classGroup: Record<string, string[]> | undefined;
+    numberCategoriesConfig: CssNumberCategoryConfig[] | undefined;
+    propertiesConfig: CssPropertyConfig[] | undefined;
+    dts: boolean | undefined;
+    dtsOutputDir: string | undefined;
+    dtsSplitFiles: boolean | undefined;
+    debug: boolean | undefined;
+    usedStyles: Set<string> | undefined;
+}
 
 /**
  * 从配置数组中查找指定 key 的配置
@@ -43,14 +67,13 @@ function findInConfigArray<T extends Record<string, any>>(
  */
 export class ConfigLookup {
     // 内部存储
-    private static userConfig: Partial<CsstsConfig> | undefined;
-    private static defaultConfig: CsstsConfig = csstsDefaultConfig;
+    private static userConfig: CsstsRuntimeConfigShape | undefined;
 
     /**
      * 初始化配置（在入口处调用一次）
      */
-    static init(userConfig?: Partial<CsstsConfig>): void {
-        ConfigLookup.userConfig = userConfig;
+    static init(userConfig?: CsstsRuntimeConfigShape): void {
+        ConfigLookup.userConfig = undefined;
     }
 
     /**
@@ -64,73 +87,72 @@ export class ConfigLookup {
 
     /** 支持的属性列表 */
     static get properties(): CssPropertyName[] | undefined {
-        return this.userConfig?.properties ?? this.defaultConfig.properties;
+        return undefined;
     }
 
     /** 排除的属性列表 */
     static get excludeProperties(): CssPropertyName[] | undefined {
-        return this.userConfig?.excludeProperties ?? this.defaultConfig.excludeProperties;
+        return undefined;
     }
 
     /** 支持的颜色列表 */
     static get colors(): CssColorName[] | undefined {
-        return this.userConfig?.colors ?? this.defaultConfig.colors;
+        return undefined;
     }
 
     /** 排除的颜色列表 */
     static get excludeColors(): CssColorName[] | undefined {
-        return this.userConfig?.excludeColors ?? this.defaultConfig.excludeColors;
+        return undefined;
     }
 
     /** 渐进步长范围 */
     static get progressiveRanges(): CssProgressiveRange[] | undefined {
-        return this.userConfig?.progressiveRanges ?? this.defaultConfig.progressiveRanges;
+        return undefined;
     }
 
     /** 组合原子类配置 */
     static get groups(): GroupConfig[] | undefined {
-        return this.userConfig?.groups ?? this.defaultConfig.groups;
+        return undefined;
     }
 
     /** 数值类别列表 */
     static get numberCategories(): CssNumberCategoryName[] | undefined {
-        return this.userConfig?.numberCategories ?? this.defaultConfig.numberCategories;
+        return undefined;
     }
 
     /** 排除的数值类别 */
     static get excludeNumberCategories(): CssNumberCategoryName[] | undefined {
-        return this.userConfig?.excludeNumberCategories ?? this.defaultConfig.excludeNumberCategories;
+        return undefined;
     }
 
     /** 类名前缀（自动添加 _ 分隔符，无配置时返回空字符串） */
     static get classPrefix(): string {
-        const raw = this.userConfig?.classPrefix ?? this.defaultConfig.classPrefix;
-        return raw ? `${raw}_` : '';
+        return 'cssts_';
     }
 
     /** 排除的关键字 */
     static get excludeKeywords() {
-        return this.userConfig?.excludeKeywords ?? this.defaultConfig.excludeKeywords;
+        return undefined;
     }
 
     /** 颜色类型列表 */
     static get colorTypes() {
-        return this.userConfig?.colorTypes ?? this.defaultConfig.colorTypes;
+        return undefined;
     }
 
     /** 排除的颜色类型 */
     static get excludeColorTypes() {
-        return this.userConfig?.excludeColorTypes ?? this.defaultConfig.excludeColorTypes;
+        return undefined;
     }
 
     /** 伪类配置 */
     static get pseudoClassConfig() {
-        return this.userConfig?.pseudoClassConfig ?? this.defaultConfig.pseudoClassConfig;
+        return undefined;
     }
 
     /** 类组合配置 */
     static get classGroup(): Record<string, string[]> | undefined {
-        return this.userConfig?.classGroup ?? this.defaultConfig.classGroup;
+        return undefined;
     }
 
     // ==================== 按名称覆盖（静态方法） ====================
@@ -143,14 +165,14 @@ export class ConfigLookup {
     static getCategoryConfig(categoryName: string): CssStepConfig | undefined {
         // 1. 先从用户配置查找
         const userResult = findInConfigArray(
-            this.userConfig?.numberCategoriesConfig,
+            undefined,
             categoryName
         );
         if (userResult !== undefined) return userResult;
 
         // 2. 用户没有，从默认配置查找
         return findInConfigArray(
-            this.defaultConfig.numberCategoriesConfig,
+            undefined,
             categoryName
         );
     }
@@ -163,14 +185,14 @@ export class ConfigLookup {
     static getPropertyConfig(propertyName: string): Record<string, CssStepConfig> | undefined {
         // 1. 先从用户配置查找
         const userResult = findInConfigArray(
-            this.userConfig?.propertiesConfig,
+            undefined,
             propertyName
         );
         if (userResult !== undefined) return userResult;
 
         // 2. 用户没有，从默认配置查找
         return findInConfigArray(
-            this.defaultConfig.propertiesConfig,
+            undefined,
             propertyName
         );
     }

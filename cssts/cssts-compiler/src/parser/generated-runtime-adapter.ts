@@ -71,6 +71,32 @@ function normalizeGeneratedLocation(location: any, value?: string, type?: string
   }
 }
 
+function unwrapAccessorDescriptorValue(value: any, receiver?: any): any {
+  let current = value
+  for (let depth = 0; depth < 8; depth++) {
+    if (current === null || current === undefined || typeof current !== 'object') return current
+    if ((current as any).__qin_accessor_descriptor !== true) return current
+    const storedValue = (current as any).value
+    if (storedValue !== null && storedValue !== undefined && !isDescriptorText(storedValue)) {
+      return storedValue
+    }
+    const getter = (current as any).get
+    if (typeof getter !== 'function') return undefined
+    current = receiver === undefined ? getter() : getter.call(receiver)
+  }
+  return current
+}
+
+function isDescriptorText(value: any): boolean {
+  return typeof value === 'string' && value.startsWith('{__qin_accessor_descriptor=')
+}
+
+function readStaticMemberValue(member: any, receiver: any, fallback?: any): any {
+  if (member !== undefined && typeof member !== 'function') return member
+  if (typeof member === 'function') return member.call(receiver)
+  return fallback
+}
+
 export function normalizeGeneratedToken(token: any): any {
   if (!token || token.__csstsLegacyToken === true) return token
   const tokenName = typeof token.getTokenName === 'function' ? token.getTokenName() : (typeof token.tokenName === 'function' ? token.tokenName() : token.tokenName)
@@ -107,69 +133,100 @@ export function normalizeGeneratedCst<T = any>(cst: T): T {
   if (!cst || typeof cst !== 'object') return cst
   const node: any = cst
   if (node.__csstsLegacyCst === true) return cst
-  const originalGetChildren = typeof node.getChildren === 'function' ? node.getChildren.bind(node) : undefined
+  const originalGetName = typeof node.getName === 'function' ? node.getName.bind(node) : undefined
+  const originalGetValue = typeof node.getValue === 'function' ? node.getValue.bind(node) : undefined
   const originalGetChild = typeof node.getChild === 'function' ? node.getChild.bind(node) : undefined
   const originalGetToken = typeof node.getToken === 'function' ? node.getToken.bind(node) : undefined
   const originalGetLoc = typeof node.getLoc === 'function' ? node.getLoc.bind(node) : undefined
   const originalGetLocation = typeof node.getLocation === 'function' ? node.getLocation.bind(node) : undefined
+  const readChildrenRaw = () => {
+    if (Object.prototype.hasOwnProperty.call(node, '__qin_field_children')) {
+      return node.__qin_field_children
+    }
+    return undefined
+  }
+  const descriptorFreeValue = (value: any) => {
+    const unwrapped = unwrapAccessorDescriptorValue(value, node)
+    return isDescriptorText(unwrapped) ? undefined : unwrapped
+  }
+  const normalizedName = descriptorFreeValue(node.__qin_field_name)
+    ?? descriptorFreeValue(originalGetName ? originalGetName() : undefined)
+  const normalizedValue = descriptorFreeValue(node.__qin_field_value)
+    ?? descriptorFreeValue(originalGetValue ? originalGetValue() : undefined)
+  const normalizedChildren = javaListToArray(descriptorFreeValue(readChildrenRaw()))
+    .map(child => normalizeGeneratedCst(child))
+  const normalizedLoc = normalizeGeneratedLocation(
+    descriptorFreeValue(
+      originalGetLoc
+        ? originalGetLoc()
+        : (originalGetLocation ? originalGetLocation() : node.__qin_field_loc)
+    ),
+    normalizedValue,
+    normalizedName
+  )
 
   Object.defineProperties(node, {
     __csstsLegacyCst: { value: true, configurable: true },
     name: {
+      value: normalizedName,
       configurable: true,
       enumerable: true,
-      get() {
-        return typeof node.getName === 'function' ? node.getName() : node.__qin_field_name
-      }
+      writable: true
     },
     value: {
+      value: normalizedValue,
       configurable: true,
       enumerable: true,
-      get() {
-        return typeof node.getValue === 'function' ? node.getValue() : node.__qin_field_value
-      }
+      writable: true
     },
     loc: {
+      value: normalizedLoc,
       configurable: true,
       enumerable: true,
-      get() {
-        const raw = typeof node.getLoc === 'function'
-          ? node.getLoc()
-          : (typeof node.getLocation === 'function' ? node.getLocation() : node.__qin_field_loc)
-        return normalizeGeneratedLocation(raw, node.value, node.name)
-      }
+      writable: true
     },
     children: {
+      value: normalizedChildren,
       configurable: true,
       enumerable: true,
-      get() {
-        const raw = originalGetChildren ? originalGetChildren() : node.__qin_field_children
-        return javaListToArray(raw).map(child => normalizeGeneratedCst(child))
-      }
+      writable: true
     }
   })
+  Object.defineProperty(node, 'getName', {
+    value: () => node.name,
+    configurable: true,
+    writable: true
+  })
+  Object.defineProperty(node, 'getValue', {
+    value: () => node.value,
+    configurable: true,
+    writable: true
+  })
   const readNormalizedLoc = () => {
-    const raw = originalGetLoc
+    const raw = descriptorFreeValue(
+      originalGetLoc
       ? originalGetLoc()
       : (originalGetLocation ? originalGetLocation() : node.__qin_field_loc)
+    )
     return normalizeGeneratedLocation(raw, node.value, node.name)
   }
   if (!originalGetLoc) node.getLoc = readNormalizedLoc
   if (!originalGetLocation) node.getLocation = readNormalizedLoc
-  if (!originalGetChildren) {
-    node.getChildren = (name?: string) => {
+  Object.defineProperty(node, 'getChildren', {
+    value: (name?: string) => {
       const children = node.children
       if (name === undefined) return children
       return children.filter((child: any) => child.name === name)
-    }
-  }
+    },
+    configurable: true,
+    writable: true
+  })
   if (!originalGetChild) {
     node.getChild = (name: string, index = 0) => node.children.filter((child: any) => child.name === name)[index]
   }
   if (!originalGetToken) {
     node.getToken = (tokenName: string) => node.children.find((child: any) => child.name === tokenName && child.value !== undefined && child.value !== null)
   }
-  node.children.forEach((child: any) => normalizeGeneratedCst(child))
   return cst
 }
 
@@ -184,18 +241,112 @@ function recordClassSimpleName(value: any): string | undefined {
 
 function readGeneratedField(value: any, fieldName: string): any {
   if (!value || typeof value !== 'object') return undefined
-  const direct = value[fieldName]
-  if (direct !== undefined && typeof direct !== 'function') return direct
-  const internal = value[`__${fieldName}`]
-  if (internal !== undefined) return internal
-  const qinField = value[`__qin_field_${fieldName}`]
-  if (qinField !== undefined) return qinField
-  if (typeof direct === 'function') return direct.call(value)
-  const method = value[fieldName]
-  if (typeof method === 'function') return method.call(value)
-  const getterName = `get${fieldName.slice(0, 1).toUpperCase()}${fieldName.slice(1)}`
-  const getter = value[getterName]
-  return typeof getter === 'function' ? getter.call(value) : undefined
+  if (fieldName === 'type') {
+    return readStaticMemberValue(value.type, value, value.__qin_field_type)
+  }
+  if (fieldName === 'value') {
+    return readStaticMemberValue(value.value, value, value.__qin_field_value)
+  }
+  if (fieldName === 'location') {
+    return readStaticMemberValue(value.location, value, value.__qin_field_location ?? value.__qin_field_loc)
+  }
+  if (fieldName === 'loc') {
+    return readStaticMemberValue(value.loc, value, value.__qin_field_loc ?? value.__qin_field_location)
+  }
+  if (fieldName === 'kind') {
+    return readStaticMemberValue(value.kind, value, value.__qin_field_kind)
+  }
+  if (fieldName === 'declarations') {
+    return readStaticMemberValue(value.declarations, value, value.__qin_field_declarations)
+  }
+  if (fieldName === 'body') {
+    return readStaticMemberValue(value.body, value, value.__qin_field_body)
+  }
+  if (fieldName === 'params') {
+    return readStaticMemberValue(value.params, value, value.__qin_field_params)
+  }
+  if (fieldName === 'specifiers') {
+    return readStaticMemberValue(value.specifiers, value, value.__qin_field_specifiers)
+  }
+  if (fieldName === 'arguments') {
+    return readStaticMemberValue(value.arguments, value, value.__qin_field___qin_arguments ?? value.__qin_field_arguments)
+  }
+  if (fieldName === 'elements') {
+    return readStaticMemberValue(value.elements, value, value.__qin_field_elements)
+  }
+  if (fieldName === 'properties') {
+    return readStaticMemberValue(value.properties, value, value.__qin_field_properties)
+  }
+  if (fieldName === 'expressions') {
+    return readStaticMemberValue(value.expressions, value, value.__qin_field_expressions)
+  }
+  if (fieldName === 'decorators') {
+    return readStaticMemberValue(value.decorators, value, value.__qin_field_decorators)
+  }
+  if (fieldName === 'typeParameters') {
+    return readStaticMemberValue(value.typeParameters, value, value.__qin_field_typeParameters)
+  }
+  if (fieldName === 'implementsTypes') {
+    return readStaticMemberValue(value.implementsTypes, value, value.__qin_field_implementsTypes)
+  }
+  if (fieldName === 'source') {
+    return readStaticMemberValue(value.source, value, value.__qin_field_source)
+  }
+  if (fieldName === 'imported') {
+    return readStaticMemberValue(value.imported, value, value.__qin_field_imported)
+  }
+  if (fieldName === 'local') {
+    return readStaticMemberValue(value.local, value, value.__qin_field_local)
+  }
+  if (fieldName === 'object') {
+    return readStaticMemberValue(value.object, value, value.__qin_field_object)
+  }
+  if (fieldName === 'property') {
+    return readStaticMemberValue(value.property, value, value.__qin_field_property)
+  }
+  if (fieldName === 'key') {
+    return readStaticMemberValue(value.key, value, value.__qin_field_key)
+  }
+  if (fieldName === 'expression') {
+    return readStaticMemberValue(value.expression, value, value.__qin_field_expression)
+  }
+  if (fieldName === 'element') {
+    return readStaticMemberValue(value.element, value, value.__qin_field_element)
+  }
+  if (fieldName === 'argument') {
+    return readStaticMemberValue(value.argument, value, value.__qin_field_argument)
+  }
+  if (fieldName === 'callee') {
+    return readStaticMemberValue(value.callee, value, value.__qin_field_callee)
+  }
+  if (fieldName === 'left') {
+    return readStaticMemberValue(value.left, value, value.__qin_field_left)
+  }
+  if (fieldName === 'right') {
+    return readStaticMemberValue(value.right, value, value.__qin_field_right)
+  }
+  if (fieldName === 'test') {
+    return readStaticMemberValue(value.test, value, value.__qin_field_test)
+  }
+  if (fieldName === 'consequent') {
+    return readStaticMemberValue(value.consequent, value, value.__qin_field_consequent)
+  }
+  if (fieldName === 'alternate') {
+    return readStaticMemberValue(value.alternate, value, value.__qin_field_alternate)
+  }
+  if (fieldName === 'init') {
+    return readStaticMemberValue(value.init, value, value.__qin_field_init)
+  }
+  if (fieldName === 'id') {
+    return readStaticMemberValue(value.id, value, value.__qin_field_id)
+  }
+  if (fieldName === 'declaration') {
+    return readStaticMemberValue(value.declaration, value, value.__qin_field_declaration)
+  }
+  if (fieldName === 'discriminant') {
+    return readStaticMemberValue(value.discriminant, value, value.__qin_field_discriminant)
+  }
+  return undefined
 }
 
 function pascalCaseEnumName(name: string): string {
@@ -343,10 +494,12 @@ export function normalizeGeneratedAst<T = any>(ast: T): T {
       return ast
     }
     for (const key of Object.keys(node)) {
-      const value = node[key]
-      node[key] = Array.isArray(value)
+      const publicName = generatedFieldPublicName(key)
+      if (!publicName) continue
+      const value = readGeneratedField(node, publicName)
+      defineAstProperty(node, key, Array.isArray(value)
         ? value.map(item => normalizeGeneratedAst(item))
-        : normalizeGeneratedAst(value)
+        : normalizeGeneratedAst(value))
     }
     return ast
   }
@@ -363,7 +516,7 @@ export function normalizeGeneratedAst<T = any>(ast: T): T {
     if (key === '__qinJavaRecordClass' || key === '__csstsLegacyAst') continue
     const publicName = generatedFieldPublicName(key)
     if (!publicName) continue
-    const value = (node as any)[key]
+    const value = readGeneratedField(node, publicName)
     if (publicName === 'location') continue
     if (type === 'ArrayExpression' && publicName === 'elements') {
       defineAstProperty(node, publicName, normalizeGeneratedWrappedAstList(value, 'element'))

@@ -19,8 +19,9 @@ const ALL_PROPERTY_NAMES = Object.values(CSS_PROPERTY_NAME_MAP) as CssPropertyNa
 
 // 构建 unit → category 的反向映射
 const UNIT_TO_CATEGORY_MAP: Record<string, string> = {};
-for (const [category, units] of Object.entries(CATEGORY_UNITS_MAP)) {
-  for (const unit of units) {
+for (const category of Object.keys(CATEGORY_UNITS_MAP) as Array<keyof typeof CATEGORY_UNITS_MAP>) {
+  const units = CATEGORY_UNITS_MAP[category];
+  for (const unit of Array.isArray(units) ? units : []) {
     UNIT_TO_CATEGORY_MAP[unit] = category;
   }
 }
@@ -28,7 +29,7 @@ for (const [category, units] of Object.entries(CATEGORY_UNITS_MAP)) {
 // ==================== 类型定义 ====================
 
 /** 生成的原子类定义 */
-export interface AtomDefinition {
+export class AtomDefinition {
   /** 原子类名称 (camelCase) */
   name: string;
   /** CSS 属性名 (kebab-case) */
@@ -36,19 +37,19 @@ export interface AtomDefinition {
   /** CSS 值 */
   value: string;
   /** 单位 (可选) */
-  unit?: string;
+  unit: string | undefined;
   /** 数值 (可选) */
-  number?: number;
+  number: number | undefined;
 }
 
 /** Group 原子类定义（多属性组合） */
-export interface GroupAtomDefinition {
+export class GroupAtomDefinition {
   /** 原子类名称 */
   name: string;
   /** CSS 属性和值的映射 */
   styles: Record<string, string>;
   /** 是否是数值类型 group */
-  isNumber?: boolean;
+  isNumber: boolean | undefined;
 }
 
 // ==================== 工具函数 ====================
@@ -401,8 +402,9 @@ function generateAtomsForProperty(
         const categoryConfig = getPropertyCategoryConfig(propertyName, category);
         const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
 
-        let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
-        if (!units) continue;
+        let units = Array.isArray(CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP])
+          ? CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP]
+          : [];
 
         if (stepConfig.units && stepConfig.units.length > 0) {
           const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
@@ -412,7 +414,7 @@ function generateAtomsForProperty(
 
         const numbers = generateNumbers(stepConfig, ConfigLookup.progressiveRanges);
 
-        for (const unit of units) {
+        for (const unit of Array.isArray(units) ? units : []) {
           for (const num of numbers) {
             const numStr = formatNumberForClassName(num);
 
@@ -505,7 +507,7 @@ export function generateDts(): string {
 }
 
 /** 伪类原子类定义 */
-export interface PseudoAtomDefinition {
+export class PseudoAtomDefinition {
   /** 原子类名称 (camelCase)，如 hover */
   name: string;
   /** CSS 类名，如 hover */
@@ -572,7 +574,7 @@ export function generatePseudoDts(prefix: string): string {
 // ==================== 类组合 ====================
 
 /** 类组合原子类定义 */
-export interface ClassGroupAtomDefinition {
+export class ClassGroupAtomDefinition {
   /** 原子类名称（camelCase），如 click */
   name: string;
   /** CSS 类名（kebab-case），如 cssts_click */
@@ -793,8 +795,9 @@ function generateNumberGroupAtoms(
     const categoryConfig = getPropertyCategoryConfig(firstProp, category);
     const stepConfig: CssStepConfig = categoryConfig ?? { min: 0, max: 100 };
 
-    let units = CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP];
-    if (!units) continue;
+    let units = Array.isArray(CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP])
+      ? CATEGORY_UNITS_MAP[category as keyof typeof CATEGORY_UNITS_MAP]
+      : [];
 
     if (stepConfig.units && stepConfig.units.length > 0) {
       const filteredUnits = units.filter(u => stepConfig.units!.includes(u as any));
@@ -804,7 +807,7 @@ function generateNumberGroupAtoms(
 
     const numbers = generateNumbers(stepConfig, ConfigLookup.progressiveRanges);
 
-    for (const unit of units) {
+    for (const unit of Array.isArray(units) ? units : []) {
       for (const num of numbers) {
         const numStr = formatNumberForClassName(num);
 
